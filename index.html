@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ToolGram | Infinite Developer Tools</title>
+    <meta name="description" content="ToolGram: Free developer tools for JSON formatting, Base64 encoding, cryptography, string manipulation. No sign-up, 100% client-side.">
+    <meta name="keywords" content="developer tools, JSON formatter, Base64 encoder, password generator, UUID generator, SHA256 hash, online tools">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta http-equiv="content-language" content="en">
+    <link rel="canonical" href="https://toolgram.com">
+    <meta property="og:title" content="ToolGram | Infinite Developer Tools">
+    <meta property="og:description" content="Convert anything, create magic, connect easy—all in one spot. Unbelievable power, zero hassle!">
+    <meta property="og:image" content="https://i.postimg.cc/hGGkKC2W/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png">
+    <meta property="og:url" content="https://toolgram.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="2024-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-01T00:00:00+00:00">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="https://i.postimg.cc/hGGkKC2W/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://toolgram.com/#website",
+                "url": "https://toolgram.com",
+                "name": "ToolGram",
+                "description": "Free online developer tools",
+                "publisher": {"@id": "https://toolgram.com/#organization"}
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://toolgram.com/#organization",
+                "name": "ToolGram",
+                "url": "https://toolgram.com",
+                "logo": "https://i.postimg.cc/hGGkKC2W/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png"
+            },
+            {
+                "@type": "WebApplication",
+                "name": "ToolGram",
+                "description": "Free online developer tools for JSON formatting, Base64 encoding, cryptography, and string manipulation",
+                "url": "https://toolgram.com",
+                "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "Any",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "author": {"@type": "Organization","name": "ToolGram"}
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [{"@type": "ListItem","position": 1,"name": "Home","item": "https://toolgram.com"}]
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <div class="nav-container"></div>
+
+    <section class="hero">
+        <h1>Convert. Create. Connect.</h1>
+        <h2>All in one place</h2>
+        <p>Convert anything, create magic, connect easy—all in one spot.<br>Unbelievable power, zero hassle!</p>
+        <button class="btn glitch" onclick="window.location.href='tools.html'">
+            <i class="fas fa-rocket"></i> Explore Tools
+        </button>
+        
+        <h2 class="section-heading">Why ToolGram?</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-bolt icon"></i>
+                <h3>Blazing Fast</h3>
+                <p>Instant processing with 100% client-side operations</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-shield-alt icon"></i>
+                <h3>Secure & Private</h3>
+                <p>Your data never leaves browser. Complete privacy</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-user-check icon"></i>
+                <h3>No Sign-Up Required</h3>
+                <p>Start using immediately. No accounts needed</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-chart-line icon"></i>
+                <h3>Professional Grade</h3>
+                <p>Enterprise-level tools for developers</p>
+            </div>
+        </div>
+        
+        <div class="popular-tools-container">
+            <h2>Popular Tools</h2>
+            <div class="popular-tools-subheading">Used millions of times per day</div>
+            <div class="popular-tools-grid" id="popular-tools-grid"></div>
+        </div>
+    </section>
+    
+    <footer class="footer-bg">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="about.html">About Us</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© ToolGram. All rights reserved 2026.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+    <script>
+        // Load popular tools
+        fetch('tools-data.json')
+            .then(response => response.json())
+            .then(data => {
+                const popularTools = data.tools.filter(tool => tool.popular).slice(0, 4);
+                const grid = document.getElementById('popular-tools-grid');
+                if (grid) {
+                    grid.innerHTML = popularTools.map(tool => `
+                        <div class="popular-tool-card" onclick="window.location.href='tools/${tool.file}'">
+                            <div class="popular-tool-icon"><i class="fas ${tool.icon}"></i></div>
+                            <h3 class="popular-tool-title">${tool.title}</h3>
+                            <p class="popular-tool-desc">${tool.desc}</p>
+                        </div>
+                    `).join('');
+                }
+            });
+    </script><script src="js/nav-manager.js"></script>
+</body>
+</html>
