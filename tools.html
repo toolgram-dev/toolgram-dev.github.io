@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>All Developer Tools | ToolGram</title>
+    <meta name="description" content="Browse all ToolGram developer tools: JSON formatter, Base64 encoder, UUID generator, SHA256 hasher, URL encoder, text converter, and more. Free online tools.">
+    <meta name="keywords" content="developer tools, online tools, JSON formatter, Base64 encoder, UUID generator, SHA256 hasher, free tools">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.com/tools.html">
+    <meta property="og:title" content="All Developer Tools | ToolGram">
+    <meta property="og:description" content="Browse complete collection of free developer tools">
+    <meta property="og:url" content="https://toolgram.com/tools.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/hGGkKC2W/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png" sizes="64x64">
+</head>
+<body>
+    <!--#include virtual="partials/nav.html" -->
+    
+    <div class="tools-page">
+        <button class="back-btn" onclick="window.location.href='index.html'">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        
+        <h1 style="text-align:center;font-size:3.5rem;margin-bottom:20px;background:linear-gradient(135deg,var(--lb),var(--p),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+            A whole universe of tools behind a single click
+        </h1>
+        <p style="text-align:center;color:rgba(255,255,255,0.8);margin-bottom:40px;font-size:1.2rem;">
+            Turning simple actions into massive wins for you.
+        </p>
+        
+        <div class="mobile-search">
+            <input id="mobile-search-input" placeholder="Search tools...">
+            <i class="fas fa-search"></i>
+        </div>
+        
+        <div class="tools-grid" id="tools-grid"></div>
+        
+        <div class="ad-space-tool"></div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="about.html">About Us</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script>
+        // Load all tools
+        fetch('tools-data.json')
+            .then(response => response.json())
+            .then(data => {
+                const grid = document.getElementById('tools-grid');
+                if (grid) {
+                    grid.innerHTML = data.tools.map(tool => `
+                        <div class="tool-card" onclick="window.location.href='tools/${tool.file}'">
+                            <div class="tool-icon" style="background:${tool.color}">
+                                <i class="fas ${tool.icon}"></i>
+                            </div>
+                            <h3 class="tool-title">${tool.title}</h3>
+                            <p class="tool-description">${tool.desc}</p>
+                            <button class="tool-button">
+                                Use Tool <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    `).join('');
+                }
+            });
+        
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('mobile-search-input');
+            const navSearch = document.getElementById('nav-search');
+            const searchResults = document.getElementById('search-results');
+            
+            function performSearch(query) {
+                fetch('tools-data.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const results = data.tools.filter(tool => 
+                            tool.title.toLowerCase().includes(query.toLowerCase()) || 
+                            tool.desc.toLowerCase().includes(query.toLowerCase())
+                        );
+                        
+                        searchResults.innerHTML = '';
+                        if (results.length === 0) {
+                            searchResults.innerHTML = '<div class="result-item">No tools found</div>';
+                        } else {
+                            results.forEach(tool => {
+                                const item = document.createElement('div');
+                                item.className = 'result-item';
+                                item.innerHTML = `
+                                    <div style="font-weight:600;">${tool.title}</div>
+                                    <div style="font-size:0.9em;color:rgba(255,255,255,0.6);margin-top:4px;">${tool.desc}</div>
+                                `;
+                                item.onclick = () => {
+                                    window.location.href = `tools/${tool.file}`;
+                                    searchInput.value = '';
+                                    if (navSearch) navSearch.value = '';
+                                    searchResults.style.display = 'none';
+                                };
+                                searchResults.appendChild(item);
+                            });
+                        }
+                        searchResults.style.display = 'block';
+                    });
+            }
+            
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    if (this.value.trim()) {
+                        performSearch(this.value);
+                    } else {
+                        searchResults.style.display = 'none';
+                    }
+                });
+            }
+            
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.search') && !e.target.closest('.mobile-search')) {
+                    searchResults.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{
+  "tools": [
+    {
+      "id": "uuid",
+      "title": "UUID Generator",
+      "desc": "Generate universally unique identifiers",
+      "icon": "fa-fingerprint",
+      "color": "linear-gradient(135deg,#8B5CF6,#EC4899)",
+      "popular": true,
+      "file": "uuid.html"
+    },
+    {
+      "id": "json-minifier",
+      "title": "JSON Minifier",
+      "desc": "Remove whitespace from JSON",
+      "icon": "fa-compress-alt",
+      "color": "linear-gradient(135deg,#06B6D4,#8B5CF6)",
+      "popular": true,
+      "file": "json-minifier.html"
+    },
+    {
+      "id": "base64",
+      "title": "Base64 Encoder/Decoder",
+      "desc": "Encode/decode Base64 strings",
+      "icon": "fa-lock",
+      "color": "linear-gradient(135deg,#1E40AF,#06B6D4)",
+      "popular": true,
+      "file": "base64.html"
+    },
+    {
+      "id": "sha256",
+      "title": "SHA-256 Hasher",
+      "desc": "Generate SHA-256 hash",
+      "icon": "fa-hashtag",
+      "color": "linear-gradient(135deg,#F59E0B,#EF4444)",
+      "popular": true,
+      "file": "sha256.html"
+    },
+    {
+      "id": "url-encoder",
+      "title": "URL Encoder/Decoder",
+      "desc": "Encode/decode URL strings",
+      "icon": "fa-link",
+      "color": "linear-gradient(135deg,#10B981,#06B6D4)",
+      "popular": false,
+      "file": "url-encoder.html"
+    },
+    {
+      "id": "epoch",
+      "title": "Unix Epoch Converter",
+      "desc": "Convert timestamps to dates",
+      "icon": "fa-clock",
+      "color": "linear-gradient(135deg,#8B5CF6,#1E40AF)",
+      "popular": false,
+      "file": "epoch.html"
+    },
+    {
+      "id": "html-entity",
+      "title": "HTML Entity Encoder",
+      "desc": "Encode/decode HTML entities",
+      "icon": "fa-code",
+      "color": "linear-gradient(135deg,#EC4899,#8B5CF6)",
+      "popular": false,
+      "file": "html-entity.html"
+    },
+    {
+      "id": "utf8",
+      "title": "UTF-8 Validator",
+      "desc": "Validate UTF-8 encoding",
+      "icon": "fa-language",
+      "color": "linear-gradient(135deg,#06B6D4,#10B981)",
+      "popular": false,
+      "file": "utf8.html"
+    },
+    {
+      "id": "crc32",
+      "title": "CRC32 Checksum",
+      "desc": "Calculate CRC32 checksums",
+      "icon": "fa-file-contract",
+      "color": "linear-gradient(135deg,#F59E0B,#8B5CF6)",
+      "popular": false,
+      "file": "crc32.html"
+    },
+    {
+      "id": "case-normalizer",
+      "title": "Case Normalizer",
+      "desc": "Convert text case formats",
+      "icon": "fa-text-height",
+      "color": "linear-gradient(135deg,#1E40AF,#06B6D4)",
+      "popular": false,
+      "file": "case-normalizer.html"
+    }
+  ]
+}
