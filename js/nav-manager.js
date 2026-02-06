@@ -2,7 +2,7 @@
 class NavManager {
     static async loadNavigation() {
         try {
-            const response = await fetch('partials/nav.html');
+            const response = await fetch('nav.html');
             const navHTML = await response.text();
             
             // Insert nav into all containers
@@ -116,4 +116,5 @@ class NavManager {
 // Load navigation when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     NavManager.loadNavigation();
+
 });
