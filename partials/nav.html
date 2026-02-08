@@ -1,18 +1,23 @@
 <nav>
     <div class="logo" onclick="window.location.href='index.html'">
-        <img src="https://i.postimg.cc/sgvNN6w5/Gemini-Generated-Image-xajg8yxajg8yxajg-removebg-preview.png" alt="ToolGram" class="desktop-logo">
-        <img src="https://i.postimg.cc/yxf76VkM/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png" alt="ToolGram" class="mobile-logo" style="display:none;">
+        <img src="https://i.postimg.cc/sgvNN6w5/Gemini-Generated-Image-xajg8yxajg8yxajg-removebg-preview.png" alt="ToolGram">
     </div>
     <div class="search">
         <input id="nav-search" placeholder="Search infinite tools..." autocomplete="off">
         <i class="fas fa-search"></i>
         <div id="search-results"></div>
     </div>
-    <!-- Add mobile search -->
-    <div class="mobile-nav-search" style="display:none;">
-        <input id="mobile-nav-search" placeholder="Search tools...">
-        <i class="fas fa-search"></i>
+    
+    <!-- MOBILE LOGO + SEARCH -->
+    <div class="mobile-nav">
+        <img src="https://i.postimg.cc/yxf76VkM/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png" 
+             alt="ToolGram" class="mobile-logo">
+        <div class="mobile-search-nav">
+            <input id="mobile-search-input" placeholder="Search tools...">
+            <i class="fas fa-search"></i>
+        </div>
     </div>
+    
     <div class="nav-buttons">
         <button class="share-btn-nav" id="share-btn-nav" style="display:none">
             <i class="fas fa-share-alt"></i><span>Share</span>
