@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Base64 Encoder/Decoder Online | ToolGram</title>
+    <meta name="description" content="Encode text to Base64 format or decode Base64 back to original text. Supports URL-safe encoding and file uploads for data transmission.">
+    <meta name="keywords" content="base64 encoder, base64 decoder, base64 online, url-safe base64, base64 encode, base64 decode">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.com/tools/base64.html">
+    <meta property="og:title" content="Base64 Encoder/Decoder Online | ToolGram">
+    <meta property="og:description" content="Encode and decode Base64 strings for data transmission">
+    <meta property="og:url" content="https://toolgram.com/tools/base64.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/hGGkKC2W/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Base64 Encoder/Decoder",
+        "description": "Encode text to Base64 format or decode Base64 back to original text. Supports URL-safe encoding and file uploads for data transmission.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.com/tools/base64.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["Encode to Base64", "Decode from Base64", "URL Safe Encoding", "File Upload", "Size Comparison"]
+    }
+    </script>
+</head>
+<body><div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">Base64 Encoder/Decoder</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Encode and decode Base64 strings for data transmission
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-arrow-right"></i> Input
+                    </div>
+                    <textarea class="tool-textarea" id="base64-input" placeholder="Enter text or Base64 string here..."></textarea>
+                    <div class="tool-settings">
+                        <div class="setting-item">
+                            <select id="base64-operation">
+                                <option value="encode">Encode to Base64</option>
+                                <option value="decode">Decode from Base64</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="base64-url-safe">
+                                URL Safe Encoding
+                            </label>
+                        </div>
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="processBase64()">
+                            <i class="fas fa-sync"></i> Process
+                        </button>
+                        <button class="secondary-btn" onclick="clearBase64()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                        <button class="secondary-btn" onclick="uploadFile()">
+                            <i class="fas fa-upload"></i> Upload File
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-arrow-left"></i> Output
+                    </div>
+                    <textarea class="tool-textarea" id="base64-output" placeholder="Result will appear here..." readonly></textarea>
+                    <div class="tool-actions" style="margin-top:15px;">
+                        <button class="copy-btn" onclick="copyBase64()">
+                            <i class="far fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <div class="tool-stats">
+                        <div class="tool-stat">
+                            <i class="fas fa-file"></i>
+                            <span id="base64-input-size">0 bytes</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-file-alt"></i>
+                            <span id="base64-output-size">0 bytes</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-chart-bar"></i>
+                            <span id="base64-ratio">1:1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>What is Base64 Encoding?</h2>
+                <p>Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It's commonly used to encode data that needs to be stored and transferred over media designed to deal with text, such as embedding images in HTML/CSS, sending attachments in emails, or storing complex data in JSON/XML.</p>
+                <p>Our Base64 tool allows you to encode any text to Base64 format or decode Base64 strings back to their original content. We also support URL-safe encoding (which replaces + with - and / with _) for use in URLs and filenames.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What is Base64 used for?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Base64 is used for encoding binary data (like images, files) into ASCII text for transmission over text-based protocols like HTTP, email, or for storage in text-based formats.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What is URL-safe Base64?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">URL-safe Base64 replaces the + and / characters with - and _ respectively, making the encoded string safe to use in URLs without requiring additional encoding.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Does Base64 increase file size?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Yes, Base64 encoding increases file size by approximately 33% because it uses 4 characters to represent every 3 bytes of binary data.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    // Base64 Encoder/Decoder JavaScript functionality
+    function processBase64() {
+        const input = document.getElementById('base64-input').value;
+        const operation = document.getElementById('base64-operation').value;
+        const urlSafe = document.getElementById('base64-url-safe').checked;
+        let output = '';
+        
+        try {
+            if (operation === 'encode') {
+                output = btoa(input);
+                if (urlSafe) {
+                    output = output.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
+                }
+            } else {
+                if (urlSafe) {
+                    let decoded = input.replace(/-/g, '+').replace(/_/g, '/');
+                    while (decoded.length % 4) {
+                        decoded += '=';
+                    }
+                    output = atob(decoded);
+                } else {
+                    output = atob(input);
+                }
+            }
+            
+            document.getElementById('base64-output').value = output;
+            document.getElementById('base64-input-size').textContent = input.length + ' bytes';
+            document.getElementById('base64-output-size').textContent = output.length + ' bytes';
+            
+            const ratio = (input.length / output.length).toFixed(2);
+            document.getElementById('base64-ratio').textContent = ratio + ':1';
+            
+        } catch (error) {
+            document.getElementById('base64-output').value = 'Error: ' + error.message;
+        }
+    }
+    
+    function copyBase64() {
+        const output = document.getElementById('base64-output');
+        if (output.value) {
+            output.select();
+            navigator.clipboard.writeText(output.value);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy', 2000);
+        }
+    }
+    
+    function clearBase64() {
+        document.getElementById('base64-input').value = '';
+        document.getElementById('base64-output').value = '';
+        document.getElementById('base64-input-size').textContent = '0 bytes';
+        document.getElementById('base64-output-size').textContent = '0 bytes';
+        document.getElementById('base64-ratio').textContent = '1:1';
+    }
+    
+    function uploadFile() {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.onchange = function(e) {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('base64-input').value = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        };
+        input.click();
+    }
+    
+    // REMOVED AUTO-PROCESSING CODE - Now requires button click
+    </script>
+</body>
+</html>

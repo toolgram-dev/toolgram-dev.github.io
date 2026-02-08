@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JSON Minifier Online | ToolGram</title>
+    <meta name="description" content="Compress JSON data by removing whitespace, comments, and unnecessary characters. Reduce JSON file size for faster transmission and storage.">
+    <meta name="keywords" content="json minifier, json compressor, json formatter, json validator, minify json, compress json">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.com/tools/json-minifier.html">
+    <meta property="og:title" content="JSON Minifier Online | ToolGram">
+    <meta property="og:description" content="Minify JSON by removing whitespace, comments, and unnecessary characters">
+    <meta property="og:url" content="https://toolgram.com/tools/json-minifier.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/hGGkKC2W/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "JSON Minifier",
+        "description": "Compress JSON data by removing whitespace, comments, and unnecessary characters. Reduce JSON file size for faster transmission and storage.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.com/tools/json-minifier.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["JSON Validation", "Size Reduction", "Copy to Clipboard", "Clear Formatting"]
+    }
+    </script>
+</head>
+<body>
+  <div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-compress-alt"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">JSON Minifier</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Minify JSON by removing whitespace, comments, and unnecessary characters
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-pencil-alt"></i> Input JSON
+                    </div>
+                    <textarea class="tool-textarea" id="json-input" placeholder='{"name":"John","age":30,"city":"New York"}'></textarea>
+                    <input type="file" id="json-file-input" accept=".json,.txt,application/json" style="display:none;">
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="minifyJSON()">
+                            <i class="fas fa-magic"></i> Minify JSON
+                        </button>
+                        <button class="secondary-btn" onclick="clearJSON()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                        <button class="secondary-btn" onclick="uploadJSON()">
+                            <i class="fas fa-paste"></i> Upload File
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-code"></i> Minified JSON
+                    </div>
+                    <textarea class="tool-textarea" id="json-output" placeholder='{"name":"John","age":30,"city":"New York"}' readonly></textarea>
+                    <div class="tool-actions" style="margin-top:15px;">
+                        <button class="copy-btn" onclick="copyJSON()">
+                            <i class="far fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <div class="tool-stats">
+                        <div class="tool-stat">
+                            <i class="fas fa-weight"></i>
+                            <span id="json-original-size">0 chars</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-compress-alt"></i>
+                            <span id="json-minified-size">0 chars</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-percentage"></i>
+                            <span id="json-savings">0% saved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>What is JSON Minification?</h2>
+                <p>JSON Minification is the process of removing all unnecessary characters from JSON data without changing its functionality. This includes removing whitespace, line breaks, tabs, and comments. Minified JSON reduces file size, leading to faster data transmission and reduced storage requirements.</p>
+                <p>Our JSON Minifier tool validates your JSON input, removes all unnecessary characters, and provides you with the compressed output. It also shows you the original size, minified size, and percentage of space saved.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Why minify JSON?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Minifying JSON reduces file size, which speeds up data transmission over networks, reduces bandwidth usage, and improves application performance.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Does minification affect JSON data?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">No, minification only removes formatting characters. The actual data remains identical and fully functional.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Can I minify invalid JSON?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">No, our tool validates JSON first. If the input is invalid JSON, you'll receive an error message with details about the issue.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    // JSON Minifier JavaScript functionality
+    function minifyJSON() {
+        const input = document.getElementById('json-input').value;
+        try {
+            if (!input.trim()) {
+                document.getElementById('json-output').value = '';
+                updateStats(0, 0);
+                return;
+            }
+            const minified = JSON.stringify(JSON.parse(input));
+            document.getElementById('json-output').value = minified;
+            updateStats(input.length, minified.length);
+        } catch (error) {
+            document.getElementById('json-output').value = 'Invalid JSON: ' + error.message;
+            updateStats(input.length, 0);
+        }
+    }
+    
+    function updateStats(originalLength, minifiedLength) {
+        document.getElementById('json-original-size').textContent = originalLength + ' chars';
+        document.getElementById('json-minified-size').textContent = minifiedLength + ' chars';
+        if (originalLength > 0 && minifiedLength > 0) {
+            const savings = Math.round((1 - minifiedLength / originalLength) * 100);
+            document.getElementById('json-savings').textContent = savings + '% saved';
+        } else {
+            document.getElementById('json-savings').textContent = '0% saved';
+        }
+    }
+    
+    function copyJSON() {
+        const output = document.getElementById('json-output');
+        if (output.value) {
+            output.select();
+            navigator.clipboard.writeText(output.value);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy', 2000);
+        }
+    }
+    
+    function clearJSON() {
+        document.getElementById('json-input').value = '';
+        document.getElementById('json-output').value = '';
+        document.getElementById('json-file-input').value = '';
+        updateStats(0, 0);
+    }
+    
+    function uploadJSON() {
+        // Trigger the hidden file input
+        document.getElementById('json-file-input').click();
+    }
+    
+    // Handle file selection
+    document.getElementById('json-file-input').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        
+        // Check file size (limit to 10MB)
+        if (file.size > 10 * 1024 * 1024) {
+            alert('File is too large. Maximum size is 10MB.');
+            return;
+        }
+        
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const content = e.target.result;
+                document.getElementById('json-input').value = content;
+                // Auto-minify after loading file
+                minifyJSON();
+            } catch (error) {
+                document.getElementById('json-input').value = 'Error reading file: ' + error.message;
+            }
+        };
+        reader.onerror = function() {
+            document.getElementById('json-input').value = 'Error reading file. Please try another file.';
+        };
+        reader.readAsText(file);
+    });
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Load example JSON
+        document.getElementById('json-input').value = '{\n    "name": "John",\n    "age": 30,\n    "city": "New York"\n}';
+    });
+    </script>
+</body>
+</html>

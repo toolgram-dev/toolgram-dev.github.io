@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Free UUID Generator Online | ToolGram</title>
+    <meta name="description" content="Generate universally unique identifiers (UUIDs) for applications, databases, and systems. Free online UUID v4 generator with options for uppercase, brackets, and batch generation.">
+    <meta name="keywords" content="uuid generator, uuid v4, guid generator, unique identifier, random uuid, online uuid generator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.com/tools/uuid.html">
+    <meta property="og:title" content="Free UUID Generator Online | ToolGram">
+    <meta property="og:description" content="Generate universally unique identifiers (UUIDs) instantly">
+    <meta property="og:url" content="https://toolgram.com/tools/uuid.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/hGGkKC2W/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "UUID Generator",
+        "description": "Generate universally unique identifiers (UUIDs) for applications, databases, and systems. Free online UUID v4 generator with options for uppercase, brackets, and batch generation.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.com/tools/uuid.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["UUID Version 4", "Batch Generation", "Uppercase Option", "Brackets Inclusion", "Copy to Clipboard"]
+    }
+    </script>
+</head>
+<body>
+   <div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-fingerprint"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">UUID Generator</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Generate universally unique identifiers (UUIDs) for your applications
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-sliders-h"></i> Settings
+                    </div>
+                    <div class="tool-settings">
+                        <div class="setting-item">
+                            <label><input type="checkbox" id="uuid-version" checked> Version 4 (Random)</label>
+                        </div>
+                        <div class="setting-item">
+                            <label><input type="checkbox" id="uuid-uppercase"> Uppercase</label>
+                        </div>
+                        <div class="setting-item">
+                            <label><input type="checkbox" id="uuid-brackets"> Include brackets</label>
+                        </div>
+                        <div class="setting-item">
+                            <label><input type="number" id="uuid-count" min="1" max="100" value="1" style="width:80px;"> Number of UUIDs</label>
+                        </div>
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn pulse-animation" onclick="generateUUID()">
+                            <i class="fas fa-bolt"></i> Generate UUID
+                        </button>
+                        <button class="secondary-btn" onclick="copyUUID()">
+                            <i class="far fa-copy"></i> Copy All
+                        </button>
+                        <button class="secondary-btn" onclick="clearUUID()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-code"></i> Generated UUIDs
+                    </div>
+                    <div class="output-display" id="uuid-output">
+                        <span style="color:rgba(255,255,255,0.5);">Your UUIDs will appear here...</span>
+                    </div>
+                    <div class="tool-actions" style="margin-top:15px;">
+                        <button class="copy-btn" onclick="copyUUID()">
+                            <i class="far fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <div class="tool-stats">
+                        <div class="tool-stat">
+                            <i class="fas fa-hashtag"></i>
+                            <span id="uuid-count-display">0 generated</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="far fa-clock"></i>
+                            <span id="uuid-timestamp">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>What is a UUID Generator?</h2>
+                <p>A UUID (Universally Unique Identifier) Generator creates unique 128-bit identifiers that are practically guaranteed to be unique across space and time. Our tool generates UUID version 4, which uses random numbers, making it ideal for distributed systems, databases, and application development where unique identifiers are required.</p>
+                <p>UUIDs are represented as 32 hexadecimal digits, displayed in five groups separated by hyphens, in the form 8-4-4-4-12 for a total of 36 characters. They are standardized by RFC 4122 and are widely used in software development.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What is UUID version 4?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">UUID version 4 uses random numbers to generate identifiers. It's the most commonly used version because it doesn't require any input data and provides excellent uniqueness probability.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Are UUIDs really unique?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">While theoretically possible to generate duplicates, the probability is extremely low (1 in 2^122). For practical purposes, UUIDs can be considered unique.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">When should I use UUIDs?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Use UUIDs when you need unique identifiers across distributed systems, for database primary keys, session IDs, file names, or any scenario where uniqueness is critical.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    // UUID Generator JavaScript functionality
+    function generateUUID() {
+        const count = parseInt(document.getElementById('uuid-count').value) || 1;
+        const uppercase = document.getElementById('uuid-uppercase').checked;
+        const brackets = document.getElementById('uuid-brackets').checked;
+        let uuids = [];
+        
+        for (let i = 0; i < count; i++) {
+            let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+            });
+            
+            if (uppercase) uuid = uuid.toUpperCase();
+            if (brackets) uuid = '{' + uuid + '}';
+            uuids.push(uuid);
+        }
+        
+        document.getElementById('uuid-output').innerHTML = uuids.map((uuid, i) => 
+            `<div style="margin-bottom:10px;font-family:monospace;color:#06B6D4">${i + 1}. ${uuid}</div>`
+        ).join('');
+        
+        document.getElementById('uuid-count-display').textContent = count + ' generated';
+        document.getElementById('uuid-timestamp').textContent = new Date().toLocaleTimeString();
+    }
+    
+    function copyUUID() {
+        const output = document.getElementById('uuid-output').textContent;
+        if (output && !output.includes('Your UUIDs')) {
+            navigator.clipboard.writeText(output);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.innerHTML = '<i class="far fa-copy"></i> Copy';
+                btn.classList.remove('copied');
+            }, 2000);
+        }
+    }
+    
+    function clearUUID() {
+        document.getElementById('uuid-output').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Your UUIDs will appear here...</span>';
+        document.getElementById('uuid-count-display').textContent = '0 generated';
+        document.getElementById('uuid-timestamp').textContent = '--';
+    }
+    
+    // Generate one UUID on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        generateUUID();
+    });
+    </script>
+</body>
+</html>

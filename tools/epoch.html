@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Unix Epoch Converter Online | ToolGram</title>
+    <meta name="description" content="Convert between Unix timestamps and human-readable dates. Free online Unix epoch converter with milliseconds support and multiple time formats.">
+    <meta name="keywords" content="unix timestamp, epoch converter, timestamp converter, unix time, epoch time, date to timestamp">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.com/tools/epoch.html">
+    <meta property="og:title" content="Unix Epoch Converter Online | ToolGram">
+    <meta property="og:description" content="Convert between Unix timestamps and human-readable dates">
+    <meta property="og:url" content="https://toolgram.com/tools/epoch.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/hGGkKC2W/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Unix Epoch Converter",
+        "description": "Convert between Unix timestamps and human-readable dates. Supports milliseconds, local time, UTC, and ISO 8601 formats.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.com/tools/epoch.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["Timestamp to Date", "Current Time", "Milliseconds Support", "Multiple Formats", "Timezone Info"]
+    }
+    </script>
+</head>
+<body><div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">Unix Epoch Converter</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Convert between Unix timestamps and human-readable dates
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-calendar-alt"></i> Convert From
+                    </div>
+                    <input type="number" class="tool-input" id="epoch-input" placeholder="Enter Unix timestamp (e.g., 1737075600)">
+                    <div class="tool-settings">
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="epoch-ms">
+                                Milliseconds
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <select id="epoch-format">
+                                <option value="local">Local Time</option>
+                                <option value="utc">UTC</option>
+                                <option value="iso">ISO 8601</option>
+                                <option value="rfc">RFC 2822</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="convertFromEpoch()">
+                            <i class="fas fa-calendar-day"></i> Convert to Date
+                        </button>
+                        <button class="secondary-btn" onclick="useCurrentTime()">
+                            <i class="fas fa-sync"></i> Current Time
+                        </button>
+                        <button class="secondary-btn" onclick="clearEpoch()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-history"></i> Result
+                    </div>
+                    <div class="output-display" id="epoch-output">
+                        <span style="color:rgba(255,255,255,0.5);">Date will appear here...</span>
+                    </div>
+                    <div class="tool-stats">
+                        <div class="tool-stat">
+                            <i class="fas fa-calendar"></i>
+                            <span id="epoch-human-date">--</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-stopwatch"></i>
+                            <span id="epoch-timestamp">--</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-globe"></i>
+                            <span id="epoch-timezone">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>What is Unix Epoch Time?</h2>
+                <p>Unix epoch time (also known as Unix timestamp or POSIX time) is a system for describing points in time. It's the number of seconds that have elapsed since 00:00:00 Thursday, 1 January 1970, Coordinated Universal Time (UTC), minus leap seconds. This system is widely used in computer systems and programming languages to represent dates and times.</p>
+                <p>Our Unix Epoch Converter allows you to convert between human-readable dates and Unix timestamps. You can convert timestamps to dates, get the current timestamp, and choose between seconds and milliseconds precision. We support multiple output formats including local time, UTC, and ISO 8601.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What is the Unix epoch?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">The Unix epoch is 00:00:00 UTC on 1 January 1970. All Unix timestamps count the number of seconds (or milliseconds) since this moment.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What's the difference between seconds and milliseconds?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Standard Unix timestamps use seconds (10 digits). Milliseconds timestamps use 13 digits and provide millisecond precision (divide by 1000 to get seconds).</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">When will Unix time overflow?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">The 32-bit signed integer Unix time will overflow on 19 January 2038 (03:14:07 UTC). Modern systems use 64-bit integers which won't overflow for billions of years.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    // Unix Epoch Converter JavaScript functionality
+    function convertFromEpoch() {
+        const input = document.getElementById('epoch-input').value;
+        const isMs = document.getElementById('epoch-ms').checked;
+        const format = document.getElementById('epoch-format').value;
+        
+        if (!input) return;
+        
+        let timestamp = parseInt(input);
+        if (isMs) timestamp = Math.floor(timestamp / 1000);
+        
+        const date = new Date(timestamp * 1000);
+        let formattedDate = '';
+        
+        switch (format) {
+            case 'local':
+                formattedDate = date.toLocaleString();
+                break;
+            case 'utc':
+                formattedDate = date.toUTCString();
+                break;
+            case 'iso':
+                formattedDate = date.toISOString();
+                break;
+            case 'rfc':
+                formattedDate = date.toLocaleString('en-US', {
+                    weekday: 'short',
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    timeZoneName: 'short'
+                });
+                break;
+        }
+        
+        document.getElementById('epoch-output').innerHTML = `
+            <div style="color:#06B6D4;font-family:monospace;font-size:1.2rem;">${formattedDate}</div>
+            <div style="margin-top:10px;color:rgba(255,255,255,0.7);">Unix timestamp: ${timestamp}</div>
+        `;
+        
+        document.getElementById('epoch-human-date').textContent = date.toLocaleDateString();
+        document.getElementById('epoch-timestamp').textContent = timestamp;
+        document.getElementById('epoch-timezone').textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    }
+    
+    function useCurrentTime() {
+        const timestamp = Math.floor(Date.now() / 1000);
+        document.getElementById('epoch-input').value = timestamp;
+        convertFromEpoch();
+    }
+    
+    function clearEpoch() {
+        document.getElementById('epoch-input').value = '';
+        document.getElementById('epoch-output').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Date will appear here...</span>';
+        document.getElementById('epoch-human-date').textContent = '--';
+        document.getElementById('epoch-timestamp').textContent = '--';
+        document.getElementById('epoch-timezone').textContent = '--';
+    }
+    </script>
+</body>
+</html>

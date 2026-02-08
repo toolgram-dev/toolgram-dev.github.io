@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SHA256 Hasher Online | ToolGram</title>
+    <meta name="description" content="Generate SHA-256 cryptographic hash for strings and files. Free online SHA256 hash generator with file upload support.">
+    <meta name="keywords" content="sha256, sha256 hash, sha256 generator, sha256 online, cryptographic hash, sha256 calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.com/tools/sha256.html">
+    <meta property="og:title" content="SHA256 Hasher Online | ToolGram">
+    <meta property="og:description" content="Generate SHA-256 cryptographic hash for strings and files">
+    <meta property="og:url" content="https://toolgram.com/tools/sha256.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/hGGkKC2W/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SHA-256 Hasher",
+        "description": "Generate SHA-256 cryptographic hash for strings and files. Secure hash generation for passwords and data verification.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.com/tools/sha256.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["String Hashing", "File Hashing", "Uppercase Option", "Copy to Clipboard"]
+    }
+    </script>
+</head>
+<body>
+  <div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-hashtag"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">SHA-256 Hasher</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Generate SHA-256 cryptographic hash for strings and files
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-key"></i> Input
+                    </div>
+                    <textarea class="tool-textarea" id="sha256-input" placeholder="Enter text to hash or upload a file..."></textarea>
+                    <input type="file" id="sha256-file" style="display:none;" onchange="handleFileHash()">
+                    <div class="tool-settings">
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="sha256-uppercase">
+                                Uppercase hash
+                            </label>
+                        </div>
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="generateSHA256()">
+                            <i class="fas fa-bolt"></i> Generate Hash
+                        </button>
+                        <button class="secondary-btn" onclick="document.getElementById('sha256-file').click()">
+                            <i class="fas fa-file-upload"></i> Hash File
+                        </button>
+                        <button class="secondary-btn" onclick="clearSHA256()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-fingerprint"></i> SHA-256 Hash
+                    </div>
+                    <div class="output-display" id="sha256-output">
+                        <span style="color:rgba(255,255,255,0.5);">Hash will appear here...</span>
+                    </div>
+                    <div class="tool-actions" style="margin-top:15px;">
+                        <button class="copy-btn" onclick="copySHA256()">
+                            <i class="far fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <div class="tool-stats">
+                        <div class="tool-stat">
+                            <i class="fas fa-ruler"></i>
+                            <span id="sha256-length">64 characters</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-unlock-alt"></i>
+                            <span id="sha256-algorithm">SHA-256</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>What is SHA-256?</h2>
+                <p>SHA-256 (Secure Hash Algorithm 256-bit) is a cryptographic hash function that produces a 256-bit (32-byte) hash value. It's commonly used in various security applications and protocols, including TLS, SSL, PGP, SSH, and Bitcoin mining. SHA-256 is one of the successor hash functions to SHA-1 and is one of the strongest hash functions available.</p>
+                <p>Our SHA-256 tool generates a unique 64-character hexadecimal hash for any input text or file. The same input will always produce the same hash, making it ideal for verifying data integrity and password storage (with salting).</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What is SHA-256 used for?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">SHA-256 is used for digital signatures, password hashing, blockchain technology (Bitcoin), data integrity verification, and certificate authorities in SSL/TLS.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Is SHA-256 secure?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Yes, SHA-256 is considered cryptographically secure. It's computationally infeasible to generate the same hash from two different inputs or to reverse-engineer the original input from the hash.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Can I hash files with SHA-256?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Yes, our tool supports both text input and file uploads. File hashing is useful for verifying file integrity and detecting file modifications.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    // SHA-256 JavaScript functionality
+    async function generateSHA256() {
+        const input = document.getElementById('sha256-input').value;
+        const uppercase = document.getElementById('sha256-uppercase').checked;
+        
+        if (!input.trim()) {
+            document.getElementById('sha256-output').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Please enter text</span>';
+            return;
+        }
+        
+        const encoder = new TextEncoder();
+        const data = encoder.encode(input);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        let hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        
+        if (uppercase) hashHex = hashHex.toUpperCase();
+        
+        document.getElementById('sha256-output').innerHTML = `<div style="font-family:monospace;word-break:break-all;color:#8B5CF6">${hashHex}</div>`;
+    }
+    
+    async function handleFileHash() {
+        const fileInput = document.getElementById('sha256-file');
+        const file = fileInput.files[0];
+        if (!file) return;
+        
+        const reader = new FileReader();
+        reader.onload = async function(e) {
+            const arrayBuffer = e.target.result;
+            const hashBuffer = await crypto.subtle.digest('SHA-256', arrayBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            let hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            
+            if (document.getElementById('sha256-uppercase').checked) {
+                hashHex = hashHex.toUpperCase();
+            }
+            
+            document.getElementById('sha256-output').innerHTML = `
+                <div style="font-family:monospace;word-break:break-all;color:#06B6D4">${hashHex}</div>
+                <div style="margin-top:10px;color:#EC4899">File: ${file.name} (${file.size} bytes)</div>
+            `;
+        };
+        reader.readAsArrayBuffer(file);
+    }
+    
+    function copySHA256() {
+        const output = document.getElementById('sha256-output').textContent;
+        if (output && !output.includes('Hash will appear')) {
+            navigator.clipboard.writeText(output);
+            const btn = document.querySelector('#sha256-tool .copy-btn') || document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy', 2000);
+        }
+    }
+    
+    function clearSHA256() {
+        document.getElementById('sha256-input').value = '';
+        document.getElementById('sha256-file').value = '';
+        document.getElementById('sha256-output').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Hash will appear here...</span>';
+    }
+    </script>
+</body>
+</html>

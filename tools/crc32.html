@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CRC32 Checksum Calculator Online | ToolGram</title>
+    <meta name="description" content="Calculate CRC32 checksums for data integrity verification. Free online CRC32 checksum calculator with file support and uppercase options.">
+    <meta name="keywords" content="crc32, crc32 checksum, crc32 calculator, crc32 online, checksum, data integrity">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.com/tools/crc32.html">
+    <meta property="og:title" content="CRC32 Checksum Calculator Online | ToolGram">
+    <meta property="og:description" content="Calculate CRC32 checksums for data integrity verification">
+    <meta property="og:url" content="https://toolgram.com/tools/crc32.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/hGGkKC2W/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CRC32 Checksum Calculator",
+        "description": "Calculate CRC32 checksums for data integrity verification. Supports text input and file uploads for verifying data integrity.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.com/tools/crc32.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["Text CRC32", "File CRC32", "Uppercase Hex", "Copy to Clipboard", "Byte Size Display"]
+    }
+    </script>
+</head>
+<body>
+    <div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">CRC32 Checksum</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Calculate CRC32 checksums for data integrity verification
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-calculator"></i> Input Data
+                    </div>
+                    <textarea class="tool-textarea" id="crc32-input" placeholder="Enter text or upload file..."></textarea>
+                    <input type="file" id="crc32-file" style="display:none;" onchange="handleCRC32File()">
+                    <div class="tool-settings">
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="crc32-uppercase">
+                                Uppercase hex
+                            </label>
+                        </div>
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateCRC32()">
+                            <i class="fas fa-calculator"></i> Calculate CRC32
+                        </button>
+                        <button class="secondary-btn" onclick="document.getElementById('crc32-file').click()">
+                            <i class="fas fa-file-upload"></i> File Checksum
+                        </button>
+                        <button class="secondary-btn" onclick="clearCRC32()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-hashtag"></i> CRC32 Result
+                    </div>
+                    <div class="output-display" id="crc32-output">
+                        <span style="color:rgba(255,255,255,0.5);">Checksum will appear here...</span>
+                    </div>
+                    <div class="tool-actions" style="margin-top:15px;">
+                        <button class="copy-btn" onclick="copyCRC32()">
+                            <i class="far fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <div class="tool-stats">
+                        <div class="tool-stat">
+                            <i class="fas fa-hashtag"></i>
+                            <span id="crc32-checksum">00000000</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-file"></i>
+                            <span id="crc32-size">0 bytes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>What is CRC32?</h2>
+                <p>CRC32 (Cyclic Redundancy Check 32-bit) is an error-detecting code commonly used in digital networks and storage devices to detect accidental changes to raw data. It produces a 32-bit (4-byte) checksum value, typically expressed as an eight-digit hexadecimal number.</p>
+                <p>Our CRC32 Checksum Calculator computes the CRC32 value for text input or uploaded files. CRC32 is widely used in file formats (ZIP, PNG), network protocols, and data transmission to verify data integrity. While not cryptographically secure, it's excellent for detecting accidental data corruption.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What is CRC32 used for?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">CRC32 is used for error detection in file formats (ZIP, PNG, GZIP), network protocols (Ethernet), storage systems, and data transmission to ensure data hasn't been corrupted.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Is CRC32 secure for passwords?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">No, CRC32 is NOT cryptographically secure. It's designed for error detection, not security. For passwords, use SHA-256 or bcrypt instead.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">How accurate is CRC32?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">CRC32 detects all single-bit errors, all double-bit errors in most cases, and any burst error up to 32 bits. It has a 1 in 4 billion chance of missing an error.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    // CRC32 Checksum JavaScript functionality
+    function calculateCRC32() {
+        const input = document.getElementById('crc32-input').value;
+        const uppercase = document.getElementById('crc32-uppercase').checked;
+        
+        if (!input.trim()) {
+            document.getElementById('crc32-output').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Please enter text</span>';
+            return;
+        }
+        
+        let crc = 0xFFFFFFFF;
+        
+        for (let i = 0; i < input.length; i++) {
+            const charCode = input.charCodeAt(i);
+            crc = crc ^ (charCode << 24);
+            
+            for (let j = 0; j < 8; j++) {
+                crc = (crc & 0x80000000) ? ((crc << 1) ^ 0x04C11DB7) : (crc << 1);
+            }
+        }
+        
+        crc = (crc ^ 0xFFFFFFFF) >>> 0;
+        let checksum = crc.toString(16).padStart(8, '0');
+        
+        if (uppercase) checksum = checksum.toUpperCase();
+        
+        document.getElementById('crc32-output').innerHTML = `
+            <div style="font-family:monospace;font-size:1.3rem;color:#8B5CF6">${checksum}</div>
+        `;
+        
+        document.getElementById('crc32-checksum').textContent = checksum;
+        document.getElementById('crc32-size').textContent = `${input.length} bytes`;
+    }
+    
+    function handleCRC32File() {
+        const fileInput = document.getElementById('crc32-file');
+        const file = fileInput.files[0];
+        if (!file) return;
+        
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('crc32-input').value = '[Binary file: ' + file.name + ']';
+            
+            const uppercase = document.getElementById('crc32-uppercase').checked;
+            let crc = 0xFFFFFFFF;
+            const arrayBuffer = e.target.result;
+            const bytes = new Uint8Array(arrayBuffer);
+            
+            for (let i = 0; i < bytes.length; i++) {
+                crc = crc ^ (bytes[i] << 24);
+                
+                for (let j = 0; j < 8; j++) {
+                    crc = (crc & 0x80000000) ? ((crc << 1) ^ 0x04C11DB7) : (crc << 1);
+                }
+            }
+            
+            crc = (crc ^ 0xFFFFFFFF) >>> 0;
+            let checksum = crc.toString(16).padStart(8, '0');
+            
+            if (uppercase) checksum = checksum.toUpperCase();
+            
+            document.getElementById('crc32-output').innerHTML = `
+                <div style="font-family:monospace;font-size:1.3rem;color:#06B6D4">${checksum}</div>
+                <div style="margin-top:10px;color:#EC4899">File: ${file.name} (${file.size} bytes)</div>
+            `;
+            
+            document.getElementById('crc32-checksum').textContent = checksum;
+            document.getElementById('crc32-size').textContent = `${file.size} bytes`;
+        };
+        reader.readAsArrayBuffer(file);
+    }
+    
+    function copyCRC32() {
+        const output = document.getElementById('crc32-output').textContent;
+        if (output && !output.includes('Checksum will appear')) {
+            navigator.clipboard.writeText(output);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy', 2000);
+        }
+    }
+    
+    function clearCRC32() {
+        document.getElementById('crc32-input').value = '';
+        document.getElementById('crc32-file').value = '';
+        document.getElementById('crc32-output').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Checksum will appear here...</span>';
+        document.getElementById('crc32-checksum').textContent = '00000000';
+        document.getElementById('crc32-size').textContent = '0 bytes';
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>UTF-8 Validator Online | ToolGram</title>
+    <meta name="description" content="Validate UTF-8 byte sequences and detect encoding issues. Free online UTF-8 validator with hex byte analysis and strict validation options.">
+    <meta name="keywords" content="utf-8 validator, utf-8 check, encoding validator, utf-8 bytes, character encoding, unicode validator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.com/tools/utf8.html">
+    <meta property="og:title" content="UTF-8 Validator Online | ToolGram">
+    <meta property="og:description" content="Validate UTF-8 byte sequences and detect encoding issues">
+    <meta property="og:url" content="https://toolgram.com/tools/utf8.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/hGGkKC2W/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "UTF-8 Validator",
+        "description": "Validate UTF-8 byte sequences and detect encoding issues. Supports text input, hex bytes, and strict validation modes.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.com/tools/utf8.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["UTF-8 Validation", "Hex Byte Analysis", "Strict Mode", "Byte/Character Count", "Unicode Testing"]
+    }
+    </script>
+</head>
+<body>
+   <div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">UTF-8 Validator</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Validate UTF-8 byte sequences and detect encoding issues
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-search"></i> Input Text/Hex
+                    </div>
+                    <textarea class="tool-textarea" id="utf8-input" placeholder="Enter text or hex bytes to validate..."></textarea>
+                    <div class="tool-settings">
+                        <div class="setting-item">
+                            <select id="utf8-input-type">
+                                <option value="text">Text Input</option>
+                                <option value="hex">Hex Bytes</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="utf8-strict">
+                                Strict Validation
+                            </label>
+                        </div>
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="validateUTF8()">
+                            <i class="fas fa-check-circle"></i> Validate UTF-8
+                        </button>
+                        <button class="secondary-btn" onclick="clearUTF8()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                        <button class="secondary-btn" onclick="testUnicode()">
+                            <i class="fas fa-globe"></i> Test Unicode
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-clipboard-check"></i> Validation Result
+                    </div>
+                    <div class="output-display" id="utf8-output">
+                        <span style="color:rgba(255,255,255,0.5);">Validation results will appear here...</span>
+                    </div>
+                    <div class="tool-stats">
+                        <div class="tool-stat">
+                            <span id="utf8-validity" class="status-badge">--</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-ruler"></i>
+                            <span id="utf8-byte-count">0 bytes</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-font"></i>
+                            <span id="utf8-char-count">0 characters</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>What is UTF-8 Encoding?</h2>
+                <p>UTF-8 (Unicode Transformation Format - 8-bit) is a variable-width character encoding capable of encoding all possible Unicode code points. It uses one to four bytes per character and is backward compatible with ASCII. UTF-8 is the dominant character encoding for the World Wide Web, accounting for more than 98% of all web pages.</p>
+                <p>Our UTF-8 Validator helps you verify that text or byte sequences conform to the UTF-8 encoding standard. It can detect malformed sequences, overlong encodings, and other common UTF-8 issues that can cause display problems or security vulnerabilities.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Why validate UTF-8?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Invalid UTF-8 sequences can cause display issues, security vulnerabilities (like injection attacks), and data corruption. Validation ensures text will display correctly across all systems.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What is strict validation?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Strict validation rejects overlong encodings (security risk), invalid code points, and surrogate pairs in UTF-8. Non-strict mode only checks for malformed byte sequences.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What are common UTF-8 issues?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Common issues include: mixed encodings (UTF-8 with ISO-8859-1), BOM (Byte Order Mark) issues, overlong encodings, invalid continuation bytes, and missing continuation bytes.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    // UTF-8 Validator JavaScript functionality
+    function validateUTF8() {
+        const input = document.getElementById('utf8-input').value;
+        const inputType = document.getElementById('utf8-input-type').value;
+        const strict = document.getElementById('utf8-strict').checked;
+        
+        let isValid = false;
+        let bytes = [];
+        let charCount = 0;
+        
+        try {
+            if (inputType === 'hex') {
+                // Process hex input
+                const hex = input.replace(/\s+/g, '');
+                if (hex.length % 2 !== 0) throw new Error('Invalid hex length');
+                
+                for (let i = 0; i < hex.length; i += 2) {
+                    bytes.push(parseInt(hex.substr(i, 2), 16));
+                }
+                
+                // Try to decode to get character count
+                const decoder = new TextDecoder('utf-8');
+                const byteArray = new Uint8Array(bytes);
+                const decoded = decoder.decode(byteArray);
+                charCount = decoded.length;
+            } else {
+                // Process text input
+                const encoder = new TextEncoder();
+                bytes = Array.from(encoder.encode(input));
+                charCount = input.length;
+            }
+            
+            // Validate UTF-8 bytes
+            isValid = validateUTF8Bytes(bytes, strict);
+            
+        } catch (e) {
+            isValid = false;
+        }
+        
+        const output = document.getElementById('utf8-output');
+        const validityBadge = document.getElementById('utf8-validity');
+        
+        if (isValid) {
+            output.innerHTML = `
+                <div style="color:#10B981">
+                    <i class="fas fa-check-circle"></i> Valid UTF-8 sequence
+                </div>
+                <div style="margin-top:10px;color:rgba(255,255,255,0.7);">
+                    ${bytes.length} bytes, ${charCount} characters
+                </div>
+                ${inputType === 'hex' ? '<div style="margin-top:5px;color:#06B6D4">Hex input processed successfully</div>' : ''}
+            `;
+            validityBadge.textContent = 'Valid';
+            validityBadge.className = 'status-badge valid';
+        } else {
+            output.innerHTML = `
+                <div style="color:#EF4444">
+                    <i class="fas fa-times-circle"></i> Invalid UTF-8 sequence
+                </div>
+                <div style="margin-top:10px;color:rgba(255,255,255,0.7);">
+                    Check for encoding issues or malformed bytes
+                </div>
+            `;
+            validityBadge.textContent = 'Invalid';
+            validityBadge.className = 'status-badge invalid';
+        }
+        
+        document.getElementById('utf8-byte-count').textContent = `${bytes.length} bytes`;
+        document.getElementById('utf8-char-count').textContent = `${charCount} chars`;
+    }
+    
+    function validateUTF8Bytes(bytes, strict) {
+        let i = 0;
+        while (i < bytes.length) {
+            const byte = bytes[i];
+            
+            // 1-byte sequence (ASCII)
+            if (byte <= 0x7F) {
+                i += 1;
+            }
+            // 2-byte sequence
+            else if (byte >= 0xC2 && byte <= 0xDF) {
+                if (i + 1 >= bytes.length) return false;
+                const next = bytes[i + 1];
+                if (next < 0x80 || next > 0xBF) return false;
+                i += 2;
+            }
+            // 3-byte sequence
+            else if (byte === 0xE0) {
+                if (i + 2 >= bytes.length) return false;
+                const next1 = bytes[i + 1];
+                const next2 = bytes[i + 2];
+                if (next1 < 0xA0 || next1 > 0xBF || next2 < 0x80 || next2 > 0xBF) return false;
+                i += 3;
+            }
+            else if (byte >= 0xE1 && byte <= 0xEC) {
+                if (i + 2 >= bytes.length) return false;
+                const next1 = bytes[i + 1];
+                const next2 = bytes[i + 2];
+                if (next1 < 0x80 || next1 > 0xBF || next2 < 0x80 || next2 > 0xBF) return false;
+                i += 3;
+            }
+            else if (byte === 0xED) {
+                if (i + 2 >= bytes.length) return false;
+                const next1 = bytes[i + 1];
+                const next2 = bytes[i + 2];
+                if (strict && (next1 < 0x80 || next1 > 0x9F || next2 < 0x80 || next2 > 0xBF)) return false;
+                i += 3;
+            }
+            else if (byte >= 0xEE && byte <= 0xEF) {
+                if (i + 2 >= bytes.length) return false;
+                const next1 = bytes[i + 1];
+                const next2 = bytes[i + 2];
+                if (next1 < 0x80 || next1 > 0xBF || next2 < 0x80 || next2 > 0xBF) return false;
+                i += 3;
+            }
+            // 4-byte sequence
+            else if (byte === 0xF0) {
+                if (i + 3 >= bytes.length) return false;
+                const next1 = bytes[i + 1];
+                const next2 = bytes[i + 2];
+                const next3 = bytes[i + 3];
+                if (strict && (next1 < 0x90 || next1 > 0xBF || next2 < 0x80 || next2 > 0xBF || next3 < 0x80 || next3 > 0xBF)) return false;
+                i += 4;
+            }
+            else if (byte >= 0xF1 && byte <= 0xF3) {
+                if (i + 3 >= bytes.length) return false;
+                const next1 = bytes[i + 1];
+                const next2 = bytes[i + 2];
+                const next3 = bytes[i + 3];
+                if (next1 < 0x80 || next1 > 0xBF || next2 < 0x80 || next2 > 0xBF || next3 < 0x80 || next3 > 0xBF) return false;
+                i += 4;
+            }
+            else if (byte === 0xF4) {
+                if (i + 3 >= bytes.length) return false;
+                const next1 = bytes[i + 1];
+                const next2 = bytes[i + 2];
+                const next3 = bytes[i + 3];
+                if (strict && (next1 < 0x80 || next1 > 0x8F || next2 < 0x80 || next2 > 0xBF || next3 < 0x80 || next3 > 0xBF)) return false;
+                i += 4;
+            }
+            else {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    function clearUTF8() {
+        document.getElementById('utf8-input').value = '';
+        document.getElementById('utf8-output').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Validation results will appear here...</span>';
+        document.getElementById('utf8-validity').textContent = '--';
+        document.getElementById('utf8-validity').className = 'status-badge';
+        document.getElementById('utf8-byte-count').textContent = '0 bytes';
+        document.getElementById('utf8-char-count').textContent = '0 characters';
+    }
+    
+    function testUnicode() {
+        document.getElementById('utf8-input').value = 'Hello 世界 🌍 Emoji 👍 Café 123';
+        document.getElementById('utf8-input-type').value = 'text';
+        validateUTF8();
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>URL Encoder/Decoder Online | ToolGram</title>
+    <meta name="description" content="Encode special characters for URLs or decode URL-encoded strings. Free online URL encoder/decoder with full encoding option.">
+    <meta name="keywords" content="url encoder, url decoder, url encode, url decode, percent encoding, url encoding">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.com/tools/url-encoder.html">
+    <meta property="og:title" content="URL Encoder/Decoder Online | ToolGram">
+    <meta property="og:description" content="Encode special characters for URLs or decode URL-encoded strings">
+    <meta property="og:url" content="https://toolgram.com/tools/url-encoder.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/hGGkKC2W/Gemini-Generated-Image-2hkd0u2hkd0u2hkd.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "URL Encoder/Decoder",
+        "description": "Encode special characters for URLs or decode URL-encoded strings. Supports full encoding for complete URL safety.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.com/tools/url-encoder.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["URL Encoding", "URL Decoding", "Full Encoding", "Test URL", "Copy to Clipboard"]
+    }
+    </script>
+</head>
+<body>
+<div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">URL Encoder/Decoder</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Encode special characters for URLs or decode URL-encoded strings
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-arrow-right"></i> Input URL/Text
+                    </div>
+                    <textarea class="tool-textarea" id="url-input" placeholder="Enter URL or text to encode/decode..."></textarea>
+                    <div class="tool-settings">
+                        <div class="setting-item">
+                            <select id="url-operation">
+                                <option value="encode">Encode URL</option>
+                                <option value="decode">Decode URL</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="url-full-encode">
+                                Full Encoding
+                            </label>
+                        </div>
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="processURL()">
+                            <i class="fas fa-cogs"></i> Process
+                        </button>
+                        <button class="secondary-btn" onclick="clearURL()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                        <button class="secondary-btn" onclick="testURL()">
+                            <i class="fas fa-vial"></i> Test URL
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-arrow-left"></i> Output
+                    </div>
+                    <textarea class="tool-textarea" id="url-output" placeholder="Encoded/decoded result..." readonly></textarea>
+                    <div class="tool-actions" style="margin-top:15px;">
+                        <button class="copy-btn" onclick="copyURL()">
+                            <i class="far fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <div class="tool-stats">
+                        <div class="tool-stat">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span id="url-status">Ready</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span id="url-chars-processed">0 chars</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>What is URL Encoding?</h2>
+                <p>URL encoding (also known as percent-encoding) is a mechanism for encoding information in a Uniform Resource Identifier (URI). Certain characters in a URL have special meanings and must be encoded to be used literally. For example, spaces must be encoded as %20, and the plus sign (+) is encoded as %2B.</p>
+                <p>Our URL Encoder/Decoder tool helps you properly encode special characters for use in URLs or decode encoded URLs back to their original form. We support both standard encoding (encodeURI) and full encoding (encodeURIComponent) for different use cases.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">When should I use URL encoding?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Use URL encoding when including special characters in URL parameters, query strings, or path segments. Common cases include spaces, ampersands (&), question marks (?), and equals signs (=).</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What's the difference between encodeURI and encodeURIComponent?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">encodeURI encodes a complete URL, preserving characters like :, /, ?, and #. encodeURIComponent encodes a component of a URL (like a parameter value) and encodes all special characters except letters, digits, -, ., _, and ~.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Why does my URL have %20 instead of spaces?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Spaces are not allowed in URLs, so they're encoded as %20. Other common encodings include %2B for plus signs, %3D for equals signs, and %26 for ampersands.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    // URL Encoder/Decoder JavaScript functionality
+    function processURL() {
+        const input = document.getElementById('url-input').value;
+        const operation = document.getElementById('url-operation').value;
+        const fullEncode = document.getElementById('url-full-encode').checked;
+        let output = '';
+        
+        if (operation === 'encode') {
+            output = fullEncode ? encodeURIComponent(input) : encodeURI(input);
+        } else {
+            try {
+                output = decodeURIComponent(input);
+            } catch (e) {
+                try {
+                    output = decodeURI(input);
+                } catch (e) {
+                    output = 'Invalid URL encoding: ' + e.message;
+                }
+            }
+        }
+        
+        document.getElementById('url-output').value = output;
+        document.getElementById('url-chars-processed').textContent = `${input.length} chars`;
+        document.getElementById('url-status').textContent = operation === 'encode' ? 'Encoded' : 'Decoded';
+    }
+    
+    function copyURL() {
+        const output = document.getElementById('url-output');
+        if (output.value) {
+            output.select();
+            navigator.clipboard.writeText(output.value);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy', 2000);
+        }
+    }
+    
+    function clearURL() {
+        document.getElementById('url-input').value = '';
+        document.getElementById('url-output').value = '';
+        document.getElementById('url-status').textContent = 'Ready';
+        document.getElementById('url-chars-processed').textContent = '0 chars';
+    }
+    
+    function testURL() {
+        document.getElementById('url-input').value = 'https://example.com/search?q=hello world&page=1';
+        processURL();
+    }
+    </script>
+</body>
+</html>
