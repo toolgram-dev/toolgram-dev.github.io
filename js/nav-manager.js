@@ -64,7 +64,18 @@ class NavManager {
                     searchResults.style.display = 'none';
                 }
             });
-            
+            // MOBILE SEARCH
+const mobileNavSearch = document.getElementById('mobile-nav-search');
+if (mobileNavSearch && searchResults) {
+    mobileNavSearch.addEventListener('input', (e) => {
+        const query = e.target.value.trim();
+        if (query) {
+            this.performSearch(query, isToolPage);
+        } else {
+            searchResults.style.display = 'none';
+        }
+    });
+}
             // Close search results when clicking outside
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.search')) {
@@ -185,3 +196,4 @@ window.addEventListener('load', () => {
         setTimeout(() => NavManager.loadNavigation(), 500);
     }
 });
+
