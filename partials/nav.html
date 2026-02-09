@@ -10,7 +10,7 @@
     
     <!-- MOBILE LOGO + SEARCH -->
     <div class="mobile-nav">
-        <button class="mobile-logo-btn" onclick="window.location.href='index.html'">
+        <button class="mobile-logo-btn" onclick="handleMobileLogoClick()">
             <img src="https://i.postimg.cc/GpXHD5JX/Gemini-Generated-Image-o8l6c0o8l6c0o8l6-removebg-preview.png" 
                  alt="ToolGram" class="mobile-logo">
         </button>
@@ -25,9 +25,29 @@
         <button class="share-btn-nav" id="share-btn-nav" style="display:none">
             <i class="fas fa-share-alt"></i><span>Share</span>
         </button>
-        <button class="contact-btn" onclick="window.location.href='contact.html'">
+        <button class="contact-btn" onclick="handleContactClick()">
             <i class="fas fa-envelope"></i><span>Contact Us</span>
         </button>
     </div>
 </nav>
 <div class="ad-space"></div>
+
+<script>
+function handleMobileLogoClick() {
+    const isToolPage = window.location.pathname.includes('/tools/') || window.location.href.includes('/tools/');
+    if (isToolPage) {
+        window.location.href = '../index.html';
+    } else {
+        window.location.href = 'index.html';
+    }
+}
+
+function handleContactClick() {
+    const isToolPage = window.location.pathname.includes('/tools/') || window.location.href.includes('/tools/');
+    if (isToolPage) {
+        window.location.href = '../contact.html';
+    } else {
+        window.location.href = 'contact.html';
+    }
+}
+</script>
