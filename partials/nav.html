@@ -9,8 +9,8 @@
     </div>
     
     <!-- MOBILE LOGO + SEARCH -->
-    <div class="mobile-nav">
-        <button class="mobile-logo-btn" onclick="handleMobileLogoClick()">
+    <div class="mobile-container">
+        <button class="mobile-logo-btn" onclick="goHome()">
             <img src="https://i.postimg.cc/GpXHD5JX/Gemini-Generated-Image-o8l6c0o8l6c0o8l6-removebg-preview.png" 
                  alt="ToolGram" class="mobile-logo">
         </button>
@@ -19,13 +19,21 @@
             <i class="fas fa-search"></i>
             <div id="mobile-search-results"></div>
         </div>
+        <div class="nav-buttons">
+            <button class="share-btn-nav" id="share-btn-nav" style="display:none">
+                <i class="fas fa-share-alt"></i><span>Share</span>
+            </button>
+            <button class="contact-btn" onclick="goContact()">
+                <i class="fas fa-envelope"></i><span>Contact Us</span>
+            </button>
+        </div>
     </div>
     
-    <div class="nav-buttons">
-        <button class="share-btn-nav" id="share-btn-nav" style="display:none">
+    <div class="nav-buttons-desktop">
+        <button class="share-btn-nav" id="share-btn-nav-desktop" style="display:none">
             <i class="fas fa-share-alt"></i><span>Share</span>
         </button>
-        <button class="contact-btn" onclick="handleContactClick()">
+        <button class="contact-btn" onclick="goContact()">
             <i class="fas fa-envelope"></i><span>Contact Us</span>
         </button>
     </div>
@@ -33,21 +41,13 @@
 <div class="ad-space"></div>
 
 <script>
-function handleMobileLogoClick() {
-    const isToolPage = window.location.pathname.includes('/tools/') || window.location.href.includes('/tools/');
-    if (isToolPage) {
-        window.location.href = '../index.html';
-    } else {
-        window.location.href = 'index.html';
-    }
+function goHome() {
+    const isToolPage = window.location.pathname.includes('/tools/');
+    window.location.href = isToolPage ? '../index.html' : 'index.html';
 }
 
-function handleContactClick() {
-    const isToolPage = window.location.pathname.includes('/tools/') || window.location.href.includes('/tools/');
-    if (isToolPage) {
-        window.location.href = '../contact.html';
-    } else {
-        window.location.href = 'contact.html';
-    }
+function goContact() {
+    const isToolPage = window.location.pathname.includes('/tools/');
+    window.location.href = isToolPage ? '../contact.html' : 'contact.html';
 }
 </script>
