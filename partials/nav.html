@@ -1,5 +1,5 @@
 <nav>
-    <div class="logo" onclick="window.location.href='index.html'">
+    <div class="logo">
         <img src="https://i.postimg.cc/sgvNN6w5/Gemini-Generated-Image-xajg8yxajg8yxajg-removebg-preview.png" alt="ToolGram">
     </div>
     <div class="search">
@@ -10,7 +10,7 @@
     
     <!-- MOBILE LOGO + SEARCH -->
     <div class="mobile-container">
-        <button class="mobile-logo-btn" onclick="goHome()">
+        <button class="mobile-logo-btn">
             <img src="https://i.postimg.cc/GpXHD5JX/Gemini-Generated-Image-o8l6c0o8l6c0o8l6-removebg-preview.png" 
                  alt="ToolGram" class="mobile-logo">
         </button>
@@ -23,7 +23,7 @@
             <button class="share-btn-nav" id="share-btn-nav" style="display:none">
                 <i class="fas fa-share-alt"></i><span>Share</span>
             </button>
-            <button class="contact-btn" onclick="goContact()">
+            <button class="contact-btn">
                 <i class="fas fa-envelope"></i><span>Contact Us</span>
             </button>
         </div>
@@ -33,21 +33,9 @@
         <button class="share-btn-nav" id="share-btn-nav-desktop" style="display:none">
             <i class="fas fa-share-alt"></i><span>Share</span>
         </button>
-        <button class="contact-btn" onclick="goContact()">
+        <button class="contact-btn">
             <i class="fas fa-envelope"></i><span>Contact Us</span>
         </button>
     </div>
 </nav>
 <div class="ad-space"></div>
-
-<script>
-function goHome() {
-    const isToolPage = window.location.pathname.includes('/tools/');
-    window.location.href = isToolPage ? '../index.html' : 'index.html';
-}
-
-function goContact() {
-    const isToolPage = window.location.pathname.includes('/tools/');
-    window.location.href = isToolPage ? '../contact.html' : 'contact.html';
-}
-</script>
