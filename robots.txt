@@ -6,4 +6,5 @@ Allow: /tools/
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://toolgram.com/sitemap.xml
+
+Sitemap: https://toolgram-dev.github.io/sitemap.xml
