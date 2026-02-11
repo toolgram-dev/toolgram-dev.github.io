@@ -1,99 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://toolgram.com/</loc>
+        <loc>https://toolgram-dev.github.io/</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/tools.html</loc>
+        <loc>https://toolgram-dev.github.io/tools.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/tools/uuid.html</loc>
+        <loc>https://toolgram-dev.github.io/tools/uuid.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/tools/json-minifier.html</loc>
+        <loc>https://toolgram-dev.github.io/tools/json-minifier.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/tools/base64.html</loc>
+        <loc>https://toolgram-dev.github.io/tools/base64.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/tools/sha256.html</loc>
+        <loc>https://toolgram-dev.github.io/tools/sha256.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/tools/url-encoder.html</loc>
+        <loc>https://toolgram-dev.github.io/tools/url-encoder.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/tools/epoch.html</loc>
+        <loc>https://toolgram-dev.github.io/tools/epoch.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/tools/html-entity.html</loc>
+        <loc>https://toolgram-dev.github.io/tools/html-entity.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/tools/utf8.html</loc>
+        <loc>https://toolgram-dev.github.io/tools/utf8.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/tools/crc32.html</loc>
+        <loc>https://toolgram-dev.github.io/tools/crc32.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/tools/case-normalizer.html</loc>
+        <loc>https://toolgram-dev.github.io/tools/case-normalizer.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/about.html</loc>
+        <loc>https://toolgram-dev.github.io/about.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/privacy.html</loc>
+        <loc>https://toolgram-dev.github.io/privacy.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/terms.html</loc>
+        <loc>https://toolgram-dev.github.io/terms.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://toolgram.com/contact.html</loc>
+        <loc>https://toolgram-dev.github.io/contact.html</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
+
 </urlset>
