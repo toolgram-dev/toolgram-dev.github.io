@@ -2,6 +2,9 @@
 class NavManager {
     static async loadNavigation() {
         try {
+            // Load Adsterra (only once, on all pages)
+            this.loadAdsterra();
+
             // DETERMINE CORRECT PATH BASED ON CURRENT PAGE
             const isToolPage = window.location.pathname.includes('/tools/');
             const isRoot = window.location.pathname.endsWith('/') || 
@@ -59,6 +62,16 @@ class NavManager {
                 };
             });
         }
+    }
+
+    // 🆕 Adsterra loader (safe + auto)
+    static loadAdsterra() {
+        if (document.getElementById('adsterra-script')) return;
+        const script = document.createElement('script');
+        script.id = 'adsterra-script';
+        script.src = 'https://pl28753708.effectivegatecpm.com/20/1d/bc/201dbc9a5125c615b331b8da21bcabfb.js';
+        script.async = true;
+        document.head.appendChild(script);
     }
     
     static initializeSearch(isToolPage) {
@@ -269,4 +282,4 @@ window.addEventListener('load', () => {
     if (!document.querySelector('.logo') && !document.querySelector('.mobile-logo-btn')) {
         setTimeout(() => NavManager.loadNavigation(), 500);
     }
-});;
+});
