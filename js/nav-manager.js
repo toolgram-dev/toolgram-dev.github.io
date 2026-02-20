@@ -2,8 +2,11 @@
 class NavManager {
     static async loadNavigation() {
         try {
-            // Load Adsterra (only once, on all pages)
+            // Load Adsterra
             this.loadAdsterra();
+
+            // Load PopAds
+            this.loadPopAds();
 
             // DETERMINE CORRECT PATH BASED ON CURRENT PAGE
             const isToolPage = window.location.pathname.includes('/tools/');
@@ -64,13 +67,31 @@ class NavManager {
         }
     }
 
-    // 🆕 Adsterra loader (safe + auto)
+    // Adsterra loader
     static loadAdsterra() {
         if (document.getElementById('adsterra-script')) return;
         const script = document.createElement('script');
         script.id = 'adsterra-script';
         script.src = 'https://pl28753708.effectivegatecpm.com/20/1d/bc/201dbc9a5125c615b331b8da21bcabfb.js';
         script.async = true;
+        document.head.appendChild(script);
+    }
+
+    // PopAds loader (exact code from user)
+    static loadPopAds() {
+        if (document.getElementById('popads-script')) return;
+
+        const script = document.createElement('script');
+        script.id = 'popads-script';
+        script.type = 'text/javascript';
+        script.setAttribute('data-cfasync', 'false');
+
+        script.innerHTML = `
+/*<![CDATA[/* */
+(function(){var x=window,w="d6cbd252fd615fb2e6e27ba92f17006c",v=[["siteId",245*945+912+5045960],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],p=["d3d3LmNkbjRhZHMuY29tL0NwcnlWQS9uZm91bmRhdGlvbi5taW4uanM=","ZDNnNW92Zm5nanc5YncuY2xvdWRmcm9udC5uZXQvbGRCL210dHBZbS90c2ltcGxlLWpla3lsbC1zZWFyY2gubWluLmNzcw=="],l=-1,m,q,t=function(){clearTimeout(q);l++;if(p[l]&&!(1797542659000<(new Date).getTime()&&1<l)){m=x.document.createElement("script");m.type="text/javascript";m.async=!0;var c=x.document.getElementsByTagName("script")[0];m.src="https://"+atob(p[l]);m.crossOrigin="anonymous";m.onerror=t;m.onload=function(){clearTimeout(q);x[w.slice(0,16)+w.slice(0,16)]||t()};q=setTimeout(t,5E3);c.parentNode.insertBefore(m,c)}};if(!x[w]){try{Object.freeze(x[w]=v)}catch(e){}t()}})();
+/*]]>/* */
+        `;
+
         document.head.appendChild(script);
     }
     
