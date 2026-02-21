@@ -2,11 +2,17 @@
 class NavManager {
     static async loadNavigation() {
         try {
-            // Load Adsterra
+            // Load Adsterra Social Bar
             this.loadAdsterra();
 
             // Load PopAds
             this.loadPopAds();
+
+            // Load Adsterra Native Banner
+            this.loadNativeBanner();
+
+            // Load Adsterra 728x90 Banner
+            this.loadBanner728x90();
 
             // DETERMINE CORRECT PATH BASED ON CURRENT PAGE
             const isToolPage = window.location.pathname.includes('/tools/');
@@ -67,7 +73,7 @@ class NavManager {
         }
     }
 
-    // Adsterra loader
+    // Adsterra Social Bar loader
     static loadAdsterra() {
         if (document.getElementById('adsterra-script')) return;
         const script = document.createElement('script');
@@ -77,7 +83,7 @@ class NavManager {
         document.head.appendChild(script);
     }
 
-    // PopAds loader (exact code from user)
+    // PopAds loader
     static loadPopAds() {
         if (document.getElementById('popads-script')) return;
 
@@ -94,6 +100,50 @@ class NavManager {
 
         document.head.appendChild(script);
     }
+
+    // NEW: Adsterra Native Banner
+    static loadNativeBanner() {
+        if (document.getElementById('native-banner-script')) return;
+        
+        // Add the div container first
+        const container = document.createElement('div');
+        container.id = 'container-f2d3b03b2fb4632131e91a84149b1140';
+        document.body.appendChild(container);
+
+        // Then add the script
+        const script = document.createElement('script');
+        script.id = 'native-banner-script';
+        script.src = 'https://pl28764872.effectivegatecpm.com/f2d3b03b2fb4632131e91a84149b1140/invoke.js';
+        script.async = true;
+        script.setAttribute('data-cfasync', 'false');
+        document.body.appendChild(script);
+    }
+
+    // NEW: Adsterra 728x90 Banner
+    static loadBanner728x90() {
+        if (document.getElementById('banner-728x90-script')) return;
+
+        // Add atOptions config
+        const atOptionsScript = document.createElement('script');
+        atOptionsScript.innerHTML = `
+            atOptions = {
+                'key' : 'cf9bd3cd1dbdfb9cc6dae71b0a1ab89c',
+                'format' : 'iframe',
+                'height' : 90,
+                'width' : 728,
+                'params' : {}
+            };
+        `;
+        document.head.appendChild(atOptionsScript);
+
+        // Add invoke script
+        const script = document.createElement('script');
+        script.id = 'banner-728x90-script';
+        script.src = 'https://www.highperformanceformat.com/cf9bd3cd1dbdfb9cc6dae71b0a1ab89c/invoke.js';
+        document.body.appendChild(script);
+    }
+    
+    // ... rest of your existing methods (initializeSearch, etc.) stay exactly the same ...
     
     static initializeSearch(isToolPage) {
         const searchInput = document.getElementById('nav-search');
