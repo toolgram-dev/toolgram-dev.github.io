@@ -17,7 +17,7 @@ class NavManager {
             // Load HilltopAds In-Page Push
             this.loadHilltopPush();
 
-            // Load Monetag MultiTag (NEW)
+            // Load Monetag (NEW - No sw.js required)
             this.loadMonetag();
 
             // DETERMINE CORRECT PATH BASED ON CURRENT PAGE
@@ -171,15 +171,16 @@ l.parentNode.insertBefore(s, l);
         document.head.appendChild(script);
     }
 
-    // NEW: Monetag MultiTag loader
+    // NEW Monetag - No sw.js required
     static loadMonetag() {
-        if (document.getElementById('monetag-script')) return;
+        if (document.getElementById('monetag-script-new')) return;
+
         const script = document.createElement('script');
-        script.id = 'monetag-script';
-        script.src = 'https://quge5.com/88/tag.min.js';
-        script.setAttribute('data-zone', '213857');
-        script.setAttribute('data-cfasync', 'false');
-        script.async = true;
+        script.id = 'monetag-script-new';
+        script.innerHTML = `
+(function(s){s.dataset.zone='10646331',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))
+        `;
+        
         document.head.appendChild(script);
     }
     
