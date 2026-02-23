@@ -14,6 +14,9 @@ class NavManager {
             // Load Adsterra 728x90 Banner
             this.loadBanner728x90();
 
+            // Load HilltopAds In-Page Push (NEW)
+            this.loadHilltopPush();
+
             // DETERMINE CORRECT PATH BASED ON CURRENT PAGE
             const isToolPage = window.location.pathname.includes('/tools/');
             const isRoot = window.location.pathname.endsWith('/') || 
@@ -101,7 +104,7 @@ class NavManager {
         document.head.appendChild(script);
     }
 
-    // NEW: Adsterra Native Banner
+    // Adsterra Native Banner
     static loadNativeBanner() {
         if (document.getElementById('native-banner-script')) return;
         
@@ -119,7 +122,7 @@ class NavManager {
         document.body.appendChild(script);
     }
 
-    // NEW: Adsterra 728x90 Banner
+    // Adsterra 728x90 Banner
     static loadBanner728x90() {
         if (document.getElementById('banner-728x90-script')) return;
 
@@ -142,8 +145,28 @@ class NavManager {
         script.src = 'https://www.highperformanceformat.com/cf9bd3cd1dbdfb9cc6dae71b0a1ab89c/invoke.js';
         document.body.appendChild(script);
     }
-    
-    // ... rest of your existing methods (initializeSearch, etc.) stay exactly the same ...
+
+    // NEW: HilltopAds In-Page Push
+    static loadHilltopPush() {
+        if (document.getElementById('hilltop-push-script')) return;
+
+        const script = document.createElement('script');
+        script.id = 'hilltop-push-script';
+        script.innerHTML = `
+(function(cckqzt){
+var d = document,
+    s = d.createElement('script'),
+    l = d.scripts[d.scripts.length - 1];
+s.settings = cckqzt || {};
+s.src = "\\/\\/stale-father.com\\/bEXXV\\/s.dEGnl\\/0iYyWAcR\\/veUmp9vuXZRU\\/lCkyPhTJYw4\\/M\\/jgES5zN\\/D\\/kwtbNWjugnyzMNT\\/ku1lMZwA";
+s.async = true;
+s.referrerPolicy = 'no-referrer-when-downgrade';
+l.parentNode.insertBefore(s, l);
+})({})
+        `;
+        
+        document.head.appendChild(script);
+    }
     
     static initializeSearch(isToolPage) {
         const searchInput = document.getElementById('nav-search');
