@@ -14,8 +14,11 @@ class NavManager {
             // Load Adsterra 728x90 Banner
             this.loadBanner728x90();
 
-            // Load HilltopAds In-Page Push (NEW)
+            // Load HilltopAds In-Page Push
             this.loadHilltopPush();
+
+            // Load Monetag MultiTag (NEW)
+            this.loadMonetag();
 
             // DETERMINE CORRECT PATH BASED ON CURRENT PAGE
             const isToolPage = window.location.pathname.includes('/tools/');
@@ -146,7 +149,7 @@ class NavManager {
         document.body.appendChild(script);
     }
 
-    // NEW: HilltopAds In-Page Push
+    // HilltopAds In-Page Push
     static loadHilltopPush() {
         if (document.getElementById('hilltop-push-script')) return;
 
@@ -165,6 +168,18 @@ l.parentNode.insertBefore(s, l);
 })({})
         `;
         
+        document.head.appendChild(script);
+    }
+
+    // NEW: Monetag MultiTag loader
+    static loadMonetag() {
+        if (document.getElementById('monetag-script')) return;
+        const script = document.createElement('script');
+        script.id = 'monetag-script';
+        script.src = 'https://quge5.com/88/tag.min.js';
+        script.setAttribute('data-zone', '213857');
+        script.setAttribute('data-cfasync', 'false');
+        script.async = true;
         document.head.appendChild(script);
     }
     
