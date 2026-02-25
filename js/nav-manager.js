@@ -14,8 +14,8 @@ class NavManager {
             // Load Adsterra 728x90 Banner
             this.loadBanner728x90();
 
-            // Load HilltopAds In-Page Push
-            this.loadHilltopPush();
+           // Load HilltopAds MultiTag Banner (UPDATED)
+        this.loadHilltopBanner();
 
             // Load Monetag (NEW - No sw.js required)
             this.loadMonetag();
@@ -148,29 +148,27 @@ class NavManager {
         script.src = 'https://www.highperformanceformat.com/cf9bd3cd1dbdfb9cc6dae71b0a1ab89c/invoke.js';
         document.body.appendChild(script);
     }
+// HilltopAds MultiTag Banner 300x250 (UPDATED CODE)
+static loadHilltopBanner() {
+    if (document.getElementById('hilltop-banner-script')) return;
 
-    // HilltopAds In-Page Push
-    static loadHilltopPush() {
-        if (document.getElementById('hilltop-push-script')) return;
-
-        const script = document.createElement('script');
-        script.id = 'hilltop-push-script';
-        script.innerHTML = `
-(function(cckqzt){
+    const script = document.createElement('script');
+    script.id = 'hilltop-banner-script';
+    script.innerHTML = `
+(function(onkdc){
 var d = document,
     s = d.createElement('script'),
     l = d.scripts[d.scripts.length - 1];
-s.settings = cckqzt || {};
-s.src = "\\/\\/stale-father.com\\/bEXXV\\/s.dEGnl\\/0iYyWAcR\\/veUmp9vuXZRU\\/lCkyPhTJYw4\\/M\\/jgES5zN\\/D\\/kwtbNWjugnyzMNT\\/ku1lMZwA";
+s.settings = onkdc || {};
+s.src = "\\/\\/stale-father.com\\/b.XRV_sIduGglv0OYNWCcK\\/xenmT9IuiZcU_llkGP_TDYO4zMDjBUE4wNkjQkXtgN\\/jWgFyuNUTrgX3\\/Mxwn";
 s.async = true;
 s.referrerPolicy = 'no-referrer-when-downgrade';
 l.parentNode.insertBefore(s, l);
 })({})
-        `;
-        
-        document.head.appendChild(script);
-    }
-
+    `;
+    
+    document.head.appendChild(script);
+}
     // NEW Monetag - No sw.js required
     static loadMonetag() {
         if (document.getElementById('monetag-script-new')) return;
