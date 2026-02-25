@@ -11,15 +11,6 @@ class NavManager {
             // Load Adsterra Native Banner
             this.loadNativeBanner();
 
-            // Load Adsterra 728x90 Banner
-            this.loadBanner728x90();
-
-           // Load HilltopAds MultiTag Banner (UPDATED)
-        this.loadHilltopBanner();
-
-            // Load Monetag (NEW - No sw.js required)
-            this.loadMonetag();
-
             // DETERMINE CORRECT PATH BASED ON CURRENT PAGE
             const isToolPage = window.location.pathname.includes('/tools/');
             const isRoot = window.location.pathname.endsWith('/') || 
@@ -124,64 +115,6 @@ class NavManager {
         script.setAttribute('data-cfasync', 'false');
         document.body.appendChild(script);
     }
-
-    // Adsterra 728x90 Banner
-    static loadBanner728x90() {
-        if (document.getElementById('banner-728x90-script')) return;
-
-        // Add atOptions config
-        const atOptionsScript = document.createElement('script');
-        atOptionsScript.innerHTML = `
-            atOptions = {
-                'key' : 'cf9bd3cd1dbdfb9cc6dae71b0a1ab89c',
-                'format' : 'iframe',
-                'height' : 90,
-                'width' : 728,
-                'params' : {}
-            };
-        `;
-        document.head.appendChild(atOptionsScript);
-
-        // Add invoke script
-        const script = document.createElement('script');
-        script.id = 'banner-728x90-script';
-        script.src = 'https://www.highperformanceformat.com/cf9bd3cd1dbdfb9cc6dae71b0a1ab89c/invoke.js';
-        document.body.appendChild(script);
-    }
-// HilltopAds MultiTag Banner 300x250 (UPDATED CODE)
-static loadHilltopBanner() {
-    if (document.getElementById('hilltop-banner-script')) return;
-
-    const script = document.createElement('script');
-    script.id = 'hilltop-banner-script';
-    script.innerHTML = `
-(function(onkdc){
-var d = document,
-    s = d.createElement('script'),
-    l = d.scripts[d.scripts.length - 1];
-s.settings = onkdc || {};
-s.src = "\\/\\/stale-father.com\\/b.XRV_sIduGglv0OYNWCcK\\/xenmT9IuiZcU_llkGP_TDYO4zMDjBUE4wNkjQkXtgN\\/jWgFyuNUTrgX3\\/Mxwn";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})
-    `;
-    
-    document.head.appendChild(script);
-}
-    // NEW Monetag - No sw.js required
-    static loadMonetag() {
-        if (document.getElementById('monetag-script-new')) return;
-
-        const script = document.createElement('script');
-        script.id = 'monetag-script-new';
-        script.innerHTML = `
-(function(s){s.dataset.zone='10646331',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))
-        `;
-        
-        document.head.appendChild(script);
-    }
-    
     static initializeSearch(isToolPage) {
         const searchInput = document.getElementById('nav-search');
         const searchResults = document.getElementById('search-results');
