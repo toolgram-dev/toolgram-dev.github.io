@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Main Pages -->
     <url>
         <loc>https://toolgram-dev.github.io/</loc>
         <lastmod>2024-01-01</lastmod>
@@ -12,6 +13,8 @@
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
+    
+    <!-- Original Tools (10) -->
     <url>
         <loc>https://toolgram-dev.github.io/tools/uuid.html</loc>
         <lastmod>2024-01-01</lastmod>
@@ -72,6 +75,64 @@
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
+    
+    <!-- New Tools (9) - Added bcrypt-check.html removed -->
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/slug-generator.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/jwt-decoder.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/markdown-to-html.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/css-minifier.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/lorem-ipsum.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/contrast-ratio.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/xml-to-json.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/rem-converter.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/text-diff.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Info Pages -->
     <url>
         <loc>https://toolgram-dev.github.io/about.html</loc>
         <lastmod>2024-01-01</lastmod>
@@ -96,59 +157,4 @@
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
-
 </urlset>
-<url>
-    <loc>https://toolgram-dev.github.io/tools/slug-generator.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
-<url>
-    <loc>https://toolgram-dev.github.io/tools/jwt-decoder.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
-<url>
-    <loc>https://toolgram-dev.github.io/tools/markdown-to-html.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
-<url>
-    <loc>https://toolgram-dev.github.io/tools/css-minifier.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
-<url>
-    <loc>https://toolgram-dev.github.io/tools/lorem-ipsum.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
-<url>
-    <loc>https://toolgram-dev.github.io/tools/contrast-ratio.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
-<url>
-    <loc>https://toolgram-dev.github.io/tools/xml-to-json.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
-<url>
-    <loc>https://toolgram-dev.github.io/tools/rem-converter.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
-<url>
-    <loc>https://toolgram-dev.github.io/tools/text-diff.html</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
