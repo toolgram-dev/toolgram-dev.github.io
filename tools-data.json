@@ -89,69 +89,69 @@
       "color": "linear-gradient(135deg,#1E40AF,#06B6D4)",
       "popular": false,
       "file": "case-normalizer.html"
+    },
+    {
+      "title": "URL Slug Generator",
+      "desc": "Create SEO-friendly URL slugs from text",
+      "file": "slug-generator.html",
+      "icon": "fa-link",
+      "popular": true
+    },
+    {
+      "title": "JWT Decoder",
+      "desc": "Decode JSON Web Tokens instantly",
+      "file": "jwt-decoder.html",
+      "icon": "fa-key",
+      "popular": true
+    },
+    {
+      "title": "Markdown to HTML",
+      "desc": "Convert Markdown to HTML code",
+      "file": "markdown-to-html.html",
+      "icon": "fa-markdown",
+      "popular": true
+    },
+    {
+      "title": "CSS Minifier",
+      "desc": "Compress and minify CSS stylesheets",
+      "file": "css-minifier.html",
+      "icon": "fa-css3-alt",
+      "popular": true
+    },
+    {
+      "title": "Lorem Ipsum Generator",
+      "desc": "Generate placeholder text for designs",
+      "file": "lorem-ipsum.html",
+      "icon": "fa-paragraph",
+      "popular": true
+    },
+    {
+      "title": "Color Contrast Checker",
+      "desc": "WCAG accessibility contrast testing",
+      "file": "contrast-ratio.html",
+      "icon": "fa-adjust",
+      "popular": true
+    },
+    {
+      "title": "XML to JSON Converter",
+      "desc": "Transform XML data to JSON format",
+      "file": "xml-to-json.html",
+      "icon": "fa-code-branch",
+      "popular": true
+    },
+    {
+      "title": "PX to REM Converter",
+      "desc": "Convert pixels to REM units for CSS",
+      "file": "rem-converter.html",
+      "icon": "fa-arrows-alt-h",
+      "popular": true
+    },
+    {
+      "title": "Text Diff Checker",
+      "desc": "Compare two text versions side by side",
+      "file": "text-diff.html",
+      "icon": "fa-not-equal",
+      "popular": true
     }
+  ]
 }
-{
-  "title": "URL Slug Generator",
-  "desc": "Create SEO-friendly URL slugs from text",
-  "file": "slug-generator.html",
-  "icon": "fa-link",
-  "popular": true
-},
-{
-  "title": "JWT Decoder",
-  "desc": "Decode JSON Web Tokens instantly",
-  "file": "jwt-decoder.html",
-  "icon": "fa-key",
-  "popular": true
-},
-{
-  "title": "Markdown to HTML",
-  "desc": "Convert Markdown to HTML code",
-  "file": "markdown-to-html.html",
-  "icon": "fa-markdown",
-  "popular": true
-},
-{
-  "title": "CSS Minifier",
-  "desc": "Compress and minify CSS stylesheets",
-  "file": "css-minifier.html",
-  "icon": "fa-css3-alt",
-  "popular": true
-},
-{
-  "title": "Lorem Ipsum Generator",
-  "desc": "Generate placeholder text for designs",
-  "file": "lorem-ipsum.html",
-  "icon": "fa-paragraph",
-  "popular": true
-},
-{
-  "title": "Color Contrast Checker",
-  "desc": "WCAG accessibility contrast testing",
-  "file": "contrast-ratio.html",
-  "icon": "fa-adjust",
-  "popular": true
-},
-{
-  "title": "XML to JSON Converter",
-  "desc": "Transform XML data to JSON format",
-  "file": "xml-to-json.html",
-  "icon": "fa-code-branch",
-  "popular": true
-},
-{
-  "title": "PX to REM Converter",
-  "desc": "Convert pixels to REM units for CSS",
-  "file": "rem-converter.html",
-  "icon": "fa-arrows-alt-h",
-  "popular": true
-},
-{
-  "title": "Text Diff Checker",
-  "desc": "Compare two text versions side by side",
-  "file": "text-diff.html",
-  "icon": "fa-not-equal",
-  "popular": true
-}
-]
