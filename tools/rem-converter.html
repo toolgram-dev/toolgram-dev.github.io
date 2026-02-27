@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PX to REM Converter - CSS Unit Converter | ToolGram</title>
+    <meta name="description" content="Free online PX to REM converter for responsive web design. Convert pixels to REM units and vice versa. Customize base font size for accurate conversion. Perfect for CSS development.">
+    <meta name="keywords" content="px to rem, rem converter, css units, pixel to rem, responsive design, font size converter, css converter, rem calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/rem-converter.html">
+    <meta property="og:title" content="PX to REM Converter - CSS Unit Converter | ToolGram">
+    <meta property="og:description" content="Convert pixels to REM and back for responsive CSS development.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/rem-converter.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PX to REM Converter",
+        "description": "Convert pixels to REM units and vice versa for responsive web design.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/rem-converter.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["PX to REM Conversion", "REM to PX Conversion", "Custom Base Font Size", "Live Calculation", "CSS Unit Helper"]
+    }
+    </script>
+</head>
+<body>
+   <div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-arrows-alt-h"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">PX to REM Converter</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Convert between pixels and REM units for responsive CSS
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div style="background:rgba(255,255,255,0.05);border-radius:20px;padding:30px;margin-bottom:30px;">
+                    <div style="display:flex;gap:20px;align-items:center;margin-bottom:20px;">
+                        <div style="flex:1;text-align:right;color:#8B5CF6;font-weight:600;">Base Font Size:</div>
+                        <div style="flex:2;">
+                            <input type="number" id="base-size" value="16" min="1" max="100" step="1" style="width:100px;padding:10px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:white;"> px
+                        </div>
+                        <div style="flex:2;color:rgba(255,255,255,0.6);">(Default: 16px)</div>
+                    </div>
+                </div>
+                
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;">
+                    <div style="background:rgba(255,255,255,0.03);border-radius:20px;padding:30px;">
+                        <h3 style="color:#8B5CF6;margin-bottom:20px;">PX → REM</h3>
+                        <div style="display:flex;gap:10px;align-items:center;margin-bottom:20px;">
+                            <input type="number" id="px-input" value="16" min="0" step="1" style="flex:1;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:white;">
+                            <span style="color:white;font-size:1.2rem;">px =</span>
+                            <div style="flex:1;background:rgba(139,92,246,0.1);padding:15px;border-radius:8px;color:#8B5CF6;font-weight:bold;font-size:1.2rem;" id="rem-result">1 rem</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background:rgba(255,255,255,0.03);border-radius:20px;padding:30px;">
+                        <h3 style="color:#06B6D4;margin-bottom:20px;">REM → PX</h3>
+                        <div style="display:flex;gap:10px;align-items:center;margin-bottom:20px;">
+                            <input type="number" id="rem-input" value="1" min="0" step="0.1" style="flex:1;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:white;">
+                            <span style="color:white;font-size:1.2rem;">rem =</span>
+                            <div style="flex:1;background:rgba(6,182,212,0.1);padding:15px;border-radius:8px;color:#06B6D4;font-weight:bold;font-size:1.2rem;" id="px-result">16 px</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-content-section" style="margin-top:40px;">
+                    <h3 style="color:#8B5CF6;margin-bottom:20px;">Common Conversions (16px base)</h3>
+                    <table style="width:100%;border-collapse:collapse;">
+                        <tr style="background:rgba(139,92,246,0.1);">
+                            <th style="padding:12px;text-align:left;">Pixels</th>
+                            <th style="padding:12px;text-align:left;">REM</th>
+                            <th style="padding:12px;text-align:left;">Use Case</th>
+                        </tr>
+                        <tr><td style="padding:8px;">8px</td><td>0.5rem</td><td>Small spacing</td></tr>
+                        <tr><td style="padding:8px;">12px</td><td>0.75rem</td><td>Small text</td></tr>
+                        <tr><td style="padding:8px;">14px</td><td>0.875rem</td><td>Body text</td></tr>
+                        <tr><td style="padding:8px;">16px</td><td>1rem</td><td>Base text</td></tr>
+                        <tr><td style="padding:8px;">20px</td><td>1.25rem</td><td>Large text</td></tr>
+                        <tr><td style="padding:8px;">24px</td><td>1.5rem</td><td>Headings</td></tr>
+                        <tr><td style="padding:8px;">32px</td><td>2rem</td><td>Large headings</td></tr>
+                        <tr><td style="padding:8px;">48px</td><td>3rem</td><td>Hero text</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>What is REM in CSS?</h2>
+                <p>REM stands for "Root EM". It's a relative CSS unit that's based on the font size of the root element (html). By default, 1rem equals 16px in most browsers. Using REM units makes your designs responsive and accessible, as they scale proportionally when users change their browser's default font size.</p>
+                <p>Unlike pixels (px) which are absolute, REM units respect user preferences and are essential for creating accessible, scalable websites.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Why use REM instead of PX?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">REM units respect user browser settings. If a user increases their default font size, REM-based designs scale accordingly, improving accessibility for people with visual impairments.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What's the difference between REM and EM?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">REM is always relative to the root (html) font size. EM is relative to the parent element's font size, which can lead to compounding issues in nested elements.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Can I change the base font size?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Yes! Use our custom base size slider above to convert for any base font size. The default is 16px, but many designs use 10px for easier math (1rem = 10px).</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    function updateConversions() {
+        const baseSize = parseFloat(document.getElementById('base-size').value) || 16;
+        
+        // PX to REM
+        const px = parseFloat(document.getElementById('px-input').value) || 0;
+        const rem = (px / baseSize).toFixed(3);
+        document.getElementById('rem-result').textContent = rem + ' rem';
+        
+        // REM to PX
+        const remVal = parseFloat(document.getElementById('rem-input').value) || 0;
+        const pxVal = (remVal * baseSize).toFixed(1);
+        document.getElementById('px-result').textContent = pxVal + ' px';
+    }
+    
+    // Event listeners
+    document.getElementById('base-size').addEventListener('input', updateConversions);
+    document.getElementById('px-input').addEventListener('input', updateConversions);
+    document.getElementById('rem-input').addEventListener('input', updateConversions);
+    
+    // Initial update
+    window.addEventListener('load', updateConversions);
+    </script>
+</body>
+</html>

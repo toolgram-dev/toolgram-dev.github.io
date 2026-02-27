@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Color Contrast Checker - WCAG Accessibility Tool | ToolGram</title>
+    <meta name="description" content="Free WCAG color contrast checker for accessibility compliance. Test foreground and background color combinations to ensure your website meets AA and AAA accessibility standards for text readability.">
+    <meta name="keywords" content="color contrast checker, wcag contrast, accessibility checker, color ratio, contrast ratio, aa compliance, aaa compliance, web accessibility">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/contrast-ratio.html">
+    <meta property="og:title" content="Color Contrast Checker - WCAG Accessibility Tool | ToolGram">
+    <meta property="og:description" content="Check color contrast ratios for WCAG accessibility compliance.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/contrast-ratio.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Color Contrast Checker",
+        "description": "Check color contrast ratios for WCAG accessibility compliance. Test text readability for AA and AAA standards.",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/contrast-ratio.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["Contrast Ratio Calculation", "WCAG AA/AAA Checking", "Hex Color Input", "Pass/Fail Indicators", "Accessibility Testing"]
+    }
+    </script>
+</head>
+<body>
+   <div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">Color Contrast Checker</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        WCAG accessibility contrast checker for text readability
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:30px;">
+                    <div>
+                        <div class="tool-column-title">
+                            <i class="fas fa-paint-brush"></i> Background Color
+                        </div>
+                        <div style="display:flex;gap:10px;align-items:center;">
+                            <input type="color" id="bg-color" value="#8B5CF6" style="width:60px;height:60px;border:none;border-radius:10px;">
+                            <input type="text" id="bg-hex" value="#8B5CF6" class="tool-textarea" style="height:50px;font-family:monospace;">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="tool-column-title">
+                            <i class="fas fa-font"></i> Text Color
+                        </div>
+                        <div style="display:flex;gap:10px;align-items:center;">
+                            <input type="color" id="text-color" value="#FFFFFF" style="width:60px;height:60px;border:none;border-radius:10px;">
+                            <input type="text" id="text-hex" value="#FFFFFF" class="tool-textarea" style="height:50px;font-family:monospace;">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="preview-area" style="background:rgba(255,255,255,0.05);border-radius:20px;padding:40px;text-align:center;margin-bottom:30px;" id="color-preview">
+                    <p style="font-size:24px;font-weight:bold;">Sample Text Preview</p>
+                    <p style="font-size:16px;">The quick brown fox jumps over the lazy dog.</p>
+                </div>
+                
+                <div class="results-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:30px;">
+                    <div class="stat-card" style="background:rgba(255,255,255,0.05);border-radius:15px;padding:20px;text-align:center;">
+                        <div style="color:#8B5CF6;font-size:2rem;font-weight:bold;" id="contrast-ratio">4.5:1</div>
+                        <div style="color:rgba(255,255,255,0.6);">Contrast Ratio</div>
+                    </div>
+                    <div class="stat-card" style="background:rgba(255,255,255,0.05);border-radius:15px;padding:20px;text-align:center;">
+                        <div id="aa-normal" style="font-size:1.5rem;margin-bottom:5px;">✓ Pass</div>
+                        <div style="color:rgba(255,255,255,0.6);">AA (Normal Text)</div>
+                    </div>
+                    <div class="stat-card" style="background:rgba(255,255,255,0.05);border-radius:15px;padding:20px;text-align:center;">
+                        <div id="aaa-normal" style="font-size:1.5rem;margin-bottom:5px;">✗ Fail</div>
+                        <div style="color:rgba(255,255,255,0.6);">AAA (Normal Text)</div>
+                    </div>
+                </div>
+                
+                <div class="wcag-info" style="background:rgba(139,92,246,0.1);border-radius:15px;padding:20px;">
+                    <h3 style="color:#8B5CF6;margin-bottom:15px;">WCAG Requirements</h3>
+                    <table style="width:100%;text-align:left;">
+                        <tr>
+                            <th>Level</th>
+                            <th>Normal Text</th>
+                            <th>Large Text</th>
+                            <th>UI Components</th>
+                        </tr>
+                        <tr>
+                            <td>AA</td>
+                            <td>4.5:1</td>
+                            <td>3:1</td>
+                            <td>3:1</td>
+                        </tr>
+                        <tr>
+                            <td>AAA</td>
+                            <td>7:1</td>
+                            <td>4.5:1</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>Why Color Contrast Matters</h2>
+                <p>Color contrast is essential for web accessibility. Users with visual impairments, color blindness, or low vision need sufficient contrast between text and background to read content. WCAG (Web Content Accessibility Guidelines) sets specific contrast ratios to ensure content is accessible to everyone.</p>
+                <p>Our tool calculates contrast ratios according to WCAG 2.1 standards and instantly tells you if your color combinations pass AA or AAA requirements for normal text, large text, and UI components.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What is a good contrast ratio?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">For normal text, 4.5:1 is the minimum for WCAG AA compliance. 7:1 is required for AAA. Large text (18pt+ or 14pt+ bold) requires 3:1 for AA and 4.5:1 for AAA.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">How is contrast ratio calculated?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">It uses the relative luminance of both colors: (L1 + 0.05) / (L2 + 0.05), where L1 is the lighter color and L2 is the darker color. Luminance is calculated from RGB values.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Does this affect SEO?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Yes! Google considers accessibility in its ranking algorithms. Accessible websites often rank higher and provide better user experience, reducing bounce rates.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    function hexToRgb(hex) {
+        hex = hex.replace('#', '');
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+        return { r, g, b };
+    }
+    
+    function getLuminance(r, g, b) {
+        const rs = r / 255;
+        const gs = g / 255;
+        const bs = b / 255;
+        
+        const rl = rs <= 0.03928 ? rs / 12.92 : Math.pow((rs + 0.055) / 1.055, 2.4);
+        const gl = gs <= 0.03928 ? gs / 12.92 : Math.pow((gs + 0.055) / 1.055, 2.4);
+        const bl = bs <= 0.03928 ? bs / 12.92 : Math.pow((bs + 0.055) / 1.055, 2.4);
+        
+        return 0.2126 * rl + 0.7152 * gl + 0.0722 * bl;
+    }
+    
+    function calculateContrast() {
+        const bgHex = document.getElementById('bg-hex').value;
+        const textHex = document.getElementById('text-hex').value;
+        
+        const bgRgb = hexToRgb(bgHex);
+        const textRgb = hexToRgb(textHex);
+        
+        const bgLum = getLuminance(bgRgb.r, bgRgb.g, bgRgb.b);
+        const textLum = getLuminance(textRgb.r, textRgb.g, textRgb.b);
+        
+        const lighter = Math.max(bgLum, textLum);
+        const darker = Math.min(bgLum, textLum);
+        
+        const ratio = (lighter + 0.05) / (darker + 0.05);
+        const roundedRatio = Math.round(ratio * 10) / 10;
+        
+        // Update preview
+        const preview = document.getElementById('color-preview');
+        preview.style.backgroundColor = bgHex;
+        preview.style.color = textHex;
+        
+        // Update ratio display
+        document.getElementById('contrast-ratio').textContent = roundedRatio + ':1';
+        
+        // Check WCAG levels
+        const aaNormal = roundedRatio >= 4.5;
+        const aaaNormal = roundedRatio >= 7;
+        const aaLarge = roundedRatio >= 3;
+        const aaaLarge = roundedRatio >= 4.5;
+        
+        document.getElementById('aa-normal').innerHTML = aaNormal ? 
+            '<span style="color:#10B981;">✓ Pass</span>' : 
+            '<span style="color:#EF4444;">✗ Fail</span>';
+        
+        document.getElementById('aaa-normal').innerHTML = aaaNormal ? 
+            '<span style="color:#10B981;">✓ Pass</span>' : 
+            '<span style="color:#EF4444;">✗ Fail</span>';
+    }
+    
+    // Sync color picker with hex input
+    document.getElementById('bg-color').addEventListener('input', function(e) {
+        document.getElementById('bg-hex').value = e.target.value;
+        calculateContrast();
+    });
+    
+    document.getElementById('text-color').addEventListener('input', function(e) {
+        document.getElementById('text-hex').value = e.target.value;
+        calculateContrast();
+    });
+    
+    document.getElementById('bg-hex').addEventListener('input', function(e) {
+        let val = e.target.value;
+        if (!val.startsWith('#')) val = '#' + val;
+        if (/^#[0-9A-F]{6}$/i.test(val)) {
+            document.getElementById('bg-color').value = val;
+            calculateContrast();
+        }
+    });
+    
+    document.getElementById('text-hex').addEventListener('input', function(e) {
+        let val = e.target.value;
+        if (!val.startsWith('#')) val = '#' + val;
+        if (/^#[0-9A-F]{6}$/i.test(val)) {
+            document.getElementById('text-color').value = val;
+            calculateContrast();
+        }
+    });
+    
+    // Initial calculation
+    window.addEventListener('load', calculateContrast);
+    </script>
+</body>
+</html>

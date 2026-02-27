@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Markdown to HTML Converter - Free Online Tool | ToolGram</title>
+    <meta name="description" content="Free online Markdown to HTML converter. Transform Markdown syntax into clean HTML instantly. Supports headings, lists, links, code blocks, and more. Client-side only, no data upload.">
+    <meta name="keywords" content="markdown to html, md to html, markdown converter, markdown editor, html generator, markdown syntax, readme to html">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/markdown-to-html.html">
+    <meta property="og:title" content="Markdown to HTML Converter - Free Online Tool | ToolGram">
+    <meta property="og:description" content="Convert Markdown to HTML instantly in your browser.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/markdown-to-html.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Markdown to HTML Converter",
+        "description": "Convert Markdown syntax to clean HTML instantly in your browser.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/markdown-to-html.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["Markdown Conversion", "HTML Generation", "Live Preview", "Copy HTML", "Client-side Only"]
+    }
+    </script>
+</head>
+<body>
+   <div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fab fa-markdown"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">Markdown to HTML Converter</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Transform Markdown syntax into clean HTML instantly
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fab fa-markdown"></i> Markdown Input
+                    </div>
+                    <textarea class="tool-textarea" id="markdown-input" placeholder="Enter Markdown here...&#10;&#10;# Heading 1&#10;## Heading 2&#10;**Bold text**&#10;*Italic text*&#10;- List item 1&#10;- List item 2&#10;&#10;[Link text](https://example.com)&#10;&#10;```&#10;Code block&#10;```"></textarea>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="convertMarkdown()">
+                            <i class="fas fa-sync-alt"></i> Convert to HTML
+                        </button>
+                        <button class="secondary-btn" onclick="clearMarkdown()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                        <button class="secondary-btn" onclick="exampleMarkdown()">
+                            <i class="fas fa-lightbulb"></i> Example
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-code"></i> HTML Output
+                    </div>
+                    <div class="output-display" id="markdown-output" style="min-height:200px;text-align:left;padding:15px;font-family:monospace;">
+                        <span style="color:rgba(255,255,255,0.5);">Converted HTML will appear here...</span>
+                    </div>
+                    <div class="tool-actions" style="margin-top:15px;">
+                        <button class="copy-btn" onclick="copyHTML()">
+                            <i class="far fa-copy"></i> Copy HTML
+                        </button>
+                        <button class="secondary-btn" onclick="previewHTML()">
+                            <i class="fas fa-eye"></i> Preview
+                        </button>
+                    </div>
+                    <div class="tool-stats">
+                        <div class="tool-stat">
+                            <i class="fas fa-ruler"></i>
+                            <span id="markdown-stats">0 chars</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>What is Markdown?</h2>
+                <p>Markdown is a lightweight markup language that uses plain text formatting syntax to create formatted text. It's designed to be easy to read and write, and can be converted to HTML. Markdown is widely used for README files, documentation, forums, and static site generators.</p>
+                <p>Our converter supports standard Markdown syntax including headings, bold, italic, links, images, lists, code blocks, and blockquotes. All conversion happens in your browser - no data is sent to servers.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Markdown Syntax Cheatsheet</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px;">
+                    <div style="background:rgba(255,255,255,0.05);padding:15px;border-radius:10px;">
+                        <h4 style="color:#8B5CF6;">Headings</h4>
+                        <code># H1</code><br>
+                        <code>## H2</code><br>
+                        <code>### H3</code>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05);padding:15px;border-radius:10px;">
+                        <h4 style="color:#06B6D4;">Emphasis</h4>
+                        <code>**bold**</code><br>
+                        <code>*italic*</code><br>
+                        <code>~~strikethrough~~</code>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05);padding:15px;border-radius:10px;">
+                        <h4 style="color:#10B981;">Lists</h4>
+                        <code>- Item 1</code><br>
+                        <code>1. Ordered 1</code>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05);padding:15px;border-radius:10px;">
+                        <h4 style="color:#EC4899;">Links</h4>
+                        <code>[title](https://)</code><br>
+                        <code>![alt](image.jpg)</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    // Markdown to HTML Converter JavaScript functionality
+    function convertMarkdown() {
+        const markdown = document.getElementById('markdown-input').value;
+        let html = markdown;
+        
+        // Process markdown line by line
+        const lines = markdown.split('\n');
+        let inCodeBlock = false;
+        let inList = false;
+        let listType = '';
+        let processedLines = [];
+        
+        for (let i = 0; i < lines.length; i++) {
+            let line = lines[i];
+            
+            // Code blocks
+            if (line.startsWith('```')) {
+                if (!inCodeBlock) {
+                    line = '<pre><code>';
+                    inCodeBlock = true;
+                } else {
+                    line = '</code></pre>';
+                    inCodeBlock = false;
+                }
+                processedLines.push(line);
+                continue;
+            }
+            
+            if (inCodeBlock) {
+                processedLines.push(line);
+                continue;
+            }
+            
+            // Headings
+            if (line.startsWith('# ')) {
+                line = `<h1>${line.substring(2)}</h1>`;
+            } else if (line.startsWith('## ')) {
+                line = `<h2>${line.substring(3)}</h2>`;
+            } else if (line.startsWith('### ')) {
+                line = `<h3>${line.substring(4)}</h3>`;
+            } else if (line.startsWith('#### ')) {
+                line = `<h4>${line.substring(5)}</h4>`;
+            } else if (line.startsWith('##### ')) {
+                line = `<h5>${line.substring(6)}</h5>`;
+            } else if (line.startsWith('###### ')) {
+                line = `<h6>${line.substring(7)}</h6>`;
+            }
+            // Horizontal rule
+            else if (line === '---' || line === '***' || line === '___') {
+                line = '<hr>';
+            }
+            // Blockquote
+            else if (line.startsWith('> ')) {
+                line = `<blockquote>${line.substring(2)}</blockquote>`;
+            }
+            // Unordered list
+            else if (line.match(/^[\*\-+] /)) {
+                if (!inList || listType !== 'ul') {
+                    if (inList) processedLines.push(`</${listType}>`);
+                    processedLines.push('<ul>');
+                    inList = true;
+                    listType = 'ul';
+                }
+                line = `<li>${line.substring(2)}</li>`;
+            }
+            // Ordered list
+            else if (line.match(/^\d+\. /)) {
+                if (!inList || listType !== 'ol') {
+                    if (inList) processedLines.push(`</${listType}>`);
+                    processedLines.push('<ol>');
+                    inList = true;
+                    listType = 'ol';
+                }
+                line = `<li>${line.substring(line.indexOf('.') + 2)}</li>`;
+            }
+            // Close lists if needed
+            else if (line.trim() === '' && inList) {
+                processedLines.push(`</${listType}>`);
+                inList = false;
+                processedLines.push(line);
+            }
+            // Paragraph (non-empty lines)
+            else if (line.trim() !== '') {
+                if (inList) {
+                    processedLines.push(`</${listType}>`);
+                    inList = false;
+                }
+                line = `<p>${line}</p>`;
+                processedLines.push(line);
+            } else {
+                processedLines.push(line);
+            }
+        }
+        
+        // Close any open lists
+        if (inList) {
+            processedLines.push(`</${listType}>`);
+        }
+        
+        html = processedLines.join('\n');
+        
+        // Inline formatting
+        html = html
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/__(.*?)__/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            .replace(/_(.*?)_/g, '<em>$1</em>')
+            .replace(/~~(.*?)~~/g, '<del>$1</del>')
+            .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
+            .replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">')
+            .replace(/`(.*?)`/g, '<code>$1</code>');
+        
+        // Display HTML
+        const output = document.getElementById('markdown-output');
+        output.innerHTML = `<pre style="background:rgba(255,255,255,0.05);padding:10px;border-radius:5px;white-space:pre-wrap;">${escapeHTML(html)}</pre>`;
+        
+        // Update stats
+        document.getElementById('markdown-stats').textContent = `${html.length} chars HTML`;
+    }
+    
+    function escapeHTML(str) {
+        return str.replace(/&/g, '&amp;')
+                  .replace(/</g, '&lt;')
+                  .replace(/>/g, '&gt;')
+                  .replace(/"/g, '&quot;')
+                  .replace(/'/g, '&#039;');
+    }
+    
+    function copyHTML() {
+        const output = document.getElementById('markdown-output');
+        const htmlText = output.innerText;
+        
+        if (htmlText && !htmlText.includes('Converted HTML')) {
+            navigator.clipboard.writeText(htmlText);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy HTML', 2000);
+        }
+    }
+    
+    function previewHTML() {
+        const output = document.getElementById('markdown-output');
+        const htmlText = output.innerText;
+        
+        if (htmlText && !htmlText.includes('Converted HTML')) {
+            const previewWindow = window.open('', '_blank');
+            previewWindow.document.write(`
+                <html>
+                <head><title>Markdown Preview</title></head>
+                <body style="font-family:sans-serif;padding:20px;">${htmlText}</body>
+                </html>
+            `);
+        }
+    }
+    
+    function clearMarkdown() {
+        document.getElementById('markdown-input').value = '';
+        document.getElementById('markdown-output').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Converted HTML will appear here...</span>';
+        document.getElementById('markdown-stats').textContent = '0 chars';
+    }
+    
+    function exampleMarkdown() {
+        document.getElementById('markdown-input').value = 
+`# Welcome to Markdown
+
+## This is a heading level 2
+
+This is a paragraph with **bold text** and *italic text*.
+
+### Features:
+
+- Easy to learn syntax
+- Converts to clean HTML
+- Perfect for documentation
+
+1. Ordered lists
+2. Also supported
+
+> Blockquotes are great for citations
+
+\`\`\`
+// Code blocks work too
+function hello() {
+    console.log("Hello Markdown!");
+}
+\`\`\`
+
+[Visit ToolGram](https://toolgram-dev.github.io)`;
+        convertMarkdown();
+    }
+    </script>
+</body>
+</html>

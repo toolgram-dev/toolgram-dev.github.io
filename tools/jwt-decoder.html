@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JWT Decoder - Decode JSON Web Tokens Online | ToolGram</title>
+    <meta name="description" content="Free online JWT decoder to inspect JSON Web Tokens. Decode the header and payload of any JWT token instantly. Client-side only, no data sent to servers. Perfect for debugging authentication.">
+    <meta name="keywords" content="jwt decoder, jwt debugger, json web token, decode jwt, token inspector, jwt payload, jwt header, auth token">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/jwt-decoder.html">
+    <meta property="og:title" content="JWT Decoder - Decode JSON Web Tokens Online | ToolGram">
+    <meta property="og:description" content="Decode and inspect JWT tokens instantly. Client-side only.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/jwt-decoder.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "JWT Decoder",
+        "description": "Decode JSON Web Tokens to inspect header and payload. Client-side only for security.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/jwt-decoder.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["JWT Decoding", "Header Inspection", "Payload View", "Token Debugging", "Client-side Only"]
+    }
+    </script>
+</head>
+<body>
+   <div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">JWT Decoder</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Decode JSON Web Tokens to inspect header and payload
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-code"></i> JWT Token
+                    </div>
+                    <textarea class="tool-textarea" id="jwt-input" placeholder="Paste your JWT token here...&#10;Example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"></textarea>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="decodeJWT()">
+                            <i class="fas fa-code"></i> Decode JWT
+                        </button>
+                        <button class="secondary-btn" onclick="clearJWT()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                        <button class="secondary-btn" onclick="exampleJWT()">
+                            <i class="fas fa-lightbulb"></i> Example
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-clipboard-list"></i> Decoded Result
+                    </div>
+                    <div class="output-display" id="jwt-output" style="min-height:200px;text-align:left;padding:15px;">
+                        <span style="color:rgba(255,255,255,0.5);">Enter a JWT token and click Decode...</span>
+                    </div>
+                    <div class="tool-stats">
+                        <div class="tool-stat">
+                            <span id="jwt-validity" class="status-badge">--</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-layer-group"></i>
+                            <span id="jwt-parts">0 parts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>What is a JWT?</h2>
+                <p>JSON Web Tokens (JWT) are an open standard (RFC 7519) for securely transmitting information between parties as a JSON object. They are commonly used for authentication and authorization in web applications. A JWT consists of three parts: Header, Payload, and Signature, each Base64Url encoded and separated by dots.</p>
+                <p>Our JWT decoder lets you inspect the header and payload of any JWT token instantly. All decoding happens in your browser - no data is ever sent to our servers, ensuring your tokens remain private.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Can JWT be decoded without the secret?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Yes! The header and payload are only Base64Url encoded, not encrypted. Anyone can decode them. The signature, which requires the secret, verifies the token hasn't been tampered with.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Is this tool secure?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Absolutely. All decoding happens directly in your browser. Your JWT tokens never leave your device and are not stored or transmitted anywhere.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What's in a JWT payload?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">The payload contains claims about the user or session. Common claims include sub (subject), name, iat (issued at), and exp (expiration time).</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    // JWT Decoder JavaScript functionality
+    function decodeJWT() {
+        const token = document.getElementById('jwt-input').value.trim();
+        const output = document.getElementById('jwt-output');
+        const validitySpan = document.getElementById('jwt-validity');
+        const partsSpan = document.getElementById('jwt-parts');
+        
+        if (!token) {
+            output.innerHTML = '<span style="color:#EF4444;">Please enter a JWT token</span>';
+            validitySpan.textContent = 'No token';
+            validitySpan.className = 'status-badge invalid';
+            partsSpan.textContent = '0 parts';
+            return;
+        }
+        
+        const parts = token.split('.');
+        partsSpan.textContent = parts.length + ' parts';
+        
+        if (parts.length !== 3) {
+            output.innerHTML = '<span style="color:#EF4444;">Invalid JWT: Token should have 3 parts (header.payload.signature)</span>';
+            validitySpan.textContent = 'Invalid';
+            validitySpan.className = 'status-badge invalid';
+            return;
+        }
+        
+        try {
+            // Decode header (first part)
+            const headerJson = atob(parts[0].replace(/-/g, '+').replace(/_/g, '/'));
+            const header = JSON.parse(headerJson);
+            
+            // Decode payload (second part)
+            const payloadJson = atob(parts[1].replace(/-/g, '+').replace(/_/g, '/'));
+            const payload = JSON.parse(payloadJson);
+            
+            // Format output
+            output.innerHTML = `
+                <div style="margin-bottom:15px;">
+                    <div style="color:#8B5CF6;font-weight:600;margin-bottom:5px;">HEADER:</div>
+                    <pre style="background:rgba(139,92,246,0.1);padding:10px;border-radius:5px;font-size:0.9rem;">${JSON.stringify(header, null, 2)}</pre>
+                </div>
+                <div>
+                    <div style="color:#06B6D4;font-weight:600;margin-bottom:5px;">PAYLOAD:</div>
+                    <pre style="background:rgba(6,182,212,0.1);padding:10px;border-radius:5px;font-size:0.9rem;">${JSON.stringify(payload, null, 2)}</pre>
+                </div>
+                <div style="margin-top:10px;color:#10B981;font-size:0.9rem;">
+                    <i class="fas fa-check-circle"></i> Signature present (verification not performed)
+                </div>
+            `;
+            
+            validitySpan.textContent = 'Valid';
+            validitySpan.className = 'status-badge valid';
+            
+        } catch (e) {
+            output.innerHTML = `<span style="color:#EF4444;">Decoding error: ${e.message}</span>`;
+            validitySpan.textContent = 'Invalid';
+            validitySpan.className = 'status-badge invalid';
+        }
+    }
+    
+    function clearJWT() {
+        document.getElementById('jwt-input').value = '';
+        document.getElementById('jwt-output').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter a JWT token and click Decode...</span>';
+        document.getElementById('jwt-validity').textContent = '--';
+        document.getElementById('jwt-validity').className = 'status-badge';
+        document.getElementById('jwt-parts').textContent = '0 parts';
+    }
+    
+    function exampleJWT() {
+        document.getElementById('jwt-input').value = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE1MTYyNDI2MjIsImFkbWluIjp0cnVlfQ.4Zq8LqQJwXxqV9QyY4xZq8LqQJwXxqV9QyY4xZq8LqQJw';
+        decodeJWT();
+    }
+    </script>
+</body>
+</html>

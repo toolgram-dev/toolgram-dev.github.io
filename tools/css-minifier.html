@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CSS Minifier - Compress and Minify CSS Online | ToolGram</title>
+    <meta name="description" content="Free online CSS minifier to compress your stylesheets. Remove comments, whitespace, and unnecessary characters to reduce file size and improve website loading speed. Client-side only, no data upload.">
+    <meta name="keywords" content="css minifier, css compressor, minify css, css optimizer, compress css, stylesheet minifier, css formatter">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/css-minifier.html">
+    <meta property="og:title" content="CSS Minifier - Compress and Minify CSS Online | ToolGram">
+    <meta property="og:description" content="Minify your CSS instantly to reduce file size and speed up your website.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/css-minifier.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CSS Minifier",
+        "description": "Compress and minify CSS stylesheets by removing comments, whitespace, and unnecessary characters.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/css-minifier.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["CSS Minification", "Whitespace Removal", "Comment Stripping", "File Size Reduction", "Client-side Processing"]
+    }
+    </script>
+</head>
+<body>
+   <div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fab fa-css3-alt"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">CSS Minifier</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Compress and minify CSS to reduce file size and improve load times
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-code"></i> Original CSS
+                    </div>
+                    <textarea class="tool-textarea" id="css-input" placeholder="Paste your CSS code here...&#10;&#10;/* Example */&#10;.container {&#10;    width: 100%;&#10;    max-width: 1200px;&#10;    margin: 0 auto;&#10;}&#10;&#10;.button {&#10;    background: linear-gradient(135deg, #8B5CF6, #EC4899);&#10;    color: white;&#10;    padding: 10px 20px;&#10;    border-radius: 5px;&#10;}"></textarea>
+                    <div class="tool-settings">
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="css-remove-comments" checked>
+                                Remove comments
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="css-remove-whitespace" checked>
+                                Remove whitespace
+                            </label>
+                        </div>
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="minifyCSS()">
+                            <i class="fas fa-compress-alt"></i> Minify CSS
+                        </button>
+                        <button class="secondary-btn" onclick="clearCSS()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                        <button class="secondary-btn" onclick="exampleCSS()">
+                            <i class="fas fa-lightbulb"></i> Example
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-compress-alt"></i> Minified CSS
+                    </div>
+                    <div class="output-display" id="css-output" style="min-height:200px;text-align:left;padding:15px;font-family:monospace;white-space:pre-wrap;">
+                        <span style="color:rgba(255,255,255,0.5);">Minified CSS will appear here...</span>
+                    </div>
+                    <div class="tool-actions" style="margin-top:15px;">
+                        <button class="copy-btn" onclick="copyMinifiedCSS()">
+                            <i class="far fa-copy"></i> Copy Minified
+                        </button>
+                    </div>
+                    <div class="tool-stats">
+                        <div class="tool-stat">
+                            <i class="fas fa-file"></i>
+                            <span id="css-original-size">0 bytes</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-file-compress"></i>
+                            <span id="css-minified-size">0 bytes</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-chart-line"></i>
+                            <span id="css-saving">0% saved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>Why Minify CSS?</h2>
+                <p>CSS minification removes unnecessary characters like whitespace, comments, and newlines from your stylesheet without changing its functionality. This reduces file size, leading to faster page loads, lower bandwidth usage, and better SEO rankings. Google PageSpeed Insights recommends minifying CSS for optimal performance.</p>
+                <p>Our CSS minifier processes everything in your browser - your code never leaves your device, ensuring complete privacy and security.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Does minifying CSS affect functionality?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">No. Minification only removes unnecessary characters like spaces and comments. The actual CSS rules and their effects remain identical.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">How much can I reduce file size?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Typically 20-50% reduction. Well-formatted CSS with many comments and spaces can see even larger savings.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Is minified CSS harder to debug?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Yes, minified CSS is not human-readable. Best practice is to keep original files for development and use minified versions for production.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    // CSS Minifier JavaScript functionality
+    function minifyCSS() {
+        const css = document.getElementById('css-input').value;
+        const removeComments = document.getElementById('css-remove-comments').checked;
+        const removeWhitespace = document.getElementById('css-remove-whitespace').checked;
+        
+        let minified = css;
+        
+        // Store original size for stats
+        const originalBytes = new Blob([css]).size;
+        
+        // Remove comments if option checked
+        if (removeComments) {
+            minified = minified.replace(/\/\*[\s\S]*?\*\//g, '');
+        }
+        
+        // Remove whitespace if option checked
+        if (removeWhitespace) {
+            minified = minified
+                .replace(/\s+/g, ' ')                // Multiple spaces to single
+                .replace(/\s*{\s*/g, '{')            // Remove spaces around {
+                .replace(/\s*}\s*/g, '}')            // Remove spaces around }
+                .replace(/\s*:\s*/g, ':')            // Remove spaces around :
+                .replace(/\s*;\s*/g, ';')            // Remove spaces around ;
+                .replace(/\s*,\s*/g, ',')            // Remove spaces around ,
+                .replace(/;\s*}/g, '}')               // Remove last semicolon before }
+                .trim();
+        }
+        
+        // If nothing left after minification
+        if (minified === '') {
+            minified = '/* CSS is empty after minification */';
+        }
+        
+        // Display minified CSS
+        const output = document.getElementById('css-output');
+        output.innerHTML = `<pre style="background:rgba(255,255,255,0.05);padding:10px;border-radius:5px;white-space:pre-wrap;">${escapeHTML(minified)}</pre>`;
+        
+        // Update stats
+        const minifiedBytes = new Blob([minified]).size;
+        const saving = originalBytes > 0 ? ((originalBytes - minifiedBytes) / originalBytes * 100).toFixed(1) : 0;
+        
+        document.getElementById('css-original-size').textContent = formatBytes(originalBytes);
+        document.getElementById('css-minified-size').textContent = formatBytes(minifiedBytes);
+        document.getElementById('css-saving').textContent = `${saving}% saved`;
+    }
+    
+    function formatBytes(bytes) {
+        if (bytes === 0) return '0 bytes';
+        const k = 1024;
+        const sizes = ['bytes', 'KB', 'MB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+    
+    function escapeHTML(str) {
+        return str.replace(/&/g, '&amp;')
+                  .replace(/</g, '&lt;')
+                  .replace(/>/g, '&gt;')
+                  .replace(/"/g, '&quot;')
+                  .replace(/'/g, '&#039;');
+    }
+    
+    function copyMinifiedCSS() {
+        const output = document.getElementById('css-output');
+        const minified = output.innerText;
+        
+        if (minified && !minified.includes('Minified CSS')) {
+            navigator.clipboard.writeText(minified);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Minified', 2000);
+        }
+    }
+    
+    function clearCSS() {
+        document.getElementById('css-input').value = '';
+        document.getElementById('css-output').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Minified CSS will appear here...</span>';
+        document.getElementById('css-original-size').textContent = '0 bytes';
+        document.getElementById('css-minified-size').textContent = '0 bytes';
+        document.getElementById('css-saving').textContent = '0% saved';
+    }
+    
+    function exampleCSS() {
+        document.getElementById('css-input').value = 
+`/* Main stylesheet for website */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header styles */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+/* Navigation menu */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: #ffd700;
+}
+
+/* Main content area */
+.main-content {
+    margin-top: 80px;
+    padding: 40px 20px;
+    min-height: 500px;
+}
+
+/* Footer styles */
+.footer {
+    background: #333;
+    color: white;
+    padding: 40px 0;
+    margin-top: auto;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .header {
+        padding: 15px 0;
+    }
+    
+    .main-content {
+        padding: 20px 15px;
+    }
+}`;
+        minifyCSS();
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>URL Slug Generator - Create SEO-Friendly URLs | ToolGram</title>
+    <meta name="description" content="Free online slug generator to create clean, SEO-friendly URLs from text. Convert titles, headlines, and phrases to URL-friendly slugs instantly. Perfect for WordPress, blogs, and web development.">
+    <meta name="keywords" content="slug generator, url slug, seo-friendly url, permalink generator, clean urls, url friendly text, slugify, wordpress slug">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/slug-generator.html">
+    <meta property="og:title" content="URL Slug Generator - Create SEO-Friendly URLs | ToolGram">
+    <meta property="og:description" content="Generate clean, SEO-friendly URL slugs from any text instantly.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/slug-generator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "URL Slug Generator",
+        "description": "Generate clean, SEO-friendly URL slugs from any text. Perfect for WordPress, blogs, and web development.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/slug-generator.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["Slug Generation", "SEO-Friendly URLs", "Clean Text", "Permalink Creation", "Instant Conversion"]
+    }
+    </script>
+</head>
+<body>
+   <div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">URL Slug Generator</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Create clean, SEO-friendly URL slugs from any text
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-pencil-alt"></i> Input Text
+                    </div>
+                    <textarea class="tool-textarea" id="slug-input" placeholder="Enter title or text to convert to URL slug...&#10;Example: Top 10 SEO Tips for 2025"></textarea>
+                    <div class="tool-settings">
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="slug-lowercase" checked>
+                                Lowercase only
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="slug-remove-numbers">
+                                Remove numbers
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="slug-trim-hyphens" checked>
+                                Trim hyphens from ends
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>Separator:</label>
+                            <select id="slug-separator">
+                                <option value="-">Hyphen (-)</option>
+                                <option value="_">Underscore (_)</option>
+                                <option value=".">Dot (.)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="generateSlug()">
+                            <i class="fas fa-magic"></i> Generate Slug
+                        </button>
+                        <button class="secondary-btn" onclick="clearSlug()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                        <button class="secondary-btn" onclick="exampleSlug()">
+                            <i class="fas fa-lightbulb"></i> Example
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-link"></i> URL Slug Output
+                    </div>
+                    <div class="output-display" id="slug-output" style="word-break:break-all;">
+                        <span style="color:rgba(255,255,255,0.5);">Click Generate to create slug...</span>
+                    </div>
+                    <div class="tool-actions" style="margin-top:15px;">
+                        <button class="copy-btn" onclick="copySlug()">
+                            <i class="far fa-copy"></i> Copy Slug
+                        </button>
+                    </div>
+                    <div class="tool-stats">
+                        <div class="tool-stat">
+                            <i class="fas fa-ruler"></i>
+                            <span id="slug-length">0 characters</span>
+                        </div>
+                        <div class="tool-stat">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span id="slug-seo">SEO: --</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>What is a URL Slug?</h2>
+                <p>A URL slug is the part located at the very end of a URL that refers to a particular page or post on a website. It describes what the page is about in a few words, like the title of a blog post. SEO-friendly slugs are readable by both humans and search engines, with words separated by hyphens.</p>
+                <p>Our slug generator instantly converts any text into a clean, SEO-friendly URL format. It removes special characters, replaces spaces with hyphens, and creates the perfect permalink for your WordPress posts, blog articles, or any web page.</p>
+                <h3>Why are URL slugs important for SEO?</h3>
+                <p>URL slugs help describe page content with keywords so users and search engines know what the page is about. A descriptive slug like <code>/best-seo-tips</code> performs much better than <code>/page?id=123</code>. They're a key ranking factor for SEO.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What is a URL slug?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">A URL slug is the part of a URL that identifies a specific page using readable keywords. For example, in <code>example.com/blog/seo-tips</code>, "seo-tips" is the slug.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">How important are URL slugs for SEO?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Very important! Search engines use URL slugs to understand page content. Including target keywords in your slug can improve rankings and click-through rates.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">Should slugs use underscores or hyphens?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Google recommends hyphens (-) over underscores (_). Hyphens are treated as word separators, while underscores join words together.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    // Slug Generator JavaScript functionality - Button click only
+    function generateSlug() {
+        const input = document.getElementById('slug-input').value;
+        const lowercase = document.getElementById('slug-lowercase').checked;
+        const removeNumbers = document.getElementById('slug-remove-numbers').checked;
+        const trimHyphens = document.getElementById('slug-trim-hyphens').checked;
+        const separator = document.getElementById('slug-separator').value;
+        
+        if (!input.trim()) {
+            document.getElementById('slug-output').innerHTML = '<span style="color:#EF4444;">Please enter some text</span>';
+            document.getElementById('slug-length').textContent = '0 characters';
+            document.getElementById('slug-seo').textContent = 'SEO: --';
+            return;
+        }
+        
+        let slug = input;
+        
+        // Step 1: Convert to lowercase if option checked
+        if (lowercase) {
+            slug = slug.toLowerCase();
+        }
+        
+        // Step 2: Remove numbers if option checked
+        if (removeNumbers) {
+            slug = slug.replace(/[0-9]/g, '');
+        }
+        
+        // Step 3: Replace accented characters with ASCII equivalents
+        slug = slug.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        
+        // Step 4: Remove special characters (keep letters, numbers, spaces)
+        slug = slug.replace(/[^a-z0-9\s]/g, '');
+        
+        // Step 5: Replace spaces with chosen separator
+        slug = slug.replace(/\s+/g, separator);
+        
+        // Step 6: Replace multiple separators with single
+        const sepRegex = new RegExp('\\' + separator + '+', 'g');
+        slug = slug.replace(sepRegex, separator);
+        
+        // Step 7: Remove separator from start and end if option checked
+        if (trimHyphens) {
+            const trimRegex = new RegExp('^\\' + separator + '+|\\' + separator + '+$', 'g');
+            slug = slug.replace(trimRegex, '');
+        }
+        
+        // Handle empty slug
+        if (slug === '') {
+            slug = 'invalid-input';
+        }
+        
+        // Display slug
+        const output = document.getElementById('slug-output');
+        output.innerHTML = `<code style="color:#8B5CF6;font-size:1.2rem;word-break:break-all;">${slug}</code>`;
+        
+        // Update stats
+        document.getElementById('slug-length').textContent = `${slug.length} characters`;
+        
+        // SEO score estimation
+        let seoScore = 'Good';
+        if (slug.length > 60) seoScore = 'Too Long (over 60 chars)';
+        else if (slug.length < 3) seoScore = 'Too Short';
+        
+        document.getElementById('slug-seo').textContent = `SEO: ${seoScore}`;
+    }
+    
+    function copySlug() {
+        const output = document.getElementById('slug-output');
+        const slugText = output.innerText;
+        
+        if (slugText && !slugText.includes('Click Generate') && !slugText.includes('Please enter')) {
+            navigator.clipboard.writeText(slugText);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Slug', 2000);
+        }
+    }
+    
+    function clearSlug() {
+        document.getElementById('slug-input').value = '';
+        document.getElementById('slug-output').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Click Generate to create slug...</span>';
+        document.getElementById('slug-length').textContent = '0 characters';
+        document.getElementById('slug-seo').textContent = 'SEO: --';
+    }
+    
+    function exampleSlug() {
+        document.getElementById('slug-input').value = 'Top 10 SEO Tips for Better Google Rankings in 2025!';
+        generateSlug();
+    }
+    </script>
+</body>
+</html>

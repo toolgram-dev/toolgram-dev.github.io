@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>XML to JSON Converter - Free Online Tool | ToolGram</title>
+    <meta name="description" content="Free online XML to JSON converter. Transform XML data into clean JSON format instantly. Supports nested elements, attributes, and arrays. Client-side only, no data upload.">
+    <meta name="keywords" content="xml to json, convert xml to json, xml parser, json converter, xml transformer, data conversion, xml to javascript object">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/xml-to-json.html">
+    <meta property="og:title" content="XML to JSON Converter - Free Online Tool | ToolGram">
+    <meta property="og:description" content="Convert XML data to JSON format instantly in your browser.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/xml-to-json.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "XML to JSON Converter",
+        "description": "Convert XML data to clean JSON format instantly in your browser.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/xml-to-json.html",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        },
+        "featureList": ["XML Parsing", "JSON Generation", "Nested Element Support", "Attribute Handling", "Array Detection"]
+    }
+    </script>
+</head>
+<body>
+   <div class="nav-container"></div>
+    <div class="page">
+        <button class="back-btn" onclick="window.location.href='../tools.html'">
+            <i class="fas fa-arrow-left"></i> Back to Tools
+        </button>
+        
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-header-icon">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <div>
+                    <h1 style="margin:0;">XML to JSON Converter</h1>
+                    <p style="color:rgba(255,255,255,0.7);margin-top:5px;">
+                        Transform XML data into clean JSON format instantly
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tool-interface">
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-file-code"></i> XML Input
+                    </div>
+                    <textarea class="tool-textarea" id="xml-input" placeholder="Paste your XML here...&#10;&#10;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;root&gt;&#10;    &lt;user id=&quot;1&quot;&gt;&#10;        &lt;name&gt;John Doe&lt;/name&gt;&#10;        &lt;email&gt;john@example.com&lt;/email&gt;&#10;        &lt;age&gt;30&lt;/age&gt;&#10;        &lt;address&gt;&#10;            &lt;city&gt;New York&lt;/city&gt;&#10;            &lt;country&gt;USA&lt;/country&gt;&#10;        &lt;/address&gt;&#10;    &lt;/user&gt;&#10;&lt;/root&gt;"></textarea>
+                    <div class="tool-settings">
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="xml-pretty" checked>
+                                Pretty print JSON
+                            </label>
+                        </div>
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="convertXMLtoJSON()">
+                            <i class="fas fa-sync-alt"></i> Convert to JSON
+                        </button>
+                        <button class="secondary-btn" onclick="clearXML()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tool-column">
+                    <div class="tool-column-title">
+                        <i class="fas fa-brackets-curly"></i> JSON Output
+                    </div>
+                    <div class="output-display" id="json-output" style="min-height:200px;text-align:left;padding:15px;font-family:monospace;white-space:pre-wrap;">
+                        <span style="color:rgba(255,255,255,0.5);">JSON result will appear here...</span>
+                    </div>
+                    <div class="tool-actions" style="margin-top:15px;">
+                        <button class="copy-btn" onclick="copyJSON()">
+                            <i class="far fa-copy"></i> Copy JSON
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-content-section">
+            <div class="tool-description-section">
+                <h2>Why Convert XML to JSON?</h2>
+                <p>JSON (JavaScript Object Notation) has become the standard data format for modern web APIs due to its lightweight nature and native JavaScript support. Converting legacy XML data to JSON makes it easier to work with in web applications, mobile apps, and modern programming languages. Many organizations still use XML for data exchange, and converting to JSON helps bridge the gap between old and new systems.</p>
+                <p>Our converter handles nested elements, attributes, and automatically detects arrays when multiple elements share the same name.</p>
+            </div>
+            
+            <div class="tool-faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">How does XML to JSON conversion work?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">The XML is parsed into a DOM tree, then recursively converted to a JavaScript object. Element names become object keys, text content becomes values, and attributes are stored in a special @attributes property.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">What happens to XML attributes?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Attributes are stored in an "_attributes" object within the node. For example, &lt;user id="1"&gt; becomes {"user": {"_attributes": {"id": "1"}, ...}}.</span>
+                    </p>
+                </div>
+                <div class="tool-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name">How are multiple elements handled?</h3>
+                    <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">When multiple elements share the same name, they're automatically converted to an array. This preserves all data while maintaining structure.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer-bg" style="margin-top:80px;">
+            <div class="watermark">TOOLGRAM</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <div>
+                        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                        <a href="../about.html">About Us</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                        <a href="../contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© ToolGram. All rights reserved 2026.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/nav-manager.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+    function xmlToJson(xml) {
+        const obj = {};
+        
+        if (xml.nodeType === 1) { // element
+            // attributes
+            if (xml.attributes.length > 0) {
+                obj._attributes = {};
+                for (let i = 0; i < xml.attributes.length; i++) {
+                    const attr = xml.attributes[i];
+                    obj._attributes[attr.nodeName] = attr.nodeValue;
+                }
+            }
+            
+            // children
+            if (xml.hasChildNodes()) {
+                for (let i = 0; i < xml.childNodes.length; i++) {
+                    const item = xml.childNodes[i];
+                    const nodeName = item.nodeName;
+                    
+                    if (item.nodeType === 3) { // text
+                        const text = item.nodeValue.trim();
+                        if (text) {
+                            return text;
+                        }
+                    } else if (item.nodeType === 1) { // element
+                        const jsonNode = xmlToJson(item);
+                        
+                        if (obj[nodeName]) {
+                            if (!Array.isArray(obj[nodeName])) {
+                                obj[nodeName] = [obj[nodeName]];
+                            }
+                            obj[nodeName].push(jsonNode);
+                        } else {
+                            obj[nodeName] = jsonNode;
+                        }
+                    }
+                }
+            }
+        } else if (xml.nodeType === 9) { // document
+            return xmlToJson(xml.documentElement);
+        }
+        
+        return obj;
+    }
+    
+    function convertXMLtoJSON() {
+        const xmlString = document.getElementById('xml-input').value;
+        const pretty = document.getElementById('xml-pretty').checked;
+        const output = document.getElementById('json-output');
+        
+        if (!xmlString.trim()) {
+            output.innerHTML = '<span style="color:#EF4444;">Please enter XML</span>';
+            return;
+        }
+        
+        try {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+            
+            // Check for parsing errors
+            const parseError = xmlDoc.querySelector('parsererror');
+            if (parseError) {
+                throw new Error('Invalid XML: ' + parseError.textContent);
+            }
+            
+            const json = xmlToJson(xmlDoc);
+            const jsonString = pretty ? 
+                JSON.stringify(json, null, 2) : 
+                JSON.stringify(json);
+            
+            output.innerHTML = `<pre style="background:rgba(139,92,246,0.1);padding:15px;border-radius:8px;white-space:pre-wrap;font-size:0.9rem;">${escapeHTML(jsonString)}</pre>`;
+        } catch (e) {
+            output.innerHTML = `<span style="color:#EF4444;">Error: ${e.message}</span>`;
+        }
+    }
+    
+    function escapeHTML(str) {
+        return str.replace(/&/g, '&amp;')
+                  .replace(/</g, '&lt;')
+                  .replace(/>/g, '&gt;')
+                  .replace(/"/g, '&quot;')
+                  .replace(/'/g, '&#039;');
+    }
+    
+    function copyJSON() {
+        const output = document.getElementById('json-output');
+        const jsonText = output.innerText;
+        
+        if (jsonText && !jsonText.includes('JSON result')) {
+            navigator.clipboard.writeText(jsonText);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy JSON', 2000);
+        }
+    }
+    
+    function clearXML() {
+        document.getElementById('xml-input').value = '';
+        document.getElementById('json-output').innerHTML = '<span style="color:rgba(255,255,255,0.5);">JSON result will appear here...</span>';
+    }
+    </script>
+</body>
+</html>
