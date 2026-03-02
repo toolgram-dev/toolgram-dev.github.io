@@ -1,157 +1,346 @@
-{
-  "tools": [
-    {
-      "id": "uuid",
-      "title": "UUID Generator",
-      "desc": "Generate universally unique identifiers",
-      "icon": "fa-fingerprint",
-      "color": "linear-gradient(135deg,#8B5CF6,#EC4899)",
-      "popular": true,
-      "file": "uuid.html"
-    },
-    {
-      "id": "json-minifier",
-      "title": "JSON Minifier",
-      "desc": "Remove whitespace from JSON",
-      "icon": "fa-compress-alt",
-      "color": "linear-gradient(135deg,#06B6D4,#8B5CF6)",
-      "popular": true,
-      "file": "json-minifier.html"
-    },
-    {
-      "id": "base64",
-      "title": "Base64 Encoder/Decoder",
-      "desc": "Encode/decode Base64 strings",
-      "icon": "fa-lock",
-      "color": "linear-gradient(135deg,#1E40AF,#06B6D4)",
-      "popular": true,
-      "file": "base64.html"
-    },
-    {
-      "id": "sha256",
-      "title": "SHA-256 Hasher",
-      "desc": "Generate SHA-256 hash",
-      "icon": "fa-hashtag",
-      "color": "linear-gradient(135deg,#F59E0B,#EF4444)",
-      "popular": true,
-      "file": "sha256.html"
-    },
-    {
-      "id": "url-encoder",
-      "title": "URL Encoder/Decoder",
-      "desc": "Encode/decode URL strings",
-      "icon": "fa-link",
-      "color": "linear-gradient(135deg,#10B981,#06B6D4)",
-      "popular": false,
-      "file": "url-encoder.html"
-    },
-    {
-      "id": "epoch",
-      "title": "Unix Epoch Converter",
-      "desc": "Convert timestamps to dates",
-      "icon": "fa-clock",
-      "color": "linear-gradient(135deg,#8B5CF6,#1E40AF)",
-      "popular": false,
-      "file": "epoch.html"
-    },
-    {
-      "id": "html-entity",
-      "title": "HTML Entity Encoder",
-      "desc": "Encode/decode HTML entities",
-      "icon": "fa-code",
-      "color": "linear-gradient(135deg,#EC4899,#8B5CF6)",
-      "popular": false,
-      "file": "html-entity.html"
-    },
-    {
-      "id": "utf8",
-      "title": "UTF-8 Validator",
-      "desc": "Validate UTF-8 encoding",
-      "icon": "fa-language",
-      "color": "linear-gradient(135deg,#06B6D4,#10B981)",
-      "popular": false,
-      "file": "utf8.html"
-    },
-    {
-      "id": "crc32",
-      "title": "CRC32 Checksum",
-      "desc": "Calculate CRC32 checksums",
-      "icon": "fa-file-contract",
-      "color": "linear-gradient(135deg,#F59E0B,#8B5CF6)",
-      "popular": false,
-      "file": "crc32.html"
-    },
-    {
-      "id": "case-normalizer",
-      "title": "Case Normalizer",
-      "desc": "Convert text case formats",
-      "icon": "fa-text-height",
-      "color": "linear-gradient(135deg,#1E40AF,#06B6D4)",
-      "popular": false,
-      "file": "case-normalizer.html"
-    },
-    {
-      "title": "URL Slug Generator",
-      "desc": "Create SEO-friendly URL slugs from text",
-      "file": "slug-generator.html",
-      "icon": "fa-link",
-      "popular": true
-    },
-    {
-      "title": "JWT Decoder",
-      "desc": "Decode JSON Web Tokens instantly",
-      "file": "jwt-decoder.html",
-      "icon": "fa-key",
-      "popular": true
-    },
-    {
-      "title": "Markdown to HTML",
-      "desc": "Convert Markdown to HTML code",
-      "file": "markdown-to-html.html",
-      "icon": "fa-markdown",
-      "popular": true
-    },
-    {
-      "title": "CSS Minifier",
-      "desc": "Compress and minify CSS stylesheets",
-      "file": "css-minifier.html",
-      "icon": "fa-css3-alt",
-      "popular": true
-    },
-    {
-      "title": "Lorem Ipsum Generator",
-      "desc": "Generate placeholder text for designs",
-      "file": "lorem-ipsum.html",
-      "icon": "fa-paragraph",
-      "popular": true
-    },
-    {
-      "title": "Color Contrast Checker",
-      "desc": "WCAG accessibility contrast testing",
-      "file": "contrast-ratio.html",
-      "icon": "fa-adjust",
-      "popular": true
-    },
-    {
-      "title": "XML to JSON Converter",
-      "desc": "Transform XML data to JSON format",
-      "file": "xml-to-json.html",
-      "icon": "fa-code-branch",
-      "popular": true
-    },
-    {
-      "title": "PX to REM Converter",
-      "desc": "Convert pixels to REM units for CSS",
-      "file": "rem-converter.html",
-      "icon": "fa-arrows-alt-h",
-      "popular": true
-    },
-    {
-      "title": "Text Diff Checker",
-      "desc": "Compare two text versions side by side",
-      "file": "text-diff.html",
-      "icon": "fa-not-equal",
-      "popular": true
-    }
-  ]
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Main Pages -->
+    <url>
+        <loc>https://toolgram-dev.github.io/</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Encoding & Decoding Tools (8) -->
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/base32-encoder.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/base64.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/html-entity.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/jwt-decoder.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/url-encoder.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/utf8.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/entity-unescaper.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/svg-to-datauri.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- JSON Tools (8) -->
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/json-camelcasifier.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/json-minifier.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/json-schema-validator.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/json-stringify.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/json-to-ts.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/object-flattener.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/xml-to-json.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/csv-to-json.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Text & String Tools (8) -->
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/case-normalizer.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/lorem-ipsum.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/markdown-to-html.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/slug-generator.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/string-repeater.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/text-diff.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/text-inverter.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/unslugify.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Design & CSS Tools (6) -->
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/border-radius.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/color-palette.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/contrast-ratio.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/css-minifier.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/rem-converter.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/rgb-to-hex.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Developer Utilities (6) -->
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/cron-parser.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/epoch.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/html-strip.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/html-table-to-csv.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/js-minifier.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/ua-parser.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Hashing & Security Tools (4) -->
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/crc32.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/sha256.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/unix-permissions.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/uuid.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Data & Conversion Tools (4) -->
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/byte-converter.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/byte-to-bit.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/dedupe.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/percent-change.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Counting & Text Analysis Tools (4) -->
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/list-shuffler.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/sql-to-json.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/text-to-binary.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/tools/word-counter.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Info Pages -->
+    <url>
+        <loc>https://toolgram-dev.github.io/about.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/privacy.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/terms.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://toolgram-dev.github.io/contact.html</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+</urlset>
