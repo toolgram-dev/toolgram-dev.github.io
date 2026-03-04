@@ -5,6 +5,7 @@
       "desc": "Encode text to Base32 format",
       "file": "base32-encoder.html",
       "icon": "fa-hashtag",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
       "popular": true
     },
     {
@@ -12,6 +13,7 @@
       "desc": "Encode/decode Base64 strings",
       "file": "base64.html",
       "icon": "fa-lock",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
       "popular": true
     },
     {
@@ -19,6 +21,7 @@
       "desc": "Create custom rounded corners",
       "file": "border-radius.html",
       "icon": "fa-square",
+      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
       "popular": true
     },
     {
@@ -26,6 +29,7 @@
       "desc": "Convert bytes to KB, MB, GB",
       "file": "byte-converter.html",
       "icon": "fa-weight-hanging",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
       "popular": true
     },
     {
@@ -33,6 +37,7 @@
       "desc": "Convert between bytes and bits",
       "file": "byte-to-bit.html",
       "icon": "fa-microchip",
+      "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
       "popular": true
     },
     {
@@ -40,6 +45,7 @@
       "desc": "Convert text case formats",
       "file": "case-normalizer.html",
       "icon": "fa-text-height",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
@@ -47,6 +53,7 @@
       "desc": "Create harmonious color schemes",
       "file": "color-palette.html",
       "icon": "fa-palette",
+      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
       "popular": true
     },
     {
@@ -54,6 +61,7 @@
       "desc": "WCAG accessibility contrast testing",
       "file": "contrast-ratio.html",
       "icon": "fa-adjust",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
       "popular": true
     },
     {
@@ -61,6 +69,7 @@
       "desc": "Calculate CRC32 checksums",
       "file": "crc32.html",
       "icon": "fa-file-contract",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
       "popular": true
     },
     {
@@ -68,6 +77,7 @@
       "desc": "Convert cron to human-readable text",
       "file": "cron-parser.html",
       "icon": "fa-clock",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
@@ -75,6 +85,7 @@
       "desc": "Compress and minify CSS",
       "file": "css-minifier.html",
       "icon": "fa-css3-alt",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
       "popular": true
     },
     {
@@ -82,6 +93,7 @@
       "desc": "Convert CSV data to JSON",
       "file": "csv-to-json.html",
       "icon": "fa-file-csv",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
       "popular": true
     },
     {
@@ -89,6 +101,7 @@
       "desc": "Remove duplicates from lists",
       "file": "dedupe.html",
       "icon": "fa-eraser",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
       "popular": true
     },
     {
@@ -96,6 +109,7 @@
       "desc": "Decode HTML entities to text",
       "file": "entity-unescaper.html",
       "icon": "fa-code",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
       "popular": true
     },
     {
@@ -103,6 +117,7 @@
       "desc": "Convert timestamps to dates",
       "file": "epoch.html",
       "icon": "fa-clock",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
       "popular": true
     },
     {
@@ -110,6 +125,7 @@
       "desc": "Encode/decode HTML entities",
       "file": "html-entity.html",
       "icon": "fa-code",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
@@ -117,6 +133,7 @@
       "desc": "Remove HTML tags from text",
       "file": "html-strip.html",
       "icon": "fa-code",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
       "popular": true
     },
     {
@@ -124,6 +141,7 @@
       "desc": "Extract HTML tables to CSV",
       "file": "html-table-to-csv.html",
       "icon": "fa-table",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
       "popular": true
     },
     {
@@ -131,6 +149,7 @@
       "desc": "Compress JavaScript code",
       "file": "js-minifier.html",
       "icon": "fab fa-js",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
@@ -138,6 +157,7 @@
       "desc": "Convert snake to camelCase keys",
       "file": "json-camelcasifier.html",
       "icon": "fa-code",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
       "popular": true
     },
     {
@@ -145,6 +165,7 @@
       "desc": "Remove whitespace from JSON",
       "file": "json-minifier.html",
       "icon": "fa-compress-alt",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
       "popular": true
     },
     {
@@ -152,6 +173,7 @@
       "desc": "Validate JSON against schema",
       "file": "json-schema-validator.html",
       "icon": "fa-check-double",
+      "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
       "popular": true
     },
     {
@@ -159,6 +181,7 @@
       "desc": "Safe JSON serialization",
       "file": "json-stringify.html",
       "icon": "fa-brackets-curly",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
       "popular": true
     },
     {
@@ -166,6 +189,7 @@
       "desc": "Generate TypeScript interfaces",
       "file": "json-to-ts.html",
       "icon": "fa-code",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
       "popular": true
     },
     {
@@ -173,6 +197,7 @@
       "desc": "Decode JSON Web Tokens",
       "file": "jwt-decoder.html",
       "icon": "fa-key",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
       "popular": true
     },
     {
@@ -180,6 +205,7 @@
       "desc": "Randomize any list",
       "file": "list-shuffler.html",
       "icon": "fa-random",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
@@ -187,6 +213,7 @@
       "desc": "Generate placeholder text",
       "file": "lorem-ipsum.html",
       "icon": "fa-paragraph",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
       "popular": true
     },
     {
@@ -194,6 +221,7 @@
       "desc": "Convert Markdown to HTML",
       "file": "markdown-to-html.html",
       "icon": "fa-markdown",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
       "popular": true
     },
     {
@@ -201,6 +229,7 @@
       "desc": "Flatten nested JSON objects",
       "file": "object-flattener.html",
       "icon": "fa-layer-group",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
       "popular": true
     },
     {
@@ -208,6 +237,7 @@
       "desc": "Calculate percent increase",
       "file": "percent-change.html",
       "icon": "fa-chart-line",
+      "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
       "popular": true
     },
     {
@@ -215,6 +245,7 @@
       "desc": "Convert pixels to REM units",
       "file": "rem-converter.html",
       "icon": "fa-arrows-alt-h",
+      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
       "popular": true
     },
     {
@@ -222,6 +253,7 @@
       "desc": "Convert RGB to HEX colors",
       "file": "rgb-to-hex.html",
       "icon": "fa-palette",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
@@ -229,6 +261,7 @@
       "desc": "Generate SHA-256 hash",
       "file": "sha256.html",
       "icon": "fa-hashtag",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
       "popular": true
     },
     {
@@ -236,6 +269,7 @@
       "desc": "Create SEO-friendly slugs",
       "file": "slug-generator.html",
       "icon": "fa-link",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
       "popular": true
     },
     {
@@ -243,6 +277,7 @@
       "desc": "Convert SQL to JSON format",
       "file": "sql-to-json.html",
       "icon": "fa-database",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
       "popular": true
     },
     {
@@ -250,6 +285,7 @@
       "desc": "Repeat text multiple times",
       "file": "string-repeater.html",
       "icon": "fa-copy",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
       "popular": true
     },
     {
@@ -257,6 +293,7 @@
       "desc": "Convert SVG to data URI",
       "file": "svg-to-datauri.html",
       "icon": "fa-image",
+      "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
       "popular": true
     },
     {
@@ -264,6 +301,7 @@
       "desc": "Compare two text versions",
       "file": "text-diff.html",
       "icon": "fa-not-equal",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
       "popular": true
     },
     {
@@ -271,6 +309,7 @@
       "desc": "Swap uppercase/lowercase",
       "file": "text-inverter.html",
       "icon": "fa-text-height",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
@@ -278,6 +317,7 @@
       "desc": "Convert text to binary code",
       "file": "text-to-binary.html",
       "icon": "fa-microchip",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
       "popular": true
     },
     {
@@ -285,6 +325,7 @@
       "desc": "Parse browser user-agent",
       "file": "ua-parser.html",
       "icon": "fa-user-secret",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
       "popular": true
     },
     {
@@ -292,6 +333,7 @@
       "desc": "Calculate CHMOD values",
       "file": "unix-permissions.html",
       "icon": "fa-lock",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
       "popular": true
     },
     {
@@ -299,6 +341,7 @@
       "desc": "Convert slugs to titles",
       "file": "unslugify.html",
       "icon": "fa-link",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
       "popular": true
     },
     {
@@ -306,6 +349,7 @@
       "desc": "Encode/decode URL strings",
       "file": "url-encoder.html",
       "icon": "fa-link",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
       "popular": true
     },
     {
@@ -313,6 +357,7 @@
       "desc": "Validate UTF-8 encoding",
       "file": "utf8.html",
       "icon": "fa-language",
+      "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
       "popular": true
     },
     {
@@ -320,6 +365,7 @@
       "desc": "Generate UUIDs",
       "file": "uuid.html",
       "icon": "fa-fingerprint",
+      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
       "popular": true
     },
     {
@@ -327,6 +373,7 @@
       "desc": "Count words and characters",
       "file": "word-counter.html",
       "icon": "fa-file-alt",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
       "popular": true
     },
     {
@@ -334,6 +381,7 @@
       "desc": "Transform XML to JSON",
       "file": "xml-to-json.html",
       "icon": "fa-code-branch",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     }
   ]
