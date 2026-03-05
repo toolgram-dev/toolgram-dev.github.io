@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CSS Variable Generator - Create CSS Custom Properties | ToolGram</title><meta name="description" content="Free online CSS variable generator. Create CSS custom properties for colors, spacing, and typography. Generate :root variables for your design system."><meta name="keywords" content="css variables, css custom properties, css generator, design tokens, root variables, css theming"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/css-vars.html"><meta property="og:title" content="CSS Variable Generator | ToolGram"><meta property="og:description" content="Generate CSS custom properties for your design system"><meta property="og:url" content="https://toolgram-dev.github.io/tools/css-vars.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSS Variable Generator","description":"Create CSS custom properties for colors, spacing, and typography","applicationCategory":"DeveloperApplication","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/css-vars.html","offers":{"@type":"Offer","price":"0"},"featureList":["CSS Variables","Custom Properties","Design Tokens","Root Variables","CSS Theming"]}</script>
+<style>
+.var-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; }
+.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+.related-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px; display: flex; align-items: center; gap: 12px; cursor: pointer; text-decoration: none; color: #fff; transition: all .3s ease; }
+.related-card:hover { border-color: #8B5CF6; box-shadow: 0 0 20px rgba(236,72,153,0.5); transform: translateY(-2px); }
+.related-icon { width: 40px; height: 40px; background: linear-gradient(135deg,#8B5CF6,#EC4899); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+.related-title { font-size: .95rem; font-weight: 500; }
+.faq-question { color: #fff; font-size: 1rem; margin-bottom: 6px; font-weight: 600; letter-spacing: 0.3px; }
+.faq-answer { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6; letter-spacing: 0.2px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; }
+.faq-answer:last-of-type { border-bottom: none; }
+.faq-section { padding: 20px 20px 10px 20px; }
+@media(max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    
+    <!-- BOX 1: TOOL CONTAINER -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-paint-brush"></i></div>
+            <div>
+                <h1 style="margin:0;">CSS Variable Generator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Create CSS custom properties for your design system</p>
+            </div>
+        </div>
+        
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Variables</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <input type="text" id="var1-name" placeholder="primary-color" value="primary-color" style="flex:2;padding:10px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff">
+                        <input type="text" id="var1-value" placeholder="#8B5CF6" value="#8B5CF6" style="flex:1;padding:10px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff">
+                    </div>
+                    <div class="var-row">
+                        <input type="text" id="var2-name" placeholder="secondary-color" value="secondary-color" style="flex:2;padding:10px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff">
+                        <input type="text" id="var2-value" placeholder="#EC4899" value="#EC4899" style="flex:1;padding:10px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff">
+                    </div>
+                    <div class="var-row">
+                        <input type="text" id="var3-name" placeholder="spacing-md" value="spacing-md" style="flex:2;padding:10px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff">
+                        <input type="text" id="var3-value" placeholder="16px" value="16px" style="flex:1;padding:10px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff">
+                    </div>
+                    <div class="var-row">
+                        <input type="text" id="var4-name" placeholder="border-radius" value="border-radius" style="flex:2;padding:10px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff">
+                        <input type="text" id="var4-value" placeholder="8px" value="8px" style="flex:1;padding:10px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="generateVars()"><i class="fas fa-code"></i> Generate CSS</button>
+                    <button class="secondary-btn" onclick="addVarRow()"><i class="fas fa-plus"></i> Add Row</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-code"></i> CSS Output</div>
+                <div class="output-display" id="vars-output" style="min-height:150px;padding:15px;font-family:monospace"></div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyVars()"><i class="far fa-copy"></i> Copy CSS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- BOX 2: RELATED TOOLS - More light blue in gradient, bolder heading, no icon -->
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related CSS Tools</h2>
+            <div class="related-grid" id="relatedGrid"></div>
+        </div>
+    </div>
+    
+    <!-- BOX 3: DESCRIPTION - More light blue in gradient, bolder heading -->
+    <div class="tool-content-section">
+        <div class="tool-description-section" style="padding:25px;">
+            <h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">What are CSS Variables?</h2>
+            <p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">CSS variables (custom properties) let you store values like colors, fonts, and spacing in one place and reuse them throughout your stylesheet. They make themes easy to update and maintain. Define them in :root for global access.</p>
+        </div>
+    </div>
+    
+    <!-- BOX 4: FAQ - No icon, more light blue in gradient, bolder heading -->
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2>
+            <div>
+                <div class="faq-question">How do I use CSS variables?</div>
+                <div class="faq-answer">Define with --name: value; Use with var(--name). They cascade and can be changed with JavaScript for dynamic theming. This makes maintaining themes incredibly easy and efficient.</div>
+                
+                <div class="faq-question">Are CSS variables supported?</div>
+                <div class="faq-answer">Yes, all modern browsers support CSS custom properties. They work in Chrome, Firefox, Safari, Edge, and mobile browsers. Support is over 95% globally.</div>
+                
+                <div class="faq-question">Can I change variables with JavaScript?</div>
+                <div class="faq-answer">Absolutely! Use document.documentElement.style.setProperty('--name', 'value') to update variables dynamically. Perfect for dark mode and live theming.</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© ToolGram. All rights reserved 2026.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function generateVars() {
+    let vars = [];
+    for(let i = 1; i <= 4; i++) {
+        let nameInput = document.getElementById("var"+i+"-name");
+        let valueInput = document.getElementById("var"+i+"-value");
+        if(nameInput && valueInput && nameInput.value.trim() && valueInput.value.trim()) {
+            vars.push(`  --${nameInput.value.trim()}: ${valueInput.value.trim()};`);
+        }
+    }
+    let css = vars.length ? vars.join("\n") : "  --example: #8B5CF6;";
+    document.getElementById("vars-output").innerHTML = `<pre style="background:rgba(139,92,246,0.1);padding:15px;border-radius:8px">:root {\n${css}\n}</pre>`;
+}
+function addVarRow() {
+    alert("Add row functionality - using 4 rows for demo");
+}
+function copyVars() {
+    let text = document.getElementById("vars-output").innerText;
+    if(text) {
+        navigator.clipboard.writeText(text);
+        let btn = document.querySelector(".copy-btn");
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy CSS', 2000);
+    }
+}
+window.addEventListener("load", generateVars);
+
+function loadRelated() {
+    const tools = [
+        {name:"CSS Minifier", icon:"fa-css3-alt", url:"css-minifier.html"},
+        {name:"Border Radius", icon:"fa-square", url:"border-radius.html"},
+        {name:"Color Palette", icon:"fa-palette", url:"color-palette.html"},
+        {name:"Gradient Generator", icon:"fa-palette", url:"gradient-gen.html"},
+        {name:"RGB to HEX", icon:"fa-palette", url:"rgb-to-hex.html"},
+        {name:"PX to REM", icon:"fa-arrows-alt-h", url:"rem-converter.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
