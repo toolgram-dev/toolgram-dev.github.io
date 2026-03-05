@@ -180,7 +180,7 @@
       "title": "JSON Stringify (Safe)",
       "desc": "Safe JSON serialization",
       "file": "json-stringify.html",
-      "icon": "fa-brackets-curly",
+      "icon": "fa-brackets",
       "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
       "popular": true
     },
@@ -546,3 +546,4 @@
     }
   ]
 }
+
