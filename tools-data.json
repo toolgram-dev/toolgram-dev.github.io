@@ -383,6 +383,166 @@
       "icon": "fa-code-branch",
       "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
+    },
+    {
+      "title": "JSON Schema Generator",
+      "desc": "Generate JSON Schema from sample data",
+      "file": "json-schema.html",
+      "icon": "fa-code",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "Aspect Ratio Calculator",
+      "desc": "Calculate 16:9, 4:3 ratios using GCD",
+      "file": "aspect-ratio.html",
+      "icon": "fa-arrows-alt",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "SVG Path Extractor",
+      "desc": "Extract d attribute from SVG files",
+      "file": "svg-path.html",
+      "icon": "fa-draw-polygon",
+      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
+      "popular": true
+    },
+    {
+      "title": "Color Blindness Simulator",
+      "desc": "Simulate protanopia/deuteranopia",
+      "file": "accessibility.html",
+      "icon": "fa-eye",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "title": "Robots.txt Generator",
+      "desc": "Create SEO robots.txt files",
+      "file": "robots-gen.html",
+      "icon": "fa-robot",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
+      "popular": true
+    },
+    {
+      "title": "Sitemap XML Generator",
+      "desc": "Generate XML sitemaps",
+      "file": "sitemap-gen.html",
+      "icon": "fa-sitemap",
+      "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
+      "popular": true
+    },
+    {
+      "title": "JavaScript Obfuscator",
+      "desc": "Protect JS code with obfuscation",
+      "file": "js-hide.html",
+      "icon": "fa-shield-alt",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "Data URI Generator",
+      "desc": "Convert files to data URIs",
+      "file": "data-uri.html",
+      "icon": "fa-image",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "SSML Generator",
+      "desc": "Create TTS speech markup",
+      "file": "tts-format.html",
+      "icon": "fa-microphone-alt",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Cron Parser",
+      "desc": "Parse cron expressions to text",
+      "file": "cron-info.html",
+      "icon": "fa-clock",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "HTML Table to JSON",
+      "desc": "Convert tables to JSON",
+      "file": "table-to-json.html",
+      "icon": "fa-table",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "title": "Password Strength Meter",
+      "desc": "Check password entropy",
+      "file": "pass-check.html",
+      "icon": "fa-lock",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
+      "popular": true
+    },
+    {
+      "title": "Image Color Palette",
+      "desc": "Extract colors from images",
+      "file": "palette.html",
+      "icon": "fa-palette",
+      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
+      "popular": true
+    },
+    {
+      "title": "Binary to Decimal",
+      "desc": "Convert binary to decimal",
+      "file": "bin-dec.html",
+      "icon": "fa-calculator",
+      "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
+      "popular": true
+    },
+    {
+      "title": "Morse Code Translator",
+      "desc": "Text to Morse & back",
+      "file": "morse.html",
+      "icon": "fa-signal",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "CSS Gradient Generator",
+      "desc": "Create linear/radial gradients",
+      "file": "gradient-gen.html",
+      "icon": "fa-palette",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "JSON Path Tester",
+      "desc": "Query JSON with JSONPath",
+      "file": "json-path.html",
+      "icon": "fa-code-branch",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Word Cloud Generator",
+      "desc": "Analyze word frequency",
+      "file": "word-cloud.html",
+      "icon": "fa-cloud",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Markdown Table Generator",
+      "desc": "Create GitHub tables",
+      "file": "md-table.html",
+      "icon": "fa-table",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "title": "CSS Variable Generator",
+      "desc": "Create CSS custom properties",
+      "file": "css-vars.html",
+      "icon": "fa-paint-brush",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
+      "popular": true
     }
   ]
 }
