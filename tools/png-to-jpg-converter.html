@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PNG to JPG Converter - Convert Images Online | ToolGram</title><meta name="description" content="Convert PNG images to JPG/JPEG format online free. Reduce file size, make backgrounds white. Fast, secure, and unlimited conversions."><meta name="keywords" content="png to jpg, convert png to jpg, png to jpeg, image converter, png to jpg online"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/png-to-jpg-converter.html"><meta property="og:title" content="PNG to JPG Converter | ToolGram"><meta property="og:description" content="Convert PNG images to JPG format"><meta property="og:url" content="https://toolgram-dev.github.io/tools/png-to-jpg-converter.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PNG to JPG Converter","description":"Convert PNG images to JPG/JPEG format","applicationCategory":"Utility","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/png-to-jpg-converter.html","offers":{"@type":"Offer","price":"0"},"featureList":["PNG to JPG","Image Converter","JPG Converter","File Format","Image Optimizer"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.image-preview{max-width:100%;max-height:200px;border-radius:8px;margin:10px 0}select, select option{color:#000!important;background:#fff!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-file-image"></i></div><div><h1 style="margin:0;">PNG to JPG Converter</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert PNG images to JPG/JPEG format online free</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-cloud-upload-alt"></i> Upload PNG</div><div style="padding:20px"><div class="var-row"><input type="file" id="png-input" accept="image/png" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff"></div><img id="png-preview" class="image-preview" style="display:none"><div class="var-row" style="margin-top:15px"><label style="color:#fff"><input type="range" id="jpg-quality" min="50" max="100" value="90"> Quality: <span id="quality-value">90%</span></label></div></div><div class="tool-actions"><button class="action-btn" onclick="convertPngToJpg()"><i class="fas fa-sync-alt"></i> Convert to JPG</button><button class="secondary-btn" onclick="clearPng()"><i class="fas fa-trash"></i> Clear</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-file-image"></i> JPG Output</div><div class="output-display" style="min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center"><img id="jpg-preview" class="image-preview" style="display:none"><p id="jpg-placeholder">Convert a PNG to see the JPG preview</p></div><div class="tool-actions" style="margin-top:15px;"><a id="download-link" style="display:none"><button class="action-btn" style="background:#10B981"><i class="fas fa-download"></i> Download JPG</button></a></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Image Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">Why Convert PNG to JPG?</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">JPG files are generally smaller than PNGs, making them ideal for websites and email. Converting PNG to JPG reduces file size significantly, but it's a lossy process, meaning some image quality is sacrificed. This tool uses HTML5 canvas to perform the conversion directly in your browser—your files never leave your device.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">What happens to transparency?</div><div class="faq-answer">JPG does not support transparency. Any transparent areas in your PNG will be filled with white in the resulting JPG.</div>
+<div class="faq-question">Will I lose image quality?</div><div class="faq-answer">Yes, JPG is a lossy format. Higher quality settings (like 90%) minimize visible loss while still reducing file size. Our tool lets you control the quality.</div>
+<div class="faq-question">Is it safe to upload my images?</div><div class="faq-answer">Yes, the conversion happens entirely in your browser. Your image is not uploaded to any server, ensuring privacy and security.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+document.getElementById('png-input').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+            document.getElementById('png-preview').src = ev.target.result;
+            document.getElementById('png-preview').style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+});
+document.getElementById('jpg-quality').addEventListener('input', function() {
+    document.getElementById('quality-value').textContent = this.value + '%';
+});
+function convertPngToJpg() {
+    const fileInput = document.getElementById('png-input');
+    const file = fileInput.files[0];
+    if (!file) {
+        alert('Please select a PNG file first.');
+        return;
+    }
+    const quality = document.getElementById('jpg-quality').value / 100;
+    const img = new Image();
+    img.onload = function() {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        const jpgDataUrl = canvas.toDataURL('image/jpeg', quality);
+        document.getElementById('jpg-preview').src = jpgDataUrl;
+        document.getElementById('jpg-preview').style.display = 'block';
+        document.getElementById('jpg-placeholder').style.display = 'none';
+        const downloadLink = document.getElementById('download-link');
+        downloadLink.href = jpgDataUrl;
+        downloadLink.download = 'converted-image.jpg';
+        downloadLink.style.display = 'inline-block';
+    };
+    img.src = URL.createObjectURL(file);
+}
+function clearPng() {
+    document.getElementById('png-input').value = '';
+    document.getElementById('png-preview').src = '';
+    document.getElementById('png-preview').style.display = 'none';
+    document.getElementById('jpg-preview').src = '';
+    document.getElementById('jpg-preview').style.display = 'none';
+    document.getElementById('jpg-placeholder').style.display = 'block';
+    document.getElementById('download-link').style.display = 'none';
+}
+function loadRelated() {
+    const tools = [
+        {name:"Image to Base64", icon:"fa-image", url:"image-to-base64.html"},
+        {name:"Placeholder Image", icon:"fa-image", url:"placeholder-image-generator.html"},
+        {name:"Color Palette", icon:"fa-palette", url:"color-palette.html"},
+        {name:"Color Blindness", icon:"fa-eye", url:"accessibility.html"},
+        {name:"CSS Gradient", icon:"fa-palette", url:"gradient-gen.html"},
+        {name:"Border Radius", icon:"fa-square", url:"border-radius.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", loadRelated);
+</script></body></html>

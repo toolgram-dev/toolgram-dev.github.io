@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SHA-512 Hash Generator - Secure 512-bit Hash | ToolGram</title><meta name="description" content="Generate SHA-512 hash for any text or string. Fast, secure 512-bit cryptographic hash generator. Perfect for checksums and data integrity."><meta name="keywords" content="sha512, sha-512, hash generator, 512-bit hash, cryptographic hash, checksum, secure hash algorithm"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/sha512-generator.html"><meta property="og:title" content="SHA-512 Hash Generator | ToolGram"><meta property="og:description" content="Generate SHA-512 cryptographic hash"><meta property="og:url" content="https://toolgram-dev.github.io/tools/sha512-generator.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"SHA-512 Hash Generator","description":"Generate SHA-512 hash for text","applicationCategory":"SecurityApplication","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/sha512-generator.html","offers":{"@type":"Offer","price":"0"},"featureList":["SHA512","Hash Generator","Cryptographic Hash","Checksum","Data Integrity"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}.output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}select option{background:#fff!important;color:#000!important}select option:hover{background:#f0f0f0!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style><script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-hashtag"></i></div><div><h1 style="margin:0;">SHA-512 Hash Generator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Generate secure 512-bit SHA-512 hash for any text</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input Text</div><div style="padding:20px"><textarea id="sha512-input" class="tool-textarea" placeholder="Enter text to hash...">Hello World</textarea><div class="var-row" style="margin-top:15px"><label style="color:#fff; display:flex; align-items:center; gap:8px;"><input type="checkbox" id="upper-case"> Uppercase output</label></div></div><div class="tool-actions"><button class="action-btn" onclick="generateSHA512()"><i class="fas fa-calculator"></i> Generate Hash</button><button class="secondary-btn" onclick="clearSHA512()"><i class="fas fa-trash"></i> Clear</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-fingerprint"></i> SHA-512 Hash</div><div class="output-display" id="sha512-output">7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069</div><div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copySHA512()"><i class="far fa-copy"></i> Copy Hash</button></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Security Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">What is SHA-512?</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">SHA-512 (Secure Hash Algorithm 512) is a member of the SHA-2 family of cryptographic hash functions. It produces a 512-bit (64-byte) hash value, typically rendered as a 128-digit hexadecimal number. It's used for data integrity, password hashing, and digital signatures, offering stronger security than SHA-256.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">Is SHA-512 better than SHA-256?</div><div class="faq-answer">SHA-512 is more secure due to its longer hash length and is faster on 64-bit machines. However, for most applications, SHA-256 is sufficient. SHA-512 is recommended for high-security needs like government and military use.</div>
+<div class="faq-question">Can I decrypt a SHA-512 hash?</div><div class="faq-answer">No, SHA-512 is a one-way function. It's impossible to reverse a hash back to the original input. Verification is done by hashing the input again and comparing the hashes.</div>
+<div class="faq-question">What is SHA-512 used for?</div><div class="faq-answer">Common uses include file integrity checks, digital signatures, password hashing (often with salting), blockchain technology, and in SSL/TLS certificates.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+function generateSHA512() {
+    let input = document.getElementById('sha512-input').value;
+    if (!input) {
+        document.getElementById('sha512-output').textContent = 'Enter text to generate hash';
+        return;
+    }
+    let hash = CryptoJS.SHA512(input).toString();
+    if (document.getElementById('upper-case').checked) {
+        hash = hash.toUpperCase();
+    }
+    document.getElementById('sha512-output').textContent = hash;
+}
+function clearSHA512() {
+    document.getElementById('sha512-input').value = '';
+    document.getElementById('sha512-output').textContent = 'Enter text to generate hash';
+}
+function copySHA512() {
+    let text = document.getElementById('sha512-output').textContent;
+    if (text && text !== 'Enter text to generate hash') {
+        navigator.clipboard.writeText(text);
+        let btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Hash', 2000);
+    }
+}
+function loadRelated() {
+    const tools = [
+        {name:"SHA-256", icon:"fa-hashtag", url:"sha256.html"},
+        {name:"MD5 Hasher", icon:"fa-hashtag", url:"md5-hasher.html"},
+        {name:"CRC32", icon:"fa-file-contract", url:"crc32.html"},
+        {name:"JWT Decoder", icon:"fa-key", url:"jwt-decoder.html"},
+        {name:"Bcrypt", icon:"fa-lock", url:"bcrypt-hasher.html"},
+        {name:"Password Strength", icon:"fa-lock", url:"pass-check.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", () => { loadRelated(); generateSHA512(); });
+</script></body></html>

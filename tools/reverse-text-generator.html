@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Reverse Text Generator - Flip Text Backwards | ToolGram</title><meta name="description" content="Free online tool to reverse text, words, or entire sentences. Flip backwards, create upside down effect, and generate mirrored text."><meta name="keywords" content="reverse text, flip text, backwards text generator, upside down text, text reverser, mirror text"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/reverse-text-generator.html"><meta property="og:title" content="Reverse Text Generator | ToolGram"><meta property="og:description" content="Flip text backwards and create upside down text"><meta property="og:url" content="https://toolgram-dev.github.io/tools/reverse-text-generator.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Reverse Text Generator","description":"Flip text backwards, reverse words, and generate upside down text","applicationCategory":"Utility","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/reverse-text-generator.html","offers":{"@type":"Offer","price":"0"},"featureList":["Reverse Text","Upside Down Text","Mirror Text","Backwards Text","Text Flipper"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.output-display{min-height:150px;padding:15px;font-family:monospace;white-space:pre-wrap;word-wrap:break-word}textarea{width:100%;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit}select, select option{color:#000!important;background:#fff!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-exchange-alt"></i></div><div><h1 style="margin:0;">Reverse Text Generator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Flip text backwards, reverse words, or create upside down effect</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input Text</div><div style="padding:20px"><textarea id="input-text" rows="5" placeholder="Enter your text here...">Hello World</textarea><div class="var-row" style="margin-top:15px"><select id="reverse-mode" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff"><option value="full">Full Reverse</option><option value="words">Reverse Words Only</option><option value="letters">Reverse Letters in Words</option><option value="upside">Upside Down</option></select></div></div><div class="tool-actions"><button class="action-btn" onclick="reverseText()"><i class="fas fa-sync-alt"></i> Reverse</button><button class="secondary-btn" onclick="clearInput()"><i class="fas fa-trash"></i> Clear</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-clipboard-list"></i> Reversed Output</div><div class="output-display" id="output-text">dlroW olleH</div><div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyOutput()"><i class="far fa-copy"></i> Copy Result</button></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Text Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">How Does Reverse Text Work?</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">Reversing text means flipping the order of characters, words, or lines. It's often used for creating puzzles, generating creative social media posts, or just for fun. Our tool offers multiple reverse modes: full string reversal, word-order reversal, reversing letters within words, and converting to upside-down Unicode characters.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">What is the difference between reverse and upside down text?</div><div class="faq-answer">Reversing flips the order of characters (like "abc" to "cba"). Upside down text uses special Unicode characters that look like upside-down versions of letters.</div>
+<div class="faq-question">Where can I use reversed text?</div><div class="faq-answer">It's popular for social media bios, creating unique usernames, puzzles, and sometimes for stylistic effect on websites or documents.</div>
+<div class="faq-question">Does it work with all languages?</div><div class="faq-answer">Full reverse and word reverse work for most languages. Upside down mode primarily supports Latin-based characters.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+const upsideDownMap = {
+    'a': 'ɐ', 'b': 'q', 'c': 'ɔ', 'd': 'p', 'e': 'ǝ', 'f': 'ɟ', 'g': 'ƃ', 'h': 'ɥ', 'i': 'ᴉ',
+    'j': 'ɾ', 'k': 'ʞ', 'l': 'l', 'm': 'ɯ', 'n': 'u', 'o': 'o', 'p': 'd', 'q': 'b', 'r': 'ɹ',
+    's': 's', 't': 'ʇ', 'u': 'n', 'v': 'ʌ', 'w': 'ʍ', 'x': 'x', 'y': 'ʎ', 'z': 'z',
+    'A': '∀', 'B': 'B', 'C': 'Ɔ', 'D': 'D', 'E': 'Ǝ', 'F': 'Ⅎ', 'G': 'פ', 'H': 'H', 'I': 'I',
+    'J': 'ſ', 'K': 'K', 'L': '˥', 'M': 'W', 'N': 'N', 'O': 'O', 'P': 'Ԁ', 'Q': 'Q', 'R': 'R',
+    'S': 'S', 'T': '┴', 'U': '∩', 'V': 'Λ', 'W': 'M', 'X': 'X', 'Y': '⅄', 'Z': 'Z',
+    '0': '0', '1': 'Ɩ', '2': 'ᄅ', '3': 'Ɛ', '4': 'ㄣ', '5': 'ϛ', '6': '9', '7': 'ㄥ', '8': '8', '9': '6',
+    '.': '˙', ',': '\'', '?': '¿', '!': '¡', '"': ',,', '(': ')', ')': '(', '[': ']', ']': '[', '{': '}', '}': '{',
+    '<': '>', '>': '<', '&': '⅋', '_': '‾'
+};
+function reverseText() {
+    let input = document.getElementById('input-text').value;
+    let mode = document.getElementById('reverse-mode').value;
+    let output = '';
+    if (mode === 'full') {
+        output = input.split('').reverse().join('');
+    } else if (mode === 'words') {
+        output = input.split(' ').reverse().join(' ');
+    } else if (mode === 'letters') {
+        output = input.split(' ').map(word => word.split('').reverse().join('')).join(' ');
+    } else if (mode === 'upside') {
+        output = input.split('').reverse().map(char => upsideDownMap[char] || char).join('');
+    }
+    document.getElementById('output-text').textContent = output;
+}
+function clearInput() {
+    document.getElementById('input-text').value = '';
+    document.getElementById('output-text').textContent = '';
+}
+function copyOutput() {
+    let text = document.getElementById('output-text').textContent;
+    if (text) {
+        navigator.clipboard.writeText(text);
+        let btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Result', 2000);
+    }
+}
+function loadRelated() {
+    const tools = [
+        {name:"Case Normalizer", icon:"fa-text-height", url:"case-normalizer.html"},
+        {name:"Text Inverter", icon:"fa-exchange-alt", url:"text-inverter.html"},
+        {name:"Text to Binary", icon:"fa-microchip", url:"text-to-binary.html"},
+        {name:"Word Counter", icon:"fa-font", url:"word-counter.html"},
+        {name:"List Sorter", icon:"fa-sort", url:"list-sorter.html"},
+        {name:"String Repeater", icon:"fa-copy", url:"string-repeater.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", () => { loadRelated(); reverseText(); });
+</script></body></html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Image to Base64 Converter - Encode Images Online | ToolGram</title><meta name="description" content="Convert images (PNG, JPG, GIF, SVG) to Base64 data URI online. Perfect for embedding images in HTML, CSS, or JavaScript without external files."><meta name="keywords" content="image to base64, base64 encoder, image encoder, data uri generator, img to base64, convert image to base64"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/image-to-base64.html"><meta property="og:title" content="Image to Base64 Converter | ToolGram"><meta property="og:description" content="Encode images to Base64 data URI"><meta property="og:url" content="https://toolgram-dev.github.io/tools/image-to-base64.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image to Base64 Converter","description":"Convert images to Base64 data URIs","applicationCategory":"DeveloperApplication","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/image-to-base64.html","offers":{"@type":"Offer","price":"0"},"featureList":["Base64 Image","Data URI","Image Encoder","HTML Embedding","CSS Background"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.output-display{min-height:150px;padding:15px;font-family:monospace;word-break:break-all;font-size:0.8rem}.image-preview{max-width:100%;max-height:200px;border-radius:8px;margin-top:10px;display:none}select, select option{color:#000!important;background:#fff!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-image"></i></div><div><h1 style="margin:0;">Image to Base64 Converter</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert images to Base64 data URIs for web embedding</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-cloud-upload-alt"></i> Upload Image</div><div style="padding:20px"><div class="var-row"><input type="file" id="image-input" accept="image/*" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff"></div><img id="preview" class="image-preview"><div class="var-row" style="margin-top:15px"><select id="output-format" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff"><option value="datauri">Data URI (full)</option><option value="base64">Base64 only</option></select></div></div><div class="tool-actions"><button class="action-btn" onclick="convertImage()"><i class="fas fa-sync-alt"></i> Convert</button><button class="secondary-btn" onclick="clearImage()"><i class="fas fa-trash"></i> Clear</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-code"></i> Base64 Output</div><div class="output-display" id="base64-output">Upload an image to get its Base64 string.</div><div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyBase64()"><i class="far fa-copy"></i> Copy Base64</button></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Encoding Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">What is a Base64 Image?</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">A Base64 image is an image file converted into a string of text. This string can be embedded directly into HTML (as a data URI) or CSS. It eliminates the need for an extra HTTP request, which can speed up page load times for small images like icons and logos.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">Why would I use a Base64 image instead of a normal image file?</div><div class="faq-answer">Base64 images are great for small assets (under 10KB). They reduce HTTP requests, which can improve page load speed. However, they increase the size of your HTML/CSS and aren't cached separately.</div>
+<div class="faq-question">How do I use the Base64 string in HTML?</div><div class="faq-answer">Use the full Data URI output. For example: `<img src="data:image/png;base64,iVBORw0KGgo...">`. It works in CSS background-image properties as well.</div>
+<div class="faq-question">Is there a size limit for the image?</div><div class="faq-answer">For this tool, large images (above 5MB) might cause performance issues in your browser. For production, it's best to use Base64 only for small files.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+let currentBase64 = '';
+document.getElementById('image-input').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+            currentBase64 = ev.target.result;
+            document.getElementById('preview').src = currentBase64;
+            document.getElementById('preview').style.display = 'block';
+            convertImage();
+        };
+        reader.readAsDataURL(file);
+    }
+});
+function convertImage() {
+    if (!currentBase64) return;
+    const format = document.getElementById('output-format').value;
+    if (format === 'base64') {
+        document.getElementById('base64-output').textContent = currentBase64.split(',')[1];
+    } else {
+        document.getElementById('base64-output').textContent = currentBase64;
+    }
+}
+function clearImage() {
+    document.getElementById('image-input').value = '';
+    document.getElementById('preview').src = '';
+    document.getElementById('preview').style.display = 'none';
+    document.getElementById('base64-output').textContent = 'Upload an image to get its Base64 string.';
+    currentBase64 = '';
+}
+function copyBase64() {
+    let text = document.getElementById('base64-output').textContent;
+    if (text && !text.includes('Upload an image')) {
+        navigator.clipboard.writeText(text);
+        let btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Base64', 2000);
+    }
+}
+function loadRelated() {
+    const tools = [
+        {name:"Base64 Encoder", icon:"fa-lock", url:"base64.html"},
+        {name:"Data URI Gen", icon:"fa-image", url:"data-uri.html"},
+        {name:"SVG to URI", icon:"fa-image", url:"svg-to-datauri.html"},
+        {name:"URL Encoder", icon:"fa-link", url:"url-encoder.html"},
+        {name:"HTML Entity", icon:"fa-code", url:"html-entity.html"},
+        {name:"UTF-8 Valid", icon:"fa-language", url:"utf8.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", loadRelated);
+</script></body></html>

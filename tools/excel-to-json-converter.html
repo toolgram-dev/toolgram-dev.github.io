@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Excel to JSON Converter - XLSX to JSON Online | ToolGram</title><meta name="description" content="Convert Excel (XLSX, XLS) files to JSON format online free. Transform spreadsheet data into clean JSON arrays for web development and data processing."><meta name="keywords" content="excel to json, xlsx to json, convert excel to json, spreadsheet to json, excel converter"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/excel-to-json-converter.html"><meta property="og:title" content="Excel to JSON Converter | ToolGram"><meta property="og:description" content="Convert Excel files to JSON format"><meta property="og:url" content="https://toolgram-dev.github.io/tools/excel-to-json-converter.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Excel to JSON Converter","description":"Convert Excel files to JSON format","applicationCategory":"DeveloperApplication","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/excel-to-json-converter.html","offers":{"@type":"Offer","price":"0"},"featureList":["Excel to JSON","XLSX Converter","Spreadsheet to JSON","Data Conversion","JSON Generator"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.output-display{min-height:200px;padding:15px;font-family:monospace;white-space:pre-wrap;word-wrap:break-word}select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important}select option{background:#fff!important;color:#000!important}select option:hover{background:#f0f0f0!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-file-excel"></i></div><div><h1 style="margin:0;">Excel to JSON Converter</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert Excel (XLSX, XLS) files to JSON format online free</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-cloud-upload-alt"></i> Upload Excel File</div><div style="padding:20px"><div class="var-row"><input type="file" id="excel-input" accept=".xlsx,.xls" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff"></div><div class="var-row" style="margin-top:15px"><select id="sheet-select" style="flex:1;padding:12px"><option value="">Select a sheet</option></select></div><div class="var-row"><select id="json-format" style="flex:1;padding:12px"><option value="array">Array of objects</option><option value="object">Object (first column as key)</option><option value="minified">Minified JSON</option></select></div></div><div class="tool-actions"><button class="action-btn" onclick="convertExcelToJson()"><i class="fas fa-sync-alt"></i> Convert to JSON</button><button class="secondary-btn" onclick="clearExcel()"><i class="fas fa-trash"></i> Clear</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-code"></i> JSON Output</div><div class="output-display" id="json-output">Upload an Excel file and click Convert</div><div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyJson()"><i class="far fa-copy"></i> Copy JSON</button><a id="download-json-link" style="display:none"><button class="secondary-btn"><i class="fas fa-download"></i> Download</button></a></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Data Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">Why Convert Excel to JSON?</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">JSON is the universal data format for web APIs and applications. Converting Excel spreadsheets to JSON makes it easy to import data into databases, use in JavaScript applications, or process with other tools. Our converter works entirely in your browser—your data never leaves your device.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">How does the conversion work?</div><div class="faq-answer">We use the SheetJS library to parse Excel files directly in your browser. The first row of your sheet becomes the JSON object keys, and subsequent rows become values.</div>
+<div class="faq-question">What Excel formats are supported?</div><div class="faq-answer">We support .xlsx (Excel 2007+) and .xls (Excel 97-2003) files. Both are converted with the same accuracy.</div>
+<div class="faq-question">Is my data secure?</div><div class="faq-answer">Absolutely. All processing happens in your browser. Your file is never uploaded to any server—it stays on your device.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+let workbook = null;
+let currentJson = '';
+document.getElementById('excel-input').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+        const data = new Uint8Array(ev.target.result);
+        workbook = XLSX.read(data, { type: 'array' });
+        const sheetSelect = document.getElementById('sheet-select');
+        sheetSelect.innerHTML = '<option value="">Select a sheet</option>';
+        workbook.SheetNames.forEach(name => {
+            sheetSelect.innerHTML += `<option value="${name}">${name}</option>`;
+        });
+    };
+    reader.readAsArrayBuffer(file);
+});
+function convertExcelToJson() {
+    if (!workbook) {
+        alert('Please upload an Excel file first.');
+        return;
+    }
+    const sheetName = document.getElementById('sheet-select').value;
+    if (!sheetName) {
+        alert('Please select a sheet.');
+        return;
+    }
+    const format = document.getElementById('json-format').value;
+    const sheet = workbook.Sheets[sheetName];
+    let json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+    if (json.length === 0) {
+        document.getElementById('json-output').textContent = 'No data found in sheet.';
+        return;
+    }
+    if (format === 'array') {
+        const headers = json[0];
+        const rows = json.slice(1).map(row => {
+            let obj = {};
+            headers.forEach((header, i) => {
+                obj[header] = row[i] || '';
+            });
+            return obj;
+        });
+        currentJson = JSON.stringify(rows, null, 2);
+    } else if (format === 'object') {
+        let obj = {};
+        json.forEach((row, i) => {
+            if (row.length >= 2) {
+                obj[row[0]] = row[1];
+            }
+        });
+        currentJson = JSON.stringify(obj, null, 2);
+    } else {
+        currentJson = JSON.stringify(json, null, 0);
+    }
+    document.getElementById('json-output').textContent = currentJson;
+    const downloadLink = document.getElementById('download-json-link');
+    downloadLink.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(currentJson);
+    downloadLink.download = 'data.json';
+    downloadLink.style.display = 'inline-block';
+}
+function clearExcel() {
+    document.getElementById('excel-input').value = '';
+    document.getElementById('sheet-select').innerHTML = '<option value="">Select a sheet</option>';
+    document.getElementById('json-output').textContent = 'Upload an Excel file and click Convert';
+    document.getElementById('download-json-link').style.display = 'none';
+    workbook = null;
+    currentJson = '';
+}
+function copyJson() {
+    if (currentJson) {
+        navigator.clipboard.writeText(currentJson);
+        let btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy JSON', 2000);
+    }
+}
+function loadRelated() {
+    const tools = [
+        {name:"CSV to JSON", icon:"fa-file-csv", url:"csv-to-json.html"},
+        {name:"JSON to CSV", icon:"fa-file-csv", url:"json-to-csv.html"},
+        {name:"JSON Minifier", icon:"fa-compress", url:"json-minifier.html"},
+        {name:"XML to JSON", icon:"fa-code", url:"xml-to-json.html"},
+        {name:"JSON Path", icon:"fa-map-signs", url:"json-path.html"},
+        {name:"JSON Schema", icon:"fa-code", url:"json-schema.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", loadRelated);
+</script></body></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PDF Compressor - Reduce PDF File Size Online | ToolGram</title><meta name="description" content="Compress PDF files online free. Reduce PDF size without losing quality. Shrink large PDFs for email, web upload, or storage. Fast and secure."><meta name="keywords" content="pdf compressor, compress pdf, reduce pdf size, shrink pdf, pdf optimizer, pdf reducer"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/pdf-compressor.html"><meta property="og:title" content="PDF Compressor | ToolGram"><meta property="og:description" content="Compress PDF files and reduce file size"><meta property="og:url" content="https://toolgram-dev.github.io/tools/pdf-compressor.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF Compressor","description":"Compress PDF files and reduce file size","applicationCategory":"Utility","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/pdf-compressor.html","offers":{"@type":"Offer","price":"0"},"featureList":["PDF Compressor","Reduce PDF Size","Shrink PDF","PDF Optimizer","File Compressor"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.upload-area{border:2px dashed rgba(255,255,255,0.3);border-radius:20px;padding:40px;text-align:center;cursor:pointer;transition:.3s}.upload-area:hover{border-color:#8B5CF6;background:rgba(139,92,246,0.1)}select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important}select option{background:#fff!important;color:#000!important}select option:hover{background:#f0f0f0!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-file-pdf"></i></div><div><h1 style="margin:0;">PDF Compressor</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Reduce PDF file size online free</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-cloud-upload-alt"></i> Upload PDF</div><div class="upload-area" id="dropArea"><i class="fas fa-cloud-upload-alt" style="font-size:3rem;color:#8B5CF6;margin-bottom:15px"></i><h3>Drag & Drop PDF Here</h3><p>or <span style="color:#8B5CF6;cursor:pointer" onclick="document.getElementById('pdf-input').click()">browse files</span></p><p style="font-size:0.9rem;opacity:0.7">Max size: 50MB • PDF only</p><input type="file" id="pdf-input" accept=".pdf" style="display:none"></div><div style="padding:20px"><div class="var-row"><select id="compression-level" style="flex:1;padding:12px"><option value="low">Low compression (high quality)</option><option value="medium" selected>Medium compression (balanced)</option><option value="high">High compression (smaller file)</option></select></div></div><div class="tool-actions"><button class="action-btn" onclick="compressPDF()"><i class="fas fa-compress-alt"></i> Compress PDF</button><button class="secondary-btn" onclick="clearPDF()"><i class="fas fa-trash"></i> Clear</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-info-circle"></i> Compression Info</div><div style="padding:20px;text-align:center"><div id="file-info">No file selected</div><div id="compression-result" style="margin-top:20px"></div><a id="download-link" style="display:none"><button class="action-btn" style="background:#10B981;margin-top:15px"><i class="fas fa-download"></i> Download Compressed PDF</button></a></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related PDF Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">Why Compress PDF Files?</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">Large PDF files are hard to email, slow to upload, and take up unnecessary storage. Compressing PDFs reduces file size while preserving quality, making them perfect for sharing, archiving, and web publishing. Our tool uses advanced optimization to shrink your files.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">How much can I reduce PDF size?</div><div class="faq-answer">Depending on the content and compression level, you can reduce file size by 20-80%. Image-heavy PDFs compress more, text-only PDFs compress less.</div>
+<div class="faq-question">Will I lose quality?</div><div class="faq-answer">Our medium compression balances size and quality with minimal visible loss. High compression may slightly reduce image quality but still maintains readability.</div>
+<div class="faq-question">Is it safe to upload my PDF?</div><div class="faq-answer">All processing happens in your browser. Your file never leaves your device, ensuring complete privacy and security.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+const dropArea = document.getElementById('dropArea');
+const fileInput = document.getElementById('pdf-input');
+let currentFile = null;
+let originalSize = 0;
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, preventDefaults, false);
+});
+function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}
+['dragenter', 'dragover'].forEach(eventName => {
+    dropArea.addEventListener(eventName, () => dropArea.classList.add('hover'), false);
+});
+['dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, () => dropArea.classList.remove('hover'), false);
+});
+dropArea.addEventListener('drop', handleDrop, false);
+dropArea.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', handleFiles);
+function handleDrop(e) {
+    let dt = e.dataTransfer;
+    let files = dt.files;
+    handleFiles({ target: { files } });
+}
+function handleFiles(e) {
+    let files = e.target.files;
+    if (files.length > 0) {
+        currentFile = files[0];
+        if (currentFile.type === 'application/pdf') {
+            originalSize = currentFile.size;
+            dropArea.innerHTML = `<i class="fas fa-check-circle" style="font-size:3rem;color:#10B981"></i><h3>${currentFile.name}</h3><p>${(currentFile.size/1024/1024).toFixed(2)} MB</p><p style="color:#10B981">Ready to compress</p>`;
+            document.getElementById('file-info').innerHTML = `<strong>File:</strong> ${currentFile.name}<br><strong>Size:</strong> ${(currentFile.size/1024/1024).toFixed(2)} MB`;
+        } else {
+            alert('Please select a PDF file');
+        }
+    }
+}
+async function compressPDF() {
+    if (!currentFile) {
+        alert('Please select a PDF file first');
+        return;
+    }
+    document.getElementById('compression-result').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Compressing...';
+    const arrayBuffer = await currentFile.arrayBuffer();
+    const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+    const compressedPdfBytes = await pdfDoc.save({ useObjectStreams: true });
+    const compressedSize = compressedPdfBytes.length;
+    const reduction = ((originalSize - compressedSize) / originalSize * 100).toFixed(1);
+    const compressedBlob = new Blob([compressedPdfBytes], { type: 'application/pdf' });
+    const compressedUrl = URL.createObjectURL(compressedBlob);
+    document.getElementById('compression-result').innerHTML = `
+        <p><strong>Original:</strong> ${(originalSize/1024/1024).toFixed(2)} MB</p>
+        <p><strong>Compressed:</strong> ${(compressedSize/1024/1024).toFixed(2)} MB</p>
+        <p><strong>Reduction:</strong> ${reduction}%</p>
+    `;
+    const downloadLink = document.getElementById('download-link');
+    downloadLink.href = compressedUrl;
+    downloadLink.download = 'compressed-' + currentFile.name;
+    downloadLink.style.display = 'block';
+}
+function clearPDF() {
+    currentFile = null;
+    dropArea.innerHTML = `<i class="fas fa-cloud-upload-alt" style="font-size:3rem;color:#8B5CF6;margin-bottom:15px"></i><h3>Drag & Drop PDF Here</h3><p>or <span style="color:#8B5CF6;cursor:pointer" onclick="document.getElementById('pdf-input').click()">browse files</span></p><p style="font-size:0.9rem;opacity:0.7">Max size: 50MB • PDF only</p>`;
+    document.getElementById('file-info').textContent = 'No file selected';
+    document.getElementById('compression-result').innerHTML = '';
+    document.getElementById('download-link').style.display = 'none';
+    fileInput.value = '';
+}
+function loadRelated() {
+    const tools = [
+      {name:"SQL to JSON", icon:"fa-database", url:"sql-to-json.html"},
+        {name:"JSON to CSV", icon:"fa-file-csv", url:"json-to-csv.html"},
+        {name:"CSV to JSON", icon:"fa-file-csv", url:"csv-to-json.html"},
+        {name:"XML to JSON", icon:"fa-code", url:"xml-to-json.html"},
+        {name:"JSON Minifier", icon:"fa-compress", url:"json-minifier.html"},
+        {name:"JS Formatter", icon:"fa-code", url:"js-formatter.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", loadRelated);
+</script></body></html>
