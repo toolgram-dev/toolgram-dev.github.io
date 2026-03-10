@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Emoji Copy Paste - Copy Emojis Online Free | ToolGram</title><meta name="description" content="Copy and paste emojis with one click. Browse hundreds of emojis by category: smileys, animals, food, symbols, flags. Free online emoji picker."><meta name="keywords" content="emoji copy paste, copy emoji, emoji keyboard, emoji picker, emojis for social media, copy paste emojis"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/emoji-copy-paste.html"><meta property="og:title" content="Emoji Copy Paste | ToolGram"><meta property="og:description" content="Copy and paste emojis with one click"><meta property="og:url" content="https://toolgram-dev.github.io/tools/emoji-copy-paste.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Emoji Copy Paste","description":"Copy and paste emojis with one click","applicationCategory":"Utility","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/emoji-copy-paste.html","offers":{"@type":"Offer","price":"0"},"featureList":["Emoji Copy","Emoji Picker","Copy Emojis","Emoji Keyboard","Emojis for Social Media"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.emoji-categories{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}.category-btn{background:rgba(139,92,246,0.1);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px;color:#fff;cursor:pointer;transition:.2s;text-align:center}.category-btn:hover,.category-btn.active{background:#8B5CF6}.emoji-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;max-height:400px;overflow-y:auto;padding:10px;background:rgba(255,255,255,0.02);border-radius:12px}.emoji-item{font-size:2rem;padding:10px;text-align:center;border-radius:8px;cursor:pointer;transition:.2s}.emoji-item:hover{background:#8B5CF6;transform:scale(1.1)}.search-box{width:100%;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;margin-bottom:15px}select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}select option{background:#fff!important;color:#000!important}select option:hover{background:#f0f0f0!important}.copied-message{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#10B981;color:#fff;padding:10px 20px;border-radius:8px;display:none}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="far fa-smile"></i></div><div><h1 style="margin:0;">Emoji Copy Paste</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Click any emoji to copy and paste anywhere</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-search"></i> Find Emoji</div><div style="padding:20px"><input type="text" id="emojiSearch" class="search-box" placeholder="Search emojis (e.g., smile, heart, flag)..." onkeyup="filterEmojis()"><div class="emoji-categories"><div class="category-btn active" onclick="filterCategory('all')">All</div><div class="category-btn" onclick="filterCategory('smileys')">😊 Smileys</div><div class="category-btn" onclick="filterCategory('animals')">🐶 Animals</div><div class="category-btn" onclick="filterCategory('food')">🍔 Food</div><div class="category-btn" onclick="filterCategory('activities')">⚽ Activities</div><div class="category-btn" onclick="filterCategory('travel')">✈️ Travel</div><div class="category-btn" onclick="filterCategory('objects')">💡 Objects</div><div class="category-btn" onclick="filterCategory('symbols')">❤️ Symbols</div><div class="category-btn" onclick="filterCategory('flags')">🏁 Flags</div></div></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-th"></i> Emoji Grid</div><div style="padding:15px"><div id="emojiGrid" class="emoji-grid"></div></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Text Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">What is Emoji Copy Paste?</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">Emojis are universal symbols used in digital communication. Our tool makes it easy to find and copy emojis for use in social media, messages, emails, and documents. Just click any emoji to copy it to your clipboard, then paste anywhere.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">How do I use copied emojis?</div><div class="faq-answer">Simply click any emoji - it's automatically copied. Then go to any app (social media, messaging, email) and paste (Ctrl+V or Cmd+V).</div>
+<div class="faq-question">Do emojis work on all devices?</div><div class="faq-answer">Yes, emojis are Unicode standard and work on all modern devices and platforms. Older devices may show blank squares.</div>
+<div class="faq-question">Can I use emojis commercially?</div><div class="faq-answer">Yes, emojis are free to use in any context - personal, commercial, or creative projects.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<div id="copiedMessage" class="copied-message">✅ Copied to clipboard!</div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+const emojis = {
+    smileys: [
+        { char: '😀', name: 'Grinning Face' }, { char: '😃', name: 'Grinning Face with Big Eyes' },
+        { char: '😄', name: 'Grinning Face with Smiling Eyes' }, { char: '😁', name: 'Beaming Face with Smiling Eyes' },
+        { char: '😆', name: 'Grinning Squinting Face' }, { char: '😅', name: 'Grinning Face with Sweat' },
+        { char: '😂', name: 'Face with Tears of Joy' }, { char: '🤣', name: 'Rolling on the Floor Laughing' },
+        { char: '😊', name: 'Smiling Face with Smiling Eyes' }, { char: '😇', name: 'Smiling Face with Halo' },
+        { char: '🙂', name: 'Slightly Smiling Face' }, { char: '🙃', name: 'Upside-Down Face' },
+        { char: '😉', name: 'Winking Face' }, { char: '😌', name: 'Relieved Face' },
+        { char: '😍', name: 'Smiling Face with Heart-Eyes' }, { char: '🥰', name: 'Smiling Face with Hearts' },
+        { char: '😘', name: 'Face Blowing a Kiss' }, { char: '😗', name: 'Kissing Face' },
+        { char: '😙', name: 'Kissing Face with Smiling Eyes' }, { char: '😚', name: 'Kissing Face with Closed Eyes' }
+    ],
+    animals: [
+        { char: '🐶', name: 'Dog Face' }, { char: '🐱', name: 'Cat Face' }, { char: '🐭', name: 'Mouse Face' },
+        { char: '🐹', name: 'Hamster' }, { char: '🐰', name: 'Rabbit Face' }, { char: '🦊', name: 'Fox' },
+        { char: '🐻', name: 'Bear' }, { char: '🐼', name: 'Panda' }, { char: '🐨', name: 'Koala' },
+        { char: '🐯', name: 'Tiger Face' }, { char: '🦁', name: 'Lion' }, { char: '🐮', name: 'Cow Face' },
+        { char: '🐷', name: 'Pig Face' }, { char: '🐸', name: 'Frog' }, { char: '🐙', name: 'Octopus' },
+        { char: '🐵', name: 'Monkey Face' }, { char: '🐒', name: 'Monkey' }, { char: '🦍', name: 'Gorilla' },
+        { char: '🦧', name: 'Orangutan' }, { char: '🐺', name: 'Wolf' }
+    ],
+    food: [
+        { char: '🍎', name: 'Red Apple' }, { char: '🍐', name: 'Pear' }, { char: '🍊', name: 'Tangerine' },
+        { char: '🍋', name: 'Lemon' }, { char: '🍌', name: 'Banana' }, { char: '🍉', name: 'Watermelon' },
+        { char: '🍇', name: 'Grapes' }, { char: '🍓', name: 'Strawberry' }, { char: '🫐', name: 'Blueberries' },
+        { char: '🍈', name: 'Melon' }, { char: '🍒', name: 'Cherries' }, { char: '🍑', name: 'Peach' },
+        { char: '🥭', name: 'Mango' }, { char: '🍍', name: 'Pineapple' }, { char: '🥥', name: 'Coconut' },
+        { char: '🥝', name: 'Kiwi' }, { char: '🍅', name: 'Tomato' }, { char: '🍆', name: 'Eggplant' },
+        { char: '🥑', name: 'Avocado' }, { char: '🥦', name: 'Broccoli' }
+    ],
+    activities: [
+        { char: '⚽', name: 'Soccer Ball' }, { char: '🏀', name: 'Basketball' }, { char: '🏈', name: 'American Football' },
+        { char: '⚾', name: 'Baseball' }, { char: '🥎', name: 'Softball' }, { char: '🎾', name: 'Tennis' },
+        { char: '🏐', name: 'Volleyball' }, { char: '🏉', name: 'Rugby Football' }, { char: '🥏', name: 'Flying Disc' },
+        { char: '🎳', name: 'Bowling' }, { char: '🏏', name: 'Cricket' }, { char: '🏑', name: 'Field Hockey' },
+        { char: '🏒', name: 'Ice Hockey' }, { char: '🥍', name: 'Lacrosse' }, { char: '🏓', name: 'Ping Pong' },
+        { char: '🏸', name: 'Badminton' }, { char: '🥊', name: 'Boxing Glove' }, { char: '🥋', name: 'Martial Arts Uniform' },
+        { char: '⛸️', name: 'Ice Skate' }, { char: '🎣', name: 'Fishing Pole' }
+    ],
+    travel: [
+        { char: '✈️', name: 'Airplane' }, { char: '🚗', name: 'Car' }, { char: '🚕', name: 'Taxi' },
+        { char: '🚙', name: 'SUV' }, { char: '🚌', name: 'Bus' }, { char: '🚎', name: 'Trolleybus' },
+        { char: '🏎️', name: 'Racing Car' }, { char: '🚓', name: 'Police Car' }, { char: '🚑', name: 'Ambulance' },
+        { char: '🚒', name: 'Fire Engine' }, { char: '🚐', name: 'Minibus' }, { char: '🚚', name: 'Delivery Truck' },
+        { char: '🚛', name: 'Articulated Lorry' }, { char: '🚜', name: 'Tractor' }, { char: '🏍️', name: 'Motorcycle' },
+        { char: '🚲', name: 'Bicycle' }, { char: '🛴', name: 'Kick Scooter' }, { char: '🚨', name: 'Police Car Light' },
+        { char: '🚔', name: 'Oncoming Police Car' }, { char: '🚍', name: 'Oncoming Bus' }
+    ],
+    objects: [
+        { char: '💡', name: 'Light Bulb' }, { char: '🔦', name: 'Flashlight' }, { char: '🕯️', name: 'Candle' },
+        { char: '📚', name: 'Books' }, { char: '📖', name: 'Book' }, { char: '📱', name: 'Mobile Phone' },
+        { char: '💻', name: 'Laptop' }, { char: '⌨️', name: 'Keyboard' }, { char: '🖥️', name: 'Desktop Computer' },
+        { char: '🖨️', name: 'Printer' }, { char: '🖱️', name: 'Computer Mouse' }, { char: '💾', name: 'Floppy Disk' },
+        { char: '💿', name: 'CD' }, { char: '📀', name: 'DVD' }, { char: '🎥', name: 'Movie Camera' },
+        { char: '🎬', name: 'Clapper Board' }, { char: '📺', name: 'Television' }, { char: '📻', name: 'Radio' },
+        { char: '🎙️', name: 'Microphone' }, { char: '🎚️', name: 'Slider' }
+    ],
+    symbols: [
+        { char: '❤️', name: 'Red Heart' }, { char: '🧡', name: 'Orange Heart' }, { char: '💛', name: 'Yellow Heart' },
+        { char: '💚', name: 'Green Heart' }, { char: '💙', name: 'Blue Heart' }, { char: '💜', name: 'Purple Heart' },
+        { char: '🖤', name: 'Black Heart' }, { char: '🤍', name: 'White Heart' }, { char: '🤎', name: 'Brown Heart' },
+        { char: '💔', name: 'Broken Heart' }, { char: '❤️‍🔥', name: 'Heart on Fire' }, { char: '❤️‍🩹', name: 'Mending Heart' },
+        { char: '💕', name: 'Two Hearts' }, { char: '💞', name: 'Revolving Hearts' }, { char: '💓', name: 'Beating Heart' },
+        { char: '💗', name: 'Growing Heart' }, { char: '💖', name: 'Sparkling Heart' }, { char: '💘', name: 'Heart with Arrow' },
+        { char: '💝', name: 'Heart with Ribbon' }, { char: '💟', name: 'Heart Decoration' }
+    ],
+    flags: [
+        { char: '🏁', name: 'Chequered Flag' }, { char: '🚩', name: 'Triangular Flag' }, { char: '🎌', name: 'Crossed Flags' },
+        { char: '🏴', name: 'Black Flag' }, { char: '🏳️', name: 'White Flag' }, { char: '🏳️‍🌈', name: 'Rainbow Flag' },
+        { char: '🏴‍☠️', name: 'Pirate Flag' }, { char: '🇺🇸', name: 'United States' }, { char: '🇬🇧', name: 'United Kingdom' },
+        { char: '🇨🇦', name: 'Canada' }, { char: '🇦🇺', name: 'Australia' }, { char: '🇮🇳', name: 'India' },
+        { char: '🇯🇵', name: 'Japan' }, { char: '🇨🇳', name: 'China' }, { char: '🇷🇺', name: 'Russia' },
+        { char: '🇧🇷', name: 'Brazil' }, { char: '🇫🇷', name: 'France' }, { char: '🇩🇪', name: 'Germany' },
+        { char: '🇮🇹', name: 'Italy' }, { char: '🇪🇸', name: 'Spain' }
+    ]
+};
+let currentCategory = 'all';
+let filteredEmojis = [];
+function loadEmojis() {
+    displayEmojis();
+}
+function displayEmojis() {
+    const grid = document.getElementById('emojiGrid');
+    const search = document.getElementById('emojiSearch').value.toLowerCase();
+    let allEmojis = [];
+    if (currentCategory === 'all') {
+        for (let cat in emojis) {
+            allEmojis = allEmojis.concat(emojis[cat]);
+        }
+    } else {
+        allEmojis = emojis[currentCategory];
+    }
+    filteredEmojis = allEmojis.filter(emoji => 
+        emoji.name.toLowerCase().includes(search)
+    );
+    let html = '';
+    filteredEmojis.forEach(emoji => {
+        html += `<div class="emoji-item" onclick="copyEmoji('${emoji.char}')" title="${emoji.name}">${emoji.char}</div>`;
+    });
+    grid.innerHTML = html;
+}
+function filterCategory(category) {
+    currentCategory = category;
+    document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    displayEmojis();
+}
+function filterEmojis() {
+    displayEmojis();
+}
+function copyEmoji(emoji) {
+    navigator.clipboard.writeText(emoji);
+    const message = document.getElementById('copiedMessage');
+    message.style.display = 'block';
+    setTimeout(() => message.style.display = 'none', 2000);
+}
+function loadRelated() {
+    const tools = [
+        {name:"Fancy Text", icon:"fa-paint-brush", url:"fancy-text-generator.html"},
+        {name:"Reverse Text", icon:"fa-exchange-alt", url:"reverse-text-generator.html"},
+        {name:"Case Normalizer", icon:"fa-text-height", url:"case-normalizer.html"},
+        {name:"Word Counter", icon:"fa-font", url:"word-counter.html"},
+        {name:"Text Diff", icon:"fa-not-equal", url:"text-diff.html"},
+        {name:"String Repeater", icon:"fa-copy", url:"string-repeater.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", () => {
+    loadRelated();
+    loadEmojis();
+});
+</script></body></html>

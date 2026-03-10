@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>YouTube Thumbnail Downloader - Get HD Thumbnails | ToolGram</title><meta name="description" content="Download YouTube video thumbnails in HD, SD, and all resolutions. Extract thumbnails from any YouTube video by URL. Free online tool."><meta name="keywords" content="youtube thumbnail downloader, thumbnail download, youtube thumbnail, video thumbnail, download thumbnail, youtube image"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/youtube-thumbnail-downloader.html"><meta property="og:title" content="YouTube Thumbnail Downloader | ToolGram"><meta property="og:description" content="Download YouTube video thumbnails in HD"><meta property="og:url" content="https://toolgram-dev.github.io/tools/youtube-thumbnail-downloader.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"YouTube Thumbnail Downloader","description":"Download YouTube video thumbnails in HD","applicationCategory":"Utility","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/youtube-thumbnail-downloader.html","offers":{"@type":"Offer","price":"0"},"featureList":["YouTube Thumbnail","Thumbnail Download","Video Thumbnail","HD Thumbnail","YouTube Image"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.tool-textarea{width:100%;min-height:80px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}.thumbnail-preview{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:20px}.thumb-card{background:rgba(139,92,246,0.05);border-radius:8px;padding:10px;text-align:center}.thumb-card img{width:100%;height:auto;border-radius:5px;margin-bottom:8px}.thumb-card p{color:rgba(255,255,255,0.7);margin:5px 0}.thumb-card a{color:#8B5CF6;text-decoration:none}select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}select option{background:#fff!important;color:#000!important}select option:hover{background:#f0f0f0!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fab fa-youtube"></i></div><div><h1 style="margin:0;">YouTube Thumbnail Downloader</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Download YouTube video thumbnails in all available qualities</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-link"></i> YouTube URL</div><div style="padding:20px"><textarea id="youtube-url" class="tool-textarea" placeholder="Paste YouTube video URL here...">https://www.youtube.com/watch?v=dQw4w9WgXcQ</textarea><div class="var-row" style="margin-top:15px"><select id="thumbnail-quality"><option value="maxresdefault">HD (1280x720) - Best Quality</option><option value="sddefault">SD (640x480)</option><option value="hqdefault">High (480x360)</option><option value="mqdefault">Medium (320x180)</option><option value="default">Low (120x90)</option></select></div></div><div class="tool-actions"><button class="action-btn" onclick="getThumbnail()"><i class="fas fa-download"></i> Get Thumbnail</button><button class="secondary-btn" onclick="clearThumbnail()"><i class="fas fa-trash"></i> Clear</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-eye"></i> Thumbnail Preview</div><div class="output-display" style="padding:15px"><div id="thumbnailContainer" style="text-align:center"><p style="color:rgba(255,255,255,0.5);">Enter a YouTube URL to see thumbnails</p></div></div><div class="tool-actions" style="margin-top:15px;"><a id="downloadThumbLink" style="display:none"><button class="action-btn" style="background:#10B981"><i class="fas fa-download"></i> Download Selected</button></a></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Media Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">How to Download YouTube Thumbnails</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">Simply paste any YouTube video URL, select your preferred quality, and click "Get Thumbnail". We'll extract the thumbnail directly from YouTube's servers. You can preview all available qualities and download the one you need.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">Is this legal?</div><div class="faq-answer">Yes, YouTube thumbnails are publicly accessible images. Downloading them for personal use is generally acceptable. For commercial use, respect copyright and content ownership.</div>
+<div class="faq-question">Why are some qualities not available?</div><div class="faq-answer">Not all videos have all thumbnail sizes. Older videos may only have lower quality versions. The tool shows all available options.</div>
+<div class="faq-question">Can I download thumbnails from private videos?</div><div class="faq-answer">No, we can only access thumbnails from public YouTube videos. Private videos are not accessible.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+function getYouTubeId(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+}
+function getThumbnail() {
+    const url = document.getElementById('youtube-url').value;
+    const videoId = getYouTubeId(url);
+    if (!videoId) {
+        alert('Invalid YouTube URL. Please enter a valid YouTube video URL.');
+        return;
+    }
+    const quality = document.getElementById('thumbnail-quality').value;
+    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/${quality}.jpg`;
+    const container = document.getElementById('thumbnailContainer');
+    container.innerHTML = `
+        <div style="background:rgba(139,92,246,0.05);border-radius:12px;padding:15px">
+            <img src="${thumbnailUrl}" style="width:100%;max-width:640px;border-radius:8px;margin-bottom:10px">
+            <p style="color:#fff;margin:5px 0">Video ID: ${videoId}</p>
+            <p style="color:rgba(255,255,255,0.7);margin:5px 0">Click download to save this thumbnail</p>
+        </div>
+    `;
+    const downloadLink = document.getElementById('downloadThumbLink');
+    downloadLink.href = thumbnailUrl;
+    downloadLink.download = `youtube-thumbnail-${videoId}.jpg`;
+    downloadLink.style.display = 'block';
+}
+function clearThumbnail() {
+    document.getElementById('youtube-url').value = '';
+    document.getElementById('thumbnailContainer').innerHTML = '<p style="color:rgba(255,255,255,0.5);">Enter a YouTube URL to see thumbnails</p>';
+    document.getElementById('downloadThumbLink').style.display = 'none';
+}
+function loadRelated() {
+    const tools = [
+        {name:"Image Cropper", icon:"fa-crop", url:"image-cropper.html"},
+        {name:"JPG to PNG", icon:"fa-file-image", url:"jpg-to-png-converter.html"},
+        {name:"PNG to JPG", icon:"fa-file-image", url:"png-to-jpg-converter.html"},
+        {name:"Image to Base64", icon:"fa-image", url:"image-to-base64.html"},
+        {name:"QR Code Gen", icon:"fa-qrcode", url:"qr-code-generator.html"},
+        {name:"Color Picker", icon:"fa-palette", url:"color-picker-from-image.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", loadRelated);
+</script></body></html>

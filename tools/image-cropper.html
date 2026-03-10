@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Image Cropper - Crop Images Online Free | ToolGram</title><meta name="description" content="Crop images online free. Upload any image and crop to desired dimensions. Square, circle, or custom crop. No signup, no upload, all in browser."><meta name="keywords" content="image cropper, crop image, image crop online, photo cropper, crop picture, image editor"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/image-cropper.html"><meta property="og:title" content="Image Cropper | ToolGram"><meta property="og:description" content="Crop images online free"><meta property="og:url" content="https://toolgram-dev.github.io/tools/image-cropper.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image Cropper","description":"Crop images online free","applicationCategory":"Utility","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/image-cropper.html","offers":{"@type":"Offer","price":"0"},"featureList":["Image Cropper","Crop Image","Photo Cropper","Image Editor","Picture Crop"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.upload-area{border:2px dashed rgba(255,255,255,0.3);border-radius:20px;padding:30px;text-align:center;cursor:pointer;transition:.3s;margin:20px}.upload-area:hover{border-color:#8B5CF6;background:rgba(139,92,246,0.1)}.crop-container{position:relative;margin:20px;max-width:100%;overflow:hidden;display:none}.crop-container img{max-width:100%;height:auto;display:block}.crop-box{position:absolute;border:2px solid #8B5CF6;background:rgba(139,92,246,0.1);cursor:move}.resize-handle{position:absolute;width:10px;height:10px;background:#8B5CF6;border-radius:2px}.resize-handle.nw{top:-5px;left:-5px;cursor:nw-resize}.resize-handle.ne{top:-5px;right:-5px;cursor:ne-resize}.resize-handle.sw{bottom:-5px;left:-5px;cursor:sw-resize}.resize-handle.se{bottom:-5px;right:-5px;cursor:se-resize}.preview-box{width:100%;height:150px;background:rgba(139,92,246,0.05);border-radius:8px;margin:20px;overflow:hidden;display:flex;align-items:center;justify-content:center}.preview-box img{max-width:100%;max-height:100%;object-fit:contain}select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}select option{background:#fff!important;color:#000!important}select option:hover{background:#f0f0f0!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-crop"></i></div><div><h1 style="margin:0;">Image Cropper</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Crop images to any size or aspect ratio</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-cloud-upload-alt"></i> Upload Image</div><div class="upload-area" id="dropArea" onclick="document.getElementById('fileInput').click()"><i class="fas fa-cloud-upload-alt" style="font-size:3rem;color:#8B5CF6;margin-bottom:15px"></i><h3>Click or Drag & Drop</h3><p style="font-size:0.9rem;opacity:0.7">JPG, PNG, GIF, BMP up to 10MB</p></div><input type="file" id="fileInput" accept="image/*" style="display:none"><div id="cropContainer" class="crop-container"><img id="cropImage"><div id="cropBox" class="crop-box"><div class="resize-handle nw"></div><div class="resize-handle ne"></div><div class="resize-handle sw"></div><div class="resize-handle se"></div></div></div><div style="padding:20px"><div class="var-row"><select id="aspectRatio"><option value="free">Free (Custom)</option><option value="1:1">Square (1:1)</option><option value="4:3">Classic (4:3)</option><option value="16:9">Widescreen (16:9)</option></select></div></div><div class="tool-actions"><button class="action-btn" onclick="cropImage()"><i class="fas fa-crop"></i> Crop & Preview</button><button class="secondary-btn" onclick="resetCropper()"><i class="fas fa-trash"></i> Reset</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-eye"></i> Cropped Preview</div><div class="output-display" style="padding:15px"><div class="preview-box" id="previewBox"><p style="color:rgba(255,255,255,0.5);">Cropped image will appear here</p></div></div><div class="tool-actions" style="margin-top:15px;"><a id="downloadLink" style="display:none"><button class="action-btn" style="background:#10B981"><i class="fas fa-download"></i> Download Cropped</button></a></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Image Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">How to Crop Images</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">Upload any image, select crop area by dragging the crop box, choose aspect ratio, and click crop. Your cropped image is ready to download. All processing happens in your browser—your images never leave your device.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">Can I crop to exact dimensions?</div><div class="faq-answer">Currently, our tool supports aspect ratio cropping. For exact pixel dimensions, you can use the custom crop and then resize in another tool.</div>
+<div class="faq-question">Is there a file size limit?</div><div class="faq-answer">For best performance, keep images under 10MB. Very large images may cause slow response in the browser.</div>
+<div class="faq-question">Will I lose quality?</div><div class="faq-answer">No, cropping doesn't reduce quality. The cropped image maintains the original resolution of the selected area.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+let originalImage = null;
+let cropX = 50, cropY = 50, cropW = 200, cropH = 200;
+let imgW = 0, imgH = 0;
+let isDragging = false;
+let isResizing = false;
+let resizeDir = '';
+let dragStartX, dragStartY;
+
+document.getElementById('fileInput').addEventListener('change', handleImage);
+document.getElementById('dropArea').addEventListener('dragover', (e) => e.preventDefault());
+document.getElementById('dropArea').addEventListener('drop', (e) => {
+    e.preventDefault();
+    let files = e.dataTransfer.files;
+    if (files.length > 0) {
+        document.getElementById('fileInput').files = files;
+        handleImage({ target: { files: files } });
+    }
+});
+
+function handleImage(e) {
+    let file = e.target.files[0];
+    if (file) {
+        let reader = new FileReader();
+        reader.onload = function(ev) {
+            let img = new Image();
+            img.onload = function() {
+                originalImage = img;
+                imgW = img.width;
+                imgH = img.height;
+                document.getElementById('cropImage').src = ev.target.result;
+                document.getElementById('cropContainer').style.display = 'block';
+                document.getElementById('dropArea').style.display = 'none';
+                
+                // Reset crop box
+                cropX = 50;
+                cropY = 50;
+                cropW = Math.min(200, imgW);
+                cropH = Math.min(200, imgH);
+                
+                updateCropBox();
+            };
+            img.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+function updateCropBox() {
+    let container = document.getElementById('cropContainer');
+    let containerW = container.clientWidth;
+    let containerH = container.clientHeight;
+    let scale = Math.min(containerW / imgW, containerH / imgH, 1);
+    
+    let box = document.getElementById('cropBox');
+    box.style.left = (cropX * scale) + 'px';
+    box.style.top = (cropY * scale) + 'px';
+    box.style.width = (cropW * scale) + 'px';
+    box.style.height = (cropH * scale) + 'px';
+}
+
+// Drag events
+document.getElementById('cropBox').addEventListener('mousedown', startDrag);
+document.querySelectorAll('.resize-handle').forEach(handle => {
+    handle.addEventListener('mousedown', startResize);
+});
+
+document.addEventListener('mousemove', drag);
+document.addEventListener('mouseup', stopDrag);
+
+function startDrag(e) {
+    if (e.target.classList.contains('resize-handle')) return;
+    isDragging = true;
+    dragStartX = e.clientX;
+    dragStartY = e.clientY;
+    e.preventDefault();
+}
+
+function startResize(e) {
+    isResizing = true;
+    resizeDir = e.target.className.split(' ')[1];
+    dragStartX = e.clientX;
+    dragStartY = e.clientY;
+    e.preventDefault();
+}
+
+function drag(e) {
+    if (!isDragging && !isResizing) return;
+    
+    let container = document.getElementById('cropContainer');
+    let scale = container.clientWidth / imgW;
+    
+    if (isDragging) {
+        let dx = (e.clientX - dragStartX) / scale;
+        let dy = (e.clientY - dragStartY) / scale;
+        
+        cropX += dx;
+        cropY += dy;
+        
+        cropX = Math.max(0, Math.min(cropX, imgW - cropW));
+        cropY = Math.max(0, Math.min(cropY, imgH - cropH));
+        
+        updateCropBox();
+        dragStartX = e.clientX;
+        dragStartY = e.clientY;
+    }
+    
+    if (isResizing) {
+        let dx = (e.clientX - dragStartX) / scale;
+        let dy = (e.clientY - dragStartY) / scale;
+        
+        // FIX: Resize from corners
+        if (resizeDir.includes('e')) cropW += dx;
+        if (resizeDir.includes('w')) {
+            cropW -= dx;
+            cropX += dx;
+        }
+        if (resizeDir.includes('s')) cropH += dy;
+        if (resizeDir.includes('n')) {
+            cropH -= dy;
+            cropY += dy;
+        }
+        
+        // Minimum size
+        cropW = Math.max(50, cropW);
+        cropH = Math.max(50, cropH);
+        
+        // Keep within image bounds
+        cropX = Math.max(0, Math.min(cropX, imgW - cropW));
+        cropY = Math.max(0, Math.min(cropY, imgH - cropH));
+        
+        updateCropBox();
+        dragStartX = e.clientX;
+        dragStartY = e.clientY;
+    }
+}
+
+function stopDrag() {
+    isDragging = false;
+    isResizing = false;
+}
+
+function cropImage() {
+    if (!originalImage) {
+        alert('Please upload an image first');
+        return;
+    }
+    
+    let canvas = document.createElement('canvas');
+    canvas.width = cropW;
+    canvas.height = cropH;
+    let ctx = canvas.getContext('2d');
+    ctx.drawImage(originalImage, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+    
+    let croppedDataUrl = canvas.toDataURL('image/png');
+    
+    let previewBox = document.getElementById('previewBox');
+    previewBox.innerHTML = '<img src="' + croppedDataUrl + '" style="max-width:100%;max-height:100%;object-fit:contain">';
+    
+    let downloadLink = document.getElementById('downloadLink');
+    downloadLink.href = croppedDataUrl;
+    downloadLink.download = 'cropped.png';
+    downloadLink.style.display = 'block';
+}
+
+function resetCropper() {
+    document.getElementById('fileInput').value = '';
+    document.getElementById('cropContainer').style.display = 'none';
+    document.getElementById('dropArea').style.display = 'block';
+    document.getElementById('previewBox').innerHTML = '<p style="color:rgba(255,255,255,0.5);">Cropped image will appear here</p>';
+    document.getElementById('downloadLink').style.display = 'none';
+    originalImage = null;
+}
+
+function loadRelated() {
+    const tools = [
+        {name:"JPG to PNG", icon:"fa-file-image", url:"jpg-to-png-converter.html"},
+        {name:"PNG to JPG", icon:"fa-file-image", url:"png-to-jpg-converter.html"},
+        {name:"Image to Base64", icon:"fa-image", url:"image-to-base64.html"},
+        {name:"QR Code Gen", icon:"fa-qrcode", url:"qr-code-generator.html"},
+        {name:"Color Picker", icon:"fa-palette", url:"color-picker-from-image.html"},
+        {name:"Placeholder Image", icon:"fa-image", url:"placeholder-image-generator.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += '<a href="' + t.url + '" class="related-card"><div class="related-icon"><i class="fas ' + t.icon + '"></i></div><span class="related-title">' + t.name + '</span></a>';
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", loadRelated);
+</script></body></html>

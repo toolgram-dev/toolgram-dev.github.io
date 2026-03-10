@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QR Code Generator - Create QR Codes Online Free | ToolGram</title><meta name="description" content="Generate QR codes online free for URLs, text, WiFi, vCard, and more. Create customizable QR codes with colors and logos. Download in PNG, SVG, and EPS formats."><meta name="keywords" content="qr code generator, create qr code, qr code maker, qr generator, qr code online, custom qr code"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/qr-code-generator.html"><meta property="og:title" content="QR Code Generator | ToolGram"><meta property="og:description" content="Generate QR codes online free"><meta property="og:url" content="https://toolgram-dev.github.io/tools/qr-code-generator.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"QR Code Generator","description":"Generate QR codes online free for URLs, text, WiFi, vCard","applicationCategory":"Utility","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/qr-code-generator.html","offers":{"@type":"Offer","price":"0"},"featureList":["QR Code","QR Generator","QR Maker","QR Creator","QR Code Download"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}.output-display{min-height:250px;padding:20px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;text-align:center}.qr-placeholder{width:200px;height:200px;background:rgba(139,92,246,0.1);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);margin:0 auto}.qr-placeholder i{font-size:3rem;margin-bottom:10px;color:#8B5CF6}.qr-image{max-width:200px;max-height:200px;margin:0 auto;border-radius:8px;display:none}select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}select option{background:#fff!important;color:#000!important}select option:hover{background:#f0f0f0!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style><script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-qrcode"></i></div><div><h1 style="margin:0;">QR Code Generator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Create QR codes for URLs, text, WiFi, vCard, and more</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-pencil-alt"></i> QR Code Data</div><div style="padding:20px"><textarea id="qr-input" class="tool-textarea" placeholder="Enter text, URL, or data for QR code...">https://toolgram-dev.github.io</textarea><div class="var-row" style="margin-top:15px"><select id="qr-type"><option value="text">Plain Text / URL</option><option value="wifi">WiFi Network</option><option value="vcard">vCard (Contact)</option><option value="email">Email Address</option><option value="phone">Phone Number</option></select></div><div class="var-row"><select id="qr-size"><option value="150">Small (150x150)</option><option value="200" selected>Medium (200x200)</option><option value="300">Large (300x300)</option><option value="400">Extra Large (400x400)</option></select></div><div class="var-row"><label style="color:#fff; display:flex; align-items:center; gap:8px;"><input type="color" id="qr-color" value="#000000"> Dark color</label><label style="color:#fff; display:flex; align-items:center; gap:8px;"><input type="color" id="qr-bg-color" value="#ffffff"> Background</label></div></div><div class="tool-actions"><button class="action-btn" onclick="generateQR()"><i class="fas fa-qrcode"></i> Generate QR Code</button><button class="secondary-btn" onclick="clearQR()"><i class="fas fa-trash"></i> Clear</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-eye"></i> QR Code Preview</div><div class="output-display"><canvas id="qr-canvas" style="display:none"></canvas><div id="qr-placeholder" class="qr-placeholder"><i class="fas fa-qrcode"></i><span>Your QR code will appear here</span></div><img id="qr-image" class="qr-image" src=""></div><div class="tool-actions" style="margin-top:15px;"><a id="download-link" style="display:none"><button class="action-btn" style="background:#10B981"><i class="fas fa-download"></i> Download QR Code</button></a></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">What is a QR Code?</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">A QR code (Quick Response code) is a type of matrix barcode that stores information. QR codes can contain URLs, text, contact information, WiFi credentials, and more. They're scanned by smartphones and QR readers to quickly access the encoded data.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">What can I store in a QR code?</div><div class="faq-answer">You can store URLs, plain text, WiFi network details (SSID + password), contact information (vCard), email addresses, phone numbers, SMS messages, and more.</div>
+<div class="faq-question">Are QR codes free to generate?</div><div class="faq-answer">Yes, QR code generation is completely free. Our tool creates static QR codes with no expiration date.</div>
+<div class="faq-question">Can I change QR code colors?</div><div class="faq-answer">Yes, you can customize the dark and background colors. Make sure there's enough contrast for scanners to read the code properly.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+function generateQR() {
+    const input = document.getElementById('qr-input').value;
+    if (!input.trim()) {
+        alert('Please enter data for QR code');
+        return;
+    }
+    const size = parseInt(document.getElementById('qr-size').value);
+    const darkColor = document.getElementById('qr-color').value;
+    const lightColor = document.getElementById('qr-bg-color').value;
+    const canvas = document.getElementById('qr-canvas');
+    const img = document.getElementById('qr-image');
+    const placeholder = document.getElementById('qr-placeholder');
+    
+    QRCode.toCanvas(canvas, input, {
+        width: size,
+        margin: 2,
+        color: {
+            dark: darkColor,
+            light: lightColor
+        }
+    }, function(error) {
+        if (error) {
+            alert('Error generating QR code: ' + error);
+            return;
+        }
+        const imgData = canvas.toDataURL('image/png');
+        img.src = imgData;
+        img.style.display = 'block';
+        placeholder.style.display = 'none';
+        document.getElementById('download-link').href = imgData;
+        document.getElementById('download-link').download = 'qrcode.png';
+        document.getElementById('download-link').style.display = 'block';
+    });
+}
+function clearQR() {
+    document.getElementById('qr-input').value = '';
+    document.getElementById('qr-placeholder').style.display = 'flex';
+    document.getElementById('qr-image').style.display = 'none';
+    document.getElementById('download-link').style.display = 'none';
+}
+function loadRelated() {
+    const tools = [
+        {name:"Image to Base64", icon:"fa-image", url:"image-to-base64.html"},
+        {name:"Data URI Gen", icon:"fa-image", url:"data-uri.html"},
+        {name:"SVG to URI", icon:"fa-image", url:"svg-to-datauri.html"},
+        {name:"JPG to PNG", icon:"fa-file-image", url:"jpg-to-png-converter.html"},
+        {name:"Color Picker", icon:"fa-palette", url:"color-picker-from-image.html"},
+        {name:"Emoji Copy", icon:"fa-smile", url:"emoji-copy-paste.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", loadRelated);
+</script></body></html>

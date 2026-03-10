@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CSS to Tailwind Converter - Transform CSS to Tailwind Classes | ToolGram</title><meta name="description" content="Convert CSS to Tailwind CSS classes online. Paste your CSS and get equivalent Tailwind utility classes. Free converter for Tailwind developers."><meta name="keywords" content="css to tailwind, tailwind converter, css to tailwind classes, tailwind css converter, tailwind generator"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/css-to-tailwind-converter.html"><meta property="og:title" content="CSS to Tailwind Converter | ToolGram"><meta property="og:description" content="Convert CSS to Tailwind CSS classes online"><meta property="og:url" content="https://toolgram-dev.github.io/tools/css-to-tailwind-converter.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSS to Tailwind Converter","description":"Convert CSS to Tailwind CSS classes online","applicationCategory":"DeveloperApplication","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/css-to-tailwind-converter.html","offers":{"@type":"Offer","price":"0"},"featureList":["CSS to Tailwind","Tailwind Converter","CSS Converter","Tailwind Classes","CSS Utility Converter"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.tool-textarea{width:100%;min-height:200px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}.output-display{min-height:200px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;word-wrap:break-word}select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}select option{background:#fff!important;color:#000!important}select option:hover{background:#f0f0f0!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fab fa-css3-alt"></i></div><div><h1 style="margin:0;">CSS to Tailwind Converter</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert CSS properties to Tailwind CSS utility classes</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-code"></i> CSS Input</div><div style="padding:20px"><textarea id="css-input" class="tool-textarea" placeholder="Paste your CSS here...">.my-button {
+  background-color: #4f46e5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s;
+}</textarea></div><div class="tool-actions"><button class="action-btn" onclick="convertCssToTailwind()"><i class="fas fa-sync-alt"></i> Convert to Tailwind</button><button class="secondary-btn" onclick="clearCssConverter()"><i class="fas fa-trash"></i> Clear</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fab fa-tailwindcss"></i> Tailwind Classes</div><div class="output-display" id="tailwind-output"></div><div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyTailwind()"><i class="far fa-copy"></i> Copy Classes</button></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related CSS Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">What is Tailwind CSS?</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">Tailwind CSS is a utility-first CSS framework that provides low-level utility classes. Instead of writing custom CSS, you apply classes directly in your HTML. This converter helps migrate existing CSS to Tailwind or understand Tailwind equivalents of common CSS properties.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">How accurate is the conversion?</div><div class="faq-answer">We provide the closest Tailwind equivalents for common CSS properties. For complex values, you may need to adjust or use arbitrary values in Tailwind.</div>
+<div class="faq-question">Does it support all CSS properties?</div><div class="faq-answer">We support the most common CSS properties. For advanced or uncommon properties, you may need to handle them manually.</div>
+<div class="faq-question">Can I convert multiple selectors?</div><div class="faq-answer">Yes, our parser handles multiple CSS rules and provides classes for each selector. Combine classes as needed for your HTML.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+const tailwindMap = {
+    'background-color': (value) => {
+        const colorMap = {
+            '#4f46e5': 'bg-indigo-600',
+            '#ffffff': 'bg-white',
+            '#000000': 'bg-black',
+            '#f3f4f6': 'bg-gray-100',
+            '#e5e7eb': 'bg-gray-200',
+            '#d1d5db': 'bg-gray-300',
+            '#9ca3af': 'bg-gray-400',
+            '#6b7280': 'bg-gray-500',
+            '#4b5563': 'bg-gray-600',
+            '#374151': 'bg-gray-700',
+            '#1f2937': 'bg-gray-800',
+            '#111827': 'bg-gray-900'
+        };
+        return colorMap[value.toLowerCase()] || `bg-[${value}]`;
+    },
+    'color': (value) => {
+        const colorMap = {
+            '#ffffff': 'text-white',
+            '#000000': 'text-black',
+            '#4f46e5': 'text-indigo-600',
+            '#f3f4f6': 'text-gray-100',
+            '#e5e7eb': 'text-gray-200',
+            '#d1d5db': 'text-gray-300',
+            '#9ca3af': 'text-gray-400',
+            '#6b7280': 'text-gray-500',
+            '#4b5563': 'text-gray-600',
+            '#374151': 'text-gray-700',
+            '#1f2937': 'text-gray-800',
+            '#111827': 'text-gray-900'
+        };
+        return colorMap[value.toLowerCase()] || `text-[${value}]`;
+    },
+    'padding': (value) => {
+        const padMap = {
+            '10px 20px': 'px-5 py-2.5',
+            '10px': 'p-2.5',
+            '20px': 'p-5',
+            '5px': 'p-1',
+            '15px': 'p-3.5',
+            '8px': 'p-2',
+            '12px': 'p-3',
+            '16px': 'p-4',
+            '24px': 'p-6',
+            '32px': 'p-8'
+        };
+        return padMap[value] || 'p-[' + value + ']';
+    },
+    'border-radius': (value) => {
+        const radiusMap = {
+            '8px': 'rounded-lg',
+            '4px': 'rounded',
+            '2px': 'rounded-sm',
+            '6px': 'rounded-md',
+            '10px': 'rounded-xl',
+            '12px': 'rounded-xl',
+            '16px': 'rounded-2xl',
+            '9999px': 'rounded-full'
+        };
+        return radiusMap[value] || 'rounded-[' + value + ']';
+    },
+    'font-size': (value) => {
+        const sizeMap = {
+            '12px': 'text-xs',
+            '14px': 'text-sm',
+            '16px': 'text-base',
+            '18px': 'text-lg',
+            '20px': 'text-xl',
+            '24px': 'text-2xl',
+            '30px': 'text-3xl',
+            '36px': 'text-4xl',
+            '48px': 'text-5xl',
+            '60px': 'text-6xl'
+        };
+        return sizeMap[value] || 'text-[' + value + ']';
+    },
+    'font-weight': (value) => {
+        const weightMap = {
+            '400': 'font-normal',
+            '500': 'font-medium',
+            '600': 'font-semibold',
+            '700': 'font-bold',
+            '800': 'font-extrabold',
+            '300': 'font-light',
+            '200': 'font-extralight',
+            '100': 'font-thin',
+            'normal': 'font-normal',
+            'bold': 'font-bold'
+        };
+        return weightMap[value] || 'font-[' + value + ']';
+    },
+    'transition': (value) => 'transition',
+    'margin': (value) => 'm-[' + value + ']',
+    'width': (value) => 'w-[' + value + ']',
+    'height': (value) => 'h-[' + value + ']',
+    'display': (value) => {
+        const displayMap = {
+            'block': 'block',
+            'inline-block': 'inline-block',
+            'inline': 'inline',
+            'flex': 'flex',
+            'grid': 'grid',
+            'none': 'hidden'
+        };
+        return displayMap[value] || value;
+    },
+    'position': (value) => {
+        const posMap = {
+            'absolute': 'absolute',
+            'relative': 'relative',
+            'fixed': 'fixed',
+            'sticky': 'sticky'
+        };
+        return posMap[value] || value;
+    }
+};
+function convertCssToTailwind() {
+    const css = document.getElementById('css-input').value;
+    if (!css.trim()) {
+        document.getElementById('tailwind-output').textContent = 'Please enter CSS to convert';
+        return;
+    }
+    const selectorRegex = /([^{]+)\{([^}]+)\}/g;
+    let matches;
+    let result = '';
+    while ((matches = selectorRegex.exec(css)) !== null) {
+        const selector = matches[1].trim();
+        const properties = matches[2].split(';');
+        let classes = [];
+        properties.forEach(prop => {
+            prop = prop.trim();
+            if (!prop) return;
+            const [property, value] = prop.split(':').map(p => p.trim());
+            if (tailwindMap[property]) {
+                const twClass = tailwindMap[property](value);
+                if (twClass) classes.push(twClass);
+            }
+        });
+        if (classes.length > 0) {
+            result += `/* ${selector} */\n${classes.join(' ')}\n\n`;
+        }
+    }
+    document.getElementById('tailwind-output').textContent = result || 'No convertible properties found';
+}
+function clearCssConverter() {
+    document.getElementById('css-input').value = '';
+    document.getElementById('tailwind-output').textContent = '';
+}
+function copyTailwind() {
+    const text = document.getElementById('tailwind-output').textContent;
+    if (text) {
+        navigator.clipboard.writeText(text);
+        let btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Classes', 2000);
+    }
+}
+function loadRelated() {
+    const tools = [
+        {name:"CSS Minifier", icon:"fa-css3-alt", url:"css-minifier.html"},
+        {name:"CSS Variables", icon:"fa-paint-brush", url:"css-vars.html"},
+        {name:"Gradient Gen", icon:"fa-palette", url:"gradient-gen.html"},
+        {name:"Border Radius", icon:"fa-square", url:"border-radius.html"},
+        {name:"PX to REM", icon:"fa-arrows-alt-h", url:"rem-converter.html"},
+        {name:"RGB to HEX", icon:"fa-palette", url:"rgb-to-hex.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", loadRelated);
+</script></body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Age Calculator - Calculate Exact Age Online | ToolGram</title><meta name="description" content="Calculate exact age in years, months, days, hours, minutes, and seconds. Enter birthdate and get precise age instantly. Free online age calculator."><meta name="keywords" content="age calculator, calculate age, birthdate calculator, age in years, age in days, birthday calculator, exact age"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/age-calculator.html"><meta property="og:title" content="Age Calculator | ToolGram"><meta property="og:description" content="Calculate exact age in years, months, days"><meta property="og:url" content="https://toolgram-dev.github.io/tools/age-calculator.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Age Calculator","description":"Calculate exact age in years, months, days","applicationCategory":"Utility","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/age-calculator.html","offers":{"@type":"Offer","price":"0"},"featureList":["Age Calculator","Birthdate Calculator","Age in Years","Age in Days","Birthday Calculator"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.date-input{width:100%;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;margin-bottom:10px;font-family:inherit}.age-result{background:rgba(139,92,246,0.1);border-radius:12px;padding:20px;margin:10px 0}.age-number{font-size:3rem;font-weight:bold;color:#8B5CF6}.age-unit{color:rgba(255,255,255,0.7);font-size:0.9rem}.age-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}select option{background:#fff!important;color:#000!important}select option:hover{background:#f0f0f0!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-calendar-alt"></i></div><div><h1 style="margin:0;">Age Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate exact age from birthdate</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-birthday-cake"></i> Birthdate</div><div style="padding:20px"><input type="date" id="birthdate" class="date-input" value="2000-01-01"><div class="var-row" style="margin-top:15px"><label style="color:#fff">As of date: <input type="date" id="asOfDate" class="date-input" style="width:auto;flex:1"></label></div><div class="var-row"><label style="color:#fff"><input type="checkbox" id="includeToday" checked> Include today</label></div></div><div class="tool-actions"><button class="action-btn" onclick="calculateAge()"><i class="fas fa-calculator"></i> Calculate Age</button><button class="secondary-btn" onclick="resetAge()"><i class="fas fa-trash"></i> Reset</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-chart-bar"></i> Your Age</div><div style="padding:20px"><div class="age-result"><div class="age-grid"><div><div class="age-number" id="years">24</div><div class="age-unit">Years</div></div><div><div class="age-number" id="months">3</div><div class="age-unit">Months</div></div><div><div class="age-number" id="days">10</div><div class="age-unit">Days</div></div></div></div><div style="background:rgba(139,92,246,0.05);border-radius:12px;padding:15px;margin-top:15px"><div class="var-row" style="justify-content:space-between"><span>Total days:</span><span id="totalDays">8865</span></div><div class="var-row" style="justify-content:space-between"><span>Total months:</span><span id="totalMonths">291</span></div><div class="var-row" style="justify-content:space-between"><span>Next birthday:</span><span id="nextBirthday">in 254 days</span></div></div></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Date Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">How Age Calculator Works</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">Enter your birthdate and optionally choose a target date (defaults to today). The calculator instantly shows your exact age in years, months, and days. It also calculates total days, total months, and days until your next birthday. All calculations are precise and account for leap years.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">Does it account for leap years?</div><div class="faq-answer">Yes, the calculator automatically accounts for leap years in all date calculations.</div>
+<div class="faq-question">What if I leave "As of date" blank?</div><div class="faq-answer">It defaults to today's date automatically.</div>
+<div class="faq-question">What does "Include today" mean?</div><div class="faq-answer">When checked, the calculation includes the current day. When unchecked, it calculates complete years/months/days only.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+function calculateAge() {
+    let birthdateStr = document.getElementById('birthdate').value;
+    if (!birthdateStr) {
+        alert('Please select a birthdate');
+        return;
+    }
+    
+    let asOfDateStr = document.getElementById('asOfDate').value;
+    let includeToday = document.getElementById('includeToday').checked;
+    
+    let birthdate = new Date(birthdateStr);
+    let asOfDate = asOfDateStr ? new Date(asOfDateStr) : new Date();
+    
+    if (birthdate > asOfDate) {
+        alert('Birthdate cannot be in the future');
+        return;
+    }
+    
+    // Calculate years, months, days
+    let years = asOfDate.getFullYear() - birthdate.getFullYear();
+    let months = asOfDate.getMonth() - birthdate.getMonth();
+    let days = asOfDate.getDate() - birthdate.getDate();
+    
+    if (includeToday) {
+        days += 1;
+    }
+    
+    if (days < 0) {
+        months -= 1;
+        let lastMonth = new Date(asOfDate.getFullYear(), asOfDate.getMonth(), 0).getDate();
+        days += lastMonth;
+    }
+    
+    if (months < 0) {
+        years -= 1;
+        months += 12;
+    }
+    
+    document.getElementById('years').textContent = years;
+    document.getElementById('months').textContent = months;
+    document.getElementById('days').textContent = days;
+    
+    // Total days
+    let diffTime = Math.abs(asOfDate - birthdate);
+    if (!includeToday) {
+        diffTime -= 24 * 60 * 60 * 1000;
+    }
+    let totalDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    document.getElementById('totalDays').textContent = totalDays;
+    
+    // Total months
+    let totalMonths = years * 12 + months;
+    document.getElementById('totalMonths').textContent = totalMonths;
+    
+    // Next birthday
+    let nextBirthday = new Date(asOfDate.getFullYear(), birthdate.getMonth(), birthdate.getDate());
+    if (nextBirthday < asOfDate) {
+        nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+    }
+    let daysUntil = Math.ceil((nextBirthday - asOfDate) / (1000 * 60 * 60 * 24));
+    document.getElementById('nextBirthday').textContent = daysUntil + ' days';
+}
+
+function resetAge() {
+    let today = new Date().toISOString().split('T')[0];
+    document.getElementById('birthdate').value = '2000-01-01';
+    document.getElementById('asOfDate').value = '';
+    calculateAge();
+}
+
+function loadRelated() {
+    const tools = [
+        {name:"Days Between", icon:"fa-calendar-alt", url:"days-between-dates.html"},
+        {name:"Time Zone", icon:"fa-clock", url:"time-zone-converter.html"},
+        {name:"Random Number", icon:"fa-dice", url:"random-number-generator.html"},
+        {name:"Percentage Calc", icon:"fa-percent", url:"percentage-calculator.html"},
+        {name:"Password Gen", icon:"fa-lock", url:"simple-password-generator.html"},
+        {name:"Epoch Converter", icon:"fa-clock", url:"epoch.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", () => {
+    loadRelated();
+    resetAge();
+});
+</script></body></html>

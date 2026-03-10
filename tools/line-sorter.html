@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Line Sorter - Sort Lines Alphabetically | ToolGram</title><meta name="description" content="Sort lines of text alphabetically. Arrange lines in ascending or descending order. Free online line sorter for lists, data, and text."><meta name="keywords" content="line sorter, sort lines, alphabetical order, sort text, organize lines, ascending order, descending order"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/line-sorter.html"><meta property="og:title" content="Line Sorter | ToolGram"><meta property="og:description" content="Sort lines of text alphabetically"><meta property="og:url" content="https://toolgram-dev.github.io/tools/line-sorter.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Line Sorter","description":"Sort lines of text alphabetically","applicationCategory":"Utility","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/line-sorter.html","offers":{"@type":"Offer","price":"0"},"featureList":["Line Sorter","Sort Lines","Alphabetical Order","Text Sorter","Organize Lines"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.tool-textarea{width:100%;min-height:200px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}.output-display{min-height:200px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;word-wrap:break-word}select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}select option{background:#fff!important;color:#000!important}select option:hover{background:#f0f0f0!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-sort-amount-down"></i></div><div><h1 style="margin:0;">Line Sorter</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Sort lines of text alphabetically</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input Lines</div><div style="padding:20px"><textarea id="inputLines" class="tool-textarea" placeholder="Enter one item per line...">Banana
+Apple
+Cherry
+Date
+Elderberry
+Fig
+Grape</textarea><div class="var-row" style="margin-top:15px"><select id="sortOrder"><option value="asc">Ascending (A → Z)</option><option value="desc">Descending (Z → A)</option></select></div><div class="var-row"><label style="color:#fff"><input type="checkbox" id="ignoreCase" checked> Ignore case</label></div></div><div class="tool-actions"><button class="action-btn" onclick="sortLines()"><i class="fas fa-sort"></i> Sort Lines</button><button class="secondary-btn" onclick="clearLines()"><i class="fas fa-trash"></i> Clear</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-clipboard-list"></i> Sorted Output</div><div class="output-display" id="sortedOutput">Apple
+Banana
+Cherry
+Date
+Elderberry
+Fig
+Grape</div><div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copySorted()"><i class="far fa-copy"></i> Copy Lines</button></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Text Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">How to Sort Lines</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">Simply paste your lines (one per line), choose ascending or descending order, and click Sort. The tool automatically arranges your lines alphabetically. Perfect for organizing lists, cleaning up data, or preparing sorted output for programming.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">Does it remove blank lines?</div><div class="faq-answer">Blank lines are preserved in their position. To remove them, use our Duplicate Line Remover tool.</div>
+<div class="faq-question">Can I sort numbers?</div><div class="faq-answer">Yes, numbers are sorted alphabetically as strings. For numerical sorting, consider using a dedicated tool.</div>
+<div class="faq-question">What does "Ignore case" do?</div><div class="faq-answer">When enabled, uppercase and lowercase letters are treated the same for sorting (e.g., 'Apple' and 'apple' are considered equal).</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+function sortLines() {
+    let input = document.getElementById('inputLines').value;
+    let order = document.getElementById('sortOrder').value;
+    let ignoreCase = document.getElementById('ignoreCase').checked;
+    
+    let lines = input.split('\n');
+    
+    lines.sort(function(a, b) {
+        if (ignoreCase) {
+            a = a.toLowerCase();
+            b = b.toLowerCase();
+        }
+        if (a < b) return -1;
+        if (a > b) return 1;
+        return 0;
+    });
+    
+    if (order === 'desc') {
+        lines.reverse();
+    }
+    
+    document.getElementById('sortedOutput').textContent = lines.join('\n');
+}
+
+function clearLines() {
+    document.getElementById('inputLines').value = '';
+    document.getElementById('sortedOutput').textContent = '';
+}
+
+function copySorted() {
+    let text = document.getElementById('sortedOutput').textContent;
+    if (text) {
+        navigator.clipboard.writeText(text);
+        let btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Lines', 2000);
+    }
+}
+
+function loadRelated() {
+    const tools = [
+        {name:"List Sorter", icon:"fa-sort", url:"list-sorter.html"},
+        {name:"Duplicate Remover", icon:"fa-eraser", url:"duplicate-line-remover.html"},
+        {name:"Word Counter", icon:"fa-font", url:"word-counter.html"},
+        {name:"Case Normalizer", icon:"fa-text-height", url:"case-normalizer.html"},
+        {name:"Reverse Text", icon:"fa-exchange-alt", url:"reverse-text-generator.html"},
+        {name:"Text Diff", icon:"fa-not-equal", url:"text-diff.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", loadRelated);
+</script></body></html>
