@@ -1,6 +1,14 @@
 {
   "tools": [
     {
+      "title": "Age Calculator",
+      "desc": "Calculate exact age from birthdate",
+      "file": "age-calculator.html",
+      "icon": "fa-calendar-alt",
+      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
+      "popular": true
+    },
+    {
       "title": "Aspect Ratio Calculator",
       "desc": "Calculate 16:9, 4:3 ratios using GCD",
       "file": "aspect-ratio.html",
@@ -25,10 +33,10 @@
       "popular": true
     },
     {
-      "title": "Bcrypt Password Hasher",
-      "desc": "Hash passwords securely using bcrypt",
-      "file": "bcrypt-hasher.html",
-      "icon": "fa-lock",
+      "title": "BCD to Decimal Converter",
+      "desc": "Convert Binary Coded Decimal to decimal",
+      "file": "bcd-to-decimal-converter.html",
+      "icon": "fa-microchip",
       "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
       "popular": true
     },
@@ -81,10 +89,18 @@
       "popular": true
     },
     {
-      "title": "Color Blindness Simulator",
-      "desc": "Simulate protanopia/deuteranopia",
-      "file": "accessibility.html",
-      "icon": "fa-eye",
+      "title": "Color Palette Generator",
+      "desc": "Create harmonious color schemes",
+      "file": "color-palette.html",
+      "icon": "fa-palette",
+      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
+      "popular": true
+    },
+    {
+      "title": "Color Picker from Image",
+      "desc": "Extract colors from any image",
+      "file": "color-picker-from-image.html",
+      "icon": "fa-eye-dropper",
       "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
       "popular": true
     },
@@ -94,14 +110,6 @@
       "file": "contrast-ratio.html",
       "icon": "fa-adjust",
       "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
-      "popular": true
-    },
-    {
-      "title": "Color Palette Generator",
-      "desc": "Create harmonious color schemes",
-      "file": "color-palette.html",
-      "icon": "fa-palette",
-      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
       "popular": true
     },
     {
@@ -145,6 +153,14 @@
       "popular": true
     },
     {
+      "title": "CSS to Tailwind Converter",
+      "desc": "Convert CSS to Tailwind classes",
+      "file": "css-to-tailwind-converter.html",
+      "icon": "fa-css3",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
+      "popular": true
+    },
+    {
       "title": "CSS Variable Generator",
       "desc": "Create CSS custom properties",
       "file": "css-vars.html",
@@ -169,18 +185,50 @@
       "popular": true
     },
     {
-      "title": "Gzip Decompressor",
-      "desc": "Decompress gzipped data",
-      "file": "gzip-decompress.html",
-      "icon": "fa-file-archive",
+      "title": "Days Between Dates",
+      "desc": "Calculate days between two dates",
+      "file": "days-between-dates.html",
+      "icon": "fa-calendar-alt",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Decimal to BCD Converter",
+      "desc": "Convert decimal to Binary Coded Decimal",
+      "file": "decimal-to-bcd-converter.html",
+      "icon": "fa-microchip",
+      "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
+      "popular": true
+    },
+    {
+      "title": "Decimal to Gray Code Converter",
+      "desc": "Convert decimal to Gray code",
+      "file": "decimal-to-gray-code.html",
+      "icon": "fa-code-branch",
+      "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
+      "popular": true
+    },
+    {
+      "title": "List Duplicate Remover",
+      "desc": "Remove duplicates from lists",
+      "file": "dedupe.html",
+      "icon": "fa-eraser",
       "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
       "popular": true
     },
     {
-      "title": "HTML Entity Encoder",
-      "desc": "Encode/decode HTML entities",
-      "file": "html-entity.html",
-      "icon": "fa-code",
+      "title": "Duplicate Line Remover",
+      "desc": "Remove duplicate lines from text",
+      "file": "duplicate-line-remover.html",
+      "icon": "fa-eraser",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "Emoji Copy Paste",
+      "desc": "Copy and paste emojis",
+      "file": "emoji-copy-paste.html",
+      "icon": "fa-smile",
       "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
@@ -190,6 +238,62 @@
       "file": "entity-unescaper.html",
       "icon": "fa-code",
       "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "Unix Epoch Converter",
+      "desc": "Convert timestamps to dates",
+      "file": "epoch.html",
+      "icon": "fa-clock",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "title": "Excel to JSON Converter",
+      "desc": "Convert Excel to JSON",
+      "file": "excel-to-json-converter.html",
+      "icon": "fa-file-excel",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Fancy Text Generator",
+      "desc": "Generate cool stylish text",
+      "file": "fancy-text-generator.html",
+      "icon": "fa-paint-brush",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Gray Code to Decimal",
+      "desc": "Convert Gray code to decimal",
+      "file": "gray-to-decimal.html",
+      "icon": "fa-code-branch",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Gzip Decompressor",
+      "desc": "Decompress gzipped data",
+      "file": "gzip-decompress.html",
+      "icon": "fa-file-archive",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "Hex to Decimal Converter",
+      "desc": "Convert hex to decimal",
+      "file": "hex-to-decimal-converter.html",
+      "icon": "fa-hashtag",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "HTML Entity Encoder",
+      "desc": "Encode/decode HTML entities",
+      "file": "html-entity.html",
+      "icon": "fa-code",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
@@ -209,56 +313,80 @@
       "popular": true
     },
     {
-      "title": "HTML Table to JSON",
-      "desc": "Convert tables to JSON",
-      "file": "table-to-json.html",
-      "icon": "fa-table",
+      "title": "HTML to Markdown",
+      "desc": "Convert HTML to Markdown",
+      "file": "html-to-markdown-converter.html",
+      "icon": "fa-markdown",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "IDN Decoder",
+      "desc": "Decode Punycode to Unicode",
+      "file": "idn-decoder.html",
+      "icon": "fa-globe",
       "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
       "popular": true
     },
     {
-      "title": "Image Color Palette",
-      "desc": "Extract colors from images",
-      "file": "palette.html",
-      "icon": "fa-palette",
-      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
+      "title": "IDN Encoder",
+      "desc": "Convert to Punycode",
+      "file": "idn-encoder.html",
+      "icon": "fa-globe",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "Image Cropper",
+      "desc": "Crop images online",
+      "file": "image-cropper.html",
+      "icon": "fa-crop",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Image to Base64",
+      "desc": "Convert image to Base64",
+      "file": "image-to-base64.html",
+      "icon": "fa-image",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "JPG to PNG Converter",
+      "desc": "Convert JPG to PNG",
+      "file": "jpg-to-png-converter.html",
+      "icon": "fa-file-image",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
       "popular": true
     },
     {
       "title": "JavaScript Formatter",
       "desc": "Beautify JavaScript code",
       "file": "js-formatter.html",
-      "icon": "fab fa-js",
-      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
-      "popular": true
-    },
-    {
-      "title": "JavaScript Minifier",
-      "desc": "Compress JavaScript code",
-      "file": "js-minifier.html",
-      "icon": "fab fa-js",
+      "icon": "fa-js",
       "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
       "title": "JavaScript Obfuscator",
-      "desc": "Protect JS code with obfuscation",
+      "desc": "Protect JS code",
       "file": "js-hide.html",
       "icon": "fa-shield-alt",
       "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
       "popular": true
     },
     {
-      "title": "JavaScript Object Flattener",
-      "desc": "Flatten nested JSON objects",
-      "file": "object-flattener.html",
-      "icon": "fa-layer-group",
-      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "title": "JavaScript Minifier",
+      "desc": "Compress JavaScript",
+      "file": "js-minifier.html",
+      "icon": "fa-compress-alt",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
       "title": "JSON CamelCasifier",
-      "desc": "Convert snake to camelCase keys",
+      "desc": "Convert snake to camelCase",
       "file": "json-camelcasifier.html",
       "icon": "fa-code",
       "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
@@ -282,7 +410,7 @@
     },
     {
       "title": "JSON Schema Generator",
-      "desc": "Generate JSON Schema from sample data",
+      "desc": "Generate JSON Schema",
       "file": "json-schema.html",
       "icon": "fa-file-code",
       "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
@@ -297,16 +425,16 @@
       "popular": true
     },
     {
-      "title": "JSON Stringify (Safe)",
+      "title": "JSON Stringify",
       "desc": "Safe JSON serialization",
       "file": "json-stringify.html",
-      "icon": "fa-braces",
+      "icon": "fa-quote-right",
       "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
       "popular": true
     },
     {
-      "title": "JSON to CSV Converter",
-      "desc": "Convert JSON arrays to CSV",
+      "title": "JSON to CSV",
+      "desc": "Convert JSON to CSV",
       "file": "json-to-csv.html",
       "icon": "fa-file-csv",
       "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
@@ -337,11 +465,11 @@
       "popular": true
     },
     {
-      "title": "List Duplicate Remover",
-      "desc": "Remove duplicates from lists",
-      "file": "dedupe.html",
-      "icon": "fa-eraser",
-      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
+      "title": "Line Sorter",
+      "desc": "Sort lines alphabetically",
+      "file": "line-sorter.html",
+      "icon": "fa-sort-amount-down",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
       "popular": true
     },
     {
@@ -377,19 +505,19 @@
       "popular": true
     },
     {
-      "title": "Markdown Table Generator",
-      "desc": "Create GitHub tables",
-      "file": "md-table.html",
-      "icon": "fa-table",
-      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
-      "popular": true
-    },
-    {
       "title": "Markdown to HTML",
       "desc": "Convert Markdown to HTML",
       "file": "markdown-to-html.html",
       "icon": "fa-markdown",
       "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "Markdown Table Generator",
+      "desc": "Create GitHub tables",
+      "file": "md-table.html",
+      "icon": "fa-table",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
       "popular": true
     },
     {
@@ -417,11 +545,35 @@
       "popular": true
     },
     {
+      "title": "Object Flattener",
+      "desc": "Flatten nested JSON objects",
+      "file": "object-flattener.html",
+      "icon": "fa-layer-group",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "title": "Color Palette from Image",
+      "desc": "Extract colors from images",
+      "file": "palette.html",
+      "icon": "fa-palette",
+      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
+      "popular": true
+    },
+    {
       "title": "Password Strength Meter",
       "desc": "Check password entropy",
       "file": "pass-check.html",
       "icon": "fa-lock",
       "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
+      "popular": true
+    },
+    {
+      "title": "PDF Compressor",
+      "desc": "Reduce PDF file size",
+      "file": "pdf-compressor.html",
+      "icon": "fa-file-pdf",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
       "popular": true
     },
     {
@@ -433,10 +585,34 @@
       "popular": true
     },
     {
-      "title": "PX to REM Converter",
-      "desc": "Convert pixels to REM units",
-      "file": "rem-converter.html",
-      "icon": "fa-arrows-alt-h",
+      "title": "Percentage Calculator",
+      "desc": "Calculate percentages",
+      "file": "percentage-calculator.html",
+      "icon": "fa-percent",
+      "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
+      "popular": true
+    },
+    {
+      "title": "Placeholder Image",
+      "desc": "Generate placeholder images",
+      "file": "placeholder-image-generator.html",
+      "icon": "fa-image",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "title": "PNG to JPG Converter",
+      "desc": "Convert PNG to JPG",
+      "file": "png-to-jpg-converter.html",
+      "icon": "fa-file-image",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Pronounceable Password",
+      "desc": "Easy to remember passwords",
+      "file": "pronounceable-password-generator.html",
+      "icon": "fa-key",
       "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
       "popular": true
     },
@@ -446,6 +622,94 @@
       "file": "pwa-manifest.html",
       "icon": "fa-mobile-alt",
       "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "title": "QR Code Generator",
+      "desc": "Create QR codes",
+      "file": "qr-code-generator.html",
+      "icon": "fa-qrcode",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Random Binary Generator",
+      "desc": "Generate random binary",
+      "file": "random-binary-generator.html",
+      "icon": "fa-microchip",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "Random Decimal Fraction",
+      "desc": "Generate random fractions",
+      "file": "random-decimal-fraction-generator.html",
+      "icon": "fa-divide",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Random IP Address",
+      "desc": "Generate random IPs",
+      "file": "random-ip-address-generator.html",
+      "icon": "fa-network-wired",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
+      "popular": true
+    },
+    {
+      "title": "Random MAC Address",
+      "desc": "Generate random MACs",
+      "file": "random-mac.html",
+      "icon": "fa-network-wired",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "title": "Random Number",
+      "desc": "Generate random numbers",
+      "file": "random-number-generator.html",
+      "icon": "fa-dice",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Random Octal",
+      "desc": "Generate random octal",
+      "file": "random-octal-generator.html",
+      "icon": "fa-hashtag",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Random Password",
+      "desc": "Generate random passwords",
+      "file": "random-password.html",
+      "icon": "fa-lock",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
+      "popular": true
+    },
+    {
+      "title": "Random Sentence",
+      "desc": "Generate random sentences",
+      "file": "random-sentence-generator.html",
+      "icon": "fa-paragraph",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "PX to REM Converter",
+      "desc": "Convert pixels to REM",
+      "file": "rem-converter.html",
+      "icon": "fa-arrows-alt-h",
+      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
+      "popular": true
+    },
+    {
+      "title": "Reverse Text Generator",
+      "desc": "Flip text backwards",
+      "file": "reverse-text-generator.html",
+      "icon": "fa-exchange-alt",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
@@ -473,11 +737,35 @@
       "popular": true
     },
     {
+      "title": "SHA-512 Generator",
+      "desc": "Generate SHA-512 hash",
+      "file": "sha512-generator.html",
+      "icon": "fa-hashtag",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
+      "popular": true
+    },
+    {
+      "title": "Simple Password Generator",
+      "desc": "Generate strong passwords",
+      "file": "simple-password-generator.html",
+      "icon": "fa-key",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
       "title": "Sitemap XML Generator",
       "desc": "Generate XML sitemaps",
       "file": "sitemap-gen.html",
       "icon": "fa-sitemap",
       "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
+      "popular": true
+    },
+    {
+      "title": "URL Slug Generator",
+      "desc": "Create SEO-friendly slugs",
+      "file": "slug-generator.html",
+      "icon": "fa-link",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
       "popular": true
     },
     {
@@ -490,18 +778,10 @@
     },
     {
       "title": "SQL to JSON Converter",
-      "desc": "Convert SQL to JSON format",
+      "desc": "Convert SQL to JSON",
       "file": "sql-to-json.html",
       "icon": "fa-database",
       "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
-      "popular": true
-    },
-    {
-      "title": "SSML Generator",
-      "desc": "Create TTS speech markup",
-      "file": "tts-format.html",
-      "icon": "fa-microphone-alt",
-      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
@@ -513,16 +793,8 @@
       "popular": true
     },
     {
-      "title": "SVG Formatter",
-      "desc": "Beautify SVG code",
-      "file": "svg-formatter.html",
-      "icon": "fa-draw-polygon",
-      "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
-      "popular": true
-    },
-    {
       "title": "SVG Path Extractor",
-      "desc": "Extract d attribute from SVG",
+      "desc": "Extract SVG path data",
       "file": "svg-path.html",
       "icon": "fa-draw-polygon",
       "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
@@ -537,11 +809,11 @@
       "popular": true
     },
     {
-      "title": "Text Case Inverter",
-      "desc": "Swap uppercase/lowercase",
-      "file": "text-inverter.html",
-      "icon": "fa-text-height",
-      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
+      "title": "HTML Table to JSON",
+      "desc": "Convert tables to JSON",
+      "file": "table-to-json.html",
+      "icon": "fa-table",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
       "popular": true
     },
     {
@@ -553,18 +825,18 @@
       "popular": true
     },
     {
-      "title": "Text Slug Un-slugifier",
-      "desc": "Convert slugs to titles",
-      "file": "unslugify.html",
-      "icon": "fa-link",
-      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "title": "Text Case Inverter",
+      "desc": "Swap uppercase/lowercase",
+      "file": "text-inverter.html",
+      "icon": "fa-exchange-alt",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
-      "title": "Text to Binary",
-      "desc": "Convert text to binary code",
-      "file": "text-to-binary.html",
-      "icon": "fa-microchip",
+      "title": "Text Length Calculator",
+      "desc": "Count characters and words",
+      "file": "text-length-calculator.html",
+      "icon": "fa-ruler",
       "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
       "popular": true
     },
@@ -577,11 +849,35 @@
       "popular": true
     },
     {
-      "title": "Unix Epoch Converter",
-      "desc": "Convert timestamps to dates",
-      "file": "epoch.html",
+      "title": "Text to Binary",
+      "desc": "Convert text to binary code",
+      "file": "text-to-binary.html",
+      "icon": "fa-microchip",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Text to HTML Entities",
+      "desc": "Encode special characters",
+      "file": "text-to-html-entities.html",
+      "icon": "fa-code",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
+      "title": "Time Zone Converter",
+      "desc": "Convert between time zones",
+      "file": "time-zone-converter.html",
       "icon": "fa-clock",
       "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "title": "User-Agent Parser",
+      "desc": "Parse browser user-agent",
+      "file": "ua-parser.html",
+      "icon": "fa-user-secret",
+      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
       "popular": true
     },
     {
@@ -593,27 +889,19 @@
       "popular": true
     },
     {
+      "title": "Text Slug Un-slugifier",
+      "desc": "Convert slugs to titles",
+      "file": "unslugify.html",
+      "icon": "fa-link",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
       "title": "URL Encoder/Decoder",
       "desc": "Encode/decode URL strings",
       "file": "url-encoder.html",
       "icon": "fa-link",
       "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
-      "popular": true
-    },
-    {
-      "title": "URL Slug Generator",
-      "desc": "Create SEO-friendly slugs",
-      "file": "slug-generator.html",
-      "icon": "fa-link",
-      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
-      "popular": true
-    },
-    {
-      "title": "User-Agent Parser",
-      "desc": "Parse browser user-agent",
-      "file": "ua-parser.html",
-      "icon": "fa-user-secret",
-      "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
       "popular": true
     },
     {
@@ -633,7 +921,15 @@
       "popular": true
     },
     {
-      "title": "Word & Character Counter",
+      "title": "Word Cloud Generator",
+      "desc": "Analyze word frequency",
+      "file": "word-cloud.html",
+      "icon": "fa-cloud",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "title": "Word Counter",
       "desc": "Count words and characters",
       "file": "word-counter.html",
       "icon": "fa-file-alt",
@@ -641,11 +937,11 @@
       "popular": true
     },
     {
-      "title": "Word Cloud Generator",
-      "desc": "Analyze word frequency",
-      "file": "word-cloud.html",
-      "icon": "fa-cloud",
-      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "title": "Word Reverser",
+      "desc": "Reverse words in text",
+      "file": "word-reverser.html",
+      "icon": "fa-exchange-alt",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
       "popular": true
     },
     {
@@ -657,13 +953,28 @@
       "popular": true
     },
     {
+      "title": "YAML to JSON Converter",
+      "desc": "Convert YAML to JSON",
+      "file": "yaml-to-json-converter.html",
+      "icon": "fa-code-branch",
+      "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
+      "popular": true
+    },
+    {
       "title": "YAML Validator",
       "desc": "Validate YAML syntax",
       "file": "yaml-validator.html",
       "icon": "fa-check-double",
       "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
       "popular": true
+    },
+    {
+      "title": "YouTube Thumbnail Downloader",
+      "desc": "Download YouTube thumbnails",
+      "file": "youtube-thumbnail-downloader.html",
+      "icon": "fa-youtube",
+      "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
+      "popular": true
     }
   ]
 }
-
