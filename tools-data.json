@@ -1,6 +1,16 @@
 {
   "tools": [
     {
+      "id": 1,
+      "title": "Accessibility Checker",
+      "desc": "WCAG accessibility contrast testing",
+      "file": "accessibility.html",
+      "icon": "fa-eye",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "id": 2,
       "title": "Age Calculator",
       "desc": "Calculate exact age from birthdate",
       "file": "age-calculator.html",
@@ -9,6 +19,7 @@
       "popular": true
     },
     {
+      "id": 3,
       "title": "Aspect Ratio Calculator",
       "desc": "Calculate 16:9, 4:3 ratios using GCD",
       "file": "aspect-ratio.html",
@@ -17,6 +28,7 @@
       "popular": true
     },
     {
+      "id": 4,
       "title": "Base32 Encoder",
       "desc": "Encode text to Base32 format",
       "file": "base32-encoder.html",
@@ -25,6 +37,7 @@
       "popular": true
     },
     {
+      "id": 5,
       "title": "Base64 Encoder/Decoder",
       "desc": "Encode/decode Base64 strings",
       "file": "base64.html",
@@ -33,6 +46,7 @@
       "popular": true
     },
     {
+      "id": 6,
       "title": "BCD to Decimal Converter",
       "desc": "Convert Binary Coded Decimal to decimal",
       "file": "bcd-to-decimal-converter.html",
@@ -41,6 +55,7 @@
       "popular": true
     },
     {
+      "id": 7,
       "title": "Binary to Decimal Converter",
       "desc": "Convert binary to decimal",
       "file": "bin-dec.html",
@@ -49,6 +64,7 @@
       "popular": true
     },
     {
+      "id": 8,
       "title": "Binary to Hex Converter",
       "desc": "Convert binary to hexadecimal",
       "file": "binary-to-hex.html",
@@ -57,6 +73,7 @@
       "popular": true
     },
     {
+      "id": 9,
       "title": "Border-Radius Generator",
       "desc": "Create custom rounded corners",
       "file": "border-radius.html",
@@ -65,6 +82,7 @@
       "popular": true
     },
     {
+      "id": 10,
       "title": "Byte Converter",
       "desc": "Convert bytes to KB, MB, GB",
       "file": "byte-converter.html",
@@ -73,6 +91,7 @@
       "popular": true
     },
     {
+      "id": 11,
       "title": "Byte to Bit Converter",
       "desc": "Convert between bytes and bits",
       "file": "byte-to-bit.html",
@@ -81,6 +100,7 @@
       "popular": true
     },
     {
+      "id": 12,
       "title": "Case Normalizer",
       "desc": "Convert text case formats",
       "file": "case-normalizer.html",
@@ -89,6 +109,7 @@
       "popular": true
     },
     {
+      "id": 13,
       "title": "Color Palette Generator",
       "desc": "Create harmonious color schemes",
       "file": "color-palette.html",
@@ -97,6 +118,7 @@
       "popular": true
     },
     {
+      "id": 14,
       "title": "Color Picker from Image",
       "desc": "Extract colors from any image",
       "file": "color-picker-from-image.html",
@@ -105,6 +127,7 @@
       "popular": true
     },
     {
+      "id": 15,
       "title": "Color Contrast Checker",
       "desc": "WCAG accessibility contrast testing",
       "file": "contrast-ratio.html",
@@ -113,6 +136,7 @@
       "popular": true
     },
     {
+      "id": 16,
       "title": "CRC32 Checksum",
       "desc": "Calculate CRC32 checksums",
       "file": "crc32.html",
@@ -121,6 +145,16 @@
       "popular": true
     },
     {
+      "id": 17,
+      "title": "Cron Info",
+      "desc": "Parse cron expressions to text",
+      "file": "cron-info.html",
+      "icon": "fa-clock",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "id": 18,
       "title": "Cron Expression Parser",
       "desc": "Convert cron to human-readable text",
       "file": "cron-parser.html",
@@ -129,22 +163,7 @@
       "popular": true
     },
     {
-      "title": "Cron Parser (Info)",
-      "desc": "Parse cron expressions to text",
-      "file": "cron-info.html",
-      "icon": "fa-clock",
-      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
-      "popular": true
-    },
-    {
-      "title": "CSS Gradient Generator",
-      "desc": "Create linear/radial gradients",
-      "file": "gradient-gen.html",
-      "icon": "fa-palette",
-      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
-      "popular": true
-    },
-    {
+      "id": 19,
       "title": "CSS Minifier",
       "desc": "Compress and minify CSS",
       "file": "css-minifier.html",
@@ -153,6 +172,7 @@
       "popular": true
     },
     {
+      "id": 20,
       "title": "CSS to Tailwind Converter",
       "desc": "Convert CSS to Tailwind classes",
       "file": "css-to-tailwind-converter.html",
@@ -161,6 +181,7 @@
       "popular": true
     },
     {
+      "id": 21,
       "title": "CSS Variable Generator",
       "desc": "Create CSS custom properties",
       "file": "css-vars.html",
@@ -169,6 +190,7 @@
       "popular": true
     },
     {
+      "id": 22,
       "title": "CSV to JSON Converter",
       "desc": "Convert CSV data to JSON",
       "file": "csv-to-json.html",
@@ -177,6 +199,7 @@
       "popular": true
     },
     {
+      "id": 23,
       "title": "Data URI Generator",
       "desc": "Convert files to data URIs",
       "file": "data-uri.html",
@@ -185,6 +208,7 @@
       "popular": true
     },
     {
+      "id": 24,
       "title": "Days Between Dates",
       "desc": "Calculate days between two dates",
       "file": "days-between-dates.html",
@@ -193,6 +217,7 @@
       "popular": true
     },
     {
+      "id": 25,
       "title": "Decimal to BCD Converter",
       "desc": "Convert decimal to Binary Coded Decimal",
       "file": "decimal-to-bcd-converter.html",
@@ -201,7 +226,8 @@
       "popular": true
     },
     {
-      "title": "Decimal to Gray Code Converter",
+      "id": 26,
+      "title": "Decimal to Gray Code",
       "desc": "Convert decimal to Gray code",
       "file": "decimal-to-gray-code.html",
       "icon": "fa-code-branch",
@@ -209,6 +235,7 @@
       "popular": true
     },
     {
+      "id": 27,
       "title": "List Duplicate Remover",
       "desc": "Remove duplicates from lists",
       "file": "dedupe.html",
@@ -217,6 +244,7 @@
       "popular": true
     },
     {
+      "id": 28,
       "title": "Duplicate Line Remover",
       "desc": "Remove duplicate lines from text",
       "file": "duplicate-line-remover.html",
@@ -225,6 +253,25 @@
       "popular": true
     },
     {
+      "id": 29,
+      "title": "Email Extractor",
+      "desc": "Extract email addresses from text",
+      "file": "email-extractor.html",
+      "icon": "fa-envelope",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
+      "id": 30,
+      "title": "Email Header Analyzer",
+      "desc": "Analyze raw email headers",
+      "file": "email-header-analyzer.html",
+      "icon": "fa-envelope-open-text",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "id": 31,
       "title": "Emoji Copy Paste",
       "desc": "Copy and paste emojis",
       "file": "emoji-copy-paste.html",
@@ -233,6 +280,7 @@
       "popular": true
     },
     {
+      "id": 32,
       "title": "HTML Entity Unescaper",
       "desc": "Decode HTML entities to text",
       "file": "entity-unescaper.html",
@@ -241,6 +289,7 @@
       "popular": true
     },
     {
+      "id": 33,
       "title": "Unix Epoch Converter",
       "desc": "Convert timestamps to dates",
       "file": "epoch.html",
@@ -249,6 +298,7 @@
       "popular": true
     },
     {
+      "id": 34,
       "title": "Excel to JSON Converter",
       "desc": "Convert Excel to JSON",
       "file": "excel-to-json-converter.html",
@@ -257,6 +307,7 @@
       "popular": true
     },
     {
+      "id": 35,
       "title": "Fancy Text Generator",
       "desc": "Generate cool stylish text",
       "file": "fancy-text-generator.html",
@@ -265,6 +316,25 @@
       "popular": true
     },
     {
+      "id": 36,
+      "title": "Git Ignore Generator",
+      "desc": "Create .gitignore files",
+      "file": "gitignore-generator.html",
+      "icon": "fa-git-alt",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "id": 37,
+      "title": "CSS Gradient Generator",
+      "desc": "Create linear/radial gradients",
+      "file": "gradient-gen.html",
+      "icon": "fa-palette",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
+      "id": 38,
       "title": "Gray Code to Decimal",
       "desc": "Convert Gray code to decimal",
       "file": "gray-to-decimal.html",
@@ -273,6 +343,7 @@
       "popular": true
     },
     {
+      "id": 39,
       "title": "Gzip Decompressor",
       "desc": "Decompress gzipped data",
       "file": "gzip-decompress.html",
@@ -281,6 +352,7 @@
       "popular": true
     },
     {
+      "id": 40,
       "title": "Hex to Decimal Converter",
       "desc": "Convert hex to decimal",
       "file": "hex-to-decimal-converter.html",
@@ -289,6 +361,7 @@
       "popular": true
     },
     {
+      "id": 41,
       "title": "HTML Entity Encoder",
       "desc": "Encode/decode HTML entities",
       "file": "html-entity.html",
@@ -297,14 +370,16 @@
       "popular": true
     },
     {
+      "id": 42,
       "title": "HTML Stripper",
       "desc": "Remove HTML tags from text",
       "file": "html-strip.html",
-      "icon": "fa-code",
+      "icon": "fa-eraser",
       "color": "linear-gradient(135deg, #EF4444, #F59E0B, #EC4899)",
       "popular": true
     },
     {
+      "id": 43,
       "title": "HTML Table to CSV",
       "desc": "Extract HTML tables to CSV",
       "file": "html-table-to-csv.html",
@@ -313,6 +388,7 @@
       "popular": true
     },
     {
+      "id": 44,
       "title": "HTML to Markdown",
       "desc": "Convert HTML to Markdown",
       "file": "html-to-markdown-converter.html",
@@ -321,6 +397,16 @@
       "popular": true
     },
     {
+      "id": 45,
+      "title": "HTTP Status Codes",
+      "desc": "Lookup HTTP status code meanings",
+      "file": "http-status-codes.html",
+      "icon": "fa-globe",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "id": 46,
       "title": "IDN Decoder",
       "desc": "Decode Punycode to Unicode",
       "file": "idn-decoder.html",
@@ -329,6 +415,7 @@
       "popular": true
     },
     {
+      "id": 47,
       "title": "IDN Encoder",
       "desc": "Convert to Punycode",
       "file": "idn-encoder.html",
@@ -337,6 +424,7 @@
       "popular": true
     },
     {
+      "id": 48,
       "title": "Image Cropper",
       "desc": "Crop images online",
       "file": "image-cropper.html",
@@ -345,6 +433,7 @@
       "popular": true
     },
     {
+      "id": 49,
       "title": "Image to Base64",
       "desc": "Convert image to Base64",
       "file": "image-to-base64.html",
@@ -353,6 +442,7 @@
       "popular": true
     },
     {
+      "id": 50,
       "title": "JPG to PNG Converter",
       "desc": "Convert JPG to PNG",
       "file": "jpg-to-png-converter.html",
@@ -361,6 +451,7 @@
       "popular": true
     },
     {
+      "id": 51,
       "title": "JavaScript Formatter",
       "desc": "Beautify JavaScript code",
       "file": "js-formatter.html",
@@ -369,6 +460,7 @@
       "popular": true
     },
     {
+      "id": 52,
       "title": "JavaScript Obfuscator",
       "desc": "Protect JS code",
       "file": "js-hide.html",
@@ -377,6 +469,7 @@
       "popular": true
     },
     {
+      "id": 53,
       "title": "JavaScript Minifier",
       "desc": "Compress JavaScript",
       "file": "js-minifier.html",
@@ -385,6 +478,7 @@
       "popular": true
     },
     {
+      "id": 54,
       "title": "JSON CamelCasifier",
       "desc": "Convert snake to camelCase",
       "file": "json-camelcasifier.html",
@@ -393,6 +487,7 @@
       "popular": true
     },
     {
+      "id": 55,
       "title": "JSON Minifier",
       "desc": "Remove whitespace from JSON",
       "file": "json-minifier.html",
@@ -401,6 +496,7 @@
       "popular": true
     },
     {
+      "id": 56,
       "title": "JSON Path Tester",
       "desc": "Query JSON with JSONPath",
       "file": "json-path.html",
@@ -409,14 +505,7 @@
       "popular": true
     },
     {
-      "title": "JSON Schema Generator",
-      "desc": "Generate JSON Schema",
-      "file": "json-schema.html",
-      "icon": "fa-file-code",
-      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
-      "popular": true
-    },
-    {
+      "id": 57,
       "title": "JSON Schema Validator",
       "desc": "Validate JSON against schema",
       "file": "json-schema-validator.html",
@@ -425,6 +514,16 @@
       "popular": true
     },
     {
+      "id": 58,
+      "title": "JSON Schema Generator",
+      "desc": "Generate JSON Schema",
+      "file": "json-schema.html",
+      "icon": "fa-file-code",
+      "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
+      "popular": true
+    },
+    {
+      "id": 59,
       "title": "JSON Stringify",
       "desc": "Safe JSON serialization",
       "file": "json-stringify.html",
@@ -433,6 +532,7 @@
       "popular": true
     },
     {
+      "id": 60,
       "title": "JSON to CSV",
       "desc": "Convert JSON to CSV",
       "file": "json-to-csv.html",
@@ -441,6 +541,7 @@
       "popular": true
     },
     {
+      "id": 61,
       "title": "JSON to TypeScript",
       "desc": "Generate TypeScript interfaces",
       "file": "json-to-ts.html",
@@ -449,6 +550,7 @@
       "popular": true
     },
     {
+      "id": 62,
       "title": "JWT Decoder",
       "desc": "Decode JSON Web Tokens",
       "file": "jwt-decoder.html",
@@ -457,6 +559,7 @@
       "popular": true
     },
     {
+      "id": 63,
       "title": "JWT Encoder",
       "desc": "Create JSON Web Tokens",
       "file": "jwt-encoder.html",
@@ -465,6 +568,7 @@
       "popular": true
     },
     {
+      "id": 64,
       "title": "Line Sorter",
       "desc": "Sort lines alphabetically",
       "file": "line-sorter.html",
@@ -473,6 +577,7 @@
       "popular": true
     },
     {
+      "id": 65,
       "title": "List Shuffler",
       "desc": "Randomize any list",
       "file": "list-shuffler.html",
@@ -481,6 +586,7 @@
       "popular": true
     },
     {
+      "id": 66,
       "title": "List Sorter",
       "desc": "Sort lists alphabetically",
       "file": "list-sorter.html",
@@ -489,6 +595,7 @@
       "popular": true
     },
     {
+      "id": 67,
       "title": "Lorem Ipsum Generator",
       "desc": "Generate placeholder text",
       "file": "lorem-ipsum.html",
@@ -497,6 +604,7 @@
       "popular": true
     },
     {
+      "id": 68,
       "title": "Mailto Link Generator",
       "desc": "Create email mailto links",
       "file": "mailto-generator.html",
@@ -505,6 +613,7 @@
       "popular": true
     },
     {
+      "id": 69,
       "title": "Markdown to HTML",
       "desc": "Convert Markdown to HTML",
       "file": "markdown-to-html.html",
@@ -513,6 +622,7 @@
       "popular": true
     },
     {
+      "id": 70,
       "title": "Markdown Table Generator",
       "desc": "Create GitHub tables",
       "file": "md-table.html",
@@ -521,6 +631,7 @@
       "popular": true
     },
     {
+      "id": 71,
       "title": "MD5 Hash Generator",
       "desc": "Generate MD5 hashes",
       "file": "md5-hasher.html",
@@ -529,6 +640,16 @@
       "popular": true
     },
     {
+      "id": 72,
+      "title": "MIME Type Lookup",
+      "desc": "Find MIME types for extensions",
+      "file": "mime-type-lookup.html",
+      "icon": "fa-file",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "id": 73,
       "title": "Morse Code Translator",
       "desc": "Text to Morse & back",
       "file": "morse.html",
@@ -537,6 +658,16 @@
       "popular": true
     },
     {
+      "id": 74,
+      "title": "Multi Hash Generator",
+      "desc": "Generate MD5, SHA1, SHA256, SHA512",
+      "file": "multi-hash-generator.html",
+      "icon": "fa-fingerprint",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "id": 75,
       "title": "Number Base Converter",
       "desc": "Convert between all bases",
       "file": "number-base.html",
@@ -545,6 +676,7 @@
       "popular": true
     },
     {
+      "id": 76,
       "title": "Object Flattener",
       "desc": "Flatten nested JSON objects",
       "file": "object-flattener.html",
@@ -553,6 +685,7 @@
       "popular": true
     },
     {
+      "id": 77,
       "title": "Color Palette from Image",
       "desc": "Extract colors from images",
       "file": "palette.html",
@@ -561,6 +694,7 @@
       "popular": true
     },
     {
+      "id": 78,
       "title": "Password Strength Meter",
       "desc": "Check password entropy",
       "file": "pass-check.html",
@@ -569,6 +703,7 @@
       "popular": true
     },
     {
+      "id": 79,
       "title": "PDF Compressor",
       "desc": "Reduce PDF file size",
       "file": "pdf-compressor.html",
@@ -577,6 +712,7 @@
       "popular": true
     },
     {
+      "id": 80,
       "title": "Percentage Change",
       "desc": "Calculate percent increase",
       "file": "percent-change.html",
@@ -585,6 +721,7 @@
       "popular": true
     },
     {
+      "id": 81,
       "title": "Percentage Calculator",
       "desc": "Calculate percentages",
       "file": "percentage-calculator.html",
@@ -593,6 +730,7 @@
       "popular": true
     },
     {
+      "id": 82,
       "title": "Placeholder Image",
       "desc": "Generate placeholder images",
       "file": "placeholder-image-generator.html",
@@ -601,6 +739,7 @@
       "popular": true
     },
     {
+      "id": 83,
       "title": "PNG to JPG Converter",
       "desc": "Convert PNG to JPG",
       "file": "png-to-jpg-converter.html",
@@ -609,6 +748,7 @@
       "popular": true
     },
     {
+      "id": 84,
       "title": "Pronounceable Password",
       "desc": "Easy to remember passwords",
       "file": "pronounceable-password-generator.html",
@@ -617,6 +757,7 @@
       "popular": true
     },
     {
+      "id": 85,
       "title": "PWA Manifest Generator",
       "desc": "Create web app manifest.json",
       "file": "pwa-manifest.html",
@@ -625,6 +766,7 @@
       "popular": true
     },
     {
+      "id": 86,
       "title": "QR Code Generator",
       "desc": "Create QR codes",
       "file": "qr-code-generator.html",
@@ -633,6 +775,7 @@
       "popular": true
     },
     {
+      "id": 87,
       "title": "Random Binary Generator",
       "desc": "Generate random binary",
       "file": "random-binary-generator.html",
@@ -641,6 +784,7 @@
       "popular": true
     },
     {
+      "id": 88,
       "title": "Random Decimal Fraction",
       "desc": "Generate random fractions",
       "file": "random-decimal-fraction-generator.html",
@@ -649,6 +793,7 @@
       "popular": true
     },
     {
+      "id": 89,
       "title": "Random IP Address",
       "desc": "Generate random IPs",
       "file": "random-ip-address-generator.html",
@@ -657,6 +802,7 @@
       "popular": true
     },
     {
+      "id": 90,
       "title": "Random MAC Address",
       "desc": "Generate random MACs",
       "file": "random-mac.html",
@@ -665,6 +811,7 @@
       "popular": true
     },
     {
+      "id": 91,
       "title": "Random Number",
       "desc": "Generate random numbers",
       "file": "random-number-generator.html",
@@ -673,6 +820,7 @@
       "popular": true
     },
     {
+      "id": 92,
       "title": "Random Octal",
       "desc": "Generate random octal",
       "file": "random-octal-generator.html",
@@ -681,6 +829,7 @@
       "popular": true
     },
     {
+      "id": 93,
       "title": "Random Password",
       "desc": "Generate random passwords",
       "file": "random-password.html",
@@ -689,6 +838,7 @@
       "popular": true
     },
     {
+      "id": 94,
       "title": "Random Sentence",
       "desc": "Generate random sentences",
       "file": "random-sentence-generator.html",
@@ -697,6 +847,7 @@
       "popular": true
     },
     {
+      "id": 95,
       "title": "PX to REM Converter",
       "desc": "Convert pixels to REM",
       "file": "rem-converter.html",
@@ -705,6 +856,7 @@
       "popular": true
     },
     {
+      "id": 96,
       "title": "Reverse Text Generator",
       "desc": "Flip text backwards",
       "file": "reverse-text-generator.html",
@@ -713,6 +865,7 @@
       "popular": true
     },
     {
+      "id": 97,
       "title": "RGB to HEX Converter",
       "desc": "Convert RGB to HEX colors",
       "file": "rgb-to-hex.html",
@@ -721,6 +874,7 @@
       "popular": true
     },
     {
+      "id": 98,
       "title": "Robots.txt Generator",
       "desc": "Create SEO robots.txt files",
       "file": "robots-gen.html",
@@ -729,6 +883,7 @@
       "popular": true
     },
     {
+      "id": 99,
       "title": "SHA-256 Hasher",
       "desc": "Generate SHA-256 hash",
       "file": "sha256.html",
@@ -737,6 +892,7 @@
       "popular": true
     },
     {
+      "id": 100,
       "title": "SHA-512 Generator",
       "desc": "Generate SHA-512 hash",
       "file": "sha512-generator.html",
@@ -745,6 +901,7 @@
       "popular": true
     },
     {
+      "id": 101,
       "title": "Simple Password Generator",
       "desc": "Generate strong passwords",
       "file": "simple-password-generator.html",
@@ -753,6 +910,7 @@
       "popular": true
     },
     {
+      "id": 102,
       "title": "Sitemap XML Generator",
       "desc": "Generate XML sitemaps",
       "file": "sitemap-gen.html",
@@ -761,6 +919,7 @@
       "popular": true
     },
     {
+      "id": 103,
       "title": "URL Slug Generator",
       "desc": "Create SEO-friendly slugs",
       "file": "slug-generator.html",
@@ -769,6 +928,7 @@
       "popular": true
     },
     {
+      "id": 104,
       "title": "SQL Formatter",
       "desc": "Beautify SQL queries",
       "file": "sql-formatter.html",
@@ -777,6 +937,7 @@
       "popular": true
     },
     {
+      "id": 105,
       "title": "SQL to JSON Converter",
       "desc": "Convert SQL to JSON",
       "file": "sql-to-json.html",
@@ -785,6 +946,7 @@
       "popular": true
     },
     {
+      "id": 106,
       "title": "String Repeater",
       "desc": "Repeat text multiple times",
       "file": "string-repeater.html",
@@ -793,6 +955,7 @@
       "popular": true
     },
     {
+      "id": 107,
       "title": "SVG Path Extractor",
       "desc": "Extract SVG path data",
       "file": "svg-path.html",
@@ -801,6 +964,7 @@
       "popular": true
     },
     {
+      "id": 108,
       "title": "SVG to Data URI",
       "desc": "Convert SVG to data URI",
       "file": "svg-to-datauri.html",
@@ -809,6 +973,7 @@
       "popular": true
     },
     {
+      "id": 109,
       "title": "HTML Table to JSON",
       "desc": "Convert tables to JSON",
       "file": "table-to-json.html",
@@ -817,6 +982,16 @@
       "popular": true
     },
     {
+      "id": 110,
+      "title": "Text Cleaner",
+      "desc": "Remove extra spaces and lines",
+      "file": "text-cleaner.html",
+      "icon": "fa-broom",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "id": 111,
       "title": "Text Diff Checker",
       "desc": "Compare two text versions",
       "file": "text-diff.html",
@@ -825,6 +1000,7 @@
       "popular": true
     },
     {
+      "id": 112,
       "title": "Text Case Inverter",
       "desc": "Swap uppercase/lowercase",
       "file": "text-inverter.html",
@@ -833,6 +1009,7 @@
       "popular": true
     },
     {
+      "id": 113,
       "title": "Text Length Calculator",
       "desc": "Count characters and words",
       "file": "text-length-calculator.html",
@@ -841,6 +1018,16 @@
       "popular": true
     },
     {
+      "id": 114,
+      "title": "Text Line Counter",
+      "desc": "Count lines and paragraphs",
+      "file": "text-line-counter.html",
+      "icon": "fa-list-ol",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "id": 115,
       "title": "Text to One Line",
       "desc": "Convert multi-line to single line",
       "file": "text-one-line.html",
@@ -849,6 +1036,16 @@
       "popular": true
     },
     {
+      "id": 116,
+      "title": "Text Statistics Analyzer",
+      "desc": "Detailed text analysis",
+      "file": "text-statistics-analyzer.html",
+      "icon": "fa-chart-pie",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "id": 117,
       "title": "Text to Binary",
       "desc": "Convert text to binary code",
       "file": "text-to-binary.html",
@@ -857,6 +1054,7 @@
       "popular": true
     },
     {
+      "id": 118,
       "title": "Text to HTML Entities",
       "desc": "Encode special characters",
       "file": "text-to-html-entities.html",
@@ -865,6 +1063,7 @@
       "popular": true
     },
     {
+      "id": 119,
       "title": "Time Zone Converter",
       "desc": "Convert between time zones",
       "file": "time-zone-converter.html",
@@ -873,6 +1072,7 @@
       "popular": true
     },
     {
+      "id": 120,
       "title": "User-Agent Parser",
       "desc": "Parse browser user-agent",
       "file": "ua-parser.html",
@@ -881,6 +1081,7 @@
       "popular": true
     },
     {
+      "id": 121,
       "title": "Unix Permissions",
       "desc": "Calculate CHMOD values",
       "file": "unix-permissions.html",
@@ -889,6 +1090,7 @@
       "popular": true
     },
     {
+      "id": 122,
       "title": "Text Slug Un-slugifier",
       "desc": "Convert slugs to titles",
       "file": "unslugify.html",
@@ -897,6 +1099,16 @@
       "popular": true
     },
     {
+      "id": 123,
+      "title": "URL Encode/Decode",
+      "desc": "Percent-encoding for URLs",
+      "file": "url-encode-decode.html",
+      "icon": "fa-link",
+      "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
+      "popular": true
+    },
+    {
+      "id": 124,
       "title": "URL Encoder/Decoder",
       "desc": "Encode/decode URL strings",
       "file": "url-encoder.html",
@@ -905,6 +1117,25 @@
       "popular": true
     },
     {
+      "id": 125,
+      "title": "URL Extractor",
+      "desc": "Extract links from text",
+      "file": "url-extractor.html",
+      "icon": "fa-link",
+      "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "id": 126,
+      "title": "URL Query Splitter",
+      "desc": "Parse URL query strings",
+      "file": "url-query-splitter.html",
+      "icon": "fa-code-branch",
+      "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
+      "popular": true
+    },
+    {
+      "id": 127,
       "title": "UTF-8 Validator",
       "desc": "Validate UTF-8 encoding",
       "file": "utf8.html",
@@ -913,6 +1144,7 @@
       "popular": true
     },
     {
+      "id": 128,
       "title": "UUID Generator",
       "desc": "Generate UUIDs",
       "file": "uuid.html",
@@ -921,6 +1153,7 @@
       "popular": true
     },
     {
+      "id": 129,
       "title": "Word Cloud Generator",
       "desc": "Analyze word frequency",
       "file": "word-cloud.html",
@@ -929,6 +1162,7 @@
       "popular": true
     },
     {
+      "id": 130,
       "title": "Word Counter",
       "desc": "Count words and characters",
       "file": "word-counter.html",
@@ -937,6 +1171,7 @@
       "popular": true
     },
     {
+      "id": 131,
       "title": "Word Reverser",
       "desc": "Reverse words in text",
       "file": "word-reverser.html",
@@ -945,6 +1180,7 @@
       "popular": true
     },
     {
+      "id": 132,
       "title": "XML to JSON Converter",
       "desc": "Transform XML to JSON",
       "file": "xml-to-json.html",
@@ -953,6 +1189,7 @@
       "popular": true
     },
     {
+      "id": 133,
       "title": "YAML to JSON Converter",
       "desc": "Convert YAML to JSON",
       "file": "yaml-to-json-converter.html",
@@ -961,6 +1198,7 @@
       "popular": true
     },
     {
+      "id": 134,
       "title": "YAML Validator",
       "desc": "Validate YAML syntax",
       "file": "yaml-validator.html",
@@ -969,6 +1207,7 @@
       "popular": true
     },
     {
+      "id": 135,
       "title": "YouTube Thumbnail Downloader",
       "desc": "Download YouTube thumbnails",
       "file": "youtube-thumbnail-downloader.html",
