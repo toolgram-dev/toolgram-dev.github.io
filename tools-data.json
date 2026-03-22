@@ -1218,7 +1218,7 @@
     {
   "id": 136,
   "title": "Binary to Octal Converter",
-  "desc": "Convert binary numbers to octal using 3‑bit grouping",
+  "desc": "Convert binary to octal",
   "file": "binary-to-octal.html",
   "icon": "fa-microchip",
   "color": "linear-gradient(135deg, #059669, #2563EB, #7C3AED)",
@@ -1227,7 +1227,7 @@
 {
   "id": 137,
   "title": "Binary to Text Converter",
-  "desc": "Decode binary code to readable English text",
+  "desc": "Decode binary to text",
   "file": "binary-to-text.html",
   "icon": "fa-code",
   "color": "linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899)",
@@ -1236,7 +1236,7 @@
 {
   "id": 138,
   "title": "CSV to HTML Table",
-  "desc": "Convert CSV data to a formatted HTML table",
+  "desc": "CSV to HTML table",
   "file": "csv-to-html-table.html",
   "icon": "fa-table",
   "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
@@ -1245,7 +1245,7 @@
 {
   "id": 139,
   "title": "Hex to Text Converter",
-  "desc": "Convert hexadecimal strings to plain text",
+  "desc": "Hex to plain text",
   "file": "hex-to-text.html",
   "icon": "fa-hashtag",
   "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
@@ -1254,7 +1254,7 @@
 {
   "id": 140,
   "title": "JSON to YAML Converter",
-  "desc": "Convert JSON data to human‑friendly YAML format",
+  "desc": "JSON to YAML converter",
   "file": "json-to-yaml.html",
   "icon": "fa-code-branch",
   "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
@@ -1263,7 +1263,7 @@
 {
   "id": 141,
   "title": "Number to Words Converter",
-  "desc": "Convert numbers to English words (e.g., 123 → one hundred twenty‑three)",
+  "desc": "Numbers to English words",
   "file": "number-to-words.html",
   "icon": "fa-font",
   "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
@@ -1272,7 +1272,7 @@
 {
   "id": 142,
   "title": "Octal to Binary Converter",
-  "desc": "Convert octal numbers to binary instantly",
+  "desc": "Octal to binary conversion",
   "file": "octal-to-binary.html",
   "icon": "fa-microchip",
   "color": "linear-gradient(135deg, #10B981, #3B82F6, #8B5CF6)",
@@ -1281,7 +1281,7 @@
 {
   "id": 143,
   "title": "Random Color Generator",
-  "desc": "Generate random HEX colors with live preview",
+  "desc": "Random HEX color generator",
   "file": "random-color.html",
   "icon": "fa-palette",
   "color": "linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6)",
@@ -1290,7 +1290,7 @@
 {
   "id": 144,
   "title": "Random Quote Generator",
-  "desc": "Get inspired with a random famous quote",
+  "desc": "Random famous quotes",
   "file": "random-quote.html",
   "icon": "fa-quote-left",
   "color": "linear-gradient(135deg, #8B5CF6, #3B82F6, #06B6D4)",
@@ -1299,7 +1299,7 @@
 {
   "id": 145,
   "title": "Random User-Agent Generator",
-  "desc": "Generate random browser user‑agent strings",
+  "desc": "Random browser user‑agent",
   "file": "random-user-agent.html",
   "icon": "fa-user-secret",
   "color": "linear-gradient(135deg, #2563EB, #7C3AED, #DB2777)",
@@ -1308,7 +1308,7 @@
 {
   "id": 146,
   "title": "Text Replacer",
-  "desc": "Find and replace text with case‑sensitive and whole‑word options",
+  "desc": "Find and replace text",
   "file": "text-replacer.html",
   "icon": "fa-search",
   "color": "linear-gradient(135deg, #F59E0B, #EC4899, #8B5CF6)",
