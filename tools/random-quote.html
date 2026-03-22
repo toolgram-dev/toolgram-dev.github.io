@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Random Quote Generator – Inspirational & Famous Quotes | ToolGram</title>
+    <meta name="description" content="Generate random motivational, funny, and famous quotes. Perfect for inspiration, social media posts, or daily dose of wisdom. Free online quote generator.">
+    <meta name="keywords" content="random quote generator, famous quotes, inspirational quotes, quote of the day, daily quote, motivational quotes">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/random-quote.html">
+    <meta property="og:title" content="Random Quote Generator – Get Inspired | ToolGram">
+    <meta property="og:description" content="Generate random inspirational quotes with one click.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/random-quote.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Random Quote Generator",
+        "description": "Generate random inspirational and famous quotes.",
+        "applicationCategory": "Entertainment",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/random-quote.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Random Quote", "Motivation", "Quote of the Day", "Inspiration"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:inherit;word-break:break-word}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .quote-card{padding:20px;background:rgba(139,92,246,0.05);border-radius:12px;text-align:center;font-size:1.2rem;font-style:italic}
+        .quote-author{font-size:0.9rem;color:#8B5CF6;margin-top:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-quote-left"></i></div>
+            <div>
+                <h1 style="margin:0;">Random Quote Generator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Get inspired with a random quote every time</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-cog"></i> Options</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff; flex:1;">Category:</label>
+                        <select id="quoteCategory" style="flex:2;">
+                            <option value="all">All categories</option>
+                            <option value="inspire">Inspirational</option>
+                            <option value="funny">Funny</option>
+                            <option value="wisdom">Wisdom</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff; flex:1;">Count:</label>
+                        <input type="number" id="quoteCount" value="1" min="1" max="10" style="width:80px;padding:8px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="generateQuotes()"><i class="fas fa-random"></i> Generate Quotes</button>
+                    <button class="secondary-btn" onclick="clearQuotes()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-book-open"></i> Your Quote</div>
+                <div class="output-display" id="quoteOutput"><div class="quote-card">“The only limit is your mind.”<div class="quote-author">― Unknown</div></div></div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyQuotes()"><i class="far fa-copy"></i> Copy All</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGrid2"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Random Quote Generator?</h3>
+            <p>This tool displays a random quote from a curated collection of famous, motivational, and humorous sayings. Perfect for daily inspiration, social media posts, or simply to brighten your day.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p>Select a category (optional) and the number of quotes you want (1–10). Click "Generate Quotes" to get a fresh batch. Copy the result with one click.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Example Quotes</h3>
+            <p><em>“The future belongs to those who believe in the beauty of their dreams.”</em> – Eleanor Roosevelt<br>
+            <em>“I have not failed. I’ve just found 10,000 ways that won’t work.”</em> – Thomas Edison</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses This Tool?</h3>
+            <ul>
+                <li>Writers & Speakers – for opening lines or social media content</li>
+                <li>Students – for presentations or motivation</li>
+                <li>Anyone who loves a daily dose of wisdom</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Tips</h3>
+            <ul>
+                <li>Bookmark the tool for a quick quote of the day.</li>
+                <li>Use the copy button to paste quotes into emails, messages, or social media.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Are these quotes original?</div>
+            <div class="faq-answer">No, they are famous quotes from well‑known personalities and authors. The tool does not generate AI‑written quotes.</div>
+            <div class="faq-question">Can I use them commercially?</div>
+            <div class="faq-answer">Yes, these quotes are in the public domain or widely used. Attribution is appreciated but not required.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    const quotes = {
+        all: [
+            {text:"The only limit is your mind.", author:"Unknown"},
+            {text:"Believe you can and you're halfway there.", author:"Theodore Roosevelt"},
+            {text:"It does not matter how slowly you go as long as you do not stop.", author:"Confucius"},
+            {text:"Success is not final, failure is not fatal: it is the courage to continue that counts.", author:"Winston Churchill"},
+            {text:"Everything you’ve ever wanted is on the other side of fear.", author:"George Addair"},
+            {text:"The future belongs to those who believe in the beauty of their dreams.", author:"Eleanor Roosevelt"},
+            {text:"I have not failed. I've just found 10,000 ways that won't work.", author:"Thomas Edison"},
+            {text:"The only way to do great work is to love what you do.", author:"Steve Jobs"},
+            {text:"If you can dream it, you can do it.", author:"Walt Disney"},
+            {text:"Act as if what you do makes a difference. It does.", author:"William James"}
+        ],
+        inspire: [
+            {text:"Keep your face always toward the sunshine—and shadows will fall behind you.", author:"Walt Whitman"},
+            {text:"What lies behind us and what lies before us are tiny matters compared to what lies within us.", author:"Ralph Waldo Emerson"},
+            {text:"You are never too old to set another goal or to dream a new dream.", author:"C.S. Lewis"},
+            {text:"Hardships often prepare ordinary people for an extraordinary destiny.", author:"C.S. Lewis"},
+            {text:"The secret of getting ahead is getting started.", author:"Mark Twain"}
+        ],
+        funny: [
+            {text:"I am on a seafood diet. I see food, and I eat it.", author:"Unknown"},
+            {text:"I’m not lazy, I’m on energy-saving mode.", author:"Unknown"},
+            {text:"If at first you don't succeed, then skydiving isn't for you.", author:"Unknown"},
+            {text:"I find that the harder I work, the more luck I seem to have.", author:"Thomas Jefferson (ironic)"},
+            {text:"A clear conscience is usually the sign of a bad memory.", author:"Unknown"}
+        ],
+        wisdom: [
+            {text:"The only true wisdom is in knowing you know nothing.", author:"Socrates"},
+            {text:"It is better to be feared than loved, if you cannot be both.", author:"Niccolò Machiavelli"},
+            {text:"He who knows others is wise; he who knows himself is enlightened.", author:"Lao Tzu"},
+            {text:"The journey of a thousand miles begins with one step.", author:"Lao Tzu"},
+            {text:"We are what we repeatedly do. Excellence, then, is not an act, but a habit.", author:"Aristotle"}
+        ]
+    };
+
+    function generateQuotes() {
+        const category = document.getElementById('quoteCategory').value;
+        const count = parseInt(document.getElementById('quoteCount').value);
+        const source = quotes[category] || quotes.all;
+        const selected = [];
+        const copy = [...source];
+        for (let i = 0; i < Math.min(count, source.length); i++) {
+            const rand = Math.floor(Math.random() * copy.length);
+            selected.push(copy[rand]);
+            copy.splice(rand, 1);
+        }
+        let html = '';
+        selected.forEach(q => {
+            html += `<div class="quote-card">“${q.text}”<div class="quote-author">― ${q.author}</div></div>`;
+        });
+        document.getElementById('quoteOutput').innerHTML = html || '<p>No quotes available for this category.</p>';
+    }
+
+    function clearQuotes() {
+        document.getElementById('quoteOutput').innerHTML = '<div class="quote-card">Click "Generate Quotes" to get started.</div>';
+    }
+
+    function copyQuotes() {
+        const quotesDiv = document.getElementById('quoteOutput');
+        const texts = Array.from(quotesDiv.querySelectorAll('.quote-card')).map(card => card.innerText.trim());
+        const fullText = texts.join('\n\n');
+        if (fullText) {
+            navigator.clipboard.writeText(fullText);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy All', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Lorem Ipsum", icon:"fa-paragraph", url:"lorem-ipsum.html"},
+            {name:"Random Sentence", icon:"fa-paragraph", url:"random-sentence-generator.html"},
+            {name:"Word Counter", icon:"fa-font", url:"word-counter.html"},
+            {name:"Fancy Text", icon:"fa-paint-brush", url:"fancy-text-generator.html"},
+            {name:"Text Diff", icon:"fa-not-equal", url:"text-diff.html"},
+            {name:"Case Normalizer", icon:"fa-text-height", url:"case-normalizer.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGrid2").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

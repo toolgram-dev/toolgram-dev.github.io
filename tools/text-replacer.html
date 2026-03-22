@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Text Replacer - Find and Replace Text Online | ToolGram</title><meta name="description" content="Find and replace text instantly. Simple tool for batch text replacement. Supports case sensitivity and whole word matching."><meta name="keywords" content="text replacer, find and replace, text replacement tool, batch replace, find and replace online"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram-dev.github.io/tools/text-replacer.html"><meta property="og:title" content="Text Replacer | ToolGram"><meta property="og:description" content="Find and replace text online"><meta property="og:url" content="https://toolgram-dev.github.io/tools/text-replacer.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Text Replacer","description":"Find and replace text online","applicationCategory":"Utility","operatingSystem":"Any","url":"https://toolgram-dev.github.io/tools/text-replacer.html","offers":{"@type":"Offer","price":"0"},"featureList":["Text Replacer","Find and Replace","Text Editor","String Replace"]}</script>
+<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}.output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:inherit;white-space:pre-wrap;word-wrap:break-word}.replace-input{width:100%;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;margin-bottom:10px}select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}select option{background:#fff!important;color:#000!important}select option:hover{background:#f0f0f0!important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style></head>
+<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-search"></i></div><div><h1 style="margin:0;">Text Replacer</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Find and replace text instantly</p></div></div>
+<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input Text</div><div style="padding:20px"><textarea id="inputText" class="tool-textarea" placeholder="Enter your text here...">The quick brown fox jumps over the lazy dog. The quick brown fox is fast.</textarea><input type="text" id="findText" class="replace-input" placeholder="Find..." value="quick"><input type="text" id="replaceText" class="replace-input" placeholder="Replace with..." value="slow"><div class="var-row"><label style="color:#fff"><input type="checkbox" id="caseSensitive"> Case sensitive</label><label style="color:#fff"><input type="checkbox" id="wholeWord"> Whole word only</label></div></div><div class="tool-actions"><button class="action-btn" onclick="replaceText()"><i class="fas fa-sync-alt"></i> Replace All</button><button class="secondary-btn" onclick="clearReplacer()"><i class="fas fa-trash"></i> Clear</button></div></div>
+<div class="tool-column"><div class="tool-column-title"><i class="fas fa-clipboard-list"></i> Result</div><div class="output-display" id="outputText">The slow brown fox jumps over the lazy dog. The slow brown fox is fast.</div><div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyReplaced()"><i class="far fa-copy"></i> Copy Result</button></div></div></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
+<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">How to Use Text Replacer</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">Enter your text, specify the word/phrase to find and what to replace it with. Choose case sensitivity or whole word matching for precise control. Perfect for editing documents, cleaning data, or batch text replacement.</p></div></div>
+<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">What does "whole word only" mean?</div><div class="faq-answer">It replaces only complete words, not parts of words. For example, replacing "cat" with "dog" would change "cat" but not "catalog".</div>
+<div class="faq-question">Can I replace multiple different words at once?</div><div class="faq-answer">For multiple replacements, you can use our Batch Replace tool. This tool handles one find/replace pair at a time.</div>
+<div class="faq-question">Is my text stored anywhere?</div><div class="faq-answer">No, all processing happens in your browser. Your text never leaves your device.</div></div></div></div>
+<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
+<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<script>
+function replaceText() {
+    let input = document.getElementById('inputText').value;
+    let find = document.getElementById('findText').value;
+    let replace = document.getElementById('replaceText').value;
+    let caseSensitive = document.getElementById('caseSensitive').checked;
+    let wholeWord = document.getElementById('wholeWord').checked;
+    let output = document.getElementById('outputText');
+    
+    if (!find) {
+        output.textContent = input;
+        return;
+    }
+    
+    let flags = 'g';
+    if (!caseSensitive) flags += 'i';
+    
+    let pattern;
+    if (wholeWord) {
+        pattern = '\\b' + find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b';
+    } else {
+        pattern = find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+    
+    let regex = new RegExp(pattern, flags);
+    let result = input.replace(regex, replace);
+    output.textContent = result;
+}
+
+function clearReplacer() {
+    document.getElementById('inputText').value = '';
+    document.getElementById('findText').value = '';
+    document.getElementById('replaceText').value = '';
+    document.getElementById('caseSensitive').checked = false;
+    document.getElementById('wholeWord').checked = false;
+    document.getElementById('outputText').textContent = '';
+}
+
+function copyReplaced() {
+    let text = document.getElementById('outputText').textContent;
+    if (text) {
+        navigator.clipboard.writeText(text);
+        let btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Result', 2000);
+    }
+}
+
+function loadRelated() {
+    const tools = [
+        {name:"Text Cleaner", icon:"fa-broom", url:"text-cleaner.html"},
+        {name:"Text Diff", icon:"fa-not-equal", url:"text-diff.html"},
+        {name:"Case Normalizer", icon:"fa-text-height", url:"case-normalizer.html"},
+        {name:"Text to One Line", icon:"fa-text-height", url:"text-one-line.html"},
+        {name:"Duplicate Remover", icon:"fa-eraser", url:"duplicate-line-remover.html"},
+        {name:"Word Counter", icon:"fa-font", url:"word-counter.html"}
+    ];
+    let html = "";
+    tools.forEach(t => {
+        html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    });
+    document.getElementById("relatedGrid").innerHTML = html;
+}
+window.addEventListener("load", loadRelated);
+</script></body></html>

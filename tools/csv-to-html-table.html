@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CSV to HTML Table Converter – Create Tables from CSV | ToolGram</title>
+    <meta name="description" content="Convert CSV (comma-separated values) to an HTML table instantly. Perfect for presenting spreadsheet data on websites. Free online converter.">
+    <meta name="keywords" content="csv to html table, csv to table, csv converter, html table generator, display csv as table">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/csv-to-html-table.html">
+    <meta property="og:title" content="CSV to HTML Table Converter | ToolGram">
+    <meta property="og:description" content="Convert CSV data to a formatted HTML table.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/csv-to-html-table.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CSV to HTML Table Converter",
+        "description": "Convert CSV to HTML table.",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/csv-to-html-table.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["CSV to Table", "HTML Table Generator", "Spreadsheet to HTML"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        table{width:100%;border-collapse:collapse;margin:10px 0}
+        th,td{border:1px solid rgba(255,255,255,0.2);padding:8px;text-align:left}
+        th{background:rgba(139,92,246,0.2)}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-table"></i></div>
+            <div>
+                <h1 style="margin:0;">CSV to HTML Table Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert comma‑separated values to a formatted HTML table</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-csv"></i> CSV Input</div>
+                <div style="padding:20px">
+                    <textarea id="csvInput" class="tool-textarea" placeholder="Name,Age,City&#10;John,30,New York&#10;Jane,25,Los Angeles">Name,Age,City
+John,30,New York
+Jane,25,Los Angeles</textarea>
+                    <div class="var-row" style="margin-top:15px">
+                        <label style="color:#fff"><input type="checkbox" id="firstRowHeader" checked> First row as header</label>
+                        <label style="color:#fff"><input type="checkbox" id="stripSpacesCSV"> Trim cells</label>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="csvToTable()"><i class="fas fa-sync-alt"></i> Convert to Table</button>
+                    <button class="secondary-btn" onclick="clearCSV()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-code"></i> HTML Table Output</div>
+                <div class="output-display" id="htmlTableOutput" style="overflow-x:auto"></div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyTableHTML()"><i class="far fa-copy"></i> Copy HTML</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGrid3"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is CSV to HTML Table?</h3>
+            <p>CSV (Comma‑Separated Values) is a common data format used by spreadsheets. This tool converts CSV content into a clean HTML table that you can embed on websites or share.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p>Paste your CSV data (with or without headers). Select if the first row should be used as table headers. Click "Convert to Table" to see the HTML table. Copy the generated HTML code to use it anywhere.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Example CSV</h3>
+            <p><code>Product,Price,Stock<br>Laptop,1200,15<br>Mouse,25,50</code></p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses This?</h3>
+            <ul>
+                <li>Web developers – quickly embed spreadsheet data into pages</li>
+                <li>Data analysts – present CSV results in a readable format</li>
+                <li>Anyone who wants to display tabular data on a website</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Tips</h3>
+            <ul>
+                <li>If your CSV uses semicolons, replace them with commas first.</li>
+                <li>Check “Trim cells” to remove extra whitespace around values.</li>
+                <li>The generated table is responsive and will adapt to the container width.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What if my CSV contains commas inside quoted fields?</div>
+            <div class="faq-answer">This basic parser does not handle quoted fields. For advanced CSV parsing, consider using a dedicated library or pre‑process the data.</div>
+            <div class="faq-question">Can I style the table later?</div>
+            <div class="faq-answer">Yes, the generated table has classless styling; you can add your own CSS classes or inline styles after copying.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function csvToTable() {
+        const csv = document.getElementById('csvInput').value;
+        const firstRowHeader = document.getElementById('firstRowHeader').checked;
+        const trim = document.getElementById('stripSpacesCSV').checked;
+        if (!csv.trim()) {
+            document.getElementById('htmlTableOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter CSV data first.</span>';
+            return;
+        }
+        const rows = csv.split(/\r?\n/).filter(r => r.trim() !== '');
+        if (rows.length === 0) return;
+        const tableRows = rows.map(row => {
+            let cells = row.split(',');
+            if (trim) cells = cells.map(c => c.trim());
+            return cells;
+        });
+        let html = '<table>';
+        const start = firstRowHeader ? 1 : 0;
+        if (firstRowHeader && rows[0]) {
+            html += '<thead><tr>';
+            tableRows[0].forEach(cell => html += `<th>${escapeHtml(cell)}</th>`);
+            html += '</tr></thead><tbody>';
+        } else {
+            html += '<tbody>';
+        }
+        for (let i = start; i < tableRows.length; i++) {
+            html += '<tr>';
+            tableRows[i].forEach(cell => html += `<td>${escapeHtml(cell)}</td>`);
+            html += '</tr>';
+        }
+        html += '</tbody></table>';
+        document.getElementById('htmlTableOutput').innerHTML = `<div style="background:rgba(139,92,246,0.05);padding:15px;border-radius:8px;overflow-x:auto;">${html}</div>`;
+    }
+
+    function clearCSV() {
+        document.getElementById('csvInput').value = '';
+        document.getElementById('htmlTableOutput').innerHTML = 'Click "Convert to Table" to see the result.';
+    }
+
+    function copyTableHTML() {
+        const container = document.getElementById('htmlTableOutput');
+        const tableCode = container.querySelector('div')?.innerHTML;
+        if (tableCode) {
+            navigator.clipboard.writeText(tableCode);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy HTML', 2000);
+        }
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"CSV to JSON", icon:"fa-file-csv", url:"csv-to-json.html"},
+            {name:"JSON to CSV", icon:"fa-file-csv", url:"json-to-csv.html"},
+            {name:"HTML Table to CSV", icon:"fa-table", url:"html-table-to-csv.html"},
+            {name:"Table to JSON", icon:"fa-table", url:"table-to-json.html"},
+            {name:"XML to JSON", icon:"fa-code-branch", url:"xml-to-json.html"},
+            {name:"Excel to JSON", icon:"fa-file-excel", url:"excel-to-json-converter.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGrid3").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

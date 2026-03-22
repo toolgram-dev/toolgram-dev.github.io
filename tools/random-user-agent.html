@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Random User-Agent Generator – Simulate Browser Strings | ToolGram</title>
+    <meta name="description" content="Generate random user-agent strings for browsers like Chrome, Firefox, Safari, Edge. Simulate desktop and mobile devices. Free online tool, no API, 100% client‑side.">
+    <meta name="keywords" content="random user-agent, user-agent generator, browser user-agent, fake user-agent, ua generator, browser string, spoof user-agent, random browser, device simulator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/random-user-agent.html">
+    <meta property="og:title" content="Random User-Agent Generator – Simulate Browser Strings | ToolGram">
+    <meta property="og:description" content="Generate random, realistic browser user-agent strings for testing and development.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/random-user-agent.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Random User-Agent Generator",
+        "description": "Generate random browser user-agent strings for desktop and mobile devices.",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/random-user-agent.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Random User-Agent", "Browser Simulator", "UA String", "Device Spoofing", "Testing Tool"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-user-secret"></i></div>
+            <div>
+                <h1 style="margin:0;">Random User-Agent Generator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Generate realistic browser user‑agent strings for desktop and mobile devices</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-cog"></i> Settings</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff; flex:1;">Device Type:</label>
+                        <select id="deviceType" style="flex:2;">
+                            <option value="all">All (desktop + mobile)</option>
+                            <option value="desktop">Desktop only</option>
+                            <option value="mobile">Mobile only</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff; flex:1;">Browser:</label>
+                        <select id="browserFilter" style="flex:2;">
+                            <option value="all">All browsers</option>
+                            <option value="chrome">Chrome</option>
+                            <option value="firefox">Firefox</option>
+                            <option value="safari">Safari</option>
+                            <option value="edge">Edge</option>
+                            <option value="opera">Opera</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff; flex:1;">Count:</label>
+                        <input type="number" id="uaCount" value="5" min="1" max="20" style="width:80px;padding:8px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="generateUA()"><i class="fas fa-random"></i> Generate</button>
+                    <button class="secondary-btn" onclick="clearUA()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-list"></i> Generated User-Agents</div>
+                <div class="output-display" id="uaOutput">Click "Generate" to get random user‑agent strings.</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyUA()"><i class="far fa-copy"></i> Copy All</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLANK SPACE 1 -->
+    <div class="blank-space"></div>
+
+    <!-- RELATED TOOLS SECTION -->
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools You Might Need</h2>
+            <div class="related-grid" id="relatedGrid"></div>
+        </div>
+    </div>
+
+    <!-- BLANK SPACE 2 -->
+    <div class="blank-space"></div>
+
+    <!-- UNIQUE INFO SECTION -->
+    <div class="tool-content-section">
+        <!-- What is a User-Agent? -->
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle" style="color:#8B5CF6;"></i> What is a User-Agent String?</h3>
+            <p>A <strong>user-agent (UA)</strong> is a string that web browsers send to servers to identify themselves. It typically contains information about the browser name, version, operating system, and sometimes the device type. For example, Chrome on Windows might send: <code>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36</code>.</p>
+            <p>This tool generates random, realistic UA strings that can be used for testing, scraping, or simulating different environments – all without making any API calls.</p>
+        </div>
+
+        <!-- BLANK SPACE 3 -->
+        <div class="blank-space"></div>
+
+        <!-- How to Use -->
+        <div class="info-box">
+            <h3><i class="fas fa-cog" style="color:#8B5CF6;"></i> How to Use the Generator</h3>
+            <p><strong>Step 1:</strong> Choose the device type (desktop, mobile, or all).<br>
+            <strong>Step 2:</strong> Optionally filter by a specific browser (Chrome, Firefox, etc.).<br>
+            <strong>Step 3:</strong> Select how many user‑agent strings you need (up to 20).<br>
+            <strong>Step 4:</strong> Click "Generate" to see the list.<br>
+            <strong>Step 5:</strong> Copy the generated strings with one click.</p>
+            <p><strong>Pro Tip:</strong> Use these user‑agents in your automated tests or to see how a website renders on different devices.</p>
+        </div>
+
+        <!-- BLANK SPACE 4 -->
+        <div class="blank-space"></div>
+
+        <!-- Examples -->
+        <div class="info-box">
+            <h3><i class="fas fa-example" style="color:#8B5CF6;"></i> Example User-Agent Strings</h3>
+            <p><strong>Chrome on Windows 11:</strong><br><code>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.6167.85 Safari/537.36</code></p>
+            <p><strong>Safari on macOS:</strong><br><code>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15</code></p>
+            <p><strong>Firefox on Android:</strong><br><code>Mozilla/5.0 (Android 13; Mobile; rv:122.0) Gecko/122.0 Firefox/122.0</code></p>
+            <p><strong>Edge on Windows 10:</strong><br><code>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.2277.83</code></p>
+        </div>
+
+        <!-- BLANK SPACE 5 -->
+        <div class="blank-space"></div>
+
+        <!-- Use Cases -->
+        <div class="info-box">
+            <h3><i class="fas fa-users" style="color:#8B5CF6;"></i> Who Uses Random User-Agents?</h3>
+            <ul>
+                <li><strong>Web Developers & QA Testers:</strong> Simulate how a site behaves across different browsers and devices.</li>
+                <li><strong>SEO & Marketing Professionals:</strong> Check how search engines and social media crawlers see a page.</li>
+                <li><strong>Data Scrapers:</strong> Rotate user‑agents to avoid detection while gathering public data.</li>
+                <li><strong>Security Researchers:</strong> Test how applications respond to various client fingerprints.</li>
+            </ul>
+        </div>
+
+        <!-- BLANK SPACE 6 -->
+        <div class="blank-space"></div>
+
+        <!-- Tips & Tricks -->
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb" style="color:#8B5CF6;"></i> Quick Tips</h3>
+            <ul>
+                <li>Combine random user‑agents with proxy rotation to simulate traffic from different geographic locations.</li>
+                <li>Use the "Desktop only" filter for testing responsive layouts on large screens.</li>
+                <li>Remember that modern browsers often include their rendering engine (WebKit, Gecko) for compatibility.</li>
+                <li>These UA strings are generated based on real browser releases – they are up‑to‑date and plausible.</li>
+            </ul>
+        </div>
+
+        <!-- BLANK SPACE 7 -->
+        <div class="blank-space"></div>
+
+        <!-- FAQ SECTION -->
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle" style="color:#8B5CF6;"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">Why do browsers send a user-agent string?</div>
+            <div class="faq-answer">Servers use the user-agent to adapt content (e.g., send a mobile version, optimise images, or enforce security rules). It also helps in analytics to see which browsers visitors use.</div>
+
+            <div class="faq-question">Are these generated user‑agents real?</div>
+            <div class="faq-answer">Yes, they are built from common patterns of the most popular browsers and operating systems. They will work in any environment that expects a standard UA string.</div>
+
+            <div class="faq-question">Can I use these for browser fingerprinting?</div>
+            <div class="faq-answer">While they help avoid detection based solely on UA, modern fingerprinting uses many other signals. This tool is best for testing and legitimate development, not for evading serious anti‑bot systems.</div>
+
+            <div class="faq-question">Does this tool require an internet connection?</div>
+            <div class="faq-answer">No, everything runs locally in your browser. Once the page loads, it works offline – no API calls.</div>
+        </div>
+    </div>
+
+    <!-- BLANK SPACE 8 -->
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© ToolGram. All rights reserved 2026.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    // User-agent templates (simplified – we'll combine parts randomly)
+    const browsers = {
+        chrome: {
+            name: 'Chrome',
+            platforms: {
+                windows: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{{version}} Safari/537.36',
+                mac: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{{version}} Safari/537.36',
+                linux: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{{version}} Safari/537.36',
+                android: 'Mozilla/5.0 (Linux; Android {{androidVer}}; {{device}}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{{version}} Mobile Safari/537.36',
+                ios: 'Mozilla/5.0 (iPhone; CPU iPhone OS {{iosVer}} like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/{{version}} Mobile/15E148 Safari/604.1'
+            },
+            versions: [120, 121, 122, 123, 124, 125]
+        },
+        firefox: {
+            name: 'Firefox',
+            platforms: {
+                windows: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:{{version}}) Gecko/20100101 Firefox/{{version}}',
+                mac: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:{{version}}) Gecko/20100101 Firefox/{{version}}',
+                linux: 'Mozilla/5.0 (X11; Linux i686; rv:{{version}}) Gecko/20100101 Firefox/{{version}}',
+                android: 'Mozilla/5.0 (Android {{androidVer}}; Mobile; rv:{{version}}) Gecko/{{version}} Firefox/{{version}}'
+            },
+            versions: [115, 120, 121, 122, 123, 124]
+        },
+        safari: {
+            name: 'Safari',
+            platforms: {
+                mac: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/{{version}} Safari/605.1.15',
+                ios: 'Mozilla/5.0 (iPhone; CPU iPhone OS {{iosVer}} like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/{{version}} Mobile/15E148 Safari/604.1'
+            },
+            versions: [15, 16, 17, 18, 19]
+        },
+        edge: {
+            name: 'Edge',
+            platforms: {
+                windows: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{{chromeVer}} Safari/537.36 Edg/{{version}}',
+                mac: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{{chromeVer}} Safari/537.36 Edg/{{version}}',
+                android: 'Mozilla/5.0 (Linux; Android {{androidVer}}; {{device}}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{{chromeVer}} Mobile Safari/537.36 EdgA/{{version}}'
+            },
+            versions: [120, 121, 122, 123]
+        },
+        opera: {
+            name: 'Opera',
+            platforms: {
+                windows: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{{chromeVer}} Safari/537.36 OPR/{{version}}',
+                mac: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{{chromeVer}} Safari/537.36 OPR/{{version}}',
+                android: 'Mozilla/5.0 (Linux; Android {{androidVer}}; {{device}}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{{chromeVer}} Mobile Safari/537.36 OPR/{{version}}'
+            },
+            versions: [102, 103, 104, 105]
+        }
+    };
+
+    const deviceNames = ['Samsung SM-G998B', 'Pixel 7', 'OnePlus 9', 'Xiaomi Mi 11', 'iPhone 14', 'iPhone 15', 'iPhone 15 Pro', 'Samsung Galaxy S23', 'Google Pixel 8'];
+
+    function randomItem(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateSingleUA(browserFilter, deviceType) {
+        let browserList = Object.keys(browsers);
+        if (browserFilter !== 'all') browserList = [browserFilter];
+        const browserKey = randomItem(browserList);
+        const browser = browsers[browserKey];
+        let platformList = Object.keys(browser.platforms);
+        if (deviceType === 'desktop') platformList = platformList.filter(p => !p.includes('android') && !p.includes('ios'));
+        if (deviceType === 'mobile') platformList = platformList.filter(p => p.includes('android') || p.includes('ios'));
+        const platform = randomItem(platformList);
+        let template = browser.platforms[platform];
+        // Replace placeholders
+        const version = randomItem(browser.versions);
+        if (browserKey === 'chrome' || browserKey === 'edge' || browserKey === 'opera') {
+            const chromeVer = Math.floor(Math.random() * (125 - 110 + 1) + 110);
+            template = template.replace(/{{chromeVer}}/g, chromeVer);
+        }
+        template = template.replace(/{{version}}/g, version);
+        if (platform.includes('android')) {
+            const androidVer = Math.floor(Math.random() * (14 - 10 + 1) + 10); // Android 10-14
+            const device = randomItem(deviceNames.filter(d => !d.includes('iPhone')));
+            template = template.replace(/{{androidVer}}/g, androidVer);
+            template = template.replace(/{{device}}/g, device);
+        }
+        if (platform.includes('ios')) {
+            const iosVer = Math.floor(Math.random() * (18 - 15 + 1) + 15); // iOS 15-18
+            template = template.replace(/{{iosVer}}/g, iosVer);
+        }
+        return template;
+    }
+
+    function generateUA() {
+        const deviceType = document.getElementById('deviceType').value;
+        const browserFilter = document.getElementById('browserFilter').value;
+        const count = parseInt(document.getElementById('uaCount').value);
+        const outputDiv = document.getElementById('uaOutput');
+        if (count < 1 || count > 20) {
+            outputDiv.innerHTML = '<span style="color:#EF4444;">Please choose a count between 1 and 20.</span>';
+            return;
+        }
+        const uas = [];
+        for (let i = 0; i < count; i++) {
+            uas.push(generateSingleUA(browserFilter, deviceType));
+        }
+        outputDiv.innerHTML = uas.map(ua => `<div style="margin-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px;">${escapeHtml(ua)}</div>`).join('');
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    function clearUA() {
+        document.getElementById('uaOutput').innerHTML = 'Click "Generate" to get random user‑agent strings.';
+    }
+
+    function copyUA() {
+        const uas = document.querySelectorAll('#uaOutput div');
+        if (!uas.length) return;
+        const text = Array.from(uas).map(div => div.innerText).join('\n');
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy All', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"User-Agent Parser", icon:"fa-user-secret", url:"ua-parser.html"},
+            {name:"Random IP Address", icon:"fa-network-wired", url:"random-ip-address-generator.html"},
+            {name:"Random MAC", icon:"fa-network-wired", url:"random-mac.html"},
+            {name:"Random Password", icon:"fa-lock", url:"random-password.html"},
+            {name:"Random Binary", icon:"fa-microchip", url:"random-binary-generator.html"},
+            {name:"Random Number", icon:"fa-dice", url:"random-number-generator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGrid").innerHTML = html;
+    }
+
+    window.addEventListener("load", () => {
+        loadRelated();
+        generateUA();
+    });
+</script>
+</body>
+</html>

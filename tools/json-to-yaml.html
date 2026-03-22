@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JSON to YAML Converter – Transform JSON to YAML | ToolGram</title>
+    <meta name="description" content="Convert JSON data to YAML format instantly. Free online converter for configuration files, data serialization, and documentation.">
+    <meta name="keywords" content="json to yaml, json to yaml converter, convert json to yaml, yaml generator, json to yaml online">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/json-to-yaml.html">
+    <meta property="og:title" content="JSON to YAML Converter | ToolGram">
+    <meta property="og:description" content="Convert JSON data to YAML format instantly.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/json-to-yaml.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "JSON to YAML Converter",
+        "description": "Convert JSON data to YAML format.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/json-to-yaml.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["JSON to YAML", "YAML Generator", "Data Converter", "Config Tool"]
+    }
+    </script>
+    <style>
+        /* (same base styles as previous tools – omitted for brevity, but identical to others) */
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-code"></i></div>
+            <div>
+                <h1 style="margin:0;">JSON to YAML Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert JSON data to human‑friendly YAML format</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-brackets-curly"></i> JSON Input</div>
+                <div style="padding:20px">
+                    <textarea id="jsonInputYAML" class="tool-textarea" placeholder='{"name":"ToolGram","tools":135,"active":true}'>{"name":"ToolGram","tools":135,"active":true,"features":["free","no signup"]}</textarea>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="jsonToYaml()"><i class="fas fa-sync-alt"></i> Convert to YAML</button>
+                    <button class="secondary-btn" onclick="clearJsonYaml()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-code"></i> YAML Output</div>
+                <div class="output-display" id="yamlOutput"></div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyYaml()"><i class="far fa-copy"></i> Copy YAML</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGrid4"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is JSON to YAML Conversion?</h3>
+            <p>YAML (YAML Ain’t Markup Language) is a human‑friendly data serialization standard often used for configuration files. This tool converts JSON objects into equivalent YAML, preserving all data types and structure.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p>Paste valid JSON into the left box. Click "Convert to YAML". The result appears on the right. Copy the YAML code for use in your projects.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Example</h3>
+            <p><strong>JSON:</strong> <code>{"name":"ToolGram","version":"1.0"}</code><br>
+            <strong>YAML:</strong> <code>name: ToolGram<br>version: "1.0"</code></p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses This?</h3>
+            <ul>
+                <li>DevOps engineers – converting API responses to config files</li>
+                <li>Developers – preparing data for Kubernetes, Ansible, or Docker</li>
+                <li>Documentation writers – generating human‑readable examples</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Tips</h3>
+            <ul>
+                <li>YAML is whitespace‑sensitive – the output is properly indented.</li>
+                <li>Numbers, booleans, and nulls are automatically handled.</li>
+                <li>Arrays become YAML lists.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Can I convert YAML back to JSON?</div>
+            <div class="faq-answer">Yes, use our YAML to JSON converter (available in tools).</div>
+            <div class="faq-question">Does it support complex nested objects?</div>
+            <div class="faq-answer">Yes, the js-yaml library handles arbitrary nesting depth.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function jsonToYaml() {
+        const jsonText = document.getElementById('jsonInputYAML').value.trim();
+        if (!jsonText) {
+            document.getElementById('yamlOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter JSON data.</span>';
+            return;
+        }
+        try {
+            const jsonObj = JSON.parse(jsonText);
+            const yaml = jsyaml.dump(jsonObj);
+            document.getElementById('yamlOutput').innerHTML = `<pre style="margin:0;font-family:monospace;">${escapeHtml(yaml)}</pre>`;
+        } catch (e) {
+            document.getElementById('yamlOutput').innerHTML = `<span style="color:#EF4444;">Invalid JSON: ${e.message}</span>`;
+        }
+    }
+
+    function clearJsonYaml() {
+        document.getElementById('jsonInputYAML').value = '';
+        document.getElementById('yamlOutput').innerHTML = 'Click "Convert to YAML" to see the result.';
+    }
+
+    function copyYaml() {
+        const yamlText = document.getElementById('yamlOutput').innerText;
+        if (yamlText && yamlText !== 'Click "Convert to YAML" to see the result.' && !yamlText.startsWith('Invalid')) {
+            navigator.clipboard.writeText(yamlText);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy YAML', 2000);
+        }
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"YAML to JSON", icon:"fa-code-branch", url:"yaml-to-json-converter.html"},
+            {name:"YAML Validator", icon:"fa-check-double", url:"yaml-validator.html"},
+            {name:"JSON Formatter", icon:"fa-brackets-curly", url:"json-stringify.html"},
+            {name:"JSON Minifier", icon:"fa-compress", url:"json-minifier.html"},
+            {name:"XML to JSON", icon:"fa-code", url:"xml-to-json.html"},
+            {name:"CSV to JSON", icon:"fa-file-csv", url:"csv-to-json.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGrid4").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
