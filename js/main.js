@@ -1,7 +1,3 @@
-// =====================================================
-// TOOLGRAM MAIN.JS - FINAL (All Features)
-// =====================================================
-
 // 1. COPY BUTTON FUNCTIONALITY (only on tool pages)
 function setupCopyButtons() {
     if (!document.querySelector('.tool-container')) return;
@@ -233,7 +229,19 @@ function updateFooter() {
     }
 }
 
-// 9. MAIN FUNCTION (tool pages only)
+// 9. FIX TOP PADDING ON TOOL PAGES (NEW)
+function fixPageTopPadding() {
+    if (!document.querySelector('.tool-container')) return;
+    const style = document.createElement('style');
+    style.textContent = `
+        .page {
+            padding-top: 100px !important;   /* adjust to your actual nav height */
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// 10. MAIN FUNCTION (tool pages only)
 function injectCommonContent() {
     if (!document.querySelector('.tool-container') || document.getElementById('toolgram-common-injected')) return;
     const marker = document.createElement('div');
@@ -243,6 +251,7 @@ function injectCommonContent() {
 
     reduceToolInterfaceWidth();
     addSideVerticalAds();
+    fixPageTopPadding();   // <--- NEW CALL
 
     injectAboutToolGram();
     injectWhyChooseUs();
@@ -260,7 +269,7 @@ function injectCommonContent() {
     updateFooter();
 }
 
-// 10. INITIALIZATION (all pages)
+// 11. INITIALIZATION (all pages)
 function initAll() {
     setupCopyButtons();
     if (document.querySelector('.tool-container')) {
