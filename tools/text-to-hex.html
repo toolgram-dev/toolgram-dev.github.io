@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Text to Hex Converter – Encode String to Hexadecimal | ToolGram</title>
+    <meta name="description" content="Convert any text to hexadecimal format instantly. Perfect for encoding, debugging, and data representation. Free online text to hex converter.">
+    <meta name="keywords" content="text to hex, string to hex, text to hexadecimal, hex encoder, convert text to hex, ascii to hex">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/text-to-hex.html">
+    <meta property="og:title" content="Text to Hex Converter | ToolGram">
+    <meta property="og:description" content="Convert text to hexadecimal instantly.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/text-to-hex.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Text to Hex Converter",
+        "description": "Convert text to hexadecimal format.",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/text-to-hex.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Text to Hex", "String Encoder", "Hexadecimal Converter"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-code"></i></div>
+            <div>
+                <h1 style="margin:0;">Text to Hex Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert any text string to its hexadecimal representation</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input Text</div>
+                <div style="padding:20px">
+                    <textarea id="textInputHex" class="tool-textarea" placeholder="Enter text to convert...">Hello World</textarea>
+                    <div class="var-row" style="margin-top:15px">
+                        <label style="color:#fff"><input type="checkbox" id="uppercaseHex"> Uppercase hex</label>
+                        <label style="color:#fff"><input type="checkbox" id="spaceHex"> Space between bytes</label>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="textToHex()"><i class="fas fa-sync-alt"></i> Convert to Hex</button>
+                    <button class="secondary-btn" onclick="clearTextHex()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-hashtag"></i> Hexadecimal Output</div>
+                <div class="output-display" id="hexOutput">48656c6c6f20576f726c64</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyHex()"><i class="far fa-copy"></i> Copy Hex</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridTH"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Text to Hex Conversion?</h3>
+            <p>Hexadecimal (hex) is a base‑16 numeral system that uses digits 0‑9 and letters A‑F. Each character in a text string has an ASCII (or Unicode) code point, which can be expressed as a two‑digit hexadecimal number. For example, the letter 'A' has ASCII code 65, which in hex is 41. Converting text to hex is useful for debugging binary data, encoding for low‑level protocols, and preparing data for embedded systems.</p>
+            <p>This tool transforms any text (including letters, numbers, and symbols) into a continuous hex string. Each byte (character) is represented by exactly two hex digits, making it easy to transmit or store binary‑safe data.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Tool</h3>
+            <p><strong>Step 1:</strong> Enter your text in the left input field. You can paste from any source or type directly.<br>
+            <strong>Step 2:</strong> Optionally check “Uppercase hex” to output letters A‑F in uppercase (default is lowercase).<br>
+            <strong>Step 3:</strong> Check “Space between bytes” if you want each byte separated by a space (e.g., "48 65 6c 6c 6f").<br>
+            <strong>Step 4:</strong> Click “Convert to Hex”. The hexadecimal result appears instantly.<br>
+            <strong>Step 5:</strong> Use the “Copy Hex” button to copy the result to your clipboard.</p>
+            <p>This tool works with any ASCII text. For extended Unicode characters, it will produce the corresponding UTF‑8 byte sequence (multiple bytes per character).</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Text:</strong> "Hello"<br>
+            <strong>Hex:</strong> 48656c6c6f<br>
+            <strong>With spaces:</strong> 48 65 6c 6c 6f</p>
+            <p><strong>Text:</strong> "ToolGram"<br>
+            <strong>Hex:</strong> 546f6f6c4772616d</p>
+            <p><strong>Text:</strong> "123"<br>
+            <strong>Hex:</strong> 313233</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses Text to Hex Conversion?</h3>
+            <ul>
+                <li><strong>Programmers</strong> – encoding strings for binary protocols, debugging network packets, or working with low‑level APIs.</li>
+                <li><strong>Security Researchers</strong> – analyzing binary data and hex dumps.</li>
+                <li><strong>Embedded Engineers</strong> – preparing data for microcontrollers that accept hex input.</li>
+                <li><strong>Students</strong> – learning how characters are represented in computers.</li>
+                <li><strong>Web Developers</strong> – converting strings for CSS color codes or other hex‑based formats.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Use uppercase hex if you need to match a specific format (common in some programming languages).</li>
+                <li>The “space between bytes” option makes the output easier to read, especially for long strings.</li>
+                <li>You can convert the hex back to text using our Hex to Text converter (available in related tools).</li>
+                <li>Remember that each character becomes two hex digits – the length of the hex output is exactly twice the number of bytes in the input.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Does this tool support Unicode (emojis, non‑English characters)?</div>
+            <div class="faq-answer">Yes. It uses JavaScript’s `TextEncoder` which encodes the text as UTF‑8. Each character may be represented by 2, 3, or 4 bytes, and those bytes will be output as hex. For example, the emoji “😀” becomes “f09f9880”.</div>
+
+            <div class="faq-question">Why would I need text to hex conversion?</div>
+            <div class="faq-answer">Hex representation is often required for APIs that expect binary data in text form, for storing passwords in a hex‑encoded format, or for preparing data for hardware that only accepts hex strings (e.g., some IoT devices).</div>
+
+            <div class="faq-question">Can I convert hex back to text with this tool?</div>
+            <div class="faq-answer">No, this tool is one‑way. For the reverse operation, use our dedicated Hex to Text converter (see related tools).</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all conversion happens locally in your browser. Your text never leaves your device.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function textToHex() {
+        const text = document.getElementById('textInputHex').value;
+        const uppercase = document.getElementById('uppercaseHex').checked;
+        const space = document.getElementById('spaceHex').checked;
+        if (!text) {
+            document.getElementById('hexOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter text to convert.</span>';
+            return;
+        }
+        const encoder = new TextEncoder();
+        const bytes = encoder.encode(text);
+        let hex = Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join(space ? ' ' : '');
+        if (uppercase) hex = hex.toUpperCase();
+        document.getElementById('hexOutput').innerHTML = hex;
+    }
+
+    function clearTextHex() {
+        document.getElementById('textInputHex').value = '';
+        document.getElementById('hexOutput').innerHTML = 'Click "Convert to Hex" to see the result.';
+    }
+
+    function copyHex() {
+        const text = document.getElementById('hexOutput').innerText;
+        if (text && text !== 'Click "Convert to Hex" to see the result.') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Hex', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Hex to Text", icon:"fa-hashtag", url:"hex-to-text.html"},
+            {name:"Binary to Text", icon:"fa-code", url:"binary-to-text.html"},
+            {name:"Text to Binary", icon:"fa-microchip", url:"text-to-binary.html"},
+            {name:"Hex to Decimal", icon:"fa-calculator", url:"hex-to-decimal-converter.html"},
+            {name:"Base64 Encoder", icon:"fa-lock", url:"base64.html"},
+            {name:"URL Encoder", icon:"fa-link", url:"url-encoder.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridTH").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
