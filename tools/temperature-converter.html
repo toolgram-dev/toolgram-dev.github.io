@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Temperature Converter – Celsius, Fahrenheit, Kelvin | ToolGram</title>
+    <meta name="description" content="Convert temperature between Celsius, Fahrenheit, and Kelvin instantly. Free online temperature converter for science, cooking, and daily use.">
+    <meta name="keywords" content="temperature converter, celsius to fahrenheit, fahrenheit to celsius, kelvin converter, temperature conversion, °C to °F, °F to °C, K to °C">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/temperature-converter.html">
+    <meta property="og:title" content="Temperature Converter | ToolGram">
+    <meta property="og:description" content="Convert between Celsius, Fahrenheit, and Kelvin.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/temperature-converter.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Temperature Converter",
+        "description": "Convert temperature between Celsius, Fahrenheit, and Kelvin.",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/temperature-converter.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Temperature Converter", "Celsius to Fahrenheit", "Fahrenheit to Celsius", "Kelvin Converter"]
+    }
+    </script>
+    <style>
+        /* same base styles – omitted for brevity */
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .temp-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-thermometer-half"></i></div>
+            <div>
+                <h1 style="margin:0;">Temperature Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert between Celsius, Fahrenheit, and Kelvin</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Convert</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <input type="number" id="tempValue" placeholder="Temperature" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <select id="tempFrom" style="flex:1;">
+                            <option value="C">Celsius (°C)</option>
+                            <option value="F">Fahrenheit (°F)</option>
+                            <option value="K">Kelvin (K)</option>
+                        </select>
+                        <i class="fas fa-arrow-right" style="color:#8B5CF6;"></i>
+                        <select id="tempTo" style="flex:1;">
+                            <option value="C">Celsius (°C)</option>
+                            <option value="F">Fahrenheit (°F)</option>
+                            <option value="K">Kelvin (K)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="convertTemp()"><i class="fas fa-sync-alt"></i> Convert</button>
+                    <button class="secondary-btn" onclick="clearTemp()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Converted Temperature</div>
+                <div class="output-display" id="tempOutput"><span class="temp-result">0 °C</span></div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyTemp()"><i class="far fa-copy"></i> Copy Result</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridTemp"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Temperature Conversion?</h3>
+            <p>Temperature is a physical quantity that expresses hot and cold. Different scales are used around the world: Celsius (metric, used worldwide), Fahrenheit (used in the US and a few other countries), and Kelvin (scientific scale starting at absolute zero). Converting between them is essential for science, cooking, weather forecasting, and international communication.</p>
+            <p>This tool provides instant, accurate conversions using standard formulas:<br>
+            °F = (°C × 9/5) + 32<br>
+            °C = (°F − 32) × 5/9<br>
+            K = °C + 273.15</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Enter the temperature value.<br>
+            <strong>Step 2:</strong> Select the unit you are converting from (Celsius, Fahrenheit, or Kelvin).<br>
+            <strong>Step 3:</strong> Select the unit you want to convert to.<br>
+            <strong>Step 4:</strong> Click “Convert”. The result appears instantly with the appropriate unit symbol.<br>
+            <strong>Step 5:</strong> Copy the result with the “Copy Result” button.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>0 °C → Fahrenheit:</strong> 32 °F<br>
+            <strong>100 °C → Kelvin:</strong> 373.15 K<br>
+            <strong>98.6 °F → Celsius:</strong> 37 °C<br>
+            <strong>0 K → Celsius:</strong> -273.15 °C</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses Temperature Conversion?</h3>
+            <ul>
+                <li><strong>Scientists & Engineers</strong> – working with thermodynamics and chemistry.</li>
+                <li><strong>Chefs & Bakers</strong> – converting oven temperatures from recipes.</li>
+                <li><strong>Travelers</strong> – understanding weather forecasts in different countries.</li>
+                <li><strong>Students</strong> – learning physics and chemistry.</li>
+                <li><strong>DIY Enthusiasts</strong> – working with 3D printers, soldering, etc.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>For quick approximate conversions, remember: °C to °F: double and add 30 (rough).</li>
+                <li>Kelvin is never expressed with a degree symbol; just “K”.</li>
+                <li>Absolute zero (0 K) is −273.15 °C. The tool will show negative Celsius/Fahrenheit for values below absolute zero? It will still calculate mathematically, but physically temperatures below absolute zero are not possible.</li>
+                <li>Use the copy button to paste the result into documents or messages.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Why do different countries use different temperature scales?</div>
+            <div class="faq-answer">Celsius is part of the metric system and is used by most countries. Fahrenheit was developed earlier and remains in use in the United States due to historical reasons. Kelvin is the SI base unit for temperature, used in science.</div>
+
+            <div class="faq-question">What is the formula for Kelvin to Celsius?</div>
+            <div class="faq-answer">K to °C: °C = K − 273.15. To convert Kelvin to Fahrenheit, first convert to Celsius then to Fahrenheit.</div>
+
+            <div class="faq-question">Can this tool convert negative temperatures?</div>
+            <div class="faq-answer">Yes, it can handle negative temperatures (e.g., -40 °C = -40 °F).</div>
+
+            <div class="faq-question">Is the conversion accurate?</div>
+            <div class="faq-answer">Yes, the tool uses the exact mathematical formulas and shows results with up to two decimal places.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function convertTemp() {
+        let value = parseFloat(document.getElementById('tempValue').value);
+        const fromUnit = document.getElementById('tempFrom').value;
+        const toUnit = document.getElementById('tempTo').value;
+        if (isNaN(value)) {
+            document.getElementById('tempOutput').innerHTML = '<span style="color:#EF4444;">Please enter a valid number.</span>';
+            return;
+        }
+        let celsius;
+        // Convert input to Celsius
+        if (fromUnit === 'C') celsius = value;
+        else if (fromUnit === 'F') celsius = (value - 32) * 5/9;
+        else celsius = value - 273.15;
+        // Convert Celsius to target
+        let result;
+        let unit;
+        if (toUnit === 'C') { result = celsius; unit = '°C'; }
+        else if (toUnit === 'F') { result = celsius * 9/5 + 32; unit = '°F'; }
+        else { result = celsius + 273.15; unit = 'K'; }
+        document.getElementById('tempOutput').innerHTML = `<span class="temp-result">${result.toFixed(2)} ${unit}</span>`;
+    }
+
+    function clearTemp() {
+        document.getElementById('tempValue').value = '';
+        document.getElementById('tempOutput').innerHTML = '<span class="temp-result">Click "Convert"</span>';
+    }
+
+    function copyTemp() {
+        const text = document.getElementById('tempOutput').innerText;
+        if (text && text !== 'Click "Convert"') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Result', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Percentage Calculator", icon:"fa-percent", url:"percentage-calculator.html"},
+            {name:"Age Calculator", icon:"fa-calendar", url:"age-calculator.html"},
+            {name:"Days Between Dates", icon:"fa-calendar-alt", url:"days-between-dates.html"},
+            {name:"Time Zone Converter", icon:"fa-clock", url:"time-zone-converter.html"},
+            {name:"Number Base Converter", icon:"fa-calculator", url:"number-base.html"},
+            {name:"Binary to Decimal", icon:"fa-calculator", url:"bin-dec.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridTemp").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

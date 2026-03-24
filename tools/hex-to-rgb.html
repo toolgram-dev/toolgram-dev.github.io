@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HEX to RGB Converter – Convert Hex Color Codes | ToolGram</title>
+    <meta name="description" content="Convert HEX color codes to RGB values instantly. Perfect for designers and developers. Also provides HSL conversion.">
+    <meta name="keywords" content="hex to rgb, hex color, rgb converter, color converter, hex to rgb online">
+    <meta name="author" content="ToolGram">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/hex-to-rgb.html">
+    <meta property="og:title" content="HEX to RGB Converter | ToolGram">
+    <meta property="og:description" content="Convert HEX to RGB color codes instantly.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "HEX to RGB Converter",
+        "description": "Convert HEX color codes to RGB values.",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/hex-to-rgb.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["HEX to RGB", "Color preview", "Copy to clipboard"]
+    }
+    </script>
+    <style>
+        /* Copy exact styles from temperature converter (same as previous) */
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        .color-preview{width:100%;height:100px;border-radius:12px;margin:20px 0;border:2px solid rgba(255,255,255,0.2)}
+        .result-value{font-family:monospace;font-size:1.2rem;background:rgba(255,255,255,0.05);padding:12px;border-radius:8px;margin:10px 0}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-palette"></i></div>
+            <div>
+                <h1 style="margin:0;">HEX to RGB Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert HEX color codes to RGB values</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-hashtag"></i> HEX Color</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <input type="text" id="hexInput" value="#8B5CF6" placeholder="#RRGGBB" style="flex:2;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                        <input type="color" id="colorPicker" value="#8B5CF6" style="width:50px;height:50px;border:none;border-radius:8px;cursor:pointer">
+                    </div>
+                    <div class="color-preview" id="colorPreview" style="background:#8B5CF6"></div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="convert()"><i class="fas fa-sync-alt"></i> Convert</button>
+                    <button class="secondary-btn" onclick="clearInput()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> RGB Result</div>
+                <div class="output-display" id="rgbResult" style="text-align:center">rgb(139, 92, 246)</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyResult()"><i class="far fa-copy"></i> Copy RGB</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🎨 Related Color Tools</h2>
+            <div class="related-grid" id="relatedHexRgb"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-info-circle"></i> HEX vs RGB</h3>
+            <p><strong>HEX</strong> (hexadecimal) is a six‑digit representation of a color: #RRGGBB. Each pair (RR, GG, BB) is a value from 00 to FF (0-255 in decimal).</p>
+            <p><strong>RGB</strong> uses three numbers (0-255) for red, green, and blue. Both represent the same color, just in different formats. Designers often use HEX for web, while developers sometimes prefer RGB for CSS manipulation.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cogs"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Enter a HEX color code (with or without #) or use the color picker.<br>
+            <strong>Step 2:</strong> Click “Convert”. The RGB values appear immediately.<br>
+            <strong>Step 3:</strong> Copy the RGB result to use in your CSS or design tool.</p>
+            <p>You can also see a live preview of the color.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the difference between HEX and RGB?</div>
+            <div class="faq-answer">HEX is base‑16, RGB is decimal. They are mathematically equivalent. Browsers accept both.</div>
+            <div class="faq-question">Can I convert RGB to HEX?</div>
+            <div class="faq-answer">Yes, we have a dedicated RGB to HEX tool. Check the related tools below.</div>
+            <div class="faq-question">Does it support shorthand HEX like #8B5?</div>
+            <div class="faq-answer">No, only full six‑digit codes. You can expand shorthand manually (e.g., #8B5 → #88BB55).</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function hexToRgb(hex) {
+        let hexStr = hex.replace('#', '');
+        if (hexStr.length !== 6) return null;
+        let r = parseInt(hexStr.slice(0,2), 16);
+        let g = parseInt(hexStr.slice(2,4), 16);
+        let b = parseInt(hexStr.slice(4,6), 16);
+        if (isNaN(r) || isNaN(g) || isNaN(b)) return null;
+        return {r,g,b};
+    }
+
+    function convert() {
+        let hex = document.getElementById('hexInput').value.trim();
+        let colorPicker = document.getElementById('colorPicker');
+        if (hex[0] !== '#') hex = '#' + hex;
+        if (!/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+            document.getElementById('rgbResult').innerHTML = '<span style="color:#EF4444;">Invalid HEX code</span>';
+            return;
+        }
+        let rgb = hexToRgb(hex);
+        if (!rgb) {
+            document.getElementById('rgbResult').innerHTML = '<span style="color:#EF4444;">Invalid HEX code</span>';
+            return;
+        }
+        document.getElementById('colorPicker').value = hex;
+        document.getElementById('colorPreview').style.backgroundColor = hex;
+        document.getElementById('rgbResult').innerHTML = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+        window.currentRgb = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+    }
+
+    function clearInput() {
+        document.getElementById('hexInput').value = '';
+        document.getElementById('rgbResult').innerHTML = '—';
+        document.getElementById('colorPreview').style.backgroundColor = '#1a1a2e';
+        document.getElementById('colorPicker').value = '#1a1a2e';
+    }
+
+    function copyResult() {
+        let text = document.getElementById('rgbResult').innerText;
+        if (text && text !== '—' && !text.includes('Invalid')) {
+            navigator.clipboard.writeText(text);
+            let btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy RGB', 2000);
+        }
+    }
+
+    document.getElementById('colorPicker').addEventListener('input', function(e) {
+        document.getElementById('hexInput').value = e.target.value;
+        convert();
+    });
+    document.getElementById('hexInput').addEventListener('input', function() {
+        let val = this.value;
+        if (val[0] !== '#') val = '#' + val;
+        if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+            document.getElementById('colorPicker').value = val;
+        }
+        convert();
+    });
+    convert();
+
+    function loadRelated() {
+        const tools = [
+            {name:"RGB to HEX", icon:"fa-palette", url:"rgb-to-hex.html"},
+            {name:"Color Contrast", icon:"fa-adjust", url:"contrast-ratio.html"},
+            {name:"Color Palette", icon:"fa-palette", url:"color-palette.html"},
+            {name:"CSS Minifier", icon:"fa-css3-alt", url:"css-minifier.html"},
+            {name:"Border Radius", icon:"fa-square", url:"border-radius.html"},
+            {name:"PX to REM", icon:"fa-arrows-alt-h", url:"rem-converter.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedHexRgb").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

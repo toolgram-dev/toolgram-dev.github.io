@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JSON Formatter & Validator – Beautify & Minify JSON | ToolGram</title>
+    <meta name="description" content="Format, validate, and minify JSON data instantly. Beautify messy JSON, check syntax errors, and compress JSON for production. Free online JSON formatter.">
+    <meta name="keywords" content="json formatter, json validator, json beautifier, json prettify, json minifier, json lint, json checker">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/json-formatter.html">
+    <meta property="og:title" content="JSON Formatter & Validator | ToolGram">
+    <meta property="og:description" content="Beautify, validate, and minify JSON. Fix formatting errors instantly.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/json-formatter.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "JSON Formatter & Validator",
+        "description": "Format, validate, and minify JSON data. Beautify messy JSON and check syntax.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/json-formatter.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["JSON Formatter", "JSON Validator", "JSON Minifier"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        .action-group{display:flex;gap:10px;flex-wrap:wrap}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-code"></i></div>
+            <div>
+                <h1 style="margin:0;">JSON Formatter & Validator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Beautify, validate, and minify JSON data</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input JSON</div>
+                <div style="padding:20px">
+                    <textarea id="jsonInput" class="tool-textarea" placeholder='Paste JSON here... e.g. {"name":"ToolGram","type":"utility"}'>{"name":"ToolGram","type":"utility","tools":["formatter","validator"]}</textarea>
+                </div>
+                <div class="tool-actions action-group">
+                    <button class="action-btn" onclick="formatJSON()"><i class="fas fa-magic"></i> Format / Beautify</button>
+                    <button class="action-btn" onclick="minifyJSON()"><i class="fas fa-compress-alt"></i> Minify</button>
+                    <button class="secondary-btn" onclick="clearJSON()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Formatted Output</div>
+                <div class="output-display" id="jsonOutput">Click "Format" to beautify or "Minify" to compress</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyJSON()"><i class="far fa-copy"></i> Copy Output</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridJSON"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is JSON Formatter & Validator?</h3>
+            <p>JSON (JavaScript Object Notation) is a lightweight data interchange format. This tool helps you format (beautify) messy JSON with proper indentation, validate syntax, and minify (compress) JSON to save space. It's essential for developers working with APIs, configuration files, and data exchange.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your JSON into the input area.<br>
+            <strong>Step 2:</strong> Click "Format / Beautify" to indent and prettify the JSON. Click "Minify" to remove whitespace.<br>
+            <strong>Step 3:</strong> If there's a syntax error, the tool will show the error line and message.<br>
+            <strong>Step 4:</strong> Copy the formatted/minified output with the "Copy Output" button.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Input:</strong> <code>{"name":"ToolGram","type":"utility"}</code><br>
+            <strong>Formatted:</strong><br>
+            <pre>{
+  "name": "ToolGram",
+  "type": "utility"
+}</pre>
+            <strong>Minified:</strong> <code>{"name":"ToolGram","type":"utility"}</code>
+            </p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses JSON Formatters?</h3>
+            <ul>
+                <li><strong>Web Developers</strong> – debugging API responses, writing config files.</li>
+                <li><strong>Data Analysts</strong> – cleaning JSON datasets.</li>
+                <li><strong>Backend Engineers</strong> – validating JSON schemas.</li>
+                <li><strong>DevOps</strong> – working with JSON-based infrastructure as code.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Use "Format" before editing to make JSON readable.</li>
+                <li>Use "Minify" to reduce payload size when sending JSON over network.</li>
+                <li>The tool also validates – any syntax error is shown in red.</li>
+                <li>You can use the "Clear" button to reset both input and output.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What if my JSON is invalid?</div>
+            <div class="faq-answer">The tool will display the error with line and column information, helping you locate the issue (e.g., missing comma, quotes).</div>
+            <div class="faq-question">Does it support large JSON files?</div>
+            <div class="faq-answer">Yes, but performance depends on browser. For very large JSON, formatting may be slower; minify is faster.</div>
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all processing happens locally in your browser. Your JSON never leaves your device.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function formatJSON() {
+        const input = document.getElementById('jsonInput').value.trim();
+        if (!input) {
+            document.getElementById('jsonOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter JSON to format.</span>';
+            return;
+        }
+        try {
+            const parsed = JSON.parse(input);
+            const formatted = JSON.stringify(parsed, null, 2);
+            document.getElementById('jsonOutput').innerHTML = formatted;
+        } catch (e) {
+            document.getElementById('jsonOutput').innerHTML = `<span style="color:#EF4444;">❌ JSON Error: ${e.message}</span>`;
+        }
+    }
+
+    function minifyJSON() {
+        const input = document.getElementById('jsonInput').value.trim();
+        if (!input) {
+            document.getElementById('jsonOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter JSON to minify.</span>';
+            return;
+        }
+        try {
+            const parsed = JSON.parse(input);
+            const minified = JSON.stringify(parsed);
+            document.getElementById('jsonOutput').innerHTML = minified;
+        } catch (e) {
+            document.getElementById('jsonOutput').innerHTML = `<span style="color:#EF4444;">❌ JSON Error: ${e.message}</span>`;
+        }
+    }
+
+    function clearJSON() {
+        document.getElementById('jsonInput').value = '';
+        document.getElementById('jsonOutput').innerHTML = 'Click "Format" to beautify or "Minify" to compress';
+    }
+
+    function copyJSON() {
+        const text = document.getElementById('jsonOutput').innerText;
+        if (text && !text.includes('Click "Format"') && !text.includes('JSON Error')) {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Output', 2000);
+        }
+    }
+
+    function loadRelated() {
+        // Tools selected from tools-data.json (all exist)
+        const tools = [
+            {name:"JSON Minifier", icon:"fa-compress-alt", url:"json-minifier.html"},
+            {name:"JSON to CSV", icon:"fa-file-csv", url:"json-to-csv.html"},
+            {name:"JSON to TypeScript", icon:"fa-code", url:"json-to-ts.html"},
+            {name:"JSON Schema Validator", icon:"fa-check-double", url:"json-schema-validator.html"},
+            {name:"XML to JSON Converter", icon:"fa-code-branch", url:"xml-to-json.html"},
+            {name:"YAML to JSON Converter", icon:"fa-code-branch", url:"yaml-to-json-converter.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridJSON").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

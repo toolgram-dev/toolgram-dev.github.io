@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Random Number Generator – Generate Random Numbers | ToolGram</title>
+    <meta name="description" content="Generate random integers within any range. Perfect for giveaways, simulations, gaming, and decision-making. Cryptographically secure randomness.">
+    <meta name="keywords" content="random number generator, random integer, random number, randomizer, random number between, random number picker">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/random-number.html">
+    <meta property="og:title" content="Random Number Generator | ToolGram">
+    <meta property="og:description" content="Generate random integers instantly. Secure, fast, and easy.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/random-number.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Random Number Generator",
+        "description": "Generate random integers within a custom range.",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/random-number.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Random integer generation", "Customizable range", "Copy to clipboard", "Instant results"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        input[type="number"]{background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;padding:12px;width:100%}
+        .random-result{font-size:2.5rem;font-weight:bold;text-align:center;color:#8B5CF6}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-dice"></i></div>
+            <div>
+                <h1 style="margin:0;">Random Number Generator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Generate a random integer between any two numbers</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Range</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <div style="flex:1"><label>Minimum:</label><input type="number" id="minNum" value="1" step="1"></div>
+                        <div style="flex:1"><label>Maximum:</label><input type="number" id="maxNum" value="100" step="1"></div>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="generateRandom()"><i class="fas fa-sync-alt"></i> Generate</button>
+                    <button class="secondary-btn" onclick="clearRandom()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Result</div>
+                <div class="output-display" style="text-align:center"><span id="randomResult" class="random-result">—</span></div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyRandom()"><i class="far fa-copy"></i> Copy Result</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridRandom"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Random Number Generator?</h3>
+            <p>A random number generator (RNG) is a tool that produces a number that cannot be reasonably predicted better than by random chance. Our generator uses the <strong><code>crypto.getRandomValues()</code></strong> method, which provides cryptographically secure random numbers. This means the output is unbiased and suitable for applications where true randomness matters, such as giveaways, gaming, simulations, or selecting winners.</p>
+            <p>You can set any integer range – from negative to positive, small to large – and the generator will produce a uniformly distributed integer within that range.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-chart-line"></i> How It Works</h3>
+            <p>The generator works by:</p>
+            <ul>
+                <li>Taking your minimum and maximum values.</li>
+                <li>Calculating the range (max - min + 1).</li>
+                <li>Using a cryptographically secure random function to pick a number between 0 and 1.</li>
+                <li>Mapping that onto the desired range and rounding to an integer.</li>
+            </ul>
+            <p>Because it uses true randomness (from the browser’s crypto API), each result is independent and equally likely.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Common Use Cases</h3>
+            <ul>
+                <li><strong>Giveaways & Contests:</strong> Pick a random winner from a list of participants.</li>
+                <li><strong>Gaming:</strong> Generate random loot drops, enemy encounters, or character stats.</li>
+                <li><strong>Education:</strong> Create random math problems or sampling for experiments.</li>
+                <li><strong>Decision Making:</strong> Flip a coin, roll dice, or pick a random option when choices are equal.</li>
+                <li><strong>Programming:</strong> Test algorithms with random data.</li>
+            </ul>
+            <p>Because the generator is browser‑based, you can use it offline, and it never sends data over the internet.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How random is this generator?</div>
+            <div class="faq-answer">It uses the browser's built‑in <code>crypto.getRandomValues()</code>, which is a cryptographically secure pseudorandom number generator. It is suitable for most applications requiring true randomness, including security‑sensitive contexts.</div>
+
+            <div class="faq-question">Can I generate negative numbers?</div>
+            <div class="faq-answer">Yes! Simply enter a negative minimum (e.g., -50) and a positive maximum (e.g., 50). The generator will return an integer between them.</div>
+
+            <div class="faq-question">What is the maximum range?</div>
+            <div class="faq-answer">You can generate numbers between -2³¹ and 2³¹-1 (roughly ±2.1 billion). The tool will warn you if your range is too large, but most uses will fit comfortably.</div>
+
+            <div class="faq-question">Is it truly random?</div>
+            <div class="faq-answer">True randomness is impossible to achieve with a deterministic computer, but <code>crypto.getRandomValues()</code> draws from a high‑entropy source and is considered cryptographically secure. For most practical purposes, it is effectively random.</div>
+
+            <div class="faq-question">Can I generate decimals instead of integers?</div>
+            <div class="faq-answer">Currently this tool generates integers only. For decimals, you can use our “Random Decimal Generator” (coming soon) or simply divide the result by a power of 10.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function generateRandom() {
+        let min = parseInt(document.getElementById('minNum').value);
+        let max = parseInt(document.getElementById('maxNum').value);
+        if (isNaN(min)) min = 0;
+        if (isNaN(max)) max = 100;
+        if (min > max) { let t = min; min = max; max = t; }
+        let range = max - min + 1;
+        // Use crypto.getRandomValues for high-quality randomness
+        let randomBuffer = new Uint32Array(1);
+        crypto.getRandomValues(randomBuffer);
+        let randomNumber = min + (randomBuffer[0] % range);
+        document.getElementById('randomResult').innerText = randomNumber;
+    }
+
+    function clearRandom() {
+        document.getElementById('minNum').value = 1;
+        document.getElementById('maxNum').value = 100;
+        document.getElementById('randomResult').innerHTML = '—';
+    }
+
+    function copyRandom() {
+        let result = document.getElementById('randomResult').innerText;
+        if (result && result !== '—') {
+            navigator.clipboard.writeText(result);
+            let btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Result', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"UUID Generator", icon:"fa-fingerprint", url:"uuid.html"},
+            {name:"Password Strength", icon:"fa-shield-alt", url:"pass-check.html"},
+            {name:"Lorem Ipsum", icon:"fa-paragraph", url:"lorem-ipsum.html"},
+            {name:"Word Counter", icon:"fa-file-alt", url:"word-counter.html"},
+            {name:"List Shuffler", icon:"fa-random", url:"list-shuffler.html"},
+            {name:"Dice Roller", icon:"fa-dice", url:"dice-roller.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridRandom").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

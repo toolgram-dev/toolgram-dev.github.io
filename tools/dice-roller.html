@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dice Roller – Roll Virtual Dice for RPG, D&D, Board Games | ToolGram</title>
+    <meta name="description" content="Online virtual dice roller: roll up to 20 dice of any type (d4, d6, d8, d10, d12, d20, d100). Perfect for D&D, board games, and random number generation. True random using crypto.">
+    <meta name="keywords" content="dice roller, roll dice, virtual dice, d20, d6, d4, d8, d10, d12, d100, RPG dice, random number generator, D&D dice">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/dice-roller.html">
+    <meta property="og:title" content="Dice Roller | ToolGram">
+    <meta property="og:description" content="Roll virtual dice of any type. Perfect for RPGs, board games, and decision making.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/dice-roller.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Dice Roller",
+        "description": "Roll virtual dice with customizable sides and quantity. Uses cryptographic randomness for fair results.",
+        "applicationCategory": "Game",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/dice-roller.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Dice Roller", "d4 d6 d8 d10 d12 d20 d100", "Random dice roll"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        .dice-result{font-size:1.2rem;font-weight:bold;color:#8B5CF6}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-dice-d6"></i></div>
+            <div>
+                <h1 style="margin:0;">Dice Roller</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Roll virtual dice for RPGs, board games, and random decisions</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Dice Settings</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff; min-width:80px;">Number of dice</label>
+                        <input type="number" id="diceCount" min="1" max="20" value="1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff; min-width:80px;">Dice type</label>
+                        <select id="diceSides">
+                            <option value="4">d4 (4 sides)</option>
+                            <option value="6" selected>d6 (6 sides)</option>
+                            <option value="8">d8 (8 sides)</option>
+                            <option value="10">d10 (10 sides)</option>
+                            <option value="12">d12 (12 sides)</option>
+                            <option value="20">d20 (20 sides)</option>
+                            <option value="100">d100 (100 sides)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="rollDice()"><i class="fas fa-dice"></i> Roll Dice</button>
+                    <button class="secondary-btn" onclick="clearDice()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Roll Results</div>
+                <div class="output-display" id="diceOutput"><span class="dice-result">Click "Roll Dice" to start</span></div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyDiceResult()"><i class="far fa-copy"></i> Copy Result</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridDice"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Dice Roller?</h3>
+            <p>A dice roller simulates throwing physical dice. You choose how many dice to roll and what type (d4, d6, d8, d10, d12, d20, d100). Each roll generates random numbers within the selected range, exactly like real dice. This tool is perfect for tabletop RPGs (D&D, Pathfinder), board games, or any situation needing random numbers.</p>
+            <p>Our virtual dice use cryptographic‑grade randomness (via <code>crypto.getRandomValues</code>) to ensure fair and unbiased results.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Enter the number of dice you want to roll (1–20).<br>
+            <strong>Step 2:</strong> Select the dice type from the dropdown: d4, d6, d8, d10, d12, d20, or d100.<br>
+            <strong>Step 3:</strong> Click “Roll Dice”. The results show each die value and the total sum.<br>
+            <strong>Step 4:</strong> Use “Copy Result” to save the outcome for your game or notes.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>1d20:</strong> Rolls a single 20-sided die → result like “15” (Total: 15).<br>
+            <strong>3d6:</strong> Rolls three 6-sided dice → “4, 2, 6” (Total: 12).<br>
+            <strong>2d10:</strong> Two 10-sided dice → “7, 3” (Total: 10).<br>
+            <strong>1d100:</strong> Rolls a single 100-sided die → “73”.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses Dice Rollers?</h3>
+            <ul>
+                <li><strong>RPG Players</strong> – Dungeons & Dragons, Pathfinder, Call of Cthulhu.</li>
+                <li><strong>Board Gamers</strong> – Monopoly, Risk, Yahtzee.</li>
+                <li><strong>Teachers</strong> – For classroom probability demonstrations.</li>
+                <li><strong>Game Developers</strong> – Testing random mechanics.</li>
+                <li><strong>Decision Makers</strong> – Choosing randomly between options.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>For percentile rolls (d100), our d100 option handles it directly.</li>
+                <li>Use “Copy Result” to quickly paste dice outcomes into chat or character sheets.</li>
+                <li>If you need to roll with advantage/disadvantage (D&D style), simply roll twice and compare manually.</li>
+                <li>The “Clear” button resets the output without changing settings.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Are the dice rolls truly random?</div>
+            <div class="faq-answer">Yes. We use JavaScript’s <code>crypto.getRandomValues</code> where available, providing cryptographically strong random numbers. Fallback to <code>Math.random</code> is also sufficiently random for gaming.</div>
+            <div class="faq-question">Can I roll dice with modifiers (e.g., 1d20+5)?</div>
+            <div class="faq-answer">Currently, the tool shows raw dice results and sum. You can mentally add modifiers.</div>
+            <div class="faq-question">What is the maximum number of dice I can roll?</div>
+            <div class="faq-answer">The limit is 20 dice per roll to keep output readable. You can perform multiple rolls if needed.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function secureRandom(max) {
+        if (window.crypto && window.crypto.getRandomValues) {
+            const array = new Uint32Array(1);
+            window.crypto.getRandomValues(array);
+            return array[0] % max;
+        } else {
+            return Math.floor(Math.random() * max);
+        }
+    }
+
+    function rollDice() {
+        let count = parseInt(document.getElementById('diceCount').value);
+        const sides = parseInt(document.getElementById('diceSides').value);
+        if (isNaN(count) || count < 1) count = 1;
+        if (count > 20) count = 20;
+        document.getElementById('diceCount').value = count;
+        
+        const rolls = [];
+        for (let i = 0; i < count; i++) {
+            rolls.push(secureRandom(sides) + 1);
+        }
+        const total = rolls.reduce((a,b) => a + b, 0);
+        const output = `🎲 Rolls: ${rolls.join(', ')} | Total: ${total}`;
+        document.getElementById('diceOutput').innerHTML = `<span class="dice-result">${output}</span>`;
+    }
+
+    function clearDice() {
+        document.getElementById('diceOutput').innerHTML = '<span class="dice-result">Click "Roll Dice" to start</span>';
+    }
+
+    function copyDiceResult() {
+        const text = document.getElementById('diceOutput').innerText;
+        if (text && text !== 'Click "Roll Dice" to start') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Result', 2000);
+        }
+    }
+
+    function loadRelated() {
+        // Tools selected from tools-data.json (all exist in the list)
+        const tools = [
+            {name:"Random Number Generator", icon:"fa-dice", url:"random-number-generator.html"},
+            {name:"Base 36", icon:"fa-coins", url:"base36.html"},
+            {name:"Random Password", icon:"fa-lock", url:"random-password.html"},
+            {name:"Random Color Generator", icon:"fa-palette", url:"random-color.html"},
+            {name:"Random Quote Generator", icon:"fa-quote-left", url:"random-quote.html"},
+            {name:"Age Calculator", icon:"fa-ticket-alt", url:"age-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridDice").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

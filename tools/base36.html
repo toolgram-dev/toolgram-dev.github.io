@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Base36 Encoder/Decoder – Convert Text to Base36 | ToolGram</title>
+    <meta name="description" content="Encode text to Base36 (0-9, A-Z) or decode Base36 back to text. Perfect for compact identifiers and short URLs.">
+    <meta name="keywords" content="base36 encoder, base36 decoder, base36 converter, alphanumeric encoding, base36 to text">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/base36.html">
+    <meta property="og:title" content="Base36 Encoder/Decoder | ToolGram">
+    <meta property="og:description" content="Convert text to Base36 and back.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/base36.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Base36 Encoder/Decoder",
+        "description": "Convert between text and Base36.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/base36.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Base36 Encoding", "Base36 Decoding", "Alphanumeric conversion"]
+    }
+    </script>
+    <style>
+        /* === Copy exact styles from temperature converter === */
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        .tool-textarea{width:100%}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-hashtag"></i></div>
+            <div>
+                <h1 style="margin:0;">Base36 Encoder/Decoder</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert between text and Base36 (0-9, A-Z)</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <select id="mode" style="width:100%">
+                            <option value="encode">Encode → Base36</option>
+                            <option value="decode">Decode ← Base36</option>
+                        </select>
+                    </div>
+                    <textarea id="inputText" class="tool-textarea" placeholder="Enter text or Base36 string..."></textarea>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="process()"><i class="fas fa-sync-alt"></i> Convert</button>
+                    <button class="secondary-btn" onclick="clearFields()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-code"></i> Result</div>
+                <div class="output-display" id="result">—</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyResult()"><i class="far fa-copy"></i> Copy Result</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedBase36"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-info-circle"></i> What is Base36?</h3>
+            <p>Base36 uses digits 0‑9 and letters A‑Z (36 symbols) to represent numbers. It’s commonly used for compact, case‑insensitive identifiers (e.g., URL shorteners, unique IDs). Our tool encodes any text to Base36 and decodes it back.</p>
+            <p>Because Base36 avoids ambiguous characters and is case‑insensitive, it’s perfect for manually typed codes or short URLs.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cogs"></i> How It Works</h3>
+            <p><strong>Encoding:</strong> Each character in the input text is converted to its Unicode code point, then that number is represented in Base36 (0-9, A-Z). The encoded parts are joined with hyphens for readability.</p>
+            <p><strong>Decoding:</strong> The Base36 string is split by hyphens, each part is interpreted as a Base36 number and converted back to a Unicode character, reconstructing the original text.</p>
+            <p>All conversion happens in your browser – no data is sent anywhere.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Why use Base36 instead of Base64?</div>
+            <div class="faq-answer">Base36 uses only alphanumeric characters (no +, /, =). It’s more URL‑friendly and easier for humans to type.</div>
+            <div class="faq-question">Is it case‑sensitive?</div>
+            <div class="faq-answer">No – Base36 is typically uppercase, but our tool accepts both uppercase and lowercase for decoding.</div>
+            <div class="faq-question">What are the limits?</div>
+            <div class="faq-answer">Any text can be encoded; the Base36 representation will be longer than the original because each character becomes a variable‑length code. For very long texts, the result can be quite long.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    // ========== Base36 Conversion Logic ==========
+    function toBase36(num) { return num.toString(36).toUpperCase(); }
+    function fromBase36(str) { return parseInt(str, 36); }
+
+    function encodeText(text) {
+        let result = '';
+        for (let i = 0; i < text.length; i++) {
+            let code = text.charCodeAt(i);
+            result += toBase36(code);
+            if (i < text.length - 1) result += '-';
+        }
+        return result;
+    }
+
+    function decodeBase36(base36) {
+        let parts = base36.split('-');
+        let result = '';
+        for (let p of parts) {
+            let num = fromBase36(p);
+            if (isNaN(num)) throw new Error('Invalid Base36 character');
+            result += String.fromCharCode(num);
+        }
+        return result;
+    }
+
+    function process() {
+        let mode = document.getElementById('mode').value;
+        let input = document.getElementById('inputText').value.trim();
+        let output = document.getElementById('result');
+        if (!input) {
+            output.innerHTML = '<span style="color:#EF4444;">Please enter input</span>';
+            return;
+        }
+        try {
+            if (mode === 'encode') {
+                let encoded = encodeText(input);
+                output.innerHTML = `<span style="color:#8B5CF6;">${escapeHtml(encoded)}</span>`;
+            } else {
+                let decoded = decodeBase36(input.toUpperCase());
+                output.innerHTML = `<span style="color:#8B5CF6;">${escapeHtml(decoded)}</span>`;
+            }
+        } catch (e) {
+            output.innerHTML = '<span style="color:#EF4444;">Invalid input for decoding</span>';
+        }
+    }
+
+    function clearFields() {
+        document.getElementById('inputText').value = '';
+        document.getElementById('result').innerHTML = '—';
+    }
+
+    function copyResult() {
+        let text = document.getElementById('result').innerText;
+        if (text && text !== '—' && !text.includes('Invalid')) {
+            navigator.clipboard.writeText(text);
+            let btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Result', 2000);
+        }
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    // ========== Related Tools ==========
+    function loadRelated() {
+        const tools = [
+            {name:"Base64 Encoder", icon:"fa-lock", url:"base64.html"},
+            {name:"URL Encoder", icon:"fa-link", url:"url-encoder.html"},
+            {name:"HTML Entity", icon:"fa-code", url:"html-entity.html"},
+            {name:"JWT Decoder", icon:"fa-key", url:"jwt-decoder.html"},
+            {name:"SHA256", icon:"fa-hashtag", url:"sha256.html"},
+            {name:"UUID Generator", icon:"fa-fingerprint", url:"uuid.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedBase36").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

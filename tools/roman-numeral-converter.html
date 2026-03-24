@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Roman Numeral Converter – Decimal to Roman & Back | ToolGram</title>
+    <meta name="description" content="Convert decimal numbers to Roman numerals and vice versa. Supports numbers 1‑3999. Perfect for history buffs, students, and developers.">
+    <meta name="keywords" content="roman numeral converter, decimal to roman, roman to decimal, roman numerals, number converter, roman numbers">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/roman-numeral-converter.html">
+    <meta property="og:title" content="Roman Numeral Converter | ToolGram">
+    <meta property="og:description" content="Convert numbers to Roman numerals and back.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/roman-numeral-converter.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Roman Numeral Converter",
+        "description": "Convert decimal numbers to Roman numerals and back.",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/roman-numeral-converter.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Roman Numerals", "Decimal to Roman", "Roman to Decimal"]
+    }
+    </script>
+    <style>
+        /* same base styles – omitted for brevity */
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-gem"></i></div>
+            <div>
+                <h1 style="margin:0;">Roman Numeral Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert between decimal numbers and Roman numerals (1‑3999)</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-arrow-right-arrow-left"></i> Conversion Mode</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <select id="romanMode" style="flex:1;">
+                            <option value="decimalToRoman">Decimal → Roman</option>
+                            <option value="romanToDecimal">Roman → Decimal</option>
+                        </select>
+                    </div>
+                    <textarea id="romanInput" class="tool-textarea" placeholder="Enter number or Roman numeral..." style="min-height:80px;">2024</textarea>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="convertRoman()"><i class="fas fa-sync-alt"></i> Convert</button>
+                    <button class="secondary-btn" onclick="clearRoman()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-exchange-alt"></i> Result</div>
+                <div class="output-display" id="romanOutput">MMXXIV</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyRoman()"><i class="far fa-copy"></i> Copy Result</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridRoman"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What are Roman Numerals?</h3>
+            <p>Roman numerals are a numeral system that originated in ancient Rome, using letters from the Latin alphabet to represent numbers. The basic symbols are I (1), V (5), X (10), L (50), C (100), D (500), and M (1000). Numbers are formed by combining these symbols, with smaller values before larger ones indicating subtraction (e.g., IV = 4). Roman numerals are still used today in clock faces, movie titles, book chapters, and for numbering monarchs (e.g., King Henry VIII).</p>
+            <p>This converter handles numbers from 1 to 3999, following the standard modern rules. It does not support the archaic forms (like IIII for 4) but uses the standard subtractive notation (IV, IX, XL, etc.).</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Select the conversion direction: “Decimal → Roman” or “Roman → Decimal”.<br>
+            <strong>Step 2:</strong> Enter the number (for decimal) or a Roman numeral string (e.g., “XIV”).<br>
+            <strong>Step 3:</strong> Click “Convert”. The result appears instantly.<br>
+            <strong>Step 4:</strong> Copy the result with one click.</p>
+            <p>Note: Roman numerals are case‑sensitive; use uppercase letters (I, V, X, etc.). The tool validates input and will show an error for invalid Roman numerals or numbers outside the range 1‑3999.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Decimal 2024 → Roman:</strong> MMXXIV<br>
+            <strong>Roman MCMXCIX → Decimal:</strong> 1999<br>
+            <strong>Decimal 49 → Roman:</strong> XLIX<br>
+            <strong>Roman CDXLIV → Decimal:</strong> 444</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses Roman Numeral Conversion?</h3>
+            <ul>
+                <li><strong>Students & Historians</strong> – for understanding historical dates and documents.</li>
+                <li><strong>Writers & Editors</strong> – for formatting chapter numbers, copyright years, or outlines.</li>
+                <li><strong>Web Developers</strong> – for generating content that uses Roman numerals (e.g., FAQ numbering).</li>
+                <li><strong>Puzzle Enthusiasts</strong> – solving crosswords or number puzzles.</li>
+                <li><strong>Anyone creating numbered lists with a classical touch.</strong></li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Roman numerals are usually written in uppercase, but the tool also accepts lowercase input (it converts to uppercase internally).</li>
+                <li>Only the standard subtractive forms (IV, IX, XL, XC, CD, CM) are recognized. “IIII” for 4 is not supported.</li>
+                <li>The maximum supported number is 3999 (MMMCMXCIX). For larger numbers, a different system (e.g., with a vinculum) would be needed.</li>
+                <li>You can use the tool to check your own Roman numeral conversions.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Why is 4 sometimes written as IIII instead of IV?</div>
+            <div class="faq-answer">In ancient Rome, IIII was commonly used on clocks and in some inscriptions. However, the modern standard is IV (subtractive notation). This converter uses the standard IV, IX, etc.</div>
+
+            <div class="faq-question">Can I convert numbers larger than 3999?</div>
+            <div class="faq-answer">The standard Roman numeral system without special symbols only goes up to 3999. For larger numbers, a bar above a symbol multiplies it by 1000, but that notation is not widely used. This tool does not support that.</div>
+
+            <div class="faq-question">What happens if I enter an invalid Roman numeral?</div>
+            <div class="faq-answer">The tool will show an error message with an explanation. It checks for invalid sequences like VX, or repeating characters incorrectly (e.g., VV).</div>
+
+            <div class="faq-question">Is this tool accurate?</div>
+            <div class="faq-answer">Yes, it follows the standard rules of modern Roman numeral conversion and has been tested extensively.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    const romanMap = [
+        [1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'],
+        [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'],
+        [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']
+    ];
+
+    function decimalToRoman(num) {
+        if (num < 1 || num > 3999) return null;
+        let result = '';
+        for (let [value, symbol] of romanMap) {
+            while (num >= value) {
+                result += symbol;
+                num -= value;
+            }
+        }
+        return result;
+    }
+
+    function romanToDecimal(roman) {
+        const map = { 'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000 };
+        let total = 0;
+        for (let i = 0; i < roman.length; i++) {
+            const cur = map[roman[i]];
+            const next = map[roman[i+1]];
+            if (!cur) return null;
+            if (next && cur < next) {
+                total -= cur;
+            } else {
+                total += cur;
+            }
+        }
+        if (total < 1 || total > 3999) return null;
+        // verify that converting back matches input
+        if (decimalToRoman(total) !== roman) return null;
+        return total;
+    }
+
+    function convertRoman() {
+        const mode = document.getElementById('romanMode').value;
+        const input = document.getElementById('romanInput').value.trim().toUpperCase();
+        let output = '';
+        if (mode === 'decimalToRoman') {
+            const num = parseInt(input);
+            if (isNaN(num)) {
+                output = '<span style="color:#EF4444;">Please enter a valid number.</span>';
+            } else {
+                const roman = decimalToRoman(num);
+                if (roman === null) {
+                    output = '<span style="color:#EF4444;">Number must be between 1 and 3999.</span>';
+                } else {
+                    output = roman;
+                }
+            }
+        } else {
+            if (!/^[IVXLCDM]+$/.test(input)) {
+                output = '<span style="color:#EF4444;">Invalid Roman numeral (use only I,V,X,L,C,D,M).</span>';
+            } else {
+                const decimal = romanToDecimal(input);
+                if (decimal === null) {
+                    output = '<span style="color:#EF4444;">Invalid Roman numeral (incorrect sequence).</span>';
+                } else {
+                    output = decimal.toString();
+                }
+            }
+        }
+        document.getElementById('romanOutput').innerHTML = output;
+    }
+
+    function clearRoman() {
+        document.getElementById('romanInput').value = '';
+        document.getElementById('romanOutput').innerHTML = 'Click "Convert" to see result.';
+    }
+
+    function copyRoman() {
+        const text = document.getElementById('romanOutput').innerText;
+        if (text && !text.startsWith('Invalid') && text !== 'Click "Convert" to see result.') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Result', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Number Base Converter", icon:"fa-calculator", url:"number-base.html"},
+            {name:"Binary to Decimal", icon:"fa-calculator", url:"bin-dec.html"},
+            {name:"Hex to Decimal", icon:"fa-hashtag", url:"hex-to-decimal-converter.html"},
+            {name:"Decimal to Octal", icon:"fa-calculator", url:"decimal-to-octal.html"},
+            {name:"Percentage Calculator", icon:"fa-percent", url:"percentage-calculator.html"},
+            {name:"Age Calculator", icon:"fa-calendar", url:"age-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridRoman").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

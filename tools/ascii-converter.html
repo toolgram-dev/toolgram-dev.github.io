@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ASCII Converter – Text to ASCII Code (Decimal, Hex, Binary) | ToolGram</title>
+    <meta name="description" content="Convert any text to ASCII codes instantly. Supports decimal, hexadecimal, and binary formats. Free online ASCII encoder for developers, students, and debugging.">
+    <meta name="keywords" content="ascii converter, text to ascii, string to ascii, ascii code, char to ascii, decimal to ascii, hex to ascii, binary to ascii">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/ascii-converter.html">
+    <meta property="og:title" content="ASCII Converter | ToolGram">
+    <meta property="og:description" content="Convert text to ASCII decimal, hex, or binary codes.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/ascii-converter.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ASCII Converter",
+        "description": "Convert text to ASCII decimal, hexadecimal, or binary codes.",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/ascii-converter.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["ASCII Converter", "Text to ASCII", "ASCII codes"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        .format-options{display:flex;gap:15px;margin:15px 0;flex-wrap:wrap}
+        .format-options label{color:#fff;cursor:pointer}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-code"></i></div>
+            <div>
+                <h1 style="margin:0;">ASCII Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert text to ASCII decimal, hexadecimal, or binary codes</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input Text</div>
+                <div style="padding:20px">
+                    <textarea id="textInputAscii" class="tool-textarea" placeholder="Enter text to convert...">Hello World</textarea>
+                    <div class="format-options">
+                        <label><input type="radio" name="asciiFormat" value="decimal" checked> Decimal</label>
+                        <label><input type="radio" name="asciiFormat" value="hex"> Hexadecimal</label>
+                        <label><input type="radio" name="asciiFormat" value="binary"> Binary</label>
+                        <label><input type="checkbox" id="spaceAscii"> Space between codes</label>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="textToAscii()"><i class="fas fa-sync-alt"></i> Convert to ASCII</button>
+                    <button class="secondary-btn" onclick="clearAscii()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> ASCII Codes</div>
+                <div class="output-display" id="asciiOutput">72 101 108 108 111 32 87 111 114 108 100</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyAscii()"><i class="far fa-copy"></i> Copy Result</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridAscii"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is ASCII Conversion?</h3>
+            <p>ASCII (American Standard Code for Information Interchange) is a character encoding standard that represents text in computers. Each character is assigned a unique number from 0 to 127. For example, 'A' is 65, 'a' is 97, and '0' is 48.</p>
+            <p>Converting text to ASCII codes is essential for debugging, understanding how computers store text, preparing data for embedded systems, and encoding for certain protocols.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Enter or paste your text in the input area.<br>
+            <strong>Step 2:</strong> Select the desired output format: Decimal, Hexadecimal, or Binary.<br>
+            <strong>Step 3:</strong> Optionally check “Space between codes” for readability.<br>
+            <strong>Step 4:</strong> Click “Convert to ASCII”. The ASCII codes appear instantly.<br>
+            <strong>Step 5:</strong> Copy the result with the “Copy Result” button.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Text:</strong> "A"<br> Decimal: 65 | Hex: 41 | Binary: 01000001</p>
+            <p><strong>Text:</strong> "Hello"<br> Decimal: 72 101 108 108 111<br> Hex: 48 65 6c 6c 6f<br> Binary: 01001000 01100101 01101100 01101100 01101111</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses ASCII Converters?</h3>
+            <ul>
+                <li><strong>Programmers</strong> – debugging character encoding, working with low-level protocols.</li>
+                <li><strong>Students</strong> – learning how computers represent text.</li>
+                <li><strong>Embedded Engineers</strong> – preparing data for microcontrollers.</li>
+                <li><strong>Security Researchers</strong> – analyzing binary data and hex dumps.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Use decimal format for quick reference to ASCII tables.</li>
+                <li>Hexadecimal is common in debugging tools and network packets.</li>
+                <li>Binary is useful for understanding bit-level representation.</li>
+                <li>Spacing between codes makes long strings easier to read.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the difference between ASCII and Unicode?</div>
+            <div class="faq-answer">ASCII covers only English letters, digits, and basic symbols. This tool works with ASCII characters (0-127); non‑ASCII characters will output their Unicode code point (may exceed 127).</div>
+            <div class="faq-question">Can I convert ASCII codes back to text?</div>
+            <div class="faq-answer">Yes, use our Hex to Text, Binary to Text, or ASCII to Text tools (see related tools).</div>
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all conversion happens locally in your browser. Your text never leaves your device.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function textToAscii() {
+        const text = document.getElementById('textInputAscii').value;
+        const format = document.querySelector('input[name="asciiFormat"]:checked').value;
+        const space = document.getElementById('spaceAscii').checked;
+        
+        if (!text) {
+            document.getElementById('asciiOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter text to convert.</span>';
+            return;
+        }
+        
+        const codes = [];
+        for (let i = 0; i < text.length; i++) {
+            const code = text.charCodeAt(i);
+            let formatted;
+            if (format === 'decimal') {
+                formatted = code.toString();
+            } else if (format === 'hex') {
+                formatted = code.toString(16).toUpperCase().padStart(2, '0');
+            } else {
+                formatted = code.toString(2).padStart(8, '0');
+            }
+            codes.push(formatted);
+        }
+        const output = space ? codes.join(' ') : codes.join('');
+        document.getElementById('asciiOutput').innerHTML = output;
+    }
+
+    function clearAscii() {
+        document.getElementById('textInputAscii').value = '';
+        document.getElementById('asciiOutput').innerHTML = 'Click "Convert to ASCII" to see the result.';
+    }
+
+    function copyAscii() {
+        const text = document.getElementById('asciiOutput').innerText;
+        if (text && text !== 'Click "Convert to ASCII" to see the result.') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Result', 2000);
+        }
+    }
+
+    function loadRelated() {
+        // Tools selected from tools-data.json (all exist in the list)
+        const tools = [
+            {name:"Binary to Text Converter", icon:"fa-code", url:"binary-to-text.html"},
+            {name:"Text to Binary", icon:"fa-microchip", url:"text-to-binary.html"},
+            {name:"Hex to Text Converter", icon:"fa-hashtag", url:"hex-to-text.html"},
+            {name:"Binary to Octal Converter", icon:"fa-microchip", url:"binary-to-octal.html"},
+            {name:"Octal to Binary Converter", icon:"fa-microchip", url:"octal-to-binary.html"},
+            {name:"Number Base Converter", icon:"fa-calculator", url:"number-base.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridAscii").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
