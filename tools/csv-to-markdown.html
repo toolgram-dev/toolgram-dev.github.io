@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CSV to Markdown – Convert CSV Tables to Markdown | ToolGram</title>
+    <meta name="description" content="Convert CSV data to Markdown tables instantly. Paste CSV and get formatted Markdown table for GitHub, Reddit, or documentation.">
+    <meta name="keywords" content="csv to markdown, csv to md, convert csv to markdown table, markdown table generator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/csv-to-markdown.html">
+    <meta property="og:title" content="CSV to Markdown | ToolGram">
+    <meta property="og:description" content="Convert CSV data to Markdown tables.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/csv-to-markdown.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CSV to Markdown",
+        "description": "Convert CSV data to Markdown tables.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/csv-to-markdown.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["CSV to Markdown", "Markdown Table"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-table"></i></div>
+            <div>
+                <h1 style="margin:0;">CSV to Markdown</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert CSV data to Markdown tables</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input CSV</div>
+                <div style="padding:20px">
+                    <textarea id="csvInputMD" class="tool-textarea" placeholder="Paste CSV here...">Name,Age,City
+Alice,30,New York
+Bob,25,Los Angeles</textarea>
+                    <div class="var-row" style="margin-top:10px">
+                        <label style="color:#fff"><input type="checkbox" id="firstRowHeaderMD" checked> First row as header</label>
+                        <label style="color:#fff"><input type="checkbox" id="csvDelimiterMD"> Use semicolon (;) delimiter</label>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="convertCSVtoMD()"><i class="fas fa-sync-alt"></i> Convert to Markdown</button>
+                    <button class="secondary-btn" onclick="clearCSVtoMD()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fab fa-markdown"></i> Markdown Table</div>
+                <div class="output-display" id="mdOutput">Click "Convert to Markdown" to see result</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyMD()"><i class="far fa-copy"></i> Copy Markdown</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridCSVtoMD"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is CSV to Markdown Conversion?</h3>
+            <p>Markdown tables are a simple way to display tabular data in plain text, widely used on GitHub, GitLab, Reddit, and in documentation. Converting CSV (Comma‑Separated Values) to Markdown tables saves time and ensures your data is presented cleanly.</p>
+            <p>This tool transforms your CSV data into a well‑formatted Markdown table. It handles headers, optional delimiter selection, and escapes any pipe characters in the data. The output is ready to paste into any Markdown‑compatible environment.</p>
+            <p>All processing is done locally; your data stays private.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your CSV data into the input area.<br>
+            <strong>Step 2:</strong> Check "First row as header" if your CSV has column names.<br>
+            <strong>Step 3:</strong> If your CSV uses semicolons (;), check the corresponding box.<br>
+            <strong>Step 4:</strong> Click "Convert to Markdown".<br>
+            <strong>Step 5:</strong> Copy the Markdown table using the "Copy Markdown" button.</p>
+            <p>The resulting table can be pasted into any Markdown editor or documentation platform.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Input CSV:</strong><br>
+            Name,Age,City<br>
+            Alice,30,New York<br>
+            Bob,25,Los Angeles</p>
+            <p><strong>Output Markdown:</strong><br>
+            | Name | Age | City |<br>
+            |------|-----|------|<br>
+            | Alice | 30 | New York |<br>
+            | Bob | 25 | Los Angeles |</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses CSV to Markdown Converters?</h3>
+            <ul>
+                <li><strong>Developers</strong> – adding tables to README files.</li>
+                <li><strong>Data Analysts</strong> – sharing data on GitHub.</li>
+                <li><strong>Documentation Writers</strong> – creating technical docs.</li>
+                <li><strong>Students</strong> – presenting data in assignments.</li>
+                <li><strong>Project Managers</strong> – formatting reports in Markdown.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>If your data contains pipe characters (|), they are automatically escaped to \|.</li>
+                <li>For large tables, the output remains readable; you can further adjust alignment by adding colons in the separator row (e.g., |:---| for left alignment).</li>
+                <li>Use semicolon delimiter if your CSV uses European formatting.</li>
+                <li>Copy the Markdown and paste directly into your favorite Markdown editor.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What delimiters are supported?</div>
+            <div class="faq-answer">Comma (,) and semicolon (;). For other delimiters (e.g., tab), you can replace them before pasting.</div>
+
+            <div class="faq-question">Does it support quoted fields?</div>
+            <div class="faq-answer">Yes, quoted fields are handled properly, including commas inside quotes.</div>
+
+            <div class="faq-question">Can I use the output in GitHub README?</div>
+            <div class="faq-answer">Absolutely. GitHub Flavored Markdown supports tables exactly as generated.</div>
+
+            <div class="faq-question">What about empty cells?</div>
+            <div class="faq-answer">Empty cells become empty table cells; they are preserved.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all conversion is local.</div>
+
+            <div class="faq-question">Can I convert Markdown back to CSV?</div>
+            <div class="faq-answer">Not directly, but you can use a Markdown table extractor tool.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function parseCSVtoMD(csv, delimiter, hasHeader) {
+        const lines = csv.split(/\r?\n/).filter(l => l.trim() !== '');
+        if (lines.length === 0) return { headers: [], rows: [] };
+        const parseLine = (line) => {
+            const values = [];
+            let current = '';
+            let inQuotes = false;
+            for (let i = 0; i < line.length; i++) {
+                const ch = line[i];
+                if (ch === '"') {
+                    if (inQuotes && line[i+1] === '"') {
+                        current += '"';
+                        i++;
+                    } else {
+                        inQuotes = !inQuotes;
+                    }
+                } else if (ch === delimiter && !inQuotes) {
+                    values.push(current);
+                    current = '';
+                } else {
+                    current += ch;
+                }
+            }
+            values.push(current);
+            return values;
+        };
+        const data = lines.map(parseLine);
+        const headers = hasHeader ? data[0] : data[0].map((_, i) => `Column ${i+1}`);
+        const rows = hasHeader ? data.slice(1) : data;
+        return { headers, rows };
+    }
+
+    function convertCSVtoMD() {
+        const csv = document.getElementById('csvInputMD').value;
+        if (!csv.trim()) {
+            document.getElementById('mdOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter CSV data to convert.</span>';
+            return;
+        }
+        const delimiter = document.getElementById('csvDelimiterMD').checked ? ';' : ',';
+        const hasHeader = document.getElementById('firstRowHeaderMD').checked;
+        const { headers, rows } = parseCSVtoMD(csv, delimiter, hasHeader);
+        if (headers.length === 0 && rows.length === 0) {
+            document.getElementById('mdOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">No data found.</span>';
+            return;
+        }
+        // Escape pipe characters in cells
+        const escapePipe = (s) => s.replace(/\|/g, '\\|');
+        let md = '| ' + headers.map(h => escapePipe(h)).join(' | ') + ' |\n';
+        md += '|' + headers.map(() => '---').join('|') + '|\n';
+        rows.forEach(row => {
+            // Pad row if needed
+            while (row.length < headers.length) row.push('');
+            md += '| ' + row.slice(0, headers.length).map(c => escapePipe(c)).join(' | ') + ' |\n';
+        });
+        document.getElementById('mdOutput').innerHTML = md;
+    }
+
+    function clearCSVtoMD() {
+        document.getElementById('csvInputMD').value = '';
+        document.getElementById('mdOutput').innerHTML = 'Click "Convert to Markdown" to see result';
+    }
+
+    function copyMD() {
+        const text = document.getElementById('mdOutput').innerText;
+        if (text && text !== 'Click "Convert to Markdown" to see result') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Markdown', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"CSV to JSON Converter", icon:"fa-file-csv", url:"csv-to-json.html"},
+            {name:"Markdown Table Generator", icon:"fa-table", url:"md-table.html"},
+            {name:"CSV Viewer", icon:"fa-table", url:"csv-viewer.html"},
+            {name:"HTML Table to CSV", icon:"fa-table", url:"html-table-to-csv.html"},
+            {name:"JSON to CSV", icon:"fa-file-csv", url:"json-to-csv.html"},
+            {name:"Excel to JSON Converter", icon:"fa-file-excel", url:"excel-to-json-converter.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridCSVtoMD").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
