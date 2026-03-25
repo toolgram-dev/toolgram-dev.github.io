@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Decimal to IP Converter – Convert Integer to IPv4 | ToolGram</title>
+    <meta name="description" content="Convert decimal (integer) values back to IPv4 addresses. Reverse of IP to decimal conversion.">
+    <meta name="keywords" content="decimal to ip, integer to ip, convert decimal to ip, ipv4 converter, ip from integer">
+    <meta name="author" content="ToolGram">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/decimal-to-ip.html">
+    <meta property="og:title" content="Decimal to IP Converter | ToolGram">
+    <meta property="og:description" content="Convert integer values to IPv4 addresses.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/decimal-to-ip.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <style>
+        /* same base styles */
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-network-wired"></i></div>
+            <div>
+                <h1 style="margin:0;">Decimal to IP Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert integer (decimal) values back to IPv4 addresses</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input Decimal</div>
+                <div style="padding:20px">
+                    <input type="number" id="decimalInput" placeholder="e.g., 3232235777" value="3232235777" style="width:100%;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="convertDecimalToIP()"><i class="fas fa-sync-alt"></i> Convert to IP</button>
+                    <button class="secondary-btn" onclick="clearDecimalIP()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> IP Address</div>
+                <div class="output-display" id="ipOutput">Click "Convert" to see IP address</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyIP()"><i class="far fa-copy"></i> Copy IP</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridDecIP"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Decimal to IP Conversion?</h3>
+            <p>This tool performs the reverse operation of IP to decimal conversion. Given a decimal integer (0 to 4294967295), it computes the corresponding IPv4 address by splitting the 32‑bit number into four octets. This is useful when you have stored IPs as integers in a database and need to display them in human‑readable form, or when working with network math.</p>
+            <p>The conversion uses bit shifting: each octet is extracted from the decimal value, and the result is presented as a standard dotted‑decimal IP.</p>
+            <p>All processing is done locally; your data remains private.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Enter a decimal integer between 0 and 4294967295.<br>
+            <strong>Step 2:</strong> Click "Convert to IP".<br>
+            <strong>Step 3:</strong> The IPv4 address appears.<br>
+            <strong>Step 4:</strong> Copy the result using the "Copy IP" button.</p>
+            <p>If the number is out of range, an error will be shown.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Decimal:</strong> 3232235777 → <strong>IP:</strong> 192.168.1.1<br>
+            <strong>Decimal:</strong> 167772161 → 10.0.0.1<br>
+            <strong>Decimal:</strong> 4294967295 → 255.255.255.255</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses Decimal to IP Conversion?</h3>
+            <ul>
+                <li><strong>Database Developers</strong> – retrieving IPs stored as integers.</li>
+                <li><strong>Network Analysts</strong> – decoding integer IPs from logs.</li>
+                <li><strong>Security Professionals</strong> – analyzing IP ranges.</li>
+                <li><strong>Web Developers</strong> – displaying IP addresses from integer storage.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Ensure the decimal value is within the IPv4 range (0 to 4294967295).</li>
+                <li>Use this tool in conjunction with IP to Decimal for two‑way conversions.</li>
+                <li>For IPv6, the decimal representation is much larger and not supported here.</li>
+                <li>Copy the IP directly for use in network tools or code.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the maximum decimal value?</div>
+            <div class="faq-answer">4294967295, which corresponds to 255.255.255.255.</div>
+
+            <div class="faq-question">What if I enter a decimal larger than that?</div>
+            <div class="faq-answer">The tool will show an error because it exceeds the IPv4 address space.</div>
+
+            <div class="faq-question">Can I convert negative numbers?</div>
+            <div class="faq-answer">No, negative numbers are not valid for IPv4 addresses.</div>
+
+            <div class="faq-question">Is this tool accurate?</div>
+            <div class="faq-answer">Yes, the conversion uses standard bitwise operations and is precise.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all processing is local.</div>
+
+            <div class="faq-question">How do I convert decimal back to IP manually?</div>
+            <div class="faq-answer">Divide the number by 256 repeatedly; the remainders give the octets in reverse order.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function convertDecimalToIP() {
+        let dec = parseInt(document.getElementById('decimalInput').value, 10);
+        if (isNaN(dec)) {
+            document.getElementById('ipOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Please enter a valid decimal number.</span>';
+            return;
+        }
+        if (dec < 0 || dec > 4294967295) {
+            document.getElementById('ipOutput').innerHTML = '<span style="color:#EF4444;">Number out of range (0 to 4294967295).</span>';
+            return;
+        }
+        const octet4 = dec % 256;
+        dec = Math.floor(dec / 256);
+        const octet3 = dec % 256;
+        dec = Math.floor(dec / 256);
+        const octet2 = dec % 256;
+        dec = Math.floor(dec / 256);
+        const octet1 = dec % 256;
+        const ip = `${octet1}.${octet2}.${octet3}.${octet4}`;
+        document.getElementById('ipOutput').innerHTML = ip;
+    }
+
+    function clearDecimalIP() {
+        document.getElementById('decimalInput').value = '';
+        document.getElementById('ipOutput').innerHTML = 'Click "Convert" to see IP address';
+    }
+
+    function copyIP() {
+        const text = document.getElementById('ipOutput').innerText;
+        if (text && text !== 'Click "Convert" to see IP address' && !text.includes('out of range')) {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy IP', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"IP to Decimal Converter", icon:"fa-network-wired", url:"ip-to-decimal.html"},
+            {name:"Random IP Address", icon:"fa-network-wired", url:"random-ip-address-generator.html"},
+            {name:"CSS Gradient Generator", icon:"fa-palette", url:"gradient-gen.html"},
+            {name:"Binary to Decimal Converter", icon:"fa-calculator", url:"bin-dec.html"},
+            {name:"Hex to Decimal Converter", icon:"fa-hashtag", url:"hex-to-decimal-converter.html"},
+            {name:"Number Base Converter", icon:"fa-calculator", url:"number-base.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridDecIP").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

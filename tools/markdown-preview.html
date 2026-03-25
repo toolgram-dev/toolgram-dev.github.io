@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Markdown Preview – Live Markdown Editor with Preview | ToolGram</title>
+    <meta name="description" content="Write and preview Markdown in real-time. Live HTML rendering with syntax highlighting. Perfect for documentation, notes, and README files.">
+    <meta name="keywords" content="markdown preview, markdown editor, live markdown, markdown to html, markdown renderer">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/markdown-preview.html">
+    <meta property="og:title" content="Markdown Preview | ToolGram">
+    <meta property="og:description" content="Live Markdown editor with instant HTML preview.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/markdown-preview.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Markdown Preview",
+        "description": "Write and preview Markdown in real-time.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/markdown-preview.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Markdown Editor", "Markdown Preview", "HTML Converter"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:200px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:200px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:system-ui;word-break:break-all;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fab fa-markdown"></i></div>
+            <div>
+                <h1 style="margin:0;">Markdown Preview</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Write Markdown and see the HTML preview in real time</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Markdown Input</div>
+                <div style="padding:20px">
+                    <textarea id="markdownInput" class="tool-textarea" placeholder="# Hello World
+
+This is **bold** and *italic*.
+
+- List item 1
+- List item 2
+
+[Link](https://toolgram-dev.github.io)"># Markdown Preview
+
+## Features
+- **Live** rendering
+- *Inline* styling
+- [Link to ToolGram](https://toolgram-dev.github.io)
+
+## Code Block
+```js
+console.log("Hello");
+```</textarea>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="renderMarkdown()"><i class="fas fa-sync-alt"></i> Refresh Preview</button>
+                    <button class="secondary-btn" onclick="clearMarkdown()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-eye"></i> Live Preview</div>
+                <div class="output-display" id="markdownPreview">Loading preview...</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyMarkdownHTML()"><i class="far fa-copy"></i> Copy HTML</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridMD"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Markdown Preview?</h3>
+            <p>Markdown is a lightweight markup language that allows you to write formatted text using plain text syntax. It was created by John Gruber in 2004 with the goal of making it easy to write for the web. Today, Markdown is used everywhere: from GitHub README files to documentation, forum posts, and even note‑taking apps like Obsidian and Notion.</p>
+            <p>This tool lets you write Markdown on the left side and instantly see the rendered HTML on the right. It supports headings, lists, bold, italic, links, images, code blocks, and more. Whether you're documenting code, writing a blog post, or just want to see how your Markdown will look, this preview tool gives you immediate feedback.</p>
+            <p>All processing happens locally in your browser – your text never leaves your device, ensuring privacy and speed. You can also copy the generated HTML for use in websites or emails.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Type or paste your Markdown into the left input area. You'll see a sample text to get you started.<br>
+            <strong>Step 2:</strong> Click the "Refresh Preview" button to see the rendered HTML. The preview updates instantly.<br>
+            <strong>Step 3:</strong> To copy the generated HTML for use elsewhere, click "Copy HTML".<br>
+            <strong>Step 4:</strong> Use the "Clear" button to reset both input and output.</p>
+            <p>The tool supports the most common Markdown syntax: headings (#, ##, ###), bold (** **), italic (* *), lists (- or *), links [text](url), images ![alt](url), and code blocks with triple backticks. You can also combine styles for rich formatting.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Heading:</strong> <code># Main Title</code> → <code>&lt;h1&gt;Main Title&lt;/h1&gt;</code><br>
+            <strong>Bold:</strong> <code>**bold text**</code> → <code>&lt;strong&gt;bold text&lt;/strong&gt;</code><br>
+            <strong>List:</strong> <code>- item 1</code> → <code>&lt;ul&gt;&lt;li&gt;item 1&lt;/li&gt;&lt;/ul&gt;</code><br>
+            <strong>Link:</strong> <code>[ToolGram](https://toolgram-dev.github.io)</code> → <code>&lt;a href="https://toolgram-dev.github.io"&gt;ToolGram&lt;/a&gt;</code><br>
+            <strong>Code block:</strong> <code>```js\nconsole.log("hello");\n```</code> → <code>&lt;pre&gt;&lt;code&gt;console.log("hello");&lt;/code&gt;&lt;/pre&gt;</code></p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses Markdown Preview?</h3>
+            <ul>
+                <li><strong>Developers</strong> – writing README files, documentation, and project notes.</li>
+                <li><strong>Technical Writers</strong> – creating clean, version‑controlled documentation.</li>
+                <li><strong>Bloggers</strong> – preparing posts in Markdown before publishing.</li>
+                <li><strong>Students</strong> – formatting assignments and notes.</li>
+                <li><strong>GitHub Users</strong> – previewing Markdown before committing to repositories.</li>
+                <li><strong>Anyone</strong> who wants to write formatted text without complex HTML.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Use triple backticks with a language name (e.g., ```js) for syntax‑highlighted code blocks.</li>
+                <li>You can embed HTML directly in Markdown – it will pass through unchanged.</li>
+                <li>For footnotes, use `[^1]` notation; they are supported in many Markdown flavors.</li>
+                <li>Combine bold and italic: `***bold italic***` works.</li>
+                <li>Use the "Copy HTML" button to get clean HTML output for use in emails or web pages.</li>
+                <li>Experiment with tables: `| Header | Header |\n|--------|--------|\n| Cell   | Cell   |`</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Does it support GitHub Flavored Markdown (GFM)?</div>
+            <div class="faq-answer">Yes, it supports many GFM features including tables, task lists (e.g., `- [x] done`), strikethrough (`~~text~~`), and automatic URL linking. While not 100% comprehensive, it covers most common needs.</div>
+
+            <div class="faq-question">Can I use this tool offline?</div>
+            <div class="faq-answer">Absolutely. Once the page is loaded, all processing happens in your browser. No internet connection is required to preview Markdown after the first load.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No. Everything stays in your browser. Your Markdown is never transmitted anywhere.</div>
+
+            <div class="faq-question">Can I export the HTML?</div>
+            <div class="faq-answer">Yes, click the "Copy HTML" button to copy the generated HTML to your clipboard. You can then paste it into any editor or web page.</div>
+
+            <div class="faq-question">Does it support images?</div>
+            <div class="faq-answer">Yes, using `![alt text](image-url.jpg)`. Images will be displayed in the preview. Note that external images must be accessible online.</div>
+
+            <div class="faq-question">Can I preview code blocks with syntax highlighting?</div>
+            <div class="faq-answer">Yes, specify the language after the opening triple backticks (e.g., ```python). The preview will apply basic styling; for full syntax coloring, you may need additional CSS, but the structure is preserved.</div>
+
+            <div class="faq-question">What if my Markdown is invalid?</div>
+            <div class="faq-answer">The tool will still attempt to render it. You may see stray characters or unexpected formatting. Double-check syntax, especially unmatched brackets or code block delimiters.</div>
+
+            <div class="faq-question">Can I preview LaTeX math?</div>
+            <div class="faq-answer">This basic preview does not support LaTeX. For math, consider using a dedicated Markdown editor with MathJax support.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function markdownToHTML(md) {
+        let html = md;
+        // Escape HTML special characters first
+        html = html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        // Headers
+        html = html.replace(/^### (.*$)/gm, '<h3>$1</h3>');
+        html = html.replace(/^## (.*$)/gm, '<h2>$1</h2>');
+        html = html.replace(/^# (.*$)/gm, '<h1>$1</h1>');
+        // Bold & italic
+        html = html.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
+        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        // Links
+        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+        // Images
+        html = html.replace(/!\[([^\]]+)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%">');
+        // Code blocks
+        html = html.replace(/```(\w*)\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>');
+        // Inline code
+        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+        // Lists (unordered)
+        html = html.replace(/^\s*[-*+]\s+(.*)$/gm, '<li>$1</li>');
+        html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+        // Ordered lists
+        html = html.replace(/^\s*\d+\.\s+(.*)$/gm, '<li>$1</li>');
+        html = html.replace(/(<li>.*<\/li>)/s, '<ol>$1</ol>');
+        // Paragraphs
+        html = html.replace(/^(?!<[hluo]|<pre|<img).+$/gm, '<p>$&</p>');
+        // Line breaks
+        html = html.replace(/\n/g, '<br>');
+        // Clean up multiple <br>s
+        html = html.replace(/(<br>\s*)+<\/[^>]+>/g, '</$1>');
+        return html;
+    }
+
+    function renderMarkdown() {
+        const input = document.getElementById('markdownInput').value;
+        if (!input) {
+            document.getElementById('markdownPreview').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter Markdown to preview.</span>';
+            return;
+        }
+        const html = markdownToHTML(input);
+        document.getElementById('markdownPreview').innerHTML = html;
+    }
+
+    function clearMarkdown() {
+        document.getElementById('markdownInput').value = '';
+        document.getElementById('markdownPreview').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Preview will appear here</span>';
+    }
+
+    function copyMarkdownHTML() {
+        const text = document.getElementById('markdownPreview').innerHTML;
+        if (text && text !== 'Preview will appear here' && !text.includes('Enter Markdown')) {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy HTML', 2000);
+        }
+    }
+
+    function loadRelated() {
+        // Tools from tools-data.json (existing)
+        const tools = [
+            {name:"HTML to Markdown", icon:"fa-markdown", url:"html-to-markdown-converter.html"},
+            {name:"Markdown Table Generator", icon:"fa-table", url:"md-table.html"},
+            {name:"JSON Formatter", icon:"fa-code", url:"json-formatter.html"},
+            {name:"Text Statistics Analyzer", icon:"fa-chart-pie", url:"text-statistics-analyzer.html"},
+            {name:"Word Counter", icon:"fa-file-alt", url:"word-counter.html"},
+            {name:"HTML Stripper", icon:"fa-eraser", url:"html-strip.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridMD").innerHTML = html;
+    }
+    window.addEventListener("load", () => { loadRelated(); renderMarkdown(); });
+</script>
+</body>
+</html>

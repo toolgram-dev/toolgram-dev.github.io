@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Data Size Converter – Bytes, KB, MB, GB, TB | ToolGram</title>
+    <meta name="description" content="Convert between bytes, kilobytes, megabytes, gigabytes, terabytes, and more. Perfect for storage calculations, bandwidth, and file sizes.">
+    <meta name="keywords" content="data size converter, bytes to mb, gb to tb, file size converter, storage units">
+    <meta name="author" content="ToolGram">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/data-size-converter.html">
+    <meta property="og:title" content="Data Size Converter | ToolGram">
+    <meta property="og:description" content="Convert between digital storage units.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/data-size-converter.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <style>
+        /* same base styles */
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-weight-hanging"></i></div>
+            <div>
+                <h1 style="margin:0;">Data Size Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert between bytes, KB, MB, GB, TB, PB</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Convert Data Size</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <input type="number" id="sizeValue" placeholder="Value" value="1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                        <select id="fromSize" style="flex:1;">
+                            <option value="B">Bytes (B)</option>
+                            <option value="KB">Kilobytes (KB)</option>
+                            <option value="MB">Megabytes (MB)</option>
+                            <option value="GB">Gigabytes (GB)</option>
+                            <option value="TB">Terabytes (TB)</option>
+                            <option value="PB">Petabytes (PB)</option>
+                        </select>
+                        <i class="fas fa-arrow-right" style="color:#8B5CF6;"></i>
+                        <select id="toSize" style="flex:1;">
+                            <option value="B">Bytes (B)</option>
+                            <option value="KB">Kilobytes (KB)</option>
+                            <option value="MB" selected>Megabytes (MB)</option>
+                            <option value="GB">Gigabytes (GB)</option>
+                            <option value="TB">Terabytes (TB)</option>
+                            <option value="PB">Petabytes (PB)</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;"><input type="checkbox" id="binaryUnits"> Use binary units (KiB, MiB, GiB) (1 KiB = 1024 B)</label>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="convertSize()"><i class="fas fa-sync-alt"></i> Convert</button>
+                    <button class="secondary-btn" onclick="clearSize()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Result</div>
+                <div class="output-display" id="sizeOutput">Click "Convert" to see result</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySize()"><i class="far fa-copy"></i> Copy Result</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridSize"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Data Size Conversion?</h3>
+            <p>Data sizes are measured in bytes, with multiples like kilobytes (KB), megabytes (MB), gigabytes (GB), terabytes (TB), and petabytes (PB). There are two common systems: decimal (base 10, where 1 KB = 1000 bytes) and binary (base 2, where 1 KiB = 1024 bytes). This tool supports both, allowing you to convert between any of these units accurately.</p>
+            <p>Understanding data sizes is essential for estimating storage requirements, bandwidth calculations, and comparing file sizes. This converter handles large numbers (up to petabytes) and provides results with up to 4 decimal places.</p>
+            <p>All calculations are performed client‑side; your data never leaves the browser.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Enter the numeric value you want to convert.<br>
+            <strong>Step 2:</strong> Select the source unit (e.g., MB).<br>
+            <strong>Step 3:</strong> Select the target unit (e.g., GB).<br>
+            <strong>Step 4:</strong> If you want binary units (KiB, MiB, etc.), check the "Use binary units" box.<br>
+            <strong>Step 5:</strong> Click "Convert" to see the result.<br>
+            <strong>Step 6:</strong> Copy the result using the "Copy Result" button.</p>
+            <p>The tool uses the appropriate conversion factor (1000 for decimal, 1024 for binary).</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>1 GB (decimal) → MB:</strong> 1000 MB<br>
+            <strong>1 GiB (binary) → MiB:</strong> 1024 MiB<br>
+            <strong>500 MB → GB:</strong> 0.5 GB<br>
+            <strong>2 TB → GB:</strong> 2000 GB (decimal) or 2048 GB (binary)</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses Data Size Converters?</h3>
+            <ul>
+                <li><strong>IT Administrators</strong> – planning storage capacity.</li>
+                <li><strong>Web Developers</strong> – calculating bandwidth and file upload limits.</li>
+                <li><strong>Content Creators</strong> – estimating video/audio file sizes.</li>
+                <li><strong>Cloud Engineers</strong> – sizing storage buckets.</li>
+                <li><strong>Students</strong> – learning computer science fundamentals.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>When working with network speeds, use decimal units (1 Mbps = 1,000,000 bits/s). For storage, many operating systems report binary units (1 GB = 1,073,741,824 bytes).</li>
+                <li>Use the binary option for precise disk space calculations.</li>
+                <li>Remember that 1 byte = 8 bits; this tool converts bytes, not bits. For bits, use a separate tool.</li>
+                <li>Copy the result directly into your calculations or documentation.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What's the difference between MB and MiB?</div>
+            <div class="faq-answer">MB (megabyte) uses decimal: 1 MB = 1,000,000 bytes. MiB (mebibyte) uses binary: 1 MiB = 1,048,576 bytes. Hard drives often advertise in decimal, while operating systems often show binary.</div>
+
+            <div class="faq-question">Why does my 1 TB drive show 931 GB?</div>
+            <div class="faq-answer">Because manufacturers use decimal (1 TB = 1,000,000,000,000 bytes), while your OS uses binary (1 TiB = 1,099,511,627,776 bytes). The difference accounts for the discrepancy.</div>
+
+            <div class="faq-question">Can I convert bits?</div>
+            <div class="faq-answer">This tool converts bytes and their multiples. For bits, you can divide the result by 8 (1 byte = 8 bits).</div>
+
+            <div class="faq-question">What's the largest unit supported?</div>
+            <div class="faq-answer">Petabytes (PB) and pebibytes (PiB). For larger scales, you can chain conversions.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all calculations are done locally.</div>
+
+            <div class="faq-question">What about exabytes?</div>
+            <div class="faq-answer">Exabytes are not included but can be approximated by multiplying terabytes by 1,000,000.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function convertSize() {
+        let value = parseFloat(document.getElementById('sizeValue').value);
+        if (isNaN(value)) {
+            document.getElementById('sizeOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Please enter a valid number.</span>';
+            return;
+        }
+        const fromUnit = document.getElementById('fromSize').value;
+        const toUnit = document.getElementById('toSize').value;
+        const binary = document.getElementById('binaryUnits').checked;
+
+        // Convert everything to bytes first
+        let bytes;
+        switch (fromUnit) {
+            case 'B': bytes = value; break;
+            case 'KB': bytes = value * (binary ? 1024 : 1000); break;
+            case 'MB': bytes = value * (binary ? Math.pow(1024,2) : Math.pow(1000,2)); break;
+            case 'GB': bytes = value * (binary ? Math.pow(1024,3) : Math.pow(1000,3)); break;
+            case 'TB': bytes = value * (binary ? Math.pow(1024,4) : Math.pow(1000,4)); break;
+            case 'PB': bytes = value * (binary ? Math.pow(1024,5) : Math.pow(1000,5)); break;
+            default: bytes = value;
+        }
+
+        // Convert from bytes to target unit
+        let result;
+        switch (toUnit) {
+            case 'B': result = bytes; break;
+            case 'KB': result = bytes / (binary ? 1024 : 1000); break;
+            case 'MB': result = bytes / (binary ? Math.pow(1024,2) : Math.pow(1000,2)); break;
+            case 'GB': result = bytes / (binary ? Math.pow(1024,3) : Math.pow(1000,3)); break;
+            case 'TB': result = bytes / (binary ? Math.pow(1024,4) : Math.pow(1000,4)); break;
+            case 'PB': result = bytes / (binary ? Math.pow(1024,5) : Math.pow(1000,5)); break;
+            default: result = bytes;
+        }
+        document.getElementById('sizeOutput').innerHTML = `${result.toFixed(4)} ${toUnit}`;
+    }
+
+    function clearSize() {
+        document.getElementById('sizeValue').value = '';
+        document.getElementById('sizeOutput').innerHTML = 'Click "Convert" to see result';
+    }
+
+    function copySize() {
+        const text = document.getElementById('sizeOutput').innerText;
+        if (text && text !== 'Click "Convert" to see result' && !text.includes('Please enter')) {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Result', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Byte Converter", icon:"fa-weight-hanging", url:"byte-converter.html"},
+            {name:"Byte to Bit Converter", icon:"fa-microchip", url:"byte-to-bit.html"},
+            {name:"Percentage Calculator", icon:"fa-percent", url:"percentage-calculator.html"},
+            {name:"Number Base Converter", icon:"fa-calculator", url:"number-base.html"},
+            {name:"Time Zone Converter", icon:"fa-clock", url:"time-zone-converter.html"},
+            {name:"Aspect Ratio Calculator", icon:"fa-arrows-alt", url:"aspect-ratio.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridSize").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

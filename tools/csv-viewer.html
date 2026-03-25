@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CSV Viewer – Interactive CSV Table Viewer | ToolGram</title>
+    <meta name="description" content="View and explore CSV files in a beautiful table. Upload CSV or paste data, sort columns, filter rows. Perfect for data analysis and debugging.">
+    <meta name="keywords" content="csv viewer, csv table, csv reader, csv to html table, csv data viewer">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/csv-viewer.html">
+    <meta property="og:title" content="CSV Viewer | ToolGram">
+    <meta property="og:description" content="View CSV data in an interactive table with sorting and filtering.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/csv-viewer.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <style>
+        /* same base styles as previous tools */
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:200px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;overflow-x:auto}
+        .csv-table{width:100%;border-collapse:collapse;color:#fff}
+        .csv-table th,.csv-table td{border:1px solid rgba(255,255,255,0.2);padding:8px 12px;text-align:left}
+        .csv-table th{background:rgba(139,92,246,0.3);cursor:pointer}
+        .csv-table th:hover{background:rgba(139,92,246,0.5)}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-table"></i></div>
+            <div>
+                <h1 style="margin:0;">CSV Viewer</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">View, sort, and filter CSV data in an interactive table</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input CSV</div>
+                <div style="padding:20px">
+                    <textarea id="csvInput" class="tool-textarea" placeholder="Paste CSV data here...&#10;Name,Age,City&#10;Alice,30,New York&#10;Bob,25,Los Angeles">Name,Age,City
+Alice,30,New York
+Bob,25,Los Angeles
+Charlie,35,Chicago</textarea>
+                    <div class="var-row" style="margin-top:10px">
+                        <label style="color:#fff"><input type="checkbox" id="firstRowHeader" checked> First row as header</label>
+                        <label style="color:#fff"><input type="checkbox" id="csvComma"> Use semicolon (;)</label>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="renderCSV()"><i class="fas fa-eye"></i> View Table</button>
+                    <button class="secondary-btn" onclick="clearCSV()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Table Preview</div>
+                <div class="output-display" id="csvOutput">Click "View Table" to see CSV data</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyCSVTable()"><i class="far fa-copy"></i> Copy as HTML</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridCSV"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is CSV Viewer?</h3>
+            <p>CSV (Comma‑Separated Values) is a simple file format used to store tabular data, such as spreadsheets or databases. Each line is a data record, and each record consists of fields separated by commas (or other delimiters). CSV files are widely used for data exchange between applications because they are plain text and easy to parse.</p>
+            <p>This tool helps you visualize CSV data in an interactive table. You can sort columns, toggle headers, and even copy the resulting HTML for embedding. It's perfect for quickly inspecting CSV files, debugging data exports, or sharing data with non‑technical users.</p>
+            <p>All processing happens locally in your browser. Your data is never uploaded to any server, ensuring privacy and speed.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your CSV data into the input area. You can also type directly. The sample data shows the expected format.<br>
+            <strong>Step 2:</strong> Check "First row as header" if your CSV has column names in the first row. If your file uses semicolon (;) as delimiter, check "Use semicolon".<br>
+            <strong>Step 3:</strong> Click "View Table" to generate the interactive table.<br>
+            <strong>Step 4:</strong> Click on any column header to sort the table by that column (ascending/descending).<br>
+            <strong>Step 5:</strong> Use "Copy as HTML" to copy the table HTML for use in emails, reports, or websites.</p>
+            <p>The tool automatically handles quoted fields and escaped quotes. For large files, performance may vary, but typical datasets up to a few thousand rows work well.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Simple CSV:</strong><br>
+            Name,Age,City<br>
+            John,30,New York<br>
+            Jane,25,Los Angeles</p>
+            <p><strong>Semicolon-separated:</strong><br>
+            Name;Age;City<br>
+            John;30;New York<br>
+            Jane;25;Los Angeles</p>
+            <p><strong>Quoted fields:</strong><br>
+            "Name","Age","City"<br>
+            "John","30","New York"<br>
+            "Jane","25","Los Angeles"</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses CSV Viewers?</h3>
+            <ul>
+                <li><strong>Data Analysts</strong> – quickly inspecting CSV exports from databases or spreadsheets.</li>
+                <li><strong>Developers</strong> – debugging CSV data generated by applications.</li>
+                <li><strong>Business Users</strong> – viewing reports without opening Excel.</li>
+                <li><strong>Students</strong> – exploring sample datasets.</li>
+                <li><strong>Marketers</strong> – checking CSV files from CRM or email platforms.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>If your CSV uses a different delimiter (e.g., tab), you can replace it with comma or semicolon using a text editor before pasting.</li>
+                <li>Click on column headers to sort data – useful for quickly finding highest/lowest values.</li>
+                <li>For large files, paste the data and click "View Table". It may take a few seconds; the tool uses native JavaScript for speed.</li>
+                <li>Use the "Copy as HTML" button to get a styled table that you can paste into email or web pages.</li>
+                <li>Make sure your CSV follows standard formatting: no extra spaces, and fields with commas are quoted.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What if my CSV has a different delimiter (e.g., tab or pipe)?</div>
+            <div class="faq-answer">You can replace the delimiter with comma or semicolon using a text editor before pasting. Future versions may support custom delimiters.</div>
+
+            <div class="faq-question">Does it support large files (10,000+ rows)?</div>
+            <div class="faq-answer">Yes, but performance depends on your browser. Very large files may cause lag; consider using a dedicated CSV viewer for massive datasets.</div>
+
+            <div class="faq-question">How does it handle quotes and escaped quotes?</div>
+            <div class="faq-answer">The tool correctly parses quoted fields (including those with commas inside) and handles double quotes escaped as "" or \" in most cases.</div>
+
+            <div class="faq-question">Can I upload a CSV file instead of pasting?</div>
+            <div class="faq-answer">Currently, only pasting is supported. You can open your CSV in a text editor and copy-paste the content.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No. All processing is done locally in your browser. Your CSV never leaves your device.</div>
+
+            <div class="faq-question">Can I edit the table after viewing?</div>
+            <div class="faq-answer">This tool is for viewing only. For editing, you can modify the CSV input and re‑render.</div>
+
+            <div class="faq-question">Why are some columns not showing correctly?</div>
+            <div class="faq-answer">Check that your delimiter is set correctly (comma or semicolon). Also ensure that fields containing the delimiter are quoted.</div>
+
+            <div class="faq-question">Can I filter rows?</div>
+            <div class="faq-answer">Sorting is supported, but filtering is not currently available. You can manually edit the CSV to remove rows.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function parseCSV(csv, delimiter, hasHeader) {
+        const lines = csv.split(/\r?\n/).filter(l => l.trim() !== '');
+        if (lines.length === 0) return { headers: [], rows: [] };
+        const parseLine = (line) => {
+            const values = [];
+            let current = '';
+            let inQuotes = false;
+            for (let i = 0; i < line.length; i++) {
+                const ch = line[i];
+                if (ch === '"') {
+                    if (inQuotes && line[i+1] === '"') {
+                        current += '"';
+                        i++;
+                    } else {
+                        inQuotes = !inQuotes;
+                    }
+                } else if (ch === delimiter && !inQuotes) {
+                    values.push(current);
+                    current = '';
+                } else {
+                    current += ch;
+                }
+            }
+            values.push(current);
+            return values;
+        };
+        const data = lines.map(parseLine);
+        const headers = hasHeader ? data[0] : data[0].map((_, i) => `Column ${i+1}`);
+        const rows = hasHeader ? data.slice(1) : data;
+        return { headers, rows };
+    }
+
+    let currentData = { headers: [], rows: [] };
+
+    function renderCSV() {
+        const csv = document.getElementById('csvInput').value;
+        if (!csv.trim()) {
+            document.getElementById('csvOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter CSV data to view.</span>';
+            return;
+        }
+        const delimiter = document.getElementById('csvComma').checked ? ';' : ',';
+        const hasHeader = document.getElementById('firstRowHeader').checked;
+        const { headers, rows } = parseCSV(csv, delimiter, hasHeader);
+        if (rows.length === 0 && headers.length === 0) {
+            document.getElementById('csvOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">No valid rows found.</span>';
+            return;
+        }
+        currentData = { headers, rows };
+        buildTable(headers, rows);
+    }
+
+    function buildTable(headers, rows, sortIndex = null, sortAsc = true) {
+        let sortedRows = [...rows];
+        if (sortIndex !== null) {
+            sortedRows.sort((a, b) => {
+                let aVal = a[sortIndex] || '';
+                let bVal = b[sortIndex] || '';
+                if (!isNaN(parseFloat(aVal)) && !isNaN(parseFloat(bVal))) {
+                    aVal = parseFloat(aVal);
+                    bVal = parseFloat(bVal);
+                }
+                if (aVal < bVal) return sortAsc ? -1 : 1;
+                if (aVal > bVal) return sortAsc ? 1 : -1;
+                return 0;
+            });
+        }
+        let html = '<table class="csv-table"><thead><tr>';
+        headers.forEach((h, idx) => {
+            html += `<th onclick="sortTable(${idx})">${escapeHtml(h)} <i class="fas fa-sort"></i></th>`;
+        });
+        html += '</tr></thead><tbody>';
+        sortedRows.forEach(row => {
+            html += '<tr>';
+            row.forEach(cell => {
+                html += `<td>${escapeHtml(cell)}</td>`;
+            });
+            html += '</tr>';
+        });
+        html += '</tbody></table>';
+        document.getElementById('csvOutput').innerHTML = html;
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function sortTable(colIndex) {
+        if (!currentData.headers.length) return;
+        // Simple toggle: assume ascending first
+        let sortAsc = true;
+        // We'll store sorting state in a data attribute
+        if (window._lastSortCol === colIndex && window._lastSortAsc === true) {
+            sortAsc = false;
+        }
+        window._lastSortCol = colIndex;
+        window._lastSortAsc = sortAsc;
+        buildTable(currentData.headers, currentData.rows, colIndex, sortAsc);
+    }
+
+    function clearCSV() {
+        document.getElementById('csvInput').value = '';
+        document.getElementById('csvOutput').innerHTML = 'Click "View Table" to see CSV data';
+        currentData = { headers: [], rows: [] };
+    }
+
+    function copyCSVTable() {
+        const tableHtml = document.getElementById('csvOutput').innerHTML;
+        if (tableHtml && tableHtml !== 'Click "View Table" to see CSV data' && !tableHtml.includes('Enter CSV')) {
+            navigator.clipboard.writeText(tableHtml);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy as HTML', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"CSV to JSON Converter", icon:"fa-file-csv", url:"csv-to-json.html"},
+            {name:"CSV to HTML Table", icon:"fa-table", url:"csv-to-html-table.html"},
+            {name:"JSON to CSV", icon:"fa-file-csv", url:"json-to-csv.html"},
+            {name:"Excel to JSON Converter", icon:"fa-file-excel", url:"excel-to-json-converter.html"},
+            {name:"HTML Table to CSV", icon:"fa-table", url:"html-table-to-csv.html"},
+            {name:"Data Size Converter", icon:"fa-weight-hanging", url:"data-size-converter.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridCSV").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

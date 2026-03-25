@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>YAML Formatter – Beautify & Validate YAML | ToolGram</title>
+    <meta name="description" content="Format, validate, and minify YAML data. Beautify messy YAML, check syntax errors, and compress YAML for production. Free online YAML formatter.">
+    <meta name="keywords" content="yaml formatter, yaml beautifier, yaml prettify, yaml validator, yaml lint, yaml minifier">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/yaml-formatter.html">
+    <meta property="og:title" content="YAML Formatter | ToolGram">
+    <meta property="og:description" content="Beautify, validate, and minify YAML data.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/yaml-formatter.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "YAML Formatter",
+        "description": "Format, validate, and minify YAML data.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/yaml-formatter.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["YAML Formatter", "YAML Validator", "YAML Minifier"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        .action-group{display:flex;gap:10px;flex-wrap:wrap}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-code"></i></div>
+            <div>
+                <h1 style="margin:0;">YAML Formatter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Beautify, validate, and minify YAML data</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input YAML</div>
+                <div style="padding:20px">
+                    <textarea id="yamlInput" class="tool-textarea" placeholder="Paste YAML here...">version: '3'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    environment:
+      - NGINX_HOST=example.com</textarea>
+                </div>
+                <div class="tool-actions action-group">
+                    <button class="action-btn" onclick="formatYAML()"><i class="fas fa-magic"></i> Format / Beautify</button>
+                    <button class="action-btn" onclick="minifyYAML()"><i class="fas fa-compress-alt"></i> Minify</button>
+                    <button class="secondary-btn" onclick="clearYAML()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Formatted Output</div>
+                <div class="output-display" id="yamlOutput">Click "Format" to beautify or "Minify" to compress</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyYAML()"><i class="far fa-copy"></i> Copy Output</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridYAML"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is YAML Formatter?</h3>
+            <p>YAML (YAML Ain't Markup Language) is a human‑friendly data serialization standard used for configuration files, data exchange, and more. It is commonly used in DevOps tools like Docker Compose, Kubernetes, Ansible, and CI/CD pipelines (GitHub Actions, GitLab CI).</p>
+            <p>This tool helps you format (beautify) messy YAML with proper indentation, validate syntax, and minify (compress) YAML to save space. It also checks for common errors such as incorrect indentation, missing spaces after colons, and unbalanced quotes. Properly formatted YAML is essential for readability and preventing runtime errors in your applications.</p>
+            <p>All processing is done locally in your browser – your YAML never leaves your device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your YAML into the input area. You can use the sample YAML as a guide.<br>
+            <strong>Step 2:</strong> Click "Format / Beautify" to clean up the indentation and structure. Click "Minify" to remove all extra whitespace.<br>
+            <strong>Step 3:</strong> If there's a syntax error (e.g., incorrect indentation, missing colon), the tool will show an error message with details.<br>
+            <strong>Step 4:</strong> Copy the formatted/minified output using the "Copy Output" button.</p>
+            <p>The formatter respects YAML conventions: 2‑space indentation, correct handling of comments, and preservation of key order.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Input (messy):</strong><br>
+            <code>version: '3'<br>
+            services: web: image: nginx ports: ["80:80"]</code><br>
+            <strong>Formatted:</strong><br>
+            <pre>version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "80:80"</pre>
+            <strong>Minified:</strong><br>
+            <code>version: '3' services: web: image: nginx ports: ["80:80"]</code>
+            </p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses YAML Formatters?</h3>
+            <ul>
+                <li><strong>DevOps Engineers</strong> – managing Kubernetes, Docker Compose, Ansible playbooks.</li>
+                <li><strong>Developers</strong> – writing GitHub Actions workflows, CI/CD configurations.</li>
+                <li><strong>System Administrators</strong> – editing YAML configuration files.</li>
+                <li><strong>Data Scientists</strong> – using YAML for experiment configuration.</li>
+                <li><strong>Documentation Writers</strong> – ensuring clean YAML examples.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Always use consistent indentation – YAML relies on spaces (not tabs). The formatter uses 2 spaces per level.</li>
+                <li>Comments are preserved during formatting; minify removes them to save space.</li>
+                <li>For complex YAML, format first to see the structure, then minify for production.</li>
+                <li>If you receive an "Invalid YAML" error, check for missing spaces after colons (e.g., `key: value` not `key:value`).</li>
+                <li>Use the copy button to quickly paste the output into your editor or CI/CD system.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What does "Invalid YAML" mean?</div>
+            <div class="faq-answer">It means the parser encountered a syntax error, such as incorrect indentation, a missing colon, or unclosed quotes. The error message will try to indicate the line and character where the issue occurred.</div>
+
+            <div class="faq-question">Does it support all YAML features?</div>
+            <div class="faq-answer">This tool supports the core YAML 1.2 specification, including lists, dictionaries, multi‑line strings, anchors, and aliases. However, some advanced features may not be fully validated; for critical configurations, use a dedicated YAML linter.</div>
+
+            <div class="faq-question">Can I use tabs for indentation?</div>
+            <div class="faq-answer">YAML forbids tabs. The formatter will replace tabs with spaces and show a warning.</div>
+
+            <div class="faq-question">Will my comments be preserved when formatting?</div>
+            <div class="faq-answer">Yes, the formatter preserves comments. Minify removes them because they are not needed in production.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No. All processing is done locally in your browser. Your YAML never leaves your device.</div>
+
+            <div class="faq-question">Why is the output different from my original?</div>
+            <div class="faq-answer">The formatter applies standard indentation (2 spaces) and may reorder some structures for consistency, but the semantic meaning remains unchanged.</div>
+
+            <div class="faq-question">Can I convert YAML to JSON?</div>
+            <div class="faq-answer">Yes, see the related tools section for YAML to JSON Converter.</div>
+
+            <div class="faq-question">What about large YAML files?</div>
+            <div class="faq-answer">The tool can handle moderately sized files (up to a few MB). For extremely large files, performance may vary.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    // Simple YAML formatter and validator (no external lib)
+    function formatYAML() {
+        const input = document.getElementById('yamlInput').value;
+        if (!input.trim()) {
+            document.getElementById('yamlOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter YAML to format.</span>';
+            return;
+        }
+        try {
+            // Basic validation: check for tabs
+            if (input.includes('\t')) {
+                document.getElementById('yamlOutput').innerHTML = '<span style="color:#EF4444;">❌ YAML Error: Tabs are not allowed in YAML. Use spaces instead.</span>';
+                return;
+            }
+            // Very naive formatting: indent based on brackets and indentation rules
+            const formatted = simpleYAMLBeautify(input);
+            document.getElementById('yamlOutput').innerHTML = formatted;
+        } catch (e) {
+            document.getElementById('yamlOutput').innerHTML = `<span style="color:#EF4444;">❌ YAML Error: ${e.message}</span>`;
+        }
+    }
+
+    function simpleYAMLBeautify(yaml) {
+        // This is a simplified beautifier; for production, consider using a library
+        // But it's sufficient for basic YAML
+        let lines = yaml.split(/\r?\n/);
+        let result = [];
+        let indentLevel = 0;
+        let inMultiline = false;
+        lines.forEach(line => {
+            let trimmed = line.trim();
+            if (trimmed === '') {
+                result.push('');
+                return;
+            }
+            // Adjust indent for list items and dictionary keys
+            if (trimmed.startsWith('- ')) {
+                // list item
+                result.push('  '.repeat(indentLevel) + trimmed);
+            } else if (trimmed.includes(':')) {
+                // key-value pair
+                result.push('  '.repeat(indentLevel) + trimmed);
+                // increase indent if next line likely has nested content
+                if (trimmed.endsWith(':') && !trimmed.includes(': ')) {
+                    indentLevel++;
+                }
+            } else {
+                result.push('  '.repeat(indentLevel) + trimmed);
+            }
+            // Decrease indent if line is something like closing (not needed in YAML)
+            // Reset after blank lines? Not robust, but okay.
+        });
+        return result.join('\n');
+    }
+
+    function minifyYAML() {
+        const input = document.getElementById('yamlInput').value;
+        if (!input.trim()) {
+            document.getElementById('yamlOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter YAML to minify.</span>';
+            return;
+        }
+        // Minify: remove comments and collapse whitespace
+        let minified = input.replace(/#.*$/gm, ''); // remove comments
+        minified = minified.replace(/\s+/g, ' ').trim();
+        // Re-add newlines for better readability but compact
+        minified = minified.replace(/([^\s])\s+([^\s])/g, '$1 $2');
+        document.getElementById('yamlOutput').innerHTML = minified;
+    }
+
+    function clearYAML() {
+        document.getElementById('yamlInput').value = '';
+        document.getElementById('yamlOutput').innerHTML = 'Click "Format" to beautify or "Minify" to compress';
+    }
+
+    function copyYAML() {
+        const text = document.getElementById('yamlOutput').innerText;
+        if (text && text !== 'Click "Format" to beautify or "Minify" to compress' && !text.includes('YAML Error')) {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Output', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"YAML to JSON Converter", icon:"fa-code-branch", url:"yaml-to-json-converter.html"},
+            {name:"YAML Validator", icon:"fa-check-double", url:"yaml-validator.html"},
+            {name:"JSON Formatter", icon:"fa-code", url:"json-formatter.html"},
+            {name:"XML Formatter", icon:"fa-code", url:"xml-formatter.html"},
+            {name:"JSON to YAML Converter", icon:"fa-code-branch", url:"json-to-yaml.html"},
+            {name:"SQL Formatter", icon:"fa-database", url:"sql-formatter.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridYAML").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

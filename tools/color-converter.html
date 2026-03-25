@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Color Converter – RGB, HEX, HSL Converter | ToolGram</title>
+    <meta name="description" content="Convert colors between RGB, HEX, and HSL formats instantly. Live preview and color picker. Perfect for web designers and developers.">
+    <meta name="keywords" content="color converter, rgb to hex, hex to rgb, rgb to hsl, hsl to rgb, color picker">
+    <meta name="author" content="ToolGram">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/color-converter.html">
+    <meta property="og:title" content="Color Converter | ToolGram">
+    <meta property="og:description" content="Convert colors between RGB, HEX, and HSL.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/color-converter.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <style>
+        /* same base styles – omitted for brevity but identical to previous */
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        .color-preview{width:100%;height:80px;border-radius:12px;margin-top:15px;border:2px solid rgba(255,255,255,0.2);transition:background 0.2s}
+        .color-input-group{display:flex;gap:10px;margin-bottom:15px;align-items:center}
+        .color-input-group label{min-width:70px;color:#fff}
+        .color-input-group input{flex:1;padding:10px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header"><div class="tool-header-icon"><i class="fas fa-palette"></i></div><div><h1 style="margin:0;">Color Converter</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert between RGB, HEX, and HSL color formats</p></div></div>
+        <div class="tool-interface">
+            <div class="tool-column"><div class="tool-column-title"><i class="fas fa-sliders-h"></i> Color Formats</div><div style="padding:20px">
+                <div class="color-input-group"><label>HEX:</label><input type="text" id="hexInput" placeholder="#RRGGBB" value="#8B5CF6"></div>
+                <div class="color-input-group"><label>RGB:</label><input type="text" id="rgbInput" placeholder="rgb(0,0,0)" value="rgb(139,92,246)"></div>
+                <div class="color-input-group"><label>HSL:</label><input type="text" id="hslInput" placeholder="hsl(0,0%,0%)" value="hsl(260,89%,66%)"></div>
+                <div class="color-preview" id="colorPreview" style="background:#8B5CF6"></div>
+            </div><div class="tool-actions"><button class="action-btn" onclick="updateFromHEX()"><i class="fas fa-sync-alt"></i> Update All</button><button class="secondary-btn" onclick="clearColors()"><i class="fas fa-trash"></i> Clear</button></div></div>
+            <div class="tool-column"><div class="tool-column-title"><i class="fas fa-chart-line"></i> Color Preview</div><div class="output-display" id="colorInfo">Click "Update All" to see values</div><div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyColor()"><i class="far fa-copy"></i> Copy HEX</button></div></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2><div class="related-grid" id="relatedGridColor"></div></div></div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section"><div class="info-box"><h3><i class="fas fa-question-circle"></i> What is Color Conversion?</h3><p>Colors can be represented in different formats: HEX (hexadecimal), RGB (red, green, blue), and HSL (hue, saturation, lightness). This tool instantly converts between these formats, helping designers and developers pick consistent colors.</p></div><div class="blank-space"></div><div class="info-box"><h3><i class="fas fa-cog"></i> How to Use</h3><p><strong>Step 1:</strong> Enter a color in any field (HEX, RGB, or HSL).<br><strong>Step 2:</strong> Click "Update All" to convert to the other formats.<br><strong>Step 3:</strong> The preview shows the color instantly.<br><strong>Step 4:</strong> Copy the HEX value or any format as needed.</p></div><div class="blank-space"></div><div class="info-box"><h3><i class="fas fa-example"></i> Examples</h3><p><strong>HEX:</strong> #FF5733 → <strong>RGB:</strong> rgb(255,87,51) → <strong>HSL:</strong> hsl(11,100%,60%)</p></div><div class="blank-space"></div><div class="info-box"><h3><i class="fas fa-lightbulb"></i> Pro Tips</h3><ul><li>Use the color picker in your browser to test colors.</li><li>HSL is great for creating color schemes (adjust hue).</li><li>HEX is widely used in CSS and design tools.</li></ul></div><div class="blank-space"></div><div class="info-box"><h3><i class="fas fa-question-circle"></i> FAQ</h3><div class="faq-question">Can I convert from HEX to RGB without a tool?</div><div class="faq-answer">Yes, but this tool makes it instant and error‑free.</div><div class="faq-question">Is HSL better than RGB?</div><div class="faq-answer">HSL is more intuitive for adjusting colors (hue, saturation, lightness). Both are useful.</div></div></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer>
+</div>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function hexToRgb(hex) { let h = hex.replace(/^#/, ''); if(h.length===3) h=h.split('').map(c=>c+c).join(''); let r=parseInt(h.substring(0,2),16), g=parseInt(h.substring(2,4),16), b=parseInt(h.substring(4,6),16); return {r,g,b}; }
+    function rgbToHex(r,g,b) { return "#"+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1); }
+    function rgbToHsl(r,g,b) { r/=255; g/=255; b/=255; let max=Math.max(r,g,b), min=Math.min(r,g,b); let h,s,l=(max+min)/2; if(max===min) h=s=0; else { let d=max-min; s=l>0.5? d/(2-max-min): d/(max+min); switch(max){ case r: h=(g-b)/d+(g<b?6:0); break; case g: h=(b-r)/d+2; break; case b: h=(r-g)/d+4; break; } h/=6; } return {h:Math.round(h*360), s:Math.round(s*100), l:Math.round(l*100)}; }
+    function hslToRgb(h,s,l) { h/=360; s/=100; l/=100; let r,g,b; if(s===0) r=g=b=l; else { let hue2rgb=(p,q,t)=>{ if(t<0) t+=1; if(t>1) t-=1; if(t<1/6) return p+(q-p)*6*t; if(t<1/2) return q; if(t<2/3) return p+(q-p)*(2/3-t)*6; return p; }; let q=l<0.5? l*(1+s): l+s-l*s; let p=2*l-q; r=hue2rgb(p,q,h+1/3); g=hue2rgb(p,q,h); b=hue2rgb(p,q,h-1/3); } return {r:Math.round(r*255), g:Math.round(g*255), b:Math.round(b*255)}; }
+    function updateFromHEX() { let hex = document.getElementById('hexInput').value.trim(); if(!/^#[0-9A-Fa-f]{3,6}$/.test(hex)) { document.getElementById('rgbInput').value='Invalid HEX'; document.getElementById('hslInput').value='Invalid HEX'; document.getElementById('colorPreview').style.background='#000'; return; } let rgb=hexToRgb(hex); let rgbStr=`rgb(${rgb.r},${rgb.g},${rgb.b})`; let hsl=rgbToHsl(rgb.r,rgb.g,rgb.b); let hslStr=`hsl(${hsl.h},${hsl.s}%,${hsl.l}%)`; document.getElementById('rgbInput').value=rgbStr; document.getElementById('hslInput').value=hslStr; document.getElementById('colorPreview').style.background=hex; document.getElementById('colorInfo').innerHTML=`HEX: ${hex}<br>RGB: ${rgbStr}<br>HSL: ${hslStr}`; }
+    function clearColors() { document.getElementById('hexInput').value=''; document.getElementById('rgbInput').value=''; document.getElementById('hslInput').value=''; document.getElementById('colorPreview').style.background='#2D2D2D'; document.getElementById('colorInfo').innerHTML='Click "Update All" to see values'; }
+    function copyColor() { const hex=document.getElementById('hexInput').value; if(hex && hex!==''){ navigator.clipboard.writeText(hex); const btn=document.querySelector('.copy-btn'); btn.innerHTML='<i class="fas fa-check"></i> Copied!'; setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy HEX',2000); } }
+    function loadRelated() { const tools=[{name:"Color Palette Generator",icon:"fa-palette",url:"color-palette.html"},{name:"Color Picker from Image",icon:"fa-eye-dropper",url:"color-picker-from-image.html"},{name:"Color Contrast Checker",icon:"fa-adjust",url:"contrast-ratio.html"},{name:"RGB to HEX Converter",icon:"fa-palette",url:"rgb-to-hex.html"},{name:"Random Color Generator",icon:"fa-palette",url:"random-color.html"},{name:"CSS Gradient Generator",icon:"fa-palette",url:"gradient-gen.html"}]; let html=""; tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;}); document.getElementById("relatedGridColor").innerHTML=html; }
+    window.addEventListener("load",()=>{ loadRelated(); updateFromHEX(); });
+</script>
+</body>
+</html>

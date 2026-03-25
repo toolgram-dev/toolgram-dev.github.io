@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Random Data Generator – Mock JSON, CSV, SQL | ToolGram</title>
+    <meta name="description" content="Generate random test data: JSON, CSV, SQL, and more. Perfect for prototyping, database seeding, and testing.">
+    <meta name="keywords" content="random data generator, mock data, test data, fake data, json generator, csv generator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/random-data-generator.html">
+    <meta property="og:title" content="Random Data Generator | ToolGram">
+    <meta property="og:description" content="Generate random JSON, CSV, SQL, and more.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/random-data-generator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Random Data Generator",
+        "description": "Generate random test data in JSON, CSV, and SQL formats.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/random-data-generator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Random Data", "Mock JSON", "Mock CSV", "Mock SQL"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        .field-group{display:flex;flex-wrap:wrap;gap:15px;margin-top:10px}
+        .field-group label{color:#fff;display:flex;align-items:center;gap:5px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-dice"></i></div>
+            <div>
+                <h1 style="margin:0;">Random Data Generator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Generate mock JSON, CSV, or SQL data for testing</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Generation Settings</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff; min-width:100px;">Output format:</label>
+                        <select id="dataFormat" style="flex:1;">
+                            <option value="json">JSON</option>
+                            <option value="csv">CSV</option>
+                            <option value="sql">SQL (INSERT)</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff; min-width:100px;">Number of records:</label>
+                        <input type="number" id="recordCount" value="5" min="1" max="100" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff; min-width:100px;">Include fields:</label>
+                        <div class="field-group" style="flex:1;">
+                            <label><input type="checkbox" class="data-field" value="id" checked> ID</label>
+                            <label><input type="checkbox" class="data-field" value="name" checked> Name</label>
+                            <label><input type="checkbox" class="data-field" value="email" checked> Email</label>
+                            <label><input type="checkbox" class="data-field" value="age" checked> Age</label>
+                            <label><input type="checkbox" class="data-field" value="active" checked> Active</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="generateData()"><i class="fas fa-sync-alt"></i> Generate</button>
+                    <button class="secondary-btn" onclick="clearData()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Generated Data</div>
+                <div class="output-display" id="dataOutput">Click "Generate" to create mock data</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyData()"><i class="far fa-copy"></i> Copy Output</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridRandomData"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Random Data Generation?</h3>
+            <p>When developing applications, you often need realistic test data to fill databases, test APIs, or demonstrate UI behavior. Manually creating this data is time‑consuming. This tool generates random but plausible mock data in popular formats: JSON, CSV, and SQL INSERT statements.</p>
+            <p>You can choose the number of records and which fields to include (ID, name, email, age, active). The data is generated client‑side using JavaScript, ensuring privacy and speed.</p>
+            <p>It's perfect for prototyping, database seeding, unit testing, and load testing scenarios.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Select the output format (JSON, CSV, or SQL).<br>
+            <strong>Step 2:</strong> Choose the number of records (up to 100).<br>
+            <strong>Step 3:</strong> Select which fields to include in the generated data.<br>
+            <strong>Step 4:</strong> Click "Generate". The data will appear in the output area.<br>
+            <strong>Step 5:</strong> Copy the output using the "Copy Output" button.</p>
+            <p>For SQL, the table name is "users". You can edit it manually if needed. Age is a random number between 18 and 80; active is a random boolean.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>JSON (5 records, all fields):</strong><br>
+            <pre>[{"id":1,"name":"John Doe","email":"john@example.com","age":42,"active":true}, ...]</pre>
+            <strong>CSV:</strong><br>
+            <pre>id,name,email,age,active\n1,John Doe,john@example.com,42,true\n...</pre>
+            <strong>SQL:</strong><br>
+            <pre>INSERT INTO users (id,name,email,age,active) VALUES (1,'John Doe','john@example.com',42,true);</pre>
+            </p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses Random Data Generators?</h3>
+            <ul>
+                <li><strong>Developers</strong> – seeding databases, testing APIs.</li>
+                <li><strong>QA Engineers</strong> – generating test cases.</li>
+                <li><strong>Data Scientists</strong> – creating dummy datasets for models.</li>
+                <li><strong>UI/UX Designers</strong> – populating prototypes with realistic content.</li>
+                <li><strong>Trainers</strong> – demonstrating software features with sample data.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Use JSON format for modern APIs and JavaScript apps.</li>
+                <li>Use CSV to import into spreadsheets or databases.</li>
+                <li>SQL format is directly runnable in MySQL, PostgreSQL, SQLite (adjust syntax if needed).</li>
+                <li>You can generate multiple times to get different random values.</li>
+                <li>For larger datasets, generate in batches and concatenate.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Is the data truly random?</div>
+            <div class="faq-answer">Yes, names, emails, ages, and active status are generated with JavaScript's Math.random, providing reasonable variety for testing.</div>
+
+            <div class="faq-question">Can I customize the fields?</div>
+            <div class="faq-answer">Currently, you can choose from a fixed set of fields (ID, name, email, age, active). For custom fields, you can edit the output or request a future version.</div>
+
+            <div class="faq-question">Does it generate realistic names?</div>
+            <div class="faq-answer">It uses a list of common first names and last names to create plausible full names.</div>
+
+            <div class="faq-question">Can I use this for production?</div>
+            <div class="faq-answer">This is intended for development/testing only. Do not use generated data as real user data.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all generation is local.</div>
+
+            <div class="faq-question">Can I generate SQL for a different table?</div>
+            <div class="faq-answer">You can manually replace "users" in the output after generation.</div>
+
+            <div class="faq-question">Why does it say "select at least one field" even when fields are checked?</div>
+            <div class="faq-answer">This was a bug in the selector; it's now fixed. Ensure you click the checkboxes and then click Generate.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    const firstNames = ["James","Mary","John","Patricia","Robert","Jennifer","Michael","Linda","William","Elizabeth","David","Barbara","Richard","Susan","Joseph","Jessica","Thomas","Sarah","Charles","Karen"];
+    const lastNames = ["Smith","Johnson","Williams","Brown","Jones","Garcia","Miller","Davis","Rodriguez","Martinez","Hernandez","Lopez","Gonzalez","Wilson","Anderson","Thomas","Taylor","Moore","Jackson","Martin"];
+
+    function randomName() {
+        const first = firstNames[Math.floor(Math.random() * firstNames.length)];
+        const last = lastNames[Math.floor(Math.random() * lastNames.length)];
+        return `${first} ${last}`;
+    }
+
+    function randomEmail(name) {
+        const domain = ["example.com","test.com","demo.org","mock.net","sample.io"];
+        const local = name.toLowerCase().replace(/\s/g, '.');
+        return `${local}@${domain[Math.floor(Math.random() * domain.length)]}`;
+    }
+
+    function generateData() {
+        const format = document.getElementById('dataFormat').value;
+        const count = parseInt(document.getElementById('recordCount').value);
+        // Get selected fields
+        const fields = [];
+        document.querySelectorAll('.data-field:checked').forEach(cb => {
+            fields.push(cb.value);
+        });
+        if (fields.length === 0) {
+            document.getElementById('dataOutput').innerHTML = '<span style="color:#EF4444;">Please select at least one field.</span>';
+            return;
+        }
+        const records = [];
+        for (let i = 1; i <= count; i++) {
+            const record = {};
+            if (fields.includes('id')) record.id = i;
+            if (fields.includes('name')) record.name = randomName();
+            if (fields.includes('email')) {
+                const name = record.name || randomName();
+                record.email = randomEmail(name);
+            }
+            if (fields.includes('age')) record.age = Math.floor(Math.random() * 63) + 18; // 18-80
+            if (fields.includes('active')) record.active = Math.random() > 0.5;
+            records.push(record);
+        }
+
+        let output = '';
+        if (format === 'json') {
+            output = JSON.stringify(records, null, 2);
+        } else if (format === 'csv') {
+            const headers = fields.join(',');
+            const rows = records.map(rec => fields.map(f => `"${rec[f]}"`).join(','));
+            output = [headers, ...rows].join('\n');
+        } else if (format === 'sql') {
+            const columns = fields.join(',');
+            const values = records.map(rec => {
+                const vals = fields.map(f => {
+                    let v = rec[f];
+                    if (typeof v === 'string') return `'${v.replace(/'/g, "''")}'`;
+                    if (typeof v === 'boolean') return v ? 'true' : 'false';
+                    return v;
+                }).join(',');
+                return `INSERT INTO users (${columns}) VALUES (${vals});`;
+            }).join('\n');
+            output = values;
+        }
+        document.getElementById('dataOutput').innerHTML = output;
+    }
+
+    function clearData() {
+        document.getElementById('dataOutput').innerHTML = 'Click "Generate" to create mock data';
+    }
+
+    function copyData() {
+        const text = document.getElementById('dataOutput').innerText;
+        if (text && text !== 'Click "Generate" to create mock data' && !text.includes('Please select')) {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Output', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Random Number Generator", icon:"fa-dice", url:"random-number-generator.html"},
+            {name:"Random Password Generator", icon:"fa-lock", url:"random-password.html"},
+            {name:"Random Color Generator", icon:"fa-palette", url:"random-color.html"},
+            {name:"Random Quote Generator", icon:"fa-quote-left", url:"random-quote.html"},
+            {name:"UUID Generator", icon:"fa-fingerprint", url:"uuid.html"},
+            {name:"Lorem Ipsum Generator", icon:"fa-paragraph", url:"lorem-ipsum.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridRandomData").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

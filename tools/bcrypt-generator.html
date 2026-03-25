@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bcrypt Generator – Hash Passwords with bcrypt | ToolGram</title>
+    <meta name="description" content="Generate bcrypt password hashes online. Choose cost factor and get secure hash for storing passwords.">
+    <meta name="keywords" content="bcrypt, bcrypt generator, password hash, bcrypt hash, secure password hashing">
+    <meta name="author" content="ToolGram">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/bcrypt-generator.html">
+    <meta property="og:title" content="Bcrypt Generator | ToolGram">
+    <meta property="og:description" content="Generate bcrypt password hashes.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/bcrypt-generator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <!-- Include bcrypt.js from CDN (client-side) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+    <style>
+        /* same base styles */
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-lock"></i></div>
+            <div>
+                <h1 style="margin:0;">Bcrypt Generator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Generate bcrypt password hashes securely</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-key"></i> Password</div>
+                <div style="padding:20px">
+                    <input type="password" id="bcryptPassword" placeholder="Enter password" style="width:100%;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    <div class="var-row" style="margin-top:15px">
+                        <label style="color:#fff; min-width:100px;">Cost factor (rounds):</label>
+                        <select id="costFactor" style="flex:1;">
+                            <option value="8">8 (fast)</option>
+                            <option value="10" selected>10 (recommended)</option>
+                            <option value="12">12 (secure)</option>
+                            <option value="14">14 (slow)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="generateBcrypt()"><i class="fas fa-sync-alt"></i> Generate Hash</button>
+                    <button class="secondary-btn" onclick="clearBcrypt()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> bcrypt Hash</div>
+                <div class="output-display" id="bcryptOutput">Enter password and click Generate</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyBcrypt()"><i class="far fa-copy"></i> Copy Hash</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridBcrypt"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is bcrypt?</h3>
+            <p>bcrypt is a password hashing function designed for secure password storage. It incorporates a salt to protect against rainbow table attacks and a configurable cost factor that makes brute‑force attacks slower as hardware improves. It's widely used in web applications and is considered a best practice for storing user passwords.</p>
+            <p>This tool generates bcrypt hashes using the bcryptjs library (client‑side). The hash includes the algorithm version, cost factor, salt, and the actual hash. You can then verify passwords by comparing them against the stored hash (e.g., using bcrypt.compare in your backend).</p>
+            <p>All processing is done locally; your password never leaves your browser.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Enter a password in the input field.<br>
+            <strong>Step 2:</strong> Select the cost factor (higher = more secure but slower).<br>
+            <strong>Step 3:</strong> Click "Generate Hash". The bcrypt hash will appear.<br>
+            <strong>Step 4:</strong> Copy the hash using the "Copy Hash" button.</p>
+            <p>Use the generated hash to store in your database. Later, to verify a login attempt, compare the provided password with the stored hash using bcrypt's compare function.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Password:</strong> "mySecret123"<br>
+            <strong>Hash (cost 10):</strong> $2a$10$N9qo8uLOickgx2ZMRZoMy.MrkJlqZ8H1Wz8mK6W...<br>
+            Note: The hash changes each time because a random salt is used.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses bcrypt?</h3>
+            <ul>
+                <li><strong>Backend Developers</strong> – for secure password storage.</li>
+                <li><strong>Security Engineers</strong> – implementing authentication systems.</li>
+                <li><strong>DevOps</strong> – configuring services that require password hashing.</li>
+                <li><strong>Penetration Testers</strong> – analyzing hash strengths.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Use a cost factor of at least 10 for production systems.</li>
+                <li>Never store plaintext passwords; always use bcrypt or similar.</li>
+                <li>bcrypt has a maximum input length of 72 bytes; longer passwords are truncated (this is a known limitation).</li>
+                <li>The hash output format is standardized: $2a$ (version), cost, salt, and hash.</li>
+                <li>Use the copy button to easily paste the hash into your code or database.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What does the cost factor mean?</div>
+            <div class="faq-answer">The cost factor determines how many iterations of the key derivation function are performed (2^cost rounds). Higher cost makes the hash slower to compute, increasing resistance to brute‑force attacks.</div>
+
+            <div class="faq-question">Is bcrypt still secure?</div>
+            <div class="faq-answer">Yes, bcrypt remains a strong, widely‑accepted password hashing algorithm. For extremely high security, consider using Argon2id, but bcrypt is sufficient for most applications.</div>
+
+            <div class="faq-question">Can I use this hash in my application?</div>
+            <div class="faq-answer">Yes, the output is a standard bcrypt hash that can be used with any bcrypt library (e.g., bcrypt on Node.js, Spring Security, Python's bcrypt).</div>
+
+            <div class="faq-question">Why does the hash change each time?</div>
+            <div class="faq-answer">bcrypt automatically generates a random salt for each hash. This prevents pre‑computed rainbow table attacks.</div>
+
+            <div class="faq-question">Is my password sent to a server?</div>
+            <div class="faq-answer">No, the hashing is done entirely in your browser using bcryptjs.</div>
+
+            <div class="faq-question">What about passwords longer than 72 characters?</div>
+            <div class="faq-answer">bcrypt truncates to 72 characters. For longer passwords, consider pre‑hashing with SHA‑256 before bcrypt, but this is rarely needed.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function generateBcrypt() {
+        const password = document.getElementById('bcryptPassword').value;
+        if (!password) {
+            document.getElementById('bcryptOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter a password.</span>';
+            return;
+        }
+        const cost = parseInt(document.getElementById('costFactor').value);
+        document.getElementById('bcryptOutput').innerHTML = '<span style="color:#8B5CF6;">Generating hash... (may take a moment)</span>';
+        // bcryptjs uses async; we'll use the sync version for simplicity (but it's fine for small loads)
+        try {
+            const salt = bcrypt.genSaltSync(cost);
+            const hash = bcrypt.hashSync(password, salt);
+            document.getElementById('bcryptOutput').innerHTML = hash;
+        } catch (e) {
+            document.getElementById('bcryptOutput').innerHTML = `<span style="color:#EF4444;">Error: ${e.message}</span>`;
+        }
+    }
+
+    function clearBcrypt() {
+        document.getElementById('bcryptPassword').value = '';
+        document.getElementById('bcryptOutput').innerHTML = 'Enter password and click Generate';
+    }
+
+    function copyBcrypt() {
+        const text = document.getElementById('bcryptOutput').innerText;
+        if (text && text !== 'Enter password and click Generate' && !text.includes('Generating hash') && !text.includes('Error')) {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Hash', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"MD5 Hash Generator", icon:"fa-hashtag", url:"md5-hasher.html"},
+            {name:"SHA-256 Hasher", icon:"fa-hashtag", url:"sha256.html"},
+            {name:"SHA-512 Generator", icon:"fa-hashtag", url:"sha512-generator.html"},
+            {name:"Multi Hash Generator", icon:"fa-fingerprint", url:"multi-hash-generator.html"},
+            {name:"Password Strength Meter", icon:"fa-lock", url:"pass-check.html"},
+            {name:"Random Password Generator", icon:"fa-key", url:"random-password.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridBcrypt").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
