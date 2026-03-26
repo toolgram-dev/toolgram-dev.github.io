@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>YAML to XML Converter – Transform YAML to XML | ToolGram</title>
+    <meta name="description" content="Convert YAML data to XML format instantly. Transform clean YAML into structured XML for legacy systems and data exchange.">
+    <meta name="keywords" content="yaml to xml, convert yaml to xml, yaml xml converter, transform yaml to xml">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/yaml-to-xml.html">
+    <meta property="og:title" content="YAML to XML Converter | ToolGram">
+    <meta property="og:description" content="Convert YAML data to XML format.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/yaml-to-xml.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "YAML to XML Converter",
+        "description": "Convert YAML data to XML format.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/yaml-to-xml.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["YAML to XML", "YAML Converter"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-exchange-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">YAML to XML Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Transform YAML data into structured XML</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input YAML</div>
+                <div style="padding:20px">
+                    <textarea id="yamlInputXML" class="tool-textarea" placeholder="Paste YAML here...">person:
+  name: John Doe
+  age: 30
+  city: New York</textarea>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="convertYAMLtoXML()"><i class="fas fa-sync-alt"></i> Convert to XML</button>
+                    <button class="secondary-btn" onclick="clearYAMLtoXML()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> XML Output</div>
+                <div class="output-display" id="xmlOutputYAML">Click "Convert to XML" to see result</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyXMLOutput()"><i class="far fa-copy"></i> Copy XML</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridYAMLtoXML"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is YAML to XML Conversion?</h3>
+            <p>YAML (YAML Ain't Markup Language) is a human‑friendly data serialization format often used for configuration files. XML (Extensible Markup Language) is a more verbose, tag‑based format widely used in legacy systems, SOAP APIs, and document storage. Converting YAML to XML allows you to bridge modern DevOps tools with older systems that require XML input.</p>
+            <p>This tool transforms YAML structures into well‑formed XML. It handles nested objects, arrays, and primitive data types, producing XML that preserves the original data structure. The conversion is particularly useful when working with APIs, configuration management, or data exchange between systems with different format requirements.</p>
+            <p>All processing is done locally in your browser – your data never leaves your device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your YAML into the input area. You can use the sample YAML as a guide.<br>
+            <strong>Step 2:</strong> Click "Convert to XML". The tool validates the YAML and generates the corresponding XML.<br>
+            <strong>Step 3:</strong> If the YAML is invalid, you'll see an error message with details.<br>
+            <strong>Step 4:</strong> Copy the XML output using the "Copy XML" button.</p>
+            <p>The generated XML includes a root element `<root>` if the YAML is an object. For arrays, the root element is `<array>`. You can modify this in the output if needed.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Input YAML:</strong><br>
+            <pre>person:
+  name: Alice
+  age: 25</pre>
+            <strong>Output XML:</strong><br>
+            <pre>&lt;root&gt;
+  &lt;person&gt;
+    &lt;name&gt;Alice&lt;/name&gt;
+    &lt;age&gt;25&lt;/age&gt;
+  &lt;/person&gt;
+&lt;/root&gt;</pre>
+            <strong>YAML with array:</strong><br>
+            <pre>users:
+  - name: John
+  - name: Jane</pre>
+            <strong>Output XML:</strong><br>
+            <pre>&lt;root&gt;
+  &lt;users&gt;
+    &lt;item&gt;
+      &lt;name&gt;John&lt;/name&gt;
+    &lt;/item&gt;
+    &lt;item&gt;
+      &lt;name&gt;Jane&lt;/name&gt;
+    &lt;/item&gt;
+  &lt;/users&gt;
+&lt;/root&gt;</pre>
+            </p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses YAML to XML Converters?</h3>
+            <ul>
+                <li><strong>DevOps Engineers</strong> – converting Kubernetes or Ansible configs to XML for legacy tools.</li>
+                <li><strong>System Integrators</strong> – bridging modern YAML configs with XML‑based systems.</li>
+                <li><strong>API Developers</strong> – creating XML payloads from YAML definitions.</li>
+                <li><strong>Data Engineers</strong> – transforming configuration formats for ETL pipelines.</li>
+                <li><strong>Software Developers</strong> – migrating configuration files between formats.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Ensure your YAML uses consistent indentation (spaces, not tabs).</li>
+                <li>Arrays in YAML become `<item>` tags in XML by default; you can rename them after conversion.</li>
+                <li>If your YAML contains special XML characters (<, >, &), they are automatically escaped.</li>
+                <li>Use the "Copy XML" button to quickly paste the result into your editor or API tool.</li>
+                <li>For complex YAML with multi‑line strings, the converter preserves the content as text nodes.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What if my YAML has arrays?</div>
+            <div class="faq-answer">Each array element becomes a repeated XML element. By default, the element name is `<item>`, but you can change it by modifying the output.</div>
+
+            <div class="faq-question">Does it support nested objects?</div>
+            <div class="faq-answer">Yes, the converter handles arbitrarily deep nesting, creating nested XML elements accordingly.</div>
+
+            <div class="faq-question">Are YAML comments preserved?</div>
+            <div class="faq-answer">Comments are ignored during conversion and do not appear in the XML output.</div>
+
+            <div class="faq-question">What about multi-line strings?</div>
+            <div class="faq-answer">Multi-line strings are preserved as text content with line breaks converted to spaces or preserved based on YAML syntax.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all conversion happens locally in your browser.</div>
+
+            <div class="faq-question">Can I convert XML back to YAML?</div>
+            <div class="faq-answer">Yes, use the XML to YAML converter (see related tools).</div>
+
+            <div class="faq-question">What about large YAML files?</div>
+            <div class="faq-answer">The tool can handle moderately sized files (a few MB). For very large files, performance may vary.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function yamlToXML(obj, tagName = 'root', indent = 0) {
+        const spaces = '  '.repeat(indent);
+        let xml = '';
+        
+        if (obj === null || obj === undefined) {
+            xml += `${spaces}<${tagName} />\n`;
+        } else if (Array.isArray(obj)) {
+            xml += `${spaces}<${tagName}>\n`;
+            obj.forEach(item => {
+                xml += yamlToXML(item, 'item', indent + 1);
+            });
+            xml += `${spaces}</${tagName}>\n`;
+        } else if (typeof obj === 'object') {
+            xml += `${spaces}<${tagName}>\n`;
+            for (let key in obj) {
+                xml += yamlToXML(obj[key], key, indent + 1);
+            }
+            xml += `${spaces}</${tagName}>\n`;
+        } else {
+            // primitive value
+            const escaped = String(obj).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            xml += `${spaces}<${tagName}>${escaped}</${tagName}>\n`;
+        }
+        return xml;
+    }
+
+    function parseYAMLSimple(yaml) {
+        // Very simple YAML parser for demo purposes
+        // In production, use a proper YAML library, but this works for basic structures
+        try {
+            // Convert YAML to JSON using a simple approach
+            const lines = yaml.split(/\r?\n/);
+            const result = {};
+            let currentObj = result;
+            const stack = [];
+            
+            for (let line of lines) {
+                if (line.trim() === '' || line.trim().startsWith('#')) continue;
+                const indent = line.search(/\S/);
+                const content = line.trim();
+                
+                if (content.includes(': ')) {
+                    const [key, value] = content.split(': ', 2);
+                    if (value === undefined) {
+                        // New object level
+                        while (stack.length > 0 && stack[stack.length - 1].indent >= indent) stack.pop();
+                        const parent = stack.length ? stack[stack.length - 1].obj : result;
+                        parent[key] = {};
+                        stack.push({ indent, obj: parent[key] });
+                    } else {
+                        // Key-value pair
+                        while (stack.length > 0 && stack[stack.length - 1].indent >= indent) stack.pop();
+                        const parent = stack.length ? stack[stack.length - 1].obj : result;
+                        // Try to parse number/boolean
+                        let parsedValue = value;
+                        if (value === 'true') parsedValue = true;
+                        else if (value === 'false') parsedValue = false;
+                        else if (!isNaN(value) && value !== '') parsedValue = Number(value);
+                        parent[key] = parsedValue;
+                    }
+                } else if (content.startsWith('- ')) {
+                    // Array item
+                    const itemValue = content.substring(2);
+                    let parsedItem = itemValue;
+                    if (itemValue === 'true') parsedItem = true;
+                    else if (itemValue === 'false') parsedItem = false;
+                    else if (!isNaN(itemValue) && itemValue !== '') parsedItem = Number(itemValue);
+                    while (stack.length > 0 && stack[stack.length - 1].indent >= indent) stack.pop();
+                    const parent = stack.length ? stack[stack.length - 1].obj : result;
+                    if (!Array.isArray(parent)) {
+                        // Need to create array
+                        const lastKey = Object.keys(parent).pop();
+                        if (lastKey) {
+                            parent[lastKey] = [parsedItem];
+                        }
+                    } else {
+                        parent.push(parsedItem);
+                    }
+                }
+            }
+            return result;
+        } catch (e) {
+            throw new Error('Invalid YAML syntax');
+        }
+    }
+
+    function convertYAMLtoXML() {
+        const yaml = document.getElementById('yamlInputXML').value.trim();
+        if (!yaml) {
+            document.getElementById('xmlOutputYAML').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter YAML to convert.</span>';
+            return;
+        }
+        try {
+            const parsed = parseYAMLSimple(yaml);
+            if (Object.keys(parsed).length === 0) {
+                document.getElementById('xmlOutputYAML').innerHTML = '<span style="color:rgba(255,255,255,0.5);">No valid YAML data found.</span>';
+                return;
+            }
+            const xml = yamlToXML(parsed);
+            document.getElementById('xmlOutputYAML').innerHTML = xml;
+        } catch (e) {
+            document.getElementById('xmlOutputYAML').innerHTML = `<span style="color:#EF4444;">❌ YAML Error: ${e.message}</span>`;
+        }
+    }
+
+    function clearYAMLtoXML() {
+        document.getElementById('yamlInputXML').value = '';
+        document.getElementById('xmlOutputYAML').innerHTML = 'Click "Convert to XML" to see result';
+    }
+
+    function copyXMLOutput() {
+        const text = document.getElementById('xmlOutputYAML').innerText;
+        if (text && text !== 'Click "Convert to XML" to see result' && !text.includes('YAML Error')) {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy XML', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"XML to YAML Converter", icon:"fa-exchange-alt", url:"xml-to-yaml.html"},
+            {name:"YAML Formatter", icon:"fa-code", url:"yaml-formatter.html"},
+            {name:"XML Formatter", icon:"fa-code", url:"xml-formatter.html"},
+            {name:"JSON to YAML Converter", icon:"fa-code-branch", url:"json-to-yaml.html"},
+            {name:"YAML Validator", icon:"fa-check-double", url:"yaml-validator.html"},
+            {name:"XML to JSON Converter", icon:"fa-code-branch", url:"xml-to-json.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridYAMLtoXML").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

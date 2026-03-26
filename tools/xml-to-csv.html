@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>XML to CSV Converter – Transform XML to CSV | ToolGram</title>
+    <meta name="description" content="Convert XML data to CSV format instantly. Transform structured XML into tabular CSV for spreadsheets and data analysis.">
+    <meta name="keywords" content="xml to csv, convert xml to csv, xml csv converter, transform xml to csv">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/xml-to-csv.html">
+    <meta property="og:title" content="XML to CSV Converter | ToolGram">
+    <meta property="og:description" content="Convert XML data to CSV format.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/xml-to-csv.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "XML to CSV Converter",
+        "description": "Convert XML data to CSV format.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/xml-to-csv.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["XML to CSV", "CSV Converter"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-exchange-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">XML to CSV Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Transform XML data into tabular CSV format</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input XML</div>
+                <div style="padding:20px">
+                    <textarea id="xmlInputCSV" class="tool-textarea" placeholder="Paste XML here...">&lt;data&gt;
+  &lt;row&gt;
+    &lt;Name&gt;Alice&lt;/Name&gt;
+    &lt;Age&gt;30&lt;/Age&gt;
+    &lt;City&gt;New York&lt;/City&gt;
+  &lt;/row&gt;
+  &lt;row&gt;
+    &lt;Name&gt;Bob&lt;/Name&gt;
+    &lt;Age&gt;25&lt;/Age&gt;
+    &lt;City&gt;Los Angeles&lt;/City&gt;
+  &lt;/row&gt;
+&lt;/data&gt;</textarea>
+                    <div class="var-row" style="margin-top:10px">
+                        <label style="color:#fff"><input type="checkbox" id="xmlFirstRowHeader" checked> Use first row as CSV headers</label>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="convertXMLtoCSV()"><i class="fas fa-sync-alt"></i> Convert to CSV</button>
+                    <button class="secondary-btn" onclick="clearXMLtoCSV()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> CSV Output</div>
+                <div class="output-display" id="csvOutputXML">Click "Convert to CSV" to see result</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyCSVFromXML()"><i class="far fa-copy"></i> Copy CSV</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridXMLtoCSV"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is XML to CSV Conversion?</h3>
+            <p>XML (Extensible Markup Language) is a hierarchical format used for data exchange, while CSV (Comma‑Separated Values) is a simple tabular format ideal for spreadsheets and data analysis. Converting XML to CSV allows you to take structured XML data and use it in tools like Excel, Google Sheets, or data analysis software.</p>
+            <p>This tool extracts repeating elements from XML (typically `<row>` or similar tags) and flattens them into a table. It automatically detects column names from the first row's child elements, making it easy to transform XML exports into analysis‑ready CSV.</p>
+            <p>All processing is done locally in your browser – your data never leaves your device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your XML into the input area. The XML should have a repeating structure (e.g., multiple `<row>` elements).<br>
+            <strong>Step 2:</strong> Choose whether to use the first row's child element names as CSV headers.<br>
+            <strong>Step 3:</strong> Click "Convert to CSV". The tool extracts the data and generates CSV.<br>
+            <strong>Step 4:</strong> Copy the CSV output using the "Copy CSV" button.</p>
+            <p>The converter expects a structure where each data record is contained in a repeating element (like `<row>`). If your XML uses different tags, you can edit the input accordingly.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Input XML:</strong><br>
+            <pre>&lt;data&gt;
+  &lt;person&gt;
+    &lt;name&gt;Alice&lt;/name&gt;
+    &lt;age&gt;30&lt;/age&gt;
+  &lt;/person&gt;
+  &lt;person&gt;
+    &lt;name&gt;Bob&lt;/name&gt;
+    &lt;age&gt;25&lt;/age&gt;
+  &lt;/person&gt;
+&lt;/data&gt;</pre>
+            <strong>Output CSV:</strong><br>
+            <pre>name,age
+Alice,30
+Bob,25</pre>
+            </p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses XML to CSV Converters?</h3>
+            <ul>
+                <li><strong>Data Analysts</strong> – analyzing XML exports in spreadsheets.</li>
+                <li><strong>Business Intelligence Teams</strong> – transforming XML data for dashboards.</li>
+                <li><strong>Developers</strong> – converting XML API responses to CSV.</li>
+                <li><strong>Researchers</strong> – working with XML datasets.</li>
+                <li><strong>Database Administrators</strong> – importing XML into databases.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Ensure your XML has a consistent structure (same child elements for each record).</li>
+                <li>If the first row has missing fields, empty cells are preserved.</li>
+                <li>Special characters are properly escaped (commas and quotes).</li>
+                <li>Use the "Use first row as CSV headers" option for meaningful column names.</li>
+                <li>For complex nested XML, you may need to simplify the structure first.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What XML structure does this tool expect?</div>
+            <div class="faq-answer">The tool expects a root element containing multiple repeating child elements (like `<row>` or `<record>`), each with the same set of child elements representing columns.</div>
+
+            <div class="faq-question">What if my XML uses different tag names for records?</div>
+            <div class="faq-answer">The tool automatically detects the first repeating element. You can also edit the XML to standardize the structure.</div>
+
+            <div class="faq-question">Does it handle nested XML?</div>
+            <div class="faq-answer">This converter is designed for flat, table‑like XML. For deeply nested XML, consider simplifying it first.</div>
+
+            <div class="faq-question">What about XML attributes?</div>
+            <div class="faq-answer">Attributes are not extracted; only element text content is included in the CSV.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all conversion happens locally.</div>
+
+            <div class="faq-question">Can I convert CSV back to XML?</div>
+            <div class="faq-answer">Yes, use the CSV to XML converter (see related tools).</div>
+
+            <div class="faq-question">What about large XML files?</div>
+            <div class="faq-answer">The tool can handle moderately sized files (a few MB). For very large files, performance may vary.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function parseXMLtoCSV(xmlString, useHeaders) {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+        const parseError = xmlDoc.getElementsByTagName("parsererror");
+        if (parseError.length > 0) {
+            throw new Error(parseError[0].textContent);
+        }
+        
+        // Find the first repeating element (assuming root has children)
+        const root = xmlDoc.documentElement;
+        const children = Array.from(root.children);
+        if (children.length === 0) {
+            throw new Error("No child elements found in XML root.");
+        }
+        
+        // Assume all records are the same tag as the first child
+        const recordTag = children[0].tagName;
+        const records = Array.from(root.getElementsByTagName(recordTag));
+        
+        if (records.length === 0) {
+            throw new Error("No records found.");
+        }
+        
+        // Get column names from the first record
+        const firstRecordChildren = Array.from(records[0].children);
+        const columnNames = firstRecordChildren.map(child => child.tagName);
+        
+        // Build CSV rows
+        const rows = [];
+        if (useHeaders) {
+            rows.push(columnNames.map(escapeCSV).join(','));
+        }
+        
+        records.forEach(record => {
+            const row = [];
+            columnNames.forEach(colName => {
+                const element = record.getElementsByTagName(colName)[0];
+                const value = element ? element.textContent : '';
+                row.push(escapeCSV(value));
+            });
+            rows.push(row.join(','));
+        });
+        
+        return rows.join('\n');
+    }
+    
+    function escapeCSV(str) {
+        if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+            return `"${str.replace(/"/g, '""')}"`;
+        }
+        return str;
+    }
+    
+    function convertXMLtoCSV() {
+        const xml = document.getElementById('xmlInputCSV').value.trim();
+        if (!xml) {
+            document.getElementById('csvOutputXML').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter XML to convert.</span>';
+            return;
+        }
+        const useHeaders = document.getElementById('xmlFirstRowHeader').checked;
+        try {
+            const csv = parseXMLtoCSV(xml, useHeaders);
+            document.getElementById('csvOutputXML').innerHTML = csv;
+        } catch (e) {
+            document.getElementById('csvOutputXML').innerHTML = `<span style="color:#EF4444;">❌ Error: ${e.message}</span>`;
+        }
+    }
+    
+    function clearXMLtoCSV() {
+        document.getElementById('xmlInputCSV').value = '';
+        document.getElementById('csvOutputXML').innerHTML = 'Click "Convert to CSV" to see result';
+    }
+    
+    function copyCSVFromXML() {
+        const text = document.getElementById('csvOutputXML').innerText;
+        if (text && text !== 'Click "Convert to CSV" to see result' && !text.includes('Error')) {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy CSV', 2000);
+        }
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"CSV to XML Converter", icon:"fa-exchange-alt", url:"csv-to-xml.html"},
+            {name:"XML Formatter", icon:"fa-code", url:"xml-formatter.html"},
+            {name:"CSV to JSON Converter", icon:"fa-file-csv", url:"csv-to-json.html"},
+            {name:"CSV Viewer", icon:"fa-table", url:"csv-viewer.html"},
+            {name:"XML to JSON Converter", icon:"fa-code-branch", url:"xml-to-json.html"},
+            {name:"JSON to CSV", icon:"fa-file-csv", url:"json-to-csv.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridXMLtoCSV").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

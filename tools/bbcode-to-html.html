@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>BBCode to HTML Converter – Transform BBCode to HTML | ToolGram</title>
+    <meta name="description" content="Convert BBCode to HTML instantly. Transform forum BBCode formatting to clean HTML for web pages and content management systems.">
+    <meta name="keywords" content="bbcode to html, convert bbcode to html, bbcode html converter, forum formatting">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/bbcode-to-html.html">
+    <meta property="og:title" content="BBCode to HTML Converter | ToolGram">
+    <meta property="og:description" content="Convert BBCode to HTML for web pages.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/bbcode-to-html.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BBCode to HTML Converter",
+        "description": "Convert BBCode to HTML format.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/bbcode-to-html.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["BBCode to HTML", "HTML Converter"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-exchange-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">BBCode to HTML Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Transform forum BBCode to clean HTML</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input BBCode</div>
+                <div style="padding:20px">
+                    <textarea id="bbcodeInputHTML" class="tool-textarea" placeholder="Paste BBCode here...">[h1]Heading 1[/h1]
+[h2]Heading 2[/h2]
+
+[b]Bold text[/b] and [i]italic text[/i]
+
+[list]
+[*]List item 1
+[*]List item 2
+[/list]
+
+[url=https://example.com]Link Text[/url]
+
+[img]https://example.com/image.jpg[/img]
+
+[code]console.log("Hello");[/code]</textarea>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="convertBBCodeToHTML()"><i class="fas fa-sync-alt"></i> Convert to HTML</button>
+                    <button class="secondary-btn" onclick="clearBBCodeToHTML()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> HTML Output</div>
+                <div class="output-display" id="htmlOutputBBCode">Click "Convert to HTML" to see result</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyHTMLFromBBCode()"><i class="far fa-copy"></i> Copy HTML</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridBBCodetoHTML"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is BBCode to HTML Conversion?</h3>
+            <p>BBCode (Bulletin Board Code) is a lightweight markup language used in forums, bulletin boards, and online communities. While it's great for user‑generated content in forums, it's not directly usable on standard web pages. Converting BBCode to HTML allows you to take forum posts and display them on regular websites, blogs, or content management systems.</p>
+            <p>This tool transforms common BBCode tags into their HTML equivalents. It handles headings, bold, italic, lists, links, images, code blocks, quotes, and more. The output is clean HTML ready to be embedded in any web page.</p>
+            <p>All processing is done locally in your browser – your content never leaves your device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your BBCode into the input area. You can use the sample BBCode as a guide.<br>
+            <strong>Step 2:</strong> Click "Convert to HTML". The tool transforms the BBCode tags into HTML.<br>
+            <strong>Step 3:</strong> Copy the HTML output using the "Copy HTML" button.<br>
+            <strong>Step 4:</strong> Paste the HTML into your web page or CMS editor.</p>
+            <p>The converter supports standard BBCode tags including headings, formatting, lists, links, images, code, and quotes.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>BBCode:</strong> <code>[h1]Heading 1[/h1]</code><br>
+            <strong>HTML:</strong> <code>&lt;h1&gt;Heading 1&lt;/h1&gt;</code><br><br>
+            <strong>BBCode:</strong> <code>[b]bold text[/b]</code><br>
+            <strong>HTML:</strong> <code>&lt;strong&gt;bold text&lt;/strong&gt;</code><br><br>
+            <strong>BBCode:</strong> <code>[url=https://example.com]Link[/url]</code><br>
+            <strong>HTML:</strong> <code>&lt;a href="https://example.com"&gt;Link&lt;/a&gt;</code><br><br>
+            <strong>BBCode:</strong> <code>[list][*]Item[/list]</code><br>
+            <strong>HTML:</strong> <code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code></p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses BBCode to HTML Converters?</h3>
+            <ul>
+                <li><strong>Web Developers</strong> – migrating forum content to websites.</li>
+                <li><strong>Community Managers</strong> – repurposing forum posts for blogs.</li>
+                <li><strong>Content Creators</strong> – converting forum content for CMS.</li>
+                <li><strong>Archivists</strong> – preserving forum data in web format.</li>
+                <li><strong>Writers</strong> – formatting content for multiple platforms.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Use headings (H1-H6) for structured content; they convert to appropriate HTML heading tags.</li>
+                <li>Code blocks convert to &lt;pre&gt;&lt;code&gt; tags with proper escaping.</li>
+                <li>Images use the &lt;img&gt; tag with the URL as source.</li>
+                <li>Links use the &lt;a&gt; tag with proper href attributes.</li>
+                <li>The output is formatted with indentation for readability.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What BBCode tags are supported?</div>
+            <div class="faq-answer">The converter supports: [h1]-[h6], [b], [i], [u], [s], [list], [*], [url], [img], [code], [quote], [color], [size]. Most standard BBCode implementations are covered.</div>
+
+            <div class="faq-question">Does it support nested lists?</div>
+            <div class="faq-answer">Yes, nested BBCode lists are preserved with proper HTML ul/ol nesting.</div>
+
+            <div class="faq-question">What about color and size tags?</div>
+            <div class="faq-answer">[color] converts to &lt;span style="color:..."&gt;, [size] converts to &lt;span style="font-size:..."&gt;.</div>
+
+            <div class="faq-question">Can I convert HTML back to BBCode?</div>
+            <div class="faq-answer">Yes, use the HTML to BBCode converter (see related tools).</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all conversion happens locally in your browser.</div>
+
+            <div class="faq-question">What about tables in BBCode?</div>
+            <div class="faq-answer">BBCode tables convert to HTML &lt;table&gt;, &lt;tr&gt;, &lt;td&gt; tags.</div>
+
+            <div class="faq-question">Does it handle malformed BBCode?</div>
+            <div class="faq-answer">The converter attempts to handle common mistakes, but well‑formed BBCode yields the best results.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function bbcodeToHTML(bbcode) {
+        let html = bbcode;
+        
+        // Headers
+        for (let i = 1; i <= 6; i++) {
+            html = html.replace(new RegExp(`\\[h${i}\\](.*?)\\[/h${i}\\]`, 'g'), `<h${i}>$1</h${i}>`);
+        }
+        
+        // Formatting
+        html = html.replace(/\[b\](.*?)\[\/b\]/g, '<strong>$1</strong>');
+        html = html.replace(/\[i\](.*?)\[\/i\]/g, '<em>$1</em>');
+        html = html.replace(/\[u\](.*?)\[\/u\]/g, '<u>$1</u>');
+        html = html.replace(/\[s\](.*?)\[\/s\]/g, '<del>$1</del>');
+        
+        // Color and size
+        html = html.replace(/\[color=([^\]]+)\](.*?)\[\/color\]/g, '<span style="color:$1">$2</span>');
+        html = html.replace(/\[size=([^\]]+)\](.*?)\[\/size\]/g, '<span style="font-size:$1px">$2</span>');
+        
+        // Links
+        html = html.replace(/\[url=([^\]]+)\](.*?)\[\/url\]/g, '<a href="$1" target="_blank">$2</a>');
+        html = html.replace(/\[url\](.*?)\[\/url\]/g, '<a href="$1" target="_blank">$1</a>');
+        
+        // Images
+        html = html.replace(/\[img\](.*?)\[\/img\]/g, '<img src="$1" alt="Image">');
+        
+        // Code blocks
+        html = html.replace(/\[code\]([\s\S]*?)\[\/code\]/g, '<pre><code>$1</code></pre>');
+        
+        // Quotes
+        html = html.replace(/\[quote\]([\s\S]*?)\[\/quote\]/g, '<blockquote>$1</blockquote>');
+        
+        // Lists
+        html = html.replace(/\[list\]([\s\S]*?)\[\/list\]/g, '<ul>$1</ul>');
+        html = html.replace(/\[\*\](.*?)(?=\n|$)/g, '<li>$1</li>');
+        
+        // Line breaks
+        html = html.replace(/\n/g, '<br>');
+        
+        return html;
+    }
+
+    function convertBBCodeToHTML() {
+        const bbcode = document.getElementById('bbcodeInputHTML').value;
+        if (!bbcode.trim()) {
+            document.getElementById('htmlOutputBBCode').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter BBCode to convert.</span>';
+            return;
+        }
+        const html = bbcodeToHTML(bbcode);
+        document.getElementById('htmlOutputBBCode').innerHTML = html;
+    }
+
+    function clearBBCodeToHTML() {
+        document.getElementById('bbcodeInputHTML').value = '';
+        document.getElementById('htmlOutputBBCode').innerHTML = 'Click "Convert to HTML" to see result';
+    }
+
+    function copyHTMLFromBBCode() {
+        const text = document.getElementById('htmlOutputBBCode').innerText;
+        if (text && text !== 'Click "Convert to HTML" to see result') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy HTML', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Markdown to BBCode", icon:"fab fa-markdown", url:"markdown-to-bbcode.html"},
+            {name:"HTML to BBCode", icon:"fa-code", url:"html-to-bbcode.html"},
+            {name:"HTML to Markdown", icon:"fab fa-markdown", url:"html-to-markdown-converter.html"},
+            {name:"Markdown to HTML", icon:"fab fa-markdown", url:"markdown-to-html.html"},
+            {name:"Text to HTML Entities", icon:"fa-code", url:"text-to-html-entities.html"},
+            {name:"HTML Stripper", icon:"fa-eraser", url:"html-strip.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridBBCodetoHTML").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

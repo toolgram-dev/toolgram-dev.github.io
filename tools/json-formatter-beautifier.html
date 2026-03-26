@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JSON Formatter & Beautifier – Pretty Print JSON | ToolGram</title>
+    <meta name="description" content="Format and beautify JSON data with proper indentation. Make messy JSON readable and well-structured. Free online JSON formatter.">
+    <meta name="keywords" content="json formatter, json beautifier, pretty json, json prettify, json indenter">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/json-formatter-beautifier.html">
+    <meta property="og:title" content="JSON Formatter & Beautifier | ToolGram">
+    <meta property="og:description" content="Format and beautify JSON data with indentation.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/json-formatter-beautifier.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "JSON Formatter & Beautifier",
+        "description": "Format and beautify JSON data with proper indentation.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/json-formatter-beautifier.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["JSON Formatter", "JSON Beautifier", "Pretty Print JSON"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        .indent-select{display:flex;gap:10px;align-items:center;margin-top:10px}
+        .indent-select label{color:#fff}
+        .indent-select select{padding:8px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-magic"></i></div>
+            <div>
+                <h1 style="margin:0;">JSON Formatter & Beautifier</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Pretty print JSON with proper indentation</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input JSON</div>
+                <div style="padding:20px">
+                    <textarea id="jsonInputBeautify" class="tool-textarea" placeholder='Paste minified JSON here...'>{"name":"ToolGram","type":"utility","tools":["formatter","beautifier"],"active":true,"version":1.0}</textarea>
+                    <div class="indent-select">
+                        <label>Indent size:</label>
+                        <select id="indentSize">
+                            <option value="2">2 spaces</option>
+                            <option value="4" selected>4 spaces</option>
+                            <option value="8">8 spaces</option>
+                            <option value="tab">Tab</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="beautifyJSON()"><i class="fas fa-magic"></i> Format & Beautify</button>
+                    <button class="secondary-btn" onclick="clearBeautifyJSON()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Formatted JSON</div>
+                <div class="output-display" id="beautifyOutput">Click "Format & Beautify" to see result</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyBeautifyOutput()"><i class="far fa-copy"></i> Copy Formatted</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridBeautify"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is JSON Formatting & Beautifying?</h3>
+            <p>JSON (JavaScript Object Notation) is a lightweight data interchange format used extensively in APIs, configuration files, and data storage. When JSON is minified (without spaces or line breaks), it's hard for humans to read and debug. Formatting (or beautifying) JSON adds proper indentation, line breaks, and spacing to make it readable and well‑structured.</p>
+            <p>This tool takes any valid JSON and formats it with customizable indentation. It validates your JSON first, so if there's a syntax error, you'll see exactly where the problem is. The formatted output is perfect for debugging, code reviews, or documentation.</p>
+            <p>All processing is done locally in your browser – your data never leaves your device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your JSON into the input area. This can be minified or already formatted.<br>
+            <strong>Step 2:</strong> Select your preferred indentation size (2 spaces, 4 spaces, 8 spaces, or tabs).<br>
+            <strong>Step 3:</strong> Click "Format & Beautify". The tool validates and pretty‑prints your JSON.<br>
+            <strong>Step 4:</strong> Copy the formatted output using the "Copy Formatted" button.</p>
+            <p>The tool also validates JSON syntax. If there's an error, it will show the error message and location.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Input (minified):</strong><br>
+            <code>{"name":"John","age":30,"city":"New York","hobbies":["reading","coding"]}</code><br>
+            <strong>Output (formatted with 2 spaces):</strong><br>
+            <pre>{
+  "name": "John",
+  "age": 30,
+  "city": "New York",
+  "hobbies": [
+    "reading",
+    "coding"
+  ]
+}</pre>
+            </p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses JSON Formatters?</h3>
+            <ul>
+                <li><strong>Web Developers</strong> – debugging API responses.</li>
+                <li><strong>Backend Engineers</strong> – reviewing JSON logs.</li>
+                <li><strong>Data Analysts</strong> – reading JSON datasets.</li>
+                <li><strong>QA Engineers</strong> – validating API outputs.</li>
+                <li><strong>DevOps</strong> – working with JSON config files.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Use 2 spaces for compact yet readable JSON; 4 spaces is standard for many projects.</li>
+                <li>If your JSON is invalid, the tool will show the error line and position.</li>
+                <li>Formatted JSON is great for version control because it shows clear diffs.</li>
+                <li>You can paste JSON from any source – API responses, config files, or database exports.</li>
+                <li>Use the copy button to quickly paste the formatted JSON into your editor.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What's the difference between formatting and minifying?</div>
+            <div class="faq-answer">Formatting adds indentation and line breaks for human readability. Minifying removes all unnecessary whitespace to reduce file size for production.</div>
+
+            <div class="faq-question">Does it validate JSON?</div>
+            <div class="faq-answer">Yes, the tool validates JSON before formatting. If your JSON is invalid, you'll see an error message with details.</div>
+
+            <div class="faq-question">Can I format JSON with comments?</div>
+            <div class="faq-answer">JSON does not support comments. Comments will cause validation errors. Use JSON5 or a different format if comments are needed.</div>
+
+            <div class="faq-question">What about large JSON files?</div>
+            <div class="faq-answer">The tool can handle moderately sized files (a few MB). For very large files, formatting may take a few seconds.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all processing happens locally in your browser.</div>
+
+            <div class="faq-question">Can I change the indentation after formatting?</div>
+            <div class="faq-answer">Yes, simply select a different indent size and click Format again.</div>
+
+            <div class="faq-question">What about Unicode characters?</div>
+            <div class="faq-answer">Unicode characters are preserved exactly as they appear in the input.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function beautifyJSON() {
+        const json = document.getElementById('jsonInputBeautify').value.trim();
+        if (!json) {
+            document.getElementById('beautifyOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter JSON to format.</span>';
+            return;
+        }
+        try {
+            const parsed = JSON.parse(json);
+            const indent = document.getElementById('indentSize').value;
+            let indentStr = '  ';
+            if (indent === 'tab') indentStr = '\t';
+            else indentStr = ' '.repeat(parseInt(indent));
+            const formatted = JSON.stringify(parsed, null, indentStr);
+            document.getElementById('beautifyOutput').innerHTML = formatted;
+        } catch (e) {
+            document.getElementById('beautifyOutput').innerHTML = `<span style="color:#EF4444;">❌ JSON Error: ${e.message}</span>`;
+        }
+    }
+
+    function clearBeautifyJSON() {
+        document.getElementById('jsonInputBeautify').value = '';
+        document.getElementById('beautifyOutput').innerHTML = 'Click "Format & Beautify" to see result';
+    }
+
+    function copyBeautifyOutput() {
+        const text = document.getElementById('beautifyOutput').innerText;
+        if (text && text !== 'Click "Format & Beautify" to see result' && !text.includes('JSON Error')) {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Formatted', 2000);
+        }
+    }
+
+    function loadRelated() {
+        // All tools exist in tools-data.json
+        const tools = [
+            {name:"JSON Minifier", icon:"fa-compress-alt", url:"json-minifier.html"},
+            {name:"JSON to CSV", icon:"fa-file-csv", url:"json-to-csv.html"},
+            {name:"JSON to YAML", icon:"fa-code-branch", url:"json-to-yaml.html"},
+            {name:"JSON Schema Validator", icon:"fa-check-double", url:"json-schema-validator.html"},
+            {name:"XML to JSON", icon:"fa-code-branch", url:"xml-to-json.html"},
+            {name:"CSV to JSON", icon:"fa-file-csv", url:"csv-to-json.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridBeautify").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

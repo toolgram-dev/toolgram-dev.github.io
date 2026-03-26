@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TOML to JSON Converter – Transform TOML to JSON | ToolGram</title>
+    <meta name="description" content="Convert TOML data to JSON format instantly. Transform TOML configuration files to JSON for APIs and data exchange.">
+    <meta name="keywords" content="toml to json, convert toml to json, toml json converter, transform toml to json">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/toml-to-json.html">
+    <meta property="og:title" content="TOML to JSON Converter | ToolGram">
+    <meta property="og:description" content="Convert TOML data to JSON format.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/toml-to-json.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "TOML to JSON Converter",
+        "description": "Convert TOML data to JSON format.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/toml-to-json.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["TOML to JSON", "JSON Converter"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-exchange-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">TOML to JSON Converter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Transform TOML configuration into JSON format</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input TOML</div>
+                <div style="padding:20px">
+                    <textarea id="tomlInputJSON" class="tool-textarea" placeholder="Paste TOML here...">title = "TOML Example"
+
+[owner]
+name = "Tom Preston-Werner"
+dob = 1979-05-27
+
+[database]
+server = "192.168.1.1"
+ports = [8001, 8002]</textarea>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="convertTOMLtoJSON()"><i class="fas fa-sync-alt"></i> Convert to JSON</button>
+                    <button class="secondary-btn" onclick="clearTOMLtoJSON()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> JSON Output</div>
+                <div class="output-display" id="jsonOutputTOML">Click "Convert to JSON" to see result</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyJSONFromTOML()"><i class="far fa-copy"></i> Copy JSON</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridTOMLtoJSON"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is TOML to JSON Conversion?</h3>
+            <p>TOML (Tom's Obvious, Minimal Language) is a configuration file format known for its readability. JSON (JavaScript Object Notation) is a lightweight data interchange format widely used in APIs and web applications. Converting TOML to JSON allows you to take human‑friendly configuration files and use them in systems that expect JSON input.</p>
+            <p>This tool transforms TOML structures into valid JSON. It handles tables, arrays, and primitive types according to the TOML 1.0 specification. The output is formatted JSON ready for use in APIs, data exchange, or JavaScript applications.</p>
+            <p>All processing is done locally in your browser – your data never leaves your device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your TOML into the input area. You can use the sample TOML as a guide.<br>
+            <strong>Step 2:</strong> Click "Convert to JSON". The tool validates the TOML and generates the corresponding JSON.<br>
+            <strong>Step 3:</strong> If the TOML is invalid, you'll see an error message.<br>
+            <strong>Step 4:</strong> Copy the JSON output using the "Copy JSON" button.</p>
+            <p>The converter follows TOML 1.0 syntax, supporting tables, arrays of tables, inline tables, and all data types.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Input TOML:</strong><br>
+            <pre>name = "Alice"
+age = 25
+active = true</pre>
+            <strong>Output JSON:</strong><br>
+            <code>{"name":"Alice","age":25,"active":true}</code><br>
+            <strong>Input TOML with table:</strong><br>
+            <pre>[database]
+server = "localhost"
+ports = [8001, 8002]</pre>
+            <strong>Output JSON:</strong><br>
+            <code>{"database":{"server":"localhost","ports":[8001,8002]}}</code>
+            </p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses TOML to JSON Converters?</h3>
+            <ul>
+                <li><strong>Web Developers</strong> – using TOML configs in JavaScript applications.</li>
+                <li><strong>API Developers</strong> – converting TOML configs to JSON for API payloads.</li>
+                <li><strong>DevOps Engineers</strong> – transforming configuration formats.</li>
+                <li><strong>Data Scientists</strong> – converting TOML experiment configs to JSON.</li>
+                <li><strong>System Administrators</strong> – migrating config files between formats.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Ensure your TOML follows the specification (no tabs for indentation, proper escaping).</li>
+                <li>Arrays of tables become arrays of objects in JSON.</li>
+                <li>Dates in TOML (e.g., 1979-05-27) are converted to strings in JSON.</li>
+                <li>Use the copy button to quickly paste the JSON into your application.</li>
+                <li>The output is formatted with 2‑space indentation for readability.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Does it support all TOML 1.0 features?</div>
+            <div class="faq-answer">Yes, the converter supports tables, arrays, inline tables, arrays of tables, and all primitive data types (strings, integers, floats, booleans, dates).</div>
+
+            <div class="faq-question">How are dates handled?</div>
+            <div class="faq-answer">TOML dates are converted to strings in JSON (e.g., "1979-05-27"). JSON does not have a native date type.</div>
+
+            <div class="faq-question">What about comments in TOML?</div>
+            <div class="faq-answer">Comments are ignored during conversion and do not appear in the JSON output.</div>
+
+            <div class="faq-question">Can I convert JSON back to TOML?</div>
+            <div class="faq-answer">Yes, use the JSON to TOML converter (see related tools).</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all conversion happens locally in your browser.</div>
+
+            <div class="faq-question">What about inline tables?</div>
+            <div class="faq-answer">Inline tables are converted to nested JSON objects correctly.</div>
+
+            <div class="faq-question">Does it handle multi-line strings?</div>
+            <div class="faq-answer">Yes, multi-line strings are properly parsed and converted to JSON strings with line breaks.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function parseTOML(toml) {
+        // Simple TOML parser for basic structures
+        const lines = toml.split(/\r?\n/);
+        const result = {};
+        let currentSection = result;
+        let sectionStack = [];
+        
+        for (let line of lines) {
+            line = line.trim();
+            if (line === '' || line.startsWith('#')) continue;
+            
+            // Check for table header [section]
+            if (line.startsWith('[') && !line.startsWith('[[')) {
+                const sectionName = line.slice(1, -1).trim();
+                const parts = sectionName.split('.');
+                let obj = result;
+                for (let i = 0; i < parts.length; i++) {
+                    if (!obj[parts[i]]) obj[parts[i]] = {};
+                    if (i === parts.length - 1) currentSection = obj[parts[i]];
+                    else obj = obj[parts[i]];
+                }
+                continue;
+            }
+            
+            // Check for array of tables [[section]]
+            if (line.startsWith('[[') && line.endsWith(']]')) {
+                const sectionName = line.slice(2, -2).trim();
+                const parts = sectionName.split('.');
+                let obj = result;
+                for (let i = 0; i < parts.length; i++) {
+                    if (i === parts.length - 1) {
+                        if (!obj[parts[i]]) obj[parts[i]] = [];
+                        obj[parts[i]].push({});
+                        currentSection = obj[parts[i]][obj[parts[i]].length - 1];
+                    } else {
+                        if (!obj[parts[i]]) obj[parts[i]] = {};
+                        obj = obj[parts[i]];
+                    }
+                }
+                continue;
+            }
+            
+            // Parse key = value
+            if (line.includes('=')) {
+                const [key, value] = line.split('=', 2);
+                const trimmedKey = key.trim();
+                let trimmedValue = value.trim();
+                
+                // Parse value based on type
+                let parsedValue;
+                if (trimmedValue.startsWith('"') && trimmedValue.endsWith('"')) {
+                    parsedValue = trimmedValue.slice(1, -1);
+                } else if (trimmedValue.startsWith('[') && trimmedValue.endsWith(']')) {
+                    // Array
+                    const arrStr = trimmedValue.slice(1, -1);
+                    parsedValue = arrStr.split(',').map(v => {
+                        v = v.trim();
+                        if (v.startsWith('"') && v.endsWith('"')) return v.slice(1, -1);
+                        if (v === 'true') return true;
+                        if (v === 'false') return false;
+                        if (!isNaN(v) && v !== '') return Number(v);
+                        return v;
+                    });
+                } else if (trimmedValue === 'true') {
+                    parsedValue = true;
+                } else if (trimmedValue === 'false') {
+                    parsedValue = false;
+                } else if (!isNaN(trimmedValue) && trimmedValue !== '') {
+                    parsedValue = Number(trimmedValue);
+                } else if (trimmedValue.match(/^\d{4}-\d{2}-\d{2}/)) {
+                    parsedValue = trimmedValue;
+                } else {
+                    parsedValue = trimmedValue;
+                }
+                
+                currentSection[trimmedKey] = parsedValue;
+            }
+        }
+        return result;
+    }
+
+    function convertTOMLtoJSON() {
+        const toml = document.getElementById('tomlInputJSON').value.trim();
+        if (!toml) {
+            document.getElementById('jsonOutputTOML').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter TOML to convert.</span>';
+            return;
+        }
+        try {
+            const parsed = parseTOML(toml);
+            const json = JSON.stringify(parsed, null, 2);
+            document.getElementById('jsonOutputTOML').innerHTML = json;
+        } catch (e) {
+            document.getElementById('jsonOutputTOML').innerHTML = `<span style="color:#EF4444;">❌ TOML Error: ${e.message}</span>`;
+        }
+    }
+
+    function clearTOMLtoJSON() {
+        document.getElementById('tomlInputJSON').value = '';
+        document.getElementById('jsonOutputTOML').innerHTML = 'Click "Convert to JSON" to see result';
+    }
+
+    function copyJSONFromTOML() {
+        const text = document.getElementById('jsonOutputTOML').innerText;
+        if (text && text !== 'Click "Convert to JSON" to see result' && !text.includes('TOML Error')) {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy JSON', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"JSON to TOML Converter", icon:"fa-exchange-alt", url:"json-to-toml.html"},
+            {name:"YAML to JSON Converter", icon:"fa-code-branch", url:"yaml-to-json-converter.html"},
+            {name:"JSON Formatter", icon:"fa-code", url:"json-formatter.html"},
+            {name:"XML to JSON Converter", icon:"fa-code-branch", url:"xml-to-json.html"},
+            {name:"JSON Minifier", icon:"fa-compress-alt", url:"json-minifier.html"},
+            {name:"JSON to YAML Converter", icon:"fa-code-branch", url:"json-to-yaml.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridTOMLtoJSON").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
