@@ -7,8 +7,6 @@ class NavManager {
 
             // Load PopAds
             this.loadPopAds();
-
-            this.loadAdsterraPopunder();
             
             // Load Adsterra Native Banner
             this.loadNativeBanner();
@@ -82,15 +80,6 @@ class NavManager {
         document.head.appendChild(script);
     }
 
-    // Adsterra Popunder
-static loadAdsterraPopunder() {
-    if (document.getElementById('adsterra-popunder-script')) return;
-    const script = document.createElement('script');
-    script.id = 'adsterra-popunder-script';
-    script.src = 'https://pl28764882.profitablecpmratenetwork.com/f6/15/e7/f615e7f1759e76926e960af240764093.js';
-    script.async = true;
-    document.head.appendChild(script);
-}
     // PopAds loader
     static loadPopAds() {
         if (document.getElementById('popads-script')) return;
