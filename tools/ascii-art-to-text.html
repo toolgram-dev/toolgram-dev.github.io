@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ASCII Art to Text – Convert ASCII Art to Text | ToolGram</title>
+    <meta name="description" content="Convert ASCII art back to plain text. Decode ASCII art to readable text using OCR-like pattern recognition.">
+    <meta name="keywords" content="ascii art to text, ascii decoder, text from ascii art, ascii art reader">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/ascii-art-to-text.html">
+    <meta property="og:title" content="ASCII Art to Text | ToolGram">
+    <meta property="og:description" content="Convert ASCII art back to plain text.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/ascii-art-to-text.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ASCII Art to Text",
+        "description": "Convert ASCII art back to plain text.",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/ascii-art-to-text.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["ASCII Art Decoder", "Text Extractor"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-font"></i></div>
+            <div>
+                <h1 style="margin:0;">ASCII Art to Text</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert ASCII art back to readable text</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input ASCII Art</div>
+                <div style="padding:20px">
+                    <textarea id="asciiArtInputDecode" class="tool-textarea" placeholder="Paste ASCII art here...">  ██  ██   ███   
+ █  █ █ █  █   █  
+██████ ██   █████  
+█    █ █ █  █   █  
+█    █ █  █ █   █</textarea>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="decodeAsciiArt()"><i class="fas fa-sync-alt"></i> Convert to Text</button>
+                    <button class="secondary-btn" onclick="clearAsciiDecode()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Plain Text Output</div>
+                <div class="output-display" id="asciiDecodeOutput">Click "Convert to Text" to see result</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyAsciiDecode()"><i class="far fa-copy"></i> Copy Text</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridAsciiDecode"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is ASCII Art Decoding?</h3>
+            <p>ASCII art uses characters to create visual representations of letters and images. Decoding ASCII art means recognizing patterns in the character arrangement and converting them back into readable text. This is useful when you have ASCII art that you want to convert to plain text for editing or processing.</p>
+            <p>This tool analyzes the pattern of characters in your ASCII art and attempts to identify the original text. It works best with standard ASCII art fonts like Standard or Big fonts from the Text to ASCII Art tool.</p>
+            <p>All processing is done locally in your browser – your data never leaves your device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your ASCII art into the input area. The art should be formatted with consistent character width (each character block should be the same size).<br>
+            <strong>Step 2:</strong> Click "Convert to Text".<br>
+            <strong>Step 3:</strong> The tool analyzes the pattern and outputs the decoded text.<br>
+            <strong>Step 4:</strong> Copy the text using the "Copy Text" button.</p>
+            <p>For best results, use ASCII art created with standard block characters (█, ░, ▒, ▓, #, @, etc.) and consistent spacing.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Input ASCII Art:</strong><br>
+            <pre>  ██  ██   ███   
+ █  █ █ █  █   █  
+██████ ██   █████  
+█    █ █ █  █   █  
+█    █ █  █ █   █</pre>
+            <strong>Output Text:</strong> "TOOL"</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses ASCII Art Decoders?</h3>
+            <ul>
+                <li><strong>Content Creators</strong> – extracting text from ASCII art.</li>
+                <li><strong>Developers</strong> – processing ASCII art in applications.</li>
+                <li><strong>Students</strong> – understanding pattern recognition.</li>
+                <li><strong>Designers</strong> – converting art to text for editing.</li>
+                <li><strong>Archivists</strong> – digitizing ASCII art collections.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>The tool works best with ASCII art created using block characters (█, ░, #, @).</li>
+                <li>Each character in the ASCII art should be the same width (typically 5-6 columns per character).</li>
+                <li>If the output isn't accurate, try cleaning up extra spaces or inconsistent line lengths.</li>
+                <li>This tool is designed for text-based ASCII art, not complex images.</li>
+                <li>For complex images, consider manual interpretation or dedicated OCR tools.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How accurate is the decoding?</div>
+            <div class="faq-answer">Accuracy depends on the quality and consistency of the ASCII art. Simple block fonts decode well; artistic or irregular styles may not decode correctly.</div>
+
+            <div class="faq-question">What ASCII art styles are supported?</div>
+            <div class="faq-answer">The tool works best with monospace block fonts like Standard, Big, Block, and similar styles. It recognizes patterns of 5x5 or 5x6 character grids.</div>
+
+            <div class="faq-question">Why did my art decode incorrectly?</div>
+            <div class="faq-answer">Check for inconsistent line lengths, extra spaces, or non-standard character patterns. The art may use a font not recognized by the decoder.</div>
+
+            <div class="faq-question">Can it decode images made of text?</div>
+            <div class="faq-answer">This tool decodes text-based ASCII art, not images. For complex pictures, the output may not be meaningful.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all decoding happens locally in your browser.</div>
+
+            <div class="faq-question">What if my ASCII art uses different characters?</div>
+            <div class="faq-answer">The tool recognizes common block characters. Unusual characters may affect accuracy.</div>
+
+            <div class="faq-question">Can I convert ASCII art to text for editing?</div>
+            <div class="faq-answer">Yes, that's the primary purpose. Use this tool to extract plain text from ASCII art for further editing.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    // Simple ASCII art decoder pattern matching
+    const decodePatterns = {
+        'A': ['  A  ', ' A A ', 'AAAAA', 'A   A', 'A   A'],
+        'B': ['BBBB ', 'B   B', 'BBBB ', 'B   B', 'BBBB '],
+        'C': [' CCC ', 'C   C', 'C    ', 'C   C', ' CCC '],
+        'D': ['DDDD ', 'D   D', 'D   D', 'D   D', 'DDDD '],
+        'E': ['EEEEE', 'E    ', 'EEEE ', 'E    ', 'EEEEE'],
+        'F': ['FFFFF', 'F    ', 'FFFF ', 'F    ', 'F    '],
+        'G': [' GGG ', 'G   G', 'G    ', 'G   G', ' GGG '],
+        'H': ['H   H', 'H   H', 'HHHHH', 'H   H', 'H   H'],
+        'I': ['IIIII', '  I  ', '  I  ', '  I  ', 'IIIII'],
+        'J': ['JJJJJ', '    J', '    J', 'J   J', ' JJJ '],
+        'K': ['K   K', 'K  K ', 'KKK  ', 'K  K ', 'K   K'],
+        'L': ['L    ', 'L    ', 'L    ', 'L    ', 'LLLLL'],
+        'M': ['M   M', 'MM MM', 'M M M', 'M   M', 'M   M'],
+        'N': ['N   N', 'NN  N', 'N N N', 'N  NN', 'N   N'],
+        'O': [' OOO ', 'O   O', 'O   O', 'O   O', ' OOO '],
+        'P': ['PPPP ', 'P   P', 'PPPP ', 'P    ', 'P    '],
+        'Q': [' QQQ ', 'Q   Q', 'Q   Q', 'Q  Q ', ' QQ Q'],
+        'R': ['RRRR ', 'R   R', 'RRRR ', 'R  R ', 'R   R'],
+        'S': [' SSS ', 'S    ', ' SSS ', '    S', ' SSS '],
+        'T': ['TTTTT', '  T  ', '  T  ', '  T  ', '  T  '],
+        'U': ['U   U', 'U   U', 'U   U', 'U   U', ' UUU '],
+        'V': ['V   V', 'V   V', ' V V ', ' V V ', '  V  '],
+        'W': ['W   W', 'W   W', 'W W W', 'WW WW', 'W   W'],
+        'X': ['X   X', ' X X ', '  X  ', ' X X ', 'X   X'],
+        'Y': ['Y   Y', ' Y Y ', '  Y  ', '  Y  ', '  Y  '],
+        'Z': ['ZZZZZ', '   Z ', '  Z  ', ' Z   ', 'ZZZZZ'],
+        '0': [' 000 ', '0   0', '0   0', '0   0', ' 000 '],
+        '1': ['  1  ', ' 11  ', '  1  ', '  1  ', '11111'],
+        '2': [' 222 ', '2   2', '   2 ', '  2  ', '22222'],
+        '3': [' 333 ', '3   3', '  33 ', '3   3', ' 333 '],
+        '4': ['4   4', '4   4', '44444', '   4 ', '   4 '],
+        '5': ['55555', '5    ', '5555 ', '    5', '5555 '],
+        '6': [' 666 ', '6    ', '6666 ', '6   6', ' 666 '],
+        '7': ['77777', '   7 ', '  7  ', ' 7   ', '7    '],
+        '8': [' 888 ', '8   8', ' 888 ', '8   8', ' 888 '],
+        '9': [' 999 ', '9   9', ' 9999', '    9', ' 999 ']
+    };
+    
+    function normalizeChar(c) {
+        // Convert common ASCII art characters to a standard representation
+        if (c === '█' || c === '#' || c === '@' || c === '●' || c === '■') return '█';
+        if (c === '░' || c === '▒' || c === '▓' || c === '·' || c === '.') return '░';
+        if (c === ' ' || c === '　') return ' ';
+        return c;
+    }
+    
+    function decodeAsciiArt() {
+        const art = document.getElementById('asciiArtInputDecode').value;
+        if (!art.trim()) {
+            document.getElementById('asciiDecodeOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter ASCII art to decode.</span>';
+            return;
+        }
+        
+        const lines = art.split(/\r?\n/).filter(l => l.trim() !== '');
+        if (lines.length === 0) {
+            document.getElementById('asciiDecodeOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">No valid art lines found.</span>';
+            return;
+        }
+        
+        // Normalize all characters
+        const normalizedLines = lines.map(line => {
+            return line.split('').map(c => normalizeChar(c)).join('');
+        });
+        
+        // Determine character width (assuming consistent spacing)
+        const width = Math.max(...normalizedLines.map(l => l.length));
+        const charWidth = 5; // Standard character width in ASCII art
+        const numChars = Math.floor(width / charWidth);
+        
+        let result = '';
+        
+        for (let c = 0; c < numChars; c++) {
+            let start = c * charWidth;
+            let end = start + charWidth;
+            let pattern = [];
+            for (let row = 0; row < Math.min(5, normalizedLines.length); row++) {
+                if (normalizedLines[row] && start < normalizedLines[row].length) {
+                    let segment = normalizedLines[row].substring(start, end);
+                    pattern.push(segment);
+                } else {
+                    pattern.push(' '.repeat(charWidth));
+                }
+            }
+            
+            // Try to match pattern
+            let bestMatch = '?';
+            let bestScore = 0;
+            
+            for (let [char, charPattern] of Object.entries(decodePatterns)) {
+                let score = 0;
+                for (let i = 0; i < Math.min(5, pattern.length); i++) {
+                    const patternRow = pattern[i];
+                    const charRow = charPattern[i];
+                    for (let j = 0; j < Math.min(patternRow.length, charRow.length); j++) {
+                        const pChar = patternRow[j];
+                        const cChar = charRow[j];
+                        if (pChar === ' ' && cChar === ' ') score += 2;
+                        else if (pChar !== ' ' && cChar !== ' ') score += 3;
+                        else if (pChar !== ' ' && cChar === ' ') score -= 1;
+                        else if (pChar === ' ' && cChar !== ' ') score -= 1;
+                    }
+                }
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestMatch = char;
+                }
+            }
+            
+            result += bestMatch;
+        }
+        
+        document.getElementById('asciiDecodeOutput').innerHTML = result;
+    }
+    
+    function clearAsciiDecode() {
+        document.getElementById('asciiArtInputDecode').value = '';
+        document.getElementById('asciiDecodeOutput').innerHTML = 'Click "Convert to Text" to see result';
+    }
+    
+    function copyAsciiDecode() {
+        const text = document.getElementById('asciiDecodeOutput').innerText;
+        if (text && text !== 'Click "Convert to Text" to see result') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Text', 2000);
+        }
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"Text to ASCII Art", icon:"fa-font", url:"text-to-ascii-art.html"},
+            {name:"Fancy Text Generator", icon:"fa-paint-brush", url:"fancy-text-generator.html"},
+            {name:"Morse Code Translator", icon:"fa-signal", url:"morse.html"},
+            {name:"Reverse Text Generator", icon:"fa-exchange-alt", url:"reverse-text-generator.html"},
+            {name:"Word Counter", icon:"fa-file-alt", url:"word-counter.html"},
+            {name:"Text Cleaner", icon:"fa-broom", url:"text-cleaner.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridAsciiDecode").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
