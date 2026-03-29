@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>XML Validator – Validate XML Syntax & Well-Formedness | ToolGram</title>
+    <meta name="description" content="Validate XML syntax and check for well-formedness. Instantly find and fix XML formatting issues like unclosed tags and mismatched brackets.">
+    <meta name="keywords" content="xml validator, validate xml, xml syntax checker, xml well-formedness, xml linter">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/xml-validator.html">
+    <meta property="og:title" content="XML Validator | ToolGram">
+    <meta property="og:description" content="Validate XML syntax and well-formedness.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/xml-validator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "XML Validator",
+        "description": "Validate XML syntax and well-formedness.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/xml-validator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["XML Validator", "XML Linter"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        .valid-badge{color:#10B981;font-weight:bold}
+        .invalid-badge{color:#EF4444;font-weight:bold}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-check-double"></i></div>
+            <div>
+                <h1 style="margin:0;">XML Validator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Validate XML syntax and well-formedness</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input XML</div>
+                <div style="padding:20px">
+                    <textarea id="xmlInputValidate" class="tool-textarea" placeholder="Paste XML to validate...">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;root&gt;
+  &lt;person&gt;
+    &lt;name&gt;John Doe&lt;/name&gt;
+    &lt;age&gt;30&lt;/age&gt;
+  &lt;/person&gt;
+&lt;/root&gt;</textarea>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="validateXML()"><i class="fas fa-check-circle"></i> Validate XML</button>
+                    <button class="secondary-btn" onclick="clearXMLValidate()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Validation Result</div>
+                <div class="output-display" id="xmlValidateOutput">Click "Validate XML" to check syntax</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyXMLValidateOutput()"><i class="far fa-copy"></i> Copy Result</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridXMLValidator"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is XML Validation?</h3>
+            <p>XML (Extensible Markup Language) has strict syntax rules: every tag must be properly closed, attributes must be quoted, and there must be a single root element. Even a small syntax error can break applications that parse XML. XML validation checks your XML against these rules and identifies exactly where the problem is.</p>
+            <p>This tool validates XML well‑formedness and provides detailed error messages when invalid. It helps you quickly fix issues like unclosed tags, mismatched brackets, or missing quotes.</p>
+            <p>All processing is done locally in your browser – your data never leaves your device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your XML into the input area.<br>
+            <strong>Step 2:</strong> Click "Validate XML".<br>
+            <strong>Step 3:</strong> If valid, you'll see a success message. If invalid, the tool shows the error message with details.<br>
+            <strong>Step 4:</strong> Copy the result using the "Copy Result" button.</p>
+            <p>Use this tool to debug XML from API responses, configuration files, or any XML data before using it in your application.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Valid XML:</strong><br>
+            <code>&lt;root&gt;&lt;name&gt;John&lt;/name&gt;&lt;/root&gt;</code><br>
+            <strong>Result:</strong> ✅ Valid XML</p>
+            <p><strong>Invalid XML (unclosed tag):</strong><br>
+            <code>&lt;root&gt;&lt;name&gt;John&lt;/root&gt;</code><br>
+            <strong>Result:</strong> ❌ Opening and closing tag mismatch</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses XML Validators?</h3>
+            <ul>
+                <li><strong>API Developers</strong> – ensuring XML responses are valid.</li>
+                <li><strong>Data Engineers</strong> – validating XML datasets.</li>
+                <li><strong>QA Engineers</strong> – testing XML outputs.</li>
+                <li><strong>Web Developers</strong> – debugging RSS feeds and sitemaps.</li>
+                <li><strong>DevOps</strong> – checking config files.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Always validate XML before using it in production.</li>
+                <li>Common errors: unclosed tags, mismatched case sensitivity, and missing quotes around attributes.</li>
+                <li>XML is case‑sensitive – &lt;Person&gt; and &lt;person&gt; are different.</li>
+                <li>Use a formatter first if your XML is minified, then validate.</li>
+                <li>The copy button helps you save error reports for debugging.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What does "well-formed" mean?</div>
+            <div class="faq-answer">Well‑formed XML means it follows all syntax rules: single root element, properly nested tags, quoted attributes, and no unclosed tags. This validator checks well‑formedness.</div>
+
+            <div class="faq-question">Does it validate against a DTD or XSD?</div>
+            <div class="faq-answer">No, this tool validates well‑formedness only. For schema validation, use a dedicated XML schema validator.</div>
+
+            <div class="faq-question">What about XML namespaces?</div>
+            <div class="faq-answer">Namespaces are supported; the validator checks that they are properly declared and used.</div>
+
+            <div class="faq-question">Can I validate large XML files?</div>
+            <div class="faq-answer">Yes, the tool can validate moderately sized files. Very large files may take a few seconds.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all validation happens locally in your browser.</div>
+
+            <div class="faq-question">What's the difference between well‑formed and valid XML?</div>
+            <div class="faq-answer">Well‑formed means correct syntax. Valid means it also conforms to a DTD or schema. This tool checks well‑formedness.</div>
+
+            <div class="faq-question">Does it support CDATA sections?</div>
+            <div class="faq-answer">Yes, CDATA sections are properly handled during validation.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function validateXML() {
+        const xml = document.getElementById('xmlInputValidate').value.trim();
+        if (!xml) {
+            document.getElementById('xmlValidateOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter XML to validate.</span>';
+            return;
+        }
+        try {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xml, "text/xml");
+            const parseError = xmlDoc.getElementsByTagName("parsererror");
+            if (parseError.length > 0) {
+                const errorMsg = parseError[0].textContent;
+                document.getElementById('xmlValidateOutput').innerHTML = `<span class="invalid-badge">❌ Invalid XML</span><br><br>Error: ${errorMsg}`;
+            } else {
+                document.getElementById('xmlValidateOutput').innerHTML = '<span class="valid-badge">✅ Valid XML</span><br><br>No syntax errors found. Your XML is well‑formed and ready to use.';
+            }
+        } catch (e) {
+            document.getElementById('xmlValidateOutput').innerHTML = `<span class="invalid-badge">❌ Invalid XML</span><br><br>Error: ${e.message}`;
+        }
+    }
+
+    function clearXMLValidate() {
+        document.getElementById('xmlInputValidate').value = '';
+        document.getElementById('xmlValidateOutput').innerHTML = 'Click "Validate XML" to check syntax';
+    }
+
+    function copyXMLValidateOutput() {
+        const text = document.getElementById('xmlValidateOutput').innerText;
+        if (text && text !== 'Click "Validate XML" to check syntax') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Result', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"XML Formatter", icon:"fa-code", url:"xml-formatter.html"},
+            {name:"XML to JSON", icon:"fa-code-branch", url:"xml-to-json.html"},
+            {name:"JSON Validator", icon:"fa-check-double", url:"json-validator.html"},
+            {name:"YAML Validator", icon:"fa-check-double", url:"yaml-validator.html"},
+            {name:"HTML Validator", icon:"fa-check-double", url:"html-validator.html"},
+            {name:"Password Strength", icon:"fa-shield-alt", url:"pass-check.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridXMLValidator").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

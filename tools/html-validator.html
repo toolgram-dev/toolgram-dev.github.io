@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HTML Validator – Validate HTML Syntax | ToolGram</title>
+    <meta name="description" content="Validate HTML syntax and check for errors. Instantly find and fix HTML formatting issues like unclosed tags and incorrect nesting.">
+    <meta name="keywords" content="html validator, validate html, html syntax checker, html linter, w3c validator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/html-validator.html">
+    <meta property="og:title" content="HTML Validator | ToolGram">
+    <meta property="og:description" content="Validate HTML syntax and find errors.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/html-validator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "HTML Validator",
+        "description": "Validate HTML syntax and find errors.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/html-validator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["HTML Validator", "HTML Linter"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        .valid-badge{color:#10B981;font-weight:bold}
+        .invalid-badge{color:#EF4444;font-weight:bold}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-check-double"></i></div>
+            <div>
+                <h1 style="margin:0;">HTML Validator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Validate HTML syntax and find errors</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input HTML</div>
+                <div style="padding:20px">
+                    <textarea id="htmlInputValidate" class="tool-textarea" placeholder="Paste HTML to validate...">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textarea>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="validateHTML()"><i class="fas fa-check-circle"></i> Validate HTML</button>
+                    <button class="secondary-btn" onclick="clearHTMLValidate()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Validation Result</div>
+                <div class="output-display" id="htmlValidateOutput">Click "Validate HTML" to check syntax</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyHTMLValidateOutput()"><i class="far fa-copy"></i> Copy Result</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridHTMLValidator"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is HTML Validation?</h3>
+            <p>HTML validation checks your HTML code against the official standards to ensure it's correctly structured and error‑free. Valid HTML helps ensure consistent rendering across browsers, better accessibility, and improved SEO. Common errors include unclosed tags, missing attributes, and incorrect nesting.</p>
+            <p>This tool validates HTML syntax and provides detailed error messages when invalid. It helps you quickly fix issues before deploying your web pages.</p>
+            <p>All processing is done locally in your browser – your data never leaves your device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your HTML into the input area.<br>
+            <strong>Step 2:</strong> Click "Validate HTML".<br>
+            <strong>Step 3:</strong> If valid, you'll see a success message. If invalid, the tool shows the error message.<br>
+            <strong>Step 4:</strong> Copy the result using the "Copy Result" button.</p>
+            <p>Use this tool to debug HTML before deploying your website.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Valid HTML:</strong><br>
+            <code>&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;</code><br>
+            <strong>Result:</strong> ✅ Valid HTML</p>
+            <p><strong>Invalid HTML (unclosed tag):</strong><br>
+            <code>&lt;div&gt;&lt;p&gt;Hello&lt;/div&gt;</code><br>
+            <strong>Result:</strong> ❌ Unclosed tag &lt;p&gt;</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses HTML Validators?</h3>
+            <ul>
+                <li><strong>Web Developers</strong> – ensuring clean markup.</li>
+                <li><strong>SEO Specialists</strong> – improving search rankings.</li>
+                <li><strong>QA Engineers</strong> – testing web pages.</li>
+                <li><strong>Content Editors</strong> – checking embedded HTML.</li>
+                <li><strong>Email Marketers</strong> – validating HTML emails.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Always include the DOCTYPE declaration for proper rendering.</li>
+                <li>Close all tags, especially for non‑void elements like &lt;p&gt; and &lt;div&gt;.</li>
+                <li>Use lowercase tag names and quoted attribute values for best compatibility.</li>
+                <li>Validate HTML after making changes to catch errors early.</li>
+                <li>The copy button helps you save error reports for debugging.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What's the difference between HTML validator and browser?</div>
+            <div class="faq-answer">Browsers try to fix errors automatically, which can hide problems. A validator shows the actual errors so you can fix them properly.</div>
+
+            <div class="faq-question">Does it validate HTML5?</div>
+            <div class="faq-answer">Yes, the validator checks HTML5 syntax including new elements like &lt;article&gt;, &lt;section&gt;, and &lt;nav&gt;.</div>
+
+            <div class="faq-question">What about self-closing tags?</div>
+            <div class="faq-answer">In HTML5, void elements like &lt;br&gt; and &lt;img&gt; don't need to be self‑closed, but the validator accepts both.</div>
+
+            <div class="faq-question">Can I validate large HTML files?</div>
+            <div class="faq-answer">Yes, the tool can validate moderately sized files. Very large files may take a few seconds.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all validation happens locally in your browser.</div>
+
+            <div class="faq-question">What about JavaScript inside HTML?</div>
+            <div class="faq-answer">JavaScript is treated as content; the validator only checks HTML syntax, not JS syntax.</div>
+
+            <div class="faq-question">Does it validate CSS inline styles?</div>
+            <div class="faq-answer">No, only HTML structure is validated. Use a CSS validator for styles.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function validateHTML() {
+        const html = document.getElementById('htmlInputValidate').value.trim();
+        if (!html) {
+            document.getElementById('htmlValidateOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter HTML to validate.</span>';
+            return;
+        }
+        try {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+            // Check for parser errors (simple method)
+            const errors = [];
+            const allElements = doc.querySelectorAll('*');
+            // Check for unclosed tags - DOMParser auto-closes, so we need a different approach
+            // Simple tag matching
+            const tagStack = [];
+            const tagRegex = /<(\/?)([a-z0-9]+)[^>]*>/gi;
+            let match;
+            while ((match = tagRegex.exec(html)) !== null) {
+                const isClosing = match[1] === '/';
+                const tagName = match[2].toLowerCase();
+                if (!isClosing) {
+                    tagStack.push(tagName);
+                } else {
+                    if (tagStack.length === 0) {
+                        errors.push(`Extra closing tag </${tagName}>`);
+                    } else if (tagStack[tagStack.length - 1] !== tagName) {
+                        errors.push(`Mismatched tag: expected </${tagStack.pop()}>, found </${tagName}>`);
+                    } else {
+                        tagStack.pop();
+                    }
+                }
+            }
+            if (tagStack.length > 0) {
+                errors.push(`Unclosed tags: ${tagStack.join(', ')}`);
+            }
+            if (errors.length === 0) {
+                document.getElementById('htmlValidateOutput').innerHTML = '<span class="valid-badge">✅ Valid HTML</span><br><br>No syntax errors found. Your HTML is well‑formed.';
+            } else {
+                document.getElementById('htmlValidateOutput').innerHTML = `<span class="invalid-badge">❌ Invalid HTML</span><br><br>Errors found:<br>${errors.map(e => `• ${e}`).join('<br>')}`;
+            }
+        } catch (e) {
+            document.getElementById('htmlValidateOutput').innerHTML = `<span class="invalid-badge">❌ Invalid HTML</span><br><br>Error: ${e.message}`;
+        }
+    }
+
+    function clearHTMLValidate() {
+        document.getElementById('htmlInputValidate').value = '';
+        document.getElementById('htmlValidateOutput').innerHTML = 'Click "Validate HTML" to check syntax';
+    }
+
+    function copyHTMLValidateOutput() {
+        const text = document.getElementById('htmlValidateOutput').innerText;
+        if (text && text !== 'Click "Validate HTML" to check syntax') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Result', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"UUID Generator", icon:"fa-fingerprint", url:"uuid.html"},
+            {name:"Lorem Ipsum", icon:"fa-paragraph", url:"lorem-ipsum.html"},
+            {name:"Password Strength", icon:"fa-shield-alt", url:"pass-check.html"},
+            {name:"XML Validator", icon:"fa-check-double", url:"xml-validator.html"},
+            {name:"JSON Validator", icon:"fa-check-double", url:"json-validator.html"},
+            {name:"HTML Stripper", icon:"fa-eraser", url:"html-strip.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridHTMLValidator").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

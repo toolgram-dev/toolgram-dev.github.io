@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>XML Formatter – Beautify XML Code | ToolGram</title>
-    <meta name="description" content="Format and beautify XML code with proper indentation. Make messy XML readable and well-structured. Free online XML formatter.">
-    <meta name="keywords" content="xml formatter, xml beautifier, pretty xml, xml prettify, xml indenter">
+    <title>CSS Formatter – Beautify CSS Code | ToolGram</title>
+    <meta name="description" content="Format and beautify CSS code with proper indentation. Make messy CSS readable and well-structured. Free online CSS formatter.">
+    <meta name="keywords" content="css formatter, css beautifier, pretty css, css prettify, css indenter">
     <meta name="author" content="ToolGram">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://toolgram-dev.github.io/tools/xml-formatter.html">
-    <meta property="og:title" content="XML Formatter | ToolGram">
-    <meta property="og:description" content="Format and beautify XML code.">
-    <meta property="og:url" content="https://toolgram-dev.github.io/tools/xml-formatter.html">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/css-formatter.html">
+    <meta property="og:title" content="CSS Formatter | ToolGram">
+    <meta property="og:description" content="Format and beautify CSS code.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/css-formatter.html">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -22,13 +22,13 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "XML Formatter",
-        "description": "Format and beautify XML code.",
+        "name": "CSS Formatter",
+        "description": "Format and beautify CSS code.",
         "applicationCategory": "Developer",
         "operatingSystem": "Any",
-        "url": "https://toolgram-dev.github.io/tools/xml-formatter.html",
+        "url": "https://toolgram-dev.github.io/tools/css-formatter.html",
         "offers": {"@type": "Offer", "price": "0"},
-        "featureList": ["XML Formatter", "XML Beautifier"]
+        "featureList": ["CSS Formatter", "CSS Beautifier"]
     }
     </script>
     <style>
@@ -62,21 +62,21 @@
 
     <div class="tool-container">
         <div class="tool-header">
-            <div class="tool-header-icon"><i class="fas fa-code"></i></div>
+            <div class="tool-header-icon"><i class="fab fa-css3-alt"></i></div>
             <div>
-                <h1 style="margin:0;">XML Formatter</h1>
-                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Beautify XML code with proper indentation</p>
+                <h1 style="margin:0;">CSS Formatter</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Beautify CSS code with proper indentation</p>
             </div>
         </div>
 
         <div class="tool-interface">
             <div class="tool-column">
-                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input XML</div>
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input CSS</div>
                 <div style="padding:20px">
-                    <textarea id="xmlInputFormat" class="tool-textarea" placeholder="Paste XML here...">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;root&gt;&lt;person&gt;&lt;name&gt;John Doe&lt;/name&gt;&lt;age&gt;30&lt;/age&gt;&lt;city&gt;New York&lt;/city&gt;&lt;/person&gt;&lt;/root&gt;</textarea>
+                    <textarea id="cssInputFormat" class="tool-textarea" placeholder="Paste CSS here...">.container{background-color:#f0f0f0;padding:20px;border-radius:8px;font-size:16px;margin-top:10px;}.button{color:white;background-color:blue;border:none;cursor:pointer;}</textarea>
                     <div class="indent-select">
                         <label>Indent size:</label>
-                        <select id="xmlIndentSize">
+                        <select id="cssIndentSize">
                             <option value="2">2 spaces</option>
                             <option value="4" selected>4 spaces</option>
                             <option value="8">8 spaces</option>
@@ -84,15 +84,15 @@
                     </div>
                 </div>
                 <div class="tool-actions">
-                    <button class="action-btn" onclick="formatXML()"><i class="fas fa-magic"></i> Format XML</button>
-                    <button class="secondary-btn" onclick="clearXMLFormat()"><i class="fas fa-trash"></i> Clear</button>
+                    <button class="action-btn" onclick="formatCSS()"><i class="fas fa-magic"></i> Format CSS</button>
+                    <button class="secondary-btn" onclick="clearCSSFormat()"><i class="fas fa-trash"></i> Clear</button>
                 </div>
             </div>
             <div class="tool-column">
-                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Formatted XML</div>
-                <div class="output-display" id="xmlFormatOutput">Click "Format XML" to see result</div>
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Formatted CSS</div>
+                <div class="output-display" id="cssFormatOutput">Click "Format CSS" to see result</div>
                 <div class="tool-actions" style="margin-top:15px;">
-                    <button class="copy-btn" onclick="copyXMLFormat()"><i class="far fa-copy"></i> Copy XML</button>
+                    <button class="copy-btn" onclick="copyCSSFormat()"><i class="far fa-copy"></i> Copy CSS</button>
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@
     <div class="tool-content-section">
         <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
             <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
-            <div class="related-grid" id="relatedGridXMLFormat"></div>
+            <div class="related-grid" id="relatedGridCSSFormat"></div>
         </div>
     </div>
 
@@ -111,9 +111,9 @@
 
     <div class="tool-content-section">
         <div class="info-box">
-            <h3><i class="fas fa-question-circle"></i> What is XML Formatting?</h3>
-            <p>XML (Extensible Markup Language) can become difficult to read and maintain when minified or poorly formatted. Formatting XML adds proper indentation, line breaks, and consistent spacing to make the code readable and maintainable. This is essential for debugging, collaboration, and maintaining clean data exchange formats.</p>
-            <p>This tool takes any XML code and formats it with consistent indentation. It preserves the structure, indents nested elements, and makes the code easy to read and edit.</p>
+            <h3><i class="fas fa-question-circle"></i> What is CSS Formatting?</h3>
+            <p>CSS (Cascading Style Sheets) can become difficult to read and maintain when minified or poorly formatted. Formatting CSS adds proper indentation, line breaks, and consistent spacing to make the code readable and maintainable. This is especially important for collaborative projects and debugging.</p>
+            <p>This tool takes any CSS code and formats it with consistent indentation. It separates selectors, properties, and values, and structures nested rules for better readability. Formatted CSS is easier to review, debug, and share with team members.</p>
             <p>All processing is done locally in your browser – your code never leaves your device.</p>
         </div>
 
@@ -121,11 +121,11 @@
 
         <div class="info-box">
             <h3><i class="fas fa-cog"></i> How to Use</h3>
-            <p><strong>Step 1:</strong> Paste your XML into the input area. This can be minified or already formatted.<br>
+            <p><strong>Step 1:</strong> Paste your CSS into the input area. This can be minified or already formatted.<br>
             <strong>Step 2:</strong> Select your preferred indentation size (2 spaces, 4 spaces, or 8 spaces).<br>
-            <strong>Step 3:</strong> Click "Format XML". The tool beautifies the XML.<br>
-            <strong>Step 4:</strong> Copy the formatted XML using the "Copy XML" button.</p>
-            <p>The formatter handles self-closing tags, processing instructions, and CDATA sections.</p>
+            <strong>Step 3:</strong> Click "Format CSS". The tool beautifies the CSS.<br>
+            <strong>Step 4:</strong> Copy the formatted CSS using the "Copy CSS" button.</p>
+            <p>The formatter handles multiple selectors, nested rules (like media queries), and preserves comments.</p>
         </div>
 
         <div class="blank-space"></div>
@@ -133,27 +133,30 @@
         <div class="info-box">
             <h3><i class="fas fa-example"></i> Examples</h3>
             <p><strong>Input (minified):</strong><br>
-            <code>&lt;root&gt;&lt;person&gt;&lt;name&gt;John&lt;/name&gt;&lt;age&gt;30&lt;/age&gt;&lt;/person&gt;&lt;/root&gt;</code><br>
+            <code>.container{background:#f0f0f0;padding:20px;}.button{color:white;background:blue;}</code><br>
             <strong>Output (formatted with 2 spaces):</strong><br>
-            <pre>&lt;root&gt;
-  &lt;person&gt;
-    &lt;name&gt;John&lt;/name&gt;
-    &lt;age&gt;30&lt;/age&gt;
-  &lt;/person&gt;
-&lt;/root&gt;</pre>
+            <pre>.container {
+  background: #f0f0f0;
+  padding: 20px;
+}
+
+.button {
+  color: white;
+  background: blue;
+}</pre>
             </p>
         </div>
 
         <div class="blank-space"></div>
 
         <div class="info-box">
-            <h3><i class="fas fa-users"></i> Who Uses XML Formatters?</h3>
+            <h3><i class="fas fa-users"></i> Who Uses CSS Formatters?</h3>
             <ul>
-                <li><strong>API Developers</strong> – formatting XML responses.</li>
-                <li><strong>Data Engineers</strong> – maintaining XML datasets.</li>
-                <li><strong>System Administrators</strong> – editing config files.</li>
-                <li><strong>Students</strong> – learning XML structure.</li>
-                <li><strong>Integration Specialists</strong> – working with legacy systems.</li>
+                <li><strong>Web Developers</strong> – maintaining clean stylesheets.</li>
+                <li><strong>Front-End Engineers</strong> – debugging CSS issues.</li>
+                <li><strong>UI/UX Designers</strong> – reviewing style implementations.</li>
+                <li><strong>Students</strong> – learning CSS structure.</li>
+                <li><strong>Freelancers</strong> – formatting client CSS files.</li>
             </ul>
         </div>
 
@@ -163,10 +166,10 @@
             <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
             <ul>
                 <li>Use 2 spaces for compact formatting, 4 spaces for standard readability.</li>
-                <li>Formatted XML is easier to review in code reviews and version control.</li>
-                <li>The formatter preserves CDATA sections and processing instructions.</li>
-                <li>For XML with namespaces, formatting preserves them correctly.</li>
-                <li>Always keep a backup of your original XML before formatting.</li>
+                <li>Formatted CSS is easier to review in code reviews and version control.</li>
+                <li>The formatter preserves comments and vendor prefixes.</li>
+                <li>For nested CSS (like SCSS), use a dedicated preprocessor formatter.</li>
+                <li>Always keep a backup of your original CSS before formatting.</li>
             </ul>
         </div>
 
@@ -174,26 +177,26 @@
 
         <div class="info-box">
             <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
-            <div class="faq-question">Does it support all XML features?</div>
-            <div class="faq-answer">Yes, the formatter supports XML declarations, processing instructions, CDATA sections, and comments.</div>
+            <div class="faq-question">Does it support CSS3 features?</div>
+            <div class="faq-answer">Yes, the formatter supports all modern CSS3 features including animations, transforms, and custom properties (CSS variables).</div>
 
-            <div class="faq-question">What about self-closing tags?</div>
-            <div class="faq-answer">Self-closing tags like &lt;br/&gt; are handled correctly without adding extra spaces.</div>
+            <div class="faq-question">What about media queries?</div>
+            <div class="faq-answer">Media queries are properly formatted with nested indentation.</div>
 
-            <div class="faq-question">Does it preserve whitespace inside elements?</div>
-            <div class="faq-answer">Whitespace inside text content is preserved to avoid altering the meaning.</div>
+            <div class="faq-question">Does it preserve comments?</div>
+            <div class="faq-answer">Yes, both single-line and multi-line comments are preserved and formatted appropriately.</div>
 
-            <div class="faq-question">Can it format XML with namespaces?</div>
-            <div class="faq-answer">Yes, namespaces are preserved and formatted correctly.</div>
+            <div class="faq-question">Can it format SCSS or Sass?</div>
+            <div class="faq-answer">This tool is designed for standard CSS. For preprocessors, use their specific formatters.</div>
 
             <div class="faq-question">Is my data sent to a server?</div>
             <div class="faq-answer">No, all formatting happens locally in your browser.</div>
 
-            <div class="faq-question">What about large XML files?</div>
+            <div class="faq-question">What about large CSS files?</div>
             <div class="faq-answer">The tool can handle moderately sized files. Very large files may take a few seconds.</div>
 
-            <div class="faq-question">Does it validate XML syntax?</div>
-            <div class="faq-answer">This tool formats XML but does not validate syntax. Use XML Validator for validation.</div>
+            <div class="faq-question">Can I format CSS with multiple selectors?</div>
+            <div class="faq-answer">Yes, the formatter handles multiple selectors separated by commas correctly.</div>
         </div>
     </div>
 
@@ -219,99 +222,96 @@
 <script src="../js/nav-manager.js"></script>
 <script src="../js/main.js"></script>
 <script>
-    function formatXML() {
-        let xml = document.getElementById('xmlInputFormat').value;
-        if (!xml.trim()) {
-            document.getElementById('xmlFormatOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter XML to format.</span>';
+    function formatCSS() {
+        let css = document.getElementById('cssInputFormat').value;
+        if (!css.trim()) {
+            document.getElementById('cssFormatOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter CSS to format.</span>';
             return;
         }
-        const indentSize = parseInt(document.getElementById('xmlIndentSize').value);
+        const indentSize = parseInt(document.getElementById('cssIndentSize').value);
         const indent = ' '.repeat(indentSize);
         
+        // Simple CSS formatter
         let formatted = '';
         let indentLevel = 0;
-        let i = 0;
+        let inRule = false;
         
-        while (i < xml.length) {
-            const ch = xml[i];
+        // Split into characters for proper parsing
+        let current = '';
+        for (let i = 0; i < css.length; i++) {
+            const ch = css[i];
+            current += ch;
             
-            // Opening tag
-            if (ch === '<') {
-                // Check if it's a closing tag
-                if (xml[i+1] === '/') {
-                    indentLevel = Math.max(0, indentLevel - 1);
-                    // Find the end of tag
-                    let end = xml.indexOf('>', i);
-                    let tag = xml.substring(i, end + 1);
-                    formatted += indent.repeat(indentLevel) + tag + '\n';
-                    i = end + 1;
-                }
-                // Self-closing or regular opening tag
-                else if (xml[i+1] !== '?') {
-                    let end = xml.indexOf('>', i);
-                    let tag = xml.substring(i, end + 1);
-                    formatted += indent.repeat(indentLevel) + tag + '\n';
-                    // Check if not self-closing
-                    if (!tag.endsWith('/>')) {
-                        indentLevel++;
-                    }
-                    i = end + 1;
-                }
-                // XML declaration or processing instruction
-                else {
-                    let end = xml.indexOf('>', i);
-                    let tag = xml.substring(i, end + 1);
-                    formatted += tag + '\n';
-                    i = end + 1;
-                }
+            // Start of a rule
+            if (ch === '{') {
+                formatted += current.trim() + '\n';
+                indentLevel++;
+                formatted += indent.repeat(indentLevel);
+                current = '';
+                inRule = true;
             }
-            // Text content
-            else {
-                let textStart = i;
-                while (i < xml.length && xml[i] !== '<') {
-                    i++;
+            // End of a rule
+            else if (ch === '}') {
+                if (current.trim() === '}') {
+                    indentLevel--;
+                    formatted += '\n' + indent.repeat(indentLevel) + '}\n';
+                } else {
+                    // Handle properties inside
+                    const props = current.split(';');
+                    for (let prop of props) {
+                        if (prop.trim()) {
+                            formatted += indent.repeat(indentLevel) + prop.trim() + ';\n';
+                        }
+                    }
+                    indentLevel--;
+                    formatted += indent.repeat(indentLevel) + '}\n';
                 }
-                let text = xml.substring(textStart, i).trim();
-                if (text) {
-                    formatted += indent.repeat(indentLevel) + text + '\n';
+                current = '';
+                inRule = false;
+            }
+            // Property separator
+            else if (ch === ';' && inRule) {
+                if (current.trim()) {
+                    formatted += indent.repeat(indentLevel) + current.trim() + '\n';
+                    current = '';
                 }
             }
         }
         
-        // Clean up extra newlines
+        // Clean up multiple newlines
         formatted = formatted.replace(/\n{3,}/g, '\n\n');
-        document.getElementById('xmlFormatOutput').innerHTML = formatted.trim();
+        document.getElementById('cssFormatOutput').innerHTML = formatted.trim();
     }
     
-    function clearXMLFormat() {
-        document.getElementById('xmlInputFormat').value = '';
-        document.getElementById('xmlFormatOutput').innerHTML = 'Click "Format XML" to see result';
+    function clearCSSFormat() {
+        document.getElementById('cssInputFormat').value = '';
+        document.getElementById('cssFormatOutput').innerHTML = 'Click "Format CSS" to see result';
     }
     
-    function copyXMLFormat() {
-        const text = document.getElementById('xmlFormatOutput').innerText;
-        if (text && text !== 'Click "Format XML" to see result') {
+    function copyCSSFormat() {
+        const text = document.getElementById('cssFormatOutput').innerText;
+        if (text && text !== 'Click "Format CSS" to see result') {
             navigator.clipboard.writeText(text);
             const btn = document.querySelector('.copy-btn');
             btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy XML', 2000);
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy CSS', 2000);
         }
     }
     
     function loadRelated() {
         const tools = [
-            {name:"XML Minifier", icon:"fa-compress-alt", url:"xml-minifier.html"},
-            {name:"XML Validator", icon:"fa-check-double", url:"xml-validator.html"},
-            {name:"HTML Formatter", icon:"fa-code", url:"html-formatter.html"},
-            {name:"CSS Formatter", icon:"fa-css3-alt", url:"css-formatter.html"},
+            {name:"CSS Minifier", icon:"fa-css3-alt", url:"css-minifier.html"},
+            {name:"CSS to JSX", icon:"fab fa-react", url:"css-to-jsx.html"},
+            {name:"Lorem Ipsum", icon:"fa-paragraph", url:"lorem-ipsum.html"},
             {name:"JavaScript Formatter", icon:"fa-js", url:"js-formatter.html"},
-            {name:"JSON Formatter", icon:"fa-code", url:"json-formatter-beautifier.html"}
+            {name:"JSON Formatter", icon:"fa-code", url:"json-formatter-beautifier.html"},
+            {name:"XML Formatter", icon:"fa-code", url:"xml-formatter.html"}
         ];
         let html = "";
         tools.forEach(t => {
             html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
         });
-        document.getElementById("relatedGridXMLFormat").innerHTML = html;
+        document.getElementById("relatedGridCSSFormat").innerHTML = html;
     }
     window.addEventListener("load", loadRelated);
 </script>

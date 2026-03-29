@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SQL Minifier – Compress SQL Queries | ToolGram</title>
+    <meta name="description" content="Minify and compress SQL queries. Remove unnecessary whitespace, comments, and newlines to reduce query size for production use.">
+    <meta name="keywords" content="sql minifier, sql compressor, minify sql, compress sql, sql optimizer">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/sql-minifier.html">
+    <meta property="og:title" content="SQL Minifier | ToolGram">
+    <meta property="og:description" content="Minify and compress SQL queries.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/sql-minifier.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SQL Minifier",
+        "description": "Minify and compress SQL queries.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/sql-minifier.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["SQL Minifier", "SQL Compressor"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        .option-group{display:flex;gap:15px;margin-top:10px}
+        .option-group label{color:#fff}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-compress-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">SQL Minifier</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Compress SQL queries by removing whitespace</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input SQL</div>
+                <div style="padding:20px">
+                    <textarea id="sqlMinifyInput" class="tool-textarea" placeholder="Paste SQL query here...">SELECT 
+    u.name,
+    o.total 
+FROM users u 
+JOIN orders o ON u.id = o.user_id 
+WHERE u.active = 1 
+ORDER BY o.total DESC</textarea>
+                    <div class="option-group">
+                        <label><input type="checkbox" id="removeCommentsSQL"> Remove comments</label>
+                        <label><input type="checkbox" id="collapseSpacesSQL" checked> Collapse spaces</label>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="minifySQL()"><i class="fas fa-compress-alt"></i> Minify SQL</button>
+                    <button class="secondary-btn" onclick="clearSQLMinify()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Minified SQL</div>
+                <div class="output-display" id="sqlMinifyOutput">Click "Minify SQL" to see result</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySQLMinify()"><i class="far fa-copy"></i> Copy Minified</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridSQLMinify"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is SQL Minification?</h3>
+            <p>SQL minification is the process of removing unnecessary characters from SQL queries without changing their functionality. This includes removing extra whitespace, line breaks, and optionally comments. The result is a compact query that takes up less space, which is useful for reducing network traffic, embedding SQL in applications, or optimizing stored procedures.</p>
+            <p>This tool minifies SQL queries by collapsing multiple spaces, removing newlines, and optionally stripping comments. The output is a single‑line (or compact) version of your query that executes exactly the same as the original.</p>
+            <p>All processing is done locally in your browser – your queries never leave your device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Paste your SQL query into the input area.<br>
+            <strong>Step 2:</strong> Choose options: remove comments, collapse spaces (default).<br>
+            <strong>Step 3:</strong> Click "Minify SQL" to compress the query.<br>
+            <strong>Step 4:</strong> Copy the minified output using the "Copy Minified" button.</p>
+            <p>Minified SQL is especially useful for embedding in application code, reducing log file size, or when sharing queries in space‑constrained environments.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Input (formatted):</strong><br>
+            <pre>SELECT 
+    name, 
+    age 
+FROM users 
+WHERE active = 1</pre>
+            <strong>Minified:</strong><br>
+            <code>SELECT name, age FROM users WHERE active = 1</code>
+            </p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses SQL Minifiers?</h3>
+            <ul>
+                <li><strong>Application Developers</strong> – embedding SQL in code.</li>
+                <li><strong>Database Administrators</strong> – reducing query log size.</li>
+                <li><strong>DevOps Engineers</strong> – optimizing deployment scripts.</li>
+                <li><strong>Data Engineers</strong> – compressing ETL queries.</li>
+                <li><strong>Performance Engineers</strong> – reducing network payload.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Keep a formatted backup before minifying for debugging.</li>
+                <li>Use "Remove comments" carefully – comments may contain important documentation.</li>
+                <li>Minified SQL is ideal for production deployments where file size matters.</li>
+                <li>Combine minification with query parameterization for best practices.</li>
+                <li>Test minified queries in a development environment before production.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Does minification affect query performance?</div>
+            <div class="faq-answer">No, minification only removes whitespace and comments. The execution plan remains identical.</div>
+
+            <div class="faq-question">What about comments in SQL?</div>
+            <div class="faq-answer">Comments can be optionally removed. Single‑line (--) and multi‑line (/* */) comments are both handled.</div>
+
+            <div class="faq-question">Can I minify stored procedures?</div>
+            <div class="faq-answer">Yes, stored procedures and functions can be minified, though comments inside will be removed if selected.</div>
+
+            <div class="faq-question">Does it preserve string literals?</div>
+            <div class="faq-answer">Yes, whitespace inside quotes is preserved to avoid altering string content.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all minification happens locally in your browser.</div>
+
+            <div class="faq-question">What about large SQL files?</div>
+            <div class="faq-answer">The tool can handle moderately sized files. Very large files may take a few seconds.</div>
+
+            <div class="faq-question">Can I revert minified SQL back to formatted?</div>
+            <div class="faq-answer">Minification is lossy; the original formatting cannot be restored. Use the SQL Formatter to re‑format if needed.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function minifySQL() {
+        let sql = document.getElementById('sqlMinifyInput').value;
+        if (!sql.trim()) {
+            document.getElementById('sqlMinifyOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter SQL to minify.</span>';
+            return;
+        }
+        const removeComments = document.getElementById('removeCommentsSQL').checked;
+        const collapseSpaces = document.getElementById('collapseSpacesSQL').checked;
+        
+        let minified = sql;
+        
+        if (removeComments) {
+            // Remove single-line comments
+            minified = minified.replace(/--[^\n]*/g, '');
+            // Remove multi-line comments
+            minified = minified.replace(/\/\*[\s\S]*?\*\//g, '');
+        }
+        
+        if (collapseSpaces) {
+            // Collapse multiple spaces and newlines
+            minified = minified.replace(/\s+/g, ' ');
+            // Remove spaces around commas
+            minified = minified.replace(/\s*,\s*/g, ',');
+            // Remove spaces around operators
+            minified = minified.replace(/\s*=\s*/g, '=');
+            minified = minified.replace(/\s*>\s*/g, '>');
+            minified = minified.replace(/\s*<\s*/g, '<');
+            minified = minified.trim();
+        }
+        
+        document.getElementById('sqlMinifyOutput').innerHTML = minified;
+    }
+
+    function clearSQLMinify() {
+        document.getElementById('sqlMinifyInput').value = '';
+        document.getElementById('sqlMinifyOutput').innerHTML = 'Click "Minify SQL" to see result';
+    }
+
+    function copySQLMinify() {
+        const text = document.getElementById('sqlMinifyOutput').innerText;
+        if (text && text !== 'Click "Minify SQL" to see result') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Minified', 2000);
+        }
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"SQL Formatter", icon:"fa-database", url:"sql-formatter.html"},
+            {name:"JSON Minifier", icon:"fa-compress-alt", url:"json-minifier.html"},
+            {name:"Password Strength", icon:"fa-shield-alt", url:"pass-check.html"},
+            {name:"CSS Minifier", icon:"fa-css3-alt", url:"css-minifier.html"},
+            {name:"JavaScript Minifier", icon:"fa-js", url:"js-minifier.html"},
+            {name:"Lorem Ipsum", icon:"fa-paragraph", url:"lorem-ipsum.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridSQLMinify").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

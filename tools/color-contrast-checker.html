@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Color Contrast Checker – WCAG Accessibility Checker | ToolGram</title>
+    <meta name="description" content="Check color contrast ratios for WCAG accessibility compliance. Test foreground and background color combinations for readability.">
+    <meta name="keywords" content="color contrast checker, wcag contrast, accessibility checker, contrast ratio, color accessibility">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/color-contrast-checker.html">
+    <meta property="og:title" content="Color Contrast Checker | ToolGram">
+    <meta property="og:description" content="Check color contrast for WCAG accessibility.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/color-contrast-checker.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Color Contrast Checker",
+        "description": "Check color contrast for WCAG accessibility.",
+        "applicationCategory": "Design",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/color-contrast-checker.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Color Contrast", "WCAG Checker", "Accessibility"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        .color-input{display:flex;gap:10px;margin-bottom:15px;align-items:center}
+        .color-input label{min-width:100px;color:#fff}
+        .color-input input{flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff}
+        .color-preview{width:100%;height:60px;border-radius:8px;margin-top:10px;border:2px solid rgba(255,255,255,0.2)}
+        .contrast-badge{display:inline-block;padding:4px 12px;border-radius:20px;font-weight:bold}
+        .contrast-pass{background:#10B981;color:#fff}
+        .contrast-fail{background:#EF4444;color:#fff}
+        .contrast-aa{background:#F59E0B;color:#fff}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-adjust"></i></div>
+            <div>
+                <h1 style="margin:0;">Color Contrast Checker</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Check WCAG accessibility contrast ratios</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-palette"></i> Color Settings</div>
+                <div style="padding:20px">
+                    <div class="color-input">
+                        <label>Text Color:</label>
+                        <input type="text" id="textColor" placeholder="#000000 or rgb(0,0,0)" value="#000000">
+                        <input type="color" id="textColorPicker" value="#000000" style="width:50px;height:40px;">
+                    </div>
+                    <div class="color-input">
+                        <label>Background Color:</label>
+                        <input type="text" id="bgColor" placeholder="#FFFFFF or rgb(255,255,255)" value="#FFFFFF">
+                        <input type="color" id="bgColorPicker" value="#FFFFFF" style="width:50px;height:40px;">
+                    </div>
+                    <div id="textPreview" class="color-preview" style="background:#FFFFFF; display:flex; align-items:center; justify-content:center; color:#000000;">Sample Text</div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="checkContrast()"><i class="fas fa-check-circle"></i> Check Contrast</button>
+                    <button class="secondary-btn" onclick="clearContrast()"><i class="fas fa-trash"></i> Reset</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Results</div>
+                <div class="output-display" id="contrastOutput">Click "Check Contrast" to see results</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyContrast()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridContrast"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Color Contrast?</h3>
+            <p>Color contrast refers to the difference in luminance between text (foreground) and its background. Proper contrast ensures that text is readable by people with visual impairments, including those with low vision or color blindness. The Web Content Accessibility Guidelines (WCAG) define minimum contrast ratios for accessibility compliance.</p>
+            <p>This tool calculates the contrast ratio between two colors and determines if it meets WCAG standards for normal text (AA: 4.5:1, AAA: 7:1) and large text (AA: 3:1, AAA: 4.5:1).</p>
+            <p>All processing is done locally in your browser – your color choices never leave your device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Enter text color (foreground) using HEX, RGB, or color picker.<br>
+            <strong>Step 2:</strong> Enter background color using HEX, RGB, or color picker.<br>
+            <strong>Step 3:</strong> Click "Check Contrast" to calculate the ratio.<br>
+            <strong>Step 4:</strong> See if the combination passes WCAG AA or AAA standards.<br>
+            <strong>Step 5:</strong> Copy the results using the "Copy Results" button.</p>
+            <p>The sample text preview updates to show your chosen colors.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Black on White:</strong> #000000 on #FFFFFF → Ratio 21:1 ✅ AAA Pass<br>
+            <strong>Gray on White:</strong> #888888 on #FFFFFF → Ratio 3.0:1 ❌ Fails AA<br>
+            <strong>Dark Blue on Light Blue:</strong> #0000FF on #ADD8E6 → Ratio 4.2:1 ✅ AA Pass</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses Color Contrast Checkers?</h3>
+            <ul>
+                <li><strong>Web Designers</strong> – ensuring accessible designs.</li>
+                <li><strong>UI/UX Designers</strong> – creating inclusive interfaces.</li>
+                <li><strong>Front-End Developers</strong> – implementing accessible styles.</li>
+                <li><strong>Accessibility Specialists</strong> – auditing websites.</li>
+                <li><strong>Product Managers</strong> – meeting compliance standards.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>WCAG AA is the legal standard for many organizations.</li>
+                <li>Large text (18pt or 14pt bold) has lower contrast requirements.</li>
+                <li>Test both normal and large text for comprehensive accessibility.</li>
+                <li>Use the color pickers for visual color selection.</li>
+                <li>Save accessible color combinations for your design system.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the WCAG contrast ratio?</div>
+            <div class="faq-answer">WCAG defines minimum contrast ratios: AA requires 4.5:1 for normal text, AAA requires 7:1. Large text (18pt+) has lower requirements.</div>
+
+            <div class="faq-question">How is contrast ratio calculated?</div>
+            <div class="faq-answer">The ratio is (L1 + 0.05) / (L2 + 0.05), where L1 and L2 are relative luminances of the lighter and darker colors.</div>
+
+            <div class="faq-question">What if my color is not in HEX?</div>
+            <div class="faq-answer">You can enter colors as HEX (#RRGGBB), RGB (rgb(0,0,0)), or use the color picker.</div>
+
+            <div class="faq-question">Does it work with transparent colors?</div>
+            <div class="faq-answer">This tool requires opaque colors. For transparency, you need to know the underlying background color.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all calculations happen locally in your browser.</div>
+
+            <div class="faq-question">What about color blindness?</div>
+            <div class="faq-answer">This tool checks luminance contrast, which benefits all users, including those with color blindness.</div>
+
+            <div class="faq-question">Can I use this for mobile apps?</div>
+            <div class="faq-answer">Yes, contrast guidelines apply to all digital interfaces, including mobile apps and software.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function parseColor(color) {
+        color = color.trim().toLowerCase();
+        
+        // HEX
+        if (color.startsWith('#')) {
+            let hex = color.substring(1);
+            if (hex.length === 3) {
+                hex = hex.split('').map(c => c + c).join('');
+            }
+            if (hex.length === 6) {
+                const r = parseInt(hex.substring(0,2), 16);
+                const g = parseInt(hex.substring(2,4), 16);
+                const b = parseInt(hex.substring(4,6), 16);
+                return {r,g,b};
+            }
+        }
+        
+        // RGB
+        const rgbMatch = color.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+        if (rgbMatch) {
+            return {
+                r: parseInt(rgbMatch[1]),
+                g: parseInt(rgbMatch[2]),
+                b: parseInt(rgbMatch[3])
+            };
+        }
+        
+        // Named colors - basic support
+        const namedColors = {
+            black: {r:0,g:0,b:0},
+            white: {r:255,g:255,b:255},
+            red: {r:255,g:0,b:0},
+            green: {r:0,g:255,b:0},
+            blue: {r:0,g:0,b:255},
+            gray: {r:128,g:128,b:128},
+            darkgray: {r:169,g:169,b:169},
+            lightgray: {r:211,g:211,b:211}
+        };
+        if (namedColors[color]) return namedColors[color];
+        
+        throw new Error(`Invalid color format: ${color}`);
+    }
+    
+    function getLuminance(r,g,b) {
+        const [rs, gs, bs] = [r,g,b].map(c => {
+            c = c / 255;
+            return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+        });
+        return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+    }
+    
+    function getContrastRatio(l1, l2) {
+        const lighter = Math.max(l1, l2);
+        const darker = Math.min(l1, l2);
+        return (lighter + 0.05) / (darker + 0.05);
+    }
+    
+    function checkContrast() {
+        let textColorStr = document.getElementById('textColor').value;
+        let bgColorStr = document.getElementById('bgColor').value;
+        
+        try {
+            const textColor = parseColor(textColorStr);
+            const bgColor = parseColor(bgColorStr);
+            
+            // Update preview
+            const preview = document.getElementById('textPreview');
+            preview.style.background = `rgb(${bgColor.r},${bgColor.g},${bgColor.b})`;
+            preview.style.color = `rgb(${textColor.r},${textColor.g},${textColor.b})`;
+            
+            const textLum = getLuminance(textColor.r, textColor.g, textColor.b);
+            const bgLum = getLuminance(bgColor.r, bgColor.g, bgColor.b);
+            const ratio = getContrastRatio(textLum, bgLum);
+            const ratioFormatted = ratio.toFixed(2);
+            
+            let aaNormal = ratio >= 4.5;
+            let aaLarge = ratio >= 3.0;
+            let aaaNormal = ratio >= 7.0;
+            let aaaLarge = ratio >= 4.5;
+            
+            let output = `<div><strong>Contrast Ratio:</strong> ${ratioFormatted}:1</div>`;
+            output += `<div style="margin-top:10px;"><strong>WCAG Compliance:</strong></div>`;
+            output += `<div>• AA (Normal Text, 4.5:1): ${aaNormal ? '<span class="contrast-badge contrast-pass">PASS</span>' : '<span class="contrast-badge contrast-fail">FAIL</span>'}</div>`;
+            output += `<div>• AA (Large Text, 3:1): ${aaLarge ? '<span class="contrast-badge contrast-pass">PASS</span>' : '<span class="contrast-badge contrast-fail">FAIL</span>'}</div>`;
+            output += `<div>• AAA (Normal Text, 7:1): ${aaaNormal ? '<span class="contrast-badge contrast-pass">PASS</span>' : '<span class="contrast-badge contrast-fail">FAIL</span>'}</div>`;
+            output += `<div>• AAA (Large Text, 4.5:1): ${aaaLarge ? '<span class="contrast-badge contrast-pass">PASS</span>' : '<span class="contrast-badge contrast-fail">FAIL</span>'}</div>`;
+            
+            document.getElementById('contrastOutput').innerHTML = output;
+        } catch (e) {
+            document.getElementById('contrastOutput').innerHTML = `<span style="color:#EF4444;">❌ Error: ${e.message}</span>`;
+        }
+    }
+    
+    // Sync color pickers with text inputs
+    document.getElementById('textColorPicker').addEventListener('input', function(e) {
+        document.getElementById('textColor').value = e.target.value;
+        checkContrast();
+    });
+    document.getElementById('bgColorPicker').addEventListener('input', function(e) {
+        document.getElementById('bgColor').value = e.target.value;
+        checkContrast();
+    });
+    document.getElementById('textColor').addEventListener('input', function() {
+        document.getElementById('textColorPicker').value = this.value;
+        checkContrast();
+    });
+    document.getElementById('bgColor').addEventListener('input', function() {
+        document.getElementById('bgColorPicker').value = this.value;
+        checkContrast();
+    });
+    
+    function clearContrast() {
+        document.getElementById('textColor').value = '#000000';
+        document.getElementById('bgColor').value = '#FFFFFF';
+        document.getElementById('textColorPicker').value = '#000000';
+        document.getElementById('bgColorPicker').value = '#FFFFFF';
+        checkContrast();
+    }
+    
+    function copyContrast() {
+        const text = document.getElementById('contrastOutput').innerText;
+        if (text && text !== 'Click "Check Contrast" to see results') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+        }
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"RGB to HEX Converter", icon:"fa-palette", url:"rgb-to-hex.html"},
+            {name:"Color Palette Generator", icon:"fa-palette", url:"color-palette.html"},
+            {name:"Color Picker from Image", icon:"fa-eye-dropper", url:"color-picker-from-image.html"},
+            {name:"CSS Gradient Generator", icon:"fa-palette", url:"gradient-gen.html"},
+            {name:"Random Color Generator", icon:"fa-palette", url:"random-color.html"},
+            {name:"HTML Color Name Converter", icon:"fa-palette", url:"html-color-names.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridContrast").innerHTML = html;
+    }
+    window.addEventListener("load", () => {
+        loadRelated();
+        checkContrast();
+    });
+</script>
+</body>
+</html>
