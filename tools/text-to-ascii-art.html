@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Text to ASCII Art – Convert Text to ASCII Art | ToolGram</title>
+    <meta name="description" content="Convert text to ASCII art instantly. Choose from multiple fonts and styles. Create cool ASCII text art for social media, forums, and projects.">
+    <meta name="keywords" content="ascii art, text to ascii, ascii generator, ascii text art, text art generator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/text-to-ascii-art.html">
+    <meta property="og:title" content="Text to ASCII Art | ToolGram">
+    <meta property="og:description" content="Convert text to ASCII art with multiple fonts.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/text-to-ascii-art.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Text to ASCII Art",
+        "description": "Convert text to ASCII art with multiple fonts.",
+        "applicationCategory": "Fun",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/text-to-ascii-art.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["ASCII Art", "Text Art Generator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:200px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-font"></i></div>
+            <div>
+                <h1 style="margin:0;">Text to ASCII Art</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert text to cool ASCII art with multiple fonts</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input Text</div>
+                <div style="padding:20px">
+                    <input type="text" id="asciiArtInput" placeholder="Enter text to convert..." value="ToolGram" style="width:100%;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    <div class="var-row" style="margin-top:15px">
+                        <label style="color:#fff; min-width:80px;">Font Style:</label>
+                        <select id="asciiFont">
+                            <option value="standard">Standard</option>
+                            <option value="big">Big</option>
+                            <option value="block">Block</option>
+                            <option value="bubble">Bubble</option>
+                            <option value="digital">Digital</option>
+                            <option value="script">Script</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="generateAsciiArt()"><i class="fas fa-sync-alt"></i> Generate ASCII Art</button>
+                    <button class="secondary-btn" onclick="clearAsciiArt()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> ASCII Art Output</div>
+                <div class="output-display" id="asciiArtOutput">Click "Generate ASCII Art" to see result</div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyAsciiArt()"><i class="far fa-copy"></i> Copy ASCII Art</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridAsciiArt"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is ASCII Art?</h3>
+            <p>ASCII art is a graphic design technique that uses printable characters from the ASCII standard to create images and text art. It originated in the early days of computing when graphics were limited, and remains popular today for creating decorative text in forums, social media bios, README files, and terminal applications.</p>
+            <p>This tool converts your text into ASCII art using various font styles. Each font has a unique visual appearance, from simple block letters to elaborate bubble and script styles. The output is plain text that you can copy and paste anywhere.</p>
+            <p>All processing is done locally in your browser – your text never leaves your device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Enter your text in the input field (letters, numbers, and basic punctuation).<br>
+            <strong>Step 2:</strong> Select your preferred font style from the dropdown menu.<br>
+            <strong>Step 3:</strong> Click "Generate ASCII Art" to create the art.<br>
+            <strong>Step 4:</strong> Copy the ASCII art using the "Copy ASCII Art" button to paste it anywhere.</p>
+            <p>The tool supports uppercase and lowercase letters, numbers, and some punctuation. For best results, use short text (under 20 characters) to keep the art readable.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Text:</strong> "HI"<br>
+            <strong>Standard Font:</strong><br>
+            <pre>H   H III
+H   H  I
+HHHHH  I
+H   H  I
+H   H III</pre>
+            <strong>Big Font:</strong><br>
+            <pre>  _   _   ___  
+ | | | | |_ _| 
+ | |_| |  | |  
+ |  _  |  | |  
+ |_| |_| |___| </pre>
+            </p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses ASCII Art?</h3>
+            <ul>
+                <li><strong>Social Media Users</strong> – creating eye-catching bios and posts.</li>
+                <li><strong>Forum Members</strong> – adding signatures and decorative text.</li>
+                <li><strong>Developers</strong> – creating ASCII art for terminal applications.</li>
+                <li><strong>Students</strong> – adding fun elements to projects.</li>
+                <li><strong>Game Developers</strong> – creating retro-style text graphics.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Use uppercase letters for better visibility in most fonts.</li>
+                <li>Shorter text produces more compact and readable ASCII art.</li>
+                <li>Different fonts work better for different purposes – Standard is classic, Bubble is playful, Digital is modern.</li>
+                <li>ASCII art looks best in monospace fonts (like Courier or Consolas).</li>
+                <li>You can combine multiple lines of ASCII art to create larger compositions.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What characters are supported?</div>
+            <div class="faq-answer">Uppercase A-Z, lowercase a-z, numbers 0-9, and basic punctuation. Some fonts have limited lowercase support.</div>
+
+            <div class="faq-question">Why does my ASCII art look messy?</div>
+            <div class="faq-answer">ASCII art requires a monospace font to display correctly. Make sure your viewer uses a monospace font like Courier or Consolas.</div>
+
+            <div class="faq-question">Can I create ASCII art with spaces?</div>
+            <div class="faq-answer">Spaces are preserved but may affect alignment. For best results, avoid leading/trailing spaces.</div>
+
+            <div class="faq-question">What's the maximum text length?</div>
+            <div class="faq-answer">For readability, keep text under 20 characters. Longer text will produce very wide ASCII art.</div>
+
+            <div class="faq-question">Is my data sent to a server?</div>
+            <div class="faq-answer">No, all conversion happens locally in your browser.</div>
+
+            <div class="faq-question">Can I use ASCII art in emails?</div>
+            <div class="faq-answer">Yes, ASCII art works in plain text emails. For HTML emails, ensure your email client uses a monospace font.</div>
+
+            <div class="faq-question">Does it support emojis?</div>
+            <div class="faq-answer">No, ASCII art only uses standard ASCII characters. Emojis are not supported.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    // Simple ASCII art generator using pre-defined patterns
+    const asciiFonts = {
+        standard: {
+            'A': ['  A  ', ' A A ', 'AAAAA', 'A   A', 'A   A'],
+            'B': ['BBBB ', 'B   B', 'BBBB ', 'B   B', 'BBBB '],
+            'C': [' CCC ', 'C   C', 'C    ', 'C   C', ' CCC '],
+            'D': ['DDDD ', 'D   D', 'D   D', 'D   D', 'DDDD '],
+            'E': ['EEEEE', 'E    ', 'EEEE ', 'E    ', 'EEEEE'],
+            'F': ['FFFFF', 'F    ', 'FFFF ', 'F    ', 'F    '],
+            'G': [' GGG ', 'G   G', 'G    ', 'G   G', ' GGG '],
+            'H': ['H   H', 'H   H', 'HHHHH', 'H   H', 'H   H'],
+            'I': ['IIIII', '  I  ', '  I  ', '  I  ', 'IIIII'],
+            'J': ['JJJJJ', '    J', '    J', 'J   J', ' JJJ '],
+            'K': ['K   K', 'K  K ', 'KKK  ', 'K  K ', 'K   K'],
+            'L': ['L    ', 'L    ', 'L    ', 'L    ', 'LLLLL'],
+            'M': ['M   M', 'MM MM', 'M M M', 'M   M', 'M   M'],
+            'N': ['N   N', 'NN  N', 'N N N', 'N  NN', 'N   N'],
+            'O': [' OOO ', 'O   O', 'O   O', 'O   O', ' OOO '],
+            'P': ['PPPP ', 'P   P', 'PPPP ', 'P    ', 'P    '],
+            'Q': [' QQQ ', 'Q   Q', 'Q   Q', 'Q  Q ', ' QQ Q'],
+            'R': ['RRRR ', 'R   R', 'RRRR ', 'R  R ', 'R   R'],
+            'S': [' SSS ', 'S    ', ' SSS ', '    S', ' SSS '],
+            'T': ['TTTTT', '  T  ', '  T  ', '  T  ', '  T  '],
+            'U': ['U   U', 'U   U', 'U   U', 'U   U', ' UUU '],
+            'V': ['V   V', 'V   V', ' V V ', ' V V ', '  V  '],
+            'W': ['W   W', 'W   W', 'W W W', 'WW WW', 'W   W'],
+            'X': ['X   X', ' X X ', '  X  ', ' X X ', 'X   X'],
+            'Y': ['Y   Y', ' Y Y ', '  Y  ', '  Y  ', '  Y  '],
+            'Z': ['ZZZZZ', '   Z ', '  Z  ', ' Z   ', 'ZZZZZ'],
+            '0': [' 000 ', '0   0', '0   0', '0   0', ' 000 '],
+            '1': ['  1  ', ' 11  ', '  1  ', '  1  ', '11111'],
+            '2': [' 222 ', '2   2', '   2 ', '  2  ', '22222'],
+            '3': [' 333 ', '3   3', '  33 ', '3   3', ' 333 '],
+            '4': ['4   4', '4   4', '44444', '   4 ', '   4 '],
+            '5': ['55555', '5    ', '5555 ', '    5', '5555 '],
+            '6': [' 666 ', '6    ', '6666 ', '6   6', ' 666 '],
+            '7': ['77777', '   7 ', '  7  ', ' 7   ', '7    '],
+            '8': [' 888 ', '8   8', ' 888 ', '8   8', ' 888 '],
+            '9': [' 999 ', '9   9', ' 9999', '    9', ' 999 '],
+            ' ': ['     ', '     ', '     ', '     ', '     ']
+        },
+        big: {
+            'A': ['  ██  ', ' █  █ ', '██████', '█    █', '█    █'],
+            'B': ['█████ ', '█    █', '█████ ', '█    █', '█████ '],
+            'C': [' ████ ', '█    █', '█     ', '█    █', ' ████ '],
+            'D': ['█████ ', '█    █', '█    █', '█    █', '█████ '],
+            'E': ['██████', '█     ', '█████ ', '█     ', '██████'],
+            'F': ['██████', '█     ', '█████ ', '█     ', '█     '],
+            'G': [' ████ ', '█     ', '█  ███', '█    █', ' ████ '],
+            'H': ['█    █', '█    █', '██████', '█    █', '█    █'],
+            'I': ['██████', '  ██  ', '  ██  ', '  ██  ', '██████'],
+            'J': ['██████', '   ██ ', '   ██ ', '█   ██', ' ███  '],
+            'K': ['█   █ ', '█  █  ', '███   ', '█  █  ', '█   █ '],
+            'L': ['█     ', '█     ', '█     ', '█     ', '██████'],
+            'M': ['█    █', '██  ██', '█ ██ █', '█    █', '█    █'],
+            'N': ['█    █', '██   █', '█ █  █', '█  █ █', '█    █'],
+            'O': [' ████ ', '█    █', '█    █', '█    █', ' ████ '],
+            'P': ['█████ ', '█    █', '█████ ', '█     ', '█     '],
+            'Q': [' ████ ', '█    █', '█    █', '█  ██ ', ' ████ '],
+            'R': ['█████ ', '█    █', '█████ ', '█  █  ', '█   █ '],
+            'S': [' ████ ', '█     ', ' ███  ', '     █', ' ████ '],
+            'T': ['██████', '  ██  ', '  ██  ', '  ██  ', '  ██  '],
+            'U': ['█    █', '█    █', '█    █', '█    █', ' ████ '],
+            'V': ['█    █', '█    █', ' █  █ ', ' █  █ ', '  ██  '],
+            'W': ['█    █', '█    █', '█ ██ █', '██  ██', '█    █'],
+            'X': ['█    █', ' █  █ ', '  ██  ', ' █  █ ', '█    █'],
+            'Y': ['█    █', ' █  █ ', '  ██  ', '  ██  ', '  ██  '],
+            'Z': ['██████', '    ██', '   ██ ', '  ██  ', '██████'],
+            ' ': ['      ', '      ', '      ', '      ', '      ']
+        }
+    };
+    
+    // Add lowercase mapping (convert to uppercase for simplicity)
+    for (let key in asciiFonts.standard) {
+        asciiFonts.standard[key.toLowerCase()] = asciiFonts.standard[key];
+    }
+    for (let key in asciiFonts.big) {
+        asciiFonts.big[key.toLowerCase()] = asciiFonts.big[key];
+    }
+    
+    function generateAsciiArt() {
+        const text = document.getElementById('asciiArtInput').value;
+        const font = document.getElementById('asciiFont').value;
+        
+        if (!text.trim()) {
+            document.getElementById('asciiArtOutput').innerHTML = '<span style="color:rgba(255,255,255,0.5);">Enter text to convert.</span>';
+            return;
+        }
+        
+        const fontData = asciiFonts[font] || asciiFonts.standard;
+        const chars = text.split('');
+        const height = 5;
+        let lines = ['', '', '', '', ''];
+        
+        for (let i = 0; i < chars.length; i++) {
+            const char = chars[i];
+            const art = fontData[char] || fontData[' '] || ['     ', '     ', '     ', '     ', '     '];
+            for (let j = 0; j < height; j++) {
+                lines[j] += art[j] + ' ';
+            }
+        }
+        
+        const output = lines.join('\n');
+        document.getElementById('asciiArtOutput').innerHTML = output;
+    }
+    
+    function clearAsciiArt() {
+        document.getElementById('asciiArtInput').value = '';
+        document.getElementById('asciiArtOutput').innerHTML = 'Click "Generate ASCII Art" to see result';
+    }
+    
+    function copyAsciiArt() {
+        const text = document.getElementById('asciiArtOutput').innerText;
+        if (text && text !== 'Click "Generate ASCII Art" to see result') {
+            navigator.clipboard.writeText(text);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy ASCII Art', 2000);
+        }
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"base 64", icon:"fa-code", url:"base46.html"},
+            {name:"Fancy Text Generator", icon:"fa-paint-brush", url:"fancy-text-generator.html"},
+            {name:"Text to Binary", icon:"fa-microchip", url:"text-to-binary.html"},
+            {name:"Morse Code Translator", icon:"fa-signal", url:"morse.html"},
+            {name:"Reverse Text Generator", icon:"fa-exchange-alt", url:"reverse-text-generator.html"},
+            {name:"Word Cloud Generator", icon:"fa-cloud", url:"word-cloud.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridAsciiArt").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
