@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Payday Loan Calculator – Cost & APR Estimator | ToolGram</title>
+    <meta name="description" content="Calculate payday loan costs, total repayment, and APR. Free online payday loan calculator to understand the true cost of short-term borrowing.">
+    <meta name="keywords" content="payday loan calculator, payday loan cost, short term loan calculator, cash advance calculator, loan APR calculator, payday loan interest">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/payday-loan-calculator.html">
+    <meta property="og:title" content="Payday Loan Calculator | ToolGram">
+    <meta property="og:description" content="Calculate payday loan costs and total repayment amount.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/payday-loan-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Payday Loan Calculator",
+        "description": "Calculate payday loan costs, APR, and total repayment.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/payday-loan-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Payday Loan Calculator", "APR Calculator", "Loan Cost Estimator", "Short Term Loan Calculator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <div>
+                <h1 style="margin:0;">Payday Loan Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate total cost, fees, and APR for short-term loans</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Loan Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Amount ($)</label>
+                        <input type="number" id="paydayAmount" placeholder="500" value="500" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Finance Charge ($)</label>
+                        <input type="number" id="financeCharge" placeholder="75" value="75" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term (Days)</label>
+                        <select id="paydayTerm" style="flex:1;">
+                            <option value="7">7 Days (1 Week)</option>
+                            <option value="14" selected>14 Days (2 Weeks)</option>
+                            <option value="21">21 Days (3 Weeks)</option>
+                            <option value="30">30 Days (1 Month)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculatePaydayLoan()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearPaydayLoan()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Results</div>
+                <div class="output-display" id="paydayOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Repayment:</strong> <span class="loan-result" id="totalRepayment">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Cost per $100:</strong> <span class="loan-result" id="costPerHundred">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">APR:</strong> <span class="loan-result" id="aprValue">0%</span></div>
+                    <div><strong style="color:#8B5CF6;">Effective Rate:</strong> <span class="loan-result" id="effectiveRate">0%</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyPaydayResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridPLC"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Payday Loan Calculator?</h3>
+            <p>A payday loan calculator helps you understand the true cost of short-term borrowing. Payday loans typically charge a fixed fee per amount borrowed, which translates to extremely high Annual Percentage Rates (APR) when annualized.</p>
+            <p>This calculator shows you the total amount you'll need to repay, the cost per $100 borrowed, and the equivalent APR. Understanding these numbers helps you make informed decisions about short-term borrowing.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the loan amount you want to borrow.<br>
+            <strong>Step 2:</strong> Input the finance charge (fee) the lender will charge.<br>
+            <strong>Step 3:</strong> Select the loan term in days (typically 14 days).<br>
+            <strong>Step 4:</strong> Click "Calculate" to see total repayment, cost per $100, and APR.<br>
+            <strong>Step 5:</strong> Use the copy button to save your calculations.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-example"></i> Examples</h3>
+            <p><strong>Example 1:</strong> $500 loan with $75 fee for 14 days<br>
+            Total Repayment: $575 | APR: 391%</p>
+            <p><strong>Example 2:</strong> $300 loan with $45 fee for 14 days<br>
+            Total Repayment: $345 | APR: 391%</p>
+            <p><strong>Example 3:</strong> $1,000 loan with $150 fee for 30 days<br>
+            Total Repayment: $1,150 | APR: 183%</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses This Calculator?</h3>
+            <ul>
+                <li><strong>Borrowers</strong> – understanding the true cost before taking a loan.</li>
+                <li><strong>Financial Counselors</strong> – helping clients compare borrowing options.</li>
+                <li><strong>Consumer Advocates</strong> – educating about short-term lending costs.</li>
+                <li><strong>Budget Planners</strong> – determining if they can afford repayment.</li>
+                <li><strong>Comparison Shoppers</strong> – evaluating different lenders' fees.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Payday loan APRs often exceed 300-400% annually. Consider alternatives first.</li>
+                <li>A lower finance charge doesn't always mean a better deal. Compare APRs.</li>
+                <li>Rolling over payday loans can lead to debt cycles. Calculate full costs upfront.</li>
+                <li>Some credit unions offer payday alternative loans (PALs) with much lower rates.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Why are payday loan APRs so high?</div>
+            <div class="faq-answer">Payday loans are short-term, high-risk loans with no collateral. The fees seem small for a 2-week period but translate to very high rates when annualized. A $15 fee per $100 for 14 days equals 391% APR.</div>
+
+            <div class="faq-question">What is a typical payday loan fee?</div>
+            <div class="faq-answer">Fees typically range from $10 to $30 per $100 borrowed for a 2-week term. This equals 260% to 782% APR.</div>
+
+            <div class="faq-question">How is APR calculated on payday loans?</div>
+            <div class="faq-answer">APR = (Finance Charge / Loan Amount) × (365 / Loan Term in Days) × 100. For example: ($75/$500) × (365/14) × 100 = 391% APR.</div>
+
+            <div class="faq-question">Are there alternatives to payday loans?</div>
+            <div class="faq-answer">Yes. Consider credit union PALs, paycheck advances from employers, negotiating with creditors, or assistance programs. These often have much lower costs than payday loans.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculatePaydayLoan() {
+        const amount = parseFloat(document.getElementById('paydayAmount').value);
+        const fee = parseFloat(document.getElementById('financeCharge').value);
+        const days = parseInt(document.getElementById('paydayTerm').value);
+
+        if (isNaN(amount) || isNaN(fee) || amount <= 0 || fee < 0 || days <= 0) {
+            document.getElementById('paydayOutput').innerHTML = '<span style="color:#EF4444;">Please enter valid loan details.</span>';
+            return;
+        }
+
+        const totalRepayment = amount + fee;
+        const costPerHundred = (fee / amount) * 100;
+        
+        // APR formula: (Fee / Principal) * (365 / Days) * 100
+        const apr = ((fee / amount) * (365 / days) * 100);
+        
+        // Effective rate for the loan period
+        const effectiveRate = ((fee / amount) * 100);
+
+        document.getElementById('totalRepayment').textContent = '$' + totalRepayment.toFixed(2);
+        document.getElementById('costPerHundred').textContent = '$' + costPerHundred.toFixed(2);
+        document.getElementById('aprValue').textContent = apr.toFixed(0) + '%';
+        document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(1) + '%';
+    }
+
+    function clearPaydayLoan() {
+        document.getElementById('paydayAmount').value = '';
+        document.getElementById('financeCharge').value = '';
+        document.getElementById('paydayTerm').value = '14';
+        document.getElementById('totalRepayment').textContent = '$0.00';
+        document.getElementById('costPerHundred').textContent = '$0.00';
+        document.getElementById('aprValue').textContent = '0%';
+        document.getElementById('effectiveRate').textContent = '0%';
+    }
+
+    function copyPaydayResults() {
+        const repayment = document.getElementById('totalRepayment').textContent;
+        const costPerHundred = document.getElementById('costPerHundred').textContent;
+        const apr = document.getElementById('aprValue').textContent;
+        const effectiveRate = document.getElementById('effectiveRate').textContent;
+        
+        const text = `Payday Loan Calculation:
+Total Repayment: ${repayment}
+Cost per $100: ${costPerHundred}
+APR: ${apr}
+Effective Rate: ${effectiveRate}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Student Loan Calculator", icon:"fa-graduation-cap", url:"student-loan-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Auto Loan Calculator", icon:"fa-car", url:"auto-loan-calculator.html"},
+            {name:"Loan Calculator", icon:"fa-calculator", url:"loan-calculator.html"},
+            {name:"Percentage Calculator", icon:"fa-percent", url:"percentage-calculator.html"},
+            {name:"VAT Calculator", icon:"fa-receipt", url:"vat-calculator.html"},
+            {name:"Age Calculator", icon:"fa-calendar", url:"age-calculator.html"},
+            {name:"BMI Calculator", icon:"fa-weight", url:"bmi-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridPLC").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

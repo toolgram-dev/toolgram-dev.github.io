@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home Equity Loan Calculator – HELOC Payment Estimator 2026 | ToolGram</title>
+    <meta name="description" content="Calculate home equity loan payments, HELOC costs, and borrowing capacity. Free online home equity calculator for cash-out refinancing and line of credit decisions.">
+    <meta name="keywords" content="home equity loan calculator, HELOC calculator, home equity line of credit, HELOC payment calculator, cash out refinance calculator, home equity rates">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/home-equity-loan-calculator.html">
+    <meta property="og:title" content="Home Equity Loan Calculator | ToolGram">
+    <meta property="og:description" content="Calculate home equity loan and HELOC payments.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/home-equity-loan-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Home Equity Loan Calculator",
+        "description": "Calculate home equity loan payments, HELOC costs, and borrowing capacity.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/home-equity-loan-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Home Equity Loan Calculator", "HELOC Calculator", "Cash Out Refinance", "Equity Line of Credit"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-home"></i></div>
+            <div>
+                <h1 style="margin:0;">Home Equity Loan Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate home equity loans and HELOC payments</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-home"></i> Home Value & Equity</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Value ($)</label>
+                        <input type="number" id="homeValue" placeholder="400000" value="400000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Mortgage Balance ($)</label>
+                        <input type="number" id="mortgageBalance" placeholder="250000" value="250000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Max LTV Ratio (%)</label>
+                        <select id="ltvRatio" style="flex:1;">
+                            <option value="80">80% (Most Common)</option>
+                            <option value="85">85%</option>
+                            <option value="90">90%</option>
+                            <option value="100">100%</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-percent"></i> Loan Terms</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Amount ($)</label>
+                        <input type="number" id="loanAmount" placeholder="50000" value="50000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="7.5" value="7.5" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term (Years)</label>
+                        <select id="loanTerm" style="flex:1;">
+                            <option value="5">5 Years</option>
+                            <option value="10" selected>10 Years</option>
+                            <option value="15">15 Years</option>
+                            <option value="20">20 Years</option>
+                            <option value="30">30 Years</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateHomeEquity()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearHomeEquity()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Equity & Payment Summary</div>
+                <div class="output-display" id="equityOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Current Equity:</strong> <span class="loan-result" id="currentEquity">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Max Borrowable:</strong> <span class="loan-result" id="maxBorrowable">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Monthly Payment:</strong> <span class="loan-result" id="monthlyPayment">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Interest:</strong> <span class="loan-result" id="totalInterest">$0.00</span></div>
+                    <div><strong style="color:#8B5CF6;">Total Cost:</strong> <span class="loan-result" id="totalCost">$0.00</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyEquityResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridHELC"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Home Equity Loan Calculator?</h3>
+            <p>A home equity loan calculator helps homeowners determine how much they can borrow against their home's equity and what the monthly payments will be. Your home equity is the difference between your home's current value and what you owe on your mortgage.</p>
+            <p>Home equity loans provide a lump sum with fixed rates and payments, while HELOCs (Home Equity Lines of Credit) offer flexible borrowing with variable rates. This calculator helps you explore both options.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your home's current market value.<br>
+            <strong>Step 2:</strong> Input your remaining mortgage balance.<br>
+            <strong>Step 3:</strong> Select your lender's maximum LTV (Loan-to-Value) ratio.<br>
+            <strong>Step 4:</strong> Enter the loan amount you're considering.<br>
+            <strong>Step 5:</strong> Input the interest rate and select loan term.<br>
+            <strong>Step 6:</strong> Click "Calculate" to see your available equity and payment details.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-home"></i> Understanding Home Equity</h3>
+            <p>Home equity builds in two ways: as you pay down your mortgage principal and as your home value increases. Most lenders allow you to borrow up to 80-85% of your home's value minus your mortgage balance.</p>
+            <p>Example: Home value $400,000, mortgage balance $250,000, equity = $150,000. At 80% LTV, you could potentially borrow up to $70,000 ($400,000 × 80% - $250,000).</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses This Calculator?</h3>
+            <ul>
+                <li><strong>Home Renovators</strong> – funding kitchen remodels, additions, or repairs.</li>
+                <li><strong>Debt Consolidators</strong> – paying off high-interest credit cards.</li>
+                <li><strong>Education Funders</strong> – covering college tuition costs.</li>
+                <li><strong>Emergency Fund Seekers</strong> – accessing cash for unexpected expenses.</li>
+                <li><strong>Investment Property Buyers</strong> – using equity for down payments on rentals.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-shield-alt"></i> Smart Equity Borrowing Tips</h3>
+            <ul>
+                <li>Maintain at least 20% equity cushion to avoid PMI and market fluctuation risks.</li>
+                <li>Compare home equity loans vs. HELOCs based on your borrowing needs.</li>
+                <li>Use equity for value-adding improvements, not depreciating purchases.</li>
+                <li>Remember your home is collateral—failure to repay risks foreclosure.</li>
+                <li>Consider tax deductibility of interest for home improvement uses.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the difference between a home equity loan and HELOC?</div>
+            <div class="faq-answer">Home equity loans provide a lump sum with fixed rates and fixed monthly payments. HELOCs work like credit cards—you draw money as needed, pay interest only on what you use, and usually have variable rates.</div>
+
+            <div class="faq-question">How much equity can I borrow?</div>
+            <div class="faq-answer">Most lenders allow 80-85% LTV (loan-to-value) total including your mortgage. Some offer up to 100% LTV but with higher rates. Calculate: (Home Value × LTV%) - Mortgage Balance = Available Equity.</div>
+
+            <div class="faq-question">Are home equity loan rates tax deductible?</div>
+            <div class="faq-answer">Interest may be tax deductible if used for home improvements. The Tax Cuts and Jobs Act of 2017 limited deductions for other uses. Consult a tax professional for your specific situation.</div>
+
+            <div class="faq-question">What credit score do I need for a home equity loan?</div>
+            <div class="faq-answer">Most lenders require 620+ but 700+ gets the best rates. Some lenders accept lower scores with higher rates. Your debt-to-income ratio and home equity are also important factors.</div>
+
+            <div class="faq-question">How fast can I get a home equity loan?</div>
+            <div class="faq-answer">The process typically takes 2-6 weeks including appraisal, underwriting, and closing. HELOCs may be faster (1-3 weeks) if you have recent appraisals. Online lenders often process faster than traditional banks.</div>
+
+            <div class="faq-question">Can I lose my home with a home equity loan?</div>
+            <div class="faq-answer">Yes, your home is collateral. Failure to make payments can result in foreclosure. Only borrow what you can comfortably repay and have emergency funds to cover payments during financial difficulties.</div>
+
+            <div class="faq-question">Should I choose a fixed or variable rate?</div>
+            <div class="faq-answer">Choose fixed if you want predictable payments and plan to borrow a specific amount. Choose variable (HELOC) if you need flexibility for ongoing projects or expect rates to decrease.</div>
+
+            <div class="faq-question">What are closing costs on home equity loans?</div>
+            <div class="faq-answer">Expect 2-5% of the loan amount including appraisal fees ($300-500), credit report fees, origination fees, title search, and recording fees. Some lenders offer no-closing-cost options with slightly higher rates.</div>
+
+            <div class="faq-question">Can I refinance my home equity loan?</div>
+            <div class="faq-answer">Yes, you can refinance to get a lower rate, change terms, or switch from HELOC to fixed loan. Compare refinancing costs against interest savings to determine if it's worthwhile.</div>
+
+            <div class="faq-question">Is a home equity loan better than a cash-out refinance?</div>
+            <div class="faq-answer">Home equity loans keep your first mortgage intact (good if you have a low rate). Cash-out refinance replaces your mortgage with a new one, potentially at a higher rate. Compare total costs of both options.</div>
+
+            <div class="faq-question">What happens to my equity if home values drop?</div>
+            <div class="faq-answer">Your available equity decreases. If values drop significantly, you could become "underwater" (owing more than home value). This is why lenders typically require keeping 15-20% equity as a buffer.</div>
+
+            <div class="faq-question">Can I get a home equity loan on a rental property?</div>
+            <div class="faq-answer">Yes, but it's harder. Expect higher rates, lower LTV limits (usually 70-75%), stricter credit requirements, and more documentation of rental income. Not all lenders offer investment property HELOCs.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateHomeEquity() {
+        const homeValue = parseFloat(document.getElementById('homeValue').value) || 0;
+        const mortgageBalance = parseFloat(document.getElementById('mortgageBalance').value) || 0;
+        const ltvPercent = parseFloat(document.getElementById('ltvRatio').value) || 80;
+        const loanAmount = parseFloat(document.getElementById('loanAmount').value) || 0;
+        const annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const years = parseInt(document.getElementById('loanTerm').value) || 10;
+
+        if (homeValue <= 0) {
+            document.getElementById('equityOutput').innerHTML = '<span style="color:#EF4444;">Please enter valid home value.</span>';
+            return;
+        }
+
+        const currentEquity = homeValue - mortgageBalance;
+        const maxLTVAmount = homeValue * (ltvPercent / 100);
+        const maxBorrowable = Math.max(0, maxLTVAmount - mortgageBalance);
+
+        const monthlyRate = annualRate / 100 / 12;
+        const numPayments = years * 12;
+
+        let monthlyPayment = 0;
+        let totalInterest = 0;
+        let totalCost = 0;
+
+        if (loanAmount > 0 && annualRate >= 0) {
+            if (monthlyRate === 0) {
+                monthlyPayment = loanAmount / numPayments;
+            } else {
+                monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+            }
+            totalCost = monthlyPayment * numPayments;
+            totalInterest = totalCost - loanAmount;
+        }
+
+        document.getElementById('currentEquity').textContent = '$' + currentEquity.toFixed(2);
+        document.getElementById('maxBorrowable').textContent = '$' + maxBorrowable.toFixed(2);
+        document.getElementById('monthlyPayment').textContent = '$' + monthlyPayment.toFixed(2);
+        document.getElementById('totalInterest').textContent = '$' + totalInterest.toFixed(2);
+        document.getElementById('totalCost').textContent = '$' + totalCost.toFixed(2);
+    }
+
+    function clearHomeEquity() {
+        document.getElementById('homeValue').value = '';
+        document.getElementById('mortgageBalance').value = '';
+        document.getElementById('ltvRatio').value = '80';
+        document.getElementById('loanAmount').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('loanTerm').value = '10';
+        document.getElementById('currentEquity').textContent = '$0.00';
+        document.getElementById('maxBorrowable').textContent = '$0.00';
+        document.getElementById('monthlyPayment').textContent = '$0.00';
+        document.getElementById('totalInterest').textContent = '$0.00';
+        document.getElementById('totalCost').textContent = '$0.00';
+    }
+
+    function copyEquityResults() {
+        const equity = document.getElementById('currentEquity').textContent;
+        const maxBorrow = document.getElementById('maxBorrowable').textContent;
+        const monthly = document.getElementById('monthlyPayment').textContent;
+        const interest = document.getElementById('totalInterest').textContent;
+        const total = document.getElementById('totalCost').textContent;
+        
+        const text = `Home Equity Calculation:
+Current Equity: ${equity}
+Max Borrowable: ${maxBorrow}
+Monthly Payment: ${monthly}
+Total Interest: ${interest}
+Total Cost: ${total}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"HELOC Payment Calculator", icon:"fa-credit-card", url:"heloc-payment-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"Cash Out Refinance Calculator", icon:"fa-money-bill-wave", url:"cash-out-refinance-calculator.html"},
+            {name:"Debt Consolidation Calculator", icon:"fa-compress", url:"debt-consolidation-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridHELC").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

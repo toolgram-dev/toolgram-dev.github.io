@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mortgage Payment Calculator – Home Loan Estimator 2026 | ToolGram</title>
+    <meta name="description" content="Calculate monthly mortgage payments, total interest, and payoff schedule. Free online mortgage calculator with PMI, taxes, and insurance. Most accurate home loan estimator.">
+    <meta name="keywords" content="mortgage calculator, mortgage payment calculator, home loan calculator, house payment calculator, mortgage estimator, mortgage interest calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/mortgage-payment-calculator.html">
+    <meta property="og:title" content="Mortgage Payment Calculator | ToolGram">
+    <meta property="og:description" content="Calculate monthly mortgage payments with taxes, insurance, and PMI.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/mortgage-payment-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mortgage Payment Calculator",
+        "description": "Calculate monthly mortgage payments including taxes, insurance, and PMI.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/mortgage-payment-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Mortgage Payment Calculator", "PMI Calculator", "Home Loan Estimator", "Mortgage Amortization"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-home"></i></div>
+            <div>
+                <h1 style="margin:0;">Mortgage Payment Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate monthly mortgage payments with taxes, insurance, and PMI</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Home Price & Loan</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Price ($)</label>
+                        <input type="number" id="homePrice" placeholder="350000" value="350000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Down Payment ($)</label>
+                        <input type="number" id="downPayment" placeholder="70000" value="70000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="7.2" value="7.2" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term</label>
+                        <select id="loanTerm" style="flex:1;">
+                            <option value="10">10 Years</option>
+                            <option value="15">15 Years</option>
+                            <option value="20">20 Years</option>
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-plus-circle"></i> Additional Costs</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Property Tax/Year ($)</label>
+                        <input type="number" id="propertyTax" placeholder="4200" value="4200" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Insurance/Year ($)</label>
+                        <input type="number" id="homeInsurance" placeholder="1200" value="1200" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">PMI/Month ($)</label>
+                        <input type="number" id="pmi" placeholder="150" value="150" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateMortgage()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearMortgage()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Monthly Payment Breakdown</div>
+                <div class="output-display" id="mortgageOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Principal & Interest:</strong> <span class="loan-result" id="principalInterest">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Property Tax:</strong> <span class="loan-result" id="monthlyTax">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Home Insurance:</strong> <span class="loan-result" id="monthlyInsurance">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">PMI:</strong> <span class="loan-result" id="monthlyPmi">$0.00</span></div>
+                    <div style="border-top:2px solid rgba(255,255,255,0.2);padding-top:15px;margin-top:15px;"><strong style="color:#8B5CF6;">Total Payment:</strong> <span class="loan-result" id="totalPayment">$0.00</span></div>
+                    <div style="margin-top:15px;"><strong style="color:#8B5CF6;">Loan Amount:</strong> <span class="loan-result" id="loanAmount">$0.00</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyMortgageResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridMPC"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Mortgage Payment Calculator?</h3>
+            <p>A mortgage payment calculator helps potential homebuyers estimate their monthly house payment. It calculates principal and interest, and can include property taxes, homeowners insurance, and private mortgage insurance (PMI) for a complete monthly cost picture.</p>
+            <p>Understanding your total monthly housing cost is essential for budgeting and determining how much home you can afford. This calculator provides a realistic view of your financial commitment when buying a home.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the home purchase price.<br>
+            <strong>Step 2:</strong> Input your down payment amount.<br>
+            <strong>Step 3:</strong> Enter the annual interest rate you expect.<br>
+            <strong>Step 4:</strong> Select your desired loan term.<br>
+            <strong>Step 5:</strong> Add annual property tax, insurance, and PMI if applicable.<br>
+            <strong>Step 6:</strong> Click "Calculate" to see your complete monthly payment breakdown.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-home"></i> Understanding PITI</h3>
+            <p>PITI stands for Principal, Interest, Taxes, and Insurance – the four components of a typical monthly mortgage payment:</p>
+            <ul>
+                <li><strong>Principal:</strong> The portion that reduces your loan balance.</li>
+                <li><strong>Interest:</strong> The cost of borrowing money from the lender.</li>
+                <li><strong>Taxes:</strong> Property taxes paid to your local government (often held in escrow).</li>
+                <li><strong>Insurance:</strong> Homeowners insurance protecting against damage and liability.</li>
+            </ul>
+            <p>Many lenders also require PMI (Private Mortgage Insurance) if your down payment is less than 20%.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses This Calculator?</h3>
+            <ul>
+                <li><strong>First-Time Homebuyers</strong> – determining affordability before house hunting.</li>
+                <li><strong>Current Homeowners</strong> – evaluating refinance opportunities.</li>
+                <li><strong>Real Estate Agents</strong> – helping clients understand payment options.</li>
+                <li><strong>Mortgage Brokers</strong> – providing quick estimates to clients.</li>
+                <li><strong>Financial Planners</strong> – advising on housing budget allocation.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-shield-alt"></i> Smart Home Buying Tips</h3>
+            <ul>
+                <li>Save at least 20% for a down payment to avoid PMI and get better rates.</li>
+                <li>Get pre-approved for a mortgage before shopping for homes.</li>
+                <li>Factor in all housing costs, not just the mortgage payment.</li>
+                <li>Maintain a strong credit score to qualify for lower interest rates.</li>
+                <li>Keep monthly housing costs below 28% of your gross monthly income.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is PMI and when is it required?</div>
+            <div class="faq-answer">Private Mortgage Insurance (PMI) protects the lender if you default. It's typically required when your down payment is less than 20% of the home price. PMI costs 0.3% to 1.5% of the loan amount annually and can be removed once you reach 20% equity.</div>
+
+            <div class="faq-question">How much should I put down on a house?</div>
+            <div class="faq-answer">While 20% is ideal to avoid PMI, many buyers put down 3-10%. FHA loans require as little as 3.5%. Consider your savings, monthly budget, and other financial goals when deciding. A larger down payment reduces your monthly payment and total interest paid.</div>
+
+            <div class="faq-question">What credit score do I need for a mortgage?</div>
+            <div class="faq-answer">Conventional loans typically require 620+. FHA loans accept scores as low as 580 with 3.5% down (500-579 requires 10% down). VA and USDA loans often have flexible requirements. Higher scores (740+) qualify for the best interest rates.</div>
+
+            <div class="faq-question">Should I choose a 15-year or 30-year mortgage?</div>
+            <div class="faq-answer">15-year mortgages have higher monthly payments but significantly lower total interest costs and build equity faster. 30-year mortgages offer lower payments but cost more over time. Choose based on your monthly budget and long-term financial goals.</div>
+
+            <div class="faq-question">What is escrow and how does it work?</div>
+            <div class="faq-answer">Escrow is an account managed by your lender that holds funds for property taxes and insurance. Each month, you pay 1/12 of these annual costs along with your mortgage payment. The lender pays tax and insurance bills when due from this account.</div>
+
+            <div class="faq-question">How are property taxes calculated?</div>
+            <div class="faq-answer">Property taxes are based on your home's assessed value and local tax rates (millage rates). They vary widely by location. Contact the local tax assessor's office or your real estate agent for specific rates in areas you're considering.</div>
+
+            <div class="faq-question">Can I pay off my mortgage early?</div>
+            <div class="faq-answer">Yes, but check for prepayment penalties in your loan agreement. Most modern mortgages allow early payoff without penalties. Making extra principal payments can significantly reduce total interest and loan term.</div>
+
+            <div class="faq-question">What is the 28/36 rule in mortgage lending?</div>
+            <div class="faq-answer">The 28/36 rule suggests spending no more than 28% of gross monthly income on housing costs (PITI) and no more than 36% on total debt (including credit cards, car loans, etc.). Lenders use this as a guideline for loan approval.</div>
+
+            <div class="faq-question">Are property taxes and insurance included in my mortgage payment?</div>
+            <div class="faq-answer">They can be. Most lenders require escrow for taxes and insurance, rolling them into your monthly payment. Some lenders allow you to pay these separately if you have sufficient equity (typically 20%+) or specific loan types.</div>
+
+            <div class="faq-question">What closing costs should I expect?</div>
+            <div class="faq-answer">Closing costs typically range from 2% to 5% of the loan amount and include loan origination fees, appraisal fees, title insurance, attorney fees, inspection fees, and prepaid items (first year's insurance, prorated taxes).</div>
+
+            <div class="faq-question">How do I get the best mortgage rate?</div>
+            <div class="faq-answer">Improve your credit score (740+ for best rates), save a larger down payment (20%+), compare offers from multiple lenders, consider paying discount points, choose a shorter loan term, and reduce your debt-to-income ratio before applying.</div>
+
+            <div class="faq-question">What is a jumbo mortgage?</div>
+            <div class="faq-answer">A jumbo mortgage exceeds conforming loan limits set by Fannie Mae and Freddie Mac (typically $726,200 in most areas as of 2026, higher in expensive markets). Jumbo loans have stricter requirements but competitive rates for qualified buyers.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateMortgage() {
+        const homePrice = parseFloat(document.getElementById('homePrice').value);
+        const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+        const annualRate = parseFloat(document.getElementById('interestRate').value);
+        const years = parseInt(document.getElementById('loanTerm').value);
+        const propertyTax = parseFloat(document.getElementById('propertyTax').value) || 0;
+        const homeInsurance = parseFloat(document.getElementById('homeInsurance').value) || 0;
+        const pmi = parseFloat(document.getElementById('pmi').value) || 0;
+
+        if (isNaN(homePrice) || homePrice <= 0) {
+            document.getElementById('mortgageOutput').innerHTML = '<span style="color:#EF4444;">Please enter a valid home price.</span>';
+            return;
+        }
+
+        const loanAmount = homePrice - downPayment;
+        const monthlyRate = annualRate / 100 / 12;
+        const numPayments = years * 12;
+
+        let principalInterest;
+        if (monthlyRate === 0) {
+            principalInterest = loanAmount / numPayments;
+        } else {
+            principalInterest = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        }
+
+        const monthlyTax = propertyTax / 12;
+        const monthlyInsurance = homeInsurance / 12;
+        const monthlyPmi = pmi;
+        const totalPayment = principalInterest + monthlyTax + monthlyInsurance + monthlyPmi;
+
+        document.getElementById('principalInterest').textContent = '$' + principalInterest.toFixed(2);
+        document.getElementById('monthlyTax').textContent = '$' + monthlyTax.toFixed(2);
+        document.getElementById('monthlyInsurance').textContent = '$' + monthlyInsurance.toFixed(2);
+        document.getElementById('monthlyPmi').textContent = '$' + monthlyPmi.toFixed(2);
+        document.getElementById('totalPayment').textContent = '$' + totalPayment.toFixed(2);
+        document.getElementById('loanAmount').textContent = '$' + loanAmount.toFixed(2);
+    }
+
+    function clearMortgage() {
+        document.getElementById('homePrice').value = '';
+        document.getElementById('downPayment').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('loanTerm').value = '30';
+        document.getElementById('propertyTax').value = '';
+        document.getElementById('homeInsurance').value = '';
+        document.getElementById('pmi').value = '';
+        document.getElementById('principalInterest').textContent = '$0.00';
+        document.getElementById('monthlyTax').textContent = '$0.00';
+        document.getElementById('monthlyInsurance').textContent = '$0.00';
+        document.getElementById('monthlyPmi').textContent = '$0.00';
+        document.getElementById('totalPayment').textContent = '$0.00';
+        document.getElementById('loanAmount').textContent = '$0.00';
+    }
+
+    function copyMortgageResults() {
+        const pi = document.getElementById('principalInterest').textContent;
+        const tax = document.getElementById('monthlyTax').textContent;
+        const insurance = document.getElementById('monthlyInsurance').textContent;
+        const pmi = document.getElementById('monthlyPmi').textContent;
+        const total = document.getElementById('totalPayment').textContent;
+        
+        const text = `Mortgage Payment Calculation:
+Principal & Interest: ${pi}
+Property Tax: ${tax}
+Home Insurance: ${insurance}
+PMI: ${pmi}
+Total Monthly Payment: ${total}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Mortgage Amortization Calculator", icon:"fa-table", url:"mortgage-amortization-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"Down Payment Calculator", icon:"fa-piggy-bank", url:"down-payment-calculator.html"},
+            {name:"PMI Calculator", icon:"fa-shield-alt", url:"pmi-calculator.html"},
+            {name:"Closing Cost Calculator", icon:"fa-file-invoice-dollar", url:"closing-cost-calculator.html"},
+            {name:"Rent vs Buy Calculator", icon:"fa-balance-scale", url:"rent-vs-buy-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridMPC").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

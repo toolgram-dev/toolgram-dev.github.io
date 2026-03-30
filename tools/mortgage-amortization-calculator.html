@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mortgage Amortization Calculator – Payment Breakdown 2026 | ToolGram</title>
+    <meta name="description" content="Generate mortgage amortization schedules with principal and interest breakdown. See yearly summaries and total costs. Free online mortgage amortization calculator.">
+    <meta name="keywords" content="mortgage amortization calculator, mortgage schedule, home loan amortization, mortgage payment breakdown, yearly mortgage summary">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/mortgage-amortization-calculator.html">
+    <meta property="og:title" content="Mortgage Amortization Calculator | ToolGram">
+    <meta property="og:description" content="Generate detailed mortgage amortization schedules.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/mortgage-amortization-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mortgage Amortization Calculator",
+        "description": "Generate detailed mortgage amortization schedules with yearly summaries.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/mortgage-amortization-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Mortgage Amortization", "Payment Schedule", "Principal Interest Breakdown", "Yearly Summary"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .year-summary{background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-home"></i></div>
+            <div>
+                <h1 style="margin:0;">Mortgage Amortization Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Generate detailed mortgage schedules with yearly summaries</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-home"></i> Mortgage Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Amount ($)</label>
+                        <input type="number" id="loanAmount" placeholder="400000" value="400000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="7.0" value="7.0" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term (Years)</label>
+                        <select id="loanTerm" style="flex:1;">
+                            <option value="10">10 Years</option>
+                            <option value="15">15 Years</option>
+                            <option value="20">20 Years</option>
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Start Date</label>
+                        <input type="month" id="startDate" value="2026-01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateMortgageAmortization()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearMortgageAmortization()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Mortgage Summary</div>
+                <div class="output-display" id="mortgageOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Monthly Payment:</strong> <span class="loan-result" id="monthlyPayment">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Payments:</strong> <span class="loan-result" id="totalPayments">0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Interest:</strong> <span class="loan-result" id="totalInterest">$0.00</span></div>
+                    <div><strong style="color:#8B5CF6;">Payoff Date:</strong> <span class="loan-result" id="payoffDate">-</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyMortgageAmortization()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="yearlySummary" style="margin-top:30px;display:none;">
+            <div class="tool-column-title"><i class="fas fa-calendar-alt"></i> Yearly Payment Summary</div>
+            <div id="yearlyContainer" style="max-height:400px;overflow-y:auto;">
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridMAC"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Mortgage Amortization?</h3>
+            <p>Mortgage amortization is the process of paying off your home loan through regular monthly payments over the loan term. Each payment includes both principal (the amount borrowed) and interest (the cost of borrowing).</p>
+            <p>In the early years of a mortgage, most of your payment goes toward interest. As you pay down the principal, more of each payment goes toward reducing your loan balance. Understanding this helps you see how extra payments can dramatically reduce total interest.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your mortgage loan amount.<br>
+            <strong>Step 2:</strong> Input your current or expected interest rate.<br>
+            <strong>Step 3:</strong> Select your loan term (15 or 30 years most common).<br>
+            <strong>Step 4:</strong> Set your loan start date.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see payment details and yearly summaries.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Understanding Your Mortgage Payments</h3>
+            <p>Your monthly mortgage payment stays the same with a fixed-rate loan, but how it's split between principal and interest changes over time:</p>
+            <ul>
+                <li><strong>Year 1:</strong> Most goes to interest (e.g., 80% interest, 20% principal).</li>
+                <li><strong>Year 15:</strong> About evenly split (50% interest, 50% principal).</li>
+                <li><strong>Year 25:</strong> Most goes to principal (20% interest, 80% principal).</li>
+            </ul>
+            <p>This is why early extra principal payments have such a big impact—they reduce the balance that future interest is calculated on.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses This Calculator?</h3>
+            <ul>
+                <li><strong>First-Time Buyers</strong> – understanding their future payment structure.</li>
+                <li><strong>Current Homeowners</strong> – tracking their equity buildup.</li>
+                <li><strong>Refinancers</strong> – comparing new loan terms to current mortgage.</li>
+                <li><strong>Extra Payment Planners</strong> – seeing impact of additional principal payments.</li>
+                <li><strong>Tax Planners</strong> – estimating annual interest deductions.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-shield-alt"></i> Mortgage Payment Strategies</h3>
+            <ul>
+                <li>Make one extra payment per year to cut years off your mortgage.</li>
+                <li>Round up payments to the nearest $100 for easy extra principal.</li>
+                <li>Switch to biweekly payments (26 half-payments = 13 full payments/year).</li>
+                <li>Apply windfalls (tax refunds, bonuses) directly to principal.</li>
+                <li>Refinance to a shorter term when rates drop.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Why do I pay so much interest at the beginning?</div>
+            <div class="faq-answer">Interest is calculated on your remaining balance. Early on, your balance is highest, so interest charges are largest. As you pay down principal, the interest portion of each payment decreases.</div>
+
+            <div class="faq-question">How much interest will I pay over the life of my mortgage?</div>
+            <div class="faq-answer">On a typical 30-year mortgage, you'll often pay as much or more in interest than the original loan amount. A $400,000 loan at 7% costs about $558,000 total—$400,000 principal + $558,000 interest.</div>
+
+            <div class="faq-question">When will I pay more principal than interest?</div>
+            <div class="faq-answer">For a 30-year mortgage at 7%, this crossover happens around month 190 (year 16). For a 15-year loan, it happens much sooner, around month 50 (year 4).</div>
+
+            <div class="faq-question">How does my credit score affect my mortgage rate?</div>
+            <div class="faq-answer">Higher scores get lower rates. On a $400,000 loan, the difference between a 740 score (6.5%) and 680 score (7.5%) is about $250/month and $90,000 over 30 years.</div>
+
+            <div class="faq-question">Should I choose a 15-year or 30-year mortgage?</div>
+            <div class="faq-answer">15-year mortgages have higher payments but significantly lower total interest and build equity faster. Choose if you can comfortably afford the payment. 30-year offers payment flexibility with the option to pay extra.</div>
+
+            <div class="faq-question">Is it worth refinancing my mortgage?</div>
+            <div class="faq-answer">Refinancing makes sense if you can reduce your rate by at least 0.5-1% and plan to stay in the home long enough to recoup closing costs. Use a refinance calculator to determine your break-even point.</div>
+
+            <div class="faq-question">How much equity do I have after 5 years?</div>
+            <div class="faq-answer">On a $400,000, 30-year loan at 7%, after 5 years you've paid about $28,000 in principal (7% of the loan). On a 15-year loan, you'd have paid about $95,000 (24% of the loan).</div>
+
+            <div class="faq-question">Can I deduct mortgage interest on my taxes?</div>
+            <div class="faq-answer">Yes, if you itemize deductions. You can deduct interest on up to $750,000 of mortgage debt ($1 million if purchased before Dec 15, 2017). This calculator shows your annual interest for tax planning.</div>
+
+            <div class="faq-question">What is private mortgage insurance (PMI)?</div>
+            <div class="faq-answer">PMI is required if your down payment is less than 20%. It protects the lender if you default. Costs 0.3-1.5% of loan amount annually. Automatically drops off when you reach 20% equity.</div>
+
+            <div class="faq-question">How do extra payments affect my amortization?</div>
+            <div class="faq-answer">Extra principal payments immediately reduce your balance, which reduces interest on all future payments. Even $100/month extra can save tens of thousands and cut years off your mortgage.</div>
+
+            <div class="faq-question">What's the difference between fixed and ARM amortization?</div>
+            <div class="faq-answer">Fixed-rate mortgages have predictable, unchanged schedules. ARMs (Adjustable Rate Mortgages) start with fixed rates then adjust periodically, making long-term amortization schedules estimates rather than guarantees.</div>
+
+            <div class="faq-question">Should I pay points to lower my rate?</div>
+            <div class="faq-answer">Paying discount points (1% of loan = 0.25% rate reduction typically) makes sense if you'll keep the loan beyond the break-even point. Calculate: Points Cost ÷ Monthly Savings = Months to Break Even.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateMortgageAmortization() {
+        const principal = parseFloat(document.getElementById('loanAmount').value) || 0;
+        const annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const years = parseInt(document.getElementById('loanTerm').value) || 30;
+        const startDate = document.getElementById('startDate').value;
+
+        if (principal <= 0) {
+            alert('Please enter a valid loan amount');
+            return;
+        }
+
+        const monthlyRate = annualRate / 100 / 12;
+        const numPayments = years * 12;
+
+        let monthlyPayment;
+        if (monthlyRate === 0) {
+            monthlyPayment = principal / numPayments;
+        } else {
+            monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        }
+
+        let balance = principal;
+        let totalInterest = 0;
+        let currentDate = startDate ? new Date(startDate + '-01') : new Date();
+        let currentYear = currentDate.getFullYear();
+        let yearPrincipal = 0;
+        let yearInterest = 0;
+        const yearlyData = [];
+
+        for (let i = 1; i <= numPayments; i++) {
+            const interest = balance * monthlyRate;
+            const principalPayment = monthlyPayment - interest;
+            balance -= principalPayment;
+            totalInterest += interest;
+            yearPrincipal += principalPayment;
+            yearInterest += interest;
+
+            const paymentDate = new Date(currentDate);
+            paymentDate.setMonth(paymentDate.getMonth() + i - 1);
+            const paymentYear = paymentDate.getFullYear();
+
+            if (paymentYear !== currentYear || i === numPayments) {
+                yearlyData.push({
+                    year: currentYear,
+                    principal: yearPrincipal,
+                    interest: yearInterest,
+                    total: yearPrincipal + yearInterest,
+                    endBalance: Math.max(0, balance)
+                });
+                currentYear = paymentYear;
+                yearPrincipal = 0;
+                yearInterest = 0;
+            }
+        }
+
+        const payoffDate = new Date(currentDate);
+        payoffDate.setMonth(payoffDate.getMonth() + numPayments);
+
+        document.getElementById('monthlyPayment').textContent = '$' + monthlyPayment.toFixed(2);
+        document.getElementById('totalPayments').textContent = numPayments;
+        document.getElementById('totalInterest').textContent = '$' + totalInterest.toFixed(2);
+        document.getElementById('payoffDate').textContent = payoffDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+
+        displayYearlySummary(yearlyData);
+        document.getElementById('yearlySummary').style.display = 'block';
+    }
+
+    function displayYearlySummary(yearlyData) {
+        const container = document.getElementById('yearlyContainer');
+        container.innerHTML = '';
+        
+        yearlyData.forEach(year => {
+            const div = document.createElement('div');
+            div.className = 'year-summary';
+            div.innerHTML = `
+                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+                    <div style="font-weight:600;color:#8B5CF6;">Year ${year.year}</div>
+                    <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:0.9rem;">
+                        <span>Principal: $${year.principal.toFixed(2)}</span>
+                        <span>Interest: $${year.interest.toFixed(2)}</span>
+                        <span>Total: $${year.total.toFixed(2)}</span>
+                        <span>Balance: $${year.endBalance.toFixed(2)}</span>
+                    </div>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    }
+
+    function clearMortgageAmortization() {
+        document.getElementById('loanAmount').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('loanTerm').value = '30';
+        document.getElementById('startDate').value = '2026-01';
+        document.getElementById('monthlyPayment').textContent = '$0.00';
+        document.getElementById('totalPayments').textContent = '0';
+        document.getElementById('totalInterest').textContent = '$0.00';
+        document.getElementById('payoffDate').textContent = '-';
+        document.getElementById('yearlySummary').style.display = 'none';
+        document.getElementById('yearlyContainer').innerHTML = '';
+    }
+
+    function copyMortgageAmortization() {
+        const monthly = document.getElementById('monthlyPayment').textContent;
+        const payments = document.getElementById('totalPayments').textContent;
+        const interest = document.getElementById('totalInterest').textContent;
+        const payoff = document.getElementById('payoffDate').textContent;
+        
+        const text = `Mortgage Amortization Summary:
+Monthly Payment: ${monthly}
+Total Payments: ${payments}
+Total Interest: ${interest}
+Payoff Date: ${payoff}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Loan Amortization Schedule", icon:"fa-table", url:"loan-amortization-schedule.html"},
+            {name:"Biweekly Mortgage Calculator", icon:"fa-calendar", url:"biweekly-mortgage-calculator.html"},
+            {name:"Extra Payment Calculator", icon:"fa-plus", url:"extra-payment-mortgage-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"Down Payment Calculator", icon:"fa-piggy-bank", url:"down-payment-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridMAC").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

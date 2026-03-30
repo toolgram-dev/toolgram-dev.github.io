@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Closing Cost Calculator – Home Purchase Closing Costs 2026 | ToolGram</title>
+    <meta name="description" content="Estimate closing costs for home purchase or refinance. Free online closing cost calculator including lender fees, title insurance, prepaids, and third-party costs.">
+    <meta name="keywords" content="closing cost calculator, home closing costs, mortgage closing costs, refinance closing costs, closing fees estimator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/closing-cost-calculator.html">
+    <meta property="og:title" content="Closing Cost Calculator | ToolGram">
+    <meta property="og:description" content="Estimate closing costs for home purchase or refinance.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/closing-cost-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Closing Cost Calculator",
+        "description": "Estimate closing costs for home purchase or refinance.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/closing-cost-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Closing Cost Calculator", "Home Purchase Costs", "Refinance Costs", "Closing Fees"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .cost-category{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .total-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-top:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+            <div>
+                <h1 style="margin:0;">Closing Cost Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Estimate closing costs for purchase or refinance</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-home"></i> Transaction Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Price ($)</label>
+                        <input type="number" id="homePrice" placeholder="400000" value="400000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Amount ($)</label>
+                        <input type="number" id="loanAmount" placeholder="320000" value="320000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Transaction Type</label>
+                        <select id="transactionType" style="flex:1;">
+                            <option value="purchase" selected>Home Purchase</option>
+                            <option value="refinance">Refinance</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Property State</label>
+                        <select id="state" style="flex:1;">
+                            <option value="average" selected>National Average</option>
+                            <option value="high">High-Cost State (CA, NY, etc.)</option>
+                            <option value="low">Low-Cost State</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-list"></i> Cost Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Origination (%)</label>
+                        <input type="number" id="origination" placeholder="1" value="1" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Appraisal ($)</label>
+                        <input type="number" id="appraisal" placeholder="500" value="500" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Credit Report ($)</label>
+                        <input type="number" id="creditReport" placeholder="50" value="50" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Title Insurance ($)</label>
+                        <input type="number" id="titleInsurance" placeholder="1500" value="1500" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Survey ($)</label>
+                        <input type="number" id="survey" placeholder:"300" value:"300" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Attorney/Escrow ($)</label>
+                        <input type="number" id="attorney" placeholder:"600" value:"600" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Recording Fees ($)</label>
+                        <input type="number" id="recording" placeholder:"250" value:"250" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Transfer Tax ($)</label>
+                        <input type="number" id="transferTax" placeholder:"0" value:"0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Prepaid Interest ($)</label>
+                        <input type="number" id="prepaidInterest" placeholder:"500" value:"500" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Prepaid Insurance ($)</label>
+                        <input type="number" id="prepaidInsurance" placeholder:"600" value:"600" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Escrow Deposit ($)</label>
+                        <input type="number" id="escrowDeposit" placeholder:"800" value:"800" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateClosingCosts()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearClosingCosts()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Closing Cost Summary</div>
+                <div class="output-display" id="closingCostOutput">
+                    <div class="cost-category">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;"><i class="fas fa-university"></i> Lender Fees</div>
+                        <div style="margin-bottom:3px;">Loan Origination: <span id="originationCost">$0.00</span></div>
+                        <div style="margin-bottom:3px;">Appraisal: <span id="appraisalCost">$0.00</span></div>
+                        <div style="margin-bottom:3px;">Credit Report: <span id="creditCost">$0.00</span></div>
+                        <div style="font-weight:600;margin-top:5px;">Subtotal: <span id="lenderSubtotal">$0.00</span></div>
+                    </div>
+                    <div class="cost-category">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;"><i class="fas fa-shield-alt"></i> Title & Third Party</div>
+                        <div style="margin-bottom:3px;">Title Insurance: <span id="titleCost">$0.00</span></div>
+                        <div style="margin-bottom:3px;">Survey: <span id="surveyCost">$0.00</span></div>
+                        <div style="margin-bottom:3px;">Attorney/Escrow: <span id="attorneyCost">$0.00</span></div>
+                        <div style="margin-bottom:3px;">Recording: <span id="recordingCost">$0.00</span></div>
+                        <div style="font-weight:600;margin-top:5px;">Subtotal: <span id="thirdPartySubtotal">$0.00</span></div>
+                    </div>
+                    <div class="cost-category">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;"><i class="fas fa-calendar"></i> Prepaids & Escrow</div>
+                        <div style="margin-bottom:3px;">Prepaid Interest: <span id="prepaidIntCost">$0.00</span></div>
+                        <div style="margin-bottom:3px;">Prepaid Insurance: <span id="prepaidInsCost">$0.00</span></div>
+                        <div style="margin-bottom:3px;">Escrow Deposit: <span id="escrowCost">$0.00</span></div>
+                        <div style="font-weight:600;margin-top:5px;">Subtotal: <span id="prepaidSubtotal">$0.00</span></div>
+                    </div>
+                    <div class="cost-category">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;"><i class="fas fa-hand-holding-usd"></i> Government Fees</div>
+                        <div style="margin-bottom:3px;">Transfer Tax: <span id="transferTaxCost">$0.00</span></div>
+                        <div style="font-weight:600;margin-top:5px;">Subtotal: <span id="governmentSubtotal">$0.00</span></div>
+                    </div>
+                    <div class="total-box">
+                        <div style="font-weight:600;color:#22C55E;"><i class="fas fa-calculator"></i> Total Closing Costs</div>
+                        <div style="font-size:1.5rem;font-weight:bold;color:#8B5CF6;" id="totalClosingCosts">$0.00</div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);margin-top:5px;">As % of loan: <span id="percentOfLoan">0%</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">As % of home price: <span id="percentOfPrice">0%</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyClosingCostResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridCC"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What Are Closing Costs?</h3>
+            <p>Closing costs are fees and expenses paid when finalizing a real estate transaction. For buyers, they typically range from 2-5% of the loan amount. These include lender fees, third-party services, government charges, and prepaids like property taxes and insurance.</p>
+            <p>Closing costs vary by location, loan type, and lender. Some fees are fixed while others are negotiable. Getting a Loan Estimate from multiple lenders helps you compare and potentially save thousands.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter home price and loan amount.<br>
+            <strong>Step 2:</strong> Select transaction type (purchase or refinance).<br>
+            <strong>Step 3:</strong> Choose your state/region for typical costs.<br>
+            <strong>Step 4:</strong> Adjust individual cost items as needed.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see total closing costs.<br>
+            <strong>Step 6:</strong> Review breakdown by category.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-dollar-sign"></i> Understanding Closing Cost Categories</h3>
+            <ul>
+                <li><strong>Lender Fees:</strong> Origination, processing, underwriting, appraisal, credit check</li>
+                <li><strong>Title Fees:</strong> Title search, title insurance (lender's and owner's), settlement services</li>
+                <li><strong>Government Fees:</strong> Recording fees, transfer taxes, property taxes</li>
+                <li><strong>Prepaids:</strong> Interest from closing to month-end, homeowner's insurance, property taxes</li>
+                <li><strong>Escrow:</strong> 2-6 months of taxes and insurance held in reserve</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Ways to Reduce Closing Costs</h3>
+            <ul>
+                <li><strong>Shop Around:</strong> Get Loan Estimates from 3+ lenders</li>
+                <li><strong>Negotiate:</strong> Ask seller to pay some or all closing costs</li>
+                <li><strong>Lender Credits:</strong> Accept slightly higher rate for lower fees</li>
+                <li><strong>No-Closing-Cost Loans:</strong> Roll costs into loan (higher balance)</li>
+                <li><strong>Closing Date:</strong> Close at month-end to reduce prepaid interest</li>
+                <li><strong>Compare Title:</strong> Shop title insurance and settlement services</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Who pays closing costs?</div>
+            <div class="faq-answer">Typically both buyer and seller have closing costs. Buyers pay lender fees, appraisal, credit check, title insurance (lender's policy), and prepaids. Sellers pay transfer taxes, owner's title policy, and agent commissions. Buyers can negotiate for seller concessions to cover some costs.</div>
+
+            <div class="faq-question">Can closing costs be rolled into the loan?</div>
+            <div class="faq-answer">For refinances, yes—most closing costs can be financed. For purchases, generally no, except with specialized programs like USDA loans. Most loans require you to bring cash for closing costs. Some lenders offer "no closing cost" options with higher rates.</div>
+
+            <div class="faq-question">Are closing costs tax deductible?</div>
+            <div class="faq-answer">Some are, some aren't. Deductible: mortgage interest, property taxes, points paid. Not deductible: appraisal, credit report, title insurance, attorney fees, recording fees. Consult a tax professional. Prepaid interest is deductible in the year paid.</div>
+
+            <div class="faq-question">Why are refinance closing costs lower?</div>
+            <div class="faq-answer">Refinances don't require owner's title insurance (already have it), no transfer taxes, often no appraisal needed (automated valuation), and some third-party fees may be waived. Expect 2-3% for refinances vs 3-5% for purchases.</div>
+
+            <div class="faq-question">What's the difference between a Loan Estimate and Closing Disclosure?</div>
+            <div class="faq-answer">Loan Estimate provided within 3 days of application—estimates costs. Closing Disclosure provided 3 days before closing—final costs. Compare them carefully. Some costs can't increase (lender fees), others can change (property taxes, prepaid interest).</div>
+
+            <div class="faq-question">Can I negotiate closing costs?</div>
+            <div class="faq-answer">Yes, especially lender fees and third-party services. Get multiple quotes. Some lenders match or beat competitors. Ask about lender credits. Shop title services. Ask seller for concessions. Even small reductions add up to significant savings.</div>
+
+            <div class="faq-question">What's a closing cost credit from the seller?</div>
+            <div class="faq-answer">Seller agrees to pay a portion of buyer's closing costs, up to certain limits (typically 3-6% depending on loan type). Makes offer more attractive to buyers. Seller nets less but may sell faster. Must be disclosed to lender.</div>
+
+            <div class="faq-question">Do I need cash for closing costs?</div>
+            <div class="faq-answer">Yes, for purchases. Plan to bring a cashier's check or wire transfer. Can't use personal checks at most closings. Lender will provide exact amount needed 3 days before closing (Closing Disclosure). Have extra funds available for last-minute adjustments.</div>
+
+            <div class="faq-question">What happens if I don't have enough for closing costs?</div>
+            <div class="faq-answer">Options: delay closing while you save, ask seller for credit (if market allows), seek lender credits (higher rate), ask family for gift funds (with documentation), or consider down payment assistance programs. Don't proceed if you can't comfortably cover costs.</div>
+
+            <div class="faq-question">Are "no closing cost" mortgages really free?</div>
+            <div class="faq-answer">No—you pay through a higher interest rate (typically 0.25-0.5% higher). The lender covers costs but earns more over time through higher payments. Calculate break-even: higher rate cost vs. upfront savings. Makes sense if refinancing again soon or keeping loan short-term.</div>
+
+            <div class="faq-question">Why did my closing costs increase at closing?</div>
+            <div class="faq-answer">Some items can't be controlled: property taxes (based on closing date), prepaid interest (days in month), homeowners insurance premium. Lender fees should match Loan Estimate. Review Closing Disclosure carefully and question any increases from the estimate.</div>
+
+            <div class="faq-question">Should I pay points to lower my rate?</div>
+            <div class="faq-answer">Paying discount points (1% of loan = 0.25% rate reduction typically) makes sense if you'll keep the loan long enough to recoup cost. Calculate: Points Cost ÷ Monthly Savings = Months to Break-even. Beyond that is profit. Usually need 5-7+ years to justify points.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateClosingCosts() {
+        const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+        const loanAmount = parseFloat(document.getElementById('loanAmount').value) || 0;
+        const originationPercent = parseFloat(document.getElementById('origination').value) || 0;
+        const appraisal = parseFloat(document.getElementById('appraisal').value) || 0;
+        const creditReport = parseFloat(document.getElementById('creditReport').value) || 0;
+        const titleInsurance = parseFloat(document.getElementById('titleInsurance').value) || 0;
+        const survey = parseFloat(document.getElementById('survey').value) || 0;
+        const attorney = parseFloat(document.getElementById('attorney').value) || 0;
+        const recording = parseFloat(document.getElementById('recording').value) || 0;
+        const transferTax = parseFloat(document.getElementById('transferTax').value) || 0;
+        const prepaidInterest = parseFloat(document.getElementById('prepaidInterest').value) || 0;
+        const prepaidInsurance = parseFloat(document.getElementById('prepaidInsurance').value) || 0;
+        const escrowDeposit = parseFloat(document.getElementById('escrowDeposit').value) || 0;
+
+        // Calculate totals by category
+        const originationCost = loanAmount * (originationPercent / 100);
+        const lenderSubtotal = originationCost + appraisal + creditReport;
+        const thirdPartySubtotal = titleInsurance + survey + attorney + recording;
+        const prepaidSubtotal = prepaidInterest + prepaidInsurance + escrowDeposit;
+        const governmentSubtotal = transferTax;
+
+        const total = lenderSubtotal + thirdPartySubtotal + prepaidSubtotal + governmentSubtotal;
+        const percentOfLoan = loanAmount > 0 ? ((total / loanAmount) * 100).toFixed(1) : 0;
+        const percentOfPrice = homePrice > 0 ? ((total / homePrice) * 100).toFixed(1) : 0;
+
+        // Update display
+        document.getElementById('originationCost').textContent = '$' + originationCost.toFixed(2);
+        document.getElementById('appraisalCost').textContent = '$' + appraisal.toFixed(2);
+        document.getElementById('creditCost').textContent = '$' + creditReport.toFixed(2);
+        document.getElementById('lenderSubtotal').textContent = '$' + lenderSubtotal.toFixed(2);
+        document.getElementById('titleCost').textContent = '$' + titleInsurance.toFixed(2);
+        document.getElementById('surveyCost').textContent = '$' + survey.toFixed(2);
+        document.getElementById('attorneyCost').textContent = '$' + attorney.toFixed(2);
+        document.getElementById('recordingCost').textContent = '$' + recording.toFixed(2);
+        document.getElementById('thirdPartySubtotal').textContent = '$' + thirdPartySubtotal.toFixed(2);
+        document.getElementById('prepaidIntCost').textContent = '$' + prepaidInterest.toFixed(2);
+        document.getElementById('prepaidInsCost').textContent = '$' + prepaidInsurance.toFixed(2);
+        document.getElementById('escrowCost').textContent = '$' + escrowDeposit.toFixed(2);
+        document.getElementById('prepaidSubtotal').textContent = '$' + prepaidSubtotal.toFixed(2);
+        document.getElementById('transferTaxCost').textContent = '$' + transferTax.toFixed(2);
+        document.getElementById('governmentSubtotal').textContent = '$' + governmentSubtotal.toFixed(2);
+        document.getElementById('totalClosingCosts').textContent = '$' + total.toLocaleString();
+        document.getElementById('percentOfLoan').textContent = percentOfLoan + '%';
+        document.getElementById('percentOfPrice').textContent = percentOfPrice + '%';
+    }
+
+    function clearClosingCosts() {
+        document.getElementById('homePrice').value = '';
+        document.getElementById('loanAmount').value = '';
+        document.getElementById('transactionType').value = 'purchase';
+        document.getElementById('state').value = 'average';
+        document.getElementById('origination').value = '';
+        document.getElementById('appraisal').value = '';
+        document.getElementById('creditReport').value = '';
+        document.getElementById('titleInsurance').value = '';
+        document.getElementById('survey').value = '';
+        document.getElementById('attorney').value = '';
+        document.getElementById('recording').value = '';
+        document.getElementById('transferTax').value = '';
+        document.getElementById('prepaidInterest').value = '';
+        document.getElementById('prepaidInsurance').value = '';
+        document.getElementById('escrowDeposit').value = '';
+        
+        document.getElementById('originationCost').textContent = '$0.00';
+        document.getElementById('appraisalCost').textContent = '$0.00';
+        document.getElementById('creditCost').textContent = '$0.00';
+        document.getElementById('lenderSubtotal').textContent = '$0.00';
+        document.getElementById('titleCost').textContent = '$0.00';
+        document.getElementById('surveyCost').textContent = '$0.00';
+        document.getElementById('attorneyCost').textContent = '$0.00';
+        document.getElementById('recordingCost').textContent = '$0.00';
+        document.getElementById('thirdPartySubtotal').textContent = '$0.00';
+        document.getElementById('prepaidIntCost').textContent = '$0.00';
+        document.getElementById('prepaidInsCost').textContent = '$0.00';
+        document.getElementById('escrowCost').textContent = '$0.00';
+        document.getElementById('prepaidSubtotal').textContent = '$0.00';
+        document.getElementById('transferTaxCost').textContent = '$0.00';
+        document.getElementById('governmentSubtotal').textContent = '$0.00';
+        document.getElementById('totalClosingCosts').textContent = '$0.00';
+        document.getElementById('percentOfLoan').textContent = '0%';
+        document.getElementById('percentOfPrice').textContent = '0%';
+    }
+
+    function copyClosingCostResults() {
+        const lender = document.getElementById('lenderSubtotal').textContent;
+        const thirdParty = document.getElementById('thirdPartySubtotal').textContent;
+        const prepaid = document.getElementById('prepaidSubtotal').textContent;
+        const government = document.getElementById('governmentSubtotal').textContent;
+        const total = document.getElementById('totalClosingCosts').textContent;
+        const percentLoan = document.getElementById('percentOfLoan').textContent;
+        
+        const text = `Closing Cost Calculation:
+Lender Fees: ${lender}
+Third Party Fees: ${thirdParty}
+Prepaids & Escrow: ${prepaid}
+Government Fees: ${government}
+Total Closing Costs: ${total}
+Percent of Loan: ${percentLoan}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Down Payment Calculator", icon:"fa-piggy-bank", url:"down-payment-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"PMI Calculator", icon:"fa-shield-alt", url:"pmi-calculator.html"},
+            {name:"Rent vs Buy Calculator", icon:"fa-balance-scale", url:"rent-vs-buy-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridCC").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

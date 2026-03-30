@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Balloon Loan Calculator – Balloon Payment Estimator | ToolGram</title>
+    <meta name="description" content="Calculate balloon loan payments and final balloon amount. Free online balloon mortgage calculator for loans with lump sum final payments.">
+    <meta name="keywords" content="balloon loan calculator, balloon payment calculator, balloon mortgage, final payment calculator, balloon note calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/balloon-loan-calculator.html">
+    <meta property="og:title" content="Balloon Loan Calculator | ToolGram">
+    <meta property="og:description" content="Calculate balloon loan payments and final balloon amount.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/balloon-loan-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Balloon Loan Calculator",
+        "description": "Calculate balloon loan payments and final balloon amount.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/balloon-loan-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Balloon Loan Calculator", "Balloon Payment Calculator", "Final Payment Calculator", "Balloon Mortgage"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .balloon-alert{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:12px;margin-top:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-circle"></i></div>
+            <div>
+                <h1 style="margin:0;">Balloon Loan Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate payments and final balloon amount</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Loan Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Amount ($)</label>
+                        <input type="number" id="loanAmount" placeholder="300000" value="300000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="6.5" value="6.5" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Amortization (Years)</label>
+                        <select id="amortization" style="flex:1;">
+                            <option value="15">15 Years</option>
+                            <option value="20">20 Years</option>
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Balloon Due (Years)</label>
+                        <select id="balloonTerm" style="flex:1;">
+                            <option value="3">3 Years</option>
+                            <option value="5" selected>5 Years</option>
+                            <option value="7">7 Years</option>
+                            <option value="10">10 Years</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateBalloon()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearBalloon()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Balloon Loan Summary</div>
+                <div class="output-display" id="balloonOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Monthly Payment:</strong> <span class="loan-result" id="monthlyPayment">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Based on:</strong> <span id="amortizationDisplay">30-year amortization</span></div>
+                    <div class="balloon-alert">
+                        <div style="color:#EF4444;font-weight:600;"><i class="fas fa-exclamation-circle"></i> Final Balloon Payment</div>
+                        <div style="font-size:1.3rem;font-weight:bold;color:#8B5CF6;margin-top:5px;" id="balloonAmount">$0.00</div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);margin-top:5px;">Due in <span id="balloonDueDate">5 years</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Paid (before balloon):</strong> <span id="totalPaidBefore">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Principal Remaining:</strong> <span id="principalRemaining">$0.00</span></div>
+                        <div><strong style="color:#8B5CF6;">Total Interest Paid:</strong> <span id="totalInterest">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyBalloonResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridBalloon"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Balloon Loan?</h3>
+            <p>A balloon loan is a type of loan where you make smaller monthly payments for a set period, followed by one large "balloon" payment to pay off the remaining principal balance. The monthly payments are calculated as if the loan were amortized over a longer period (like 30 years), but the loan actually comes due much sooner (typically 3-10 years).</p>
+            <p>Balloon loans offer lower monthly payments but require careful planning for the large final payment. They're common in commercial real estate and some residential mortgages, though less common for primary residences since the 2008 financial crisis.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the loan amount.<br>
+            <strong>Step 2:</strong> Input the interest rate.<br>
+            <strong>Step 3:</strong> Select the amortization period used to calculate payments.<br>
+            <strong>Step 4:</strong> Select when the balloon payment comes due.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see payment and balloon amount.<br>
+            <strong>Step 6:</strong> Plan your exit strategy for the balloon date.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-exclamation-triangle"></i> Balloon Loan Risks</h3>
+            <ul>
+                <li><strong>Large Final Payment:</strong> You must pay the entire remaining balance at once.</li>
+                <li><strong>Refinancing Risk:</strong> If you can't refinance, you may lose the property.</li>
+                <li><strong>Rate Risk:</strong> If refinancing, future rates may be higher.</li>
+                <li><strong>Property Value Risk:</strong> If value drops, refinancing becomes harder.</li>
+                <li><strong>Cash Crunch:</strong> Need significant funds or credit availability at balloon date.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Balloon Payment Exit Strategies</h3>
+            <ul>
+                <li><strong>Refinance:</strong> Most common—convert to traditional mortgage before balloon date.</li>
+                <li><strong>Sell:</strong> Sell the property to pay off the balloon.</li>
+                <li><strong>Cash Payoff:</strong> Use savings or investments to pay the balance.</li>
+                <li><strong>Loan Extension:</strong> Negotiate with lender for extension (not guaranteed).</li>
+                <li><strong>Second Mortgage:</strong> Use other property equity to pay balloon.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What happens if I can't pay the balloon payment?</div>
+            <div class="faq-answer">You default on the loan. The lender can foreclose on the property. This is why planning your exit strategy is crucial. Start working on refinancing or sale 6-12 months before the balloon date.</div>
+
+            <div class="faq-question">Can I refinance a balloon loan?</div>
+            <div class="faq-answer">Yes, and this is the most common exit strategy. Apply for a new mortgage 3-6 months before the balloon date. You'll need to qualify based on income, credit, and property value. Requirements are similar to any mortgage refinance.</div>
+
+            <div class="faq-question">Are balloon loans a good idea?</div>
+            <div class="faq-answer">For most residential buyers, no—traditional fixed-rate mortgages are safer. Balloon loans can make sense for: investors who plan to sell before balloon date, borrowers expecting significant income increases, commercial properties with known exit timelines, or as temporary financing during construction.</div>
+
+            <div class="faq-question">What's the difference between balloon and ARM loans?</div>
+            <div class="faq-answer">ARMs (Adjustable Rate Mortgages) adjust interest rates periodically but continue for the full loan term. Balloon loans keep the same rate but require full payoff at the balloon date. ARMs spread risk over time; balloon loans concentrate it at one point.</div>
+
+            <div class="faq-question">Can I pay extra to reduce the balloon amount?</div>
+            <div class="faq-answer">Usually yes, unless your loan has prepayment penalties. Making principal-only payments reduces the balloon amount. However, some balloon loans are structured with prepayment penalties—check your loan documents.</div>
+
+            <div class="faq-question">Are balloon loans still available for homes?</div>
+            <div class="faq-answer">Less common since 2008. Qualified Mortgages (QM rules) generally prohibit balloon features for primary residences. They exist for investment properties, second homes, certain jumbo loans, and through portfolio lenders who keep loans rather than selling them.</div>
+
+            <div class="faq-question">What credit score do I need for a balloon loan?</div>
+            <div class="faq-answer">Typically 700+ for residential balloon loans. Commercial balloon loans focus more on property cash flow and down payment. Because of the refinancing requirement, lenders want strong borrowers who can qualify for future financing.</div>
+
+            <div class="faq-question">Can I extend a balloon loan?</div>
+            <div class="faq-answer">Sometimes, if the lender agrees. This is called a "balloon reset" or modification. Terms may change, rate may increase, and fees apply. Not guaranteed—don't count on it. Have a primary exit strategy.</div>
+
+            <div class="faq-question">What's a 30/15 balloon mortgage?</div>
+            <div class="faq-answer">Payments calculated as if it's a 30-year loan, but a balloon payment is due in 15 years. You'll have made payments for 15 years but still owe roughly the principal amount (payments were mostly interest). Example: $300k loan at 6%, 15 years of $1,799 payments, then $227,000 balloon.</div>
+
+            <div class="faq-question">Are balloon payments tax deductible?</div>
+            <div class="faq-answer">The interest portion may be deductible if the loan is for your primary or secondary residence and you itemize deductions. The principal portion is not deductible. Consult a tax professional for your specific situation.</div>
+
+            <div class="faq-question">Can I pay off a balloon loan early?</div>
+            <div class="faq-answer">Usually yes, but check for prepayment penalties. Some balloon loans penalize early payoff within the first few years. Read your loan documents carefully. If no penalty, paying early eliminates the balloon risk.</div>
+
+            <div class="faq-question">Should I take a balloon loan for lower payments?</div>
+            <div class="faq-answer">Generally not for a primary residence. The risk of the balloon payment usually outweighs the benefit of lower monthly payments. Consider an ARM with rate caps instead, or simply buy a less expensive home with affordable fixed payments.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateBalloon() {
+        const loanAmount = parseFloat(document.getElementById('loanAmount').value) || 0;
+        const rate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const amortYears = parseInt(document.getElementById('amortization').value) || 30;
+        const balloonYears = parseInt(document.getElementById('balloonTerm').value) || 5;
+
+        if (loanAmount <= 0) {
+            alert('Please enter a valid loan amount');
+            return;
+        }
+
+        // Calculate monthly payment based on full amortization
+        const monthlyRate = rate / 100 / 12;
+        const amortMonths = amortYears * 12;
+        let monthlyPayment;
+        if (monthlyRate === 0) {
+            monthlyPayment = loanAmount / amortMonths;
+        } else {
+            monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, amortMonths)) / (Math.pow(1 + monthlyRate, amortMonths) - 1);
+        }
+
+        // Calculate remaining balance after balloon period
+        const balloonMonths = balloonYears * 12;
+        let balance = loanAmount;
+        let totalInterest = 0;
+        
+        for (let i = 0; i < balloonMonths; i++) {
+            const interest = balance * monthlyRate;
+            const principal = monthlyPayment - interest;
+            balance -= principal;
+            totalInterest += interest;
+        }
+
+        const totalPaidBefore = monthlyPayment * balloonMonths;
+        const balloonPayment = Math.max(0, balance);
+
+        document.getElementById('monthlyPayment').textContent = '$' + monthlyPayment.toFixed(2);
+        document.getElementById('amortizationDisplay').textContent = amortYears + '-year amortization';
+        document.getElementById('balloonAmount').textContent = '$' + balloonPayment.toLocaleString();
+        document.getElementById('balloonDueDate').textContent = balloonYears + ' years';
+        document.getElementById('totalPaidBefore').textContent = '$' + totalPaidBefore.toLocaleString();
+        document.getElementById('principalRemaining').textContent = '$' + balloonPayment.toLocaleString();
+        document.getElementById('totalInterest').textContent = '$' + totalInterest.toLocaleString();
+    }
+
+    function clearBalloon() {
+        document.getElementById('loanAmount').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('amortization').value = '30';
+        document.getElementById('balloonTerm').value = '5';
+        document.getElementById('monthlyPayment').textContent = '$0.00';
+        document.getElementById('amortizationDisplay').textContent = '30-year amortization';
+        document.getElementById('balloonAmount').textContent = '$0.00';
+        document.getElementById('balloonDueDate').textContent = '5 years';
+        document.getElementById('totalPaidBefore').textContent = '$0.00';
+        document.getElementById('principalRemaining').textContent = '$0.00';
+        document.getElementById('totalInterest').textContent = '$0.00';
+    }
+
+    function copyBalloonResults() {
+        const monthly = document.getElementById('monthlyPayment').textContent;
+        const amortization = document.getElementById('amortizationDisplay').textContent;
+        const balloon = document.getElementById('balloonAmount').textContent;
+        const dueDate = document.getElementById('balloonDueDate').textContent;
+        const totalPaid = document.getElementById('totalPaidBefore').textContent;
+        const interest = document.getElementById('totalInterest').textContent;
+        
+        const text = `Balloon Loan Calculation:
+Monthly Payment: ${monthly}
+${amortization}
+Balloon Amount: ${balloon}
+Due: ${dueDate}
+Total Paid (before balloon): ${totalPaid}
+Total Interest: ${interest}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"Adjustable Rate Mortgage Calculator", icon:"fa-chart-line", url:"adjustable-rate-mortgage-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Loan Amortization Schedule", icon:"fa-table", url:"loan-amortization-schedule.html"},
+            {name:"Interest Only Loan Calculator", icon:"fa-percent", url:"interest-only-loan-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridBalloon").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

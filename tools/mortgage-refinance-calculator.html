@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mortgage Refinance Calculator – Breakeven & Savings Analysis | ToolGram</title>
+    <meta name="description" content="Calculate mortgage refinance breakeven, monthly savings, and total cost. Free online refinance calculator to determine if refinancing makes sense.">
+    <meta name="keywords" content="mortgage refinance calculator, refinance breakeven calculator, refinance savings, mortgage rate comparison, when to refinance calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/mortgage-refinance-calculator.html">
+    <meta property="og:title" content="Mortgage Refinance Calculator | ToolGram">
+    <meta property="og:description" content="Calculate refinance breakeven and savings analysis.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/mortgage-refinance-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mortgage Refinance Calculator",
+        "description": "Calculate mortgage refinance breakeven and savings analysis.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/mortgage-refinance-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Refinance Calculator", "Breakeven Analysis", "Rate Comparison", "Closing Cost Calculator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .breakeven-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:12px;padding:15px;margin-top:15px}
+        .warning-box{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:15px;margin-top:15px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-sync-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">Mortgage Refinance Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Determine if refinancing makes financial sense</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-home"></i> Current Mortgage</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Balance ($)</label>
+                        <input type="number" id="currentBalance" placeholder="350000" value="350000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Rate (%)</label>
+                        <input type="number" id="currentRate" placeholder="7.5" value="7.5" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Remaining Term</label>
+                        <select id="remainingTerm" style="flex:1;">
+                            <option value="5">5 Years</option>
+                            <option value="10">10 Years</option>
+                            <option value="15">15 Years</option>
+                            <option value="20">20 Years</option>
+                            <option value="25">25 Years</option>
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Monthly Payment ($)</label>
+                        <input type="number" id="currentPayment" placeholder="2447" value="2447" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-percent"></i> New Loan Terms</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">New Rate (%)</label>
+                        <input type="number" id="newRate" placeholder="6.0" value="6.0" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">New Term (Years)</label>
+                        <select id="newTerm" style="flex:1;">
+                            <option value="15">15 Years</option>
+                            <option value="20">20 Years</option>
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Closing Costs ($)</label>
+                        <input type="number" id="closingCosts" placeholder="5000" value="5000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateRefinance()"><i class="fas fa-calculator"></i> Calculate Refinance</button>
+                    <button class="secondary-btn" onclick="clearRefinance()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Refinance Analysis</div>
+                <div class="output-display" id="refinanceOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Current Monthly:</strong> <span class="loan-result" id="currentMonthlyDisplay">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">New Monthly:</strong> <span class="loan-result" id="newMonthlyDisplay">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Monthly Savings:</strong> <span class="loan-result" id="monthlySavings">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Breakeven Point:</strong> <span class="loan-result" id="breakevenPoint">0 months</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">5-Year Savings:</strong> <span class="loan-result" id="fiveYearSavings">$0.00</span></div>
+                    <div id="recommendationBox" class="breakeven-box" style="display:none;">
+                        <div style="color:#22C55E;font-weight:600;margin-bottom:5px;"><i class="fas fa-check-circle"></i> <span id="recommendationText"></span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyRefinanceResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridMRC"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> When Should You Refinance?</h3>
+            <p>Refinancing makes sense when you can reduce your interest rate by at least 0.5-1%, plan to stay in the home long enough to recoup closing costs, or need to change loan terms (shorter payoff, lower payment, switch from ARM to fixed).</p>
+            <p>This calculator helps you determine the breakeven point—how long it takes for monthly savings to cover closing costs. Only refinance if you'll stay in the home beyond that point.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your current mortgage balance, rate, and remaining term.<br>
+            <strong>Step 2:</strong> Input your current monthly payment (principal + interest).<br>
+            <strong>Step 3:</strong> Enter the new interest rate you're considering.<br>
+            <strong>Step 4:</strong> Select new loan term.<br>
+            <strong>Step 5:</strong> Add estimated closing costs ($3,000-8,000 typical).<br>
+            <strong>Step 6:</strong> Click "Calculate Refinance" to see analysis.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Understanding Breakeven Analysis</h3>
+            <p>The breakeven point is when cumulative monthly savings equal closing costs. After this point, you start saving real money.</p>
+            <ul>
+                <li><strong>Breakeven under 24 months:</strong> Usually a good deal.</li>
+                <li><strong>Breakeven 24-36 months:</strong> Consider if you'll stay 5+ years.</li>
+                <li><strong>Breakeven over 36 months:</strong> Questionable unless rates drop further.</li>
+            </ul>
+            <p>Also consider the long-term cost—a 30-year refinance resets the clock, potentially adding years of payments even with a lower rate.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Consider Refinancing?</h3>
+            <ul>
+                <li><strong>Rate Droppers</strong> – when rates fall 0.5% or more below your current rate.</li>
+                <li><strong>ARM Holders</strong> – switching from adjustable to fixed before rates rise.</li>
+                <li><strong>Equity Builders</strong> – removing PMI after reaching 20% equity.</li>
+                <li><strong>Cash-Out Needers</strong> – tapping home equity for major expenses.</li>
+                <li><strong>Term Changers</strong> – going from 30 to 15 years for faster payoff.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-shield-alt"></i> Refinancing Cautions</h3>
+            <ul>
+                <li>Don't chase small rate drops—costs may exceed savings.</li>
+                <li>Extending your term can cost more despite lower payments.</li>
+                <li>Consider how long you'll stay in the home.</li>
+                <li>Factor in all closing costs, not just the rate.</li>
+                <li>Don't repeatedly refinance—costs add up over time.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How much should rates drop to make refinancing worth it?</div>
+            <div class="faq-answer">General rule: 0.5-1% rate reduction. However, it depends on loan size and closing costs. On a $350,000 loan, a 0.75% drop saves about $200/month—$2,400/year. With $5,000 closing costs, you'd breakeven in just over 2 years.</div>
+
+            <div class="faq-question">What are typical closing costs for refinancing?</div>
+            <div class="faq-answer">Expect 2-5% of loan amount: loan origination (0.5-1%), appraisal ($400-600), credit report, title insurance, recording fees, attorney fees, and prepaid items (taxes, insurance). On a $300,000 loan, budget $6,000-15,000.</div>
+
+            <div class="faq-question">Should I refinance to a 15-year or 30-year term?</div>
+            <div class="faq-answer">15-year loans have lower rates (typically 0.5-0.75% less) and build equity faster, but payments are 40-50% higher. Choose 15-year if you can comfortably afford it. Choose 30-year for payment flexibility with option to pay extra.</div>
+
+            <div class="faq-question">Can I refinance with bad credit?</div>
+            <div class="faq-answer">Possible but challenging. FHA streamline refinances require less documentation. Conventional loans typically need 620+ credit. Improve your score before applying if possible—even a 20-point increase can mean better rates.</div>
+
+            <div class="faq-question">How long does refinancing take?</div>
+            <div class="faq-answer">Typically 30-45 days, but can range from 15-60 days depending on lender volume, appraisal scheduling, and complexity. Rate locks are usually 30-60 days. Start the process when rates favor you.</div>
+
+            <div class="faq-question">Should I pay points when refinancing?</div>
+            <div class="faq-answer">Paying discount points (1% of loan = ~0.25% rate reduction) makes sense if you'll keep the loan long enough to recoup the cost. Calculate: Points Cost ÷ Monthly Savings = Months to Breakeven. Beyond that point is profit.</div>
+
+            <div class="faq-question">Can I refinance without closing costs?</div>
+            <div class="faq-answer">"No-cost" refinances roll closing costs into the loan balance or charge a higher rate. You're still paying—you just don't pay upfront. Compare the lifetime cost of both options. True no-cost is rare.</div>
+
+            <div class="faq-question">Is cash-out refinancing a good idea?</div>
+            <div class="faq-answer">Cash-out refinances (borrowing more than you owe) are useful for home improvements, debt consolidation, or major expenses. However, they increase your loan balance and reduce equity. Use cautiously and for value-adding purposes.</div>
+
+            <div class="faq-question">How often can I refinance?</div>
+            <div class="faq-answer">No legal limit, but practical limits exist. Lenders may require seasoning periods (6-12 months) between refinances. Each refinance costs money and resets amortization. Frequent refinancing can cost more than it saves.</div>
+
+            <div class="faq-question">Should I refinance if I plan to move soon?</div>
+            <div class="faq-answer">Probably not. If your breakeven is 24 months and you're moving in 12, you'll lose money. Only refinance if you'll stay long enough to recover costs and capture meaningful savings.</div>
+
+            <div class="faq-question">What's the difference between rate-and-term vs cash-out refinance?</div>
+            <div class="faq-answer">Rate-and-term refinancing changes your interest rate, loan term, or both without increasing balance. Cash-out refinancing increases your loan balance to access equity. Rate-and-term typically has better rates and lower fees.</div>
+
+            <div class="faq-question">Can I remove PMI through refinancing?</div>
+            <div class="faq-answer">Yes! If your home value has increased or you've paid down enough to reach 20% equity, refinancing can eliminate PMI. This is a common and financially smart reason to refinance even without a rate reduction.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateRefinance() {
+        const currentBalance = parseFloat(document.getElementById('currentBalance').value) || 0;
+        const currentRate = parseFloat(document.getElementById('currentRate').value) || 0;
+        const remainingYears = parseInt(document.getElementById('remainingTerm').value) || 30;
+        const currentPayment = parseFloat(document.getElementById('currentPayment').value) || 0;
+        const newRate = parseFloat(document.getElementById('newRate').value) || 0;
+        const newTerm = parseInt(document.getElementById('newTerm').value) || 30;
+        const closingCosts = parseFloat(document.getElementById('closingCosts').value) || 0;
+
+        if (currentBalance <= 0 || currentPayment <= 0) {
+            alert('Please enter valid mortgage details');
+            return;
+        }
+
+        // Calculate new monthly payment
+        const newMonthlyRate = newRate / 100 / 12;
+        const newNumPayments = newTerm * 12;
+        let newPayment;
+        if (newMonthlyRate === 0) {
+            newPayment = currentBalance / newNumPayments;
+        } else {
+            newPayment = currentBalance * (newMonthlyRate * Math.pow(1 + newMonthlyRate, newNumPayments)) / (Math.pow(1 + newMonthlyRate, newNumPayments) - 1);
+        }
+
+        // Calculate savings
+        const monthlySavings = currentPayment - newPayment;
+        const breakevenMonths = monthlySavings > 0 ? Math.ceil(closingCosts / monthlySavings) : 0;
+        const fiveYearSavings = (monthlySavings * 60) - closingCosts;
+
+        document.getElementById('currentMonthlyDisplay').textContent = '$' + currentPayment.toFixed(2);
+        document.getElementById('newMonthlyDisplay').textContent = '$' + newPayment.toFixed(2);
+        document.getElementById('monthlySavings').textContent = '$' + monthlySavings.toFixed(2);
+        document.getElementById('breakevenPoint').textContent = breakevenMonths + ' months';
+        document.getElementById('fiveYearSavings').textContent = '$' + fiveYearSavings.toLocaleString(undefined, {maximumFractionDigits: 0});
+
+        // Show recommendation
+        const recBox = document.getElementById('recommendationBox');
+        const recText = document.getElementById('recommendationText');
+        
+        if (monthlySavings <= 0) {
+            recBox.className = 'warning-box';
+            recText.innerHTML = 'New payment is higher. Refinancing not recommended.';
+            recBox.style.display = 'block';
+        } else if (breakevenMonths <= 24) {
+            recBox.className = 'breakeven-box';
+            recText.innerHTML = `Good deal! Breakeven in ${breakevenMonths} months. Consider refinancing.`;
+            recBox.style.display = 'block';
+        } else if (breakevenMonths <= 36) {
+            recBox.className = 'breakeven-box';
+            recText.innerHTML = `Moderate deal. Breakeven in ${breakevenMonths} months. Proceed only if staying 5+ years.`;
+            recBox.style.display = 'block';
+        } else {
+            recBox.className = 'warning-box';
+            recText.innerHTML = `Long breakeven (${breakevenMonths} months). Consider waiting for better rates.`;
+            recBox.style.display = 'block';
+        }
+    }
+
+    function clearRefinance() {
+        document.getElementById('currentBalance').value = '';
+        document.getElementById('currentRate').value = '';
+        document.getElementById('remainingTerm').value = '30';
+        document.getElementById('currentPayment').value = '';
+        document.getElementById('newRate').value = '';
+        document.getElementById('newTerm').value = '30';
+        document.getElementById('closingCosts').value = '';
+        document.getElementById('currentMonthlyDisplay').textContent = '$0.00';
+        document.getElementById('newMonthlyDisplay').textContent = '$0.00';
+        document.getElementById('monthlySavings').textContent = '$0.00';
+        document.getElementById('breakevenPoint').textContent = '0 months';
+        document.getElementById('fiveYearSavings').textContent = '$0.00';
+        document.getElementById('recommendationBox').style.display = 'none';
+    }
+
+    function copyRefinanceResults() {
+        const current = document.getElementById('currentMonthlyDisplay').textContent;
+        const newPay = document.getElementById('newMonthlyDisplay').textContent;
+        const savings = document.getElementById('monthlySavings').textContent;
+        const breakeven = document.getElementById('breakevenPoint').textContent;
+        const fiveYear = document.getElementById('fiveYearSavings').textContent;
+        
+        const text = `Refinance Analysis:
+Current Monthly: ${current}
+New Monthly: ${newPay}
+Monthly Savings: ${savings}
+Breakeven: ${breakeven}
+5-Year Savings: ${fiveYear}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Mortgage Amortization Calculator", icon:"fa-table", url:"mortgage-amortization-calculator.html"},
+            {name:"Loan Comparison Calculator", icon:"fa-balance-scale", url:"loan-comparison-calculator.html"},
+            {name:"Closing Cost Calculator", icon:"fa-file-invoice-dollar", url:"closing-cost-calculator.html"},
+            {name:"Down Payment Calculator", icon:"fa-piggy-bank", url:"down-payment-calculator.html"},
+            {name:"Home Equity Loan Calculator", icon:"fa-home", url:"home-equity-loan-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridMRC").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

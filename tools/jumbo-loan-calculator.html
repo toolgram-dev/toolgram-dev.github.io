@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jumbo Loan Calculator – Jumbo Mortgage Estimator 2026 | ToolGram</title>
+    <meta name="description" content="Calculate jumbo loan payments for amounts exceeding conforming limits. Free online jumbo mortgage calculator for high-value properties.">
+    <meta name="keywords" content="jumbo loan calculator, jumbo mortgage calculator, super conforming loan, high balance mortgage, jumbo loan payment">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/jumbo-loan-calculator.html">
+    <meta property="og:title" content="Jumbo Loan Calculator | ToolGram">
+    <meta property="og:description" content="Calculate jumbo loan payments for high-value properties.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/jumbo-loan-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Jumbo Loan Calculator",
+        "description": "Calculate jumbo loan payments for amounts exceeding conforming limits.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/jumbo-loan-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Jumbo Loan Calculator", "Jumbo Mortgage", "High Value Property Calculator", "Super Conforming Loan"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .jumbo-info{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:12px;margin-top:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-gem"></i></div>
+            <div>
+                <h1 style="margin:0;">Jumbo Loan Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate payments for high-value property loans</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-home"></i> Property & Loan</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Price ($)</label>
+                        <input type="number" id="homePrice" placeholder="1200000" value="1200000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Down Payment ($)</label>
+                        <input type="number" id="downPayment" placeholder="240000" value="240000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="7.25" value="7.25" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term (Years)</label>
+                        <select id="loanTerm" style="flex:1;">
+                            <option value="15">15 Years</option>
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-info-circle"></i> Jumbo Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Conforming Limit ($)</label>
+                        <input type="number" id="conformingLimit" placeholder="766550" value="766550" readonly style="flex:1;padding:12px;background:rgba(255,255,255,0.04);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Amount ($)</label>
+                        <input type="number" id="loanAmount" placeholder="0" value="0" readonly style="flex:1;padding:12px;background:rgba(255,255,255,0.04);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Jumbo Status</label>
+                        <input type="text" id="jumboStatus" placeholder="Calculating..." readonly style="flex:1;padding:12px;background:rgba(255,255,255,0.04);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateJumboLoan()"><i class="fas fa-calculator"></i> Calculate Jumbo Loan</button>
+                    <button class="secondary-btn" onclick="clearJumboLoan()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Jumbo Loan Summary</div>
+                <div class="output-display" id="jumboOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Loan Amount:</strong> <span class="loan-result" id="loanAmountDisplay">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Monthly Payment:</strong> <span class="loan-result" id="monthlyPayment">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Interest:</strong> <span class="loan-result" id="totalInterest">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Cost:</strong> <span class="loan-result" id="totalCost">$0.00</span></div>
+                    <div class="jumbo-info">
+                        <div style="color:#3B82F6;font-weight:600;"><i class="fas fa-info-circle"></i> 2026 Conforming Limit</div>
+                        <div style="font-size:0.9rem;margin-top:5px;">$766,550 for most areas. Higher in high-cost counties (up to $1,149,825). Loans above these limits are "jumbo."</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyJumboResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridJumbo"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Jumbo Loan?</h3>
+            <p>A jumbo loan (or non-conforming loan) is a mortgage that exceeds the conforming loan limits set by the Federal Housing Finance Agency (FHFA). In 2026, the baseline limit is $766,550 for most areas, though high-cost counties have higher limits.</p>
+            <p>Because jumbo loans cannot be purchased by Fannie Mae or Freddie Mac, they carry more risk for lenders and typically have stricter qualification requirements and slightly higher interest rates.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the home purchase price.<br>
+            <strong>Step 2:</strong> Input your down payment (typically 10-20% for jumbo).<br>
+            <strong>Step 3:</strong> Enter the interest rate offered.<br>
+            <strong>Step 4:</strong> Select loan term.<br>
+            <strong>Step 5:</strong> Click "Calculate Jumbo Loan" to see payment details.<br>
+            <strong>Step 6:</strong> Verify jumbo status and review total costs.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-star"></i> Jumbo Loan Requirements</h3>
+            <ul>
+                <li><strong>Higher Credit Scores:</strong> Typically 700+ required, 720+ preferred.</li>
+                <li><strong>Larger Down Payments:</strong> Usually 10-20% minimum.</li>
+                <li><strong>Lower Debt-to-Income:</strong> Typically max 43%, often lower.</li>
+                <li><strong>Significant Reserves:</strong> 6-12 months of payments in savings.</li>
+                <li><strong>Documentation:</strong> Extensive income and asset verification.</li>
+                <li><strong>Appraisals:</strong> Often require two appraisals.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-dollar-sign"></i> Jumbo Loan Rates and Costs</h3>
+            <p>Jumbo loans typically have:</p>
+            <ul>
+                <li><strong>Rates:</strong> Historically 0.25-0.5% higher than conforming, though sometimes competitive or lower for well-qualified borrowers.</li>
+                <li><strong>Closing Costs:</strong> Higher due to additional appraisals and underwriting.</li>
+                <li><strong>PMI:</strong> Usually not required with 20% down, but may be with lower down payments.</li>
+                <li><strong>Points:</strong> Often require paying points to get best rates.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the 2026 conforming loan limit?</div>
+            <div class="faq-answer">$766,550 for most counties. High-cost areas range up to $1,149,825. Loans above these limits are considered jumbo. The limit adjusts annually based on housing prices.</div>
+
+            <div class="faq-question">How much down payment do I need for a jumbo loan?</div>
+            <div class="faq-answer">Typically 10-20%, though some lenders offer 5% down with exceptional credit and strong reserves. 20% eliminates PMI and gets best rates. Some portfolio lenders have unique programs with varying requirements.</div>
+
+            <div class="faq-question">Are jumbo loan rates higher than conventional?</div>
+            <div class="faq-answer">Historically yes, but the gap has narrowed. Well-qualified borrowers may find jumbo rates competitive with or even below conforming rates in some markets. Shop multiple lenders—jumbo rates vary more than conforming rates.</div>
+
+            <div class="faq-question">What credit score do I need for a jumbo loan?</div>
+            <div class="faq-answer">Minimum 700, but 720-740+ preferred for best rates. Some lenders require 760+ for their best programs. Your credit score significantly impacts both approval and interest rate for jumbo loans.</div>
+
+            <div class="faq-question">Can I get a jumbo loan with less than 20% down?</div>
+            <div class="faq-answer">Yes, some lenders offer jumbo loans with 10% or even 5% down, but expect higher rates, PMI, and stricter qualification. Programs like 80-10-10 (piggyback loans) can help avoid jumbo status or reduce down payment.</div>
+
+            <div class="faq-question">What are cash reserves for jumbo loans?</div>
+            <div class="faq-answer">Lenders typically require 6-12 months of mortgage payments (principal, interest, taxes, insurance) in liquid assets after closing. Some require more for larger loans or riskier profiles. Retirement accounts can sometimes count with restrictions.</div>
+
+            <div class="faq-question">Can I refinance a jumbo loan?</div>
+            <div class="faq-answer">Yes, though options are more limited than conforming loans. Jumbo refinancing has similar requirements to purchase loans. Consider refinancing if rates drop or if you can move to a conforming loan by paying down principal below limits.</div>
+
+            <div class="faq-question">What's a piggyback loan for jumbo avoidance?</div>
+            <div class="faq-answer">An 80-10-10 structure: 80% first mortgage (conforming), 10% second mortgage (HELOC), 10% down payment. This keeps the first mortgage at conforming limit. Second mortgage rates are higher, but blended rate may beat jumbo.</div>
+
+            <div class="faq-question">Do jumbo loans require PMI?</div>
+            <div class="faq-answer">With 20% down, no PMI required. With less than 20%, PMI is typically required or the rate is increased to compensate. Some lenders offer lender-paid PMI (LPMI) with higher rates.</div>
+
+            <div class="faq-question">Are jumbo loans harder to qualify for?</div>
+            <div class="faq-answer">Yes, due to lender risk. Requirements are stricter across credit score, DTI, reserves, and documentation. Underwriting is more thorough. Start the process early and gather all documentation before applying.</div>
+
+            <div class="faq-question">Can I get an adjustable-rate jumbo mortgage?</div>
+            <div class="faq-answer">Yes, jumbo ARMs are available and may offer lower initial rates than fixed. Common terms: 5/1, 7/1, 10/1 ARM. Consider if you plan to move or refinance before adjustment period ends.</div>
+
+            <div class="faq-question">Should I avoid jumbo status if possible?</div>
+            <div class="faq-answer">Consider: larger down payment to get below limit, piggyback structure, or paying points to buy down rate. Compare total costs—sometimes jumbo with competitive rate beats conforming with PMI or higher blended piggyback rate.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateJumboLoan() {
+        const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+        const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+        const rate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const years = parseInt(document.getElementById('loanTerm').value) || 30;
+        const conformingLimit = parseFloat(document.getElementById('conformingLimit').value) || 766550;
+
+        if (homePrice <= 0) {
+            alert('Please enter a valid home price');
+            return;
+        }
+
+        const loanAmount = homePrice - downPayment;
+        const isJumbo = loanAmount > conformingLimit;
+        const downPercent = (downPayment / homePrice) * 100;
+
+        // Calculate monthly payment
+        const monthlyRate = rate / 100 / 12;
+        const numPayments = years * 12;
+        let monthlyPayment;
+        if (monthlyRate === 0) {
+            monthlyPayment = loanAmount / numPayments;
+        } else {
+            monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        }
+
+        const totalPayments = monthlyPayment * numPayments;
+        const totalInterest = totalPayments - loanAmount;
+        const totalCost = totalPayments + downPayment;
+
+        // Status text
+        let statusText = isJumbo ? 
+            `JUMBO LOAN - $${(loanAmount - conformingLimit).toLocaleString()} over limit` : 
+            `Conforming Loan - Within limits`;
+
+        document.getElementById('loanAmount').value = loanAmount.toFixed(2);
+        document.getElementById('jumboStatus').value = statusText;
+        document.getElementById('loanAmountDisplay').textContent = '$' + loanAmount.toLocaleString();
+        document.getElementById('monthlyPayment').textContent = '$' + monthlyPayment.toFixed(2);
+        document.getElementById('totalInterest').textContent = '$' + totalInterest.toLocaleString();
+        document.getElementById('totalCost').textContent = '$' + totalCost.toLocaleString();
+    }
+
+    function clearJumboLoan() {
+        document.getElementById('homePrice').value = '';
+        document.getElementById('downPayment').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('loanTerm').value = '30';
+        document.getElementById('conformingLimit').value = '766550';
+        document.getElementById('loanAmount').value = '';
+        document.getElementById('jumboStatus').value = '';
+        document.getElementById('loanAmountDisplay').textContent = '$0.00';
+        document.getElementById('monthlyPayment').textContent = '$0.00';
+        document.getElementById('totalInterest').textContent = '$0.00';
+        document.getElementById('totalCost').textContent = '$0.00';
+    }
+
+    function copyJumboResults() {
+        const loan = document.getElementById('loanAmountDisplay').textContent;
+        const monthly = document.getElementById('monthlyPayment').textContent;
+        const interest = document.getElementById('totalInterest').textContent;
+        const total = document.getElementById('totalCost').textContent;
+        const status = document.getElementById('jumboStatus').value;
+        
+        const text = `Jumbo Loan Calculation:
+${status}
+Loan Amount: ${loan}
+Monthly Payment: ${monthly}
+Total Interest: ${interest}
+Total Cost: ${total}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"Down Payment Calculator", icon:"fa-piggy-bank", url:"down-payment-calculator.html"},
+            {name:"PMI Calculator", icon:"fa-shield-alt", url:"pmi-calculator.html"},
+            {name:"Mortgage Amortization Calculator", icon:"fa-table", url:"mortgage-amortization-calculator.html"},
+            {name:"Closing Cost Calculator", icon:"fa-file-invoice-dollar", url:"closing-cost-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridJumbo").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

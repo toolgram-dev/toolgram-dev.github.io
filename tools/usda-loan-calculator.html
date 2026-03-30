@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>USDA Loan Calculator – Rural Housing Loan Estimator 2026 | ToolGram</title>
+    <meta name="description" content="Calculate USDA loan payments, guarantee fees, and total costs. Free online USDA loan calculator for rural home buyers with no down payment.">
+    <meta name="keywords" content="USDA loan calculator, rural housing loan calculator, USDA mortgage calculator, USDA guarantee fee calculator, no down payment loan calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/usda-loan-calculator.html">
+    <meta property="og:title" content="USDA Loan Calculator | ToolGram">
+    <meta property="og:description" content="Calculate USDA loan payments with guarantee fees for rural home buyers.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/usda-loan-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "USDA Loan Calculator",
+        "description": "Calculate USDA loan payments with guarantee fees for rural home buyers.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/usda-loan-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["USDA Loan Calculator", "Rural Housing Loan", "USDA Guarantee Fee", "No Down Payment Calculator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .rural-benefit{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-top:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-tractor"></i></div>
+            <div>
+                <h1 style="margin:0;">USDA Loan Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate USDA loan payments for rural home buyers</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-home"></i> Property & Loan</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Price ($)</label>
+                        <input type="number" id="homePrice" placeholder="300000" value="300000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Down Payment ($)</label>
+                        <input type="number" id="downPayment" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="6.75" value="6.75" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term (Years)</label>
+                        <select id="loanTerm" style="flex:1;">
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-shield-alt"></i> USDA Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Household Size</label>
+                        <select id="householdSize" style="flex:1;">
+                            <option value="1-4" selected>1-4 People</option>
+                            <option value="5-8">5-8 People</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Income ($)</label>
+                        <input type="number" id="annualIncome" placeholder="90000" value="90000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Upfront Guarantee ($)</label>
+                        <input type="number" id="upfrontGuarantee" placeholder="0" value="0" readonly style="flex:1;padding:12px;background:rgba(255,255,255,0.04);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Fee Rate</label>
+                        <input type="text" id="annualFeeRate" placeholder="0.35%" value="0.35%" readonly style="flex:1;padding:12px;background:rgba(255,255,255,0.04);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateUSDALoan()"><i class="fas fa-calculator"></i> Calculate USDA Loan</button>
+                    <button class="secondary-btn" onclick="clearUSDALoan()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> USDA Loan Summary</div>
+                <div class="output-display" id="usdaOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Base Loan Amount:</strong> <span class="loan-result" id="baseLoanAmount">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Upfront Guarantee Fee:</strong> <span class="loan-result" id="upfrontGuaranteeDisplay">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Loan Amount:</strong> <span class="loan-result" id="totalLoanAmount">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Principal & Interest:</strong> <span class="loan-result" id="principalInterest">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Annual Fee (Monthly):</strong> <span class="loan-result" id="monthlyAnnualFee">$0.00</span></div>
+                    <div class="rural-benefit">
+                        <div style="color:#22C55E;font-weight:600;"><i class="fas fa-check-circle"></i> Total Monthly Payment</div>
+                        <div style="font-size:1.3rem;font-weight:bold;color:#8B5CF6;margin-top:5px;" id="totalMonthly">$0.00</div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Interest:</strong> <span id="totalInterest">$0.00</span></div>
+                        <div><strong style="color:#8B5CF6;">Income Eligibility:</strong> <span id="incomeEligibility">Check Required</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyUSDAResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridUSDA"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a USDA Loan?</h3>
+            <p>USDA loans, also known as Rural Development loans, are mortgages backed by the U.S. Department of Agriculture. They're designed to help moderate-income families purchase homes in eligible rural and suburban areas with no down payment required.</p>
+            <p>The program offers 100% financing with competitive rates, making homeownership accessible for those who might not qualify for conventional loans or have limited savings for a down payment.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the home purchase price.<br>
+            <strong>Step 2:</strong> Add any down payment (optional with USDA).<br>
+            <strong>Step 3:</strong> Input the interest rate offered.<br>
+            <strong>Step 4:</strong> Select household size and enter annual income.<br>
+            <strong>Step 5:</strong> Click "Calculate USDA Loan" to see payment details.<br>
+            <strong>Step 6:</strong> Check income eligibility for your area.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-shield-alt"></i> Understanding USDA Fees</h3>
+            <p>USDA loans have two fees that function similarly to mortgage insurance:</p>
+            <ul>
+                <li><strong>Upfront Guarantee Fee:</strong> 1% of loan amount (can be financed). For a $300,000 loan, that's $3,000 upfront or added to loan balance.</li>
+                <li><strong>Annual Fee:</strong> 0.35% of loan balance per year, paid monthly ($87.50/month on $300,000). This fee stays for the life of the loan.</li>
+            </ul>
+            <p>While these fees add cost, the lack of down payment requirement and competitive rates often make USDA loans more accessible than other options.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> USDA Loan Eligibility Requirements</h3>
+            <ul>
+                <li><strong>Location:</strong> Property must be in eligible rural area (check USDA website).</li>
+                <li><strong>Income:</strong> Household income typically must not exceed 115% of area median income.</li>
+                <li><strong>Credit:</strong> 640+ preferred, though lower scores considered with compensating factors.</li>
+                <li><strong>Occupancy:</strong> Must be primary residence (no investment properties).</li>
+                <li><strong>Citizenship:</strong> U.S. citizens or permanent residents.</li>
+                <li><strong>Debt-to-Income:</strong> 41% standard, up to 44% with compensating factors.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-star"></i> USDA Loan Benefits</h3>
+            <ul>
+                <li><strong>No Down Payment:</strong> 100% financing available.</li>
+                <li><strong>Competitive Rates:</strong> Often lower than conventional rates.</li>
+                <li><strong>Flexible Credit:</strong> More forgiving than conventional loans.</li>
+                <li><strong>No PMI:</strong> Though annual fee serves similar purpose, rates are lower.</li>
+                <li><strong>Fixed Rates:</strong> 30-year fixed loans provide payment stability.</li>
+                <li><strong>Closing Cost Assistance:</strong> Seller can contribute up to 6%.</li>
+                <li><strong>Gift Funds:</strong> Down payment (if any) can be gifted.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What areas qualify for USDA loans?</div>
+            <div class="faq-answer">USDA loans are for rural areas, but "rural" includes many suburbs and small towns. About 97% of U.S. land area is eligible. Check the USDA eligibility map on their website by entering an address. Many areas you wouldn't consider "rural" actually qualify.</div>
+
+            <div class="faq-question">What is the income limit for USDA loans?</div>
+            <div class="faq-answer">Income limits vary by county and household size. Generally, household income cannot exceed 115% of the area median income. For 2026, this typically ranges from $100,000-$150,000+ depending on location and family size. Check USDA's income eligibility tool for specific limits.</div>
+
+            <div class="faq-question">Do I need perfect credit for a USDA loan?</div>
+            <div class="faq-answer">No. While 640+ is preferred for streamlined processing, USDA accepts lower scores with manual underwriting. You'll need compensating factors like stable employment history, cash reserves, or low debt-to-income. Work on improving credit for better rates.</div>
+
+            <div class="faq-question">Can I refinance a USDA loan?</div>
+            <div class="faq-answer">Yes, through the USDA Streamline Assist Refinance program. It requires no appraisal, no credit review, and minimal documentation. Available to borrowers current on payments who want to lower rate or convert adjustable to fixed. Must result in payment reduction of $50+ or move from ARM to fixed.</div>
+
+            <div class="faq-question">Can I buy a fixer-upper with a USDA loan?</div>
+            <div class="faq-answer">Yes, through the USDA Section 504 Home Repair program or by including repair costs in your loan with a USDA-approved contractor. The property must meet USDA minimum property standards at closing. Major renovations may require a 203k-style USDA renovation loan if available.</div>
+
+            <div class="faq-question">Are there USDA loan limits?</div>
+            <div class="faq-answer">No set loan limits, but income limits effectively cap loan amounts. Your debt-to-income ratio and income eligibility determine maximum purchase price. In high-cost areas with higher income limits, USDA loans can exceed $500,000 in some cases.</div>
+
+            <div class="faq-question">Can I use a USDA loan for a condo or manufactured home?</div>
+            <div class="faq-answer">Condos must be in USDA-eligible projects (rare). Manufactured homes are eligible if permanently affixed to foundation, built after 2006, minimum 400 sq ft, and in eligible rural area. Site-built single-family homes are most common USDA purchases.</div>
+
+            <div class="faq-question">Do USDA loans have prepayment penalties?</div>
+            <div class="faq-answer">No, USDA loans have no prepayment penalties. You can pay off early, refinance, or make extra principal payments without fees. This flexibility helps you build equity faster if your situation improves.</div>
+
+            <div class="faq-question">How long does USDA loan approval take?</div>
+            <div class="faq-answer">Typically 30-45 days, similar to other loan types. USDA requires additional time for rural development office review and guarantee approval. Working with a USDA-experienced lender streamlines the process. Start early and respond quickly to documentation requests.</div>
+
+            <div class="faq-question">Can I have a USDA loan and another mortgage?</div>
+            <div class="faq-answer">USDA loans require the property be your primary residence. You can have other financed properties, but you must occupy the USDA-financed home. If you have sufficient income, you may qualify while keeping another home temporarily, but intention to occupy is required.</div>
+
+            <div class="faq-question">What's the difference between USDA Guaranteed and Direct loans?</div>
+            <div class="faq-answer">Guaranteed loans (most common) are offered by private lenders with USDA backing. Direct loans are made directly by USDA to very low-income borrowers. Direct loans have stricter income limits, subsidized rates, and longer processing times.</div>
+
+            <div class="faq-question">Can I buy land with a USDA loan?</div>
+            <div class="faq-answer">USDA loans are for homes and the land they sit on, not vacant land purchases. The loan covers the property purchase with existing home or new construction packages. Minimum site requirements apply—typically the land must have utilities and access.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateUSDALoan() {
+        const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+        const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+        const rate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const years = parseInt(document.getElementById('loanTerm').value) || 30;
+        const annualIncome = parseFloat(document.getElementById('annualIncome').value) || 0;
+
+        if (homePrice <= 0) {
+            alert('Please enter a valid home price');
+            return;
+        }
+
+        const baseLoanAmount = homePrice - downPayment;
+
+        // Upfront guarantee fee: 1% of base loan
+        const upfrontGuarantee = baseLoanAmount * 0.01;
+        const totalLoanAmount = baseLoanAmount + upfrontGuarantee;
+
+        // Annual fee: 0.35% of loan balance per year
+        const annualFeeRate = 0.0035;
+        const monthlyAnnualFee = (baseLoanAmount * annualFeeRate) / 12;
+
+        // Calculate principal and interest
+        const monthlyRate = rate / 100 / 12;
+        const numPayments = years * 12;
+        let principalInterest;
+        if (monthlyRate === 0) {
+            principalInterest = totalLoanAmount / numPayments;
+        } else {
+            principalInterest = totalLoanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        }
+
+        const totalMonthly = principalInterest + monthlyAnnualFee;
+        const totalPayments = totalMonthly * numPayments;
+        const totalInterest = (principalInterest * numPayments) - totalLoanAmount;
+
+        // Income eligibility check (simplified - varies by county)
+        let eligibilityText = "Check Required";
+        if (annualIncome > 0) {
+            if (annualIncome <= 100000) {
+                eligibilityText = "Likely Eligible (Verify with USDA)";
+            } else if (annualIncome <= 130000) {
+                eligibilityText = "May Be Eligible (Check Local Limits)";
+            } else {
+                eligibilityText = "May Exceed Limits (Verify with USDA)";
+            }
+        }
+
+        document.getElementById('baseLoanAmount').textContent = '$' + baseLoanAmount.toLocaleString();
+        document.getElementById('upfrontGuarantee').value = upfrontGuarantee.toFixed(2);
+        document.getElementById('upfrontGuaranteeDisplay').textContent = '$' + upfrontGuarantee.toFixed(2);
+        document.getElementById('annualFeeRate').value = '0.35%';
+        document.getElementById('totalLoanAmount').textContent = '$' + totalLoanAmount.toLocaleString();
+        document.getElementById('principalInterest').textContent = '$' + principalInterest.toFixed(2);
+        document.getElementById('monthlyAnnualFee').textContent = '$' + monthlyAnnualFee.toFixed(2);
+        document.getElementById('totalMonthly').textContent = '$' + totalMonthly.toFixed(2);
+        document.getElementById('totalInterest').textContent = '$' + totalInterest.toLocaleString();
+        document.getElementById('incomeEligibility').textContent = eligibilityText;
+    }
+
+    function clearUSDALoan() {
+        document.getElementById('homePrice').value = '';
+        document.getElementById('downPayment').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('loanTerm').value = '30';
+        document.getElementById('householdSize').value = '1-4';
+        document.getElementById('annualIncome').value = '';
+        document.getElementById('upfrontGuarantee').value = '';
+        document.getElementById('annualFeeRate').value = '0.35%';
+        document.getElementById('baseLoanAmount').textContent = '$0.00';
+        document.getElementById('upfrontGuaranteeDisplay').textContent = '$0.00';
+        document.getElementById('totalLoanAmount').textContent = '$0.00';
+        document.getElementById('principalInterest').textContent = '$0.00';
+        document.getElementById('monthlyAnnualFee').textContent = '$0.00';
+        document.getElementById('totalMonthly').textContent = '$0.00';
+        document.getElementById('totalInterest').textContent = '$0.00';
+        document.getElementById('incomeEligibility').textContent = 'Check Required';
+    }
+
+    function copyUSDAResults() {
+        const base = document.getElementById('baseLoanAmount').textContent;
+        const upfront = document.getElementById('upfrontGuaranteeDisplay').textContent;
+        const total = document.getElementById('totalLoanAmount').textContent;
+        const pni = document.getElementById('principalInterest').textContent;
+        const fee = document.getElementById('monthlyAnnualFee').textContent;
+        const totalMonthly = document.getElementById('totalMonthly').textContent;
+        const totalInt = document.getElementById('totalInterest').textContent;
+        
+        const text = `USDA Loan Calculation:
+Base Loan: ${base}
+Upfront Guarantee: ${upfront}
+Total Loan: ${total}
+P&I: ${pni}
+Annual Fee: ${fee}
+Total Monthly: ${totalMonthly}
+Total Interest: ${totalInt}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"VA Loan Calculator", icon:"fa-flag-usa", url:"va-loan-calculator.html"},
+            {name:"FHA Loan Calculator", icon:"fa-home", url:"fha-loan-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Closing Cost Calculator", icon:"fa-file-invoice-dollar", url:"closing-cost-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridUSDA").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

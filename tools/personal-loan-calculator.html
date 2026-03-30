@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Personal Loan Calculator – Monthly Payment Estimator 2026 | ToolGram</title>
+    <meta name="description" content="Calculate personal loan payments, total interest, and payoff schedule. Free online personal loan calculator for debt consolidation, home improvement, and major purchases.">
+    <meta name="keywords" content="personal loan calculator, personal loan payment, debt consolidation calculator, unsecured loan calculator, personal loan interest">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/personal-loan-calculator.html">
+    <meta property="og:title" content="Personal Loan Calculator | ToolGram">
+    <meta property="og:description" content="Calculate personal loan payments and total interest costs.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/personal-loan-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Personal Loan Calculator",
+        "description": "Calculate personal loan payments, total interest, and payoff schedule.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/personal-loan-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Personal Loan Calculator", "Monthly Payment Calculator", "Debt Consolidation Calculator", "Unsecured Loan Estimator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-user"></i></div>
+            <div>
+                <h1 style="margin:0;">Personal Loan Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate personal loan payments and total costs</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Loan Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Amount ($)</label>
+                        <input type="number" id="loanAmount" placeholder="15000" value="15000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Rate (%)</label>
+                        <input type="number" id="annualRate" placeholder="11.5" value="11.5" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term</label>
+                        <select id="loanTerm" style="flex:1;">
+                            <option value="1">1 Year</option>
+                            <option value="2">2 Years</option>
+                            <option value="3" selected>3 Years</option>
+                            <option value="4">4 Years</option>
+                            <option value="5">5 Years</option>
+                            <option value="7">7 Years</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Origination Fee (%)</label>
+                        <input type="number" id="originationFee" placeholder="5" value="5" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculatePersonalLoan()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearPersonalLoan()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Loan Summary</div>
+                <div class="output-display" id="personalOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Monthly Payment:</strong> <span class="loan-result" id="monthlyPayment">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Origination Fee:</strong> <span class="loan-result" id="feeAmount">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Interest:</strong> <span class="loan-result" id="totalInterest">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Cost:</strong> <span class="loan-result" id="totalCost">$0.00</span></div>
+                    <div><strong style="color:#8B5CF6;">APR:</strong> <span class="loan-result" id="aprValue">0.00%</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyPersonalResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridPLC"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Personal Loan Calculator?</h3>
+            <p>A personal loan calculator helps you estimate monthly payments and total costs for unsecured loans. Personal loans can be used for debt consolidation, home improvements, medical expenses, weddings, vacations, or any major purchase.</p>
+            <p>Unlike secured loans (auto, mortgage), personal loans don't require collateral. This calculator helps you understand the true cost including interest and fees before applying.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the loan amount you need.<br>
+            <strong>Step 2:</strong> Input the annual interest rate offered.<br>
+            <strong>Step 3:</strong> Select your preferred loan term.<br>
+            <strong>Step 4:</strong> Add origination fee percentage if applicable.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see monthly payment and total costs.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-info-circle"></i> Understanding Personal Loan Costs</h3>
+            <p>Personal loans often include origination fees deducted from your loan amount. For example, a $10,000 loan with a 5% origination fee means you receive $9,500 but pay back $10,000 plus interest.</p>
+            <p>The APR (Annual Percentage Rate) includes both interest and fees, giving you the true annual cost of borrowing. Always compare APRs when shopping for personal loans.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses This Calculator?</h3>
+            <ul>
+                <li><strong>Debt Consolidators</strong> – evaluating if personal loans can save money on high-interest debt.</li>
+                <li><strong>Homeowners</strong> – financing renovations and home improvements.</li>
+                <li><strong>Medical Expense Payers</strong> – covering unexpected healthcare costs.</li>
+                <li><strong>Wedding Planners</strong> – budgeting for special events.</li>
+                <li><strong>Major Purchase Buyers</strong> – financing large purchases without credit cards.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-shield-alt"></i> Smart Borrowing Tips</h3>
+            <ul>
+                <li>Compare APRs, not just interest rates, to find the best deal.</li>
+                <li>Check if the lender charges origination, prepayment, or late fees.</li>
+                <li>Improve your credit score before applying to qualify for lower rates.</li>
+                <li>Consider credit unions for potentially lower rates than banks.</li>
+                <li>Use personal loans for debt consolidation only if the rate is lower than your current debt.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What credit score do I need for a personal loan?</div>
+            <div class="faq-answer">Minimum scores vary by lender: 580+ for some online lenders, 640+ for most banks, 700+ for best rates. Higher scores get lower APRs and higher approval odds.</div>
+
+            <div class="faq-question">What is an origination fee?</div>
+            <div class="faq-answer">An origination fee (typically 1-8%) is charged upfront and deducted from your loan amount. A $10,000 loan with 5% fee gives you $9,500 but you repay $10,000 plus interest.</div>
+
+            <div class="faq-question">How fast can I get a personal loan?</div>
+            <div class="faq-answer">Online lenders often provide same-day or next-day approval with funding in 1-3 business days. Banks may take 1-2 weeks. Having documents ready (pay stubs, ID, bank statements) speeds the process.</div>
+
+            <div class="faq-question">Can I use a personal loan for debt consolidation?</div>
+            <div class="faq-answer">Yes, debt consolidation is a popular use. The strategy works if your personal loan rate is lower than your current debt rates. You simplify payments and potentially save on interest.</div>
+
+            <div class="faq-question">Are personal loans better than credit cards?</div>
+            <div class="faq-answer">Personal loans often have lower rates than credit cards (average 11% vs 20%+) and offer fixed payments over a set term. Better for large, planned expenses. Credit cards better for ongoing, variable spending.</div>
+
+            <div class="faq-question">Can I pay off a personal loan early?</div>
+            <div class="faq-answer">Most lenders allow early payoff, but some charge prepayment penalties. Check your loan agreement. Paying early reduces total interest paid. Without penalties, early payoff is usually beneficial.</div>
+
+            <div class="faq-question">What is the maximum personal loan amount?</div>
+            <div class="faq-answer">Most lenders offer $1,000 to $50,000, with some offering up to $100,000 for qualified borrowers. Your income, credit score, and debt-to-income ratio determine your maximum.</div>
+
+            <div class="faq-question">Will a personal loan hurt my credit score?</div>
+            <div class="faq-answer">Applying triggers a hard inquiry (small temporary dip). Making payments on time improves your score. The loan increases your credit mix. Debt consolidation can lower credit utilization, boosting your score.</div>
+
+            <div class="faq-question">What documents do I need for a personal loan?</div>
+            <div class="faq-answer">Typically: government-issued ID, proof of income (pay stubs, tax returns, W-2s), proof of address, bank statements, and Social Security number. Some lenders require less for smaller loans.</div>
+
+            <div class="faq-question">Is a longer or shorter loan term better?</div>
+            <div class="faq-answer">Shorter terms (1-3 years) have higher payments but much less total interest. Longer terms (5-7 years) have lower payments but cost more overall. Choose based on your monthly budget and total cost preference.</div>
+
+            <div class="faq-question">Can I get a personal loan with bad credit?</div>
+            <div class="faq-answer">Yes, but expect higher rates (20-36%). Consider credit unions, secured personal loans, or co-signers. Improve your credit before applying if possible. Compare multiple lenders as rates vary widely.</div>
+
+            <div class="faq-question">What's the difference between fixed and variable rates?</div>
+            <div class="faq-answer">Fixed rates stay the same for the loan term, providing predictable payments. Variable rates can change with market conditions, potentially increasing or decreasing over time. Most personal loans have fixed rates.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculatePersonalLoan() {
+        const amount = parseFloat(document.getElementById('loanAmount').value);
+        const annualRate = parseFloat(document.getElementById('annualRate').value);
+        const years = parseInt(document.getElementById('loanTerm').value);
+        const feePercent = parseFloat(document.getElementById('originationFee').value) || 0;
+
+        if (isNaN(amount) || isNaN(annualRate) || amount <= 0 || annualRate < 0) {
+            document.getElementById('personalOutput').innerHTML = '<span style="color:#EF4444;">Please enter valid loan details.</span>';
+            return;
+        }
+
+        const feeAmount = amount * (feePercent / 100);
+        const monthlyRate = annualRate / 100 / 12;
+        const numPayments = years * 12;
+
+        let monthlyPayment;
+        if (monthlyRate === 0) {
+            monthlyPayment = amount / numPayments;
+        } else {
+            monthlyPayment = amount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        }
+
+        const totalPayments = monthlyPayment * numPayments;
+        const totalInterest = totalPayments - amount;
+        const totalCost = totalPayments + feeAmount;
+
+        // Calculate APR including origination fee
+        const apr = ((totalCost - amount + feeAmount) / amount / years * 100) + annualRate;
+
+        document.getElementById('monthlyPayment').textContent = '$' + monthlyPayment.toFixed(2);
+        document.getElementById('feeAmount').textContent = '$' + feeAmount.toFixed(2);
+        document.getElementById('totalInterest').textContent = '$' + totalInterest.toFixed(2);
+        document.getElementById('totalCost').textContent = '$' + totalCost.toFixed(2);
+        document.getElementById('aprValue').textContent = (annualRate + (feePercent / years)).toFixed(2) + '%';
+    }
+
+    function clearPersonalLoan() {
+        document.getElementById('loanAmount').value = '';
+        document.getElementById('annualRate').value = '';
+        document.getElementById('loanTerm').value = '3';
+        document.getElementById('originationFee').value = '';
+        document.getElementById('monthlyPayment').textContent = '$0.00';
+        document.getElementById('feeAmount').textContent = '$0.00';
+        document.getElementById('totalInterest').textContent = '$0.00';
+        document.getElementById('totalCost').textContent = '$0.00';
+        document.getElementById('aprValue').textContent = '0.00%';
+    }
+
+    function copyPersonalResults() {
+        const monthly = document.getElementById('monthlyPayment').textContent;
+        const fee = document.getElementById('feeAmount').textContent;
+        const interest = document.getElementById('totalInterest').textContent;
+        const total = document.getElementById('totalCost').textContent;
+        const apr = document.getElementById('aprValue').textContent;
+        
+        const text = `Personal Loan Calculation:
+Monthly Payment: ${monthly}
+Origination Fee: ${fee}
+Total Interest: ${interest}
+Total Cost: ${total}
+APR: ${apr}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Debt Consolidation Calculator", icon:"fa-compress", url:"debt-consolidation-calculator.html"},
+            {name:"Loan Comparison Calculator", icon:"fa-balance-scale", url:"loan-comparison-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Student Loan Calculator", icon:"fa-graduation-cap", url:"student-loan-calculator.html"},
+            {name:"Payday Loan Calculator", icon:"fa-money-bill-wave", url:"payday-loan-calculator.html"},
+            {name:"Auto Loan Calculator", icon:"fa-car", url:"auto-loan-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridPLC").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

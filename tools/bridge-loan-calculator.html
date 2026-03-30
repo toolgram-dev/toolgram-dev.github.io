@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bridge Loan Calculator – Short-Term Financing Estimator | ToolGram</title>
+    <meta name="description" content="Calculate bridge loan payments and costs for temporary financing. Free online bridge loan calculator for home buying and selling transitions.">
+    <meta name="keywords" content="bridge loan calculator, bridge financing, swing loan calculator, temporary loan calculator, bridge mortgage calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/bridge-loan-calculator.html">
+    <meta property="og:title" content="Bridge Loan Calculator | ToolGram">
+    <meta property="og:description" content="Calculate bridge loan payments and short-term financing costs.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/bridge-loan-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Bridge Loan Calculator",
+        "description": "Calculate bridge loan payments and short-term financing costs.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/bridge-loan-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Bridge Loan Calculator", "Swing Loan Calculator", "Temporary Financing", "Bridge Mortgage"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .bridge-warning{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-top:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-road"></i></div>
+            <div>
+                <h1 style="margin:0;">Bridge Loan Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate short-term bridge financing costs</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-home"></i> Current & New Property</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Home Value ($)</label>
+                        <input type="number" id="currentHomeValue" placeholder="500000" value="500000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Mortgage ($)</label>
+                        <input type="number" id="currentMortgage" placeholder="300000" value="300000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">New Home Price ($)</label>
+                        <input type="number" id="newHomePrice" placeholder="700000" value="700000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Cash Available ($)</label>
+                        <input type="number" id="cashAvailable" placeholder="50000" value="50000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-percent"></i> Bridge Loan Terms</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Bridge Amount ($)</label>
+                        <input type="number" id="bridgeAmount" placeholder="0" value="0" readonly style="flex:1;padding:12px;background:rgba(255,255,255,0.04);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="9.5" value="9.5" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term (Months)</label>
+                        <select id="loanTerm" style="flex:1;">
+                            <option value="3">3 Months</option>
+                            <option value="6" selected>6 Months</option>
+                            <option value="9">9 Months</option>
+                            <option value="12">12 Months</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Origination Fee (%)</label>
+                        <input type="number" id="originationFee" placeholder="2" value="2" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateBridgeLoan()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearBridgeLoan()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Bridge Loan Summary</div>
+                <div class="output-display" id="bridgeOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Available Equity:</strong> <span class="loan-result" id="availableEquity">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Bridge Loan Needed:</strong> <span class="loan-result" id="bridgeNeeded">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Monthly Interest:</strong> <span class="loan-result" id="monthlyInterest">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Interest Cost:</strong> <span class="loan-result" id="totalInterest">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Origination Fee:</strong> <span class="loan-result" id="originationFeeDisplay">$0.00</span></div>
+                    <div style="border-top:2px solid rgba(139,92,246,0.3);padding-top:15px;margin-top:15px;">
+                        <strong style="color:#8B5CF6;">Total Bridge Cost:</strong> <span class="loan-result" id="totalBridgeCost">$0.00</span>
+                    </div>
+                    <div class="bridge-warning">
+                        <div style="color:#FBBF24;font-weight:600;"><i class="fas fa-exclamation-triangle"></i> Bridge Loan Caution</div>
+                        <div style="font-size:0.9rem;margin-top:5px;">High rates (8-12%), short terms (3-12 months), and requires home sale plan. Only use when necessary.</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyBridgeResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridBridge"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Bridge Loan?</h3>
+            <p>A bridge loan is short-term financing that "bridges" the gap between buying a new home and selling your current one. It provides funds for a down payment on a new property before your existing home sells.</p>
+            <p>Bridge loans are secured by your current home's equity and typically last 6-12 months. They have higher interest rates than traditional mortgages and require a clear exit strategy (usually the sale of your current home).</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your current home's estimated value.<br>
+            <strong>Step 2:</strong> Input your current mortgage balance.<br>
+            <strong>Step 3:</strong> Enter the new home purchase price.<br>
+            <strong>Step 4:</strong> Input available cash for down payment.<br>
+            <strong>Step 5:</strong> Review calculated bridge loan amount.<br>
+            <strong>Step 6:</strong> Add bridge loan rate, term, and fees.<br>
+            <strong>Step 7:</strong> Click "Calculate" to see total costs.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-exclamation-triangle"></i> Bridge Loan Risks</h3>
+            <ul>
+                <li><strong>High Interest:</strong> Rates typically 8-12%, much higher than mortgages.</li>
+                <li><strong>Short Timeline:</strong> Must sell current home within loan term (6-12 months).</li>
+                <li><strong>Double Payments:</strong> Paying bridge loan interest PLUS potentially two mortgages.</li>
+                <li><strong>Home Sale Risk:</strong> If your home doesn't sell, you may face default or extension fees.</li>
+                <li><strong>Qualification:</strong> Must qualify to carry multiple housing payments.</li>
+                <li><strong>Costs:</strong> Origination fees, appraisal, and closing costs on top of high interest.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Alternatives to Bridge Loans</h3>
+            <ul>
+                <li><strong>Home Equity Loan/HELOC:</strong> Use existing home equity, lower rates than bridge loans.</li>
+                <li><strong>Contingent Offer:</strong> Make offer on new home contingent on selling current home.</li>
+                <li><strong>Rent Back:</strong> Sell home, rent it back temporarily while finding new home.</li>
+                <li><strong>Temporary Housing:</strong> Sell first, rent short-term, then buy.</li>
+                <li><strong>401(k) Loan:</strong> Borrow from retirement (risky, but may be cheaper).</li>
+                <li><strong>Gift/Private Loan:</strong> Family assistance or private lender.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How much equity do I need for a bridge loan?</div>
+            <div class="faq-answer">Typically 20% equity minimum in your current home. Lenders want cushion in case home value drops. Maximum bridge loan is usually 80% of current home value minus existing mortgage balance.</div>
+
+            <div class="faq-question">How long does a bridge loan last?</div>
+            <div class="faq-answer">Typically 6-12 months, sometimes up to 24 months. Terms are short because these are temporary financing. You need a clear exit strategy—usually selling your current home or securing permanent financing.</div>
+
+            <div class="faq-question">What happens if my home doesn't sell?</div>
+            <div class="faq-answer">You're in a difficult position. Options: extend bridge loan (fees apply), refinance to permanent loan on both properties (if you qualify), rent out current home, or potentially face default. This is the major risk of bridge loans.</div>
+
+            <div class="faq-question">Can I get a bridge loan with bad credit?</div>
+            <div class="faq-answer">Difficult but not impossible. Hard money lenders may offer bridge loans with 650+ credit but at very high rates (12%+). Strong equity position helps. Traditional banks typically require 700+ credit scores.</div>
+
+            <div class="faq-question">Do I make payments on a bridge loan?</div>
+            <div class="faq-answer">Often interest-only payments during the term. Some lenders allow rolling interest into the loan balance (to be paid at sale). Expect monthly payments of several hundred to several thousand dollars depending on loan size.</div>
+
+            <div class="faq-question">Is a bridge loan the same as a HELOC?</div>
+            <div class="faq-answer">No. HELOC is a line of credit with lower rates, longer terms, and no immediate repayment pressure. Bridge loans are short-term, higher-rate, and must be repaid quickly. A HELOC is often a better alternative if you can qualify.</div>
+
+            <div class="faq-question">What fees come with bridge loans?</div>
+            <div class="faq-answer">Origination fees (1-3%), appraisal fee, title fees, administrative fees, and potentially extension fees if you exceed the term. Total closing costs often 2-5% of loan amount—higher than traditional mortgages.</div>
+
+            <div class="faq-question">Should I use a bridge loan or sell first?</div>
+            <div class="faq-answer">Selling first eliminates risk but may require temporary housing. Bridge loans let you buy first but add cost and risk. Consider your market—hot markets favor selling first; competitive buyer markets may require bridge loans to compete.</div>
+
+            <div class="faq-question">Can I use a bridge loan for investment property?</div>
+            <div class="faq-answer">Yes, but terms are less favorable. Rates higher, terms shorter, down payment larger (25-30%). Hard money lenders specialize in investment bridge loans. Exit strategy becomes even more critical.</div>
+
+            <div class="faq-question">What's the difference between open and closed bridge loans?</div>
+            <div class="faq-answer">Closed bridge loans have a fixed exit date and known repayment source (home under contract). Open bridge loans have no fixed exit and are riskier for lenders, commanding higher rates. Most residential bridge loans are closed.</div>
+
+            <div class="faq-question">Can I get a bridge loan from my current lender?</div>
+            <div class="faq-answer">Some banks offer bridge loans, but not all. Shop community banks, credit unions, and specialized lenders. Mortgage brokers can access multiple bridge loan sources. Compare at least 3 offers.</div>
+
+            <div class="faq-question">Should I pay points on a bridge loan?</div>
+            <div class="faq-answer">Usually not worth it given short term. Points lower rate but you pay interest for only 6-12 months. Calculate break-even—rarely makes sense for temporary financing. Focus on total cost including fees.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateBridgeLoan() {
+        const currentValue = parseFloat(document.getElementById('currentHomeValue').value) || 0;
+        const currentMortgage = parseFloat(document.getElementById('currentMortgage').value) || 0;
+        const newHomePrice = parseFloat(document.getElementById('newHomePrice').value) || 0;
+        const cashAvailable = parseFloat(document.getElementById('cashAvailable').value) || 0;
+        const rate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const months = parseInt(document.getElementById('loanTerm').value) || 6;
+        const feePercent = parseFloat(document.getElementById('originationFee').value) || 0;
+
+        if (currentValue <= 0 || newHomePrice <= 0) {
+            alert('Please enter valid home values');
+            return;
+        }
+
+        // Calculate available equity (assuming 80% LTV max)
+        const maxLTV = 0.8;
+        const availableEquity = (currentValue * maxLTV) - currentMortgage;
+
+        // Calculate bridge loan needed
+        // Down payment needed: 20% of new home price (assuming conventional)
+        const downPaymentNeeded = newHomePrice * 0.2;
+        const bridgeNeeded = Math.max(0, downPaymentNeeded - cashAvailable);
+
+        // Calculate bridge loan costs
+        const bridgeAmount = Math.min(bridgeNeeded, availableEquity);
+        const monthlyRate = rate / 100 / 12;
+        const monthlyInterest = bridgeAmount * monthlyRate;
+        const totalInterest = monthlyInterest * months;
+        const originationFee = bridgeAmount * (feePercent / 100);
+        const totalCost = totalInterest + originationFee;
+
+        document.getElementById('availableEquity').textContent = '$' + availableEquity.toLocaleString();
+        document.getElementById('bridgeAmount').value = bridgeAmount.toFixed(2);
+        document.getElementById('bridgeNeeded').textContent = '$' + bridgeNeeded.toLocaleString();
+        document.getElementById('monthlyInterest').textContent = '$' + monthlyInterest.toFixed(2);
+        document.getElementById('totalInterest').textContent = '$' + totalInterest.toFixed(2);
+        document.getElementById('originationFeeDisplay').textContent = '$' + originationFee.toFixed(2);
+        document.getElementById('totalBridgeCost').textContent = '$' + totalCost.toFixed(2);
+    }
+
+    function clearBridgeLoan() {
+        document.getElementById('currentHomeValue').value = '';
+        document.getElementById('currentMortgage').value = '';
+        document.getElementById('newHomePrice').value = '';
+        document.getElementById('cashAvailable').value = '';
+        document.getElementById('bridgeAmount').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('loanTerm').value = '6';
+        document.getElementById('originationFee').value = '';
+        document.getElementById('availableEquity').textContent = '$0.00';
+        document.getElementById('bridgeNeeded').textContent = '$0.00';
+        document.getElementById('monthlyInterest').textContent = '$0.00';
+        document.getElementById('totalInterest').textContent = '$0.00';
+        document.getElementById('originationFeeDisplay').textContent = '$0.00';
+        document.getElementById('totalBridgeCost').textContent = '$0.00';
+    }
+
+    function copyBridgeResults() {
+        const equity = document.getElementById('availableEquity').textContent;
+        const needed = document.getElementById('bridgeNeeded').textContent;
+        const monthly = document.getElementById('monthlyInterest').textContent;
+        const totalInt = document.getElementById('totalInterest').textContent;
+        const fee = document.getElementById('originationFeeDisplay').textContent;
+        const total = document.getElementById('totalBridgeCost').textContent;
+        
+        const text = `Bridge Loan Calculation:
+Available Equity: ${equity}
+Bridge Needed: ${needed}
+Monthly Interest: ${monthly}
+Total Interest: ${totalInt}
+Origination Fee: ${fee}
+Total Bridge Cost: ${total}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Home Equity Loan Calculator", icon:"fa-home", url:"home-equity-loan-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Down Payment Calculator", icon:"fa-piggy-bank", url:"down-payment-calculator.html"},
+            {name:"HELOC Payment Calculator", icon:"fa-credit-card", url:"heloc-payment-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridBridge").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

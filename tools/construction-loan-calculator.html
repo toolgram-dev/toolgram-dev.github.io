@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Construction Loan Calculator – Build Your Dream Home | ToolGram</title>
+    <meta name="description" content="Calculate construction loan payments, interest-only phase, and total costs. Free online construction loan calculator for home building projects.">
+    <meta name="keywords" content="construction loan calculator, home construction loan, build loan calculator, construction to permanent loan, construction interest calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/construction-loan-calculator.html">
+    <meta property="og:title" content="Construction Loan Calculator | ToolGram">
+    <meta property="og:description" content="Calculate construction loan payments and total building costs.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/construction-loan-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Construction Loan Calculator",
+        "description": "Calculate construction loan payments and total building costs.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/construction-loan-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Construction Loan Calculator", "Home Building Calculator", "Construction to Permanent", "Construction Interest"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .phase-box{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-hard-hat"></i></div>
+            <div>
+                <h1 style="margin:0;">Construction Loan Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate construction loan payments and building costs</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-home"></i> Project Costs</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Land Cost ($)</label>
+                        <input type="number" id="landCost" placeholder="150000" value="150000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Construction Cost ($)</label>
+                        <input type="number" id="constructionCost" placeholder="400000" value="400000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Contingency (%)</label>
+                        <input type="number" id="contingency" placeholder="10" value="10" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Down Payment ($)</label>
+                        <input type="number" id="downPayment" placeholder="110000" value="110000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-percent"></i> Loan Terms</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="7.5" value="7.5" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Construction Months</label>
+                        <select id="constructionMonths" style="flex:1;">
+                            <option value="6">6 Months</option>
+                            <option value="9">9 Months</option>
+                            <option value="12" selected>12 Months</option>
+                            <option value="18">18 Months</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Type</label>
+                        <select id="loanType" style="flex:1;">
+                            <option value="construction-only" selected>Construction Only</option>
+                            <option value="construction-perm">Construction-to-Permanent</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateConstructionLoan()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearConstructionLoan()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Construction Summary</div>
+                <div class="output-display" id="constructionOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Project Cost:</strong> <span class="loan-result" id="totalProjectCost">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Loan Amount:</strong> <span class="loan-result" id="loanAmountDisplay">$0.00</span></div>
+                    <div class="phase-box">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;">Construction Phase</div>
+                        <div style="margin-bottom:5px;">Interest-Only Payment: <span class="loan-result" id="constructionPayment">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Total Construction Interest: <span id="totalConstructionInterest">$0.00</span></div>
+                    </div>
+                    <div class="phase-box">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;">Permanent Phase</div>
+                        <div style="margin-bottom:5px;">Monthly Payment: <span class="loan-result" id="permanentPayment">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">30-Year Fixed</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyConstructionResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridConstruction"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Construction Loan?</h3>
+            <p>Construction loans finance the building of a new home. Unlike traditional mortgages that provide a lump sum, construction loans disburse funds in stages as construction milestones are completed (draws).</p>
+            <p>During construction, you typically make interest-only payments on funds drawn. Once construction is complete, the loan either converts to a permanent mortgage (construction-to-permanent) or must be paid off/refinanced (construction-only).</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter land cost (if not already owned).<br>
+            <strong>Step 2:</strong> Input estimated construction costs.<br>
+            <strong>Step 3:</strong> Add contingency percentage (typically 10%).<br>
+            <strong>Step 4:</strong> Enter down payment amount.<br>
+            <strong>Step 5:</strong> Input interest rate and construction timeline.<br>
+            <strong>Step 6:</strong> Select loan type and click "Calculate".</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-layer-group"></i> Types of Construction Loans</h3>
+            <ul>
+                <li><strong>Construction-to-Permanent:</strong> Single loan that converts to mortgage after construction. One closing, one set of fees, rate locked at start or end depending on program.</li>
+                <li><strong>Construction-Only:</strong> Short-term loan (6-12 months) for construction only. Must be paid off or refinanced upon completion. Two closings, two sets of fees.</li>
+                <li><strong>Renovation Loans:</strong> For major home improvements. FHA 203(k) and Fannie Mae HomeStyle are popular options.</li>
+                <li><strong>Owner-Builder:</strong> For experienced builders acting as their own general contractor. Difficult to qualify, higher rates.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-check"></i> Construction Loan Requirements</h3>
+            <ul>
+                <li><strong>Detailed Plans:</strong> Architectural drawings and specifications.</li>
+                <li><strong>Builder Contract:</strong> Fixed-price contract with licensed builder.</li>
+                <li><strong>Construction Timeline:</strong> Detailed schedule of work phases.</li>
+                <li><strong>Higher Down Payment:</strong> Typically 20-25% minimum.</li>
+                <li><strong>Strong Credit:</strong> 700+ preferred, higher scrutiny than purchase loans.</li>
+                <li><strong>Appraisal:</strong> Based on plans and specs (future value).</li>
+                <li><strong>Reserves:</strong> 6-12 months payments in savings.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-dollar-sign"></i> Understanding Construction Costs</h3>
+            <p>Budget categories for custom home building:</p>
+            <ul>
+                <li><strong>Land:</strong> Purchase price or value if already owned.</li>
+                <li><strong>Hard Costs:</strong> Materials and labor (typically $150-300/sq ft).</li>
+                <li><strong>Soft Costs:</strong> Permits, fees, design, engineering (10-15% of project).</li>
+                <li><strong>Contingency:</strong> 10% buffer for unexpected costs (essential).</li>
+                <li><strong>Landscaping:</strong> Often overlooked in initial budgets.</li>
+                <li><strong>Finishing:</strong> Interior finishes vary wildly in cost.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</div>
+            <div class="faq-question">How much down payment do I need for a construction loan?</div>
+            <div class="faq-answer">Typically 20-25% of total project cost (land + construction). Some programs allow 10% with excellent credit. The down payment covers cost overruns and protects the lender. Equity in owned land can count toward down payment.</div>
+
+            <div class="faq-question">Are construction loan rates higher than mortgages?</div>
+            <div class="faq-answer">Yes, typically 0.5-1% higher during construction phase. Construction-to-permanent loans may lock in permanent rate upfront or float until conversion. Construction-only loans have short-term rates that convert to permanent financing later.</div>
+
+            <div class="faq-question">How do construction loan draws work?</div>
+            <div class="faq-answer">Funds are released in stages after inspections verify work completion. Typical draws: foundation, framing, mechanicals, drywall, final completion. You pay interest only on drawn amounts, not the full loan. Each draw requires inspection and paperwork.</div>
+
+            <div class="faq-question">What is a one-time close construction loan?</div>
+            <div class="faq-answer">Also called construction-to-permanent or single-close loan. One application, one approval, one closing, one set of closing costs. Converts to permanent mortgage automatically after construction. Simpler and often cheaper than two separate loans.</div>
+
+            <div class="faq-question">Can I act as my own general contractor?</div>
+            <div class="faq-answer">Owner-builder loans exist but are difficult to get. Lenders want experienced builders. You'll need to prove construction expertise, possibly through licenses or portfolio. Rates are higher, down payment requirements larger.</div>
+
+            <div class="faq-question">What happens if construction goes over budget?</div>
+            <div class="faq-answer">You're responsible for overruns. That's why 10% contingency is crucial. Some lenders hold contingency funds and release only if needed. If overruns exceed contingency, you pay out of pocket or modify plans. Good planning prevents most overruns.</div>
+
+            <div class="faq-question">How long does construction loan approval take?</div>
+            <div class="faq-answer">Typically 45-60 days, longer than purchase loans. Requires plan review, builder approval, detailed appraisal (future value based on plans), and multiple inspections. Start early and have detailed plans ready.</div>
+
+            <div class="faq-question">Can I use a construction loan to buy land and build?</div>
+            <div class="faq-answer">Yes, most construction loans include land purchase if you don't already own it. Land value counts toward your down payment/equity. Some buyers purchase land first with cash or land loan, then get construction loan.</div>
+
+            <div class="faq-question">What's included in construction loan interest?</div>
+            <div class="faq-answer">During construction, you pay interest only on funds actually drawn. Average balance is about half the loan amount over construction period. After conversion to permanent loan, you pay full principal and interest amortized over loan term.</div>
+
+            <div class="faq-question">Do I need builder's risk insurance?</div>
+            <div class="faq-answer">Yes, required by lenders. Builder's risk insurance covers damage during construction (fire, theft, weather). Your builder may carry it, or you may need to purchase. Also requires general liability and workers comp from builder. Verify coverage before starting.</div>
+
+            <div class="faq-question">Can I get a construction loan with bad credit?</div>
+            <div class="faq-answer">Difficult. FHA construction-to-perm loans accept lower scores (580+) but require more down payment. Conventional construction loans typically need 700+. Work on credit before applying—construction loans have stricter requirements than purchase loans.</div>
+
+            <div class="faq-question">What is interest reserve in construction loans?</div>
+            <div class="faq-answer">Some loans include interest reserve—funds to make construction period interest payments, so you pay nothing during building. Adds to loan amount and total interest paid. Useful if paying rent/mortgage elsewhere during construction.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateConstructionLoan() {
+        const landCost = parseFloat(document.getElementById('landCost').value) || 0;
+        const constructionCost = parseFloat(document.getElementById('constructionCost').value) || 0;
+        const contingencyPercent = parseFloat(document.getElementById('contingency').value) || 0;
+        const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+        const rate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const constructionMonths = parseInt(document.getElementById('constructionMonths').value) || 12;
+
+        // Calculate total project cost with contingency
+        const subtotal = landCost + constructionCost;
+        const contingencyAmount = subtotal * (contingencyPercent / 100);
+        const totalProjectCost = subtotal + contingencyAmount;
+
+        // Loan amount
+        const loanAmount = totalProjectCost - downPayment;
+
+        // Construction phase - interest only on average drawn balance (assumed 50%)
+        const averageDrawnBalance = loanAmount * 0.5;
+        const monthlyRate = rate / 100 / 12;
+        const constructionInterestPayment = averageDrawnBalance * monthlyRate;
+        const totalConstructionInterest = constructionInterestPayment * constructionMonths;
+
+        // Permanent phase - full amortization (30 years assumed)
+        const permanentYears = 30;
+        const permanentMonths = permanentYears * 12;
+        let permanentPayment;
+        if (monthlyRate === 0) {
+            permanentPayment = loanAmount / permanentMonths;
+        } else {
+            permanentPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, permanentMonths)) / (Math.pow(1 + monthlyRate, permanentMonths) - 1);
+        }
+
+        document.getElementById('totalProjectCost').textContent = '$' + totalProjectCost.toLocaleString();
+        document.getElementById('loanAmountDisplay').textContent = '$' + loanAmount.toLocaleString();
+        document.getElementById('constructionPayment').textContent = '$' + constructionInterestPayment.toFixed(2);
+        document.getElementById('totalConstructionInterest').textContent = '$' + totalConstructionInterest.toFixed(2);
+        document.getElementById('permanentPayment').textContent = '$' + permanentPayment.toFixed(2);
+    }
+
+    function clearConstructionLoan() {
+        document.getElementById('landCost').value = '';
+        document.getElementById('constructionCost').value = '';
+        document.getElementById('contingency').value = '';
+        document.getElementById('downPayment').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('constructionMonths').value = '12';
+        document.getElementById('loanType').value = 'construction-only';
+        document.getElementById('totalProjectCost').textContent = '$0.00';
+        document.getElementById('loanAmountDisplay').textContent = '$0.00';
+        document.getElementById('constructionPayment').textContent = '$0.00';
+        document.getElementById('totalConstructionInterest').textContent = '$0.00';
+        document.getElementById('permanentPayment').textContent = '$0.00';
+    }
+
+    function copyConstructionResults() {
+        const total = document.getElementById('totalProjectCost').textContent;
+        const loan = document.getElementById('loanAmountDisplay').textContent;
+        const construction = document.getElementById('constructionPayment').textContent;
+        const constructionTotal = document.getElementById('totalConstructionInterest').textContent;
+        const permanent = document.getElementById('permanentPayment').textContent;
+        
+        const text = `Construction Loan Calculation:
+Total Project Cost: ${total}
+Loan Amount: ${loan}
+Construction Payment: ${construction}
+Total Construction Interest: ${constructionTotal}
+Permanent Payment: ${permanent}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Land Loan Calculator", icon:"fa-tree", url:"land-loan-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Home Equity Loan Calculator", icon:"fa-home", url:"home-equity-loan-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Closing Cost Calculator", icon:"fa-file-invoice-dollar", url:"closing-cost-calculator.html"},
+            {name:"Bridge Loan Calculator", icon:"fa-road", url:"bridge-loan-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridConstruction").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Reverse Mortgage Calculator – HECM Payment Estimator 2026 | ToolGram</title>
+    <meta name="description" content="Calculate reverse mortgage proceeds, tenure payments, and lump sum options. Free online HECM calculator for seniors 62+ considering home equity conversion.">
+    <meta name="keywords" content="reverse mortgage calculator, HECM calculator, home equity conversion mortgage, reverse mortgage proceeds, tenure payment calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/reverse-mortgage-calculator.html">
+    <meta property="og:title" content="Reverse Mortgage Calculator | ToolGram">
+    <meta property="og:description" content="Calculate reverse mortgage proceeds and payment options for seniors.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/reverse-mortgage-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Reverse Mortgage Calculator",
+        "description": "Calculate reverse mortgage proceeds and payment options for seniors 62+.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/reverse-mortgage-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Reverse Mortgage Calculator", "HECM Calculator", "Tenure Payment Calculator", "Lump Sum Calculator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .proceeds-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .senior-info{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:12px;margin-top:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-undo-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">Reverse Mortgage Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate HECM proceeds and payment options (Age 62+)</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-home"></i> Home & Borrower</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Value ($)</label>
+                        <input type="number" id="homeValue" placeholder="500000" value="500000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Mortgage ($)</label>
+                        <input type="number" id="currentMortgage" placeholder="100000" value="100000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Age of Youngest Borrower</label>
+                        <input type="number" id="age" placeholder="70" value="70" min="62" max="99" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Expected Rate (%)</label>
+                        <input type="number" id="expectedRate" placeholder="7.0" value="7.0" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-cog"></i> HECM Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Principal Limit Factor</label>
+                        <input type="number" id="principalLimit" placeholder="0.50" value="0.50" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Upfront MIP ($)</label>
+                        <input type="number" id="upfrontMip" placeholder="0" value="0" readonly style="flex:1;padding:12px;background:rgba(255,255,255,0.04);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateReverse()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearReverse()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> HECM Proceeds Summary</div>
+                <div class="output-display" id="reverseOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Principal Limit:</strong> <span class="loan-result" id="principalLimitDisplay">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Less: Payoff Mortgage:</strong> <span id="payoffAmount">-$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Less: Upfront MIP:</strong> <span id="mipDisplay">-$0.00</span></div>
+                    <div class="proceeds-box">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-check-circle"></i> Net Available Proceeds</div>
+                        <div style="font-size:1.3rem;font-weight:bold;color:#8B5CF6;" id="netProceeds">$0.00</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Tenure Payment:</strong> <span class="loan-result" id="tenurePayment">$0.00</span>/month</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Term Payment (20 yr):</strong> <span id="termPayment">$0.00</span>/month</div>
+                        <div><strong style="color:#8B5CF6;">Line of Credit:</strong> <span id="lineOfCredit">$0.00</span> available</div>
+                    </div>
+                    <div class="senior-info">
+                        <div style="color:#3B82F6;font-weight:600;"><i class="fas fa-info-circle"></i> Important Note</div>
+                        <div style="font-size:0.9rem;margin-top:5px;">Reverse mortgages allow you to access home equity without monthly payments. Loan is repaid when you sell, move out, or pass away.</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyReverseResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridReverse"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Reverse Mortgage?</h3>
+            <p>A reverse mortgage (Home Equity Conversion Mortgage or HECM) allows homeowners aged 62+ to convert home equity into cash without monthly mortgage payments. The loan is repaid when the borrower sells the home, moves out permanently, or passes away.</p>
+            <p>Unlike traditional mortgages where you make payments to the lender, the lender pays you—either in a lump sum, monthly payments, line of credit, or a combination. The loan balance grows over time as interest accrues.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your home's current value.<br>
+            <strong>Step 2:</strong> Input any existing mortgage balance.<br>
+            <strong>Step 3:</strong> Enter age of youngest borrower (must be 62+).<br>
+            <strong>Step 4:</strong> Input expected interest rate.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see available proceeds.<br>
+            <strong>Step 6:</strong> Review tenure, term, and line of credit options.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-check"></i> HECM Requirements</h3>
+            <ul>
+                <li><strong>Age:</strong> Youngest borrower must be 62+</li>
+                <li><strong>Primary Residence:</strong> Must live in the home as main residence</li>
+                <li><strong>Equity:</strong> Sufficient home equity required (typically 50%+)</li>
+                <li><strong>Financial Assessment:</strong> Must demonstrate ability to pay taxes, insurance, maintenance</li>
+                <li><strong>Counseling:</strong> Required HUD-approved counseling session</li>
+                <li><strong>Property Type:</strong> Single-family, 2-4 unit, approved condos, some manufactured homes</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-dollar-sign"></i> HECM Costs</h3>
+            <ul>
+                <li><strong>Upfront MIP:</strong> 2% of home value (can be financed)</li>
+                <li><strong>Annual MIP:</strong> 0.5% of outstanding balance</li>
+                <li><strong>Origination Fee:</strong> Up to $6,000 depending on home value</li>
+                <li><strong>Appraisal:</strong> $300-500</li>
+                <li><strong>Closing Costs:</strong> Title, recording, credit report fees</li>
+                <li><strong>Servicing Fee:</strong> Monthly fee (varies by lender)</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-exclamation-triangle"></i> Reverse Mortgage Considerations</h3>
+            <ul>
+                <li><strong>Non-Recourse Loan:</strong> You never owe more than home value</li>
+                <li><strong>Heirs Impact:</strong> Loan must be repaid when you pass—heirs may need to sell home</li>
+                <li><strong>Home Retention:</strong> Must continue paying taxes, insurance, maintenance or face foreclosure</li>
+                <li><strong>Costs:</strong> High upfront costs make short-term use inefficient</li>
+                <li><strong>Means Testing:</strong> Some needs-based programs may be affected</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Who owns the home with a reverse mortgage?</div>
+            <div class="faq-answer">You retain ownership. The lender places a lien on the property. You can sell anytime—proceeds pay off the loan balance, and you keep any remaining equity. Heirs inherit the home but must repay the loan.</div>
+
+            <div class="faq-question">Do I make monthly payments on a reverse mortgage?</div>
+            <div class="faq-answer">No monthly mortgage payments required. However, you must pay property taxes, homeowners insurance, and maintain the home. The loan balance grows as interest accrues and is repaid when you leave the home.</div>
+
+            <div class="faq-question">How is a reverse mortgage repaid?</div>
+            <div class="faq-answer">When you sell, move out permanently, or pass away, the loan becomes due. Heirs can repay from other funds or sell the home. If sale proceeds don't cover the balance, FHA insurance covers the shortfall (non-recourse feature).</div>
+
+            <div class="faq-question">Can I lose my home with a reverse mortgage?</div>
+            <div class="faq-answer">Yes, if you fail to pay property taxes, insurance, or maintain the home. You must also occupy the home as your primary residence. Extended absences (12+ months) can trigger loan repayment requirements.</div>
+
+            <div class="faq-question">How much can I borrow with a reverse mortgage?</div>
+            <div class="faq-answer">Depends on: home value, age of youngest borrower, current interest rates. Older borrowers get more. 2026 HECM limit is $1,149,825. Principal limit factors range from ~35% (age 62) to ~75% (age 90+).</div>
+
+            <div class="faq-question">Does a reverse mortgage affect Social Security or Medicare?</div>
+            <div class="faq-answer">Generally no. However, if proceeds are not spent immediately and increase savings, needs-based programs like Medicaid or SSI could be affected. Consult a benefits counselor. Spend proceeds or structure as line of credit to minimize impact.</div>
+
+            <div class="faq-question">What happens if I outlive the loan?</div>
+            <div class="faq-answer">You cannot outlive a tenure payment plan—payments continue for life. With a line of credit, you can draw until exhausted. Loan balance can exceed home value, but you keep the home and FHA insurance covers the lender.</div>
+
+            <div class="faq-question">Can I refinance a reverse mortgage?</div>
+            <div class="faq-answer">Yes, if home value has increased significantly or rates have dropped. You can also refinance to access more funds if you're older. Each refinance incurs new costs, so evaluate carefully.</div>
+
+            <div class="faq-question">Are reverse mortgages a scam?</div>
+            <div class="faq-answer">Legitimate HECMs are FHA-insured and heavily regulated. However, seniors are sometimes targeted by fraudsters. Work with HUD-approved counselors and reputable lenders. Be wary of unsolicited offers and pressure tactics.</div>
+
+            <div class="faq-question">Should my heirs be concerned?</div>
+            <div class="faq-answer">Yes, discuss with them. Heirs inherit the home but must repay the loan—often by selling. If loan balance exceeds home value, they can walk away (non-recourse). Open communication helps avoid surprises and family conflict.</div>
+
+            <div class="faq-question">What's the difference between HECM and proprietary reverse mortgages?</div>
+            <div class="faq-answer">HECMs are FHA-insured with limits ($1,149,825 in 2026). Proprietary (jumbo) reverse mortgages work with higher-value homes but lack FHA insurance. HECMs offer more protections; proprietary loans may offer higher amounts for expensive homes.</div>
+
+            <div class="faq-question">When does a reverse mortgage NOT make sense?</div>
+            <div class="faq-answer">Short-term need (high upfront costs), plan to move soon, want to leave home free-and-clear to heirs, insufficient equity, cannot afford taxes/insurance, or better alternatives exist (HELOC, downsize, sell and rent).</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateReverse() {
+        const homeValue = parseFloat(document.getElementById('homeValue').value) || 0;
+        const mortgage = parseFloat(document.getElementById('currentMortgage').value) || 0;
+        const age = parseInt(document.getElementById('age').value) || 70;
+        const rate = parseFloat(document.getElementById('expectedRate').value) || 7.0;
+        let principalLimitFactor = parseFloat(document.getElementById('principalLimit').value) || 0.50;
+
+        if (homeValue <= 0 || age < 62) {
+            alert('Please enter valid details. Age must be 62+.');
+            return;
+        }
+
+        // Calculate age-based factor if not provided
+        if (principalLimitFactor === 0.50) {
+            // Approximate factor based on age
+            principalLimitFactor = 0.35 + ((age - 62) * 0.008);
+            principalLimitFactor = Math.min(Math.max(principalLimitFactor, 0.35), 0.75);
+        }
+
+        // 2026 HECM limit
+        const hecmLimit = 1149825;
+        const valueForCalc = Math.min(homeValue, hecmLimit);
+
+        // Principal Limit
+        const principalLimit = valueForCalc * principalLimitFactor;
+
+        // Upfront MIP (2% of value)
+        const upfrontMip = valueForCalc * 0.02;
+
+        // Net proceeds
+        const netProceeds = Math.max(0, principalLimit - mortgage - upfrontMip);
+
+        // Calculate tenure payment (simplified approximation)
+        // Based on net proceeds, expected rate, and life expectancy
+        const lifeExpectancy = Math.max(15, 100 - age);
+        const monthlyRate = rate / 100 / 12;
+        let tenurePayment;
+        if (monthlyRate === 0) {
+            tenurePayment = netProceeds / (lifeExpectancy * 12);
+        } else {
+            tenurePayment = netProceeds * monthlyRate / (1 - Math.pow(1 + monthlyRate, -(lifeExpectancy * 12)));
+        }
+
+        // Term payment (20 years)
+        const termMonths = 20 * 12;
+        let termPayment;
+        if (monthlyRate === 0) {
+            termPayment = netProceeds / termMonths;
+        } else {
+            termPayment = netProceeds * (monthlyRate * Math.pow(1 + monthlyRate, termMonths)) / (Math.pow(1 + monthlyRate, termMonths) - 1);
+        }
+
+        // Line of credit equals net proceeds
+        const lineOfCredit = netProceeds;
+
+        document.getElementById('principalLimitDisplay').textContent = '$' + principalLimit.toLocaleString();
+        document.getElementById('payoffAmount').textContent = '-$' + mortgage.toLocaleString();
+        document.getElementById('mipDisplay').textContent = '-$' + upfrontMip.toLocaleString();
+        document.getElementById('upfrontMip').value = upfrontMip.toFixed(2);
+        document.getElementById('netProceeds').textContent = '$' + netProceeds.toLocaleString();
+        document.getElementById('tenurePayment').textContent = '$' + tenurePayment.toFixed(2);
+        document.getElementById('termPayment').textContent = '$' + termPayment.toFixed(2);
+        document.getElementById('lineOfCredit').textContent = '$' + lineOfCredit.toLocaleString();
+    }
+
+    function clearReverse() {
+        document.getElementById('homeValue').value = '';
+        document.getElementById('currentMortgage').value = '';
+        document.getElementById('age').value = '';
+        document.getElementById('expectedRate').value = '';
+        document.getElementById('principalLimit').value = '0.50';
+        document.getElementById('upfrontMip').value = '';
+        document.getElementById('principalLimitDisplay').textContent = '$0.00';
+        document.getElementById('payoffAmount').textContent = '-$0.00';
+        document.getElementById('mipDisplay').textContent = '-$0.00';
+        document.getElementById('netProceeds').textContent = '$0.00';
+        document.getElementById('tenurePayment').textContent = '$0.00';
+        document.getElementById('termPayment').textContent = '$0.00';
+        document.getElementById('lineOfCredit').textContent = '$0.00';
+    }
+
+    function copyReverseResults() {
+        const principal = document.getElementById('principalLimitDisplay').textContent;
+        const net = document.getElementById('netProceeds').textContent;
+        const tenure = document.getElementById('tenurePayment').textContent;
+        const term = document.getElementById('termPayment').textContent;
+        const loc = document.getElementById('lineOfCredit').textContent;
+        
+        const text = `Reverse Mortgage Calculation:
+Principal Limit: ${principal}
+Net Proceeds: ${net}
+Tenure Payment: ${tenure}/month
+Term Payment (20 yr): ${term}/month
+Line of Credit: ${loc}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Home Equity Loan Calculator", icon:"fa-home", url:"home-equity-loan-calculator.html"},
+            {name:"HELOC Payment Calculator", icon:"fa-credit-card", url:"heloc-payment-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Mortgage Amortization Calculator", icon:"fa-table", url:"mortgage-amortization-calculator.html"},
+            {name:"Down Payment Calculator", icon:"fa-piggy-bank", url:"down-payment-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridReverse").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

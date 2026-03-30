@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VA Loan Calculator – Veterans Mortgage Estimator 2026 | ToolGram</title>
+    <meta name="description" content="Calculate VA loan payments, funding fees, and total costs. Free online VA loan calculator for veterans and active military home buyers.">
+    <meta name="keywords" content="VA loan calculator, veterans loan calculator, VA mortgage calculator, military home loan, VA funding fee calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/va-loan-calculator.html">
+    <meta property="og:title" content="VA Loan Calculator | ToolGram">
+    <meta property="og:description" content="Calculate VA loan payments with funding fees for veterans.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/va-loan-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "VA Loan Calculator",
+        "description": "Calculate VA loan payments with funding fees for veterans and active military.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/va-loan-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["VA Loan Calculator", "Veterans Mortgage", "Military Home Loan", "VA Funding Fee"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .va-benefit{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-top:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-flag-usa"></i></div>
+            <div>
+                <h1 style="margin:0;">VA Loan Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate VA loan payments with funding fees for veterans</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-home"></i> Property & Loan</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Price ($)</label>
+                        <input type="number" id="homePrice" placeholder="400000" value="400000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Down Payment ($)</label>
+                        <input type="number" id="downPayment" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="6.5" value="6.5" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term (Years)</label>
+                        <select id="loanTerm" style="flex:1;">
+                            <option value="15">15 Years</option>
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-user-shield"></i> VA Loan Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Military Status</label>
+                        <select id="militaryStatus" style="flex:1;">
+                            <option value="first" selected>First-time Use</option>
+                            <option value="subsequent">Subsequent Use</option>
+                            <option value="disabled">Service-Connected Disability</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Down Payment %</label>
+                        <select id="downPaymentPercent" style="flex:1;">
+                            <option value="0" selected>0% (No Down Payment)</option>
+                            <option value="5">5-9%</option>
+                            <option value="10">10%+</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Funding Fee ($)</label>
+                        <input type="number" id="fundingFee" placeholder="0" value="0" readonly style="flex:1;padding:12px;background:rgba(255,255,255,0.04);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateVALoan()"><i class="fas fa-calculator"></i> Calculate VA Loan</button>
+                    <button class="secondary-btn" onclick="clearVALoan()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> VA Loan Summary</div>
+                <div class="output-display" id="vaOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Base Loan Amount:</strong> <span class="loan-result" id="baseLoanAmount">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">VA Funding Fee:</strong> <span class="loan-result" id="fundingFeeDisplay">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Loan Amount:</strong> <span class="loan-result" id="totalLoanAmount">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Monthly Payment:</strong> <span class="loan-result" id="monthlyPayment">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Interest:</strong> <span class="loan-result" id="totalInterest">$0.00</span></div>
+                    <div class="va-benefit">
+                        <div style="color:#22C55E;font-weight:600;"><i class="fas fa-check-circle"></i> VA Loan Benefits</div>
+                        <div style="font-size:0.9rem;margin-top:5px;">No PMI required, no down payment needed for most veterans, competitive rates</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyVAResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridVA"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a VA Loan?</h3>
+            <p>VA loans are mortgage loans guaranteed by the U.S. Department of Veterans Affairs, designed to help veterans, active-duty service members, and eligible surviving spouses purchase homes with favorable terms.</p>
+            <p>Key benefits include no down payment required (for most), no private mortgage insurance (PMI), competitive interest rates, and limited closing costs. The VA guarantees a portion of the loan, allowing lenders to offer better terms.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the home purchase price.<br>
+            <strong>Step 2:</strong> Input any down payment (optional with VA loans).<br>
+            <strong>Step 3:</strong> Enter the interest rate offered.<br>
+            <strong>Step 4:</strong> Select your military status and down payment percentage.<br>
+            <strong>Step 5:</strong> Click "Calculate VA Loan" to see payment details with funding fee.<br>
+            <strong>Step 6:</strong> Review total costs and VA loan benefits.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-shield-alt"></i> Understanding the VA Funding Fee</h3>
+            <p>The VA funding fee is a one-time payment that helps fund the VA loan program. It can be paid upfront or rolled into the loan. The fee varies based on:</p>
+            <ul>
+                <li><strong>First-time use:</strong> 2.15% (0% down), 1.5% (5-9% down), 1.25% (10%+ down)</li>
+                <li><strong>Subsequent use:</strong> 3.3% (0% down), 1.5% (5-9% down), 1.25% (10%+ down)</li>
+                <li><strong>Service-connected disability:</strong> Exempt from funding fee</li>
+            </ul>
+            <p>While it adds to your loan amount, the lack of PMI typically saves more over time than the funding fee costs.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who is Eligible for a VA Loan?</h3>
+            <ul>
+                <li><strong>Veterans</strong> – served 90+ consecutive days during wartime or 181+ days during peacetime.</li>
+                <li><strong>Active Duty</strong> – currently serving with 90+ days of continuous service.</li>
+                <li><strong>National Guard/Reserves</strong> – 6 years of service or 90+ days of active duty.</li>
+                <li><strong>Surviving Spouses</strong> – unmarried spouses of service members who died in service or from service-connected disability.</li>
+            </ul>
+            <p>A Certificate of Eligibility (COE) is required to prove entitlement to lenders.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-star"></i> VA Loan Advantages</h3>
+            <ul>
+                <li><strong>No Down Payment:</strong> Finance 100% of home value (with full entitlement).</li>
+                <li><strong>No PMI:</strong> Save $100-300/month compared to conventional loans.</li>
+                <li><strong>Competitive Rates:</strong> Typically lower than conventional rates.</li>
+                <li><strong>Flexible Credit:</strong> More lenient credit requirements (typically 620+).</li>
+                <li><strong>Limited Closing Costs:</strong> VA limits what veterans can be charged.</li>
+                <li><strong>Assumable:</strong> Loans can be transferred to qualified buyers.</li>
+                <li><strong>No Prepayment Penalty:</strong> Pay off early without fees.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Can I use a VA loan more than once?</div>
+            <div class="faq-answer">Yes, VA loans are reusable. You can use your full entitlement multiple times as long as you pay off the previous VA loan or have remaining entitlement. The funding fee is slightly higher for subsequent use (3.3% vs 2.15%).</div>
+
+            <div class="faq-question">What is the maximum VA loan amount?</div>
+            <div class="faq-answer">With full entitlement, there's no maximum loan limit for loans over $144,000. The VA guarantees up to 25% of the loan amount. However, lenders may impose their own limits based on your income and credit. In 2026, most counties have no specific cap with full entitlement.</div>
+
+            <div class="faq-question">Do I need a down payment for a VA loan?</div>
+            <div class="faq-answer">No down payment is required if you have full VA entitlement. However, making a down payment reduces the funding fee and your total loan amount. Some veterans choose to put money down to lower monthly payments or compete in multiple-offer situations.</div>
+
+            <div class="faq-question">What credit score do I need for a VA loan?</div>
+            <div class="faq-answer">The VA doesn't set a minimum credit score, but most lenders require 620-640. Some go as low as 580. VA loans are more forgiving of past credit issues due to the government guarantee. Work on your credit to get the best rates possible.</div>
+
+            <div class="faq-question">Can I use a VA loan to buy a second home or investment property?</div>
+            <div class="faq-answer">VA loans are for primary residences only. You must intend to occupy the home within 60 days of closing and live there as your primary residence. After living in the home, you may be able to rent it out and use remaining entitlement for another VA loan.</div>
+
+            <div class="faq-question">What closing costs can I be charged on a VA loan?</div>
+            <div class="faq-answer">VA limits certain fees. Veterans cannot be charged attorney fees, escrow fees, underwriting fees, or processing fees by the lender. You can pay for appraisal, credit report, title insurance, recording fees, and a 1% origination fee. Sellers can pay up to 4% in concessions.</div>
+
+            <div class="faq-question">Can I refinance a VA loan?</div>
+            <div class="faq-answer">Yes, through the VA Interest Rate Reduction Refinance Loan (IRRRL), also called a VA Streamline Refinance. It requires no appraisal, no credit check, and minimal paperwork. You can also do a cash-out refinance to access equity with a new VA loan.</div>
+
+            <div class="faq-question">What is a VA loan entitlement?</div>
+            <div class="faq-answer">Entitlement is the dollar amount the VA guarantees to the lender. Basic entitlement is $36,000, but bonus entitlement allows loans up to $144,000+ with no down payment. If you've used entitlement before, you may have remaining entitlement for another purchase.</div>
+
+            <div class="faq-question">Can I get a VA loan with a service-connected disability?</div>
+            <div class="faq-answer">Yes, and veterans with service-connected disabilities are exempt from the VA funding fee, saving thousands upfront. You must have a disability rating from the VA. This exemption applies to both first-time and subsequent use.</div>
+
+            <div class="faq-question">How long does it take to get a VA loan?</div>
+            <div class="faq-answer">VA loans typically take 30-45 days, similar to conventional loans. The process includes getting a Certificate of Eligibility (COE), VA appraisal, and standard underwriting. Working with a VA-experienced lender can speed the process.</div>
+
+            <div class="faq-question">Can I use a VA loan for new construction?</div>
+            <div class="faq-answer">Yes, VA loans can be used for new construction, but the builder must be VA-approved. You'll need additional inspections and the builder must provide a warranty. Construction-to-permanent VA loans combine construction financing and permanent mortgage in one.</div>
+
+            <div class="faq-question">What is the VA loan limit for 2026?</div>
+            <div class="faq-answer">With full entitlement, there is effectively no loan limit for VA loans. The VA guarantees 25% of the loan amount to lenders. However, your income and credit must support the loan amount. High-cost areas may have specific considerations.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateVALoan() {
+        const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+        const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+        const rate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const years = parseInt(document.getElementById('loanTerm').value) || 30;
+        const status = document.getElementById('militaryStatus').value;
+        const downPercent = parseInt(document.getElementById('downPaymentPercent').value) || 0;
+
+        if (homePrice <= 0) {
+            alert('Please enter a valid home price');
+            return;
+        }
+
+        const baseLoanAmount = homePrice - downPayment;
+
+        // Calculate funding fee
+        let fundingFeeRate = 0;
+        if (status === 'disabled') {
+            fundingFeeRate = 0;
+        } else if (status === 'first') {
+            if (downPercent === 0) fundingFeeRate = 0.0215;
+            else if (downPercent === 5) fundingFeeRate = 0.015;
+            else fundingFeeRate = 0.0125;
+        } else {
+            if (downPercent === 0) fundingFeeRate = 0.033;
+            else if (downPercent === 5) fundingFeeRate = 0.015;
+            else fundingFeeRate = 0.0125;
+        }
+
+        const fundingFee = baseLoanAmount * fundingFeeRate;
+        const totalLoanAmount = baseLoanAmount + fundingFee;
+
+        // Calculate monthly payment
+        const monthlyRate = rate / 100 / 12;
+        const numPayments = years * 12;
+        let monthlyPayment;
+        if (monthlyRate === 0) {
+            monthlyPayment = totalLoanAmount / numPayments;
+        } else {
+            monthlyPayment = totalLoanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        }
+
+        const totalPayments = monthlyPayment * numPayments;
+        const totalInterest = totalPayments - totalLoanAmount;
+
+        document.getElementById('baseLoanAmount').textContent = '$' + baseLoanAmount.toLocaleString();
+        document.getElementById('fundingFeeDisplay').textContent = '$' + fundingFee.toFixed(2);
+        document.getElementById('fundingFee').value = fundingFee.toFixed(2);
+        document.getElementById('totalLoanAmount').textContent = '$' + totalLoanAmount.toLocaleString();
+        document.getElementById('monthlyPayment').textContent = '$' + monthlyPayment.toFixed(2);
+        document.getElementById('totalInterest').textContent = '$' + totalInterest.toLocaleString();
+    }
+
+    function clearVALoan() {
+        document.getElementById('homePrice').value = '';
+        document.getElementById('downPayment').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('loanTerm').value = '30';
+        document.getElementById('militaryStatus').value = 'first';
+        document.getElementById('downPaymentPercent').value = '0';
+        document.getElementById('fundingFee').value = '';
+        document.getElementById('baseLoanAmount').textContent = '$0.00';
+        document.getElementById('fundingFeeDisplay').textContent = '$0.00';
+        document.getElementById('totalLoanAmount').textContent = '$0.00';
+        document.getElementById('monthlyPayment').textContent = '$0.00';
+        document.getElementById('totalInterest').textContent = '$0.00';
+    }
+
+    function copyVAResults() {
+        const base = document.getElementById('baseLoanAmount').textContent;
+        const fee = document.getElementById('fundingFeeDisplay').textContent;
+        const total = document.getElementById('totalLoanAmount').textContent;
+        const monthly = document.getElementById('monthlyPayment').textContent;
+        const interest = document.getElementById('totalInterest').textContent;
+        
+        const text = `VA Loan Calculation:
+Base Loan Amount: ${base}
+VA Funding Fee: ${fee}
+Total Loan Amount: ${total}
+Monthly Payment: ${monthly}
+Total Interest: ${interest}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"FHA Loan Calculator", icon:"fa-home", url:"fha-loan-calculator.html"},
+            {name:"USDA Loan Calculator", icon:"fa-tractor", url:"usda-loan-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Closing Cost Calculator", icon:"fa-file-invoice-dollar", url:"closing-cost-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridVA").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

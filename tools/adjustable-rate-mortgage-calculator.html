@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Adjustable Rate Mortgage Calculator – ARM Payment Estimator | ToolGram</title>
+    <meta name="description" content="Calculate ARM payments with rate adjustments. Free online adjustable rate mortgage calculator showing initial, adjusted, and worst-case payments.">
+    <meta name="keywords" content="ARM calculator, adjustable rate mortgage calculator, ARM payment calculator, adjustable mortgage calculator, ARM rate calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/adjustable-rate-mortgage-calculator.html">
+    <meta property="og:title" content="Adjustable Rate Mortgage Calculator | ToolGram">
+    <meta property="og:description" content="Calculate ARM payments with rate adjustments and caps.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/adjustable-rate-mortgage-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Adjustable Rate Mortgage Calculator",
+        "description": "Calculate ARM payments with rate adjustments and caps.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/adjustable-rate-mortgage-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["ARM Calculator", "Adjustable Rate Mortgage", "ARM Payment Calculator", "Rate Adjustment Calculator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .arm-phase{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .worst-case{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:12px;margin-top:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+                <h1 style="margin:0;">Adjustable Rate Mortgage Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate ARM payments with rate adjustments</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> ARM Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Amount ($)</label>
+                        <input type="number" id="loanAmount" placeholder="400000" value="400000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Initial Rate (%)</label>
+                        <input type="number" id="initialRate" placeholder="6.0" value="6.0" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">ARM Type</label>
+                        <select id="armType" style="flex:1;">
+                            <option value="5-1" selected>5/1 ARM (5yr fixed)</option>
+                            <option value="7-1">7/1 ARM (7yr fixed)</option>
+                            <option value="10-1">10/1 ARM (10yr fixed)</option>
+                            <option value="3-1">3/1 ARM (3yr fixed)</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term (Years)</label>
+                        <select id="loanTerm" style="flex:1;">
+                            <option value="15">15 Years</option>
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-percent"></i> Adjustment Caps</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">First Adjustment (%)</label>
+                        <input type="number" id="firstCap" placeholder="2" value="2" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Periodic Cap (%)</label>
+                        <input type="number" id="periodicCap" placeholder="2" value="2" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Lifetime Cap (%)</label>
+                        <input type="number" id="lifetimeCap" placeholder="5" value="5" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Max Possible Rate (%)</label>
+                        <input type="number" id="maxRate" placeholder="11" value="11" readonly style="flex:1;padding:12px;background:rgba(255,255,255,0.04);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateARM()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearARM()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> ARM Payment Summary</div>
+                <div class="output-display" id="armOutput">
+                    <div class="arm-phase">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;"><i class="fas fa-lock"></i> Initial Fixed Period</div>
+                        <div style="margin-bottom:5px;">Monthly Payment: <span class="loan-result" id="initialPayment">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Rate: <span id="initialRateDisplay">6.0%</span> for <span id="fixedPeriod">5 years</span></div>
+                    </div>
+                    <div class="arm-phase">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;"><i class="fas fa-sync-alt"></i> After First Adjustment</div>
+                        <div style="margin-bottom:5px;">Monthly Payment: <span class="loan-result" id="firstAdjustedPayment">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Max rate after first adjustment: <span id="firstAdjustedRate">8.0%</span></div>
+                    </div>
+                    <div class="worst-case">
+                        <div style="color:#EF4444;font-weight:600;"><i class="fas fa-exclamation-circle"></i> Worst Case Scenario</div>
+                        <div style="font-size:1.3rem;font-weight:bold;color:#8B5CF6;margin-top:5px;" id="maxPayment">$0.00</div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);margin-top:5px;">At max rate: <span id="maxRateDisplay">11.0%</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);margin-top:5px;">Increase from initial: <span id="paymentIncrease">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyARMResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridARM"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is an Adjustable Rate Mortgage?</h3>
+            <p>An Adjustable Rate Mortgage (ARM) has an interest rate that changes periodically based on market conditions. ARMs typically start with a fixed rate for an initial period (3, 5, 7, or 10 years), then adjust annually or semi-annually based on a benchmark index plus a margin.</p>
+            <p>ARMs often have lower initial rates than fixed-rate mortgages, making them attractive if you plan to sell or refinance before the fixed period ends. However, they carry the risk of higher payments if rates rise.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the loan amount.<br>
+            <strong>Step 2:</strong> Input the initial ARM rate offered.<br>
+            <strong>Step 3:</strong> Select ARM type (5/1, 7/1, etc.).<br>
+            <strong>Step 4:</strong> Select total loan term.<br>
+            <strong>Step 5:</strong> Review/adjust adjustment caps.<br>
+            <strong>Step 6:</strong> Click "Calculate" to see payment scenarios.<br>
+            <strong>Step 7:</strong> Consider the worst-case scenario carefully.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-shield-alt"></i> Understanding ARM Caps</h3>
+            <p>ARMs have three types of caps that limit rate increases:</p>
+            <ul>
+                <li><strong>Initial Cap:</strong> Limits how much rate can increase at first adjustment (typically 2-5%).</li>
+                <li><strong>Periodic Cap:</strong> Limits rate increases at subsequent adjustments (typically 2%).</li>
+                <li><strong>Lifetime Cap:</strong> Maximum rate over the loan life (typically 5-6% above initial).</li>
+            </ul>
+            <p>Example: 5/1 ARM at 6% with 2/2/5 caps—first adjustment max 8%, subsequent adjustments max 2% per year, lifetime max 11%.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-balance-scale"></i> ARM vs Fixed-Rate Pros & Cons</h3>
+            <table style="width:100%;margin-top:15px;border-collapse:collapse;font-size:0.9rem;">
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.2);">
+                    <td style="padding:10px;font-weight:600;">Factor</td>
+                    <td style="padding:10px;font-weight:600;">ARM</td>
+                    <td style="padding:10px;font-weight:600;">Fixed-Rate</td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                    <td style="padding:10px;">Initial Rate</td>
+                    <td style="padding:10px;">Lower</td>
+                    <td style="padding:10px;">Higher</td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                    <td style="padding:10px;">Payment Stability</td>
+                    <td style="padding:10px;">Changes after fixed period</td>
+                    <td style="padding:10px;">Never changes</td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                    <td style="padding:10px;">Best For</td>
+                    <td style="padding:10px;">Short-term owners, investors</td>
+                    <td style="padding:10px;">Long-term owners</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">Risk</td>
+                    <td style="padding:10px;">Higher (rate uncertainty)</td>
+                    <td style="padding:10px;">Lower (predictable)</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How does an ARM adjustment work?</div>
+            <div class="faq-answer">After the fixed period, your rate adjusts based on a benchmark index (like SOFR or Treasury) plus a margin (typically 2-3%). The new rate = index + margin, subject to your adjustment caps. Adjustments typically happen annually after the initial period.</div>
+
+            <div class="faq-question">What happens if rates go down?</div>
+            <div class="faq-answer">Your ARM rate can decrease (subject to floors and caps). If the index drops, your rate may follow. However, many ARMs have rate floors—you won't go below your initial rate or a specified minimum.</div>
+
+            <div class="faq-question">Should I choose a 5/1, 7/1, or 10/1 ARM?</div>
+            <div class="faq-answer">Choose based on how long you plan to keep the loan: 5/1 for under 5 years (lowest rate), 7/1 for 5-7 years, 10/1 for 7-10 years. Longer fixed periods have higher rates but more protection. Match the ARM to your ownership timeline.</div>
+
+            <div class="faq-question">What is the margin on an ARM?</div>
+            <div class="faq-answer">The margin is a fixed percentage added to the index to determine your rate. Example: index at 4%, margin of 2.75% = 6.75% rate. Margins vary by lender and your creditworthiness—lower margins are better.</div>
+
+            <div class="faq-question">Can I refinance an ARM?</div>
+            <div class="faq-answer">Yes, and many people do before the first adjustment. Refinance to a fixed-rate mortgage if you plan to stay longer, or to another ARM if rates have dropped. Start the process 3-6 months before your adjustment date.</div>
+
+            <div class="faq-question">Are ARMs riskier than fixed-rate mortgages?</div>
+            <div class="faq-answer">Yes, due to payment uncertainty. However, rate caps limit the risk. If you understand the caps, plan your timeline, and can afford worst-case payments, ARMs can save money. Don't choose an ARM if you can't handle payment increases.</div>
+
+            <div class="faq-question">What is an interest-only ARM?</div>
+            <div class="faq-answer">Combines interest-only payments during the initial period with ARM rate adjustments. Very low initial payments but significant payment shock when IO period ends AND rate adjusts. High risk, requires careful planning.</div>
+
+            <div class="faq-question">How do I know if an ARM is right for me?</div>
+            <div class="faq-answer">ARM may fit if: you plan to sell before adjustment, expect income increases, want to pay off aggressively during fixed period, or current rates are high and you expect them to fall. Fixed is better for stability seekers and long-term owners.</div>
+
+            <div class="faq-question">What is the SOFR index?</div>
+            <div class="faq-answer">SOFR (Secured Overnight Financing Rate) replaced LIBOR as the benchmark index for most ARMs. It's based on actual Treasury repo transactions and is considered more reliable. SOFR-based ARMs typically adjust annually.</div>
+
+            <div class="faq-question">Can my ARM payment go down?</div>
+            <div class="faq-answer">Yes, if the index decreases, your rate and payment can drop (subject to rate floors). This is an ARM advantage—you benefit from falling rates without refinancing. However, floors prevent unlimited decreases.</div>
+
+            <div class="faq-question">What's the worst-case ARM scenario?</div>
+            <div class="faq-answer">Rates hit the lifetime cap at first adjustment and stay there. Example: 5/1 ARM starting at 6% with 2/2/5 caps—worst case is 11% at month 61, adding $800+/month on a $400k loan. Always calculate if you can afford this.</div>
+
+            <div class="faq-question">Should I pay points on an ARM?</div>
+            <div class="faq-answer">Usually not worth it. You're paying to lower a temporary rate—savings evaporate if you refinance or sell. Only consider if you're certain you'll keep the loan through the fixed period and rates won't drop significantly.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateARM() {
+        const loanAmount = parseFloat(document.getElementById('loanAmount').value) || 0;
+        const initialRate = parseFloat(document.getElementById('initialRate').value) || 0;
+        const armType = document.getElementById('armType').value;
+        const years = parseInt(document.getElementById('loanTerm').value) || 30;
+        const firstCap = parseFloat(document.getElementById('firstCap').value) || 2;
+        const lifetimeCap = parseFloat(document.getElementById('lifetimeCap').value) || 5;
+
+        if (loanAmount <= 0 || initialRate <= 0) {
+            alert('Please enter valid loan details');
+            return;
+        }
+
+        // Determine fixed period
+        let fixedPeriod = 5;
+        if (armType === '3-1') fixedPeriod = 3;
+        else if (armType === '5-1') fixedPeriod = 5;
+        else if (armType === '7-1') fixedPeriod = 7;
+        else if (armType === '10-1') fixedPeriod = 10;
+
+        // Calculate initial payment (full amortization)
+        const monthlyRate = initialRate / 100 / 12;
+        const totalMonths = years * 12;
+        let initialPayment;
+        if (monthlyRate === 0) {
+            initialPayment = loanAmount / totalMonths;
+        } else {
+            initialPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+        }
+
+        // Calculate max after first adjustment
+        const maxRateAfterFirst = Math.min(initialRate + firstCap, initialRate + lifetimeCap);
+        const maxMonthlyRateFirst = maxRateAfterFirst / 100 / 12;
+        // Remaining term after fixed period
+        const remainingMonthsFirst = totalMonths - (fixedPeriod * 12);
+        let firstAdjustedPayment;
+        if (maxMonthlyRateFirst === 0) {
+            firstAdjustedPayment = loanAmount / remainingMonthsFirst;
+        } else {
+            firstAdjustedPayment = loanAmount * (maxMonthlyRateFirst * Math.pow(1 + maxMonthlyRateFirst, remainingMonthsFirst)) / (Math.pow(1 + maxMonthlyRateFirst, remainingMonthsFirst) - 1);
+        }
+
+        // Calculate worst case (lifetime cap)
+        const maxRate = initialRate + lifetimeCap;
+        const maxMonthlyRate = maxRate / 100 / 12;
+        let maxPayment;
+        if (maxMonthlyRate === 0) {
+            maxPayment = loanAmount / remainingMonthsFirst;
+        } else {
+            maxPayment = loanAmount * (maxMonthlyRate * Math.pow(1 + maxMonthlyRate, remainingMonthsFirst)) / (Math.pow(1 + maxMonthlyRate, remainingMonthsFirst) - 1);
+        }
+
+        const paymentIncrease = maxPayment - initialPayment;
+
+        document.getElementById('initialPayment').textContent = '$' + initialPayment.toFixed(2);
+        document.getElementById('initialRateDisplay').textContent = initialRate.toFixed(1) + '%';
+        document.getElementById('fixedPeriod').textContent = fixedPeriod + ' years';
+        document.getElementById('firstAdjustedPayment').textContent = '$' + firstAdjustedPayment.toFixed(2);
+        document.getElementById('firstAdjustedRate').textContent = maxRateAfterFirst.toFixed(1) + '%';
+        document.getElementById('maxPayment').textContent = '$' + maxPayment.toFixed(2);
+        document.getElementById('maxRateDisplay').textContent = maxRate.toFixed(1) + '%';
+        document.getElementById('maxRate').value = maxRate.toFixed(1);
+        document.getElementById('paymentIncrease').textContent = '$' + paymentIncrease.toFixed(2);
+    }
+
+    function clearARM() {
+        document.getElementById('loanAmount').value = '';
+        document.getElementById('initialRate').value = '';
+        document.getElementById('armType').value = '5-1';
+        document.getElementById('loanTerm').value = '30';
+        document.getElementById('firstCap').value = '2';
+        document.getElementById('periodicCap').value = '2';
+        document.getElementById('lifetimeCap').value = '5';
+        document.getElementById('maxRate').value = '';
+        document.getElementById('initialPayment').textContent = '$0.00';
+        document.getElementById('initialRateDisplay').textContent = '0.0%';
+        document.getElementById('fixedPeriod').textContent = '5 years';
+        document.getElementById('firstAdjustedPayment').textContent = '$0.00';
+        document.getElementById('firstAdjustedRate').textContent = '0.0%';
+        document.getElementById('maxPayment').textContent = '$0.00';
+        document.getElementById('maxRateDisplay').textContent = '0.0%';
+        document.getElementById('paymentIncrease').textContent = '$0.00';
+    }
+
+    function copyARMResults() {
+        const initial = document.getElementById('initialPayment').textContent;
+        const initialRate = document.getElementById('initialRateDisplay').textContent;
+        const fixed = document.getElementById('fixedPeriod').textContent;
+        const firstAdj = document.getElementById('firstAdjustedPayment').textContent;
+        const firstRate = document.getElementById('firstAdjustedRate').textContent;
+        const max = document.getElementById('maxPayment').textContent;
+        const maxRate = document.getElementById('maxRateDisplay').textContent;
+        const increase = document.getElementById('paymentIncrease').textContent;
+        
+        const text = `ARM Calculation:
+Initial Payment: ${initial} at ${initialRate} for ${fixed}
+First Adjustment: ${firstAdj} at max ${firstRate}
+Worst Case: ${max} at max ${maxRate}
+Payment Increase: ${increase}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"Interest Only Loan Calculator", icon:"fa-percent", url:"interest-only-loan-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Balloon Loan Calculator", icon:"fa-circle", url:"balloon-loan-calculator.html"},
+            {name:"Mortgage Amortization Calculator", icon:"fa-table", url:"mortgage-amortization-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridARM").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

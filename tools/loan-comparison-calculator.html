@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Loan Comparison Calculator – Compare Multiple Loans & Save | ToolGram</title>
+    <meta name="description" content="Compare up to 3 loans side-by-side. Calculate monthly payments, total interest, and total cost. Free online loan comparison calculator for smart borrowing decisions.">
+    <meta name="keywords" content="loan comparison calculator, compare loans, loan estimator, side by side loan comparison, best loan calculator, loan rate comparison">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/loan-comparison-calculator.html">
+    <meta property="og:title" content="Loan Comparison Calculator | ToolGram">
+    <meta property="og:description" content="Compare multiple loans side-by-side to find the best deal.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/loan-comparison-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Loan Comparison Calculator",
+        "description": "Compare multiple loans side-by-side to find the best rates and terms.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/loan-comparison-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Loan Comparison", "Side by Side Comparison", "Best Loan Finder", "Rate Comparison"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .comparison-box{background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.3);border-radius:12px;padding:15px;margin-bottom:15px}
+        .best-offer{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3)}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-balance-scale"></i></div>
+            <div>
+                <h1 style="margin:0;">Loan Comparison Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Compare up to 3 loans side-by-side to find your best option</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-hand-holding-usd"></i> Loan 1</div>
+                <div class="comparison-box" style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:100px">Amount ($)</label>
+                        <input type="number" id="amount1" placeholder="20000" value="20000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:100px">Rate (%)</label>
+                        <input type="number" id="rate1" placeholder="8.5" value="8.5" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:100px">Term (Yrs)</label>
+                        <select id="term1" style="flex:1;">
+                            <option value="3" selected>3 Years</option>
+                            <option value="5">5 Years</option>
+                            <option value="7">7 Years</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:100px">Fees ($)</label>
+                        <input type="number" id="fees1" placeholder="500" value="500" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-hand-holding-usd"></i> Loan 2</div>
+                <div class="comparison-box" style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:100px">Amount ($)</label>
+                        <input type="number" id="amount2" placeholder="20000" value="20000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:100px">Rate (%)</label>
+                        <input type="number" id="rate2" placeholder="7.2" value="7.2" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:100px">Term (Yrs)</label>
+                        <select id="term2" style="flex:1;">
+                            <option value="3" selected>3 Years</option>
+                            <option value="5">5 Years</option>
+                            <option value="7">7 Years</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:100px">Fees ($)</label>
+                        <input type="number" id="fees2" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-hand-holding-usd"></i> Loan 3 (Optional)</div>
+                <div class="comparison-box" style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:100px">Amount ($)</label>
+                        <input type="number" id="amount3" placeholder="20000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:100px">Rate (%)</label>
+                        <input type="number" id="rate3" placeholder="9.0" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:100px">Term (Yrs)</label>
+                        <select id="term3" style="flex:1;">
+                            <option value="3" selected>3 Years</option>
+                            <option value="5">5 Years</option>
+                            <option value="7">7 Years</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:100px">Fees ($)</label>
+                        <input type="number" id="fees3" placeholder="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="compareLoans()"><i class="fas fa-calculator"></i> Compare Loans</button>
+                    <button class="secondary-btn" onclick="clearComparison()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Comparison Results</div>
+                <div class="output-display" id="comparisonOutput">
+                    <div class="comparison-box" id="result1">
+                        <div style="font-weight:600;color:#8B5CF6;margin-bottom:10px;">Loan 1</div>
+                        <div style="margin-bottom:8px;">Monthly: <span class="loan-result" id="monthly1">$0.00</span></div>
+                        <div style="margin-bottom:8px;">Interest: <span id="interest1">$0.00</span></div>
+                        <div>Total Cost: <span id="total1">$0.00</span></div>
+                    </div>
+                    <div class="comparison-box" id="result2">
+                        <div style="font-weight:600;color:#8B5CF6;margin-bottom:10px;">Loan 2</div>
+                        <div style="margin-bottom:8px;">Monthly: <span class="loan-result" id="monthly2">$0.00</span></div>
+                        <div style="margin-bottom:8px;">Interest: <span id="interest2">$0.00</span></div>
+                        <div>Total Cost: <span id="total2">$0.00</span></div>
+                    </div>
+                    <div class="comparison-box" id="result3" style="display:none;">
+                        <div style="font-weight:600;color:#8B5CF6;margin-bottom:10px;">Loan 3</div>
+                        <div style="margin-bottom:8px;">Monthly: <span class="loan-result" id="monthly3">$0.00</span></div>
+                        <div style="margin-bottom:8px;">Interest: <span id="interest3">$0.00</span></div>
+                        <div>Total Cost: <span id="total3">$0.00</span></div>
+                    </div>
+                    <div id="bestDeal" style="margin-top:15px;padding:15px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;display:none;">
+                        <div style="color:#22C55E;font-weight:600;"><i class="fas fa-trophy"></i> Best Deal</div>
+                        <div id="bestDealText" style="margin-top:5px;"></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyComparisonResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridLCC"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Loan Comparison Calculator?</h3>
+            <p>A loan comparison calculator helps you evaluate multiple loan offers side-by-side to find the best deal. By comparing monthly payments, total interest, and total costs, you can make an informed borrowing decision that saves money.</p>
+            <p>Even small differences in interest rates or fees can mean thousands of dollars over the life of a loan. This calculator ensures you see the complete financial picture before committing to any loan.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter loan amount, rate, term, and fees for Loan 1 (your current offer or baseline).<br>
+            <strong>Step 2:</strong> Enter details for Loan 2 (competing offer).<br>
+            <strong>Step 3:</strong> Optionally enter Loan 3 details for a third comparison.<br>
+            <strong>Step 4:</strong> Click "Compare Loans" to see side-by-side results.<br>
+            <strong>Step 5:</strong> Review monthly payments, total interest, and total costs.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> What to Compare in Loans</h3>
+            <p>When evaluating loans, consider these key factors:</p>
+            <ul>
+                <li><strong>APR (Annual Percentage Rate):</strong> Includes interest and fees for true cost comparison.</li>
+                <li><strong>Monthly Payment:</strong> Must fit comfortably in your budget.</li>
+                <li><strong>Total Interest:</strong> Shows how much you'll pay beyond the principal.</li>
+                <li><strong>Total Cost:</strong> Principal + Interest + Fees = True borrowing cost.</li>
+                <li><strong>Loan Term:</strong> Shorter terms save money but have higher payments.</li>
+                <li><strong>Fees:</strong> Origination, application, and prepayment penalties matter.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses This Calculator?</h3>
+            <ul>
+                <li><strong>Rate Shoppers</strong> – comparing offers from multiple lenders.</li>
+                <li><strong>Refinancers</strong> – evaluating new loans against current debt.</li>
+                <li><strong>Car Buyers</strong> – comparing dealer vs bank auto loans.</li>
+                <li><strong>Home Buyers</strong> – evaluating mortgage offers.</li>
+                <li><strong>Personal Loan Seekers</strong> – finding best rates for debt consolidation or major purchases.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-shield-alt"></i> Smart Comparison Tips</h3>
+            <ul>
+                <li>Always compare APRs, not just interest rates, as APR includes fees.</li>
+                <li>Get pre-qualified with multiple lenders within a 14-day window (counts as one credit inquiry).</li>
+                <li>Consider total cost over the loan term, not just monthly payments.</li>
+                <li>Read the fine print for prepayment penalties and hidden fees.</li>
+                <li>Factor in lender reputation and customer service quality.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Should I choose the loan with the lowest monthly payment?</div>
+            <div class="faq-answer">Not necessarily. A lower payment often means a longer term, which increases total interest paid. Compare total cost and ensure the monthly payment fits your budget. The lowest total cost is usually best if payments are affordable.</div>
+
+            <div class="faq-question">Is APR or interest rate more important?</div>
+            <div class="faq-answer">APR is more important for comparison because it includes both interest and fees, giving you the true annual cost. Two loans with the same interest rate can have very different APRs if one has high fees.</div>
+
+            <div class="faq-question">How many loan offers should I compare?</div>
+            <div class="faq-answer">Compare at least 3-5 offers from different lenders including banks, credit unions, and online lenders. This ensures you find competitive rates and terms. This calculator lets you compare up to 3 simultaneously.</div>
+
+            <div class="faq-question">Does loan term affect the total cost significantly?</div>
+            <div class="faq-answer">Yes, dramatically. A $20,000 loan at 8% costs $2,562 total interest over 3 years but $4,332 over 5 years—a $1,770 difference. Longer terms always cost more in total interest.</div>
+
+            <div class="faq-question">Should I pay points to lower my interest rate?</div>
+            <div class="faq-answer">Paying points (prepaid interest) makes sense if you'll keep the loan long enough to recoup the cost through lower payments. Calculate your break-even point: Points Cost ÷ Monthly Savings = Months to Break Even.</div>
+
+            <div class="faq-question">Are online lenders as trustworthy as banks?</div>
+            <div class="faq-answer">Many online lenders are reputable and often offer better rates due to lower overhead. Check reviews, Better Business Bureau ratings, and ensure they're licensed in your state. Legitimate lenders never ask for upfront fees.</div>
+
+            <div class="faq-question">What's more important: rate or fees?</div>
+            <div class="faq-answer">Both matter, but focus on APR which combines them. A slightly higher rate with no fees might beat a lower rate with high origination fees, especially on shorter-term loans. Calculate total cost to compare accurately.</div>
+
+            <div class="faq-question">Can I negotiate loan terms?</div>
+            <div class="faq-answer">Yes, especially with banks and credit unions. Use competing offers as leverage. You can often negotiate lower rates, reduced fees, or better terms. It never hurts to ask—lenders want your business.</div>
+
+            <div class="faq-question">Should I choose a fixed or variable rate?</div>
+            <div class="faq-answer">Choose fixed for predictable payments and protection from rate increases. Choose variable only if rates are historically low and you plan to pay off quickly. Most borrowers prefer fixed-rate stability.</div>
+
+            <div class="faq-question">What red flags should I watch for?</div>
+            <div class="faq-answer">Watch for: guaranteed approval claims, requests for upfront payment, pressure to sign immediately, no physical address, rates significantly below market, and unclear terms. Legitimate lenders are transparent.</div>
+
+            <div class="faq-question">How does my credit score affect loan comparisons?</div>
+            <div class="faq-answer">Higher scores get better rates. Know your score before comparing so you understand which offers you qualify for. If your score is borderline, improving it by even 20 points could save thousands.</div>
+
+            <div class="faq-question">Is it worth paying a higher rate for better service?</div>
+            <div class="faq-answer">Sometimes. On large, long-term loans (mortgages), service quality matters. On smaller, short-term loans, prioritize cost. Read reviews about lender responsiveness and problem resolution.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function compareLoans() {
+        const loans = [];
+        
+        for (let i = 1; i <= 3; i++) {
+            const amount = parseFloat(document.getElementById('amount' + i).value);
+            const rate = parseFloat(document.getElementById('rate' + i).value);
+            const term = parseInt(document.getElementById('term' + i).value);
+            const fees = parseFloat(document.getElementById('fees' + i).value) || 0;
+            
+            if (amount > 0 && rate >= 0) {
+                const monthlyRate = rate / 100 / 12;
+                const numPayments = term * 12;
+                
+                let monthlyPayment;
+                if (monthlyRate === 0) {
+                    monthlyPayment = amount / numPayments;
+                } else {
+                    monthlyPayment = amount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+                }
+                
+                const totalPayments = monthlyPayment * numPayments;
+                const totalInterest = totalPayments - amount;
+                const totalCost = totalPayments + fees;
+                
+                loans.push({
+                    id: i,
+                    monthly: monthlyPayment,
+                    interest: totalInterest,
+                    total: totalCost,
+                    monthlyRate: monthlyRate
+                });
+                
+                document.getElementById('monthly' + i).textContent = '$' + monthlyPayment.toFixed(2);
+                document.getElementById('interest' + i).textContent = '$' + totalInterest.toFixed(2);
+                document.getElementById('total' + i).textContent = '$' + totalCost.toFixed(2);
+                document.getElementById('result' + i).style.display = 'block';
+            } else {
+                document.getElementById('result' + i).style.display = i === 3 ? 'none' : 'block';
+            }
+        }
+        
+        if (loans.length >= 2) {
+            const best = loans.reduce((min, loan) => loan.total < min.total ? loan : min);
+            const savings = loans.filter(l => l.id !== best.id).map(l => (l.total - best.total).toFixed(2));
+            
+            document.getElementById('bestDeal').style.display = 'block';
+            document.getElementById('bestDealText').textContent = `Loan ${best.id} saves you $${savings.join(' vs Loan ') === savings[0] ? savings[0] : savings.join(', $')} in total cost!`;
+            
+            // Highlight best loan
+            for (let i = 1; i <= 3; i++) {
+                const box = document.getElementById('result' + i);
+                if (box && box.style.display !== 'none') {
+                    box.classList.toggle('best-offer', i === best.id);
+                }
+            }
+        }
+    }
+
+    function clearComparison() {
+        for (let i = 1; i <= 3; i++) {
+            document.getElementById('amount' + i).value = i <= 2 ? (i === 1 ? '20000' : '20000') : '';
+            document.getElementById('rate' + i).value = i <= 2 ? (i === 1 ? '8.5' : '7.2') : '';
+            document.getElementById('term' + i).value = '3';
+            document.getElementById('fees' + i).value = i === 1 ? '500' : '0';
+            document.getElementById('monthly' + i).textContent = '$0.00';
+            document.getElementById('interest' + i).textContent = '$0.00';
+            document.getElementById('total' + i).textContent = '$0.00';
+            document.getElementById('result' + i).classList.remove('best-offer');
+        }
+        document.getElementById('bestDeal').style.display = 'none';
+        document.getElementById('result3').style.display = 'none';
+    }
+
+    function copyComparisonResults() {
+        let text = "Loan Comparison Results:\n\n";
+        for (let i = 1; i <= 3; i++) {
+            const result = document.getElementById('result' + i);
+            if (result && result.style.display !== 'none') {
+                const monthly = document.getElementById('monthly' + i).textContent;
+                const interest = document.getElementById('interest' + i).textContent;
+                const total = document.getElementById('total' + i).textContent;
+                text += `Loan ${i}:\nMonthly: ${monthly}\nInterest: ${interest}\nTotal: ${total}\n\n`;
+            }
+        }
+        
+        const bestDeal = document.getElementById('bestDeal');
+        if (bestDeal.style.display !== 'none') {
+            text += "🏆 " + document.getElementById('bestDealText').textContent;
+        }
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Debt Consolidation Calculator", icon:"fa-compress", url:"debt-consolidation-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Personal Loan Calculator", icon:"fa-user", url:"personal-loan-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Auto Loan Calculator", icon:"fa-car", url:"auto-loan-calculator.html"},
+            {name:"Student Loan Calculator", icon:"fa-graduation-cap", url:"student-loan-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridLCC").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

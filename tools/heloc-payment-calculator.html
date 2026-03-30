@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HELOC Payment Calculator – Home Equity Line of Credit | ToolGram</title>
+    <meta name="description" content="Calculate HELOC payments, interest-only and principal plus interest. Free online HELOC calculator for home equity line of credit planning.">
+    <meta name="keywords" content="HELOC calculator, HELOC payment calculator, home equity line of credit calculator, HELOC interest calculator, HELOC draw period calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/heloc-payment-calculator.html">
+    <meta property="og:title" content="HELOC Payment Calculator | ToolGram">
+    <meta property="og:description" content="Calculate HELOC payments during draw and repayment periods.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/heloc-payment-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "HELOC Payment Calculator",
+        "description": "Calculate HELOC payments during draw and repayment periods.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/heloc-payment-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["HELOC Calculator", "Interest Only Calculator", "HELOC Draw Period", "HELOC Repayment"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .payment-box{background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-credit-card"></i></div>
+            <div>
+                <h1 style="margin:0;">HELOC Payment Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate HELOC payments during draw and repayment periods</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> HELOC Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">HELOC Limit ($)</label>
+                        <input type="number" id="helocLimit" placeholder="100000" value="100000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Amount Drawn ($)</label>
+                        <input type="number" id="amountDrawn" placeholder="50000" value="50000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="8.5" value="8.5" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Draw Period (Years)</label>
+                        <select id="drawPeriod" style="flex:1;">
+                            <option value="5" selected>5 Years</option>
+                            <option value="10">10 Years</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Repayment Period (Years)</label>
+                        <select id="repaymentPeriod" style="flex:1;">
+                            <option value="10">10 Years</option>
+                            <option value="15" selected>15 Years</option>
+                            <option value="20">20 Years</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateHeloc()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearHeloc()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Payment Summary</div>
+                <div class="output-display" id="helocOutput">
+                    <div class="payment-box">
+                        <div style="font-weight:600;color:#8B5CF6;margin-bottom:5px;">Draw Period (Interest-Only)</div>
+                        <div style="margin-bottom:5px;">Monthly Payment: <span class="loan-result" id="drawPeriodPayment">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Based on amount drawn: <span id="drawAmountDisplay">$0.00</span></div>
+                    </div>
+                    <div class="payment-box">
+                        <div style="font-weight:600;color:#8B5CF6;margin-bottom:5px;">Repayment Period (P&I)</div>
+                        <div style="margin-bottom:5px;">Monthly Payment: <span class="loan-result" id="repaymentPayment">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Principal + Interest</div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Available Credit:</strong> <span class="loan-result" id="availableCredit">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Interest (Draw):</strong> <span id="totalDrawInterest">$0.00</span></div>
+                        <div><strong style="color:#8B5CF6;">Total Interest (Repayment):</strong> <span id="totalRepaymentInterest">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyHelocResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridHELOC"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a HELOC?</h3>
+            <p>A Home Equity Line of Credit (HELOC) is a revolving line of credit secured by your home. It works like a credit card—you can borrow, repay, and borrow again up to your credit limit during the draw period.</p>
+            <p>HELOCs typically have two phases: a draw period (5-10 years) where you can access funds and make interest-only payments, followed by a repayment period (10-20 years) where you can no longer draw and must repay principal plus interest.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your HELOC credit limit.<br>
+            <strong>Step 2:</strong> Input the amount you've drawn or plan to draw.<br>
+            <strong>Step 3:</strong> Enter your interest rate (variable rates change—use current).<br>
+            <strong>Step 4:</strong> Select your draw period length.<br>
+            <strong>Step 5:</strong> Select repayment period length.<br>
+            <strong>Step 6:</strong> Click "Calculate" to see payment breakdowns.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-chart-pie"></i> HELOC vs Home Equity Loan</h3>
+            <p>Choose based on your needs:</p>
+            <ul>
+                <li><strong>HELOC:</strong> Best for ongoing expenses, variable rates, flexible borrowing, interest-only payments during draw period.</li>
+                <li><strong>Home Equity Loan:</strong> Best for one-time large expenses, fixed rates, predictable payments, lump sum disbursement.</li>
+            </ul>
+            <p>If you need money over time for projects or emergencies, choose HELOC. If you need a specific amount for a defined purpose, consider a home equity loan.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Common HELOC Uses</h3>
+            <ul>
+                <li><strong>Home Renovations</strong> – kitchen remodels, additions, repairs.</li>
+                <li><strong>Debt Consolidation</strong> – paying off high-interest credit cards.</li>
+                <li><strong>Emergency Fund</strong> – backup funding for unexpected expenses.</li>
+                <li><strong>Education Expenses</strong> – college tuition or continuing education.</li>
+                <li><strong>Investment Properties</strong> – down payments on rental properties.</li>
+                <li><strong>Medical Expenses</strong> – healthcare costs not covered by insurance.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-shield-alt"></i> HELOC Risks & Cautions</h3>
+            <ul>
+                <li><strong>Variable Rates:</strong> Payments can increase significantly if rates rise.</li>
+                <li><strong>Payment Shock:</strong> Repayment period payments can be 2-3x draw period payments.</li>
+                <li><strong>Home Collateral:</strong> Defaulting puts your home at risk of foreclosure.</li>
+                <li><strong>Temptation to Overspend:</strong> Easy access to funds can lead to debt.</li>
+                <li><strong>Rate Caps:</strong> Understand lifetime and periodic rate adjustment caps.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How is HELOC interest calculated?</div>
+            <div class="faq-answer">HELOC interest is typically calculated daily based on your outstanding balance. Most HELOCs have variable rates tied to the prime rate plus a margin. You only pay interest on what you actually borrow, not your full credit limit.</div>
+
+            <div class="faq-question">Can I pay off my HELOC during the draw period?</div>
+            <div class="faq-answer">Yes, and you should if you can. Paying down principal during the draw period reduces future interest and prepares you for the repayment period. Most HELOCs allow unlimited principal payments without penalty.</div>
+
+            <div class="faq-question">What happens when the draw period ends?</div>
+            <div class="faq-answer">The HELOC enters the repayment period. You can no longer draw funds, and payments switch from interest-only to principal plus interest. This often causes "payment shock" as monthly payments increase significantly.</div>
+
+            <div class="faq-question">Can a HELOC be frozen or reduced?</div>
+            <div class="faq-answer">Yes, lenders can freeze or reduce your credit line if your home value drops significantly or your credit situation worsens. This is a risk of HELOCs versus fixed home equity loans. Check your agreement for specific terms.</div>
+
+            <div class="faq-question">Is HELOC interest tax deductible?</div>
+            <div class="faq-answer">HELOC interest may be deductible if used for home improvements. The Tax Cuts and Jobs Act limited deductions for other uses. Consult a tax professional for your specific situation and current tax laws.</div>
+
+            <div class="faq-question">What's the difference between interest-only and principal plus interest?</div>
+            <div class="faq-answer">During the draw period, you typically pay only interest on your balance. In repayment, you pay both principal and interest to fully pay off the loan over the repayment term. Principal + interest payments are much higher.</div>
+
+            <div class="faq-question">Can I convert my HELOC to a fixed-rate loan?</div>
+            <div class="faq-answer">Some lenders offer fixed-rate conversion options for portions of your HELOC balance, often for a fee. This provides payment stability. Alternatively, you could pay off the HELOC with a fixed-rate home equity loan or cash-out refinance.</div>
+
+            <div class="faq-question">How do rate changes affect my payment?</div>
+            <div class="faq-answer">Since most HELOCs have variable rates, your payment changes with rate fluctuations. A 1% rate increase on a $50,000 balance adds about $42/month to interest-only payments. Understand rate adjustment frequency and caps.</div>
+
+            <div class="faq-question">Should I get a HELOC or cash-out refinance?</div>
+            <div class="faq-answer">Choose HELOC for flexibility and lower upfront costs, especially for shorter-term needs. Choose cash-out refinance for larger amounts, fixed rates, and long-term borrowing. Compare total costs including interest and fees.</div>
+
+            <div class="faq-question">What fees does a HELOC have?</div>
+            <div class="faq-answer">Common fees: application fee, appraisal fee ($300-500), annual fee ($50-100), transaction fees, and early termination fees if you close within 2-3 years. Some lenders offer no-fee HELOCs with slightly higher rates.</div>
+
+            <div class="faq-question">Can I have multiple HELOCs?</div>
+            <div class="faq-answer">Yes, though it's uncommon. You can have a HELOC from one lender and later get another from a different lender if you have sufficient equity. However, managing multiple HELOCs increases complexity and risk.</div>
+
+            <div class="faq-question">What credit score do I need for a HELOC?</div>
+            <div class="faq-answer">Most lenders require 660+ for approval, with 720+ getting the best rates. Unlike first mortgages, HELOC rates vary significantly with credit score. Improving your score before applying can save thousands in interest.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateHeloc() {
+        const limit = parseFloat(document.getElementById('helocLimit').value) || 0;
+        const drawn = parseFloat(document.getElementById('amountDrawn').value) || 0;
+        const rate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const drawYears = parseInt(document.getElementById('drawPeriod').value) || 5;
+        const repaymentYears = parseInt(document.getElementById('repaymentPeriod').value) || 15;
+
+        if (limit <= 0 || drawn > limit) {
+            alert('Please enter valid HELOC details');
+            return;
+        }
+
+        // Draw period (interest only)
+        const drawMonthlyRate = rate / 100 / 12;
+        const drawPeriodPayment = drawn * drawMonthlyRate;
+        const totalDrawInterest = drawPeriodPayment * (drawYears * 12);
+
+        // Repayment period (principal + interest)
+        const repaymentMonthlyRate = rate / 100 / 12;
+        const repaymentMonths = repaymentYears * 12;
+        let repaymentPayment;
+        if (repaymentMonthlyRate === 0) {
+            repaymentPayment = drawn / repaymentMonths;
+        } else {
+            repaymentPayment = drawn * (repaymentMonthlyRate * Math.pow(1 + repaymentMonthlyRate, repaymentMonths)) / (Math.pow(1 + repaymentMonthlyRate, repaymentMonths) - 1);
+        }
+        const totalRepaymentInterest = (repaymentPayment * repaymentMonths) - drawn;
+
+        const availableCredit = limit - drawn;
+
+        document.getElementById('drawPeriodPayment').textContent = '$' + drawPeriodPayment.toFixed(2);
+        document.getElementById('drawAmountDisplay').textContent = '$' + drawn.toLocaleString();
+        document.getElementById('repaymentPayment').textContent = '$' + repaymentPayment.toFixed(2);
+        document.getElementById('availableCredit').textContent = '$' + availableCredit.toLocaleString();
+        document.getElementById('totalDrawInterest').textContent = '$' + totalDrawInterest.toFixed(2);
+        document.getElementById('totalRepaymentInterest').textContent = '$' + totalRepaymentInterest.toFixed(2);
+    }
+
+    function clearHeloc() {
+        document.getElementById('helocLimit').value = '';
+        document.getElementById('amountDrawn').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('drawPeriod').value = '5';
+        document.getElementById('repaymentPeriod').value = '15';
+        document.getElementById('drawPeriodPayment').textContent = '$0.00';
+        document.getElementById('drawAmountDisplay').textContent = '$0.00';
+        document.getElementById('repaymentPayment').textContent = '$0.00';
+        document.getElementById('availableCredit').textContent = '$0.00';
+        document.getElementById('totalDrawInterest').textContent = '$0.00';
+        document.getElementById('totalRepaymentInterest').textContent = '$0.00';
+    }
+
+    function copyHelocResults() {
+        const drawPayment = document.getElementById('drawPeriodPayment').textContent;
+        const repayment = document.getElementById('repaymentPayment').textContent;
+        const available = document.getElementById('availableCredit').textContent;
+        const drawInt = document.getElementById('totalDrawInterest').textContent;
+        const repayInt = document.getElementById('totalRepaymentInterest').textContent;
+        
+        const text = `HELOC Payment Analysis:
+Draw Period Payment: ${drawPayment}
+Repayment Payment: ${repayment}
+Available Credit: ${available}
+Total Draw Interest: ${drawInt}
+Total Repayment Interest: ${repayInt}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Home Equity Loan Calculator", icon:"fa-home", url:"home-equity-loan-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Personal Loan Calculator", icon:"fa-user", url:"personal-loan-calculator.html"},
+            {name:"Debt Consolidation Calculator", icon:"fa-compress", url:"debt-consolidation-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridHELOC").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

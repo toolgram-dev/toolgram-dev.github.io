@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Rent vs Buy Calculator – Should You Rent or Buy a Home? | ToolGram</title>
+    <meta name="description" content="Compare renting vs buying costs. Free online rent vs buy calculator with break-even analysis, tax benefits, and total cost comparison.">
+    <meta name="keywords" content="rent vs buy calculator, rent or buy home, buying vs renting, rent buy comparison, home purchase calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/rent-vs-buy-calculator.html">
+    <meta property="og:title" content="Rent vs Buy Calculator | ToolGram">
+    <meta property="og:description" content="Compare renting vs buying with total cost analysis.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/rent-vs-buy-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Rent vs Buy Calculator",
+        "description": "Compare renting vs buying with total cost and break-even analysis.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/rent-vs-buy-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Rent vs Buy", "Rent Buy Comparison", "Breakeven Analysis", "Home Purchase Calculator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:100px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:inherit;resize:vertical}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        select option:hover{background:#f0f0f0!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .rent-box{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .buy-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .winner-box{background:rgba(139,92,246,0.2);border:1px solid rgba(139,92,246,0.5);border-radius:8px;padding:12px;margin-top:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-balance-scale"></i></div>
+            <div>
+                <h1 style="margin:0;">Rent vs Buy Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Compare the total cost of renting vs buying</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-home"></i> Home Purchase</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Price ($)</label>
+                        <input type="number" id="homePrice" placeholder="450000" value="450000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Down Payment (%)</label>
+                        <input type="number" id="downPayment" placeholder="20" value="20" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="7.0" value="7.0" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Property Tax/Year ($)</label>
+                        <input type="number" id="propertyTax" placeholder="4500" value="4500" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Insurance/Year ($)</label>
+                        <input type="number" id="insurance" placeholder="1200" value="1200" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Maintenance/Year ($)</label>
+                        <input type="number" id="maintenance" placeholder:"3000" value="3000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-building"></i> Renting</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Monthly Rent ($)</label>
+                        <input type="number" id="monthlyRent" placeholder="2500" value="2500" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Rent Insurance/Year ($)</label>
+                        <input type="number" id="rentInsurance" placeholder:"200" value="200" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Rent Increase (%/year)</label>
+                        <input type="number" id="rentIncrease" placeholder:"3" value="3" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-chart-line"></i> Assumptions</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Years to Compare</label>
+                        <select id="years" style="flex:1;">
+                            <option value="5">5 Years</option>
+                            <option value="10" selected>10 Years</option>
+                            <option value="15">15 Years</option>
+                            <option value="30">30 Years</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Appreciation (%)</label>
+                        <input type="number" id="appreciation" placeholder:"3" value:"3" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Investment Return (%)</label>
+                        <input type="number" id="investmentReturn" placeholder:"7" value:"7" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Tax Bracket (%)</label>
+                        <input type="number" id="taxBracket" placeholder:"24" value:"24" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateRentBuy()"><i class="fas fa-calculator"></i> Compare</button>
+                    <button class="secondary-btn" onclick="clearRentBuy()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Comparison Results</div>
+                <div class="output-display" id="rentBuyOutput">
+                    <div class="buy-box">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-home"></i> Buying - Total Cost</div>
+                        <div style="margin-bottom:5px;">Total Paid: <span class="loan-result" id="buyTotalCost">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Monthly: <span id="buyMonthly">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Equity Built: <span id="equityBuilt">$0.00</span></div>
+                    </div>
+                    <div class="rent-box">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;"><i class="fas fa-building"></i> Renting - Total Cost</div>
+                        <div style="margin-bottom:5px;">Total Paid: <span class="loan-result" id="rentTotalCost">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Monthly: <span id="rentMonthly">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Investment Gains: <span id="investmentGains">$0.00</span></div>
+                    </div>
+                    <div class="winner-box">
+                        <div style="font-weight:600;color:#8B5CF6;margin-bottom:5px;"><i class="fas fa-trophy"></i> Winner</div>
+                        <div style="font-size:1.1rem;" id="winner">Calculate to see results</div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);margin-top:5px;">Break-even: <span id="breakeven">-</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyRentBuyResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridRentBuy"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Should You Rent or Buy?</h3>
+            <p>The rent vs buy decision depends on many factors: how long you'll stay, local home prices, rent costs, your financial situation, and personal preferences. This calculator helps you compare the financial aspects, but non-financial factors matter too.</p>
+            <p>Generally, buying makes more financial sense if you'll stay in the home 5+ years, home values are appreciating, and mortgage rates are reasonable. Renting may be better for shorter stays or in high-priced markets.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter home price and down payment percentage.<br>
+            <strong>Step 2:</strong> Input mortgage rate, taxes, insurance, and maintenance.<br>
+            <strong>Step 3:</strong> Enter monthly rent and rent insurance.<br>
+            <strong>Step 4:</strong> Set comparison years, appreciation, investment return.<br>
+            <strong>Step 5:</strong> Input your tax bracket for deduction benefits.<br>
+            <strong>Step 6:</strong> Click "Compare" to see total costs and winner.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> When to Buy vs When to Rent</h3>
+            <p><strong>Consider Buying When:</strong></p>
+            <ul>
+                <li>You'll stay 5+ years</li>
+                <li>You have stable income and good credit</li>
+                <li>You can afford 20% down (avoid PMI)</li>
+                <li>Home prices are appreciating</li>
+                <li>Mortgage rates are favorable</li>
+                <li>You want to build equity and customize your home</li>
+            </ul>
+            <p><strong>Consider Renting When:</strong></p>
+            <ul>
+                <li>You might move within 3-5 years</li>
+                <li>You want flexibility</li>
+                <li>Home prices are very high relative to rents</li>
+                <li>You can't afford a 20% down payment</li>
+                <li>You prefer not to handle maintenance</li>
+                <li>You're paying off high-interest debt</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How long should I plan to stay for buying to make sense?</div>
+            <div class="faq-answer">Generally 5+ years is the rule of thumb. Closing costs (2-5% of purchase price) and selling costs (5-6%) mean you need time for appreciation to offset these expenses. In fast-appreciating markets, breakeven may be shorter; in flat markets, longer.</div>
+
+            <div class="faq-question">What's the break-even point between renting and buying?</div>
+            <div class="faq-answer">Break-even varies by market but typically 3-7 years. This calculator shows your specific break-even based on your inputs. Consider: closing costs, mortgage interest, property taxes, maintenance, selling costs, and home appreciation.</div>
+
+            <div class="faq-question">Does the tax deduction make buying better?</div>
+            <div class="faq-answer">The mortgage interest deduction helps, but its value depends on your tax bracket and whether you itemize. With the standard deduction increased ($29,200 for married couples in 2026), many homeowners don't benefit from itemizing. Don't overestimate this benefit.</div>
+
+            <div class="faq-question">Should I consider home appreciation?</div>
+            <div class="faq-answer">Yes, but conservatively. Historical average is 3-4% annually, but markets vary. Don't assume double-digit gains continue. The calculator uses your appreciation assumption to estimate future home value and equity.</div>
+
+            <div class="faq-question">What about maintenance costs?</div>
+            <div class="faq-answer">Budget 1-3% of home value annually for maintenance. Newer homes cost less; older homes more. This includes repairs, appliances, HVAC, roof, plumbing. Renters avoid these costs—it's a significant advantage of renting.</div>
+
+            <div class="faq-question">Is renting "throwing money away"?</div>
+            <div class="faq-answer">No. Rent provides shelter, flexibility, and avoids ownership risks. In some markets, renting and investing the down payment difference yields better returns than homeownership. Run the numbers—sometimes renting is financially smarter.</div>
+
+            <div class="faq-question">What if I invest the down payment instead of buying?</div>
+            <div class="faq-answer">This calculator includes that scenario. If you rent and invest your would-be down payment at your assumed return rate, you may build more wealth than through home equity. Stock market returns (7-10% historically) sometimes beat home appreciation.</div>
+
+            <div class="faq-question">How do HOA fees affect the decision?</div>
+            <div class="faq-answer">HOA fees ($200-500+/month) are essentially additional ownership costs. They provide services but reduce the financial advantage of buying. Include them in your calculations. Some condos have very high HOAs that make renting more attractive.</div>
+
+            <div class="faq-question">What about PMI if I put less than 20% down?</div>
+            <div class="faq-answer">PMI ($100-300/month) significantly increases ownership costs. This calculator assumes 20% down to avoid PMI. If you can't afford 20%, factor in PMI costs and consider waiting to save more or using piggyback loans.</div>
+
+            <div class="faq-question">Should I buy if home prices are falling?</div>
+            <div class="faq-answer">Generally no—wait if you can. Buying in a declining market means immediate negative equity. However, timing markets is difficult. If you plan to stay very long-term (10+ years), short-term declines matter less.</div>
+
+            <div class="faq-question">Does this calculator consider emotional factors?</div>
+            <div class="faq-answer">No—it only compares financial costs. Non-financial factors matter: pride of ownership, stability, ability to customize, commute, school districts, community ties. These may outweigh pure financial calculations for your decision.</div>
+
+            <div class="faq-question">What's the 5% rule for rent vs buy?</div>
+            <div class="faq-answer">A quick rule of thumb: multiply home price by 5%, divide by 12. If monthly rent is less than this amount, renting may be better. Example: $500k home × 5% = $25k/year ÷ 12 = $2,083/month. If rent is under $2,083, consider renting.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateRentBuy() {
+        // Buying inputs
+        const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+        const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+        const interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const propertyTax = parseFloat(document.getElementById('propertyTax').value) || 0;
+        const insurance = parseFloat(document.getElementById('insurance').value) || 0;
+        const maintenance = parseFloat(document.getElementById('maintenance').value) || 0;
+
+        // Renting inputs
+        const monthlyRent = parseFloat(document.getElementById('monthlyRent').value) || 0;
+        const rentInsurance = parseFloat(document.getElementById('rentInsurance').value) || 0;
+        const rentIncrease = parseFloat(document.getElementById('rentIncrease').value) || 0;
+
+        // Assumptions
+        const years = parseInt(document.getElementById('years').value) || 10;
+        const appreciation = parseFloat(document.getElementById('appreciation').value) || 0;
+        const investmentReturn = parseFloat(document.getElementById('investmentReturn').value) || 0;
+        const taxBracket = parseFloat(document.getElementById('taxBracket').value) || 0;
+
+        if (homePrice <= 0 || monthlyRent <= 0) {
+            alert('Please enter valid home price and rent');
+            return;
+        }
+
+        // Calculate buying costs
+        const downPaymentAmount = homePrice * (downPayment / 100);
+        const loanAmount = homePrice - downPaymentAmount;
+        const monthlyRate = interestRate / 100 / 12;
+        const numPayments = 30 * 12;
+
+        let monthlyMortgage;
+        if (monthlyRate === 0) {
+            monthlyMortgage = loanAmount / numPayments;
+        } else {
+            monthlyMortgage = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        }
+
+        const monthlyBuyCosts = monthlyMortgage + (propertyTax / 12) + (insurance / 12) + (maintenance / 12);
+        const totalBuyCosts = monthlyBuyCosts * 12 * years;
+
+        // Future home value and equity
+        const futureHomeValue = homePrice * Math.pow(1 + appreciation / 100, years);
+        const equityBuilt = futureHomeValue - loanAmount;
+
+        // Calculate renting costs with increases
+        let totalRentCosts = 0;
+        let currentRent = monthlyRent + (rentInsurance / 12);
+        for (let i = 0; i < years; i++) {
+            totalRentCosts += currentRent * 12;
+            currentRent *= (1 + rentIncrease / 100);
+        }
+
+        // Investment gains from down payment
+        const investmentGains = downPaymentAmount * (Math.pow(1 + investmentReturn / 100, years) - 1);
+
+        // Determine winner
+        const buyNet = totalBuyCosts - equityBuilt;
+        const rentNet = totalRentCosts - investmentGains;
+        const winner = buyNet < rentNet ? "BUYING wins by $" + (rentNet - buyNet).toLocaleString() : "RENTING wins by $" + (buyNet - rentNet).toLocaleString();
+
+        // Break-even estimate (rough)
+        const breakeven = buyNet < rentNet ? "< " + years + " years" : "> " + years + " years";
+
+        document.getElementById('buyTotalCost').textContent = '$' + totalBuyCosts.toLocaleString();
+        document.getElementById('buyMonthly').textContent = '$' + monthlyBuyCosts.toFixed(2);
+        document.getElementById('equityBuilt').textContent = '$' + equityBuilt.toLocaleString();
+        document.getElementById('rentTotalCost').textContent = '$' + totalRentCosts.toLocaleString();
+        document.getElementById('rentMonthly').textContent = '$' + (monthlyRent + rentInsurance / 12).toFixed(2);
+        document.getElementById('investmentGains').textContent = '$' + investmentGains.toLocaleString();
+        document.getElementById('winner').textContent = winner;
+        document.getElementById('breakeven').textContent = breakeven;
+    }
+
+    function clearRentBuy() {
+        document.getElementById('homePrice').value = '';
+        document.getElementById('downPayment').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('propertyTax').value = '';
+        document.getElementById('insurance').value = '';
+        document.getElementById('maintenance').value = '';
+        document.getElementById('monthlyRent').value = '';
+        document.getElementById('rentInsurance').value = '';
+        document.getElementById('rentIncrease').value = '';
+        document.getElementById('years').value = '10';
+        document.getElementById('appreciation').value = '';
+        document.getElementById('investmentReturn').value = '';
+        document.getElementById('taxBracket').value = '';
+        document.getElementById('buyTotalCost').textContent = '$0.00';
+        document.getElementById('buyMonthly').textContent = '$0.00';
+        document.getElementById('equityBuilt').textContent = '$0.00';
+        document.getElementById('rentTotalCost').textContent = '$0.00';
+        document.getElementById('rentMonthly').textContent = '$0.00';
+        document.getElementById('investmentGains').textContent = '$0.00';
+        document.getElementById('winner').textContent = 'Calculate to see results';
+        document.getElementById('breakeven').textContent = '-';
+    }
+
+    function copyRentBuyResults() {
+        const buyTotal = document.getElementById('buyTotalCost').textContent;
+        const buyMonthly = document.getElementById('buyMonthly').textContent;
+        const equity = document.getElementById('equityBuilt').textContent;
+        const rentTotal = document.getElementById('rentTotalCost').textContent;
+        const rentMonthly = document.getElementById('rentMonthly').textContent;
+        const gains = document.getElementById('investmentGains').textContent;
+        const winner = document.getElementById('winner').textContent;
+        const breakeven = document.getElementById('breakeven').textContent;
+        
+        const text = `Rent vs Buy Comparison:
+BUYING:
+Total Cost: ${buyTotal}
+Monthly: ${buyMonthly}
+Equity Built: ${equity}
+
+RENTING:
+Total Cost: ${rentTotal}
+Monthly: ${rentMonthly}
+Investment Gains: ${gains}
+
+${winner}
+Break-even: ${breakeven}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Down Payment Calculator", icon:"fa-piggy-bank", url:"down-payment-calculator.html"},
+            {name:"Closing Cost Calculator", icon:"fa-file-invoice-dollar", url:"closing-cost-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"PMI Calculator", icon:"fa-shield-alt", url:"pmi-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridRentBuy").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
