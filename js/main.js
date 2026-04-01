@@ -235,7 +235,7 @@ function fixPageTopPadding() {
     const style = document.createElement('style');
     style.textContent = `
         .page {
-            padding-top: 85px !important;   /* adjust to your actual nav height */
+            padding-top: 65px !important;   /* adjust to your actual nav height */
         }
     `;
     document.head.appendChild(style);
