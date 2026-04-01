@@ -2,6 +2,9 @@
 class NavManager {
     static async loadNavigation() {
         try {
+            // Load AADS Banner (NEW - appears under navigation)
+            this.loadAADSBanner();
+            
             // Load Adsterra Social Bar
             this.loadAdsterra();
 
@@ -70,6 +73,32 @@ class NavManager {
         }
     }
 
+    // AADS 728x90 Banner (below navigation)
+    static loadAADSBanner() {
+        if (document.getElementById('aads-banner')) return;
+        
+        const bannerDiv = document.createElement('div');
+        bannerDiv.id = 'aads-banner';
+        bannerDiv.style.cssText = 'width:100%; text-align:center; margin:0 auto 20px auto; padding:0;';
+        bannerDiv.innerHTML = `
+            <div style="width:728px; margin:auto; z-index:99998; height:auto">
+                <iframe data-aa='2432556' src='//ad.a-ads.com/2432556/?size=728x90&background_color=1a0b2e&title_color=ffffff&title_hover_color=ffffff&text_color=ffffff&link_color=ffffff&link_hover_color=ffffff'
+                    style='border:0; padding:0; width:728px; height:90px; overflow:hidden; display:block; margin:auto'></iframe>
+                <div style="width:728px; margin:auto; position:absolute; left:0; right:0">
+                    <a target="_blank" style="display:inline-block; font-size:13px; color:#263238; padding:4px 10px; background:#F8F8F9; text-decoration:none; border-radius:0 0 4px 4px;" href="https://aads.com/campaigns/new/?source_id=2432556&source_type=ad_unit&partner=2432556">Advertise here</a>
+                </div>
+            </div>
+        `;
+        
+        // Insert after navigation container
+        const navContainer = document.querySelector('.nav-container');
+        if (navContainer) {
+            navContainer.insertAdjacentElement('afterend', bannerDiv);
+        } else {
+            document.body.insertBefore(bannerDiv, document.body.firstChild);
+        }
+    }
+
     // Adsterra Social Bar loader
     static loadAdsterra() {
         if (document.getElementById('adsterra-script')) return;
@@ -115,6 +144,7 @@ class NavManager {
         script.setAttribute('data-cfasync', 'false');
         document.body.appendChild(script);
     }
+    
     static initializeSearch(isToolPage) {
         const searchInput = document.getElementById('nav-search');
         const searchResults = document.getElementById('search-results');
