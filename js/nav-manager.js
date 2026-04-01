@@ -2,7 +2,7 @@
 class NavManager {
     static async loadNavigation() {
         try {
-            // Load AADS Banner (NEW - appears under navigation)
+            // Load AADS Banner (only on tool pages)
             this.loadAADSBanner();
             
             // Load Adsterra Social Bar
@@ -73,24 +73,24 @@ class NavManager {
         }
     }
 
-    // AADS 728x90 Banner (below navigation)
+    // AADS 728x90 Banner (responsive, only on tool pages)
     static loadAADSBanner() {
+        if (!document.querySelector('.tool-container')) return;
         if (document.getElementById('aads-banner')) return;
         
         const bannerDiv = document.createElement('div');
         bannerDiv.id = 'aads-banner';
         bannerDiv.style.cssText = 'width:100%; text-align:center; margin:0 auto 20px auto; padding:0;';
         bannerDiv.innerHTML = `
-            <div style="width:728px; margin:auto; z-index:99998; height:auto">
+            <div style="width:100%; max-width:728px; margin:0 auto; position:relative;">
                 <iframe data-aa='2432556' src='//ad.a-ads.com/2432556/?size=728x90&background_color=1a0b2e&title_color=ffffff&title_hover_color=ffffff&text_color=ffffff&link_color=ffffff&link_hover_color=ffffff'
-                    style='border:0; padding:0; width:728px; height:90px; overflow:hidden; display:block; margin:auto'></iframe>
-                <div style="width:728px; margin:auto; position:absolute; left:0; right:0">
-                    <a target="_blank" style="display:inline-block; font-size:13px; color:#263238; padding:4px 10px; background:#F8F8F9; text-decoration:none; border-radius:0 0 4px 4px;" href="https://aads.com/campaigns/new/?source_id=2432556&source_type=ad_unit&partner=2432556">Advertise here</a>
+                    style='border:0; padding:0; width:100%; height:auto; aspect-ratio:728/90; display:block; margin:auto;'></iframe>
+                <div style="width:100%; margin:auto; position:absolute; left:0; right:0; bottom:0; text-align:center;">
+                    <a target="_blank" style="display:inline-block; font-size:11px; color:#999; padding:2px 5px; background:#111; text-decoration:none; border-radius:0 0 4px 4px;" href="https://aads.com/campaigns/new/?source_id=2432556&source_type=ad_unit&partner=2432556">Advertise here</a>
                 </div>
             </div>
         `;
         
-        // Insert after navigation container
         const navContainer = document.querySelector('.nav-container');
         if (navContainer) {
             navContainer.insertAdjacentElement('afterend', bannerDiv);
@@ -150,10 +150,8 @@ class NavManager {
         const searchResults = document.getElementById('search-results');
         
         if (searchInput && searchResults) {
-            // Clear previous event listeners
             searchInput.oninput = null;
             
-            // Add new search handler
             searchInput.addEventListener('input', (e) => {
                 const query = e.target.value.trim();
                 if (query) {
@@ -163,7 +161,6 @@ class NavManager {
                 }
             });
             
-            // Close search results when clicking outside
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.search')) {
                     searchResults.style.display = 'none';
@@ -177,10 +174,8 @@ class NavManager {
         const mobileSearchResults = document.getElementById('mobile-search-results');
         
         if (mobileSearchInput && mobileSearchResults) {
-            // Clear previous event listeners
             mobileSearchInput.oninput = null;
             
-            // Add new search handler
             mobileSearchInput.addEventListener('input', (e) => {
                 const query = e.target.value.trim();
                 if (query) {
@@ -190,7 +185,6 @@ class NavManager {
                 }
             });
             
-            // Close search results when clicking outside
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.mobile-search-nav')) {
                     mobileSearchResults.style.display = 'none';
@@ -204,7 +198,6 @@ class NavManager {
         if (!searchResults) return;
         
         try {
-            // Determine correct path for tools-data.json
             let dataPath = 'tools-data.json';
             if (isToolPage) {
                 dataPath = '../tools-data.json';
@@ -212,18 +205,33 @@ class NavManager {
             
             const response = await fetch(dataPath);
             const data = await response.json();
+            const tools = data.tools;
             
-            const results = data.tools.filter(tool => 
-                tool.title.toLowerCase().includes(query.toLowerCase()) || 
-                tool.desc.toLowerCase().includes(query.toLowerCase())
+            // Filter tools that match the query
+            const queryLower = query.toLowerCase();
+            const matches = tools.filter(tool => 
+                tool.title.toLowerCase().includes(queryLower) || 
+                tool.desc.toLowerCase().includes(queryLower)
             );
+            
+            // Sort: titles that START with the query first, then contains
+            matches.sort((a, b) => {
+                const aTitle = a.title.toLowerCase();
+                const bTitle = b.title.toLowerCase();
+                const aStarts = aTitle.startsWith(queryLower);
+                const bStarts = bTitle.startsWith(queryLower);
+                
+                if (aStarts && !bStarts) return -1;
+                if (!aStarts && bStarts) return 1;
+                return aTitle.localeCompare(bTitle);
+            });
             
             searchResults.innerHTML = '';
             
-            if (results.length === 0) {
+            if (matches.length === 0) {
                 searchResults.innerHTML = '<div class="result-item">No tools found</div>';
             } else {
-                results.forEach(tool => {
+                matches.forEach(tool => {
                     const item = document.createElement('div');
                     item.className = 'result-item';
                     item.innerHTML = `
@@ -232,7 +240,6 @@ class NavManager {
                     `;
                     
                     item.onclick = () => {
-                        // Determine correct path for tool file
                         let toolPath = `tools/${tool.file}`;
                         if (isToolPage) {
                             toolPath = tool.file;
@@ -240,7 +247,6 @@ class NavManager {
                         
                         window.location.href = toolPath;
                         
-                        // Clear all search inputs
                         const desktopSearch = document.getElementById('nav-search');
                         const mobileSearch = document.getElementById('mobile-search-input');
                         if (desktopSearch) desktopSearch.value = '';
@@ -327,7 +333,6 @@ class NavManager {
         
         if (shareBtn) {
             shareBtn.onclick = shareHandler;
-            // Show if share API is available
             if (navigator.share) {
                 shareBtn.style.display = 'flex';
             }
@@ -349,7 +354,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Also load navigation when page is fully loaded (as backup)
 window.addEventListener('load', () => {
-    // Check if navigation loaded, if not, try again
     if (!document.querySelector('.logo') && !document.querySelector('.mobile-logo-btn')) {
         setTimeout(() => NavManager.loadNavigation(), 500);
     }
