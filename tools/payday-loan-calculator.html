@@ -52,7 +52,15 @@
         select option{background:#fff!important;color:#000!important}
         select option:hover{background:#f0f0f0!important}
         .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
-        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
     </style>
 </head>
 <body>
@@ -277,8 +285,7 @@ Effective Rate: ${effectiveRate}`;
             {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
             {name:"Auto Loan Calculator", icon:"fa-car", url:"auto-loan-calculator.html"},
             {name:"Closing Cost Calculator", icon:"fa-file-invoice-dollar", url:"closing-cost-calculator.html"},
-            {name:"Percentage Calculator", icon:"fa-percent", url:"percentage-calculator.html"},
-           
+            {name:"Percentage Calculator", icon:"fa-percent", url:"percentage-calculator.html"}
         ];
         let html = "";
         tools.forEach(t => {
