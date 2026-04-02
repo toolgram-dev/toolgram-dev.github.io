@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>House Payment Calculator – Monthly Mortgage Payment | ToolGram</title>
+    <meta name="description" content="Calculate monthly house payment including principal, interest, taxes, and insurance. Free online PITI calculator for home buyers.">
+    <meta name="keywords" content="house payment calculator, PITI calculator, monthly mortgage payment, home payment calculator, mortgage piti">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/house-payment-calculator.html">
+    <meta property="og:title" content="House Payment Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your total monthly house payment including taxes and insurance.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/house-payment-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "House Payment Calculator",
+        "description": "Calculate your total monthly house payment including taxes and insurance.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/house-payment-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["House Payment Calculator", "PITI Calculator", "Monthly Mortgage Payment", "Total Housing Cost"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .payment-box{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .total-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-top:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-home"></i></div>
+            <div>
+                <h1 style="margin:0;">House Payment Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate total monthly house payment (PITI)</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Loan Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Price ($)</label>
+                        <input type="number" id="homePrice" placeholder="400000" value="400000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Down Payment ($)</label>
+                        <input type="number" id="downPayment" placeholder="80000" value="80000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="7.0" value="7.0" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term (Years)</label>
+                        <select id="loanTerm" style="flex:1;">
+                            <option value="15">15 Years</option>
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-file-invoice-dollar"></i> Taxes & Insurance</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Property Tax Rate (%)</label>
+                        <input type="number" id="taxRate" placeholder="1.2" value="1.2" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Insurance ($/year)</label>
+                        <input type="number" id="insurance" placeholder="1200" value="1200" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">PMI ($/month)</label>
+                        <input type="number" id="pmi" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">HOA Fees ($/month)</label>
+                        <input type="number" id="hoa" placeholder:"0" value:"0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateHousePayment()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearHousePayment()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Payment Breakdown</div>
+                <div class="output-display" id="paymentOutput">
+                    <div class="payment-box">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;"><i class="fas fa-money-bill-wave"></i> Monthly Breakdown</div>
+                        <div style="margin-bottom:8px;">Principal & Interest: <span class="loan-result" id="piPayment">$0.00</span></div>
+                        <div style="margin-bottom:8px;">Property Tax: <span id="taxPayment">$0.00</span></div>
+                        <div style="margin-bottom:8px;">Home Insurance: <span id="insPayment">$0.00</span></div>
+                        <div style="margin-bottom:8px;">PMI: <span id="pmiPayment">$0.00</span></div>
+                        <div style="margin-bottom:8px;">HOA: <span id="hoaPayment">$0.00</span></div>
+                    </div>
+                    <div class="total-box">
+                        <div style="font-weight:600;color:#22C55E;"><i class="fas fa-calculator"></i> Total Monthly Payment</div>
+                        <div style="font-size:1.5rem;font-weight:bold;color:#8B5CF6;" id="totalPayment">$0.00</div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Loan Amount:</strong> <span id="loanAmount">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Down Payment %:</strong> <span id="downPercent">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">LTV Ratio:</strong> <span id="ltvRatio">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total PITI:</strong> <span id="totalPITI">$0.00</span> (without HOA)</div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Annual Tax:</strong> <span id="annualTax">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Annual Insurance:</strong> <span id="annualInsurance">$0.00</span></div>
+                        <div><strong style="color:#8B5CF6;">Total First Year:</strong> <span id="firstYearTotal">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyPaymentResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridHP"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is PITI?</h3>
+            <p>PITI stands for Principal, Interest, Taxes, and Insurance—the four components of most mortgage payments. This is your total monthly housing cost before HOA fees and utilities.</p>
+            <ul>
+                <li><strong>Principal:</strong> Repays loan balance</li>
+                <li><strong>Interest:</strong> Cost of borrowing</li>
+                <li><strong>Taxes:</strong> Property tax escrow</li>
+                <li><strong>Insurance:</strong> Homeowner's insurance escrow</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter home price and down payment.<br>
+            <strong>Step 2:</strong> Input interest rate and loan term.<br>
+            <strong>Step 3:</strong> Enter property tax rate (check local rates).<br>
+            <strong>Step 4:</strong> Add annual insurance estimate.<br>
+            <strong>Step 5:</strong> Include PMI if applicable (LTV >80%).<br>
+            <strong>Step 6:</strong> Add HOA fees if applicable.<br>
+            <strong>Step 7:</strong> Click "Calculate" for total payment.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Additional Housing Costs</h3>
+            <p>Beyond PITI and HOA, budget for:</p>
+            <ul>
+                <li><strong>Utilities:</strong> Electric, gas, water, sewer, trash ($200-500/mo)</li>
+                <li><strong>Maintenance:</strong> 1-3% of home value annually</li>
+                <li><strong>Repairs:</strong> HVAC, appliances, roof, plumbing</li>
+                <li><strong>Landscaping:</strong> Lawn care, snow removal</li>
+                <li><strong>Pest Control:</strong> Termite, rodent prevention</li>
+                <li><strong>Security:</strong> Alarm systems, cameras</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">What's included in a house payment?</div>
+            <div class="faq-answer">Typically PITI (Principal, Interest, Taxes, Insurance). If down payment is less than 20%, add PMI. Some properties have HOA fees. Utilities and maintenance are separate expenses you should budget for but aren't part of the mortgage payment.</div>
+
+            <div class="faq-question">How is property tax calculated?</div>
+            <div class="faq-answer">Based on assessed home value and local millage rates. Rates vary dramatically by location—0.5% to over 2% annually. Enter your local rate or estimate 1-1.5% as national average. Taxes usually increase over time as home value rises.</div>
+
+            <div class="faq-question">Why does my payment go to escrow?</div>
+            <div class="faq-answer">Lenders collect taxes and insurance monthly, hold in escrow account, and pay when due. This protects their collateral (your home) by ensuring taxes are paid and insurance maintained. You can't opt out of escrow with most loans under 20% equity.</div>
+
+            <div class="faq-question">Can I remove PMI from my payment?</div>
+            <div class="faq-answer">Yes, once you reach 20% equity (80% LTV). Request cancellation at 80% LTV—lender may require appraisal. Automatic termination at 78% LTV of original value if current on payments. Can't remove on FHA loans—requires refinance to conventional.</div>
+
+            <div class="faq-question">What's the difference between P&I and PITI?</div>
+            <div class="faq-answer">P&I is just Principal and Interest—your base loan payment. PITI adds Property Taxes and Insurance. PITI is what most people mean by "mortgage payment." Lenders use PITI for qualification calculations (28% front-end DTI).</div>
+
+            <div class="faq-question">Are HOA fees tax deductible?</div>
+            <div class="faq-answer">Generally no for primary residences. HOA fees are personal expenses, not deductible. However, if you rent the property, HOA fees may be deductible as rental expense. Some special assessments for capital improvements might add to cost basis when selling.</div>
+
+            <div class="faq-question">Why did my house payment increase?</div>
+            <div class="faq-answer">Most commonly: property tax increase, insurance premium increase, escrow shortage from previous year, or ARM rate adjustment. Fixed-rate P&I never changes. Escrow analysis annually adjusts for tax/insurance changes. Expect gradual increases over time.</div>
+
+            <div class="faq-question">How much should I budget for maintenance?</div>
+            <div class="faq-answer">Rule of thumb: 1% of home value annually for newer homes, 2-3% for older homes. $400k home = $4,000-12,000/year. Budget monthly so you're prepared. Create separate savings account for home repairs and maintenance.</div>
+
+            <div class="faq-question">Is homeowner's insurance required?</div>
+            <div class="faq-answer">Yes, lenders require it to protect their investment. Even without a mortgage, it's highly recommended. Replacement cost coverage recommended over actual cash value. Shop around—rates vary significantly between insurers.</div>
+
+            <div class="faq-question">What happens if I don't pay property taxes?</div>
+            <div class="faq-answer">Local government can place tax lien on your property, charge penalties and interest, and eventually foreclose. Lenders pay delinquent taxes from escrow and bill you, or may call the loan due. Never skip property tax payments—consequences are severe.</div>
+
+            <div class="faq-question">Can I pay my own taxes and insurance?</div>
+            <div class="faq-answer">With 20%+ equity, you can often waive escrow and pay yourself. Requires fee (0.25% of loan amount typically). Risk: missing payments could result in tax lien or lapsed insurance, endangering the property. Most homeowners prefer escrow for simplicity.</div>
+
+            <div class="faq-question">Why is my first payment higher?</div>
+            <div class="faq-answer">At closing, you prepay interest from closing date to month-end, plus fund escrow account with 2-6 months of taxes and insurance. First regular payment due 1-2 months later. This "prepaid" amount is part of closing costs, not your monthly payment.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateHousePayment() {
+        const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+        const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+        const rate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const years = parseInt(document.getElementById('loanTerm').value) || 30;
+        const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+        const insurance = parseFloat(document.getElementById('insurance').value) || 0;
+        const pmi = parseFloat(document.getElementById('pmi').value) || 0;
+        const hoa = parseFloat(document.getElementById('hoa').value) || 0;
+
+        const loanAmount = homePrice - downPayment;
+        const downPercent = (downPayment / homePrice) * 100;
+        const ltv = 100 - downPercent;
+
+        const monthlyRate = rate / 100 / 12;
+        const numPayments = years * 12;
+
+        let piPayment = 0;
+        if (monthlyRate > 0) {
+            piPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        } else {
+            piPayment = loanAmount / numPayments;
+        }
+
+        const monthlyTax = (homePrice * taxRate / 100) / 12;
+        const monthlyInsurance = insurance / 12;
+        const piti = piPayment + monthlyTax + monthlyInsurance + pmi;
+        const totalPayment = piti + hoa;
+
+        const annualTax = homePrice * taxRate / 100;
+        const firstYearTotal = (totalPayment * 12) + downPayment;
+
+        document.getElementById('loanAmount').textContent = '$' + loanAmount.toLocaleString();
+        document.getElementById('downPercent').textContent = downPercent.toFixed(1) + '%';
+        document.getElementById('ltvRatio').textContent = ltv.toFixed(1) + '%';
+        document.getElementById('piPayment').textContent = '$' + piPayment.toFixed(2);
+        document.getElementById('taxPayment').textContent = '$' + monthlyTax.toFixed(2);
+        document.getElementById('insPayment').textContent = '$' + monthlyInsurance.toFixed(2);
+        document.getElementById('pmiPayment').textContent = '$' + pmi.toFixed(2);
+        document.getElementById('hoaPayment').textContent = '$' + hoa.toFixed(2);
+        document.getElementById('totalPITI').textContent = '$' + piti.toFixed(2);
+        document.getElementById('totalPayment').textContent = '$' + totalPayment.toFixed(2);
+        document.getElementById('annualTax').textContent = '$' + annualTax.toFixed(2);
+        document.getElementById('annualInsurance').textContent = '$' + insurance.toFixed(2);
+        document.getElementById('firstYearTotal').textContent = '$' + firstYearTotal.toLocaleString();
+    }
+
+    function clearHousePayment() {
+        document.getElementById('homePrice').value = '';
+        document.getElementById('downPayment').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('loanTerm').value = '30';
+        document.getElementById('taxRate').value = '';
+        document.getElementById('insurance').value = '';
+        document.getElementById('pmi').value = '';
+        document.getElementById('hoa').value = '';
+        document.getElementById('loanAmount').textContent = '$0.00';
+        document.getElementById('downPercent').textContent = '0%';
+        document.getElementById('ltvRatio').textContent = '0%';
+        document.getElementById('piPayment').textContent = '$0.00';
+        document.getElementById('taxPayment').textContent = '$0.00';
+        document.getElementById('insPayment').textContent = '$0.00';
+        document.getElementById('pmiPayment').textContent = '$0.00';
+        document.getElementById('hoaPayment').textContent = '$0.00';
+        document.getElementById('totalPITI').textContent = '$0.00';
+        document.getElementById('totalPayment').textContent = '$0.00';
+        document.getElementById('annualTax').textContent = '$0.00';
+        document.getElementById('annualInsurance').textContent = '$0.00';
+        document.getElementById('firstYearTotal').textContent = '$0.00';
+    }
+
+    function copyPaymentResults() {
+        const piti = document.getElementById('totalPITI').textContent;
+        const total = document.getElementById('totalPayment').textContent;
+        const pi = document.getElementById('piPayment').textContent;
+        
+        const text = `House Payment Calculation:
+Principal & Interest: ${pi}
+Total PITI: ${piti}
+Total with HOA: ${total}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Home Affordability Calculator", icon:"fa-home", url:"home-affordability-calculator.html"},
+            {name:"PMI Calculator", icon:"fa-shield-alt", url:"pmi-calculator.html"},
+            {name:"Closing Cost Calculator", icon:"fa-file-invoice-dollar", url:"closing-cost-calculator.html"},
+            {name:"Down Payment Calculator", icon:"fa-piggy-bank", url:"down-payment-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridHP").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

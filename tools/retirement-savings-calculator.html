@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Retirement Savings Calculator – Plan Your Retirement | ToolGram</title>
+    <meta name="description" content="Calculate retirement savings needs and required contributions. Free online retirement calculator with social security estimates.">
+    <meta name="keywords" content="retirement savings calculator, retirement calculator, retirement planning, how much to save for retirement, 401k calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/retirement-savings-calculator.html">
+    <meta property="og:title" content="Retirement Savings Calculator | ToolGram">
+    <meta property="og:description" content="Plan your retirement savings with income projections and contribution calculations.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/retirement-savings-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Retirement Savings Calculator",
+        "description": "Plan your retirement savings with income projections and contribution calculations.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/retirement-savings-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Retirement Planning", "Retirement Savings", "401k Calculator", "Pension Calculator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .retirement-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .warning-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-umbrella-beach"></i></div>
+            <div>
+                <h1 style="margin:0;">Retirement Savings Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Plan for your financial future</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-user"></i> Your Information</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Age</label>
+                        <input type="number" id="currentAge" placeholder="35" value="35" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Retirement Age</label>
+                        <input type="number" id="retirementAge" placeholder="65" value="65" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Life Expectancy</label>
+                        <input type="number" id="lifeExpectancy" placeholder="90" value="90" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Income ($)</label>
+                        <input type="number" id="annualIncome" placeholder="75000" value="75000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-piggy-bank"></i> Savings & Contributions</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Savings ($)</label>
+                        <input type="number" id="currentSavings" placeholder="100000" value="100000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Monthly Contribution ($)</label>
+                        <input type="number" id="monthlyContribution" placeholder="1000" value="1000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Expected Return (%)</label>
+                        <input type="number" id="expectedReturn" placeholder="7" value="7" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-money-bill-wave"></i> Retirement Income</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Desired Income ($/yr)</label>
+                        <input type="number" id="desiredIncome" placeholder:"60000" value:"60000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Social Security ($/mo)</label>
+                        <input type="number" id="socialSecurity" placeholder:"2000" value:"2000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Other Pension ($/mo)</label>
+                        <input type="number" id="otherPension" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Inflation Rate (%)</label>
+                        <input type="number" id="inflationRate" placeholder="3" value="3" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateRetirement()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearRetirement()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Retirement Outlook</div>
+                <div class="output-display" id="retirementOutput">
+                    <div class="retirement-box">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-chart-pie"></i> At Retirement</div>
+                        <div style="margin-bottom:10px;">Projected Savings: <span class="loan-result" id="projectedSavings">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Years to Retirement: <span id="yearsToRetirement">30</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Total Contributions: <span id="totalContributions">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Annual Retirement Need:</strong> <span id="annualNeed">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Other Income:</strong> <span id="otherIncomeTotal">$0.00</span>/yr</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Gap to Fill:</strong> <span id="gapToFill">$0.00</span>/yr</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Required Savings:</strong> <span class="loan-result" id="requiredSavings">$0.00</span></div>
+                    </div>
+                    <div id="savingsStatusBox" class="retirement-box" style="margin-top:15px;padding-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Your Plan:</strong> <span id="planStatus">On Track</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Need:</strong> <span id="monthlyNeed">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Adjustment needed: <span id="adjustment">None</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyRetirementResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridRet"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> How Much Do You Need to Retire?</h3>
+            <p>The traditional rule of thumb: save 10-15% of income starting in your 20s, or accumulate 25x your annual expenses by retirement (4% withdrawal rule). But personal needs vary based on:</p>
+            <ul>
+                <li>Desired retirement lifestyle (modest vs. comfortable vs. luxurious)</li>
+                <li>Retirement age (earlier = more needed)</li>
+                <li>Life expectancy (longer = more needed)</li>
+                <li>Other income sources (Social Security, pension, part-time work)</li>
+                <li>Healthcare needs and long-term care considerations</li>
+                <li>Legacy goals (leaving money to heirs vs. spending it all)</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> The 4% Rule</h3>
+            <p>Withdraw 4% of retirement savings in year one, then adjust for inflation annually. Historical data suggests this sustains 30+ year retirements without depleting principal.</p>
+            <p>Example: $1M saved × 4% = $40,000/year sustainable income. Some now suggest 3.5% or even 3% for longer retirements and market uncertainty.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Retirement Savings Strategies</h3>
+            <ul>
+                <li><strong>Max Tax-Advantaged Accounts:</strong> 401k ($23,000/year), IRA ($7,000/year), catch-up contributions if 50+</li>
+                <li><strong>Employer Match:</strong> Always contribute enough to get full match—free money</li>
+                <li><strong>Increase with Raises:</strong> Save 50% of every raise automatically</li>
+                <li><strong>Delay Social Security:</strong> Waiting until 70 increases benefit ~76% vs. 62</li>
+                <li><strong>Pay Off Mortgage:</strong> Reduces retirement income needs significantly</li>
+                <li><strong>Plan Healthcare:</strong> Medicare doesn't cover everything—budget $300k-600k for healthcare in retirement</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">How much should I save for retirement?</div>
+            <div class="faq-answer">Standard advice: 15% of income starting at age 25. Later starters need more: age 30 = 18%, age 35 = 23%, age 40 = 28%. If you have pension or expect significant Social Security, you can save less. If you want early retirement, you'll need to save 30-50%+ of income.</div>
+
+            <div class="faq-question">What if I'm behind on retirement savings?</div>
+            <div class="faq-answer">Don't panic—do something. Options: 1) Increase savings rate dramatically (max all accounts), 2) Delay retirement (even 2-3 years helps significantly), 3) Plan for part-time work in early retirement, 4) Reduce retirement spending expectations, 5) Downsize home, 6) Move to lower cost-of-living area. Small changes compound.</div>
+
+            <div class="faq-question">When should I start taking Social Security?</div>
+            <div class="faq-answer">Full retirement age is 67 for those born 1960+. You can start at 62 (reduced benefit) or delay until 70 (increased benefit). Generally, if you expect to live past ~80, delaying is better. If you need income now or have health issues, earlier may make sense. Spousal strategies matter too.</div>
+
+            <div class="faq-question">Should I pay off debt or save for retirement?</div>
+            <div class="faq-answer">High-interest debt (credit cards): Pay off first. Low-interest debt (mortgage 3-4%): Save for retirement while paying minimum—historically investments return more than mortgage costs. Student loans: Depends on rate, but don't skip employer match to pay loans faster. Never leave free money on the table.</div>
+
+            <div class="faq-question">What about healthcare in retirement?</div>
+            <div class="faq-answer">Medicare starts at 65 but doesn't cover everything (deductibles, copays, dental, vision, hearing). Budget $5,000-10,000/year per person for healthcare. Consider Medigap or Medicare Advantage. Long-term care (nursing home): $100k+/year—consider LTC insurance in your 50s if family history suggests need.</div>
+
+            <div class="faq-question">Can I retire early?</div>
+            <div class="faq-answer">Yes, but requires aggressive saving: 30-50% of income or more. Need enough to cover longer retirement (potentially 40+ years). Healthcare is challenge before Medicare at 65. Consider: 1) Build substantial taxable account for bridge years, 2) Roth conversions for ACA subsidies, 3) Part-time work for insurance, 4) Geographic arbitrage (lower cost countries/areas).</div>
+
+            <div class="faq-question">What if the market crashes right before I retire?</div>
+            <div class="faq-answer">This is "sequence of returns risk." Mitigate by: 1) Having 2-5 years of expenses in bonds/cash (not stocks), 2) Flexible spending plan (reduce withdrawals in down years), 3) Working part-time temporarily, 4) Annuitizing some savings for guaranteed income. Start reducing stock allocation 5-10 years before retirement.</div>
+
+            <div class="faq-question">Should I use Roth or Traditional 401k/IRA?</div>
+            <div class="faq-answer">Traditional if current tax rate > expected retirement rate (deduction now, pay tax later). Roth if current rate < expected rate (pay tax now, grow tax-free). Many do both for flexibility. In low-income years (job loss, early retirement before RMDs), convert Traditional to Roth at low tax rates.</div>
+
+            <div class="faq-question">How do I know if I'm on track?</div>
+            <div class="faq-answer">By age 30: 1x annual salary saved. Age 40: 3x. Age 50: 6x. Age 60: 8x. These are rough guides—your needs may vary. Better: Calculate your specific needs using this calculator annually. Adjust contributions based on progress. Catch up in high-income years.</div>
+
+            <div class="faq-question">What about required minimum distributions (RMDs)?</div>
+            <div class="faq-answer">At age 73 (75 starting 2033), you must withdraw ~3.65% from Traditional 401k/IRA, increasing % each year. Forces taxable income. Plan for this—consider Roth conversions before RMD age, especially if you'll have high RMDs that push you into higher tax brackets. Roth IRAs have no RMDs during your lifetime.</div>
+
+            <div class="faq-question">Should I work with a financial advisor?</div>
+            <div class="faq-answer">Consider if: 1) Complex situation (business, inheritance, divorce), 2) Within 5-10 years of retirement, 3) Need accountability, 4) Don't want to manage investments yourself. Look for fee-only fiduciary advisors (not commission-based). DIY is fine for many—use target-date funds or simple 3-fund portfolio.</div>
+
+            <div class="faq-question">What if I outlive my savings?</div>
+            <div class="faq-answer">Prevent this: 1) Use conservative withdrawal rate (3-4%), 2) Consider single premium immediate annuity for guaranteed lifetime income, 3) Delay Social Security for higher benefit, 4) Maintain flexible spending plan, 5) Keep options for part-time work, 6) Have paid-off home as backup (reverse mortgage if needed). Plan for 90+ lifespan.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateRetirement() {
+        const currentAge = parseInt(document.getElementById('currentAge').value) || 0;
+        const retirementAge = parseInt(document.getElementById('retirementAge').value) || 65;
+        const lifeExpectancy = parseInt(document.getElementById('lifeExpectancy').value) || 90;
+        const annualIncome = parseFloat(document.getElementById('annualIncome').value) || 0;
+        const currentSavings = parseFloat(document.getElementById('currentSavings').value) || 0;
+        const monthlyContrib = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+        const expectedReturn = parseFloat(document.getElementById('expectedReturn').value) || 7;
+        const desiredIncome = parseFloat(document.getElementById('desiredIncome').value) || 0;
+        const socialSecurity = parseFloat(document.getElementById('socialSecurity').value) || 0;
+        const otherPension = parseFloat(document.getElementById('otherPension').value) || 0;
+        const inflation = parseFloat(document.getElementById('inflationRate').value) || 3;
+
+        const yearsToRetirement = Math.max(0, retirementAge - currentAge);
+        const retirementYears = Math.max(0, lifeExpectancy - retirementAge);
+
+        // Calculate projected savings at retirement
+        let balance = currentSavings;
+        let totalContributions = currentSavings;
+        const monthlyRate = (expectedReturn / 100) / 12;
+
+        for (let month = 0; month < yearsToRetirement * 12; month++) {
+            balance = (balance + monthlyContrib) * (1 + monthlyRate);
+            totalContributions += monthlyContrib;
+        }
+
+        const projectedSavings = balance;
+
+        // Calculate retirement needs
+        const otherIncomeAnnual = (socialSecurity + otherPension) * 12;
+        const gapToFill = Math.max(0, desiredIncome - otherIncomeAnnual);
+        
+        // Using 4% rule: required savings = gap × 25
+        const requiredSavings = gapToFill * 25;
+
+        // Determine status
+        const surplus = projectedSavings - requiredSavings;
+        const monthlyNeed = yearsToRetirement > 0 && expectedReturn > 0 ? 
+            Math.max(0, (requiredSavings - (currentSavings * Math.pow(1 + monthlyRate, yearsToRetirement * 12))) * monthlyRate / (Math.pow(1 + monthlyRate, yearsToRetirement * 12) - 1)) : 0;
+
+        let statusBox = document.getElementById('savingsStatusBox');
+        let planStatus = '';
+        let adjustment = '';
+        let boxClass = '';
+
+        if (surplus >= 0) {
+            boxClass = 'retirement-box';
+            planStatus = 'On Track ✓';
+            adjustment = surplus > 0 ? 'Consider retiring earlier or increasing lifestyle' : 'Stay the course';
+        } else {
+            boxClass = 'warning-box';
+            planStatus = 'Action Needed';
+            adjustment = `Increase monthly savings to $${monthlyNeed.toFixed(0)}`;
+        }
+
+        statusBox.className = boxClass;
+
+        document.getElementById('projectedSavings').textContent = '$' + projectedSavings.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('yearsToRetirement').textContent = yearsToRetirement;
+        document.getElementById('totalContributions').textContent = '$' + totalContributions.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('annualNeed').textContent = '$' + desiredIncome.toLocaleString();
+        document.getElementById('otherIncomeTotal').textContent = '$' + otherIncomeAnnual.toLocaleString();
+        document.getElementById('gapToFill').textContent = '$' + gapToFill.toLocaleString();
+        document.getElementById('requiredSavings').textContent = '$' + requiredSavings.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('planStatus').textContent = planStatus;
+        document.getElementById('monthlyNeed').textContent = '$' + monthlyNeed.toFixed(0);
+        document.getElementById('adjustment').textContent = adjustment;
+    }
+
+    function clearRetirement() {
+        document.getElementById('currentAge').value = '';
+        document.getElementById('retirementAge').value = '';
+        document.getElementById('lifeExpectancy').value = '';
+        document.getElementById('annualIncome').value = '';
+        document.getElementById('currentSavings').value = '';
+        document.getElementById('monthlyContribution').value = '';
+        document.getElementById('expectedReturn').value = '';
+        document.getElementById('desiredIncome').value = '';
+        document.getElementById('socialSecurity').value = '';
+        document.getElementById('otherPension').value = '';
+        document.getElementById('inflationRate').value = '';
+        document.getElementById('projectedSavings').textContent = '$0.00';
+        document.getElementById('yearsToRetirement').textContent = '0';
+        document.getElementById('totalContributions').textContent = '$0.00';
+        document.getElementById('annualNeed').textContent = '$0.00';
+        document.getElementById('otherIncomeTotal').textContent = '$0.00';
+        document.getElementById('gapToFill').textContent = '$0.00';
+        document.getElementById('requiredSavings').textContent = '$0.00';
+        document.getElementById('planStatus').textContent = '-';
+        document.getElementById('monthlyNeed').textContent = '$0.00';
+        document.getElementById('adjustment').textContent = '-';
+        document.getElementById('savingsStatusBox').className = 'retirement-box';
+    }
+
+    function copyRetirementResults() {
+        const projected = document.getElementById('projectedSavings').textContent;
+        const required = document.getElementById('requiredSavings').textContent;
+        const status = document.getElementById('planStatus').textContent;
+        
+        const text = `Retirement Savings Results:
+Projected Savings: ${projected}
+Required Savings: ${required}
+Status: ${status}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"401k Calculator", icon:"fa-briefcase", url:"401k-calculator.html"},
+            {name:"IRA Calculator", icon:"fa-piggy-bank", url:"ira-calculator.html"},
+            {name:"Roth IRA Calculator", icon:"fa-money-bill-wave", url:"roth-ira-calculator.html"},
+            {name:"Compound Interest Calculator", icon:"fa-chart-line", url:"compound-interest-calculator.html"},
+            {name:"Annuity Calculator", icon:"fa-hand-holding-usd", url:"annuity-calculator.html"},
+            {name:"Pension Calculator", icon:"fa-calendar-check", url:"pension-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridRet").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

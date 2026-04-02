@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Savings Goal Calculator – Reach Your Financial Goals | ToolGram</title>
+    <meta name="description" content="Calculate how much to save monthly to reach your savings goals. Free online savings goal calculator with timeline.">
+    <meta name="keywords" content="savings goal calculator, savings calculator, goal savings calculator, how much to save, savings timeline">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/savings-goal-calculator.html">
+    <meta property="og:title" content="Savings Goal Calculator | ToolGram">
+    <meta property="og:description" content="Calculate monthly savings needed to reach your financial goals.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/savings-goal-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Savings Goal Calculator",
+        "description": "Calculate monthly savings needed to reach your financial goals.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/savings-goal-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Savings Goal", "Monthly Savings Calculator", "Savings Timeline", "Financial Goals"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .goal-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-bullseye"></i></div>
+            <div>
+                <h1 style="margin:0;">Savings Goal Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Plan your path to reaching financial goals</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-flag-checkered"></i> Your Goal</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Savings Goal ($)</label>
+                        <input type="number" id="savingsGoal" placeholder="50000" value="50000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Savings ($)</label>
+                        <input type="number" id="currentSavings" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Target Date</label>
+                        <input type="date" id="targetDate" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-percent"></i> Investment</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="5" value="5" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Compounding</label>
+                        <select id="compounding" style="flex:1;">
+                            <option value="12" selected>Monthly</option>
+                            <option value="1">Annually</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Monthly Contribution ($)</label>
+                        <input type="number" id="monthlyContribution" placeholder:"0" value:"0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateSavingsGoal()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearSavingsGoal()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Savings Plan</div>
+                <div class="output-display" id="savingsOutput">
+                    <div class="goal-box">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-trophy"></i> Goal Summary</div>
+                        <div style="margin-bottom:10px;">Monthly Savings Needed: <span class="loan-result" id="monthlyNeeded">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Months to Goal: <span id="monthsToGoal">0</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Target Date: <span id="calcTargetDate">-</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Savings Goal:</strong> <span id="goalAmount">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Current Savings:</strong> <span id="currentAmount">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Still Needed:</strong> <span id="stillNeeded">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Contributions:</strong> <span id="totalContributions">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Interest Earned:</strong> <span id="interestEarned">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Final Amount:</strong> <span class="loan-result" id="finalAmount">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySavingsResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridSG"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> How to Reach Your Savings Goals</h3>
+            <p>Setting and achieving savings goals requires planning. Whether it's a vacation, down payment, emergency fund, or new car, knowing exactly how much to save monthly keeps you on track.</p>
+            <p>The key factors: goal amount, timeline, current savings, and interest rate. Higher rates and longer timelines reduce monthly burden. Start early—even small amounts compound significantly.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your savings target amount.<br>
+            <strong>Step 2:</strong> Input what you've already saved.<br>
+            <strong>Step 3:</strong> Set your target date or monthly contribution.<br>
+            <strong>Step 4:</strong> Add expected interest rate.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see your plan.<br>
+            <strong>Step 6:</strong> Adjust until the plan fits your budget.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Savings Goal Strategies</h3>
+            <ul>
+                <li><strong>Pay Yourself First:</strong> Automate savings on payday before spending</li>
+                <li><strong>High-Yield Savings:</strong> 4-5% APY beats traditional savings (0.5%)</li>
+                <li><strong>Separate Accounts:</strong> Dedicated accounts for each goal prevent mixing</li>
+                <li><strong>Windfall Rule:</strong> Put 50% of bonuses/tax refunds toward goals</li>
+                <li><strong>Round-Up Apps:</strong> Automatically save spare change from purchases</li>
+                <li><strong>Side Income:</strong> Freelance, sell items, extra shifts—all toward goals</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">How much should I save monthly?</div>
+            <div class="faq-answer">Depends on goals and timeline. Popular 50/30/20 budget suggests 20% of income to savings. Emergency fund first (3-6 months expenses), then goals, then investing. Use this calculator to determine exact monthly amounts for specific goals.</div>
+
+            <div class="faq-question">Where should I keep my savings?</div>
+            <div class="faq-answer">Emergency fund: High-yield savings account (accessible, insured). Short-term goals (under 3 years): HYSA or CDs. Longer goals: Consider conservative investments. Keep goal money separate from checking to avoid spending it.</div>
+
+            <div class="faq-question">Should I save or pay off debt first?</div>
+            <div class="faq-answer">High-interest debt (credit cards 15%+): Pay off first—guaranteed return. Low-interest debt (student loans 4-6%): Build small emergency fund ($1,000), then tackle debt while saving for goals. Mortgage (3-4%): Usually save/invest while paying minimum.</div>
+
+            <div class="faq-question">What if I can't save the recommended amount?</div>
+            <div class="faq-answer">Start with what you can—even $25/month builds habit and momentum. Increase contributions gradually: 1% more each raise, half of bonuses, side gig income. Something is infinitely better than nothing. Adjust timeline or goal amount if needed.</div>
+
+            <div class="faq-question">How do I save for multiple goals?</div>
+            <div class="faq-answer">Prioritize: Emergency fund first, then high-interest debt, then goals by importance/urgency. Use separate accounts or sub-accounts for each goal. Some save equally toward all; others focus on one goal at a time. Do what motivates you.</div>
+
+            <div class="faq-question">Is a 5% interest rate realistic?</div>
+            <div class="faq-answer">For savings accounts, no—currently 4-5% is achievable with high-yield accounts. For investments over long term, 6-8% is realistic for diversified portfolios. Use conservative estimates (4-5%) for short-term goals under 5 years.</div>
+
+            <div class="faq-question">What about inflation?</div>
+            <div class="faq-answer">Inflation erodes purchasing power. If your goal is $50,000 today, you might need $60,000+ in 10 years due to inflation. Consider increasing goal amounts annually, or invest (not just save) for long-term goals to outpace inflation.</div>
+
+            <div class="faq-question">Should I use this for retirement savings?</div>
+            <div class="faq-answer">Use the dedicated retirement calculator for detailed retirement planning. This tool works for shorter-term goals (under 10 years). Retirement requires considering taxes, withdrawal strategies, Social Security, and longer timeframes.</div>
+
+            <div class="faq-question">What if my goal date changes?</div>
+            <div class="faq-answer">Recalculate with new date. Earlier date = higher monthly savings needed. Later date = lower monthly burden but delayed gratification. Find the balance that works for your budget and patience level.</div>
+
+            <div class="faq-question">How do I stay motivated?</div>
+            <div class="faq-answer">Visualize your goal. Name your savings account ("Dream Vacation"). Track progress monthly—seeing growth is motivating. Celebrate milestones (25%, 50%, 75%). Automate so you don't "feel" the sacrifice. Remember why you started.</div>
+
+            <div class="faq-question">What about unexpected expenses?</div>
+            <div class="faq-answer">This is why emergency fund comes first—protects goals from derailment. If you must pause goal savings temporarily, don't quit—just pause. Resume as soon as possible. One month off won't ruin the plan; giving up will.</div>
+
+            <div class="faq-question">Can I reach my goal faster?</div>
+            <div class="faq-answer">Yes: Increase monthly contributions, find higher interest rate, side income dedicated to goal, reduce expenses temporarily, or adjust goal amount down. Even small increases compound significantly. $50 more monthly over 5 years = $3,000+ extra.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    // Set default target date to 5 years from now
+    const today = new Date();
+    today.setFullYear(today.getFullYear() + 5);
+    document.getElementById('targetDate').valueAsDate = today;
+
+    function calculateSavingsGoal() {
+        const goal = parseFloat(document.getElementById('savingsGoal').value) || 0;
+        const current = parseFloat(document.getElementById('currentSavings').value) || 0;
+        const targetDateInput = document.getElementById('targetDate').value;
+        const rate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const compoundFreq = parseInt(document.getElementById('compounding').value) || 12;
+        const monthlyContrib = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+
+        const needed = Math.max(0, goal - current);
+
+        // Calculate months to goal
+        let monthsToGoal = 0;
+        if (targetDateInput) {
+            const target = new Date(targetDateInput);
+            const now = new Date();
+            monthsToGoal = Math.max(0, (target.getFullYear() - now.getFullYear()) * 12 + (target.getMonth() - now.getMonth()));
+        }
+
+        // Calculate required monthly contribution
+        let monthlyNeeded = 0;
+        const r = rate / 100;
+        const n = compoundFreq;
+
+        if (monthsToGoal > 0) {
+            // Future value of current savings
+            const fvCurrent = current * Math.pow((1 + r/n), (n * monthsToGoal / 12));
+            const stillNeeded = Math.max(0, goal - fvCurrent);
+
+            if (r > 0) {
+                const monthlyRate = r / n;
+                const numPeriods = monthsToGoal; // Assuming monthly contributions
+                // PMT formula: PMT = FV * r / ((1+r)^n - 1)
+                monthlyNeeded = stillNeeded * monthlyRate / (Math.pow(1 + monthlyRate, numPeriods) - 1);
+                if (!isFinite(monthlyNeeded) || monthlyNeeded < 0) monthlyNeeded = stillNeeded / monthsToGoal;
+            } else {
+                monthlyNeeded = stillNeeded / monthsToGoal;
+            }
+        }
+
+        // If user entered monthly contribution, calculate time to goal
+        let calculatedMonths = monthsToGoal;
+        if (monthlyContrib > 0 && !targetDateInput) {
+            let balance = current;
+            let months = 0;
+            const monthlyRate = r / 12;
+            
+            while (balance < goal && months < 600) {
+                balance = (balance + monthlyContrib) * (1 + monthlyRate);
+                months++;
+            }
+            calculatedMonths = months;
+            monthlyNeeded = monthlyContrib;
+        }
+
+        // Calculate final projection
+        let balance = current;
+        let totalContributions = current;
+        const useMonths = targetDateInput ? monthsToGoal : calculatedMonths;
+        const monthlyRate = r / 12;
+        
+        for (let i = 0; i < useMonths; i++) {
+            balance = (balance + monthlyNeeded) * (1 + monthlyRate);
+            totalContributions += monthlyNeeded;
+        }
+
+        const interestEarned = balance - totalContributions;
+        const targetDateFormatted = targetDateInput ? new Date(targetDateInput).toLocaleDateString() : (new Date(new Date().setMonth(new Date().getMonth() + useMonths))).toLocaleDateString();
+
+        document.getElementById('monthlyNeeded').textContent = '$' + monthlyNeeded.toFixed(2);
+        document.getElementById('monthsToGoal').textContent = useMonths;
+        document.getElementById('calcTargetDate').textContent = targetDateFormatted;
+        document.getElementById('goalAmount').textContent = '$' + goal.toLocaleString();
+        document.getElementById('currentAmount').textContent = '$' + current.toLocaleString();
+        document.getElementById('stillNeeded').textContent = '$' + needed.toLocaleString();
+        document.getElementById('totalContributions').textContent = '$' + totalContributions.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('interestEarned').textContent = '$' + interestEarned.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('finalAmount').textContent = '$' + balance.toLocaleString(undefined, {maximumFractionDigits: 0});
+    }
+
+    function clearSavingsGoal() {
+        document.getElementById('savingsGoal').value = '';
+        document.getElementById('currentSavings').value = '';
+        document.getElementById('targetDate').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('compounding').value = '12';
+        document.getElementById('monthlyContribution').value = '';
+        document.getElementById('monthlyNeeded').textContent = '$0.00';
+        document.getElementById('monthsToGoal').textContent = '0';
+        document.getElementById('calcTargetDate').textContent = '-';
+        document.getElementById('goalAmount').textContent = '$0.00';
+        document.getElementById('currentAmount').textContent = '$0.00';
+        document.getElementById('stillNeeded').textContent = '$0.00';
+        document.getElementById('totalContributions').textContent = '$0.00';
+        document.getElementById('interestEarned').textContent = '$0.00';
+        document.getElementById('finalAmount').textContent = '$0.00';
+    }
+
+    function copySavingsResults() {
+        const monthly = document.getElementById('monthlyNeeded').textContent;
+        const months = document.getElementById('monthsToGoal').textContent;
+        const goal = document.getElementById('goalAmount').textContent;
+        
+        const text = `Savings Goal Plan:
+Goal Amount: ${goal}
+Monthly Savings Needed: ${monthly}
+Months to Goal: ${months}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Compound Interest Calculator", icon:"fa-chart-line", url:"compound-interest-calculator.html"},
+            {name:"Emergency Fund Calculator", icon:"fa-shield-alt", url:"emergency-fund-calculator.html"},
+            {name:"529 Savings Calculator", icon:"fa-graduation-cap", url:"529-savings-calculator.html"},
+            {name:"College Savings Calculator", icon:"fa-university", url:"college-savings-calculator.html"},
+            {name:"Retirement Calculator", icon:"fa-umbrella-beach", url:"retirement-savings-calculator.html"},
+            {name:"401k Calculator", icon:"fa-briefcase", url:"401k-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridSG").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

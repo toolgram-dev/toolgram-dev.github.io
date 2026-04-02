@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mortgage Qualification Calculator – How Much House Can You Afford | ToolGram</title>
+    <meta name="description" content="Calculate how much mortgage you qualify for based on income, debt, and credit. Free online mortgage qualification calculator for home buyers.">
+    <meta name="keywords" content="mortgage qualification calculator, how much mortgage can I afford, mortgage prequalification, home loan qualification, mortgage affordability">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/mortgage-qualification-calculator.html">
+    <meta property="og:title" content="Mortgage Qualification Calculator | ToolGram">
+    <meta property="og:description" content="Calculate how much mortgage you qualify for based on income and debt.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/mortgage-qualification-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mortgage Qualification Calculator",
+        "description": "Calculate how much mortgage you qualify for based on income and debt.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/mortgage-qualification-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Mortgage Qualification", "Home Affordability", "DTI Calculator", "Mortgage Prequalification"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .qualify-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-clipboard-check"></i></div>
+            <div>
+                <h1 style="margin:0;">Mortgage Qualification Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Find out how much mortgage you qualify for</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-dollar-sign"></i> Income</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Income ($)</label>
+                        <input type="number" id="annualIncome" placeholder="75000" value="75000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Co-borrower Income ($)</label>
+                        <input type="number" id="coIncome" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Other Income ($)</label>
+                        <input type="number" id="otherIncome" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-credit-card"></i> Monthly Debts</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Car Payment ($)</label>
+                        <input type="number" id="carPayment" placeholder="400" value="400" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Credit Cards ($)</label>
+                        <input type="number" id="creditCards" placeholder="200" value="200" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Student Loans ($)</label>
+                        <input type="number" id="studentLoans" placeholder="300" value="300" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Other Debt ($)</label>
+                        <input type="number" id="otherDebt" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-percent"></i> Loan Terms</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="7.0" value="7.0" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term (Years)</label>
+                        <select id="loanTerm" style="flex:1;">
+                            <option value="15">15 Years</option>
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Down Payment (%)</label>
+                        <input type="number" id="downPayment" placeholder="20" value="20" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateQualification()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearQualification()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Qualification Results</div>
+                <div class="output-display" id="qualificationOutput">
+                    <div class="qualify-box">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-check-circle"></i> You May Qualify For</div>
+                        <div style="margin-bottom:10px;">Max Home Price: <span class="loan-result" id="maxHomePrice">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Max Loan Amount: <span class="loan-result" id="maxLoanAmount">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Based on 36% DTI ratio</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Monthly Income:</strong> <span id="totalIncome">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Monthly Debt:</strong> <span id="totalDebt">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Current DTI Ratio:</strong> <span id="currentDTI">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Max Monthly Payment:</strong> <span id="maxPayment">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Estimated P&I:</strong> <span id="estimatedPI">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Estimated Taxes/Insurance:</strong> <span id="estimatedTI">$0.00</span></div>
+                        <div style="font-weight:600;"><strong style="color:#8B5CF6;">Total Est. Payment:</strong> <span class="loan-result" id="totalEstPayment">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyQualificationResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridMQ"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> How Mortgage Qualification Works</h3>
+            <p>Lenders use your debt-to-income ratio (DTI) to determine how much you can borrow. Most lenders prefer a DTI of 36% or less, though some allow up to 43% or higher with compensating factors.</p>
+            <p>The 28/36 rule is common: spend no more than 28% of gross income on housing and 36% on total debt. This calculator uses these guidelines to estimate your qualification amount.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your annual gross income.<br>
+            <strong>Step 2:</strong> Add co-borrower income if applicable.<br>
+            <strong>Step 3:</strong> Enter all monthly debt payments.<br>
+            <strong>Step 4:</strong> Input interest rate and down payment.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see qualification.<br>
+            <strong>Step 6:</strong> Review max home price and loan amount.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-info-circle"></i> Factors Affecting Qualification</h3>
+            <ul>
+                <li><strong>Credit Score:</strong> Higher scores get better rates and may qualify for more</li>
+                <li><strong>Employment History:</strong> 2+ years steady employment preferred</li>
+                <li><strong>Savings/Reserves:</strong> 2-6 months of payments in reserves helps</li>
+                <li><strong>Down Payment:</strong> 20% avoids PMI, but less is possible</li>
+                <li><strong>Loan Type:</strong> FHA, VA, USDA have different requirements</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">How much mortgage can I qualify for?</div>
+            <div class="faq-answer">Most borrowers qualify for 3-4 times their annual income, depending on debts. With $75k income and minimal debt, you might qualify for $225k-$300k. High existing debt reduces this significantly. Use this calculator for your specific situation.</div>
+
+            <div class="faq-question">What is the debt-to-income ratio?</div>
+            <div class="faq-answer">DTI is your monthly debt payments divided by gross monthly income. Lenders use two ratios: front-end (housing only, max 28%) and back-end (all debt, max 36%). Some loans allow up to 50% DTI with strong credit and reserves.</div>
+
+            <div class="faq-question">Does pre-qualification guarantee a loan?</div>
+            <div class="faq-answer">No, pre-qualification is an estimate based on self-reported information. Pre-approval is stronger—lender verifies income, credit, employment. Final approval requires appraisal, title search, and underwriting review of all documentation.</div>
+
+            <div class="faq-question">Why did my qualification amount change?</div>
+            <div class="faq-answer">Qualification depends on income, debts, credit score, interest rates, and loan program. Any change affects results. Rising rates reduce buying power. Paying off debt increases it. Different lenders may calculate differently too.</div>
+
+            <div class="faq-question">Should I get pre-qualified before house hunting?</div>
+            <div class="faq-answer">Yes! Pre-qualification shows sellers you're serious, helps you focus on affordable homes, and speeds up the buying process. It's usually free and takes minutes. Some sellers won't consider offers without pre-qualification letters.</div>
+
+            <div class="faq-question">What if I don't qualify for enough?</div>
+            <div class="faq-answer">Options: pay down debt to improve DTI, increase down payment, add co-borrower, improve credit score for better rate, look at lower-priced areas, consider FHA/VA loans with more flexible requirements, or wait and save more.</div>
+
+            <div class="faq-question">Do lenders use gross or net income?</div>
+            <div class="faq-answer">Gross income (before taxes). Lenders use pre-tax income to calculate DTI ratios. This includes base salary, bonuses, commissions, alimony, child support, and other regular income sources. Part-time and self-employment income usually needs 2-year history.</div>
+
+            <div class="faq-question">What debts count in DTI calculation?</div>
+            <div class="faq-answer">Recurring monthly obligations: car loans, student loans, credit card minimums, personal loans, child support, alimony. Not included: utilities, insurance (except mortgage), groceries, phone bills, or other living expenses.</div>
+
+            <div class="faq-question">Can I qualify with bad credit?</div>
+            <div class="faq-answer">FHA loans allow scores as low as 580 with 3.5% down (500-579 needs 10% down). Conventional loans typically need 620+. Lower scores mean higher rates and stricter DTI requirements. Work on credit first for better terms.</div>
+
+            <div class="faq-question">How long does pre-qualification last?</div>
+            <div class="faq-answer">Pre-qualification letters typically valid 60-90 days. Rates change, your situation may change. If you don't find a home in that window, you'll need updated letter. Employment or credit changes may require re-qualification.</div>
+
+            <div class="faq-question">Does rental history help qualification?</div>
+            <div class="faq-answer">Some lenders consider 12+ months of on-time rent payments as compensating factor, especially for first-time buyers with limited credit. Not all lenders use this. Document with cancelled checks or bank statements showing consistent payments.</div>
+
+            <div class="faq-question">Should I max out my qualification amount?</div>
+            <div class="faq-answer">Not necessarily. Just because you qualify for $400k doesn't mean you should spend that much. Consider other goals—retirement savings, emergency fund, lifestyle. Being "house poor" stresses finances. Many experts recommend staying below max qualification for comfort.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateQualification() {
+        const annualIncome = parseFloat(document.getElementById('annualIncome').value) || 0;
+        const coIncome = parseFloat(document.getElementById('coIncome').value) || 0;
+        const otherIncome = parseFloat(document.getElementById('otherIncome').value) || 0;
+        const carPayment = parseFloat(document.getElementById('carPayment').value) || 0;
+        const creditCards = parseFloat(document.getElementById('creditCards').value) || 0;
+        const studentLoans = parseFloat(document.getElementById('studentLoans').value) || 0;
+        const otherDebt = parseFloat(document.getElementById('otherDebt').value) || 0;
+        const rate = parseFloat(document.getElementById('interestRate').value) || 7;
+        const years = parseInt(document.getElementById('loanTerm').value) || 30;
+        const downPaymentPercent = parseFloat(document.getElementById('downPayment').value) || 20;
+
+        const totalAnnualIncome = annualIncome + coIncome + otherIncome;
+        const monthlyIncome = totalAnnualIncome / 12;
+        const totalMonthlyDebt = carPayment + creditCards + studentLoans + otherDebt;
+
+        // Calculate DTI
+        const currentDTI = (totalMonthlyDebt / monthlyIncome) * 100;
+
+        // Max DTI typically 36%, housing ratio 28%
+        const maxTotalDTI = 36;
+        const maxHousingDTI = 28;
+        
+        // Calculate max monthly payment based on DTI
+        const availableForHousing = (monthlyIncome * (maxTotalDTI / 100)) - totalMonthlyDebt;
+        const maxHousingPayment = Math.min(availableForHousing, monthlyIncome * (maxHousingDTI / 100));
+
+        // Estimate taxes and insurance (roughly 1.2% of home value annually)
+        // Work backwards: if PITI = max payment, find home price
+        const monthlyRate = rate / 100 / 12;
+        const numPayments = years * 12;
+
+        // Iteratively solve for max home price
+        let maxHomePrice = 0;
+        let testPrice = 100000;
+        while (testPrice < 2000000) {
+            const loanAmount = testPrice * (1 - downPaymentPercent / 100);
+            const estimatedPI = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+            const estimatedTI = testPrice * 0.012 / 12;
+            const totalPayment = estimatedPI + estimatedTI + totalMonthlyDebt;
+            
+            if (totalPayment <= monthlyIncome * (maxTotalDTI / 100) && (estimatedPI + estimatedTI) <= monthlyIncome * (maxHousingDTI / 100)) {
+                maxHomePrice = testPrice;
+                testPrice += 1000;
+            } else {
+                break;
+            }
+        }
+
+        const maxLoanAmount = maxHomePrice * (1 - downPaymentPercent / 100);
+        const downPaymentAmount = maxHomePrice * (downPaymentPercent / 100);
+
+        // Calculate actual payment at max qualification
+        const finalPI = maxLoanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        const finalTI = maxHomePrice * 0.012 / 12;
+
+        document.getElementById('totalIncome').textContent = '$' + monthlyIncome.toFixed(2);
+        document.getElementById('totalDebt').textContent = '$' + totalMonthlyDebt.toFixed(2);
+        document.getElementById('currentDTI').textContent = currentDTI.toFixed(1) + '%';
+        document.getElementById('maxPayment').textContent = '$' + maxHousingPayment.toFixed(2);
+        document.getElementById('maxHomePrice').textContent = '$' + maxHomePrice.toLocaleString();
+        document.getElementById('maxLoanAmount').textContent = '$' + maxLoanAmount.toLocaleString();
+        document.getElementById('estimatedPI').textContent = '$' + finalPI.toFixed(2);
+        document.getElementById('estimatedTI').textContent = '$' + finalTI.toFixed(2);
+        document.getElementById('totalEstPayment').textContent = '$' + (finalPI + finalTI).toFixed(2);
+    }
+
+    function clearQualification() {
+        document.getElementById('annualIncome').value = '';
+        document.getElementById('coIncome').value = '';
+        document.getElementById('otherIncome').value = '';
+        document.getElementById('carPayment').value = '';
+        document.getElementById('creditCards').value = '';
+        document.getElementById('studentLoans').value = '';
+        document.getElementById('otherDebt').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('loanTerm').value = '30';
+        document.getElementById('downPayment').value = '';
+        document.getElementById('totalIncome').textContent = '$0.00';
+        document.getElementById('totalDebt').textContent = '$0.00';
+        document.getElementById('currentDTI').textContent = '0%';
+        document.getElementById('maxPayment').textContent = '$0.00';
+        document.getElementById('maxHomePrice').textContent = '$0.00';
+        document.getElementById('maxLoanAmount').textContent = '$0.00';
+        document.getElementById('estimatedPI').textContent = '$0.00';
+        document.getElementById('estimatedTI').textContent = '$0.00';
+        document.getElementById('totalEstPayment').textContent = '$0.00';
+    }
+
+    function copyQualificationResults() {
+        const maxHome = document.getElementById('maxHomePrice').textContent;
+        const maxLoan = document.getElementById('maxLoanAmount').textContent;
+        const dti = document.getElementById('currentDTI').textContent;
+        const maxPayment = document.getElementById('maxPayment').textContent;
+        const totalPayment = document.getElementById('totalEstPayment').textContent;
+        
+        const text = `Mortgage Qualification Results:
+Max Home Price: ${maxHome}
+Max Loan Amount: ${maxLoan}
+Current DTI: ${dti}
+Max Monthly Payment: ${maxPayment}
+Total Est. Payment: ${totalPayment}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Home Affordability Calculator", icon:"fa-home", url:"home-affordability-calculator.html"},
+            {name:"Debt to Income Calculator", icon:"fa-calculator", url:"debt-to-income-ratio-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Down Payment Calculator", icon:"fa-piggy-bank", url:"down-payment-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Rent vs Buy Calculator", icon:"fa-balance-scale", url:"rent-vs-buy-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridMQ").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

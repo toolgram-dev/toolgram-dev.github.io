@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Loan to Value Ratio Calculator – LTV Calculator | ToolGram</title>
+    <meta name="description" content="Calculate loan-to-value ratio (LTV) for mortgages. Free online LTV calculator shows equity and PMI requirements.">
+    <meta name="keywords" content="loan to value ratio calculator, LTV calculator, loan to value calculator, mortgage LTV, equity calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/loan-to-value-ratio-calculator.html">
+    <meta property="og:title" content="Loan to Value Ratio Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your LTV ratio and equity position.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/loan-to-value-ratio-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Loan to Value Ratio Calculator",
+        "description": "Calculate your LTV ratio and equity position.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/loan-to-value-ratio-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["LTV Calculator", "Loan to Value Ratio", "Equity Calculator", "PMI Calculator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .ltv-good{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .ltv-warn{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .ltv-bad{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-percent"></i></div>
+            <div>
+                <h1 style="margin:0;">Loan to Value Ratio Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate LTV ratio and equity position</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-home"></i> Property Value</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Home Value ($)</label>
+                        <input type="number" id="homeValue" placeholder="400000" value="400000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Original Purchase Price ($)</label>
+                        <input type="number" id="purchasePrice" placeholder:"0" value:"0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-money-bill"></i> Loan Information</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Loan Balance ($)</label>
+                        <input type="number" id="loanBalance" placeholder="320000" value="320000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Second Mortgage/HELOC ($)</label>
+                        <input type="number" id="secondMortgage" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Original Loan Amount ($)</label>
+                        <input type="number" id="originalLoan" placeholder:"0" value:"0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateLTV()"><i class="fas fa-calculator"></i> Calculate LTV</button>
+                    <button class="secondary-btn" onclick="clearLTV()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-pie"></i> LTV Results</div>
+                <div class="output-display" id="ltvOutput">
+                    <div id="ltvStatusBox" class="ltv-warn">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-exclamation-circle"></i> LTV Status</div>
+                        <div style="margin-bottom:10px;">Current LTV: <span class="loan-result" id="currentLTV">80%</span></div>
+                        <div style="margin-bottom:10px;">Combined LTV: <span class="loan-result" id="combinedLTV">80%</span></div>
+                        <div id="ltvMessage" style="font-size:0.9rem;color:rgba(255,255,255,0.7);">PMI required until 80% LTV</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Home Value:</strong> <span id="propValue">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Loans:</strong> <span id="totalLoans">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Home Equity:</strong> <span class="loan-result" id="homeEquity">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Equity Percentage:</strong> <span id="equityPercent">0%</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Original LTV:</strong> <span id="originalLTV">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Appreciation:</strong> <span id="appreciation">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Principal Paid:</strong> <span id="principalPaid">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">To 80% LTV:</strong> <span id="to80LTV">$0.00</span> more equity needed</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">To Remove PMI:</strong> Need <span id="toRemovePMI">$0.00</span> more</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyLTVResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridLTV"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Loan-to-Value Ratio?</h3>
+            <p>LTV is the ratio of your loan amount to your property's value, expressed as a percentage. Lower LTV means more equity and less risk for lenders. 80% LTV or lower typically avoids PMI on conventional loans.</p>
+            <p>Formula: LTV = (Loan Balance ÷ Property Value) × 100</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter current estimated home value.<br>
+            <strong>Step 2:</strong> Input current loan balance.<br>
+            <strong>Step 3:</strong> Add any second mortgages or HELOCs.<br>
+            <strong>Step 4:</strong> Optional: Enter original purchase price and loan amount for equity analysis.<br>
+            <strong>Step 5:</strong> Click "Calculate LTV" to see results.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> LTV Thresholds</h3>
+            <ul>
+                <li><strong>≤80%:</strong> No PMI required on conventional loans</li>
+                <li><strong>≤90%:</strong> May require PMI, but lower rates</li>
+                <li><strong>≤97%:</strong> Maximum for most conventional loans</li>
+                <li><strong>100%+:</strong> Underwater (negative equity)</li>
+            </ul>
+            <p>Combined LTV (CLTV) includes all loans against the property. Lenders look at both LTV and CLTV for risk assessment.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">What is a good LTV ratio?</div>
+            <div class="faq-answer">80% or lower is ideal—avoids PMI and gets best rates. 90% is acceptable for many loans with PMI. Over 95% is high-risk and limits loan options. Lower is always better for rates, terms, and equity cushion.</div>
+
+            <div class="faq-question">How do I calculate LTV?</div>
+            <div class="faq-answer">Divide your loan balance by property value, multiply by 100. Example: $320,000 loan ÷ $400,000 value = 0.80 = 80% LTV. This calculator does it automatically and shows combined LTV including all loans.</div>
+
+            <div class="faq-question">What is combined LTV (CLTV)?</div>
+            <div class="faq-answer">CLTV includes all loans secured by the property: first mortgage + second mortgage + HELOC ÷ property value. Lenders use CLTV to assess total risk. You might have 70% LTV on first mortgage but 90% CLTV with a HELOC.</div>
+
+            <div class="faq-question">At what LTV can I remove PMI?</div>
+            <div class="faq-answer">Request removal at 80% LTV based on original value. Automatic termination at 78% LTV of original value. With appreciation, you may remove earlier by proving current value with appraisal (check lender requirements).</div>
+
+            <div class="faq-question">Does home appreciation lower my LTV?</div>
+            <div class="faq-answer">Yes, if your home value increases while loan balance stays same or decreases, LTV drops. This builds equity faster. Some homeowners remove PMI early by proving appreciation through new appraisal—if supported by comparable sales.</div>
+
+            <div class="faq-question">What LTV is needed for refinance?</div>
+            <div class="faq-answer">Conventional refinance typically needs 80% LTV to avoid PMI, though some programs allow higher. Cash-out refinance usually limited to 80% LTV. FHA streamline has no LTV requirement. VA IRRRL has no limit. Each program has different requirements.</div>
+
+            <div class="faq-question">Can I get a loan with 100% LTV?</div>
+            <div class="faq-answer">VA loans allow 100% LTV (0% down). USDA loans allow 100% for eligible rural areas. Most conventional loans max at 97% (3% down). 100%+ LTV means underwater—owing more than home value—which limits options significantly.</div>
+
+            <div class="faq-question">How does LTV affect interest rates?</div>
+            <div class="faq-answer">Lower LTV gets better rates. Rates often tier at 60%, 70%, 75%, 80%, 85%, 90%, and 95% LTV breakpoints. 80% LTV or lower typically gets best conventional rates. High LTV loans have higher rates plus PMI costs.</div>
+
+            <div class="faq-question">What is negative equity?</div>
+            <div class="faq-answer">When LTV exceeds 100%—you owe more than home is worth. Also called "underwater" or "upside down." Limits refinance options, makes selling difficult without bringing cash to closing. Can happen when home values drop or with minimal down payments.</div>
+
+            <div class="faq-question">How fast does LTV decrease?</div>
+            <div class="faq-answer">With normal amortization, LTV drops slowly early in loan (mostly interest), faster later. On 30-year loan, might take 7-10 years to reach 80% LTV through payments alone. Extra principal payments accelerate this significantly.</div>
+
+            <div class="faq-question">Should I pay down to 80% LTV?</div>
+            <div class="faq-answer">If paying PMI, yes—eliminating PMI saves $100-400/month. If no PMI, consider opportunity cost: could that money earn more invested elsewhere? Also maintain emergency fund. Calculate break-even: PMI savings vs. lost investment returns.</div>
+
+            <div class="faq-question">Does appraisal affect LTV?</div>
+            <div class="faq-answer">Yes, LTV uses current value. For purchase, LTV based on lower of purchase price or appraisal. For refinance, based on current appraisal. Low appraisal can increase LTV, potentially requiring more down payment or causing loan denial.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateLTV() {
+        const homeValue = parseFloat(document.getElementById('homeValue').value) || 0;
+        const loanBalance = parseFloat(document.getElementById('loanBalance').value) || 0;
+        const secondMortgage = parseFloat(document.getElementById('secondMortgage').value) || 0;
+        const purchasePrice = parseFloat(document.getElementById('purchasePrice').value) || 0;
+        const originalLoan = parseFloat(document.getElementById('originalLoan').value) || 0;
+
+        const totalLoans = loanBalance + secondMortgage;
+        const currentLTV = homeValue > 0 ? (loanBalance / homeValue) * 100 : 0;
+        const combinedLTV = homeValue > 0 ? (totalLoans / homeValue) * 100 : 0;
+        const equity = homeValue - totalLoans;
+        const equityPercent = homeValue > 0 ? (equity / homeValue) * 100 : 0;
+
+        let originalLTV = 0;
+        let appreciation = 0;
+        let principalPaid = 0;
+        
+        if (purchasePrice > 0 && originalLoan > 0) {
+            originalLTV = (originalLoan / purchasePrice) * 100;
+            appreciation = homeValue - purchasePrice;
+            principalPaid = originalLoan - loanBalance;
+        }
+
+        const to80LTV = Math.max(0, (totalLoans / 0.80) - homeValue);
+        const toRemovePMI = Math.max(0, loanBalance - (homeValue * 0.80));
+
+        let statusBox = document.getElementById('ltvStatusBox');
+        let message = '';
+        let statusColor = '';
+        let icon = '';
+        let boxClass = '';
+
+        if (currentLTV <= 80) {
+            boxClass = 'ltv-good';
+            message = 'Excellent - No PMI required';
+            statusColor = '#22C55E';
+            icon = 'fa-check-circle';
+        } else if (currentLTV <= 90) {
+            boxClass = 'ltv-warn';
+            message = 'Good - PMI required but manageable';
+            statusColor = '#FBBF24';
+            icon = 'fa-exclamation-circle';
+        } else {
+            boxClass = 'ltv-bad';
+            message = 'High LTV - Build equity when possible';
+            statusColor = '#EF4444';
+            icon = 'fa-times-circle';
+        }
+
+        document.getElementById('ltvStatusBox').className = boxClass;
+        document.getElementById('ltvStatusBox').innerHTML = `
+            <div style="font-weight:600;color:${statusColor};margin-bottom:5px;"><i class="fas ${icon}"></i> LTV Status</div>
+            <div style="margin-bottom:10px;">Current LTV: <span class="loan-result">${currentLTV.toFixed(1)}%</span></div>
+            <div style="margin-bottom:10px;">Combined LTV: <span class="loan-result">${combinedLTV.toFixed(1)}%</span></div>
+            <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">${message}</div>
+        `;
+
+        document.getElementById('currentLTV').textContent = currentLTV.toFixed(1) + '%';
+        document.getElementById('combinedLTV').textContent = combinedLTV.toFixed(1) + '%';
+        document.getElementById('propValue').textContent = '$' + homeValue.toLocaleString();
+        document.getElementById('totalLoans').textContent = '$' + totalLoans.toLocaleString();
+        document.getElementById('homeEquity').textContent = '$' + equity.toLocaleString();
+        document.getElementById('equityPercent').textContent = equityPercent.toFixed(1) + '%';
+        document.getElementById('originalLTV').textContent = originalLTV.toFixed(1) + '%';
+        document.getElementById('appreciation').textContent = '$' + appreciation.toLocaleString();
+        document.getElementById('principalPaid').textContent = '$' + principalPaid.toLocaleString();
+        document.getElementById('to80LTV').textContent = '$' + to80LTV.toLocaleString();
+        document.getElementById('toRemovePMI').textContent = '$' + toRemovePMI.toLocaleString();
+    }
+
+    function clearLTV() {
+        document.getElementById('homeValue').value = '';
+        document.getElementById('loanBalance').value = '';
+        document.getElementById('secondMortgage').value = '';
+        document.getElementById('purchasePrice').value = '';
+        document.getElementById('originalLoan').value = '';
+        document.getElementById('currentLTV').textContent = '0%';
+        document.getElementById('combinedLTV').textContent = '0%';
+        document.getElementById('propValue').textContent = '$0.00';
+        document.getElementById('totalLoans').textContent = '$0.00';
+        document.getElementById('homeEquity').textContent = '$0.00';
+        document.getElementById('equityPercent').textContent = '0%';
+        document.getElementById('originalLTV').textContent = '0%';
+        document.getElementById('appreciation').textContent = '$0.00';
+        document.getElementById('principalPaid').textContent = '$0.00';
+        document.getElementById('to80LTV').textContent = '$0.00';
+        document.getElementById('toRemovePMI').textContent = '$0.00';
+        document.getElementById('ltvStatusBox').className = 'ltv-warn';
+        document.getElementById('ltvStatusBox').innerHTML = `
+            <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-exclamation-circle"></i> LTV Status</div>
+            <div style="margin-bottom:10px;">Current LTV: <span class="loan-result">0%</span></div>
+            <div style="margin-bottom:10px;">Combined LTV: <span class="loan-result">0%</span></div>
+            <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Enter your information to see results</div>
+        `;
+    }
+
+    function copyLTVResults() {
+        const currentLTV = document.getElementById('currentLTV').textContent;
+        const combinedLTV = document.getElementById('combinedLTV').textContent;
+        const equity = document.getElementById('homeEquity').textContent;
+        const equityPercent = document.getElementById('equityPercent').textContent;
+        
+        const text = `LTV Calculation Results:
+Current LTV: ${currentLTV}
+Combined LTV: ${combinedLTV}
+Home Equity: ${equity}
+Equity Percentage: ${equityPercent}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"PMI Calculator", icon:"fa-shield-alt", url:"pmi-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Home Affordability Calculator", icon:"fa-home", url:"home-affordability-calculator.html"},
+            {name:"Mortgage Refinance Calculator", icon:"fa-sync-alt", url:"mortgage-refinance-calculator.html"},
+            {name:"HELOC Calculator", icon:"fa-home", url:"heloc-payment-calculator.html"},
+            {name:"Down Payment Calculator", icon:"fa-piggy-bank", url:"down-payment-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridLTV").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

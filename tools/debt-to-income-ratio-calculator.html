@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Debt to Income Ratio Calculator – DTI Calculator | ToolGram</title>
+    <meta name="description" content="Calculate your debt-to-income ratio (DTI) for mortgage qualification. Free online DTI calculator shows front-end and back-end ratios.">
+    <meta name="keywords" content="debt to income ratio calculator, DTI calculator, debt ratio calculator, mortgage DTI, back end ratio calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/debt-to-income-ratio-calculator.html">
+    <meta property="og:title" content="Debt to Income Ratio Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your DTI ratio for mortgage qualification.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/debt-to-income-ratio-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Debt to Income Ratio Calculator",
+        "description": "Calculate your DTI ratio for mortgage qualification.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/debt-to-income-ratio-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["DTI Calculator", "Debt to Income Ratio", "Front End Ratio", "Back End Ratio"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .dti-good{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .dti-warn{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .dti-bad{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-calculator"></i></div>
+            <div>
+                <h1 style="margin:0;">Debt to Income Ratio Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate your DTI for mortgage qualification</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-dollar-sign"></i> Income</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Monthly Gross Income ($)</label>
+                        <input type="number" id="monthlyIncome" placeholder="6250" value="6250" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-credit-card"></i> Monthly Debt Payments</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Rent/Mortgage ($)</label>
+                        <input type="number" id="housingPayment" placeholder:"0" value:"0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Car Payment ($)</label>
+                        <input type="number" id="carPayment" placeholder="400" value="400" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Credit Cards ($)</label>
+                        <input type="number" id="creditCards" placeholder="150" value="150" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Student Loans ($)</label>
+                        <input type="number" id="studentLoans" placeholder="250" value="250" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Personal Loans ($)</label>
+                        <input type="number" id="personalLoans" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Other Debt ($)</label>
+                        <input type="number" id="otherDebt" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateDTI()"><i class="fas fa-calculator"></i> Calculate DTI</button>
+                    <button class="secondary-btn" onclick="clearDTI()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-pie"></i> DTI Results</div>
+                <div class="output-display" id="dtiOutput">
+                    <div id="dtiStatusBox" class="dti-good">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-check-circle"></i> DTI Status</div>
+                        <div style="margin-bottom:10px;">Back-End DTI: <span class="loan-result" id="backEndDTI">0%</span></div>
+                        <div style="margin-bottom:10px;">Front-End DTI: <span class="loan-result" id="frontEndDTI">0%</span></div>
+                        <div id="dtiMessage" style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Excellent - Great for mortgage approval</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Income:</strong> <span id="totalIncome">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Housing Payment:</strong> <span id="totalHousing">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Debt:</strong> <span id="totalDebt">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Non-Housing Debt:</strong> <span id="nonHousingDebt">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Max Housing Payment (28%):</strong> <span id="maxHousing28">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Max Total Debt (36%):</strong> <span id="maxDebt36">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Room for Mortgage:</strong> <span id="roomMortgage">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyDTIResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridDTI"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Debt-to-Income Ratio?</h3>
+            <p>DTI is the percentage of your monthly gross income that goes toward debt payments. Lenders use it to assess your ability to manage payments and repay loans. Lower DTI means less risk for lenders.</p>
+            <p><strong>Front-end DTI:</strong> Housing costs only (should be ≤28%)<br>
+            <strong>Back-end DTI:</strong> All debt payments (should be ≤36%)</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your monthly gross income (before taxes).<br>
+            <strong>Step 2:</strong> Input all monthly debt payments.<br>
+            <strong>Step 3:</strong> For new mortgages, leave housing payment at $0 to see max you qualify for.<br>
+            <strong>Step 4:</strong> Click "Calculate DTI" to see your ratios.<br>
+            <strong>Step 5:</strong> Review front-end and back-end ratios.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-chart-bar"></i> DTI Guidelines by Loan Type</h3>
+            <ul>
+                <li><strong>Conventional:</strong> Max 28% front-end, 36% back-end (up to 43% with compensating factors)</li>
+                <li><strong>FHA:</strong> Max 31% front-end, 43% back-end (up to 50% with automated underwriting)</li>
+                <li><strong>VA:</strong> No strict limit, but 41% is guideline (residual income matters more)</li>
+                <li><strong>USDA:</strong> 29% front-end, 41% back-end recommended</li>
+                <li><strong>Jumbo:</strong> Stricter, often 43% max back-end</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">What is a good DTI ratio?</div>
+            <div class="faq-answer">Ideally below 36% for back-end DTI, with housing costs under 28%. Under 20% is excellent. 37-42% is acceptable but may limit options. Over 43% makes mortgage approval difficult without strong compensating factors like excellent credit or substantial savings.</div>
+
+            <div class="faq-question">How do I lower my DTI?</div>
+            <div class="faq-answer">Pay off debts (especially credit cards), increase income (side job, raise), consolidate loans for lower payments, avoid new debt before applying for mortgage, or add co-borrower with income. Even small reductions help—every $100 in monthly debt matters.</div>
+
+            <div class="faq-question">Does DTI include utilities and groceries?</div>
+            <div class="faq-answer">No. DTI only includes recurring debt obligations: mortgage/rent, car loans, student loans, credit card minimums, personal loans, child support, alimony. Living expenses like utilities, food, gas, and insurance (except mortgage) aren't counted—but you should consider them in your budget.</div>
+
+            <div class="faq-question">Is rent included in DTI?</div>
+            <div class="faq-answer">Yes, your current rent counts in DTI calculations. However, when qualifying for a mortgage, lenders will substitute your projected mortgage payment (PITI) for your current rent when calculating front-end ratio. This is why renters with high rent can sometimes qualify for mortgages.</div>
+
+            <div class="faq-question">What DTI do I need for FHA loan?</div>
+            <div class="faq-answer">FHA guidelines are 31% front-end and 43% back-end, but automated underwriting may approve up to 50% DTI with strong credit and reserves. FHA is generally more flexible than conventional loans for higher DTI borrowers, making it popular for first-time buyers.</div>
+
+            <div class="faq-question">Can I get a mortgage with 50% DTI?</div>
+            <div class="faq-answer">It's challenging but possible with FHA's automated underwriting system if you have excellent credit (720+), substantial reserves (3-6 months payments), stable employment history, and minimal payment shock (new payment similar to current housing cost). Conventional loans rarely approve above 43%.</div>
+
+            <div class="faq-question">Does DTI affect interest rates?</div>
+            <div class="faq-answer">Indirectly yes. Higher DTI may require manual underwriting with stricter scrutiny and potentially higher rates. Lower DTI often correlates with better credit and financial management, which gets better rates. Some lenders tier pricing based on DTI thresholds.</div>
+
+            <div class="faq-question">How do student loans affect DTI?</div>
+            <div class="faq-answer">Student loans count fully. If on income-based repayment, some lenders use that lower amount. If deferred, FHA uses 1% of balance, conventional may use 1% or actual payment if documented. High student loan balances can significantly reduce mortgage qualification.</div>
+
+            <div class="faq-question">Should I pay off debt before applying?</div>
+            <div class="faq-answer">Generally yes if it meaningfully reduces DTI. Pay off credit cards first (high minimum payments relative to balance). Don't drain savings completely—you need reserves. Sometimes keeping savings and accepting slightly higher DTI is smarter than zero savings with perfect DTI.</div>
+
+            <div class="faq-question">Do medical bills count in DTI?</div>
+            <div class="faq-answer">Only if they appear as monthly payment obligations on your credit report. Unpaid medical collections under $2,000 may not count. Medical debt in payment plans counts as monthly obligation. Lenders may exclude medical debt more readily than other consumer debt.</div>
+
+            <div class="faq-question">What is residual income for VA loans?</div>
+            <div class="faq-answer">VA loans use residual income—money left after all debts and living expenses—rather than strict DTI limits. Varies by region and family size. You can have 50%+ DTI and still qualify if residual income meets guidelines. This helps military families in high-cost areas.</div>
+
+            <div class="faq-question">Can co-signers help my DTI?</div>
+            <div class="answer">Yes, but co-signers are fully responsible for the loan. Their income counts toward qualification, but their debts count too. Most co-signers are family members. Both parties' credit is affected. Lenders want co-signers who significantly strengthen the application, not just barely help.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateDTI() {
+        const income = parseFloat(document.getElementById('monthlyIncome').value) || 0;
+        const housing = parseFloat(document.getElementById('housingPayment').value) || 0;
+        const car = parseFloat(document.getElementById('carPayment').value) || 0;
+        const credit = parseFloat(document.getElementById('creditCards').value) || 0;
+        const student = parseFloat(document.getElementById('studentLoans').value) || 0;
+        const personal = parseFloat(document.getElementById('personalLoans').value) || 0;
+        const other = parseFloat(document.getElementById('otherDebt').value) || 0;
+
+        const totalHousing = housing;
+        const nonHousingDebt = car + credit + student + personal + other;
+        const totalDebt = totalHousing + nonHousingDebt;
+
+        const frontEndDTI = income > 0 ? (totalHousing / income) * 100 : 0;
+        const backEndDTI = income > 0 ? (totalDebt / income) * 100 : 0;
+
+        const maxHousing28 = income * 0.28;
+        const maxDebt36 = income * 0.36;
+        const roomMortgage = maxHousing28 - totalHousing;
+
+        let statusBox = document.getElementById('dtiStatusBox');
+        let message = '';
+        let statusColor = '';
+        let icon = '';
+
+        if (backEndDTI <= 36) {
+            statusBox.className = 'dti-good';
+            message = 'Excellent - Great for mortgage approval';
+            statusColor = '#22C55E';
+            icon = 'fa-check-circle';
+        } else if (backEndDTI <= 43) {
+            statusBox.className = 'dti-warn';
+            message = 'Acceptable - May need compensating factors';
+            statusColor = '#FBBF24';
+            icon = 'fa-exclamation-circle';
+        } else {
+            statusBox.className = 'dti-bad';
+            message = 'High - Work on reducing debt before applying';
+            statusColor = '#EF4444';
+            icon = 'fa-times-circle';
+        }
+
+        document.getElementById('dtiStatusBox').innerHTML = `
+            <div style="font-weight:600;color:${statusColor};margin-bottom:5px;"><i class="fas ${icon}"></i> DTI Status</div>
+            <div style="margin-bottom:10px;">Back-End DTI: <span class="loan-result">${backEndDTI.toFixed(1)}%</span></div>
+            <div style="margin-bottom:10px;">Front-End DTI: <span class="loan-result">${frontEndDTI.toFixed(1)}%</span></div>
+            <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">${message}</div>
+        `;
+
+        document.getElementById('backEndDTI').textContent = backEndDTI.toFixed(1) + '%';
+        document.getElementById('frontEndDTI').textContent = frontEndDTI.toFixed(1) + '%';
+        document.getElementById('totalIncome').textContent = '$' + income.toFixed(2);
+        document.getElementById('totalHousing').textContent = '$' + totalHousing.toFixed(2);
+        document.getElementById('totalDebt').textContent = '$' + totalDebt.toFixed(2);
+        document.getElementById('nonHousingDebt').textContent = '$' + nonHousingDebt.toFixed(2);
+        document.getElementById('maxHousing28').textContent = '$' + maxHousing28.toFixed(2);
+        document.getElementById('maxDebt36').textContent = '$' + maxDebt36.toFixed(2);
+        document.getElementById('roomMortgage').textContent = '$' + Math.max(0, roomMortgage).toFixed(2);
+    }
+
+    function clearDTI() {
+        document.getElementById('monthlyIncome').value = '';
+        document.getElementById('housingPayment').value = '';
+        document.getElementById('carPayment').value = '';
+        document.getElementById('creditCards').value = '';
+        document.getElementById('studentLoans').value = '';
+        document.getElementById('personalLoans').value = '';
+        document.getElementById('otherDebt').value = '';
+        document.getElementById('backEndDTI').textContent = '0%';
+        document.getElementById('frontEndDTI').textContent = '0%';
+        document.getElementById('totalIncome').textContent = '$0.00';
+        document.getElementById('totalHousing').textContent = '$0.00';
+        document.getElementById('totalDebt').textContent = '$0.00';
+        document.getElementById('nonHousingDebt').textContent = '$0.00';
+        document.getElementById('maxHousing28').textContent = '$0.00';
+        document.getElementById('maxDebt36').textContent = '$0.00';
+        document.getElementById('roomMortgage').textContent = '$0.00';
+        document.getElementById('dtiStatusBox').className = 'dti-good';
+        document.getElementById('dtiStatusBox').innerHTML = `
+            <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-check-circle"></i> DTI Status</div>
+            <div style="margin-bottom:10px;">Back-End DTI: <span class="loan-result">0%</span></div>
+            <div style="margin-bottom:10px;">Front-End DTI: <span class="loan-result">0%</span></div>
+            <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Enter your information to see results</div>
+        `;
+    }
+
+    function copyDTIResults() {
+        const backEnd = document.getElementById('backEndDTI').textContent;
+        const frontEnd = document.getElementById('frontEndDTI').textContent;
+        const income = document.getElementById('totalIncome').textContent;
+        const debt = document.getElementById('totalDebt').textContent;
+        
+        const text = `DTI Calculation Results:
+Back-End DTI: ${backEnd}
+Front-End DTI: ${frontEnd}
+Monthly Income: ${income}
+Total Monthly Debt: ${debt}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Mortgage Qualification Calculator", icon:"fa-clipboard-check", url:"mortgage-qualification-calculator.html"},
+            {name:"Home Affordability Calculator", icon:"fa-home", url:"home-affordability-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Loan to Value Calculator", icon:"fa-percent", url:"loan-to-value-ratio-calculator.html"},
+            {name:"Rent vs Buy Calculator", icon:"fa-balance-scale", url:"rent-vs-buy-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridDTI").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

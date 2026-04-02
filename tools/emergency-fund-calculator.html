@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Emergency Fund Calculator – How Much to Save | ToolGram</title>
+    <meta name="description" content="Calculate how much you need in your emergency fund. Free online emergency fund calculator based on expenses and job stability.">
+    <meta name="keywords" content="emergency fund calculator, how much emergency fund, rainy day fund calculator, emergency savings, 3 month emergency fund">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/emergency-fund-calculator.html">
+    <meta property="og:title" content="Emergency Fund Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your emergency fund needs based on monthly expenses.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/emergency-fund-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Emergency Fund Calculator",
+        "description": "Calculate your emergency fund needs based on monthly expenses.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/emergency-fund-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Emergency Fund Calculator", "Rainy Day Fund", "Emergency Savings", "Financial Safety Net"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .emergency-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">Emergency Fund Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate how much you need for financial security</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-receipt"></i> Monthly Expenses</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Rent/Mortgage ($)</label>
+                        <input type="number" id="housing" placeholder="1500" value="1500" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Utilities ($)</label>
+                        <input type="number" id="utilities" placeholder="200" value="200" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Food/Groceries ($)</label>
+                        <input type="number" id="food" placeholder="500" value="500" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Transportation ($)</label>
+                        <input type="number" id="transport" placeholder="400" value="400" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Insurance ($)</label>
+                        <input type="number" id="insurance" placeholder="300" value="300" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Debt Payments ($)</label>
+                        <input type="number" id="debt" placeholder="500" value="500" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Other Expenses ($)</label>
+                        <input type="number" id="other" placeholder:"300" value:"300" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-user"></i> Your Situation</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Savings ($)</label>
+                        <input type="number" id="currentSavings" placeholder="5000" value="5000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Job Stability</label>
+                        <select id="jobStability" style="flex:1;">
+                            <option value="3">Very Stable (3 months)</option>
+                            <option value="6" selected>Moderate (6 months)</option>
+                            <option value="9">Some Risk (9 months)</option>
+                            <option value="12">High Risk/Unstable (12 months)</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Household Type</label>
+                        <select id="household" style="flex:1;">
+                            <option value="1" selected>Single Income</option>
+                            <option value="1.5">Single with Dependents</option>
+                            <option value="0.75">Dual Income (share risk)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateEmergencyFund()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearEmergencyFund()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Emergency Fund Needs</div>
+                <div class="output-display" id="emergencyOutput">
+                    <div class="emergency-box">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-shield-alt"></i> Recommended Fund</div>
+                        <div style="margin-bottom:10px;">Target Amount: <span class="loan-result" id="targetAmount">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Monthly Expenses: <span id="monthlyTotal">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Months of coverage: <span id="monthsCoverage">6</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Current Savings:</strong> <span id="currentSaved">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Still Needed:</strong> <span id="stillNeed">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Progress:</strong> <span id="progressPercent">0%</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">3-Month Fund:</strong> <span id="threeMonth">$0.00</span> (minimum)</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">6-Month Fund:</strong> <span id="sixMonth">$0.00</span> (recommended)</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">9-Month Fund:</strong> <span id="nineMonth">$0.00</span> (conservative)</div>
+                        <div><strong style="color:#8B5CF6;">12-Month Fund:</strong> <span id="twelveMonth">$0.00</span> (maximum)</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyEmergencyResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridEF"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Why You Need an Emergency Fund</h3>
+            <p>Life happens—job loss, medical emergencies, car repairs, appliance failures. An emergency fund prevents debt when surprises strike. It's your financial shock absorber.</p>
+            <p>Without it, you'll rely on credit cards or loans, creating debt that's hard to escape. With it, you handle emergencies with confidence and maintain financial stability.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How Much Should You Save?</h3>
+            <p>Standard advice: 3-6 months of essential expenses. But personalize based on:</p>
+            <ul>
+                <li><strong>Job Stability:</strong> Stable job = 3 months; freelance/gig work = 6-12 months</li>
+                <li><strong>Income Sources:</strong> Single earner needs more than dual-income household</li>
+                <li><strong>Dependents:</strong> Kids or elderly parents increase needs</li>
+                <li><strong>Health:</strong> Chronic conditions or high deductibles need larger cushion</li>
+                <li><strong>Home Ownership:</strong> Houses need more maintenance reserves</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Where to Keep Your Emergency Fund</h3>
+            <ul>
+                <li><strong>High-Yield Savings Account:</strong> 4-5% APY, FDIC insured, accessible within days</li>
+                <li><strong>Money Market Account:</strong> Similar to HYSA, sometimes with check-writing</li>
+                <li><strong>NOT:</strong> Stocks (volatile), CDs (penalty for early withdrawal), home equity (not accessible)</li>
+            </ul>
+            <p>Keep it separate from checking—out of sight, out of mind. But accessible enough for true emergencies within 2-3 days.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">Is 3 months enough for an emergency fund?</div>
+            <div class="faq-answer">For single earners with stable jobs, no dependents, and low fixed expenses—maybe. For families, homeowners, or those in unstable industries—aim for 6+ months. During economic uncertainty (recessions, pandemics), more is better. You can't have "too much" emergency fund.</div>
+
+            <div class="faq-question">Should I save 3 months of income or expenses?</div>
+            <div class="faq-answer">Expenses, not income. During an emergency, you'd cut discretionary spending (dining out, entertainment, subscriptions). Calculate essential expenses only: housing, food, utilities, minimum debt payments, insurance, transportation to work.</div>
+
+            <div class="faq-question">What counts as a true emergency?</div>
+            <div class="faq-answer">Job loss, medical emergency, essential car repair, home repair (roof leak, furnace failure), unexpected travel for family emergency. NOT: vacation, holiday gifts, sale items, non-essential upgrades. If you can live without it, it's not an emergency.</div>
+
+            <div class="faq-question">Should I pay off debt or build emergency fund first?</div>
+            <div class="faq-answer">Start with $1,000 mini emergency fund, then tackle high-interest debt (credit cards). Once high-interest debt is gone, build full 3-6 month fund. Then tackle lower-interest debt (student loans) while maintaining your emergency fund.</div>
+
+            <div class="faq-question">Can I invest my emergency fund for better returns?</div>
+            <div class="faq-answer">No. Emergency funds must be liquid and stable. Stocks can drop 30% right when you need the money. Use high-yield savings (4-5%) as a compromise—better than regular savings but fully accessible and insured. Returns aren't the goal; security is.</div>
+
+            <div class="faq-question">What if I have dependents?</div>
+            <div class="faq-answer">Increase target: 6-9 months minimum. Kids add unpredictability—medical issues, school costs, activities. If single parent, lean toward 9-12 months. More people depending on you = bigger safety net needed.</div>
+
+            <div class="faq-question">How fast should I build my emergency fund?</div>
+            <div class="faq-answer">As fast as reasonably possible without creating other problems. Aggressive saving for 6-12 months to reach target is common. If job feels unstable, go faster—even temporarily pause retirement contributions (except employer match). Once funded, redirect to other goals.</div>
+
+            <div class="faq-question">Do I need separate emergency funds?</div>
+            <div class="faq-answer">Some people maintain: 1) Personal emergency fund (3-6 months expenses), 2) Home maintenance fund (1-3% of home value annually), 3) Car repair/replacement fund. Others combine everything. Do what works for your situation and psychology.</div>
+
+            <div class="faq-question">What if I use my emergency fund?</div>
+            <div class="faq-answer">That's what it's for—no guilt! But immediately start rebuilding. Pause other goals temporarily if needed. Having to rebuild once is fine; repeatedly draining it signals either insufficient size or using it for non-emergencies.</div>
+
+            <div class="faq-question">Should my emergency fund cover spouse's income too?</div>
+            <div class="faq-answer">If you're dual-income, you can aim for slightly less (4-5 months vs 6) because total job loss is less likely. But if one spouse earns significantly more or has less stable employment, weight the calculation accordingly. When in doubt, be conservative.</div>
+
+            <div class="faq-question">Is a HELOC a good emergency fund?</div>
+            <div class="faq-answer">No. Lines of credit can be reduced or frozen by banks during economic downturns—exactly when you might need them most. Also, borrowing in an emergency creates debt stress. Cash emergency fund is always superior. HELOC can supplement, not replace.</div>
+
+            <div class="faq-question">What about using credit cards for emergencies?</div>
+            <div class="faq-answer">Dangerous strategy. Credit card interest (20%+) creates debt spirals. "Emergency" charges often aren't true emergencies. If you must use a card, pay it off immediately when you have the cash. Better to have cash on hand and never rely on credit for emergencies.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateEmergencyFund() {
+        const housing = parseFloat(document.getElementById('housing').value) || 0;
+        const utilities = parseFloat(document.getElementById('utilities').value) || 0;
+        const food = parseFloat(document.getElementById('food').value) || 0;
+        const transport = parseFloat(document.getElementById('transport').value) || 0;
+        const insurance = parseFloat(document.getElementById('insurance').value) || 0;
+        const debt = parseFloat(document.getElementById('debt').value) || 0;
+        const other = parseFloat(document.getElementById('other').value) || 0;
+        const current = parseFloat(document.getElementById('currentSavings').value) || 0;
+        const monthsNeeded = parseInt(document.getElementById('jobStability').value) || 6;
+        const householdMult = parseFloat(document.getElementById('household').value) || 1;
+
+        const monthlyExpenses = housing + utilities + food + transport + insurance + debt + other;
+        const adjustedMonths = Math.round(monthsNeeded * householdMult);
+        const targetFund = monthlyExpenses * adjustedMonths;
+        const stillNeed = Math.max(0, targetFund - current);
+        const progress = targetFund > 0 ? (current / targetFund) * 100 : 0;
+
+        const threeMonth = monthlyExpenses * 3;
+        const sixMonth = monthlyExpenses * 6;
+        const nineMonth = monthlyExpenses * 9;
+        const twelveMonth = monthlyExpenses * 12;
+
+        document.getElementById('targetAmount').textContent = '$' + targetFund.toLocaleString();
+        document.getElementById('monthlyTotal').textContent = '$' + monthlyExpenses.toFixed(2);
+        document.getElementById('monthsCoverage').textContent = adjustedMonths;
+        document.getElementById('currentSaved').textContent = '$' + current.toLocaleString();
+        document.getElementById('stillNeed').textContent = '$' + stillNeed.toLocaleString();
+        document.getElementById('progressPercent').textContent = progress.toFixed(1) + '%';
+        document.getElementById('threeMonth').textContent = '$' + threeMonth.toLocaleString();
+        document.getElementById('sixMonth').textContent = '$' + sixMonth.toLocaleString();
+        document.getElementById('nineMonth').textContent = '$' + nineMonth.toLocaleString();
+        document.getElementById('twelveMonth').textContent = '$' + twelveMonth.toLocaleString();
+    }
+
+    function clearEmergencyFund() {
+        document.getElementById('housing').value = '';
+        document.getElementById('utilities').value = '';
+        document.getElementById('food').value = '';
+        document.getElementById('transport').value = '';
+        document.getElementById('insurance').value = '';
+        document.getElementById('debt').value = '';
+        document.getElementById('other').value = '';
+        document.getElementById('currentSavings').value = '';
+        document.getElementById('jobStability').value = '6';
+        document.getElementById('household').value = '1';
+        document.getElementById('targetAmount').textContent = '$0.00';
+        document.getElementById('monthlyTotal').textContent = '$0.00';
+        document.getElementById('monthsCoverage').textContent = '6';
+        document.getElementById('currentSaved').textContent = '$0.00';
+        document.getElementById('stillNeed').textContent = '$0.00';
+        document.getElementById('progressPercent').textContent = '0%';
+        document.getElementById('threeMonth').textContent = '$0.00';
+        document.getElementById('sixMonth').textContent = '$0.00';
+        document.getElementById('nineMonth').textContent = '$0.00';
+        document.getElementById('twelveMonth').textContent = '$0.00';
+    }
+
+    function copyEmergencyResults() {
+        const target = document.getElementById('targetAmount').textContent;
+        const monthly = document.getElementById('monthlyTotal').textContent;
+        const progress = document.getElementById('progressPercent').textContent;
+        
+        const text = `Emergency Fund Calculation:
+Target Fund: ${target}
+Monthly Expenses: ${monthly}
+Current Progress: ${progress}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Savings Goal Calculator", icon:"fa-bullseye", url:"savings-goal-calculator.html"},
+            {name:"Compound Interest Calculator", icon:"fa-chart-line", url:"compound-interest-calculator.html"},
+            {name:"529 Savings Calculator", icon:"fa-graduation-cap", url:"529-savings-calculator.html"},
+            {name:"Retirement Calculator", icon:"fa-umbrella-beach", url:"retirement-savings-calculator.html"},
+            {name:"Budget Calculator", icon:"fa-calculator", url:"budget-calculator.html"},
+            {name:"Debt Payoff Calculator", icon:"fa-credit-card", url:"debt-payoff-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridEF").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

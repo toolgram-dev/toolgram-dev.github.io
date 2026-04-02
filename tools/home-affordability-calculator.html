@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home Affordability Calculator – How Much House Can You Afford | ToolGram</title>
+    <meta name="description" content="Calculate how much house you can afford based on income, debts, and down payment. Free online home affordability calculator for buyers.">
+    <meta name="keywords" content="home affordability calculator, how much house can I afford, house affordability, home buying calculator, mortgage affordability">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/home-affordability-calculator.html">
+    <meta property="og:title" content="Home Affordability Calculator | ToolGram">
+    <meta property="og:description" content="Calculate how much house you can afford.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/home-affordability-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Home Affordability Calculator",
+        "description": "Calculate how much house you can afford.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/home-affordability-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Home Affordability", "House Price Calculator", "Mortgage Affordability", "Buying Power"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .afford-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-home"></i></div>
+            <div>
+                <h1 style="margin:0;">Home Affordability Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Find out how much house you can afford</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-dollar-sign"></i> Income & Debt</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Income ($)</label>
+                        <input type="number" id="annualIncome" placeholder="80000" value="80000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Monthly Debt ($)</label>
+                        <input type="number" id="monthlyDebt" placeholder="500" value="500" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Down Payment ($)</label>
+                        <input type="number" id="downPayment" placeholder="40000" value="40000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-percent"></i> Loan Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="7.0" value="7.0" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Loan Term (Years)</label>
+                        <select id="loanTerm" style="flex:1;">
+                            <option value="15">15 Years</option>
+                            <option value="30" selected>30 Years</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Property Tax Rate (%)</label>
+                        <input type="number" id="taxRate" placeholder="1.2" value="1.2" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Insurance ($/year)</label>
+                        <input type="number" id="insurance" placeholder="1200" value="1200" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateAffordability()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearAffordability()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Affordability Results</div>
+                <div class="output-display" id="affordabilityOutput">
+                    <div class="afford-box">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-home"></i> You Can Afford</div>
+                        <div style="margin-bottom:10px;">Max Home Price: <span class="loan-result" id="maxHomePrice">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Max Loan Amount: <span class="loan-result" id="maxLoanAmount">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Based on 36% debt-to-income ratio</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Income:</strong> <span id="monthlyIncome">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Debt:</strong> <span id="currentDebt">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">DTI Ratio:</strong> <span id="dtiRatio">0%</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Principal & Interest:</strong> <span id="piPayment">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Property Tax:</strong> <span id="taxPayment">$0.00</span>/mo</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Insurance:</strong> <span id="insPayment">$0.00</span>/mo</div>
+                        <div style="font-weight:600;"><strong style="color:#8B5CF6;">Total Monthly Payment:</strong> <span class="loan-result" id="totalPayment">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyAffordabilityResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridHA"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> How Much House Can I Afford?</h3>
+            <p>The general rule is that your monthly housing costs shouldn't exceed 28% of your gross monthly income, and total debt payments shouldn't exceed 36%. However, these are guidelines—your specific situation may allow for more or require less.</p>
+            <p>Factors affecting affordability include: income stability, credit score, existing debt, down payment amount, interest rates, property taxes, and HOA fees in your area.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your annual gross income.<br>
+            <strong>Step 2:</strong> Input your current monthly debt payments.<br>
+            <strong>Step 3:</strong> Enter your available down payment.<br>
+            <strong>Step 4:</strong> Set interest rate and loan term.<br>
+            <strong>Step 5:</strong> Adjust property tax and insurance estimates.<br>
+            <strong>Step 6:</strong> Click "Calculate" to see affordability.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Affordability Tips</h3>
+            <ul>
+                <li><strong>Don't max out:</strong> Leave room in budget for savings, emergencies, and lifestyle</li>
+                <li><strong>Consider all costs:</strong> HOA fees, utilities, maintenance, and repairs add up</li>
+                <li><strong>Get pre-approved:</strong> Shows sellers you're serious and confirms your budget</li>
+                <li><strong>Shop rates:</strong> Even 0.25% difference affects buying power significantly</li>
+                <li><strong>Save more down:</strong> 20% down avoids PMI and reduces monthly payments</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">What percentage of income should go to housing?</div>
+            <div class="faq-answer">The 28/36 rule suggests spending no more than 28% of gross income on housing and 36% on total debt. Some lenders allow up to 43% or even 50% for FHA loans with compensating factors. Consider your comfort level—being "house poor" isn't enjoyable.</div>
+
+            <div class="faq-question">Does a bigger down payment help?</div>
+            <div class="faq-answer">Absolutely. Larger down payments reduce your loan amount, lower monthly payments, eliminate PMI (with 20%+ down), and may get you better interest rates. Every extra dollar down increases your buying power and reduces long-term costs.</div>
+
+            <div class="faq-question">How do interest rates affect affordability?</div>
+            <div class="faq-answer">Higher rates reduce buying power significantly. At 6% rate vs 7%, you can afford roughly 10-15% more house for the same payment. Even 1% rate change affects monthly payments by $100-200+ on typical mortgages. Shop multiple lenders for best rates.</div>
+
+            <div class="faq-question">Should I include my spouse's income?</div>
+            <div class="faq-answer">Yes, if both will be on the loan. Combined incomes increase qualification amount. However, both credit scores matter too. If one has poor credit, you might get better terms with just the higher-score borrower (if income suffices).</div>
+
+            <div class="faq-question">What if I have variable income?</div>
+            <div class="faq-answer">Lenders typically average 2 years of variable income (commission, self-employment, bonuses). If declining, they may use lower amount. Stable base salary helps. Document everything with tax returns and 1099s. Some lenders offer bank statement loans for self-employed.</div>
+
+            <div class="faq-question">Are property taxes included in affordability?</div>
+            <div class="faq-answer">Yes, this calculator includes estimated property taxes and insurance in the monthly payment. High-tax areas significantly reduce affordability. Check actual rates for areas you're considering—some states have much higher property taxes than others.</div>
+
+            <div class="faq-question">Can I afford a house while paying student loans?</div>
+            <div class="faq-answer">Yes, but student loans count in your DTI. Income-based repayment plans may help lower monthly debt count. Some lenders use actual payment, others use 1% of balance. FHA recently changed to make it easier for student loan borrowers to qualify.</div>
+
+            <div class="faq-question">What's better: more house or lower payment?</div>
+            <div class="faq-answer">Depends on your priorities. More house may appreciate more, but lower payment gives cash flow flexibility. Consider lifestyle, savings goals, job stability, and how long you'll stay. Don't sacrifice emergency fund or retirement savings for a bigger house.</div>
+
+            <div class="faq-question">Does car payment affect home affordability?</div>
+            <div class="faq-answer">Yes, all monthly debts affect DTI. A $500 car payment reduces your mortgage qualification by roughly $75,000-100,000. Pay off cars before house hunting if possible, or buy house first then car. Every $100 in monthly debt reduces buying power significantly.</div>
+
+            <div class="faq-question">How accurate is this calculator?</div>
+            <div class="faq-answer">This provides a solid estimate based on standard DTI ratios. Actual qualification depends on lender, credit score, specific loan program, and full financial picture. Get pre-approved with a lender for exact numbers. Use this as a starting point for budgeting.</div>
+
+            <div class="faq-question">Should I wait to buy if I can't afford much?</div>
+            <div class="faq-answer">Consider waiting if you'd be stretched thin, if you need to save more down payment, or if your income is likely to increase. But also consider rising home prices and interest rates—waiting costs too. Run numbers both ways. Starter homes are okay—you can upgrade later.</div>
+
+            <div class="faq-question">What about condos and townhomes?</div>
+            <div class="faq-answer">Often more affordable than single-family homes. Factor in HOA fees (counted in DTI) and special assessments. Condos may have stricter lending requirements. Calculate total monthly cost including HOA when comparing to houses. Sometimes the savings make sense.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateAffordability() {
+        const annualIncome = parseFloat(document.getElementById('annualIncome').value) || 0;
+        const monthlyDebt = parseFloat(document.getElementById('monthlyDebt').value) || 0;
+        const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+        const rate = parseFloat(document.getElementById('interestRate').value) || 7;
+        const years = parseInt(document.getElementById('loanTerm').value) || 30;
+        const taxRate = parseFloat(document.getElementById('taxRate').value) || 1.2;
+        const insurance = parseFloat(document.getElementById('insurance').value) || 1200;
+
+        const monthlyIncome = annualIncome / 12;
+        const maxTotalDebt = monthlyIncome * 0.36;
+        const availableForHousing = maxTotalDebt - monthlyDebt;
+        const maxHousingOnly = monthlyIncome * 0.28;
+        const maxHousingPayment = Math.min(availableForHousing, maxHousingOnly);
+
+        const monthlyInsurance = insurance / 12;
+        const maxPI = maxHousingPayment - monthlyInsurance;
+
+        const monthlyRate = rate / 100 / 12;
+        const numPayments = years * 12;
+
+        let maxLoanAmount = 0;
+        if (monthlyRate > 0) {
+            maxLoanAmount = maxPI * (1 - Math.pow(1 + monthlyRate, -numPayments)) / monthlyRate;
+        } else {
+            maxLoanAmount = maxPI * numPayments;
+        }
+
+        const maxHomePrice = maxLoanAmount + downPayment;
+        const downPaymentPercent = (downPayment / maxHomePrice) * 100;
+
+        const finalLoan = maxHomePrice - downPayment;
+        const finalPI = finalLoan * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        const finalTax = (maxHomePrice * taxRate / 100) / 12;
+        const finalTotal = finalPI + finalTax + monthlyInsurance;
+
+        const dti = ((monthlyDebt + finalTotal) / monthlyIncome) * 100;
+
+        document.getElementById('monthlyIncome').textContent = '$' + monthlyIncome.toFixed(2);
+        document.getElementById('currentDebt').textContent = '$' + monthlyDebt.toFixed(2);
+        document.getElementById('dtiRatio').textContent = dti.toFixed(1) + '%';
+        document.getElementById('maxHomePrice').textContent = '$' + maxHomePrice.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('maxLoanAmount').textContent = '$' + finalLoan.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('piPayment').textContent = '$' + finalPI.toFixed(2);
+        document.getElementById('taxPayment').textContent = '$' + finalTax.toFixed(2);
+        document.getElementById('insPayment').textContent = '$' + monthlyInsurance.toFixed(2);
+        document.getElementById('totalPayment').textContent = '$' + finalTotal.toFixed(2);
+    }
+
+    function clearAffordability() {
+        document.getElementById('annualIncome').value = '';
+        document.getElementById('monthlyDebt').value = '';
+        document.getElementById('downPayment').value = '';
+        document.getElementById('interestRate').value = '';
+        document.getElementById('loanTerm').value = '30';
+        document.getElementById('taxRate').value = '';
+        document.getElementById('insurance').value = '';
+        document.getElementById('monthlyIncome').textContent = '$0.00';
+        document.getElementById('currentDebt').textContent = '$0.00';
+        document.getElementById('dtiRatio').textContent = '0%';
+        document.getElementById('maxHomePrice').textContent = '$0.00';
+        document.getElementById('maxLoanAmount').textContent = '$0.00';
+        document.getElementById('piPayment').textContent = '$0.00';
+        document.getElementById('taxPayment').textContent = '$0.00';
+        document.getElementById('insPayment').textContent = '$0.00';
+        document.getElementById('totalPayment').textContent = '$0.00';
+    }
+
+    function copyAffordabilityResults() {
+        const maxHome = document.getElementById('maxHomePrice').textContent;
+        const maxLoan = document.getElementById('maxLoanAmount').textContent;
+        const dti = document.getElementById('dtiRatio').textContent;
+        const total = document.getElementById('totalPayment').textContent;
+        
+        const text = `Home Affordability Results:
+Max Home Price: ${maxHome}
+Max Loan Amount: ${maxLoan}
+DTI Ratio: ${dti}
+Total Monthly Payment: ${total}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Mortgage Qualification Calculator", icon:"fa-clipboard-check", url:"mortgage-qualification-calculator.html"},
+            {name:"Debt to Income Calculator", icon:"fa-calculator", url:"debt-to-income-ratio-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Down Payment Calculator", icon:"fa-piggy-bank", url:"down-payment-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Rent vs Buy Calculator", icon:"fa-balance-scale", url:"rent-vs-buy-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridHA").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

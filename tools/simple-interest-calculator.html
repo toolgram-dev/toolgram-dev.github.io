@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Simple Interest Calculator – Quick Interest Estimator | ToolGram</title>
+    <meta name="description" content="Calculate simple interest on loans and investments. Free online simple interest calculator for quick calculations.">
+    <meta name="keywords" content="simple interest calculator, interest calculator, loan interest calculator, investment interest calculator, simple interest formula">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/simple-interest-calculator.html">
+    <meta property="og:title" content="Simple Interest Calculator | ToolGram">
+    <meta property="og:description" content="Calculate simple interest quickly and easily.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/simple-interest-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Simple Interest Calculator",
+        "description": "Calculate simple interest quickly and easily.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/simple-interest-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Simple Interest", "Interest Calculator", "Loan Interest", "Investment Interest"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .result-box{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-percent"></i></div>
+            <div>
+                <h1 style="margin:0;">Simple Interest Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate interest quickly using the simple interest formula</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Calculate Interest</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Principal Amount ($)</label>
+                        <input type="number" id="principal" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Rate (%)</label>
+                        <input type="number" id="rate" placeholder="5" value="5" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Time Period</label>
+                        <input type="number" id="time" placeholder="3" value="3" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Time Unit</label>
+                        <select id="timeUnit" style="flex:1;">
+                            <option value="years" selected>Years</option>
+                            <option value="months">Months</option>
+                            <option value="days">Days</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateSimpleInterest()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearSimpleInterest()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Results</div>
+                <div class="output-display" id="simpleOutput">
+                    <div class="result-box">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;"><i class="fas fa-calculator"></i> Calculation Results</div>
+                        <div style="margin-bottom:10px;">Interest Earned: <span class="loan-result" id="interestEarned">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Total Amount: <span class="loan-result" id="totalAmount">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Formula: I = P × R × T</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Principal (P):</strong> <span id="calcPrincipal">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Rate (R):</strong> <span id="calcRate">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Time (T):</strong> <span id="calcTime">0 years</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Daily Interest:</strong> <span id="dailyInterest">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Interest:</strong> <span id="monthlyInterest">$0.00</span></div>
+                        <div><strong style="color:#8B5CF6;">Annual Interest:</strong> <span id="annualInterest">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySimpleResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridSI"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Simple Interest?</h3>
+            <p>Simple interest is calculated only on the principal amount. It doesn't compound—meaning you don't earn interest on interest. Formula: I = P × R × T</p>
+            <ul>
+                <li><strong>I =</strong> Interest earned/paid</li>
+                <li><strong>P =</strong> Principal (starting amount)</li>
+                <li><strong>R =</strong> Annual interest rate (as decimal)</li>
+                <li><strong>T =</strong> Time in years</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> When is Simple Interest Used?</h3>
+            <ul>
+                <li><strong>Short-term loans:</strong> Payday loans, some auto loans</li>
+                <li><strong>Savings bonds:</strong> Some government bonds use simple interest</li>
+                <li><strong>Early calculations:</strong> Quick estimates before detailed analysis</li>
+                <li><strong>Education:</strong> Teaching basic interest concepts</li>
+            </ul>
+            <p>Most real-world investments and loans use compound interest for better returns (investments) or higher costs (loans).</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">What's the difference between simple and compound interest?</div>
+            <div class="faq-answer">Simple interest is calculated only on principal. Compound interest is calculated on principal plus accumulated interest. Over time, compound interest generates significantly more. For example, $10,000 at 7% for 30 years: simple interest = $21,000 total; compound interest = $76,123 total.</div>
+
+            <div class="faq-question">Is simple interest better for loans or savings?</div>
+            <div class="faq-answer">Simple interest is better for borrowers—you pay less total interest. For savers/investors, compound interest is vastly superior. If you're offered a simple interest investment at the same rate as compound, the compound option will generate more wealth long-term.</div>
+
+            <div class="faq-question">How do I convert months to years for the formula?</div>
+            <div class="faq-answer">Divide months by 12. For 6 months: T = 6/12 = 0.5 years. For 18 months: T = 18/12 = 1.5 years. This calculator handles the conversion automatically when you select time units.</div>
+
+            <div class="faq-question">Can I calculate simple interest for days?</div>
+            <div class="faq-answer">Yes. Use T = days/365. For 90 days: T = 90/365 = 0.2466 years. Some calculations use 360 days (banker's year). This calculator uses 365 days for accuracy.</div>
+
+            <div class="faq-question">Why don't most investments use simple interest?</div>
+            <div class="faq-answer">Because compound interest benefits both parties more. Investors earn more. Banks and financial institutions prefer compound interest on loans because borrowers pay more over time. Simple interest is rare in modern finance except for specific short-term products.</div>
+
+            <div class="faq-question">What is add-on interest?</div>
+            <div class="faq-answer">Add-on interest is a variation where total interest is calculated upfront and added to principal, then divided into equal payments. Common in auto loans and some personal loans. Effectively charges interest on interest you've already paid, making true cost higher than stated rate.</div>
+
+            <div class="faq-question">How accurate is this calculator?</div>
+            <div class="faq-answer">Mathematically exact for simple interest. However, real-world financial products rarely use pure simple interest. Use this for quick estimates or understanding concepts. For actual loans/investments, use the specific calculator for that product type.</div>
+
+            <div class="faq-question">Can I use this for credit card interest?</div>
+            <div class="faq-answer">No—credit cards use daily compounding, which is much more expensive. Simple interest significantly underestimates credit card costs. Use a credit card payoff calculator for accurate projections. Never carry credit card balances if possible.</div>
+
+            <div class="faq-question">What about simple interest amortization?</div>
+            <div class="faq-answer">Even with simple interest calculation, most loans amortize (pay interest first). Early payments are mostly interest; later payments are mostly principal. This differs from "simple interest loans" where interest is calculated daily on current balance, commonly used for auto loans.</div>
+
+            <div class="faq-question">Why learn simple interest if it's rarely used?</div>
+            <div class="faq-answer">Foundation for understanding compound interest. Quick mental math for estimates. Some specific products still use it. Educational value—understanding basics helps you analyze complex products and spot bad deals. Financial literacy starts with fundamentals.</div>
+
+            <div class="faq-question">Is car loan interest simple or compound?</div>
+            <div class="faq-answer">Most auto loans use simple interest calculated on remaining balance daily. As you pay down principal, interest decreases. Making extra principal payments saves significant interest. This differs from compound interest but also from pure "simple interest" in the educational sense.</div>
+
+            <div class="faq-question">Can simple interest ever beat compound interest?</div>
+            <div class="faq-answer">Only if compound interest rate is significantly lower. Example: 8% simple vs 2% compound—simple wins. But at equal rates, compound always wins long-term. For short periods (under 1 year), the difference is small. Always compare effective annual rates when choosing products.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateSimpleInterest() {
+        const principal = parseFloat(document.getElementById('principal').value) || 0;
+        const rate = parseFloat(document.getElementById('rate').value) || 0;
+        const time = parseFloat(document.getElementById('time').value) || 0;
+        const unit = document.getElementById('timeUnit').value;
+
+        // Convert time to years
+        let timeInYears = time;
+        if (unit === 'months') {
+            timeInYears = time / 12;
+        } else if (unit === 'days') {
+            timeInYears = time / 365;
+        }
+
+        // Calculate simple interest: I = P × R × T
+        const interest = principal * (rate / 100) * timeInYears;
+        const total = principal + interest;
+
+        // Calculate periodic interest amounts
+        const annualInterest = principal * (rate / 100);
+        const monthlyInterest = annualInterest / 12;
+        const dailyInterest = annualInterest / 365;
+
+        document.getElementById('interestEarned').textContent = '$' + interest.toFixed(2);
+        document.getElementById('totalAmount').textContent = '$' + total.toFixed(2);
+        document.getElementById('calcPrincipal').textContent = '$' + principal.toFixed(2);
+        document.getElementById('calcRate').textContent = rate.toFixed(2) + '%';
+        document.getElementById('calcTime').textContent = time + ' ' + unit;
+        document.getElementById('dailyInterest').textContent = '$' + dailyInterest.toFixed(2);
+        document.getElementById('monthlyInterest').textContent = '$' + monthlyInterest.toFixed(2);
+        document.getElementById('annualInterest').textContent = '$' + annualInterest.toFixed(2);
+    }
+
+    function clearSimpleInterest() {
+        document.getElementById('principal').value = '';
+        document.getElementById('rate').value = '';
+        document.getElementById('time').value = '';
+        document.getElementById('timeUnit').value = 'years';
+        document.getElementById('interestEarned').textContent = '$0.00';
+        document.getElementById('totalAmount').textContent = '$0.00';
+        document.getElementById('calcPrincipal').textContent = '$0.00';
+        document.getElementById('calcRate').textContent = '0%';
+        document.getElementById('calcTime').textContent = '0 years';
+        document.getElementById('dailyInterest').textContent = '$0.00';
+        document.getElementById('monthlyInterest').textContent = '$0.00';
+        document.getElementById('annualInterest').textContent = '$0.00';
+    }
+
+    function copySimpleResults() {
+        const interest = document.getElementById('interestEarned').textContent;
+        const total = document.getElementById('totalAmount').textContent;
+        const principal = document.getElementById('calcPrincipal').textContent;
+        
+        const text = `Simple Interest Calculation:
+Principal: ${principal}
+Interest: ${interest}
+Total: ${total}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Compound Interest Calculator", icon:"fa-chart-line", url:"compound-interest-calculator.html"},
+            {name:"Savings Goal Calculator", icon:"fa-bullseye", url:"savings-goal-calculator.html"},
+            {name:"Loan Payment Calculator", icon:"fa-calculator", url:"loan-payment-calculator.html"},
+            {name:"Mortgage Payment Calculator", icon:"fa-home", url:"mortgage-payment-calculator.html"},
+            {name:"Retirement Calculator", icon:"fa-umbrella-beach", url:"retirement-savings-calculator.html"},
+            {name:"Annuity Calculator", icon:"fa-money-bill-wave", url:"annuity-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridSI").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

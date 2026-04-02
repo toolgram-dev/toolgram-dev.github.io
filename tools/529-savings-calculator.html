@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>529 Savings Calculator – College Savings Planner | ToolGram</title>
+    <meta name="description" content="Calculate 529 plan savings for college education. Free online 529 calculator projects future costs and needed contributions.">
+    <meta name="keywords" content="529 savings calculator, college savings calculator, 529 plan calculator, education savings, college fund calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/529-savings-calculator.html">
+    <meta property="og:title" content="529 Savings Calculator | ToolGram">
+    <meta property="og:description" content="Plan your 529 college savings with projected costs and contributions.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/529-savings-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "529 Savings Calculator",
+        "description": "Plan your 529 college savings with projected costs and contributions.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/529-savings-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["529 Plan Calculator", "College Savings", "Education Planning", "529 Contributions"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .college-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div>
+                <h1 style="margin:0;">529 Savings Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Plan for your child's college education</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-child"></i> Student Information</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Age</label>
+                        <input type="number" id="currentAge" placeholder="5" value="5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">College Start Age</label>
+                        <input type="number" id="collegeAge" placeholder="18" value="18" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Years of College</label>
+                        <select id="collegeYears" style="flex:1;">
+                            <option value="2">2 Years (Associate)</option>
+                            <option value="4" selected>4 Years (Bachelor's)</option>
+                            <option value="5">5 Years</option>
+                            <option value="6">6 Years (Master's)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-university"></i> College Costs</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Annual Cost ($)</label>
+                        <input type="number" id="currentCost" placeholder="25000" value="25000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Cost Inflation (%)</label>
+                        <input type="number" id="inflation" placeholder="5" value="5" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Type of School</label>
+                        <select id="schoolType" style="flex:1;">
+                            <option value="15000">Community College ($15k/yr)</option>
+                            <option value="25000" selected>Public In-State ($25k/yr)</option>
+                            <option value="45000">Public Out-of-State ($45k/yr)</option>
+                            <option value="65000">Private University ($65k/yr)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-piggy-bank"></i> Savings Plan</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current 529 Balance ($)</label>
+                        <input type="number" id="currentBalance" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Monthly Contribution ($)</label>
+                        <input type="number" id="monthlyContribution" placeholder:"300" value:"300" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Expected Return (%)</label>
+                        <input type="number" id="expectedReturn" placeholder="6" value="6" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculate529()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clear529()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> 529 Plan Projection</div>
+                <div class="output-display" id="collegeOutput">
+                    <div class="college-box">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-graduation-cap"></i> Future College Costs</div>
+                        <div style="margin-bottom:10px;">Years Until College: <span id="yearsUntil">13</span></div>
+                        <div style="margin-bottom:10px;">Projected Total Cost: <span class="loan-result" id="futureCost">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Annual cost at enrollment: <span id="annualCost">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Projected 529 Value:</strong> <span class="loan-result" id="projectedValue">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Contributions:</strong> <span id="totalContributions">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Investment Growth:</strong> <span id="investmentGrowth">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Savings Gap:</strong> <span id="savingsGap">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">% of Cost Covered:</strong> <span id="percentCovered">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Needed:</strong> <span id="monthlyNeeded">$0.00</span> to cover 100%</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copy529Results()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGrid529"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a 529 Plan?</h3>
+            <p>A 529 plan is a tax-advantaged savings plan designed to encourage saving for future education costs. Named after Section 529 of the Internal Revenue Code, these plans offer significant tax benefits.</p>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+                <li>Earnings grow tax-free when used for qualified education expenses</li>
+                <li>Many states offer tax deductions or credits for contributions</li>
+                <li>No income limits—anyone can contribute</li>
+                <li>High contribution limits (often $300k+ per beneficiary)</li>
+                <li>Can be used for K-12 tuition (up to $10k/year), college, and trade schools</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter child's current age and expected college start age.<br>
+            <strong>Step 2:</strong> Select years of college and school type.<br>
+            <strong>Step 3:</strong> Enter current annual college costs for chosen school type.<br>
+            <strong>Step 4:</strong> Input current 529 balance and monthly contribution.<br>
+            <strong>Step 5:</strong> Set expected investment return (conservative: 5-6%).<br>
+            <strong>Step 6:</strong> Click "Calculate" to see projection and savings gap.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> 529 Plan Strategies</h3>
+            <ul>
+                <li><strong>Start Early:</strong> Contributions at birth have 18 years to grow</li>
+                <li><strong>Superfund:</strong> Contribute up to 5 years of gift tax exclusion at once ($85k per parent in 2024)</li>
+                <li><strong>Automatic Investing:</strong> Set up monthly contributions and increase annually</li>
+                <li><strong>Age-Based Portfolios:</strong> Automatically adjust from aggressive to conservative as college approaches</li>
+                <li><strong>Grandparent Strategy:</strong> Have grandparents contribute to reduce their estate</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">What can 529 funds be used for?</div>
+            <div class="faq-answer">Qualified expenses: tuition, fees, books, supplies, equipment, room and board (half-time or more), computers/internet. K-12 tuition up to $10k/year. Student loan repayment up to $10k lifetime. Apprenticeship programs. Not for: transportation, insurance, sports/clubs, or expenses already covered by tax-free scholarships.</div>
+
+            <div class="faq-question">What if my child doesn't go to college?</div>
+            <div class="faq-answer">Options: 1) Change beneficiary to another family member (sibling, cousin, yourself for grad school), 2) Use for vocational/trade school, 3) Save for potential future education, 4) Withdraw with penalty (earnings taxed + 10% penalty on earnings only, contributions always tax-free). Many options before taking penalty.</div>
+
+            <div class="faq-question">Which state 529 plan should I use?</div>
+            <div class="faq-answer">If your state offers tax deductions/credits for contributions, use that plan to capture the benefit. If no state tax benefit (TX, FL, WA, etc.) or high-income (already get no state benefit), choose based on: low fees, good investment options, age-based portfolios. Popular: Utah, Nevada, New York, California plans.</div>
+
+            <div class="faq-question">How much should I save in a 529?</div>
+            <div class="faq-answer">Aim to cover 1/3 to 1/2 of projected costs through 529 (rest from current income, scholarships, student loans, work-study). Saving full cost often overfunds—student may get scholarships or choose less expensive school. Projected 4-year public in-state 2038 cost: ~$180k-250k; private: ~$350k-500k.</div>
+
+            <div class="faq-question">Can I lose money in a 529?</div>
+            <div class="faq-answer">Yes, if investments decline. Choose age-based portfolios that automatically become more conservative as college approaches—reducing risk when you need the money. Or manually adjust allocation. Near college, should be mostly cash/bonds, not stocks. Historical 529 returns average 5-7% over long term.</div>
+
+            <div class="faq-question">How does 529 affect financial aid?</div>
+            <div class="faq-answer">Parent-owned 529s count as parental asset (5.64% assessment rate in FAFSA formula). Student-owned count as student asset (20% rate)—generally avoid. Grandparent-owned 529s didn't count as asset but distributions counted as student income (50% rate). 2024 FAFSA changes improved this—grandparent distributions no longer hurt aid significantly.</div>
+
+            <div class="faq-question">Should I save in 529 or Roth IRA for college?</div>
+            <div class="faq-answer">529: Better for dedicated college savings, higher contribution limits, possible state tax deduction, no impact on retirement savings. Roth IRA: More flexible (retirement if unused), but using for college hurts retirement. Best strategy: Max Roth IRA for retirement first, then 529 for college. Don't sacrifice retirement for college savings.</div>
+
+            <div class="faq-question">Can I use 529 for private K-12?</div>
+            <div class="faq-answer">Yes, up to $10,000 per year for K-12 tuition at private, public, or religious schools (federal law). However, state tax benefits vary—some states treat K-12 withdrawals as non-qualified. Check your state rules. Also, using for K-12 reduces funds available for college.</div>
+
+            <div class="faq-question">What are the contribution limits?</div>
+            <div class="faq-answer">No annual federal limit, but contributions over $18k/year (2024 gift limit) may trigger gift tax considerations. You can "superfund"—contribute 5 years of gift exclusion at once ($85k single, $170k married) with no gift tax. Aggregate limits vary by state (typically $300k-$550k per beneficiary).</div>
+
+            <div class="faq-question">What fees should I watch for?</div>
+            <div class="faq-answer">Look for: program management fees (0.10%-0.50%), fund expense ratios (0.05%-0.75%), and account maintenance fees (often waived with automatic investing or higher balances). Low-cost direct-sold plans typically 0.15%-0.50% total. Broker-sold plans may add 1-5% loads—avoid these.</div>
+
+            <div class="faq-question">What if I have multiple children?</div>
+            <div class="faq-answer">Open separate 529 for each to track individually. Can change beneficiary between siblings with no penalty. If age gap is small, consider aggressive growth for younger one. If large gap, fund older child's plan first, then redirect to younger after older starts college.</div>
+
+            <div class="faq-question">Is a 529 worth it if my child might get scholarships?</div>
+            <div class="faq-answer">Yes. Scholarships reduce need, but 529 funds can still cover room/board, books, computers—often not covered by scholarships. Plus, 529 allows penalty-free withdrawal of scholarship amount (earnings taxed but no 10% penalty). It's insurance—you'd rather have it and not need full amount than need it and not have it.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculate529() {
+        const currentAge = parseInt(document.getElementById('currentAge').value) || 0;
+        const collegeAge = parseInt(document.getElementById('collegeAge').value) || 18;
+        const collegeYears = parseInt(document.getElementById('collegeYears').value) || 4;
+        const currentCost = parseFloat(document.getElementById('currentCost').value) || 0;
+        const inflation = parseFloat(document.getElementById('inflation').value) || 0;
+        const currentBalance = parseFloat(document.getElementById('currentBalance').value) || 0;
+        const monthlyContrib = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+        const expectedReturn = parseFloat(document.getElementById('expectedReturn').value) || 0;
+
+        const yearsUntil = Math.max(0, collegeAge - currentAge);
+
+        // Calculate future cost with inflation
+        let futureAnnualCost = currentCost * Math.pow(1 + inflation/100, yearsUntil);
+        let totalFutureCost = 0;
+        for (let i = 0; i < collegeYears; i++) {
+            totalFutureCost += futureAnnualCost * Math.pow(1 + inflation/100, i);
+        }
+
+        // Calculate 529 growth
+        let balance = currentBalance;
+        let totalContributions = currentBalance;
+        const monthlyRate = (expectedReturn / 100) / 12;
+
+        for (let month = 0; month < yearsUntil * 12; month++) {
+            balance = (balance + monthlyContrib) * (1 + monthlyRate);
+            totalContributions += monthlyContrib;
+        }
+
+        const investmentGrowth = balance - totalContributions;
+        const gap = Math.max(0, totalFutureCost - balance);
+        const percentCovered = totalFutureCost > 0 ? (balance / totalFutureCost) * 100 : 0;
+
+        // Calculate monthly needed to cover 100%
+        let monthlyNeeded = 0;
+        if (yearsUntil > 0 && expectedReturn > 0) {
+            const months = yearsUntil * 12;
+            const rate = expectedReturn / 100 / 12;
+            const futureValueNeeded = Math.max(0, totalFutureCost - (currentBalance * Math.pow(1 + rate, months)));
+            monthlyNeeded = futureValueNeeded * rate / (Math.pow(1 + rate, months) - 1);
+            if (!isFinite(monthlyNeeded) || monthlyNeeded < 0) monthlyNeeded = 0;
+        } else if (yearsUntil > 0) {
+            monthlyNeeded = (totalFutureCost - currentBalance) / (yearsUntil * 12);
+        }
+
+        document.getElementById('yearsUntil').textContent = yearsUntil;
+        document.getElementById('futureCost').textContent = '$' + totalFutureCost.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('annualCost').textContent = '$' + futureAnnualCost.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('projectedValue').textContent = '$' + balance.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('totalContributions').textContent = '$' + totalContributions.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('investmentGrowth').textContent = '$' + investmentGrowth.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('savingsGap').textContent = '$' + gap.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('percentCovered').textContent = percentCovered.toFixed(1) + '%';
+        document.getElementById('monthlyNeeded').textContent = '$' + monthlyNeeded.toFixed(2);
+    }
+
+    function clear529() {
+        document.getElementById('currentAge').value = '';
+        document.getElementById('collegeAge').value = '';
+        document.getElementById('collegeYears').value = '4';
+        document.getElementById('currentCost').value = '';
+        document.getElementById('inflation').value = '';
+        document.getElementById('schoolType').value = '25000';
+        document.getElementById('currentBalance').value = '';
+        document.getElementById('monthlyContribution').value = '';
+        document.getElementById('expectedReturn').value = '';
+        document.getElementById('yearsUntil').textContent = '0';
+        document.getElementById('futureCost').textContent = '$0.00';
+        document.getElementById('annualCost').textContent = '$0.00';
+        document.getElementById('projectedValue').textContent = '$0.00';
+        document.getElementById('totalContributions').textContent = '$0.00';
+        document.getElementById('investmentGrowth').textContent = '$0.00';
+        document.getElementById('savingsGap').textContent = '$0.00';
+        document.getElementById('percentCovered').textContent = '0%';
+        document.getElementById('monthlyNeeded').textContent = '$0.00';
+    }
+
+    function copy529Results() {
+        const futureCost = document.getElementById('futureCost').textContent;
+        const projected = document.getElementById('projectedValue').textContent;
+        const covered = document.getElementById('percentCovered').textContent;
+        
+        const text = `529 Savings Plan Results:
+Future College Cost: ${futureCost}
+Projected 529 Value: ${projected}
+Percent Covered: ${covered}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    // Update cost when school type changes
+    document.getElementById('schoolType').addEventListener('change', function() {
+        document.getElementById('currentCost').value = this.value;
+    });
+
+    function loadRelated() {
+        const tools = [
+            {name:"College Savings Calculator", icon:"fa-university", url:"college-savings-calculator.html"},
+            {name:"Savings Goal Calculator", icon:"fa-bullseye", url:"savings-goal-calculator.html"},
+            {name:"Compound Interest Calculator", icon:"fa-chart-line", url:"compound-interest-calculator.html"},
+            {name:"Retirement Calculator", icon:"fa-umbrella-beach", url:"retirement-savings-calculator.html"},
+            {name:"Student Loan Calculator", icon:"fa-graduation-cap", url:"student-loan-calculator.html"},
+            {name:"Emergency Fund Calculator", icon:"fa-shield-alt", url:"emergency-fund-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGrid529").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

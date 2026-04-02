@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>College Savings Calculator – Education Funding Planner | ToolGram</title>
+    <meta name="description" content="Calculate college savings needs and monthly contributions. Free online college savings calculator with cost projections.">
+    <meta name="keywords" content="college savings calculator, education savings calculator, college fund calculator, university savings, tuition calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/college-savings-calculator.html">
+    <meta property="og:title" content="College Savings Calculator | ToolGram">
+    <meta property="og:description" content="Plan your college savings with projected costs and monthly contributions.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/college-savings-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "College Savings Calculator",
+        "description": "Plan your college savings with projected costs and monthly contributions.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/college-savings-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["College Savings", "Education Planning", "Tuition Calculator", "College Fund"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .college-box{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-university"></i></div>
+            <div>
+                <h1 style="margin:0;">College Savings Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Plan for higher education costs</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-user-graduate"></i> Student & School</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Years Until College</label>
+                        <input type="number" id="yearsUntil" placeholder="10" value="10" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Years of College</label>
+                        <select id="collegeYears" style="flex:1;">
+                            <option value="2">2 Years (Associate)</option>
+                            <option value="4" selected>4 Years (Bachelor's)</option>
+                            <option value="5">5 Years</option>
+                            <option value="6">6 Years (Master's)</option>
+                            <option value="8">8 Years (Doctorate)</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">School Type</label>
+                        <select id="schoolType" style="flex:1;">
+                            <option value="15000">Community College ($15k/yr)</option>
+                            <option value="25000" selected>Public In-State ($25k/yr)</option>
+                            <option value="45000">Public Out-of-State ($45k/yr)</option>
+                            <option value="65000">Private University ($65k/yr)</option>
+                        </select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Expected Scholarships ($)</label>
+                        <input type="number" id="scholarships" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-dollar-sign"></i> Savings Plan</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Savings ($)</label>
+                        <input type="number" id="currentSavings" placeholder="15000" value="15000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Monthly Contribution ($)</label>
+                        <input type="number" id="monthlyContribution" placeholder="300" value="300" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Return (%)</label>
+                        <input type="number" id="annualReturn" placeholder="6" value="6" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Cost Inflation (%)</label>
+                        <input type="number" id="costInflation" placeholder:"5" value:"5" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateCollegeSavings()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearCollegeSavings()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> College Savings Plan</div>
+                <div class="output-display" id="collegeSavingsOutput">
+                    <div class="college-box">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;"><i class="fas fa-university"></i> Projected College Costs</div>
+                        <div style="margin-bottom:10px;">Future Annual Cost: <span id="futureAnnualCost">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Total 4-Year Cost: <span class="loan-result" id="totalCollegeCost">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Less Scholarships: <span id="netCost">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Projected Savings:</strong> <span class="loan-result" id="projectedSavings">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Contributions:</strong> <span id="totalContributions">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Investment Earnings:</strong> <span id="investmentEarnings">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Shortfall:</strong> <span id="shortfall">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Percent Funded:</strong> <span id="percentFunded">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Needed:</strong> <span id="monthlyNeeded">$0.00</span> (to fully fund)</div>
+                        <div><strong style="color:#8B5CF6;">Lump Sum Needed Now:</strong> <span id="lumpSumNeeded">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyCollegeSavingsResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridCS"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Planning for College Costs</h3>
+            <p>College costs have risen faster than inflation for decades. Proper planning requires understanding not just current costs, but future costs when your child attends.</p>
+            <p>Key factors: current annual cost (tuition + room/board), years of education, inflation rate (historically 5-8% for college), and your savings timeline. Starting early makes a dramatic difference.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter years until college starts.<br>
+            <strong>Step 2:</strong> Select years of college and school type.<br>
+            <strong>Step 3:</strong> Estimate expected scholarships/grants.<br>
+            <strong>Step 4:</strong> Input current college savings.<br>
+            <strong>Step 5:</strong> Set monthly contribution amount.<br>
+            <strong>Step 6:</strong> Adjust expected return and inflation.<br>
+            <strong>Step 7:</strong> Click "Calculate" to see funding status.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> College Funding Strategies</h3>
+            <ul>
+                <li><strong>Start Early:</strong> Birth is ideal—18 years of compound growth</li>
+                <li><strong>Use 529 Plans:</strong> Tax-free growth for education expenses</li>
+                <li><strong>Aim for 1/3 Rule:</strong> Save 1/3, fund 1/3 from current income, borrow 1/3</li>
+                <li><strong>Superfund:</strong> Front-load 529 with 5 years of contributions</li>
+                <li><strong>Scholarship Search:</strong> Apply broadly—every dollar reduces savings needed</li>
+                <li><strong>Consider Community College:</strong> 2 years at CC + 2 years at university saves 40%+</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">How much will college cost in the future?</div>
+            <div class="faq-answer">With 5% annual inflation, costs double roughly every 14 years. If current public in-state is $25k/year, in 18 years expect ~$60k/year. 4-year total: ~$270k. Private schools: potentially $500k+. These projections help you understand why early, consistent saving is crucial.</div>
+
+            <div class="faq-question">Should I save for full college cost?</div>
+            <div class="faq-answer">Not necessarily. Many families target 1/3 to 1/2 of projected costs through savings. Rest comes from: current cash flow during college years, student working part-time, scholarships/grants, and reasonable student loans. Saving full amount may overfund if student gets aid or chooses cheaper school.</div>
+
+            <div class="faq-question">What if I haven't started saving yet?</div>
+            <div class="faq-answer">Start now—better late than never. If child is already in high school: 1) Maximize current savings rate, 2) Consider less expensive college options, 3) Research merit aid heavily, 4) Student can work and contribute, 5) Parent PLUS or private loans bridge gap. Don't give up—you can still make meaningful contributions.</div>
+
+            <div class="faq-question">Are student loans bad?</div>
+            <div class="faq-answer">Not inherently. Federal student loans have protections (income-driven repayment, forgiveness options). "Reasonable" debt: total borrowing less than first-year expected salary. Problematic: private loans with high rates, or total debt exceeding $50-100k without high-income career path. Use loans strategically, not as primary funding.</div>
+
+            <div class="faq-question">What about community college?</div>
+            <div class="faq-answer">Smart strategy for many. Average CC cost: $3,500/year vs $25,000+ at university. Two years at CC then transfer to university = same degree for ~$50k less. Living at home during CC adds more savings. Many states have guaranteed transfer agreements to state universities.</div>
+
+            <div class="faq-question">How do I balance retirement vs college savings?</div>
+            <div class="faq-answer">Retirement comes first—you can't borrow for retirement, but kids can borrow for college. Max retirement accounts first (especially employer match), then fund college savings. A secure retirement helps your kids more than paying for college and becoming dependent on them later. Secure your mask first, then help others.</div>
+
+            <div class="faq-question">Should my child contribute to college costs?</div>
+            <div class="faq-answer">Yes—students with "skin in the game" often take education more seriously. Student contributions: summer/semester earnings (maybe $2-5k/year), part-time work during school (10-15 hrs/week), applying for scholarships aggressively. Having student pay some costs teaches financial responsibility.</div>
+
+            <div class="faq-question">What if we over-save?</div>
+            <div class="faq-answer">Good problem to have. Options: 1) Use for graduate school, 2) Transfer to another family member (sibling, cousin, yourself), 3) Keep for future grandchildren, 4) Withdraw with penalty (earnings taxed + 10% penalty—only on earnings, not contributions). It's insurance—you'd rather have too much than too little.</div>
+
+            <div class="faq-question">How do scholarships affect savings?</div>
+            <div class="faq-answer">Reduce savings target! Every scholarship dollar is a dollar you don't need to save or borrow. Encourage your student to apply broadly—small scholarships add up. Merit aid is often automatic based on test scores/GPA. Private scholarships require applications but can be substantial.</div>
+
+            <div class="faq-question">Is private college worth the extra cost?</div>
+            <div class="faq-answer">Sometimes. Elite privates may offer better aid (meeting full need), smaller classes, stronger alumni networks. But for many careers, state university is just as good. ROI matters: $300k debt for teaching degree = bad decision; for top-tier consulting/medicine = maybe worth it. Compare outcomes, not just prestige.</div>
+
+            <div class="faq-question">What about trade school?</div>
+            <div class="faq-answer">Excellent option often overlooked. Electricians, plumbers, welders, HVAC techs earn $50k-80k+ with minimal debt (often under $15k). Many apprenticeships pay while you learn. ROI often better than 4-year degree. Don't assume college is only path—trade careers offer job security and good income.</div>
+
+            <div class="faq-question">Should we consider gap year?</div>
+            <div class="faq-answer">Can be smart—earn money, gain maturity, clarify goals. Research shows students who take gap year often perform better in college. Structure it: work, intern, volunteer, travel with purpose. Not just sitting at home. Can also save more for college during that year.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateCollegeSavings() {
+        const yearsUntil = parseInt(document.getElementById('yearsUntil').value) || 0;
+        const collegeYears = parseInt(document.getElementById('collegeYears').value) || 4;
+        const annualCost = parseFloat(document.getElementById('schoolType').value) || 0;
+        const scholarships = parseFloat(document.getElementById('scholarships').value) || 0;
+        const currentSavings = parseFloat(document.getElementById('currentSavings').value) || 0;
+        const monthlyContrib = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+        const annualReturn = parseFloat(document.getElementById('annualReturn').value) || 0;
+        const inflation = parseFloat(document.getElementById('costInflation').value) || 0;
+
+        // Calculate future costs
+        const futureAnnual = annualCost * Math.pow(1 + inflation/100, yearsUntil);
+        let totalCost = 0;
+        for (let i = 0; i < collegeYears; i++) {
+            totalCost += futureAnnual * Math.pow(1 + inflation/100, i);
+        }
+        const netCost = Math.max(0, totalCost - scholarships);
+
+        // Calculate savings growth
+        let balance = currentSavings;
+        let totalContributions = currentSavings;
+        const monthlyRate = (annualReturn / 100) / 12;
+
+        for (let month = 0; month < yearsUntil * 12; month++) {
+            balance = (balance + monthlyContrib) * (1 + monthlyRate);
+            totalContributions += monthlyContrib;
+        }
+
+        const earnings = balance - totalContributions;
+        const shortfall = Math.max(0, netCost - balance);
+        const percentFunded = netCost > 0 ? (balance / netCost) * 100 : 0;
+
+        // Calculate monthly needed to fully fund
+        let monthlyNeeded = 0;
+        if (yearsUntil > 0 && annualReturn > 0) {
+            const months = yearsUntil * 12;
+            const rate = annualReturn / 100 / 12;
+            const needed = Math.max(0, netCost - (currentSavings * Math.pow(1 + rate, months)));
+            monthlyNeeded = needed * rate / (Math.pow(1 + rate, months) - 1);
+            if (!isFinite(monthlyNeeded) || monthlyNeeded < 0) monthlyNeeded = 0;
+        } else if (yearsUntil > 0) {
+            monthlyNeeded = (netCost - currentSavings) / (yearsUntil * 12);
+        }
+
+        // Lump sum needed now
+        const lumpSum = netCost / Math.pow(1 + annualReturn/100, yearsUntil);
+
+        document.getElementById('futureAnnualCost').textContent = '$' + futureAnnual.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('totalCollegeCost').textContent = '$' + totalCost.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('netCost').textContent = '$' + netCost.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('projectedSavings').textContent = '$' + balance.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('totalContributions').textContent = '$' + totalContributions.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('investmentEarnings').textContent = '$' + earnings.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('shortfall').textContent = '$' + shortfall.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById('percentFunded').textContent = percentFunded.toFixed(1) + '%';
+        document.getElementById('monthlyNeeded').textContent = '$' + monthlyNeeded.toFixed(2);
+        document.getElementById('lumpSumNeeded').textContent = '$' + lumpSum.toLocaleString(undefined, {maximumFractionDigits: 0});
+    }
+
+    function clearCollegeSavings() {
+        document.getElementById('yearsUntil').value = '';
+        document.getElementById('collegeYears').value = '4';
+        document.getElementById('schoolType').value = '25000';
+        document.getElementById('scholarships').value = '';
+        document.getElementById('currentSavings').value = '';
+        document.getElementById('monthlyContribution').value = '';
+        document.getElementById('annualReturn').value = '';
+        document.getElementById('costInflation').value = '';
+        document.getElementById('futureAnnualCost').textContent = '$0.00';
+        document.getElementById('totalCollegeCost').textContent = '$0.00';
+        document.getElementById('netCost').textContent = '$0.00';
+        document.getElementById('projectedSavings').textContent = '$0.00';
+        document.getElementById('totalContributions').textContent = '$0.00';
+        document.getElementById('investmentEarnings').textContent = '$0.00';
+        document.getElementById('shortfall').textContent = '$0.00';
+        document.getElementById('percentFunded').textContent = '0%';
+        document.getElementById('monthlyNeeded').textContent = '$0.00';
+        document.getElementById('lumpSumNeeded').textContent = '$0.00';
+    }
+
+    function copyCollegeSavingsResults() {
+        const totalCost = document.getElementById('totalCollegeCost').textContent;
+        const savings = document.getElementById('projectedSavings').textContent;
+        const funded = document.getElementById('percentFunded').textContent;
+        
+        const text = `College Savings Plan Results:
+Total College Cost: ${totalCost}
+Projected Savings: ${savings}
+Percent Funded: ${funded}`;
+        
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    // Update cost when school type changes
+    document.getElementById('schoolType').addEventListener('change', function() {
+        // Just update display, don't auto-calculate
+    });
+
+    function loadRelated() {
+        const tools = [
+            {name:"529 Savings Calculator", icon:"fa-graduation-cap", url:"529-savings-calculator.html"},
+            {name:"Student Loan Calculator", icon:"fa-graduation-cap", url:"student-loan-calculator.html"},
+            {name:"Savings Goal Calculator", icon:"fa-bullseye", url:"savings-goal-calculator.html"},
+            {name:"Compound Interest Calculator", icon:"fa-chart-line", url:"compound-interest-calculator.html"},
+            {name:"Retirement Calculator", icon:"fa-umbrella-beach", url:"retirement-savings-calculator.html"},
+            {name:"Emergency Fund Calculator", icon:"fa-shield-alt", url:"emergency-fund-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridCS").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
