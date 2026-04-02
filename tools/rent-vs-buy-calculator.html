@@ -55,7 +55,15 @@
         .rent-box{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
         .buy-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
         .winner-box{background:rgba(139,92,246,0.2);border:1px solid rgba(139,92,246,0.5);border-radius:8px;padding:12px;margin-top:10px}
-        @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
     </style>
 </head>
 <body>
