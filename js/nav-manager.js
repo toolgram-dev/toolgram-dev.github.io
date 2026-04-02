@@ -2,6 +2,9 @@
 class NavManager {
     static async loadNavigation() {
         try {
+            // Load Google Analytics 4 (add this line FIRST)
+             this.loadGA4();
+            
             // Load AADS Banner (only on tool pages)
             this.loadAADSBanner();
             
@@ -144,7 +147,27 @@ class NavManager {
         script.setAttribute('data-cfasync', 'false');
         document.body.appendChild(script);
     }
+    // Google Analytics 4
+static loadGA4() {
+    if (document.getElementById('ga4-script')) return;
     
+    const measurementId = 'G-85J58HNKQL'; // Replace with your actual GA4 ID
+    
+    const script = document.createElement('script');
+    script.id = 'ga4-script';
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    script.async = true;
+    document.head.appendChild(script);
+    
+    const initScript = document.createElement('script');
+    initScript.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${measurementId}');
+    `;
+    document.head.appendChild(initScript);
+}
     static initializeSearch(isToolPage) {
         const searchInput = document.getElementById('nav-search');
         const searchResults = document.getElementById('search-results');
