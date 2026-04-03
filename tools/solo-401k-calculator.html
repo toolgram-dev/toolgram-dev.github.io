@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Solo 401k Calculator – Self-Employed Retirement | ToolGram</title>
+    <meta name="description" content="Calculate Solo 401k contributions for self-employed with no employees. Free online Solo 401k calculator with employee deferral and employer profit sharing up to $69,000.">
+    <meta name="keywords" content="Solo 401k calculator, self-employed 401k, individual 401k, retirement calculator, self-employed retirement">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/solo-401k-calculator.html">
+    <meta property="og:title" content="Solo 401k Calculator | ToolGram">
+    <meta property="og:description" content="Calculate Solo 401k contributions for self-employed with employee deferral and profit sharing.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/solo-401k-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Solo 401k Calculator",
+        "description": "Calculate Solo 401k contributions for self-employed with employee deferral and profit sharing.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/solo-401k-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Solo 401k Contributions", "Employee Deferral", "Employer Profit Sharing", "Self-Employed Retirement"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .solo-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-user-tie"></i></div>
+            <div>
+                <h1 style="margin:0;">Solo 401k Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">For self-employed with no employees</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Business Income</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Net Business Income ($)</label><input type="number" id="businessIncome" placeholder="150000" value="150000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Self-Employment Tax ($)</label><input type="number" id="seTax" placeholder="21195" value="21195" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Age</label><input type="number" id="currentAge" placeholder="40" value="40" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Retirement Age</label><input type="number" id="retirementAge" placeholder="65" value="65" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-percent"></i> Contribution Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Balance ($)</label><input type="number" id="currentBalance" placeholder="100000" value="100000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Employee Deferral ($)</label><input type="number" id="employeeDeferral" placeholder="23000" value="23000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Employer % (max 25%)</label><input type="number" id="employerRate" placeholder="20" value="20" max="25" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Expected Return (%)</label><input type="number" id="expectedReturn" placeholder="7" value="7" step="0.5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateSolo()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearSolo()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Solo 401k Projection</div>
+                <div class="output-display" id="outputSolo">
+                    <div class="solo-box">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-user-tie"></i> Annual Contributions</div>
+                        <div style="margin-bottom:10px;">Employee: <span id="employeeContrib">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Employer: <span id="employerContrib">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Total: <span class="loan-result" id="totalContrib">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Projected Balance:</strong> <span class="loan-result" id="finalBalance">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Years:</strong> <span id="yearsInvesting">25</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Contributed:</strong> <span id="totalContributions">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Growth:</strong> <span id="growthTotal">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">2024 Limits:</strong> $69,000 ($76,500 if 50+)</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Tax Deduction:</strong> <span id="taxDeduction">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySoloResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridSolo"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Solo 401k?</h3>
+            <p>A Solo 401k (also called Individual 401k or Self-Employed 401k) is a retirement plan designed for self-employed individuals and business owners with no full-time employees other than a spouse. It combines the features of an employer 401k and allows you to contribute both as an employee and employer, potentially reaching higher contribution limits than other self-employed retirement options.</p>
+            <p>As both employee and employer of your business, you can make two types of contributions: Elective deferrals (employee contribution) up to $23,000, plus employer non-elective contributions (profit sharing) of up to 25% of compensation. Total combined contributions can reach $69,000 in 2024 ($76,500 if age 50+), making Solo 401k the most powerful retirement savings tool for high-earning self-employed individuals.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your net business income (revenue minus expenses).<br>
+            <strong>Step 2:</strong> Input self-employment tax paid (approximately 15.3% of 92.35% of net earnings).<br>
+            <strong>Step 3:</strong> Enter your current age and planned retirement age.<br>
+            <strong>Step 4:</strong> Input current Solo 401k balance (if any).<br>
+            <strong>Step 5:</strong> Set employee deferral amount (up to $23,000 for 2024, $30,500 if 50+).<br>
+            <strong>Step 6:</strong> Enter employer contribution percentage (up to 25% of compensation).<br>
+            <strong>Step 7:</strong> Set expected annual return and click "Calculate" to see projections.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Solo 401k Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Maximize Both Contributions:</strong> Contribute the full $23,000 employee deferral plus 25% employer contribution for maximum savings</li>
+                <li><strong>Roth Option:</strong> Many Solo 401k providers offer Roth contributions—consider tax diversification</li>
+                <li><strong>Catch-Up at 50+:</strong> Additional $7,500 catch-up contribution on top of the $69,000 limit</li>
+                <li><strong>Loan Feature:</strong> Solo 401k allows borrowing up to $50,000 or 50% of balance—useful for emergencies</li>
+                <li><strong>Spousal Contributions:</strong> If your spouse works in the business, they can also contribute up to $69,000</li>
+                <li><strong>Deadline Flexibility:</strong> Employee deferrals must be made by Dec 31, but employer contributions can be made until tax filing deadline including extensions</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">Who qualifies for a Solo 401k?</div>
+            <div class="faq-answer">You qualify if: You're self-employed or a business owner, you have no full-time employees (working 1,000+ hours/year) other than yourself and your spouse, you have self-employment income. Independent contractors, sole proprietors, LLC owners, and corporation owners with no employees all qualify. Once you hire full-time non-owner employees, you must switch to a different plan (like regular 401k or Simple IRA).</div>
+
+            <div class="faq-question">What are the Solo 401k contribution limits?</div>
+            <div class="faq-answer">2024 limits: Employee elective deferrals up to $23,000 ($30,500 if age 50+ including catch-up). Employer non-elective contributions up to 25% of compensation (20% for self-employed after SE tax adjustment). Total combined cannot exceed $69,000 ($76,500 if 50+). For example, with $150,000 income: $23,000 employee + ~$25,000 employer = ~$48,000 total. With $300,000 income, you could reach the full $69,000.</div>
+
+            <div class="faq-question">How are contributions calculated?</div>
+            <div class="faq-answer">Employee deferrals: Up to $23,000 of earned income (wages or net self-employment income). Employer contributions: For corporations, up to 25% of W-2 wages. For self-employed, it's a circular calculation: Net earnings minus 1/2 SE tax minus employer contribution equals compensation. Effective rate is approximately 20% of net self-employment income after the 1/2 SE tax deduction. Use this calculator to determine your exact maximum.</div>
+
+            <div class="faq-question">What's the deadline for Solo 401k contributions?</div>
+            <div class="faq-answer">Employee deferrals: Must be made by December 31 of the tax year. Employer contributions: Can be made until the business tax filing deadline including extensions (typically April 15 or October 15 for sole proprietors). Important: You must formally establish the Solo 401k plan by December 31 to make contributions for that year, even if you fund it later.</div>
+
+            <div class="faq-question">Can I take a loan from my Solo 401k?</div>
+            <div class="faq-answer">Yes, one major advantage over SEP IRA. You can borrow up to 50% of your vested account balance or $50,000, whichever is less. Loan must be repaid within 5 years (or longer if used to purchase primary residence) with payments at least quarterly. Interest rate must be reasonable (typically prime rate + 1-2%). Not all providers offer loan features—check before opening if this matters to you.</div>
+
+            <div class="faq-question">Should I choose Solo 401k or SEP IRA?</div>
+            <div class="faq-answer">Choose Solo 401k for: Higher contribution potential at lower income levels, Roth option, loan feature, catch-up contributions at 50+, spouse contributions. Choose SEP IRA for: Ultimate simplicity, no annual Form 5500 filing when assets exceed $250,000, easier setup with many providers. General rule: If you can max out the Solo 401k, it's usually the better choice. Many self-employed individuals graduate from SEP to Solo 401k as income grows.</div>
+
+            <div class="faq-question">Do I have to file annual reports?</div>
+            <div class="faq-answer">Unlike SEP IRAs, Solo 401ks require annual IRS Form 5500-EZ filing once plan assets exceed $250,000. Below that threshold, no filing required. Form 5500-EZ is relatively simple compared to corporate 401k filings, but it's an additional requirement. Due annually by last day of 7th month after plan year ends (July 31 for calendar year plans). Most Solo 401k providers help with this or offer filing services.</div>
+
+            <div class="faq-question">Can I have both Solo 401k and a regular job 401k?</div>
+            <div class="faq-answer">Yes. Employee deferral limits ($23,000) apply per-person across all plans, so your total employee contributions to both plans can't exceed $23,000. However, employer contributions are separate per employer. If you have a W-2 job with 401k and side business with Solo 401k, you could contribute $23,000 total as employee across both, plus employer contributions from each business separately.</div>
+
+            <div class="faq-question">What happens if I hire employees?</div>
+            <div class="faq-answer">Solo 401k is only for owner-only businesses. Once you hire full-time employees (other than spouse), you generally must terminate the Solo 401k by the end of that year and transition to a traditional 401k or other eligible plan. Some part-time workers under 1,000 hours/year don't disqualify you. Plan ahead if business growth may lead to hiring employees.</div>
+
+            <div class="faq-question">How do I set up a Solo 401k?</div>
+            <div class="faq-answer">Steps: 1) Choose a provider (brokerages like Fidelity, Schwab, Vanguard; or specialized Solo 401k providers for checkbook control), 2) Complete plan documents (adoption agreement, basic plan document), 3) Open accounts, 4) Make contributions by deadlines, 5) File Form 5500-EZ annually when assets exceed $250,000. Many providers offer pre-approved prototype plans that simplify setup. Process typically takes 1-2 weeks.</div>
+
+            <div class="faq-question">What investment options are available?</div>
+            <div class="faq-answer">Depends on your provider. Brokerage-based Solo 401ks offer stocks, bonds, mutual funds, ETFs. Specialized providers allow "checkbook control" for real estate, private investments, precious metals, notes, and more. You serve as trustee and have full control. Unlike regular 401ks with employer-selected menus, Solo 401k typically offers unlimited investment flexibility. Choose based on your investment knowledge and goals.</div>
+
+            <div class="faq-question">Are Roth Solo 401k contributions allowed?</div>
+            <div class="faq-answer">Yes, many Solo 401k providers offer Roth options for employee deferrals (not employer contributions, which are always pre-tax). Roth contributions are after-tax but grow tax-free. 2024 Roth contribution limit is $23,000 (same as traditional deferral). Combined Roth + Traditional deferrals can't exceed $23,000. Consider splitting contributions for tax diversification, especially if you expect higher taxes in retirement.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateSolo() {
+        const businessIncome = parseFloat(document.getElementById('businessIncome').value) || 0;
+        const seTax = parseFloat(document.getElementById('seTax').value) || 0;
+        const currentAge = parseInt(document.getElementById('currentAge').value) || 0;
+        const retirementAge = parseInt(document.getElementById('retirementAge').value) || 65;
+        const currentBalance = parseFloat(document.getElementById('currentBalance').value) || 0;
+        const employeeDeferral = parseFloat(document.getElementById('employeeDeferral').value) || 0;
+        const employerRate = parseFloat(document.getElementById('employerRate').value) || 0;
+        const expectedReturn = parseFloat(document.getElementById('expectedReturn').value) || 0;
+
+        const years = Math.max(0, retirementAge - currentAge);
+        const netEarnings = businessIncome - (seTax / 2);
+        const maxEmployee = Math.min(employeeDeferral, 23000); // 2024 limit
+        const maxEmployer = Math.min(netEarnings * (employerRate / 100), 69000 - maxEmployee);
+        const totalAnnual = maxEmployee + maxEmployer;
+
+        let balance = currentBalance;
+        let totalContrib = currentBalance;
+        const monthlyRate = (expectedReturn / 100) / 12;
+        const monthlyContrib = totalAnnual / 12;
+
+        for (let month = 0; month < years * 12; month++) {
+            balance = (balance + monthlyContrib) * (1 + monthlyRate);
+            totalContrib += monthlyContrib;
+        }
+
+        const growth = balance - totalContrib;
+
+        document.getElementById('employeeContrib').textContent = '$' + maxEmployee.toLocaleString();
+        document.getElementById('employerContrib').textContent = '$' + maxEmployer.toLocaleString();
+        document.getElementById('totalContrib').textContent = '$' + totalAnnual.toLocaleString();
+        document.getElementById('finalBalance').textContent = '$' + balance.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('yearsInvesting').textContent = years;
+        document.getElementById('totalContributions').textContent = '$' + totalContrib.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('growthTotal').textContent = '$' + growth.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('taxDeduction').textContent = '$' + totalAnnual.toLocaleString();
+    }
+
+    function clearSolo() {
+        document.getElementById('businessIncome').value = '';
+        document.getElementById('seTax').value = '';
+        document.getElementById('currentAge').value = '';
+        document.getElementById('retirementAge').value = '';
+        document.getElementById('currentBalance').value = '';
+        document.getElementById('employeeDeferral').value = '';
+        document.getElementById('employerRate').value = '';
+        document.getElementById('expectedReturn').value = '';
+        document.getElementById('employeeContrib').textContent = '$0.00';
+        document.getElementById('employerContrib').textContent = '$0.00';
+        document.getElementById('totalContrib').textContent = '$0.00';
+        document.getElementById('finalBalance').textContent = '$0.00';
+        document.getElementById('yearsInvesting').textContent = '0';
+        document.getElementById('totalContributions').textContent = '$0.00';
+        document.getElementById('growthTotal').textContent = '$0.00';
+        document.getElementById('taxDeduction').textContent = '$0.00';
+    }
+
+    function copySoloResults() {
+        const total = document.getElementById('totalContrib').textContent;
+        const balance = document.getElementById('finalBalance').textContent;
+        const text = `Solo 401k Results:
+Annual: ${total}
+Balance: ${balance}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"SEP IRA", icon:"fa-briefcase", url:"sep-ira-calculator.html"},
+            {name:"Simple IRA", icon:"fa-briefcase", url:"simple-ira-calculator.html"},
+            {name:"IRA Calculator", icon:"fa-piggy-bank", url:"ira-calculator.html"},
+            {name:"401k Calculator", icon:"fa-briefcase", url:"401k-calculator.html"},
+            {name:"Retirement Calculator", icon:"fa-umbrella-beach", url:"retirement-savings-calculator.html"},
+            {name:"Roth IRA", icon:"fa-money-bill-wave", url:"roth-ira-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridSolo").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

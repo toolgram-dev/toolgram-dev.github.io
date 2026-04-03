@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Annuity Calculator – Guaranteed Income Estimator | ToolGram</title>
+    <meta name="description" content="Calculate annuity payments and guaranteed retirement income. Free online annuity calculator for immediate and deferred annuity planning.">
+    <meta name="keywords" content="annuity calculator, retirement income calculator, immediate annuity, deferred annuity, guaranteed income">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/annuity-calculator.html">
+    <meta property="og:title" content="Annuity Calculator | ToolGram">
+    <meta property="og:description" content="Calculate annuity payments and guaranteed retirement income.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/annuity-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Annuity Calculator",
+        "description": "Calculate annuity payments and guaranteed retirement income.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/annuity-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Annuity Payments", "Immediate Annuity", "Deferred Annuity", "Guaranteed Income"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .annuity-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-hand-holding-usd"></i></div>
+            <div>
+                <h1 style="margin:0;">Annuity Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Estimate guaranteed retirement income</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Annuity Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annuity Type</label>
+                        <select id="annuityType"><option value="immediate" selected>Immediate Annuity</option><option value="deferred">Deferred Annuity</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Investment Amount ($)</label>
+                        <input type="number" id="investment" placeholder="200000" value="200000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Age</label>
+                        <input type="number" id="currentAge" placeholder="65" value="65" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Start Age</label>
+                        <input type="number" id="startAge" placeholder="65" value="65" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="5" value="5" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Payment Period</label>
+                        <select id="paymentPeriod"><option value="life" selected>Life Only</option><option value="joint">Joint Life</option><option value="20">20 Years Certain</option><option value="25">25 Years Certain</option></select>
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateAnnuity()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearAnnuity()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Annuity Income</div>
+                <div class="output-display" id="outputAnnuity">
+                    <div class="annuity-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-hand-holding-usd"></i> Monthly Income</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="monthlyIncome">$0.00</span>/month</div>
+                        <div style="margin-bottom:10px;">Annual: <span id="annualIncome">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Guaranteed income for life</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Investment:</strong> <span id="investmentAmount">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Yield:</strong> <span id="yieldRate">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Payout (20yr):</strong> <span id="totalPayout">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Compare to 4% Rule:</strong> <span id="fourPercent">$0.00</span>/yr</div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Annuity provides guaranteed income</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyAnnuityResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridAnnuity"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is an Annuity?</h3>
+            <p>An annuity is a financial product sold by insurance companies that provides regular, guaranteed income payments in exchange for an upfront lump-sum investment or series of payments. Annuities are designed to provide steady income during retirement, eliminating the risk of outliving your savings through longevity risk transfer to the insurance company. They serve as a contract between you and an insurer where you pay premiums, and in return, the company promises to make periodic payments to you either immediately or at some future date.</p>
+            <p>This annuity calculator estimates the monthly income you could receive based on your investment amount, age, interest rate, and payout period. Whether you're considering an immediate annuity for immediate income or a deferred annuity for future income, understanding the payout potential helps you evaluate if an annuity fits your retirement strategy. The calculator uses standard actuarial formulas to project guaranteed payments based on your inputs.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select annuity type (immediate starts payments now, deferred starts later).<br>
+            <strong>Step 2:</strong> Enter your investment amount (lump sum you're considering).<br>
+            <strong>Step 3:</strong> Input your current age.<br>
+            <strong>Step 4:</strong> For deferred annuities, enter the age when you want payments to start.<br>
+            <strong>Step 5:</strong> Set the interest rate offered by the annuity provider.<br>
+            <strong>Step 6:</strong> Choose payment period (life only, joint life, or guaranteed period).<br>
+            <strong>Step 7:</strong> Click "Calculate" to see estimated monthly and annual income projections.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Annuity Examples</h3>
+            <p><strong>Example 1 - Immediate Annuity:</strong> John, age 65, invests $200,000 in an immediate annuity with a 5% interest rate. He selects life-only payments. Based on actuarial calculations, John receives approximately $1,320 per month for life, totaling about $15,840 annually. This provides guaranteed income regardless of how long he lives, offering peace of mind that he won't outlive his savings.</p>
+            <p><strong>Example 2 - Deferred Annuity:</strong> Sarah, age 55, invests $150,000 in a deferred annuity with payments starting at age 65. During the 10-year deferral period, her investment grows. At 65, she'll receive approximately $1,100 monthly for life. The deferral period allows for accumulation, resulting in higher payments than an immediate annuity would provide at 55.</p>
+            <p><strong>Example 3 - Joint Life:</strong> Mike and Linda, both 67, invest $300,000 in a joint life annuity. They receive about $1,800 monthly while both are alive, and $1,200 continues to the survivor. This ensures neither spouse faces financial hardship after the other's passing, protecting the surviving partner's retirement security.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use Annuities?</h3>
+            <p>Annuities are particularly valuable for retirees and pre-retirees who prioritize guaranteed income over growth potential. They suit individuals who are risk-averse and want to eliminate market volatility from a portion of their retirement income. People without traditional pension benefits often use annuities to create their own guaranteed income stream, essentially manufacturing a personal pension plan using retirement savings.</p>
+            <p>They're also ideal for those worried about longevity risk—the possibility of outliving their savings. If you have a family history of longevity or simply want the security of never running out of money, annuities provide that guarantee. Additionally, individuals who struggle with investment decisions or managing withdrawals may benefit from the simplicity of automatic annuity payments that require no ongoing management decisions.</p>
+            <p>However, annuities are not suitable for everyone. Younger investors with long time horizons, those needing liquidity for potential emergencies, or people seeking significant growth should consider other options. They're also not ideal if you have substantial guaranteed income already from pensions or if maximizing estate value is a priority over lifetime income.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Annuity Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Ladder Approach:</strong> Purchase multiple smaller annuities at different times to diversify interest rate risk. Instead of investing $300,000 at once, buy three $100,000 annuities at 6-month or 1-year intervals to average out rate fluctuations.</li>
+                <li><strong>Compare to 4% Rule:</strong> Annuities often provide higher guaranteed income than systematic withdrawal strategies. A 65-year-old might get 6-7% from an annuity versus 4% from a safe withdrawal approach.</li>
+                <li><strong>Inflation Consideration:</strong> Fixed annuities lose purchasing power over time—consider COLA riders or keep other inflation-protected assets like stocks or TIPS alongside your annuity.</li>
+                <li><strong>Tax Planning:</strong> Qualified annuities (IRA/401k) are fully taxable; non-qualified use after-tax money with tax-deferred growth. Consider tax brackets when deciding funding sources.</li>
+                <li><strong>Solvency Check:</strong> Verify insurance company financial strength ratings (A.M. Best, S&P, Moody's) before purchasing. Stick with highly-rated insurers (A- or better).</li>
+                <li><strong>Shop Multiple Quotes:</strong> Annuity payout rates vary significantly between insurers—always compare at least 3-4 quotes for the same investment amount.</li>
+                <li><strong>Split Strategy:</strong> Consider putting half in a single life annuity for higher income and half in joint life for spouse protection, balancing income maximization with survivor benefits.</li>
+                <li><strong>Delay Social Security:</strong> Use annuity income to bridge the gap if delaying Social Security to age 70 for higher benefits, creating an optimal income strategy.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">What are the main types of annuities?</div>
+            <div class="faq-answer">Immediate Annuities: Start payments within 1 year of purchase, typically single premium. Deferred Annuities: Accumulate value with payments starting later. Fixed Annuities: Guaranteed interest rate and payments. Variable Annuities: Payments fluctuate based on underlying investment performance. Indexed Annuities: Returns tied to market index with floor protection. Each type suits different retirement needs and risk tolerances.</div>
+
+            <div class="faq-question">Are annuities a good investment?</div>
+            <div class="faq-answer">Annuities aren't investments—they're insurance products for income protection. Good for: Those wanting guaranteed lifetime income, risk-averse retirees, people worried about outliving savings. Not ideal for: Those needing liquidity, younger investors with long time horizons, people seeking growth over income. Consider annuities as one component of a diversified retirement strategy, not the sole solution.</div>
+
+            <div class="faq-question">What is the annuity payout calculation?</div>
+            <div class="faq-answer">Annuity payments are calculated using: 1) Principal amount invested, 2) Interest rate (current rates typically 4-6%), 3) Life expectancy (for life annuities—older buyers get higher payments), 4) Payout period (life only, joint life, or term certain). Insurance companies use actuarial tables to determine payments ensuring they can meet obligations while covering their costs and profit margin. This calculator provides estimates; actual quotes vary by provider.</div>
+
+            <div class="faq-question">What are the tax implications of annuities?</div>
+            <div class="faq-answer">Non-qualified annuities (purchased with after-tax money): Growth is tax-deferred; when receiving payments, portion is return of principal (tax-free) and portion is earnings (taxed as ordinary income). Qualified annuities (IRA/401k): All payments fully taxable as ordinary income. No capital gains treatment. Consider tax bracket in retirement when evaluating annuities vs. taxable investments.</div>
+
+            <div class="faq-question">Can I lose money in an annuity?</div>
+            <div class="faq-answer">Fixed and immediate annuities: Principal is guaranteed by the insurance company (subject to their solvency). State guaranty associations provide limited protection if insurer fails. Variable annuities: Principal can decline based on underlying investment performance. Surrender charges apply if you withdraw early (typically 5-10 years). Inflation risk: Fixed payments lose purchasing power over time.</div>
+
+            <div class="faq-question">What happens to an annuity when you die?</div>
+            <div class="faq-answer">Life-only annuity: Payments stop at death (highest payout option but no beneficiary benefit). Life with period certain: Payments continue to beneficiaries if you die before period ends. Joint life: Continues paying surviving spouse. Cash refund: Beneficiaries receive remaining principal if you die before receiving full amount. Rider selection dramatically affects payout amounts—consider your beneficiary needs.</div>
+
+            <div class="faq-question">Should I buy an annuity or keep my 401k?</div>
+            <div class="faq-answer">Not an either/or decision. Many experts recommend: Keep some assets in stocks/bonds for growth and inflation protection, convert a portion to annuity for guaranteed income floor (covers essential expenses), maintain liquidity reserve for emergencies. The 4% rule suggests systematic withdrawals; annuities can provide higher guaranteed income but less flexibility. Consider your risk tolerance, other income sources (Social Security, pension), and need for guaranteed income.</div>
+
+            <div class="faq-question">What are annuity surrender charges?</div>
+            <div class="faq-answer">Deferred annuities typically have surrender periods (5-10 years) with declining charges if you withdraw early. Example: 7% year 1, 6% year 2, down to 0%. Some allow 10% annual penalty-free withdrawals. Immediate annuities generally have no surrender option—payments are irrevocable. Variable annuities may also have separate subaccount fees. Understand all fees and restrictions before purchasing.</div>
+
+            <div class="faq-question">How do I shop for an annuity?</div>
+            <div class="faq-answer">1) Determine your need (immediate income vs. future income, amount needed), 2) Get quotes from multiple highly-rated insurers (A.M. Best A- or better), 3) Compare payout amounts for same investment, 4) Understand all fees and surrender terms, 5) Consider riders (COLA, death benefits) and their costs, 6) Review with fee-only financial advisor, 7) Verify state guaranty coverage limits ($250k-$500k typical). Never rush—annuity purchases are typically irrevocable.</div>
+
+            <div class="faq-question">What is a COLA rider?</div>
+            <div class="faq-answer">Cost-of-Living Adjustment riders increase annuity payments annually to offset inflation, typically 2-3% fixed or tied to CPI. Trade-off: Initial payments are 20-30% lower than fixed annuities without COLA. Takes many years to break even. Consider your age, life expectancy, and inflation expectations. Younger retirees may benefit more from COLA; older retirees may prefer higher initial payments.</div>
+
+            <div class="faq-question">Can I withdraw from an annuity early?</div>
+            <div class="faq-answer">Deferred annuities: Yes, but surrender charges apply during the surrender period (typically 5-10 years), plus potential 10% early withdrawal penalty if under 59½. Immediate annuities: Generally no—payments are irrevocable in exchange for guaranteed lifetime income. Some deferred annuities allow 10% annual penalty-free withdrawals. Liquidity is limited—don't invest money you might need before retirement.</div>
+
+            <div class="faq-question">How do annuities compare to bonds?</div>
+            <div class="faq-answer">Similarities: Both provide income, lower risk than stocks. Differences: Annuities provide lifetime income (bonds eventually mature), no principal access with immediate annuities (bonds can be sold), tax-deferred growth in annuities (bond interest typically taxable annually), insurance company backing vs. bond issuer credit risk. Many retirees use both: bonds for liquidity and growth, annuities for guaranteed income floor.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateAnnuity(){
+const investment=parseFloat(document.getElementById('investment').value)||0;
+const currentAge=parseInt(document.getElementById('currentAge').value)||65;
+const startAge=parseInt(document.getElementById('startAge').value)||65;
+const rate=parseFloat(document.getElementById('interestRate').value)||0;
+const period=document.getElementById('paymentPeriod').value;
+const r=rate/100;
+let years=20;
+if(period==='25')years=25;
+else if(period==='life')years=20;
+else if(period==='joint')years=18;
+let monthlyPayment=0;
+if(r>0){
+monthlyPayment=(investment*(r/12))/(1-Math.pow(1+r/12,-years*12));
+}else{
+monthlyPayment=investment/(years*12);
+}
+const annual=monthlyPayment*12;
+const totalPayout=monthlyPayment*years*12;
+const yieldRate=(annual/investment)*100;
+const fourPercent=investment*0.04;
+document.getElementById('monthlyIncome').textContent='$'+monthlyPayment.toFixed(2);
+document.getElementById('annualIncome').textContent='$'+annual.toLocaleString(undefined,{maximumFractionDigits:0});
+document.getElementById('investmentAmount').textContent='$'+investment.toLocaleString();
+document.getElementById('yieldRate').textContent=yieldRate.toFixed(2)+'%';
+document.getElementById('totalPayout').textContent='$'+totalPayout.toLocaleString(undefined,{maximumFractionDigits:0});
+document.getElementById('fourPercent').textContent='$'+fourPercent.toLocaleString();
+}
+function clearAnnuity(){
+document.getElementById('investment').value='';
+document.getElementById('currentAge').value='';
+document.getElementById('startAge').value='';
+document.getElementById('interestRate').value='';
+document.getElementById('monthlyIncome').textContent='$0.00';
+document.getElementById('annualIncome').textContent='$0.00';
+document.getElementById('investmentAmount').textContent='$0.00';
+document.getElementById('yieldRate').textContent='0%';
+document.getElementById('totalPayout').textContent='$0.00';
+document.getElementById('fourPercent').textContent='$0.00';
+}
+function copyAnnuityResults(){
+const monthly=document.getElementById('monthlyIncome').textContent;
+const annual=document.getElementById('annualIncome').textContent;
+const text=`Annuity Results:
+Monthly: ${monthly}
+Annual: ${annual}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2002);
+}
+function loadRelated(){
+const tools=[
+{name:"Retirement Calculator",icon:"fa-umbrella-beach",url:"retirement-savings-calculator.html"},
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"IRA Calculator",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"Pension Calculator",icon:"fa-calendar-check",url:"pension-calculator.html"},
+{name:"Compound Interest",icon:"fa-chart-line",url:"compound-interest-calculator.html"},
+{name:"Savings Goal",icon:"fa-bullseye",url:"savings-goal-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridAnnuity").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

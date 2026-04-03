@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Roth IRA Calculator – Tax-Free Growth Projections | ToolGram</title>
+    <meta name="description" content="Calculate Roth IRA growth with tax-free withdrawals in retirement. Free online Roth IRA calculator with income limit analysis and contribution tracking.">
+    <meta name="keywords" content="Roth IRA calculator, tax-free retirement, Roth IRA income limits, Roth IRA contributions, retirement calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/roth-ira-calculator.html">
+    <meta property="og:title" content="Roth IRA Calculator | ToolGram">
+    <meta property="og:description" content="Calculate Roth IRA growth with tax-free withdrawals and plan your retirement savings.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/roth-ira-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Roth IRA Calculator",
+        "description": "Calculate Roth IRA growth with tax-free withdrawals and plan your retirement savings.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/roth-ira-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Roth IRA Growth", "Tax-Free Withdrawals", "Income Limit Analysis", "Retirement Planning"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .roth-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <div>
+                <h1 style="margin:0;">Roth IRA Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Tax-free growth projections</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Roth IRA Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Age</label><input type="number" id="currentAge" placeholder="30" value="30" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Retirement Age</label><input type="number" id="retirementAge" placeholder="65" value="65" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Balance ($)</label><input type="number" id="currentBalance" placeholder="15000" value="15000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Annual Contribution ($)</label><input type="number" id="annualContribution" placeholder="7000" value="7000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Expected Return (%)</label><input type="number" id="expectedReturn" placeholder="7" value="7" step="0.5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Retirement Tax Rate (%)</label><input type="number" id="retirementTaxRate" placeholder="25" value="25" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateRoth()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearRoth()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Roth IRA Projection</div>
+                <div class="output-display" id="outputRoth">
+                    <div class="roth-box">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-money-bill-wave"></i> At Retirement (Tax-Free!)</div>
+                        <div style="margin-bottom:10px;">Balance: <span class="loan-result" id="finalBalance">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Years: <span id="yearsInvesting">35</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Tax Savings vs Traditional: <span id="taxAdvantage">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Contributions:</strong> <span id="totalContributions">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Tax-Free Growth:</strong> <span id="growthTotal">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Income Limits 2024:</strong> $161k single / $240k married</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Contribution Limit:</strong> $7,000 ($8,000 if 50+)</div>
+                        <div><strong style="color:#8B5CF6;">No RMDs:</strong> Keep growing tax-free forever</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyRothResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridRoth"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Roth IRA?</h3>
+            <p>A Roth IRA is a tax-advantaged retirement account where you contribute after-tax dollars, but all future growth and withdrawals in retirement are completely tax-free. Unlike Traditional IRAs, there's no immediate tax deduction for contributions, but you never pay taxes on qualified withdrawals—including all your investment gains, which can be substantial after decades of compounding.</p>
+            <p>This Roth IRA calculator shows your potential tax-free nest egg at retirement and calculates the tax savings compared to a Traditional IRA. It helps you decide if Roth makes sense for your situation and demonstrates the incredible power of tax-free growth over long time horizons.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your current age and planned retirement age.<br>
+            <strong>Step 2:</strong> Input your current Roth IRA balance (or 0 if starting fresh).<br>
+            <strong>Step 3:</strong> Enter your annual contribution amount (max $7,000 for 2024, $8,000 if 50+).<br>
+            <strong>Step 4:</strong> Set expected annual return rate (7% is typical for long-term diversified portfolios).<br>
+            <strong>Step 5:</strong> Input your expected retirement tax rate for comparison with Traditional IRA.<br>
+            <strong>Step 6:</strong> Click "Calculate" to see your projected tax-free balance and tax savings.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Roth IRA Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Perfect for Young Workers:</strong> Low current tax bracket + long time horizon = maximum Roth benefit</li>
+                <li><strong>Early Withdrawal Flexibility:</strong> Withdraw contributions (not earnings) anytime without taxes or penalties</li>
+                <li><strong>No Required Distributions:</strong> Unlike Traditional IRAs, no RMDs at age 73—keep growing tax-free indefinitely</li>
+                <li><strong>Backdoor Roth Strategy:</strong> High earners above income limits can contribute via Traditional-to-Roth conversion</li>
+                <li><strong>Tax Diversification:</strong> Having both Roth and Traditional accounts provides flexibility in retirement</li>
+                <li><strong>Estate Planning:</strong> Beneficiaries inherit tax-free, making Roth excellent for legacy planning</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">Who should choose a Roth IRA?</div>
+            <div class="faq-answer">Best for: Young workers in low tax brackets, those expecting higher taxes in retirement, anyone wanting tax flexibility, people who want to avoid RMDs, those planning to leave money to heirs. If current tax rate < expected retirement rate, Roth wins mathematically. Even if equal, Roth often wins due to tax flexibility.</div>
+
+            <div class="faq-question">What are the income limits for Roth IRA?</div>
+            <div class="faq-answer">2024 income phase-out ranges: Single filers $146,000-$161,000 MAGI; Married filing jointly $230,000-$240,000. Above these limits, direct contributions aren't allowed. However, the "backdoor Roth" strategy lets anyone contribute by making a non-deductible Traditional IRA contribution then converting to Roth. No income limits on conversions.</div>
+
+            <div class="faq-question">Can I withdraw from Roth IRA early?</div>
+            <div class="faq-answer">Contributions: Withdraw anytime, tax-free and penalty-free—that's your money you already paid taxes on. Earnings: Tax and penalty-free after age 59½ and account is 5+ years old. Early earnings withdrawals face taxes + 10% penalty. Exceptions: first-time home purchase (up to $10,000), disability, substantially equal periodic payments.</div>
+
+            <div class="faq-question">Should I choose Roth or Traditional IRA?</div>
+            <div class="faq-answer">Choose Roth if: current tax rate < expected retirement rate, you're young with long timeline, you want flexibility, you want to avoid RMDs. Choose Traditional if: current rate > expected retirement rate, you need the immediate tax deduction, you expect lower income in retirement. Many people split contributions between both for tax diversification.</div>
+
+            <div class="faq-question">What is a backdoor Roth IRA?</div>
+            <div class="faq-answer">Strategy for high earners above Roth income limits: 1) Contribute to Traditional IRA (non-deductible), 2) Immediately convert to Roth IRA. Since you already paid taxes on the contribution, conversion is tax-free or minimal tax. Pro-rata rule may apply if you have existing Traditional IRA balances. Consult tax advisor for complex situations.</div>
+
+            <div class="faq-question">Are Roth IRA withdrawals really tax-free?</div>
+            <div class="faq-answer">Qualified withdrawals are 100% tax-free. To be qualified: account must be open 5+ years AND you're 59½ or older. Non-qualified withdrawals: contributions always tax-free; earnings subject to tax + 10% penalty if under 59½ (with exceptions). After death, beneficiaries inherit tax-free but may have RMDs.</div>
+
+            <div class="faq-question">Can I have both Roth IRA and 401k?</div>
+            <div class="faq-answer">Yes! Many experts recommend this strategy: 1) Contribute enough to 401k to get full employer match (free money), 2) Max out Roth IRA ($7,000), 3) Return to max out 401k ($23,000). Roth IRA offers more investment flexibility than most 401ks. Tax diversification gives you options in retirement.</div>
+
+            <div class="faq-question">What happens to my Roth IRA when I die?</div>
+            <div class="faq-answer">Beneficiaries inherit tax-free, which is a major estate planning advantage. Spouses can treat as their own Roth IRA. Non-spouse beneficiaries must take RMDs within 10 years (SECURE Act). No estate taxes on the Roth itself, though it counts toward estate value. Consider Roth conversion for legacy planning.</div>
+
+            <div class="faq-question">Do Roth IRAs have required distributions?</div>
+            <div class="faq-answer">No RMDs for the original owner—ever. This is a huge advantage over Traditional IRAs which require distributions starting at age 73. Your money can continue growing tax-free throughout your lifetime. However, beneficiaries (other than spouses) must take RMDs within 10 years of inheritance under current SECURE Act rules.</div>
+
+            <div class="faq-question">How do I open a Roth IRA?</div>
+            <div class="faq-answer">Same process as Traditional IRA: Open at brokerage firms (Fidelity, Vanguard, Schwab), banks, or robo-advisors. Steps: 1) Choose provider (compare fees and investment options), 2) Complete online application (10-15 minutes), 3) Link bank account and fund, 4) Select investments (target-date funds are simplest). No minimum balance requirements at most providers.</div>
+
+            <div class="faq-question">What should I invest in my Roth IRA?</div>
+            <div class="faq-answer">Since Roth grows tax-free forever, many experts recommend holding your highest-growth-potential investments there (small-cap stocks, emerging markets, growth stocks). Target-date funds are simplest. Index funds offer diversification at low cost. Consider your overall asset allocation across all accounts—Roth is ideal location for aggressive growth investments.</div>
+
+            <div class="faq-question">Is a Roth 401k different from Roth IRA?</div>
+            <div class="faq-answer">Yes. Roth 401k is employer-sponsored with higher contribution limits ($23,000 vs $7,000), may have limited investment options, and has RMDs starting at 73 (unless rolled to Roth IRA). Roth IRA is individual account with unlimited investment choices, no RMDs, and more withdrawal flexibility. Many people use both for maximum Roth savings.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateRoth() {
+        const currentAge = parseInt(document.getElementById('currentAge').value) || 0;
+        const retirementAge = parseInt(document.getElementById('retirementAge').value) || 65;
+        const currentBalance = parseFloat(document.getElementById('currentBalance').value) || 0;
+        const annualContrib = parseFloat(document.getElementById('annualContribution').value) || 0;
+        const expectedReturn = parseFloat(document.getElementById('expectedReturn').value) || 0;
+        const retirementTax = parseFloat(document.getElementById('retirementTaxRate').value) || 0;
+
+        const years = Math.max(0, retirementAge - currentAge);
+        let balance = currentBalance;
+        let totalContrib = currentBalance;
+        const monthlyRate = (expectedReturn / 100) / 12;
+        const monthlyContrib = annualContrib / 12;
+
+        for (let month = 0; month < years * 12; month++) {
+            balance = (balance + monthlyContrib) * (1 + monthlyRate);
+            totalContrib += monthlyContrib;
+        }
+
+        const growth = balance - totalContrib;
+        const taxAdvantage = growth * (retirementTax / 100);
+
+        document.getElementById('finalBalance').textContent = '$' + balance.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('yearsInvesting').textContent = years;
+        document.getElementById('taxAdvantage').textContent = '$' + taxAdvantage.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('totalContributions').textContent = '$' + totalContrib.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('growthTotal').textContent = '$' + growth.toLocaleString(undefined,{maximumFractionDigits:0});
+    }
+
+    function clearRoth() {
+        document.getElementById('currentAge').value = '';
+        document.getElementById('retirementAge').value = '';
+        document.getElementById('currentBalance').value = '';
+        document.getElementById('annualContribution').value = '';
+        document.getElementById('expectedReturn').value = '';
+        document.getElementById('retirementTaxRate').value = '';
+        document.getElementById('finalBalance').textContent = '$0.00';
+        document.getElementById('yearsInvesting').textContent = '0';
+        document.getElementById('taxAdvantage').textContent = '$0.00';
+        document.getElementById('totalContributions').textContent = '$0.00';
+        document.getElementById('growthTotal').textContent = '$0.00';
+    }
+
+    function copyRothResults() {
+        const balance = document.getElementById('finalBalance').textContent;
+        const advantage = document.getElementById('taxAdvantage').textContent;
+        const text = `Roth IRA Results:
+Balance: ${balance}
+Tax Advantage: ${advantage}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"IRA Calculator", icon:"fa-piggy-bank", url:"ira-calculator.html"},
+            {name:"401k Calculator", icon:"fa-briefcase", url:"401k-calculator.html"},
+            {name:"Retirement Calculator", icon:"fa-umbrella-beach", url:"retirement-savings-calculator.html"},
+            {name:"Compound Interest", icon:"fa-chart-line", url:"compound-interest-calculator.html"},
+            {name:"SEP IRA", icon:"fa-briefcase", url:"sep-ira-calculator.html"},
+            {name:"Solo 401k", icon:"fa-user-tie", url:"solo-401k-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridRoth").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

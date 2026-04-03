@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>IRA Calculator – Traditional IRA Growth & Tax Savings | ToolGram</title>
+    <meta name="description" content="Calculate Traditional IRA growth, tax-deferred savings, and retirement projections. Free online IRA calculator with contribution limits and tax benefits analysis.">
+    <meta name="keywords" content="IRA calculator, traditional IRA, retirement calculator, tax-deferred savings, IRA contribution limits">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/ira-calculator.html">
+    <meta property="og:title" content="IRA Calculator | ToolGram">
+    <meta property="og:description" content="Calculate Traditional IRA growth and tax-deferred retirement savings.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/ira-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "IRA Calculator",
+        "description": "Calculate Traditional IRA growth and tax-deferred retirement savings.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/ira-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Traditional IRA Growth", "Tax Savings Calculation", "Retirement Planning", "Contribution Limits"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .ira-box{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-piggy-bank"></i></div>
+            <div>
+                <h1 style="margin:0;">IRA Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Traditional IRA growth projections</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> IRA Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Age</label><input type="number" id="currentAge" placeholder="35" value="35" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Retirement Age</label><input type="number" id="retirementAge" placeholder="65" value="65" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Balance ($)</label><input type="number" id="currentBalance" placeholder="25000" value="25000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Annual Contribution ($)</label><input type="number" id="annualContribution" placeholder="7000" value="7000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Expected Return (%)</label><input type="number" id="expectedReturn" placeholder="7" value="7" step="0.5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Tax Rate (%)</label><input type="number" id="taxRate" placeholder="22" value="22" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateIRA()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearIRA()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> IRA Projection</div>
+                <div class="output-display" id="outputIRA">
+                    <div class="ira-box">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;"><i class="fas fa-piggy-bank"></i> At Retirement</div>
+                        <div style="margin-bottom:10px;">Balance: <span class="loan-result" id="finalBalance">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Years: <span id="yearsInvesting">30</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Tax Savings: <span id="taxSavings">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Contributions:</strong> <span id="totalContributions">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Investment Growth:</strong> <span id="growthTotal">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Catch-up (50+):</strong> Extra $1,000/year allowed</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">2024 Limit:</strong> $7,000 ($8,000 if 50+)</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyIRAResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridIRA"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Traditional IRA?</h3>
+            <p>A Traditional IRA (Individual Retirement Account) is a tax-advantaged savings account that allows you to set aside money for retirement with tax benefits. Contributions are often tax-deductible, meaning they reduce your taxable income in the year you contribute. The money grows tax-deferred, meaning you don't pay taxes on gains until withdrawal in retirement.</p>
+            <p>This IRA calculator helps you project how much your Traditional IRA will be worth at retirement based on your contributions, expected returns, and time horizon. It also estimates your cumulative tax savings from deductible contributions, showing the powerful dual benefit of immediate tax relief plus long-term growth.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your current age and planned retirement age.<br>
+            <strong>Step 2:</strong> Input your current IRA balance (enter 0 if starting fresh).<br>
+            <strong>Step 3:</strong> Enter your annual contribution amount (max $7,000 for 2024, $8,000 if 50+).<br>
+            <strong>Step 4:</strong> Set expected annual return rate (6-8% is typical for diversified portfolios).<br>
+            <strong>Step 5:</strong> Input your current tax rate for tax savings calculation.<br>
+            <strong>Step 6:</strong> Click "Calculate" to see your projected balance and tax savings.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> IRA Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Maximize Contributions:</strong> Contribute the full $7,000 ($8,000 if 50+) every year to maximize tax benefits and compound growth</li>
+                <li><strong>Start Early:</strong> Even small contributions in your 20s compound significantly over 40+ years</li>
+                <li><strong>Catch-Up Contributions:</strong> If you're 50 or older, take advantage of the extra $1,000 annual limit</li>
+                <li><strong>Tax Bracket Strategy:</strong> Traditional IRA benefits those in higher tax brackets now who expect lower brackets in retirement</li>
+                <li><strong>Spousal IRA:</strong> Non-working spouses can contribute based on partner's income—households can double up</li>
+                <li><strong>Deadline Awareness:</strong> You have until tax filing deadline (April 15) to contribute for the previous year</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">What is the difference between Traditional and Roth IRA?</div>
+            <div class="faq-answer">Traditional IRA: Contributions may be tax-deductible now, growth is tax-deferred, withdrawals taxed as income in retirement. Best if current tax rate > expected retirement rate. Roth IRA: Contributions are after-tax (no deduction), growth and withdrawals are tax-free. Best if current rate < expected future rate. Both have same contribution limits.</div>
+
+            <div class="faq-question">Who can contribute to a Traditional IRA?</div>
+            <div class="faq-answer">Anyone with earned income (wages, salary, self-employment) can contribute. No age limit since 2020. Contribution limit is $7,000 in 2024 ($8,000 if age 50+). If you or spouse have workplace retirement plan, deductibility may be limited based on income. Non-working spouses can use spousal IRA based on partner's income.</div>
+
+            <div class="faq-question">Are IRA contributions tax-deductible?</div>
+            <div class="faq-answer">If neither you nor spouse has workplace retirement plan: fully deductible regardless of income. If you have workplace plan: deduction phases out at $77,000-$87,000 MAGI (single) or $123,000-$143,000 (married filing jointly) in 2024. If only spouse has workplace plan: different limits apply. Non-deductible contributions still grow tax-deferred.</div>
+
+            <div class="faq-question">When can I withdraw from my IRA?</div>
+            <div class="faq-answer">Penalty-free withdrawals begin at age 59½. Early withdrawals face 10% penalty plus ordinary income tax. Exceptions: first-time home purchase (up to $10,000), higher education expenses, disability, unreimbursed medical expenses, health insurance premiums while unemployed, substantially equal periodic payments. Required minimum distributions (RMDs) start at age 73.</div>
+
+            <div class="faq-question">What happens if I withdraw early?</div>
+            <div class="faq-answer">Withdrawals before age 59½ generally incur 10% early withdrawal penalty plus regular income tax on the entire amount (contributions + growth). This significantly reduces your savings. Exceptions exist for specific situations like first-time home purchase, education, disability. Consider Roth contributions or emergency funds before touching IRA early.</div>
+
+            <div class="faq-question">Should I choose IRA or 401k?</div>
+            <div class="faq-answer">If employer offers 401k match: Contribute enough to get full match first (free money). Then consider IRA for lower fees and more investment options. Max out IRA ($7,000), then return to max 401k ($23,000). If no match or high 401k fees: Prioritize IRA. Many people use both simultaneously for maximum tax-advantaged savings.</div>
+
+            <div class="faq-question">What is an IRA rollover?</div>
+            <div class="faq-answer">Moving money from one retirement account to another without tax consequences. Common rollovers: 401k to IRA when changing jobs, traditional IRA to Roth IRA (conversion), one IRA to another. Direct rollovers between institutions avoid taxes and penalties. You have 60 days for indirect rollovers. Consolidating accounts simplifies management.</div>
+
+            <div class="faq-question">Can I lose money in an IRA?</div>
+            <div class="faq-answer">Yes, IRAs are investment accounts, not savings accounts. Value fluctuates with market performance. However, diversified long-term portfolios historically gain value. Don't panic during downturns—keep contributing. Dollar-cost averaging means you buy more shares when prices are low. Choose investments matching your risk tolerance and time horizon.</div>
+
+            <div class="faq-question">What are the income limits for IRA contributions?</div>
+            <div class="faq-answer">Traditional IRA: No income limit for contributions, but deductibility may be limited if you have workplace plan. Roth IRA: Contributions phase out at $146,000-$161,000 MAGI (single) or $230,000-$240,000 (married filing jointly) in 2024. High earners can use "backdoor Roth" strategy: contribute to Traditional then convert to Roth.</div>
+
+            <div class="faq-question">How do I open an IRA?</div>
+            <div class="faq-answer">Open at brokerage firms (Fidelity, Vanguard, Schwab), banks, or robo-advisors. Process: 1) Choose provider (consider fees, investment options), 2) Complete application online, 3) Fund account via transfer/check, 4) Select investments (target-date funds are simple). Many providers have no minimums. Takes 15 minutes online.</div>
+
+            <div class="faq-question">What should I invest my IRA in?</div>
+            <div class="faq-answer">Target-date funds automatically adjust allocation as you age (simplest option). Index funds offer broad diversification at low cost (S&P 500, total market, international). Individual stocks/bonds for active investors. REITs for real estate exposure. Consider your risk tolerance, time horizon, and diversification. Lower fees mean more money kept.</div>
+
+            <div class="faq-question">Can I have both IRA and 401k?</div>
+            <div class="faq-answer">Yes, absolutely. Many people contribute to both simultaneously. Contribute enough to 401k to get full employer match first. Then max out IRA ($7,000) for better investment options. Then return to max out 401k ($23,000). Total annual contributions to both can't exceed your earned income. Using both maximizes tax-advantaged space.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateIRA() {
+        const currentAge = parseInt(document.getElementById('currentAge').value) || 0;
+        const retirementAge = parseInt(document.getElementById('retirementAge').value) || 65;
+        const currentBalance = parseFloat(document.getElementById('currentBalance').value) || 0;
+        const annualContrib = parseFloat(document.getElementById('annualContribution').value) || 0;
+        const expectedReturn = parseFloat(document.getElementById('expectedReturn').value) || 0;
+        const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+
+        const years = Math.max(0, retirementAge - currentAge);
+        let balance = currentBalance;
+        let totalContrib = currentBalance;
+        const monthlyRate = (expectedReturn / 100) / 12;
+        const monthlyContrib = annualContrib / 12;
+
+        for (let month = 0; month < years * 12; month++) {
+            balance = (balance + monthlyContrib) * (1 + monthlyRate);
+            totalContrib += monthlyContrib;
+        }
+
+        const taxSavings = annualContrib * years * (taxRate / 100);
+        const growth = balance - totalContrib;
+
+        document.getElementById('finalBalance').textContent = '$' + balance.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('yearsInvesting').textContent = years;
+        document.getElementById('taxSavings').textContent = '$' + taxSavings.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('totalContributions').textContent = '$' + totalContrib.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('growthTotal').textContent = '$' + growth.toLocaleString(undefined,{maximumFractionDigits:0});
+    }
+
+    function clearIRA() {
+        document.getElementById('currentAge').value = '';
+        document.getElementById('retirementAge').value = '';
+        document.getElementById('currentBalance').value = '';
+        document.getElementById('annualContribution').value = '';
+        document.getElementById('expectedReturn').value = '';
+        document.getElementById('taxRate').value = '';
+        document.getElementById('finalBalance').textContent = '$0.00';
+        document.getElementById('yearsInvesting').textContent = '0';
+        document.getElementById('taxSavings').textContent = '$0.00';
+        document.getElementById('totalContributions').textContent = '$0.00';
+        document.getElementById('growthTotal').textContent = '$0.00';
+    }
+
+    function copyIRAResults() {
+        const balance = document.getElementById('finalBalance').textContent;
+        const tax = document.getElementById('taxSavings').textContent;
+        const text = `IRA Results:
+Balance: ${balance}
+Tax Savings: ${tax}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"401k Calculator", icon:"fa-briefcase", url:"401k-calculator.html"},
+            {name:"Roth IRA Calculator", icon:"fa-money-bill-wave", url:"roth-ira-calculator.html"},
+            {name:"SEP IRA Calculator", icon:"fa-briefcase", url:"sep-ira-calculator.html"},
+            {name:"Retirement Calculator", icon:"fa-umbrella-beach", url:"retirement-savings-calculator.html"},
+            {name:"Compound Interest", icon:"fa-chart-line", url:"compound-interest-calculator.html"},
+            {name:"Solo 401k", icon:"fa-user-tie", url:"solo-401k-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridIRA").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

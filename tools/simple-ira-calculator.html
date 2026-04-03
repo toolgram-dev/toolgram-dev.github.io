@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Simple IRA Calculator – Small Business Retirement | ToolGram</title>
+    <meta name="description" content="Calculate Simple IRA contributions for small businesses with up to 100 employees. Free online Simple IRA calculator with employer match analysis.">
+    <meta name="keywords" content="Simple IRA calculator, small business retirement, employer match calculator, retirement savings, small business 401k alternative">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/simple-ira-calculator.html">
+    <meta property="og:title" content="Simple IRA Calculator | ToolGram">
+    <meta property="og:description" content="Calculate Simple IRA contributions for small businesses with employer matching.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/simple-ira-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Simple IRA Calculator",
+        "description": "Calculate Simple IRA contributions for small businesses with employer matching.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/simple-ira-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Simple IRA Contributions", "Employer Match Analysis", "Small Business Retirement", "Contribution Limits"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .simple-box{background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-briefcase"></i></div>
+            <div>
+                <h1 style="margin:0;">Simple IRA Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Small business retirement savings</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Annual Salary ($)</label><input type="number" id="salary" placeholder="50000" value="50000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Age</label><input type="number" id="currentAge" placeholder="35" value="35" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Retirement Age</label><input type="number" id="retirementAge" placeholder="65" value="65" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Balance ($)</label><input type="number" id="currentBalance" placeholder="20000" value="20000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Employee Contribution (%)</label><input type="number" id="employeeContrib" placeholder="3" value="3" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Employer Match (%)</label><input type="number" id="employerMatch" placeholder="2" value="2" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Expected Return (%)</label><input type="number" id="expectedReturn" placeholder="7" value="7" step="0.5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateSimple()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearSimple()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Simple IRA Projection</div>
+                <div class="output-display" id="outputSimple">
+                    <div class="simple-box">
+                        <div style="font-weight:600;color:#8B5CF6;margin-bottom:5px;"><i class="fas fa-briefcase"></i> Annual Contributions</div>
+                        <div style="margin-bottom:10px;">Employee: <span id="employeeAnnual">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Employer: <span id="employerAnnual">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Total: <span class="loan-result" id="totalAnnual">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Projected Balance:</strong> <span class="loan-result" id="finalBalance">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Years:</strong> <span id="yearsInvesting">30</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Contributed:</strong> <span id="totalContributions">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Growth:</strong> <span id="growthTotal">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">2024 Limits:</strong> $16,000 ($19,500 if 50+)</div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Simple IRAs: easier admin than 401k</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySimpleResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridSimple"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Simple IRA?</h3>
+            <p>A Simple IRA (Savings Incentive Match Plan for Employees) is a retirement plan designed for small businesses with up to 100 employees. It offers a streamlined alternative to 401k plans with less paperwork, lower costs, and simpler administration. Employees can contribute through salary deferrals, and employers must either match contributions or make non-elective contributions.</p>
+            <p>Simple IRAs are ideal for small businesses that want to offer retirement benefits without the complexity and expense of a traditional 401k plan. The employer match requirement helps encourage employee participation while providing a valuable benefit that helps attract and retain talent in competitive labor markets.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your annual salary or expected annual compensation.<br>
+            <strong>Step 2:</strong> Input your current age and planned retirement age.<br>
+            <strong>Step 3:</strong> Enter current Simple IRA balance (or 0 if starting new).<br>
+            <strong>Step 4:</strong> Set your employee contribution percentage (up to 100% of salary, max $16,000 for 2024).<br>
+            <strong>Step 5:</strong> Enter employer match percentage (typically 3% match or 2% non-elective).<br>
+            <strong>Step 6:</strong> Set expected annual return rate (7% is typical for long-term growth).<br>
+            <strong>Step 7:</strong> Click "Calculate" to see your total contributions and projected balance.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Simple IRA Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Maximize Match:</strong> Contribute at least enough to get the full employer match—it's essentially free money</li>
+                <li><strong>Employee Deferrals:</strong> You can defer up to $16,000 in 2024 ($19,500 if age 50+), which reduces current taxable income</li>
+                <li><strong>Employer Options:</strong> Employers choose between 3% matching contribution or 2% non-elective contribution for all employees</li>
+                <li><strong>Immediate Vesting:</strong> All contributions are 100% immediately vested—no waiting period to claim your money</li>
+                <li><strong>Less Paperwork:</strong> Simple IRAs have minimal administrative burden compared to 401k plans</li>
+                <li><strong>Early Withdrawal Penalty:</strong> 25% penalty if withdrawn within first 2 years (vs 10% after), so plan accordingly</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">What is the difference between Simple IRA and 401k?</div>
+            <div class="faq-answer">Simple IRA: For businesses with 100 or fewer employees, less paperwork, lower setup costs, mandatory employer contributions, immediate 100% vesting, no loans allowed. 401k: Available to any size business, more complex administration, Roth option available, loans permitted, potential vesting schedules. Simple IRA is ideal for small businesses wanting simplicity; 401k offers more flexibility for larger or growing companies.</div>
+
+            <div class="faq-question">Who can establish a Simple IRA?</div>
+            <div class="faq-answer">Any business with 100 or fewer employees who earned at least $5,000 in the previous year can establish a Simple IRA. This includes sole proprietors, partnerships, and corporations. Must not maintain another employer-sponsored retirement plan (except for collective bargaining agreements). Available to both for-profit and tax-exempt organizations.</div>
+
+            <div class="faq-question">What are the Simple IRA contribution limits?</div>
+            <div class="faq-answer">2024 limits: Employee salary deferrals up to $16,000 ($19,500 if age 50+). Employer must either: Match employee contributions dollar-for-dollar up to 3% of compensation, OR contribute 2% of compensation for all eligible employees regardless of whether they contribute. No overall limit on employer contributions. All contributions belong to employee immediately (100% vested).</div>
+
+            <div class="faq-question">Are employer contributions mandatory?</div>
+            <div class="faq-answer">Yes. Employers must make contributions every year the plan is maintained. Two options: 1) Matching contributions: dollar-for-dollar match up to 3% of compensation (can be reduced to as low as 1% in 2 of 5 years), OR 2) Non-elective contributions: 2% of compensation for all eligible employees, even if they don't contribute. Cannot switch between options mid-year.</div>
+
+            <div class="faq-question">When is the Simple IRA deadline?</div>
+            <div class="faq-answer">Establishment deadline: October 1 of the year for which contributions will be made (or earlier if business started after October 1). Employee contribution deadline: December 31. Employer contribution deadline: Tax filing deadline including extensions. Employers must notify employees of their rights to participate before the 60-day election period (typically November 1 to December 31).</div>
+
+            <div class="faq-question">Can I withdraw from Simple IRA early?</div>
+            <div class="faq-answer">Early withdrawals (before age 59½) face a 25% penalty if taken within the first 2 years of participation—higher than the typical 10% penalty. After 2 years, the standard 10% early withdrawal penalty applies. Exceptions include: disability, death, unreimbursed medical expenses exceeding 7.5% of AGI, health insurance premiums while unemployed, higher education expenses, first-time home purchase (up to $10,000). RMDs start at age 73.</div>
+
+            <div class="faq-question">Can I roll over a Simple IRA?</div>
+            <div class="faq-answer">During the first 2 years of participation: Can only transfer to another Simple IRA. After 2 years: Can roll over to another Simple IRA, Traditional IRA, or employer-sponsored plan (401k, 403b, 457). Two-year rule is strict—rolling to a non-Simple plan within first 2 years triggers taxation and penalties. Keep track of your participation start date.</div>
+
+            <div class="faq-question">Should my small business choose Simple IRA or 401k?</div>
+            <div class="faq-answer">Choose Simple IRA if: 100 or fewer employees, want minimal paperwork, lower costs (no Form 5500 filing), all employees can participate, immediate vesting preferred, no loans needed. Choose 401k if: More than 100 employees, want Roth option, need loan provisions, desire profit-sharing flexibility, want vesting schedules to retain employees, can handle more complex administration and costs. Many small businesses start with Simple IRA and upgrade to 401k as they grow.</div>
+
+            <div class="faq-question">What happens if my business grows beyond 100 employees?</div>
+            <div class="faq-answer">If you exceed 100 employees, you generally have a 2-year grace period to continue the Simple IRA. After that, you must switch to a different retirement plan (like 401k). The grace period applies only if you had 100 or fewer employees in a previous year. Plan ahead if rapid growth is expected.</div>
+
+            <div class="faq-question">Can I have both Simple IRA and another IRA?</div>
+            <div class="faq-answer">Yes, you can contribute to both a Simple IRA and Traditional or Roth IRA. However, your Traditional IRA deduction may be limited if you're covered by a workplace plan (Simple IRA counts). 2024 phase-out: $77,000-$87,000 (single) or $123,000-$143,000 (married filing jointly). Roth IRA has separate income limits ($146,000-$161,000 single; $230,000-$240,000 married).</div>
+
+            <div class="faq-question">How do I set up a Simple IRA?</div>
+            <div class="faq-answer">Steps: 1) Choose a financial institution (bank, brokerage, insurance company) to serve as trustee, 2) Complete IRS Form 5304-SIMPLE (if employees choose their own trustees) or 5305-SIMPLE (if employer selects one trustee for all), 3) Provide employees with information about the plan and their rights, 4) Set up individual IRA accounts for each participant, 5) Process contributions. No IRS filing or approval needed.</div>
+
+            <div class="faq-question">What investment options are available?</div>
+            <div class="faq-answer">Simple IRA investments are the same as Traditional IRAs: stocks, bonds, mutual funds, ETFs, CDs, money market funds. The range depends on the trustee institution chosen. Brokerage firms offer thousands of options; banks may be more limited. Employees direct their own investments and bear the investment risk. Target-date funds are popular for hands-off investing. Unlike 401ks, there's no employer-selected menu restriction.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateSimple() {
+        const salary = parseFloat(document.getElementById('salary').value) || 0;
+        const currentAge = parseInt(document.getElementById('currentAge').value) || 0;
+        const retirementAge = parseInt(document.getElementById('retirementAge').value) || 65;
+        const currentBalance = parseFloat(document.getElementById('currentBalance').value) || 0;
+        const employeeRate = parseFloat(document.getElementById('employeeContrib').value) || 0;
+        const employerRate = parseFloat(document.getElementById('employerMatch').value) || 0;
+        const expectedReturn = parseFloat(document.getElementById('expectedReturn').value) || 0;
+
+        const years = Math.max(0, retirementAge - currentAge);
+        const employeeAnnual = Math.min(salary * (employeeRate / 100), 16000);
+        const employerAnnual = Math.min(salary * (employerRate / 100), 16000);
+        const totalAnnual = employeeAnnual + employerAnnual;
+
+        let balance = currentBalance;
+        let totalContrib = currentBalance;
+        const monthlyRate = (expectedReturn / 100) / 12;
+        const monthlyContrib = totalAnnual / 12;
+
+        for (let month = 0; month < years * 12; month++) {
+            balance = (balance + monthlyContrib) * (1 + monthlyRate);
+            totalContrib += monthlyContrib;
+        }
+
+        const growth = balance - totalContrib;
+
+        document.getElementById('employeeAnnual').textContent = '$' + employeeAnnual.toLocaleString();
+        document.getElementById('employerAnnual').textContent = '$' + employerAnnual.toLocaleString();
+        document.getElementById('totalAnnual').textContent = '$' + totalAnnual.toLocaleString();
+        document.getElementById('finalBalance').textContent = '$' + balance.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('yearsInvesting').textContent = years;
+        document.getElementById('totalContributions').textContent = '$' + totalContrib.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('growthTotal').textContent = '$' + growth.toLocaleString(undefined,{maximumFractionDigits:0});
+    }
+
+    function clearSimple() {
+        document.getElementById('salary').value = '';
+        document.getElementById('currentAge').value = '';
+        document.getElementById('retirementAge').value = '';
+        document.getElementById('currentBalance').value = '';
+        document.getElementById('employeeContrib').value = '';
+        document.getElementById('employerMatch').value = '';
+        document.getElementById('expectedReturn').value = '';
+        document.getElementById('employeeAnnual').textContent = '$0.00';
+        document.getElementById('employerAnnual').textContent = '$0.00';
+        document.getElementById('totalAnnual').textContent = '$0.00';
+        document.getElementById('finalBalance').textContent = '$0.00';
+        document.getElementById('yearsInvesting').textContent = '0';
+        document.getElementById('totalContributions').textContent = '$0.00';
+        document.getElementById('growthTotal').textContent = '$0.00';
+    }
+
+    function copySimpleResults() {
+        const total = document.getElementById('totalAnnual').textContent;
+        const balance = document.getElementById('finalBalance').textContent;
+        const text = `Simple IRA Results:
+Annual: ${total}
+Balance: ${balance}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"SEP IRA", icon:"fa-briefcase", url:"sep-ira-calculator.html"},
+            {name:"Solo 401k", icon:"fa-user-tie", url:"solo-401k-calculator.html"},
+            {name:"IRA Calculator", icon:"fa-piggy-bank", url:"ira-calculator.html"},
+            {name:"401k Calculator", icon:"fa-briefcase", url:"401k-calculator.html"},
+            {name:"Retirement Calculator", icon:"fa-umbrella-beach", url:"retirement-savings-calculator.html"},
+            {name:"Roth IRA", icon:"fa-money-bill-wave", url:"roth-ira-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridSimple").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

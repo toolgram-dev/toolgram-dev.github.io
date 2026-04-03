@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SEP IRA Calculator – Self-Employed Retirement Savings | ToolGram</title>
+    <meta name="description" content="Calculate SEP IRA contributions for self-employed and small business owners. Free online SEP IRA calculator with contribution limits up to $69,000.">
+    <meta name="keywords" content="SEP IRA calculator, self-employed retirement, small business retirement, SEP IRA contribution limits, retirement calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/sep-ira-calculator.html">
+    <meta property="og:title" content="SEP IRA Calculator | ToolGram">
+    <meta property="og:description" content="Calculate SEP IRA contributions for self-employed and small business owners.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/sep-ira-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SEP IRA Calculator",
+        "description": "Calculate SEP IRA contributions for self-employed and small business owners.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/sep-ira-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["SEP IRA Contributions", "Self-Employed Retirement", "Contribution Limits", "Tax Deduction"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .sep-box{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-briefcase"></i></div>
+            <div>
+                <h1 style="margin:0;">SEP IRA Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">For self-employed & small business</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Business Income</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Net Business Income ($)</label><input type="number" id="businessIncome" placeholder="100000" value="100000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Self-Employment Tax ($)</label><input type="number" id="seTax" placeholder="14130" value="14130" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Age</label><input type="number" id="currentAge" placeholder="40" value="40" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Retirement Age</label><input type="number" id="retirementAge" placeholder="65" value="65" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-percent"></i> Contribution Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current SEP Balance ($)</label><input type="number" id="currentBalance" placeholder="50000" value="50000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Contribution Rate (%)</label><input type="number" id="contribRate" placeholder="20" value="20" max="25" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Expected Return (%)</label><input type="number" id="expectedReturn" placeholder="7" value="7" step="0.5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateSEP()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clearSEP()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> SEP IRA Projection</div>
+                <div class="output-display" id="outputSEP">
+                    <div class="sep-box">
+                        <div style="font-weight:600;color:#3B82F6;margin-bottom:5px;"><i class="fas fa-briefcase"></i> Annual Contribution</div>
+                        <div style="margin-bottom:10px;">Max Allowed: <span class="loan-result" id="maxContribution">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Your Contribution: <span id="yourContribution">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">2024 Limit: $69,000</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Projected Balance:</strong> <span class="loan-result" id="finalBalance">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Years:</strong> <span id="yearsInvesting">25</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Contributed:</strong> <span id="totalContributions">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Growth:</strong> <span id="growthTotal">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Tax Deduction:</strong> <span id="taxDeduction">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Contribution % of income: <span id="contribPercent">0%</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySEPResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridSEP"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a SEP IRA?</h3>
+            <p>A SEP IRA (Simplified Employee Pension Individual Retirement Arrangement) is a retirement plan designed for self-employed individuals and small business owners. It allows you to contribute up to 25% of your compensation or $69,000 (2024 limit), whichever is less. SEP IRAs are easy to establish and maintain with minimal paperwork compared to other business retirement plans.</p>
+            <p>Unlike regular IRAs with a $7,000 limit, SEP IRAs offer significantly higher contribution limits, making them ideal for business owners with variable income who want to maximize retirement savings during profitable years. Contributions are tax-deductible as a business expense, reducing both income and self-employment tax liability.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your net business income (revenue minus business expenses).<br>
+            <strong>Step 2:</strong> Input self-employment tax paid (approximately 15.3% of 92.35% of net earnings).<br>
+            <strong>Step 3:</strong> Enter your current age and planned retirement age.<br>
+            <strong>Step 4:</strong> Input current SEP IRA balance (if any).<br>
+            <strong>Step 5:</strong> Set contribution rate (up to 25% of compensation, max $69,000).<br>
+            <strong>Step 6:</strong> Enter expected annual return (7% is typical long-term average).<br>
+            <strong>Step 7:</strong> Click "Calculate" to see your contribution limits and projections.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> SEP IRA Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Maximize in Good Years:</strong> Contribute the full 25% during profitable years to reduce taxable income significantly</li>
+                <li><strong>Deadline Flexibility:</strong> Establish and fund SEP IRA until tax filing deadline including extensions (up to Oct 15)</li>
+                <li><strong>Employee Considerations:</strong> If you have employees, you must contribute the same percentage for all eligible employees</li>
+                <li><strong>Combined with Roth:</strong> Contribute to SEP IRA for tax deduction, then do Roth conversions if desired</li>
+                <li><strong>Solo 401k Alternative:</strong> Consider Solo 401k if you want employee deferral ($23,000) plus profit sharing</li>
+                <li><strong>Deduct SE Tax First:</strong> Remember contribution is based on net earnings after 1/2 self-employment tax deduction</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">Who can establish a SEP IRA?</div>
+            <div class="faq-answer">Any employer can establish a SEP IRA, including sole proprietors, partnerships, and corporations. It's most commonly used by self-employed individuals and small businesses with few or no employees. You must cover all eligible employees (age 21+, worked 3 of last 5 years, earned at least $750 in 2024) with equal contribution percentages. Sole proprietors with no employees have the most flexibility.</div>
+
+            <div class="faq-question">What are the SEP IRA contribution limits?</div>
+            <div class="faq-answer">2024 limits: Up to 25% of compensation or $69,000, whichever is less. For self-employed individuals, the effective rate is approximately 20% of net self-employment income after subtracting 1/2 of self-employment tax. No catch-up contributions for those 50+ (unlike regular IRAs and 401ks). Contributions must be made by employer only—employees cannot contribute.</div>
+
+            <div class="faq-question">How are SEP IRA contributions calculated?</div>
+            <div class="faq-answer">For employees: Up to 25% of W-2 wages. For self-employed: Contribution = Net earnings - 1/2 SE tax - SEP contribution. This creates a circular calculation. Simplified: Effective rate is approximately 20% of net self-employment income. For example, $100,000 net income minus ~$7,065 (1/2 SE tax) = ~$92,935 × 20% = ~$18,587 maximum contribution.</div>
+
+            <div class="faq-question">When is the SEP IRA deadline?</div>
+            <div class="faq-answer">You can establish and contribute to a SEP IRA until the tax filing deadline for your business, including extensions. For sole proprietors: April 15 (or October 15 with extension). For corporations: March 15 (or September 15 with extension). This flexibility allows you to determine your contribution after knowing your full-year business performance.</div>
+
+            <div class="faq-question">Are SEP IRA contributions tax-deductible?</div>
+            <div class="faq-answer">Yes, contributions are 100% tax-deductible as a business expense. For self-employed individuals, the deduction reduces both income tax and self-employment tax. For corporations, contributions reduce corporate taxable income. The deduction is taken on your business tax return (Schedule C, 1120-S, or 1065), not as an IRA deduction on your personal return.</div>
+
+            <div class="faq-question">Can I have both SEP IRA and Traditional IRA?</div>
+            <div class="faq-answer">Yes, you can contribute to both. However, your Traditional IRA deduction may be limited based on income if you have a workplace retirement plan (which includes SEP IRA). 2024 phase-out: $77,000-$87,000 (single) or $123,000-$143,000 (married filing jointly). You can always make non-deductible Traditional IRA contributions regardless of income.</div>
+
+            <div class="faq-question">What if I have employees?</div>
+            <div class="faq-answer">If you have eligible employees, you must contribute the same percentage of compensation for all of them as you do for yourself. This can become expensive if you have many employees. Consider Simple IRA or 401k if you want employees to contribute or want different contribution formulas. Employees are always 100% vested immediately in SEP IRA contributions.</div>
+
+            <div class="faq-question">Should I choose SEP IRA or Solo 401k?</div>
+            <div class="faq-answer">Choose SEP IRA for: Simplicity, no annual reporting (Form 5500), flexible contributions until tax deadline, no Roth option needed. Choose Solo 401k for: Higher potential contributions at lower income levels ($23,000 employee deferral + 25% employer), Roth option, ability to borrow from plan, catch-up contributions at 50+. Many start with SEP then switch to Solo 401k as income grows.</div>
+
+            <div class="faq-question">Can I contribute to SEP IRA and 401k?</div>
+            <div class="faq-answer">If you have both a SEP IRA from self-employment and a 401k from a day job, contribution limits apply separately to each employer. However, if you're contributing as employee to both, your total employee deferrals across all plans can't exceed $23,000 (2024). SEP IRA employer contributions don't count against 401k deferral limits.</div>
+
+            <div class="faq-question">How do I open a SEP IRA?</div>
+            <div class="faq-answer">Process: 1) Choose a provider (brokerage firms like Fidelity, Vanguard, Schwab offer SEP IRAs), 2) Complete IRS Form 5305-SEP (Simplified Employee Pension Agreement), 3) Open SEP IRA accounts for yourself and any eligible employees, 4) Make contributions by tax deadline. No IRS filing or annual reporting required, making SEP the simplest business retirement plan.</div>
+
+            <div class="faq-question">What can I invest in a SEP IRA?</div>
+            <div class="faq-answer">Same investments as Traditional IRA: stocks, bonds, mutual funds, ETFs, CDs, money market funds. Most providers offer wide investment selections. Target-date funds are simplest. Index funds offer diversification at low cost. Unlike employer 401ks with limited menus, SEP IRAs typically offer thousands of investment options. Choose based on your risk tolerance and timeline.</div>
+
+            <div class="faq-question">When can I withdraw from SEP IRA?</div>
+            <div class="faq-answer">Same rules as Traditional IRA: penalty-free withdrawals begin at age 59½. Early withdrawals face 10% penalty plus ordinary income tax. Required minimum distributions (RMDs) start at age 73. Exceptions for early withdrawal: disability, first-time home purchase ($10,000 limit), higher education expenses, unreimbursed medical expenses, health insurance premiums while unemployed, substantially equal periodic payments.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateSEP() {
+        const businessIncome = parseFloat(document.getElementById('businessIncome').value) || 0;
+        const seTax = parseFloat(document.getElementById('seTax').value) || 0;
+        const currentAge = parseInt(document.getElementById('currentAge').value) || 0;
+        const retirementAge = parseInt(document.getElementById('retirementAge').value) || 65;
+        const currentBalance = parseFloat(document.getElementById('currentBalance').value) || 0;
+        const contribRate = parseFloat(document.getElementById('contribRate').value) || 0;
+        const expectedReturn = parseFloat(document.getElementById('expectedReturn').value) || 0;
+
+        const years = Math.max(0, retirementAge - currentAge);
+        
+        // Calculate maximum SEP contribution: up to 25% of compensation (20% of net self-employment income after SE tax deduction)
+        const netEarnings = businessIncome - (seTax / 2); // Deduct 1/2 SE tax
+        const calculatedContrib = netEarnings * (contribRate / 100);
+        const maxAllowed = Math.min(calculatedContrib, 69000); // 2024 limit
+
+        let balance = currentBalance;
+        let totalContrib = currentBalance;
+        const monthlyRate = (expectedReturn / 100) / 12;
+        const monthlyContrib = maxAllowed / 12;
+
+        for (let month = 0; month < years * 12; month++) {
+            balance = (balance + monthlyContrib) * (1 + monthlyRate);
+            totalContrib += monthlyContrib;
+        }
+
+        const growth = balance - totalContrib;
+        const contribPercent = businessIncome > 0 ? (maxAllowed / businessIncome) * 100 : 0;
+
+        document.getElementById('maxContribution').textContent = '$' + maxAllowed.toLocaleString();
+        document.getElementById('yourContribution').textContent = '$' + maxAllowed.toLocaleString();
+        document.getElementById('finalBalance').textContent = '$' + balance.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('yearsInvesting').textContent = years;
+        document.getElementById('totalContributions').textContent = '$' + totalContrib.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('growthTotal').textContent = '$' + growth.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('taxDeduction').textContent = '$' + maxAllowed.toLocaleString();
+        document.getElementById('contribPercent').textContent = contribPercent.toFixed(1) + '%';
+    }
+
+    function clearSEP() {
+        document.getElementById('businessIncome').value = '';
+        document.getElementById('seTax').value = '';
+        document.getElementById('currentAge').value = '';
+        document.getElementById('retirementAge').value = '';
+        document.getElementById('currentBalance').value = '';
+        document.getElementById('contribRate').value = '';
+        document.getElementById('expectedReturn').value = '';
+        document.getElementById('maxContribution').textContent = '$0.00';
+        document.getElementById('yourContribution').textContent = '$0.00';
+        document.getElementById('finalBalance').textContent = '$0.00';
+        document.getElementById('yearsInvesting').textContent = '0';
+        document.getElementById('totalContributions').textContent = '$0.00';
+        document.getElementById('growthTotal').textContent = '$0.00';
+        document.getElementById('taxDeduction').textContent = '$0.00';
+        document.getElementById('contribPercent').textContent = '0%';
+    }
+
+    function copySEPResults() {
+        const max = document.getElementById('maxContribution').textContent;
+        const balance = document.getElementById('finalBalance').textContent;
+        const text = `SEP IRA Results:
+Max Contribution: ${max}
+Projected Balance: ${balance}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"Solo 401k", icon:"fa-user-tie", url:"solo-401k-calculator.html"},
+            {name:"Simple IRA", icon:"fa-briefcase", url:"simple-ira-calculator.html"},
+            {name:"IRA Calculator", icon:"fa-piggy-bank", url:"ira-calculator.html"},
+            {name:"401k Calculator", icon:"fa-briefcase", url:"401k-calculator.html"},
+            {name:"Retirement Calculator", icon:"fa-umbrella-beach", url:"retirement-savings-calculator.html"},
+            {name:"Roth IRA", icon:"fa-money-bill-wave", url:"roth-ira-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridSEP").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

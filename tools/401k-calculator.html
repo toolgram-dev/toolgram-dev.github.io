@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>401k Calculator – Retirement Growth & Employer Match | ToolGram</title>
+    <meta name="description" content="Calculate 401k growth, employer match benefits, and retirement projections. Free online 401k calculator with contribution analysis.">
+    <meta name="keywords" content="401k calculator, retirement calculator, employer match calculator, 401k growth, retirement savings">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/401k-calculator.html">
+    <meta property="og:title" content="401k Calculator | ToolGram">
+    <meta property="og:description" content="Calculate 401k growth with employer match and plan your retirement savings.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/401k-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "401k Calculator",
+        "description": "Calculate 401k growth with employer match and plan your retirement savings.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/401k-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["401k Growth", "Employer Match", "Retirement Planning", "Contribution Calculator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .kbox{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-briefcase"></i></div>
+            <div>
+                <h1 style="margin:0;">401k Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Plan your employer-sponsored retirement</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-user"></i> Your Information</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Age</label><input type="number" id="currentAge" placeholder="30" value="30" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Retirement Age</label><input type="number" id="retirementAge" placeholder="65" value="65" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Annual Salary ($)</label><input type="number" id="salary" placeholder="60000" value="60000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                </div>
+                <div class="tool-column-title" style="margin-top:20px;"><i class="fas fa-percent"></i> 401k Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Balance ($)</label><input type="number" id="currentBalance" placeholder="20000" value="20000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Your Contribution (%)</label><input type="number" id="yourContribution" placeholder="6" value="6" step="0.5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Employer Match (%)</label><input type="number" id="employerMatch" placeholder="3" value="3" step="0.5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Annual Return (%)</label><input type="number" id="annualReturn" placeholder="7" value="7" step="0.5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box"></div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculate401k()"><i class="fas fa-calculator"></i> Calculate</button>
+                    <button class="secondary-btn" onclick="clear401k()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> 401k Projection</div>
+                <div class="output-display" id="output401k">
+                    <div class="kbox">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-briefcase"></i> At Retirement</div>
+                        <div style="margin-bottom:10px;">Balance: <span class="loan-result" id="finalBalance">$0.00</span></div>
+                        <div style="margin-bottom:10px;">Years: <span id="yearsInvesting">35</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Employer Match Value: <span id="matchValue">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Your Contributions:</strong> <span id="yourContribTotal">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Employer Match:</strong> <span id="employerContribTotal">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Investment Growth:</strong> <span id="growthTotal">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Contribution:</strong> <span id="monthlyContrib">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Annual Contribution:</strong> <span id="annualContrib">$0.00</span></div>
+                        <div><strong style="color:#8B5CF6;">2024 Limit:</strong> $23,000 ($30,500 if 50+)</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copy401kResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGrid401k"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a 401k Calculator?</h3>
+            <p>A 401k calculator helps you project the growth of your employer-sponsored retirement account over time. It accounts for your contributions, employer matching, investment returns, and years until retirement to show your potential nest egg. This powerful tool helps you understand how small changes today impact your financial future decades from now.</p>
+            <p>Whether you're just starting your career or planning for retirement in a few years, this calculator shows exactly how much you'll accumulate. It highlights the incredible value of employer matching—essentially free money that doubles your savings power.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your current age and planned retirement age.<br>
+            <strong>Step 2:</strong> Input your annual salary.<br>
+            <strong>Step 3:</strong> Enter your current 401k balance (if any).<br>
+            <strong>Step 4:</strong> Set your contribution percentage (aim for at least enough to get full employer match).<br>
+            <strong>Step 5:</strong> Enter employer match percentage (typically 3-6%).<br>
+            <strong>Step 6:</strong> Adjust expected annual return (7% is realistic long-term average).<br>
+            <strong>Step 7:</strong> Click "Calculate" to see your retirement projection.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> 401k Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Max the Match:</strong> Always contribute enough to get 100% of employer match—free money with 100% return</li>
+                <li><strong>Increase Gradually:</strong> Raise contribution 1% every raise or year—you won't feel the difference</li>
+                <li><strong>Catch-Up at 50:</strong> Additional $7,500 allowed annually for those 50 and older</li>
+                <li><strong>Diversify Investments:</strong> Don't leave money in cash; target-date funds simplify investing</li>
+                <li><strong>Never Borrow:</strong> 401k loans derail retirement growth—explore other options first</li>
+                <li><strong>Keep Old 401ks:</strong> Rollover to new employer or IRA—don't cash out when switching jobs</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            
+            <div class="faq-question">What is a 401k?</div>
+            <div class="faq-answer">A 401k is an employer-sponsored retirement savings plan. You contribute pre-tax dollars, reducing current taxable income. Money grows tax-deferred until retirement. Many employers match contributions, providing free additional savings. It's one of the most powerful wealth-building tools available to American workers.</div>
+
+            <div class="faq-question">How much should I contribute to my 401k?</div>
+            <div class="faq-answer">At minimum, contribute enough to get full employer match—typically 3-6% of salary. Ideal target: 10-15% of income including match. Maximum: $23,000 in 2024 ($30,500 if age 50+). Financial advisors often suggest saving 15% of income starting in your 20s for comfortable retirement.</div>
+
+            <div class="faq-question">What is employer matching?</div>
+            <div class="faq-answer">Free money your employer adds to your 401k when you contribute. Common match: 50% of your contributions up to 6% of salary, meaning if you put in 6%, employer adds 3%. Some match dollar-for-dollar. This is a 50-100% immediate return—never leave this money on the table.</div>
+
+            <div class="faq-question">When can I withdraw from my 401k?</div>
+            <div class="faq-answer">Without penalties: Age 59½ and older. Exceptions: disability, certain medical expenses, first-time home purchase (limited), substantially equal periodic payments. Early withdrawals (before 59½) face 10% penalty plus regular income tax. Required minimum distributions start at age 73.</div>
+
+            <div class="faq-question">What happens to my 401k if I change jobs?</div>
+            <div class="faq-answer">Options: 1) Leave it with old employer (if allowed), 2) Roll over to new employer's 401k, 3) Roll over to an IRA, 4) Cash out (avoid—taxes and penalties apply). Rollovers are tax-free if done correctly within 60 days. IRAs often offer more investment choices than employer plans.</div>
+
+            <div class="faq-question">Should I choose Traditional or Roth 401k?</div>
+            <div class="faq-answer">Traditional: Pre-tax contributions, tax-deferred growth, taxed at withdrawal. Choose if current tax rate > expected retirement rate. Roth: After-tax contributions, tax-free growth, tax-free withdrawal. Choose if current rate < expected future rate, or for tax diversification. Many offer both—consider splitting contributions.</div>
+
+            <div class="faq-question">What should I invest my 401k in?</div>
+            <div class="faq-answer">Target-date funds are simplest—automatically adjust allocation as you age. Or build portfolio: stock funds for growth (higher risk/reward), bond funds for stability, index funds for low costs. Avoid company stock concentration (no more than 5-10%). Diversify across asset classes. Lower fees = more money kept.</div>
+
+            <div class="faq-question">Can I lose money in my 401k?</div>
+            <div class="faq-answer">Yes, investments fluctuate with markets. Short-term volatility is normal. Historically, diversified portfolios gain value over long term (10+ years). Don't panic during market downturns—keep contributing. Dollar-cost averaging (buying regularly) actually helps you buy more shares when prices are low.</div>
+
+            <div class="faq-question">Should I take a 401k loan?</div>
+            <div class="faq-answer">Generally no. While you pay yourself interest, you lose market growth during loan period. If you leave job, loan becomes due immediately. Missed payments trigger taxes and penalties. Explore alternatives: emergency fund, personal loan, HELOC. Only use 401k loans as last resort for true emergencies.</div>
+
+            <div class="faq-question">How does 401k affect my taxes?</div>
+            <div class="faq-answer">Traditional 401k contributions reduce taxable income now—immediate tax savings. Growth is tax-deferred. Withdrawals taxed as ordinary income in retirement. Roth 401k: No immediate tax deduction, but tax-free growth and withdrawals. Employer match always goes to traditional pre-tax account even if you choose Roth.</div>
+
+            <div class="faq-question">What if my employer doesn't offer 401k?</div>
+            <div class="faq-answer">Alternatives: Open Traditional or Roth IRA ($7,000 limit in 2024, $8,000 if 50+). Self-employed: SEP IRA or Solo 401k with higher limits. Taxable brokerage account (no limits, no special tax treatment). Some employers offer Simple IRAs instead. Save anyway—retirement is your responsibility regardless of employer benefits.</div>
+
+            <div class="faq-question">When should I start contributing?</div>
+            <div class="faq-answer">Immediately—today if possible. Time is your greatest advantage. Starting at 25 vs 35 can mean hundreds of thousands more at retirement due to compound growth. Even small amounts compound significantly over decades. Don't wait for "enough" money—start with whatever you can and increase gradually.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculate401k() {
+        const currentAge = parseInt(document.getElementById('currentAge').value) || 0;
+        const retirementAge = parseInt(document.getElementById('retirementAge').value) || 65;
+        const salary = parseFloat(document.getElementById('salary').value) || 0;
+        const currentBalance = parseFloat(document.getElementById('currentBalance').value) || 0;
+        const yourContribPercent = parseFloat(document.getElementById('yourContribution').value) || 0;
+        const employerMatchPercent = parseFloat(document.getElementById('employerMatch').value) || 0;
+        const annualReturn = parseFloat(document.getElementById('annualReturn').value) || 0;
+
+        const years = Math.max(0, retirementAge - currentAge);
+        const yourAnnualContrib = salary * (yourContribPercent / 100);
+        const employerAnnualContrib = salary * (employerMatchPercent / 100);
+        const totalAnnualContrib = yourAnnualContrib + employerAnnualContrib;
+        const monthlyContrib = totalAnnualContrib / 12;
+
+        let balance = currentBalance;
+        let yourTotal = currentBalance;
+        let employerTotal = 0;
+        const monthlyRate = (annualReturn / 100) / 12;
+
+        for (let month = 0; month < years * 12; month++) {
+            balance = (balance + monthlyContrib) * (1 + monthlyRate);
+            yourTotal += yourAnnualContrib / 12;
+            employerTotal += employerAnnualContrib / 12;
+        }
+
+        const growth = balance - yourTotal - employerTotal;
+
+        document.getElementById('finalBalance').textContent = '$' + balance.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('yearsInvesting').textContent = years;
+        document.getElementById('matchValue').textContent = '$' + employerTotal.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('yourContribTotal').textContent = '$' + yourTotal.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('employerContribTotal').textContent = '$' + employerTotal.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('growthTotal').textContent = '$' + growth.toLocaleString(undefined,{maximumFractionDigits:0});
+        document.getElementById('monthlyContrib').textContent = '$' + monthlyContrib.toFixed(2);
+        document.getElementById('annualContrib').textContent = '$' + totalAnnualContrib.toLocaleString();
+    }
+
+    function clear401k() {
+        document.getElementById('currentAge').value = '';
+        document.getElementById('retirementAge').value = '';
+        document.getElementById('salary').value = '';
+        document.getElementById('currentBalance').value = '';
+        document.getElementById('yourContribution').value = '';
+        document.getElementById('employerMatch').value = '';
+        document.getElementById('annualReturn').value = '';
+        document.getElementById('finalBalance').textContent = '$0.00';
+        document.getElementById('yearsInvesting').textContent = '0';
+        document.getElementById('matchValue').textContent = '$0.00';
+        document.getElementById('yourContribTotal').textContent = '$0.00';
+        document.getElementById('employerContribTotal').textContent = '$0.00';
+        document.getElementById('growthTotal').textContent = '$0.00';
+        document.getElementById('monthlyContrib').textContent = '$0.00';
+        document.getElementById('annualContrib').textContent = '$0.00';
+    }
+
+    function copy401kResults() {
+        const balance = document.getElementById('finalBalance').textContent;
+        const match = document.getElementById('matchValue').textContent;
+        const text = `401k Results:
+Balance: ${balance}
+Employer Match: ${match}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2002);
+    }
+
+    function loadRelated() {
+        const tools = [
+            {name:"IRA Calculator", icon:"fa-piggy-bank", url:"ira-calculator.html"},
+            {name:"Roth IRA Calculator", icon:"fa-money-bill-wave", url:"roth-ira-calculator.html"},
+            {name:"Retirement Calculator", icon:"fa-umbrella-beach", url:"retirement-savings-calculator.html"},
+            {name:"Compound Interest", icon:"fa-chart-line", url:"compound-interest-calculator.html"},
+            {name:"Pension Calculator", icon:"fa-calendar-check", url:"pension-calculator.html"},
+            {name:"Annuity Calculator", icon:"fa-hand-holding-usd", url:"annuity-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGrid401k").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

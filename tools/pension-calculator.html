@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pension Calculator – Defined Benefit Income Estimator | ToolGram</title>
+<meta name="description" content="Calculate pension benefits and retirement income from defined benefit plans. Free online pension calculator with lump sum vs annuity options.">
+<link rel="canonical" href="https://toolgram-dev.github.io/tools/pension-calculator.html">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/tool.css">
+<link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+<style>
+.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;transition:all .3s ease}
+.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}
+.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;flex:1;box-sizing:border-box}
+select option{background:#fff!important;color:#000!important}
+.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+.pension-box{background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+@media(max-width:768px){
+.related-grid{grid-template-columns:1fr}
+.var-row{flex-direction:column;align-items:stretch;gap:5px}
+.var-row label{width:100%;margin-bottom:3px}
+.var-row input,.var-row select{width:100%;box-sizing:border-box}
+}
+</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+<button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+<div class="tool-container">
+<div class="tool-header">
+<div class="tool-header-icon"><i class="fas fa-calendar-check"></i></div>
+<div><h1 style="margin:0;">Pension Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Estimate defined benefit pension income</p></div>
+</div>
+
+<div class="tool-interface">
+<div class="tool-column">
+<div class="tool-column-title"><i class="fas fa-sliders-h"></i> Pension Details</div>
+<div style="padding:20px">
+<div class="var-row">
+<label style="color:#fff;min-width:150px">Formula Type</label>
+<select id="formulaType"><option value="final" selected>Final Average Salary</option><option value="career">Career Average</option><option value="cash">Cash Balance</option></select>
+</div>
+<div class="var-row">
+<label style="color:#fff;min-width:150px">Final Avg Salary ($)</label>
+<input type="number" id="finalSalary" placeholder="80000" value="80000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+</div>
+<div class="var-row">
+<label style="color:#fff;min-width:150px">Years of Service</label>
+<input type="number" id="yearsService" placeholder="30" value="30" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+</div>
+<div class="var-row">
+<label style="color:#fff;min-width:150px">Retirement Age</label>
+<input type="number" id="retirementAge" placeholder="65" value="65" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+</div>
+<div class="var-row">
+<label style="color:#fff;min-width:150px">Multiplier (%)</label>
+<input type="number" id="multiplier" placeholder="2.0" value="2.0" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+</div>
+<div class="var-row">
+<label style="color:#fff;min-width:150px">COLA (%)</label>
+<input type="number" id="cola" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+</div>
+</div>
+<div class="tool-actions">
+<button class="action-btn" onclick="calculatePension()"><i class="fas fa-calculator"></i> Calculate</button>
+<button class="secondary-btn" onclick="clearPension()"><i class="fas fa-trash"></i> Clear</button>
+</div>
+</div>
+<div class="tool-column">
+<div class="tool-column-title"><i class="fas fa-chart-line"></i> Pension Benefit</div>
+<div class="output-display" id="outputPension">
+<div class="pension-box">
+<div style="font-weight:600;color:#8B5CF6;margin-bottom:5px;"><i class="fas fa-calendar-check"></i> Monthly Pension</div>
+<div style="margin-bottom:10px;"><span class="loan-result" id="monthlyBenefit">$0.00</span>/month</div>
+<div style="margin-bottom:10px;">Annual: <span id="annualBenefit">$0.00</span></div>
+<div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Guaranteed income for life</div>
+</div>
+<div style="margin-top:15px;">
+<div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Years of Service:</strong> <span id="serviceYears">0</span></div>
+<div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Benefit Multiplier:</strong> <span id="benefitMultiplier">0%</span></div>
+<div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Replacement Rate:</strong> <span id="replacementRate">0%</span></div>
+</div>
+<div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+<div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">20-Year Total:</strong> <span id="twentyYearTotal">$0.00</span></div>
+<div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">With COLA:</strong> <span id="colaAdjusted">$0.00</span>/yr</div>
+<div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">PBGC insured up to $75,300/yr</div>
+</div>
+</div>
+<div class="tool-actions" style="margin-top:15px;">
+<button class="copy-btn" onclick="copyPensionResults()"><i class="far fa-copy"></i> Copy Results</button>
+</div>
+</div>
+</div>
+</div>
+<div class="blank-space"></div>
+<div class="tool-content-section" style="margin-top:30px;">
+<div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+<h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+<div class="related-grid" id="relatedGridPension"></div>
+</div>
+</div>
+<div class="blank-space"></div>
+<div class="tool-content-section">
+<div class="info-box">
+<h3><i class="fas fa-question-circle"></i> What is a Pension?</h3>
+<p>A pension is a defined benefit retirement plan providing guaranteed income for life based on your years of service, average salary, and retirement age. Unlike 401ks, the employer bears investment risk and guarantees specific monthly benefits regardless of market performance.</p>
+<p>This calculator estimates monthly/annual pension income based on salary history, years of service, and plan formula. It helps evaluate lump sum vs monthly payment decisions.</p>
+</div>
+<div class="blank-space"></div>
+<div class="info-box">
+<h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+<p><strong>Step 1:</strong> Select pension formula type.<br>
+<strong>Step 2:</strong> Enter final average salary.<br>
+<strong>Step 3:</strong> Input years of service.<br>
+<strong>Step 4:</strong> Enter retirement age.<br>
+<strong>Step 5:</strong> Set benefit multiplier.<br>
+<strong>Step 6:</strong> Click "Calculate" to see estimated benefits.</p>
+</div>
+<div class="blank-space"></div>
+<div class="info-box">
+<h3><i class="fas fa-lightbulb"></i> Pension Strategies & Pro Tips</h3>
+<ul>
+<li><strong>Know Your Formula:</strong> Request your specific plan document for exact calculations</li>
+<li><strong>Maximize High Years:</strong> Maximize earnings during years counted toward final average</li>
+<li><strong>Survivor Benefits:</strong> Understand how joint survivor options affect monthly payments</li>
+<li><strong>Lump Sum Decision:</strong> Compare lump sum value to annuity payments using life expectancy</li>
+<li><strong>Tax Planning:</strong> Pension income is taxable; consider Roth conversions before RMDs</li>
+</ul>
+</div>
+<div class="blank-space"></div>
+<div class="info-box">
+<h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+<div class="faq-question">How is my pension calculated?</div>
+<div class="faq-answer">Most use: Years × Final Average Salary × Multiplier. Example: 30 years × $80,000 × 2% = $48,000/year. Multipliers range 1-2.5%. Early retirement typically reduces benefits 3-6% per year before normal retirement age.</div>
+<div class="faq-question">Should I take lump sum or monthly payments?</div>
+<div class="faq-answer">Consider: life expectancy, investment ability, need for guaranteed income, inflation impact, and other income sources. Many experts recommend keeping pension for guaranteed income floor and investing other assets for growth.</div>
+<div class="faq-question">Are pension benefits guaranteed?</div>
+<div class="faq-answer">Private pensions: Protected by PBGC up to $75,300/year (2024). Government pensions: Backed by taxing authority. Check your plan's funding status annually—underfunded plans have higher risk.</div>
+<div class="faq-question">What is vesting?</div>
+<div class="faq-answer">Vesting determines your ownership. Cliff: 100% after 5 years. Graded: 20% after 2 years, 100% after 6. Leave before vesting forfeits non-vested employer contributions. You're always 100% vested in your own contributions.</div>
+<div class="faq-question">Can I collect pension and work?</div>
+<div class="faq-answer">Depends on plan rules. Many private plans allow working elsewhere. Some government plans have earnings limits. Check your specific provisions. Social Security may reduce benefits if under full retirement age.</div>
+<div class="faq-question">What happens when I die?</div>
+<div class="faq-answer">Single life: Highest payment, stops at death. Joint & Survivor: Reduced payment continues to spouse (50%, 75%, or 100%). Period certain: Payments guaranteed for set years to beneficiaries. Selection affects your monthly amount significantly.</div>
+<div class="faq-question">Will my pension affect Social Security?</div>
+<div class="faq-answer">If you paid Social Security taxes during employment, no effect. If you have a non-covered pension (no SS taxes), WEP/GPO may reduce Social Security benefits. This affects some government workers with separate pension systems.</div>
+<div class="faq-question">Can I roll over my pension?</div>
+<div class="faq-answer">If offered as lump sum, you can roll to IRA to maintain tax deferral. Must complete rollover within 60 days or direct rollover to avoid taxes and penalties. Consider consulting fee-only advisor before making irreversible decisions.</div>
+</div>
+</div>
+<div class="blank-space"></div>
+<footer class="footer-bg" style="margin-top:80px;">
+<div class="watermark">TOOLGRAM</div>
+<div class="footer-content">
+<div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms</a><a href="../contact.html">Contact</a></div></div>
+<div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+</div>
+</footer>
+</div>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculatePension() {
+const formulaType=document.getElementById('formulaType').value;
+const finalSalary=parseFloat(document.getElementById('finalSalary').value)||0;
+const years=parseInt(document.getElementById('yearsService').value)||0;
+const retirementAge=parseInt(document.getElementById('retirementAge').value)||65;
+const multiplier=parseFloat(document.getElementById('multiplier').value)||0;
+const cola=parseFloat(document.getElementById('cola').value)||0;
+let annualBenefit=finalSalary*(years*multiplier/100);
+const normalRetirementAge=65;
+let reduction=0;
+if(retirementAge<normalRetirementAge){
+const yearsEarly=normalRetirementAge-retirementAge;
+reduction=yearsEarly*5;
+annualBenefit=annualBenefit*(1-reduction/100);
+}
+const monthlyBenefit=annualBenefit/12;
+const replacementRate=finalSalary>0?(annualBenefit/finalSalary)*100:0;
+const twentyYearTotal=annualBenefit*20;
+let colaAdjusted=annualBenefit;
+if(cola>0){
+colaAdjusted=annualBenefit*Math.pow(1+cola/100,10);
+}
+document.getElementById('monthlyBenefit').textContent='$'+monthlyBenefit.toFixed(2);
+document.getElementById('annualBenefit').textContent='$'+annualBenefit.toLocaleString(undefined,{maximumFractionDigits:0});
+document.getElementById('serviceYears').textContent=years;
+document.getElementById('benefitMultiplier').textContent=multiplier+'%';
+document.getElementById('replacementRate').textContent=replacementRate.toFixed(1)+'%';
+document.getElementById('twentyYearTotal').textContent='$'+twentyYearTotal.toLocaleString(undefined,{maximumFractionDigits:0});
+document.getElementById('colaAdjusted').textContent='$'+colaAdjusted.toLocaleString(undefined,{maximumFractionDigits:0});
+}
+function clearPension(){
+document.getElementById('finalSalary').value='';
+document.getElementById('yearsService').value='';
+document.getElementById('retirementAge').value='';
+document.getElementById('multiplier').value='';
+document.getElementById('cola').value='';
+document.getElementById('monthlyBenefit').textContent='$0.00';
+document.getElementById('annualBenefit').textContent='$0.00';
+document.getElementById('serviceYears').textContent='0';
+document.getElementById('benefitMultiplier').textContent='0%';
+document.getElementById('replacementRate').textContent='0%';
+document.getElementById('twentyYearTotal').textContent='$0.00';
+document.getElementById('colaAdjusted').textContent='$0.00';
+}
+function copyPensionResults(){
+const monthly=document.getElementById('monthlyBenefit').textContent;
+const annual=document.getElementById('annualBenefit').textContent;
+const replacement=document.getElementById('replacementRate').textContent;
+const text=`Pension Calculation Results:
+Monthly Benefit: ${monthly}
+Annual Benefit: ${annual}
+Replacement Rate: ${replacement}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2002);
+}
+function loadRelated(){
+const tools=[
+{name:"Retirement Calculator",icon:"fa-umbrella-beach",url:"retirement-savings-calculator.html"},
+{name:"Annuity Calculator",icon:"fa-hand-holding-usd",url:"annuity-calculator.html"},
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"IRA Calculator",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"Solo 401k",icon:"fa-user-tie",url:"solo-401k-calculator.html"},
+{name:"Compound Interest",icon:"fa-chart-line",url:"compound-interest-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span style="font-size:.95rem;font-weight:500">${t.name}</span></a>`;});
+document.getElementById("relatedGridPension").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>
