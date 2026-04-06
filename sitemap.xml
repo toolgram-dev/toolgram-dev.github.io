@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <!-- Main Pages -->
     <url>
-        <loc>https://toolgram-dev.github.io/</loc>
+        <loc>https://toolgram.tech/</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools.html</loc>
+        <loc>https://toolgram.tech/tools.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
@@ -16,499 +16,499 @@
     
     <!-- All 81 Tools A-Z -->
     <url>
-        <loc>https://toolgram-dev.github.io/tools/accessibility.html</loc>
+        <loc>https://toolgram.tech/tools/accessibility.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/aspect-ratio.html</loc>
+        <loc>https://toolgram.tech/tools/aspect-ratio.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/base32-encoder.html</loc>
+        <loc>https://toolgram.tech/tools/base32-encoder.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/base64.html</loc>
+        <loc>https://toolgram.tech/tools/base64.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/bcrypt-hasher.html</loc>
+        <loc>https://toolgram.tech/tools/bcrypt-hasher.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/bin-dec.html</loc>
+        <loc>https://toolgram.tech/tools/bin-dec.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/binary-to-hex.html</loc>
+        <loc>https://toolgram.tech/tools/binary-to-hex.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/border-radius.html</loc>
+        <loc>https://toolgram.tech/tools/border-radius.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/byte-converter.html</loc>
+        <loc>https://toolgram.tech/tools/byte-converter.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/byte-to-bit.html</loc>
+        <loc>https://toolgram.tech/tools/byte-to-bit.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/case-normalizer.html</loc>
+        <loc>https://toolgram.tech/tools/case-normalizer.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/color-palette.html</loc>
+        <loc>https://toolgram.tech/tools/color-palette.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/contrast-ratio.html</loc>
+        <loc>https://toolgram.tech/tools/contrast-ratio.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/crc32.html</loc>
+        <loc>https://toolgram.tech/tools/crc32.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/cron-info.html</loc>
+        <loc>https://toolgram.tech/tools/cron-info.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/cron-parser.html</loc>
+        <loc>https://toolgram.tech/tools/cron-parser.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/css-minifier.html</loc>
+        <loc>https://toolgram.tech/tools/css-minifier.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/css-vars.html</loc>
+        <loc>https://toolgram.tech/tools/css-vars.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/csv-to-json.html</loc>
+        <loc>https://toolgram.tech/tools/csv-to-json.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/data-uri.html</loc>
+        <loc>https://toolgram.tech/tools/data-uri.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/dedupe.html</loc>
+        <loc>https://toolgram.tech/tools/dedupe.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/entity-unescaper.html</loc>
+        <loc>https://toolgram.tech/tools/entity-unescaper.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/epoch.html</loc>
+        <loc>https://toolgram.tech/tools/epoch.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/gradient-gen.html</loc>
+        <loc>https://toolgram.tech/tools/gradient-gen.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/gzip-decompress.html</loc>
+        <loc>https://toolgram.tech/tools/gzip-decompress.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/html-entity.html</loc>
+        <loc>https://toolgram.tech/tools/html-entity.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/html-strip.html</loc>
+        <loc>https://toolgram.tech/tools/html-strip.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/html-table-to-csv.html</loc>
+        <loc>https://toolgram.tech/tools/html-table-to-csv.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/js-formatter.html</loc>
+        <loc>https://toolgram.tech/tools/js-formatter.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/js-hide.html</loc>
+        <loc>https://toolgram.tech/tools/js-hide.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/js-minifier.html</loc>
+        <loc>https://toolgram.tech/tools/js-minifier.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/json-camelcasifier.html</loc>
+        <loc>https://toolgram.tech/tools/json-camelcasifier.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/json-minifier.html</loc>
+        <loc>https://toolgram.tech/tools/json-minifier.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/json-path.html</loc>
+        <loc>https://toolgram.tech/tools/json-path.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/json-schema-validator.html</loc>
+        <loc>https://toolgram.tech/tools/json-schema-validator.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/json-schema.html</loc>
+        <loc>https://toolgram.tech/tools/json-schema.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/json-stringify.html</loc>
+        <loc>https://toolgram.tech/tools/json-stringify.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/json-to-csv.html</loc>
+        <loc>https://toolgram.tech/tools/json-to-csv.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/json-to-ts.html</loc>
+        <loc>https://toolgram.tech/tools/json-to-ts.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/jwt-decoder.html</loc>
+        <loc>https://toolgram.tech/tools/jwt-decoder.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/jwt-encoder.html</loc>
+        <loc>https://toolgram.tech/tools/jwt-encoder.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/list-shuffler.html</loc>
+        <loc>https://toolgram.tech/tools/list-shuffler.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/list-sorter.html</loc>
+        <loc>https://toolgram.tech/tools/list-sorter.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/lorem-ipsum.html</loc>
+        <loc>https://toolgram.tech/tools/lorem-ipsum.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/mailto-generator.html</loc>
+        <loc>https://toolgram.tech/tools/mailto-generator.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/markdown-to-html.html</loc>
+        <loc>https://toolgram.tech/tools/markdown-to-html.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/md-table.html</loc>
+        <loc>https://toolgram.tech/tools/md-table.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/md5-hasher.html</loc>
+        <loc>https://toolgram.tech/tools/md5-hasher.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/morse.html</loc>
+        <loc>https://toolgram.tech/tools/morse.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/number-base.html</loc>
+        <loc>https://toolgram.tech/tools/number-base.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/object-flattener.html</loc>
+        <loc>https://toolgram.tech/tools/object-flattener.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/palette.html</loc>
+        <loc>https://toolgram.tech/tools/palette.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/pass-check.html</loc>
+        <loc>https://toolgram.tech/tools/pass-check.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/percent-change.html</loc>
+        <loc>https://toolgram.tech/tools/percent-change.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/pwa-manifest.html</loc>
+        <loc>https://toolgram.tech/tools/pwa-manifest.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/rem-converter.html</loc>
+        <loc>https://toolgram.tech/tools/rem-converter.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/rgb-to-hex.html</loc>
+        <loc>https://toolgram.tech/tools/rgb-to-hex.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/robots-gen.html</loc>
+        <loc>https://toolgram.tech/tools/robots-gen.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/sha256.html</loc>
+        <loc>https://toolgram.tech/tools/sha256.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/sitemap-gen.html</loc>
+        <loc>https://toolgram.tech/tools/sitemap-gen.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/slug-generator.html</loc>
+        <loc>https://toolgram.tech/tools/slug-generator.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/sql-formatter.html</loc>
+        <loc>https://toolgram.tech/tools/sql-formatter.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/sql-to-json.html</loc>
+        <loc>https://toolgram.tech/tools/sql-to-json.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/string-repeater.html</loc>
+        <loc>https://toolgram.tech/tools/string-repeater.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/svg-formatter.html</loc>
+        <loc>https://toolgram.tech/tools/svg-formatter.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/svg-path.html</loc>
+        <loc>https://toolgram.tech/tools/svg-path.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/svg-to-datauri.html</loc>
+        <loc>https://toolgram.tech/tools/svg-to-datauri.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/table-to-json.html</loc>
+        <loc>https://toolgram.tech/tools/table-to-json.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/text-diff.html</loc>
+        <loc>https://toolgram.tech/tools/text-diff.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/text-inverter.html</loc>
+        <loc>https://toolgram.tech/tools/text-inverter.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/text-one-line.html</loc>
+        <loc>https://toolgram.tech/tools/text-one-line.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/text-to-binary.html</loc>
+        <loc>https://toolgram.tech/tools/text-to-binary.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/tts-format.html</loc>
+        <loc>https://toolgram.tech/tools/tts-format.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/ua-parser.html</loc>
+        <loc>https://toolgram.tech/tools/ua-parser.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/unix-permissions.html</loc>
+        <loc>https://toolgram.tech/tools/unix-permissions.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/unslugify.html</loc>
+        <loc>https://toolgram.tech/tools/unslugify.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/url-encoder.html</loc>
+        <loc>https://toolgram.tech/tools/url-encoder.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/utf8.html</loc>
+        <loc>https://toolgram.tech/tools/utf8.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/uuid.html</loc>
+        <loc>https://toolgram.tech/tools/uuid.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/word-cloud.html</loc>
+        <loc>https://toolgram.tech/tools/word-cloud.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/word-counter.html</loc>
+        <loc>https://toolgram.tech/tools/word-counter.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/xml-to-json.html</loc>
+        <loc>https://toolgram.tech/tools/xml-to-json.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/tools/yaml-validator.html</loc>
+        <loc>https://toolgram.tech/tools/yaml-validator.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -516,25 +516,25 @@
     
     <!-- Info Pages -->
     <url>
-        <loc>https://toolgram-dev.github.io/about.html</loc>
+        <loc>https://toolgram.tech/about.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/privacy.html</loc>
+        <loc>https://toolgram.tech/privacy.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/terms.html</loc>
+        <loc>https://toolgram.tech/terms.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://toolgram-dev.github.io/contact.html</loc>
+        <loc>https://toolgram.tech/contact.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>

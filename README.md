@@ -37,7 +37,7 @@ Want to fix something? PRs welcome!
 ### 📬 Connect
 - Twitter: [@toolgram](https://x.com/@ToolgramL99971)
 - Reddit: [/u/toolgram](https://www.reddit.com/user/Hot-Reward7234/)
-- GitHub: [toolgram](https://github.com/toolgram-dev/toolgram-dev.github.io)
+- GitHub: [toolgram](https://github.com/toolgram-dev/toolgram.tech)
 
 ### ⚡ Stats
 - 135+ tools (and counting)
