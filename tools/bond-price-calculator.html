@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bond Price Calculator – Present Value of Bonds | ToolGram</title>
+    <meta name="description" content="Calculate bond price from yield and coupon. Free online bond valuation calculator for fixed income investments.">
+    <meta name="keywords" content="bond price calculator, bond valuation, present value, bond pricing, fixed income calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/bond-price-calculator.html">
+    <meta property="og:title" content="Bond Price Calculator | ToolGram">
+    <meta property="og:description" content="Calculate bond price from yield and coupon payments.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/bond-price-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Bond Price Calculator",
+        "description": "Calculate bond price from yield and coupon payments.",
+        "applicationCategory": "Finance",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/bond-price-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Bond Pricing", "Present Value", "Fixed Income"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-dollar-sign"></i></div>
+            <div>
+                <h1 style="margin:0;">Bond Price Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate fair value from yield and coupon</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Bond Parameters</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Face Value ($)</label>
+                        <input type="number" id="bondPriceFace" placeholder="1000" value="1000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Coupon Rate (%)</label>
+                        <input type="number" id="bondPriceCoupon" placeholder="5" value="5" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Yield to Maturity (%)</label>
+                        <input type="number" id="bondPriceYTM" placeholder="6" value="6" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Years to Maturity</label>
+                        <input type="number" id="bondPriceYears" placeholder="10" value="10" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateBondPrice()"><i class="fas fa-calculator"></i> Calculate Price</button>
+                    <button class="secondary-btn" onclick="clearBondPrice()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Bond Price</div>
+                <div class="output-display" id="bondPriceOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Calculated Bond Price:</strong> <span id="calculatedBondPrice">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Annual Coupon:</strong> <span id="bondPriceAnnualCoupon">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Price vs Par:</strong> <span id="bondPriceVsPar">-</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Discount/Premium:</strong> <span id="bondPriceDiscount">$0.00</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyBondPriceResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridBondPrice"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Bond Price?</h3>
+            <p>Bond price is the present value of all future cash flows from a bond, which includes periodic coupon payments and the return of face value at maturity. The price is calculated by discounting these future cash flows at the current market yield rate (YTM). When market rates rise above the bond's coupon rate, the bond trades at a discount. When rates fall below the coupon rate, the bond trades at a premium.</p>
+            <p>This calculator helps you determine what you should pay for a bond given your required yield. Understanding bond pricing is essential for fixed-income investors to ensure they don't overpay when yields are rising or miss opportunities when yields fall. The inverse relationship between bond prices and yields is fundamental to fixed-income investing.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter bond face value - usually $1,000 for most corporate and government bonds.<br>
+            <strong>Step 2:</strong> Input annual coupon rate - the stated interest rate paid by the bond.<br>
+            <strong>Step 3:</strong> Enter required yield to maturity - the return you want based on current market rates.<br>
+            <strong>Step 4:</strong> Specify years to maturity - remaining time until face value is returned.<br>
+            <strong>Step 5:</strong> Click "Calculate Price" to see the theoretical fair value.<br>
+            <strong>Step 6:</strong> Compare calculated price with market price to identify opportunities.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1 - Discount Bond:</strong> Face: $1,000, Coupon: 4%, YTM: 6%, Years: 10. Price: ~$852. Trading at discount because coupon < market yield. Investor pays less to achieve higher effective yield.</p>
+            <p><strong>Example 2 - Premium Bond:</strong> Face: $1,000, Coupon: 7%, YTM: 5%, Years: 8. Price: ~$1,130. Trading at premium because coupon > market yield. Investor pays more for higher income stream.</p>
+            <p><strong>Example 3 - Par Bond:</strong> Face: $1,000, Coupon: 5%, YTM: 5%, Years: 5. Price: $1,000. Trading at face value because coupon rate equals market yield exactly.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses Bond Price Calculators?</h3>
+            <ul>
+                <li><strong>Fixed-Income Investors</strong> – Determine fair value before purchasing bonds.</li>
+                <li><strong>Portfolio Managers</strong> – Value bond portfolios and assess pricing discrepancies.</li>
+                <li><strong>Financial Analysts</strong> – Model bond valuations for research reports.</li>
+                <li><strong>Students</strong> – Learn bond pricing mathematics and yield relationships.</li>
+                <li><strong>Traders</strong> – Identify mispriced bonds for arbitrage opportunities.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Buy discount bonds when interest rates are high and expected to fall (price appreciation).</li>
+                <li>Premium bonds provide higher current income but face capital loss at maturity.</li>
+                <li>Zero-coupon bonds trade at deep discounts - all return comes from price appreciation.</li>
+                <li>Consider tax implications - capital gains/losses have different tax treatment than interest.</li>
+                <li>Duration increases with longer maturity and lower coupons - more price-sensitive.</li>
+                <li>Reinvestment risk: Coupons must be reinvested at YTM to actually achieve stated yield.</li>
+                <li>Callable bonds have price ceilings near call price when rates fall significantly.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the bond pricing formula?</div>
+            <div class="faq-answer">Bond Price = Σ [Coupon / (1 + YTM)^t] + [Face Value / (1 + YTM)^n]. This calculates the present value of all future cash flows. The sum of present values of all coupon payments plus the present value of face value redemption equals the bond's fair price. Each coupon is discounted by the yield rate for its time period.</div>
+
+            <div class="faq-question">Why do bond prices fall when interest rates rise?</div>
+            <div class="faq-answer">Existing bonds with fixed coupons become less attractive when new bonds offer higher rates. To compete, existing bonds must drop in price so their yield matches the market. Mathematically, higher discount rates (YTM) reduce present value of future cash flows. This inverse relationship is fundamental: when yields rise, prices fall, and vice versa.</div>
+
+            <div class="faq-question">What are premium and discount bonds?</div>
+            <div class="faq-answer">Premium bonds trade above face value (coupon > market yield), offering higher current income but capital loss at maturity. Discount bonds trade below face value (coupon < market yield), offering price appreciation potential plus coupons. Par bonds trade at face value (coupon = market yield). Neither premium nor discount is inherently better - they reflect different income/capital gain trade-offs.</div>
+
+            <div class="faq-question">How does time to maturity affect bond price?</div>
+            <div class="faq-answer">Longer maturities mean greater price sensitivity to rate changes. A 30-year bond's price changes more dramatically than a 2-year bond for the same yield shift. This is because: 1) More coupon payments are affected by discounting, 2) Face value is discounted over longer periods, 3) Rate changes compound over more periods. Long-term bonds offer higher yields but with greater volatility.</div>
+
+            <div class="faq-question">What is accrued interest?</div>
+            <div class="faq-answer">Accrued interest is the interest earned since the last coupon payment but not yet paid. When buying a bond between coupon dates, you pay the seller accrued interest. At the next coupon date, you receive the full coupon payment. Clean price excludes accrued interest; dirty price includes it. The actual transaction uses dirty price.</div>
+
+            <div class="faq-question">What is a zero-coupon bond?</div>
+            <div class="faq-answer">Zero-coupon bonds pay no periodic interest. They're purchased at deep discounts to face value and redeemed at full face value at maturity. The difference represents implied interest. Price = Face Value / (1 + YTM)^n. Zeros have no reinvestment risk (no coupons to reinvest) but higher duration and tax on phantom income annually in many jurisdictions.</div>
+
+            <div class="faq-question">How do I know if a bond is priced fairly?</div>
+            <div class="faq-answer">Compare the calculated theoretical price (from this calculator) with the market price. If market price < calculated price, the bond may be undervalued. Also compare yields to similar bonds with same credit rating and maturity. Check recent trade prices using TRACE or Bloomberg data. Consider bid-ask spreads - wide spreads may indicate illiquidity rather than mispricing.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateBondPrice() {
+        const face = parseFloat(document.getElementById('bondPriceFace').value) || 0;
+        const couponRate = parseFloat(document.getElementById('bondPriceCoupon').value) || 0;
+        const ytm = parseFloat(document.getElementById('bondPriceYTM').value) || 0;
+        const years = parseFloat(document.getElementById('bondPriceYears').value) || 0;
+        
+        const annualCoupon = face * (couponRate / 100);
+        const ytmDecimal = ytm / 100;
+        
+        // Calculate PV of coupons
+        let pvCoupons = 0;
+        for (let t = 1; t <= years; t++) {
+            pvCoupons += annualCoupon / Math.pow(1 + ytmDecimal, t);
+        }
+        
+        // Calculate PV of face value
+        const pvFace = face / Math.pow(1 + ytmDecimal, years);
+        
+        const bondPrice = pvCoupons + pvFace;
+        const vsPar = bondPrice > face ? 'Premium' : (bondPrice < face ? 'Discount' : 'At Par');
+        const diff = bondPrice - face;
+        
+        document.getElementById('calculatedBondPrice').textContent = '$' + bondPrice.toFixed(2);
+        document.getElementById('bondPriceAnnualCoupon').textContent = '$' + annualCoupon.toFixed(2);
+        document.getElementById('bondPriceVsPar').textContent = vsPar;
+        document.getElementById('bondPriceDiscount').textContent = '$' + diff.toFixed(2);
+    }
+    
+    function clearBondPrice() {
+        document.getElementById('bondPriceFace').value = '';
+        document.getElementById('bondPriceCoupon').value = '';
+        document.getElementById('bondPriceYTM').value = '';
+        document.getElementById('bondPriceYears').value = '';
+        document.getElementById('calculatedBondPrice').textContent = '$0.00';
+        document.getElementById('bondPriceAnnualCoupon').textContent = '$0.00';
+        document.getElementById('bondPriceVsPar').textContent = '-';
+        document.getElementById('bondPriceDiscount').textContent = '$0.00';
+    }
+    
+    function copyBondPriceResults() {
+        const price = document.getElementById('calculatedBondPrice').textContent;
+        const status = document.getElementById('bondPriceVsPar').textContent;
+        const text = `Bond Price Results:\nCalculated Price: ${price}\nStatus: ${status}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"Bond Yield Calculator", icon:"fa-percentage", url:"bond-yield-calculator.html"},
+            {name:"Treasury Bill Calculator", icon:"fa-landmark", url:"treasury-bill-calculator.html"},
+            {name:"CD Calculator", icon:"fa-university", url:"cd-calculator.html"},
+            {name:"Money Market Calculator", icon:"fa-money-bill-wave", url:"money-market-calculator.html"},
+            {name:"SIP Calculator", icon:"fa-chart-line", url:"sip-calculator.html"},
+            {name:"Annuity Calculator", icon:"fa-hand-holding-usd", url:"annuity-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridBondPrice").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

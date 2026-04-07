@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Income Tax Calculator – US Tax Estimator | ToolGram</title>
+    <meta name="description" content="Calculate US federal income tax based on filing status and income. Free online income tax calculator for tax planning.">
+    <meta name="keywords" content="income tax calculator, federal income tax, tax estimator, tax brackets, US tax calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/income-tax-calculator.html">
+    <meta property="og:title" content="Income Tax Calculator | ToolGram">
+    <meta property="og:description" content="Calculate US federal income tax based on filing status and income.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/income-tax-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Income Tax Calculator",
+        "description": "Calculate US federal income tax based on filing status and income.",
+        "applicationCategory": "Finance",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/income-tax-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Federal Tax Calculation", "Tax Brackets", "Tax Estimator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-calculator"></i></div>
+            <div>
+                <h1 style="margin:0;">Income Tax Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Estimate your US federal income tax</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Income & Filing</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Filing Status</label>
+                        <select id="taxFilingStatus" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;"><option value="single">Single</option><option value="married">Married Filing Jointly</option><option value="hoh">Head of Household</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Annual Income ($)</label>
+                        <input type="number" id="taxIncome" placeholder="75000" value="75000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Deductions ($)</label>
+                        <input type="number" id="taxDeductions" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Tax Credits ($)</label>
+                        <input type="number" id="taxCredits" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateIncomeTax()"><i class="fas fa-calculator"></i> Calculate Tax</button>
+                    <button class="secondary-btn" onclick="clearIncomeTax()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-invoice-dollar"></i> Tax Summary</div>
+                <div class="output-display" id="taxOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Estimated Tax:</strong> <span id="taxEstimated">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">After-Tax Income:</strong> <span id="taxAfterTax">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Taxable Income:</strong> <span id="taxTaxable">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Effective Rate:</strong> <span id="taxEffective">0%</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyTaxResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridTax"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Income Tax?</h3>
+            <p>Federal income tax is a progressive tax levied by the US government on individual and business income. The tax system uses marginal tax brackets, meaning different portions of your income are taxed at different rates. As your income increases, only the amount above each bracket threshold is taxed at the higher rate, not your entire income.</p>
+            <p>This calculator uses the current US federal tax brackets to estimate your tax liability based on filing status, income, deductions, and credits. It shows both your effective tax rate (total tax divided by income) and marginal rate (rate on your highest dollars). Understanding your tax burden helps with financial planning, withholding adjustments, and tax-efficient investment decisions.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select your filing status - this determines your tax brackets and standard deduction.<br>
+            <strong>Step 2:</strong> Enter your annual gross income from all sources (wages, business, investments).<br>
+            <strong>Step 3:</strong> Input deductions - standard deduction or itemized deductions (mortgage, state tax, charity).<br>
+            <strong>Step 4:</strong> Enter tax credits - dollar-for-dollar reductions (child tax credit, education credits).<br>
+            <strong>Step 5:</strong> Click "Calculate Tax" to see your estimated federal tax liability.<br>
+            <strong>Step 6:</strong> Review effective vs marginal rates and adjust withholding if needed.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1 - Single Filer:</strong> Income: $75,000, Deductions: $5,000, Credits: $0. Taxable: $70,000. Estimated tax: ~$11,000. Effective rate: ~15%. After-tax income: ~$64,000.</p>
+            <p><strong>Example 2 - Married Joint:</strong> Income: $150,000, Deductions: $10,000, Credits: $2,000. Taxable: $140,000. Estimated tax: ~$22,000. Effective rate: ~15%. After-tax: ~$128,000.</p>
+            <p><strong>Example 3 - Head of Household:</strong> Income: $60,000, Deductions: $8,000, Credits: $1,500. Taxable: $52,000. Estimated tax: ~$7,000. Effective rate: ~12%. After-tax: ~$53,000.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <ul>
+                <li><strong>Employees</strong> – Check if withholding is adequate to avoid owing at tax time.</li>
+                <li><strong>Self-Employed</strong> – Estimate quarterly tax payments to avoid penalties.</li>
+                <li><strong>Side Gig Workers</strong> – Understand tax impact of additional income.</li>
+                <li><strong>Financial Planners</strong> – Optimize retirement contributions and deductions.</li>
+                <li><strong>Taxpayers</strong> – Plan for tax refunds or amounts due before filing.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Maximize pre-tax deductions: 401(k), HSA, and traditional IRA reduce taxable income.</li>
+                <li>Tax credits are more valuable than deductions - prioritize credit-eligible activities.</li>
+                <li>Bunch deductions in alternating years if near standard deduction threshold.</li>
+                <li>Time income and deductions between years to stay in lower brackets when possible.</li>
+                <li>Use IRS Tax Withholding Estimator to fine-tune W-4 allowances.</li>
+                <li>Safe harbor: Pay 100% of prior year tax (110% if AGI >$150k) to avoid underpayment penalties.</li>
+                <li>Consider Roth vs Traditional contributions based on current vs expected future tax rates.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What are the current federal income tax brackets?</div>
+            <div class="faq-answer">2024 Federal Tax Brackets (Single): 10% on $0-$11,600; 12% on $11,601-$47,150; 22% on $47,151-$100,525; 24% on $100,526-$191,950; 32% on $191,951-$243,725; 35% on $243,726-$609,350; 37% over $609,350. Married Filing Jointly brackets are approximately double. Tax is calculated progressively - you pay each rate only on income in that bracket.</div>
+
+            <div class="faq-question">What is the difference between marginal and effective tax rate?</div>
+            <div class="faq-answer">Marginal rate is the tax rate on your next dollar of income - the highest bracket you reach. Effective rate is your total tax divided by total income - your average tax burden. Example: $50,000 income with $6,000 tax has 12% effective rate, but marginal rate might be 22%. Marginal rate helps planning decisions; effective rate shows overall burden.</div>
+
+            <div class="faq-question">What deductions can I take?</div>
+            <div class="faq-answer">Above-the-line deductions reduce AGI: 401(k), traditional IRA, HSA, student loan interest. Itemized deductions include: medical expenses (over 7.5% of AGI), state/local taxes (SALT cap $10k), mortgage interest, charitable donations. Standard deductions (2024): Single $14,600; Married $29,200; Head of Household $21,900. Most taxpayers take the standard deduction.</div>
+
+            <div class="faq-question">What tax credits are available?</div>
+            <div class="faq-answer">Popular credits: Child Tax Credit ($2,000 per child), Earned Income Credit (low-moderate income workers), Child and Dependent Care Credit, Education Credits (American Opportunity, Lifetime Learning), Saver's Credit (retirement contributions), Energy Credits (EVs, solar). Credits reduce tax dollar-for-dollar, making them more valuable than deductions.</div>
+
+            <div class="faq-question">Should I take standard or itemized deduction?</div>
+            <div class="faq-answer">Itemize if your total deductions exceed the standard deduction. Common itemizers: Homeowners with large mortgage interest, high state tax payers (up to $10k limit), major medical expenses, significant charitable donors. 90%+ of taxpayers now use standard deduction due to increased standard deduction amounts from 2018 tax reform.</div>
+
+            <div class="faq-question">How do I know if I'm withholding enough?</div>
+            <div class="faq-answer">You're safe from penalty if: You owe less than $1,000 when filing, you paid 90% of current year tax, you paid 100% of prior year tax (110% if AGI >$150k). Use IRS Tax Withholding Estimator to check. Adjust W-4 if: You owed money last year, had a major life change (marriage, child, new job), or have non-wage income.</div>
+
+            <div class="faq-question">How do capital gains affect my taxes?</div>
+            <div class="faq-answer">Short-term capital gains (held <1 year) are taxed as ordinary income. Long-term gains (held >1 year) have preferential rates: 0% for low incomes, 15% for most taxpayers, 20% for high earners. High earners may also pay 3.8% Net Investment Income Tax. Capital gains count toward AGI and can push you into higher brackets or phase out deductions.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateIncomeTax() {
+        const status = document.getElementById('taxFilingStatus').value;
+        const income = parseFloat(document.getElementById('taxIncome').value) || 0;
+        const deductions = parseFloat(document.getElementById('taxDeductions').value) || 0;
+        const credits = parseFloat(document.getElementById('taxCredits').value) || 0;
+        
+        const taxableIncome = Math.max(0, income - deductions);
+        let tax = 0;
+        
+        // Simplified 2024 tax brackets calculation
+        if (status === 'single') {
+            if (taxableIncome <= 11600) tax = taxableIncome * 0.10;
+            else if (taxableIncome <= 47150) tax = 1160 + (taxableIncome - 11600) * 0.12;
+            else if (taxableIncome <= 100525) tax = 5426 + (taxableIncome - 47150) * 0.22;
+            else if (taxableIncome <= 191950) tax = 17168 + (taxableIncome - 100525) * 0.24;
+            else if (taxableIncome <= 243725) tax = 39110 + (taxableIncome - 191950) * 0.32;
+            else if (taxableIncome <= 609350) tax = 55678 + (taxableIncome - 243725) * 0.35;
+            else tax = 183647 + (taxableIncome - 609350) * 0.37;
+        } else if (status === 'married') {
+            if (taxableIncome <= 23200) tax = taxableIncome * 0.10;
+            else if (taxableIncome <= 94300) tax = 2320 + (taxableIncome - 23200) * 0.12;
+            else if (taxableIncome <= 201050) tax = 10852 + (taxableIncome - 94300) * 0.22;
+            else if (taxableIncome <= 383900) tax = 34337 + (taxableIncome - 201050) * 0.24;
+            else if (taxableIncome <= 487450) tax = 78221 + (taxableIncome - 383900) * 0.32;
+            else if (taxableIncome <= 731200) tax = 111357 + (taxableIncome - 487450) * 0.35;
+            else tax = 196669 + (taxableIncome - 731200) * 0.37;
+        } else {
+            if (taxableIncome <= 16550) tax = taxableIncome * 0.10;
+            else if (taxableIncome <= 63100) tax = 1655 + (taxableIncome - 16550) * 0.12;
+            else if (taxableIncome <= 100500) tax = 7241 + (taxableIncome - 63100) * 0.22;
+            else if (taxableIncome <= 191950) tax = 15469 + (taxableIncome - 100500) * 0.24;
+            else if (taxableIncome <= 243700) tax = 37417 + (taxableIncome - 191950) * 0.32;
+            else if (taxableIncome <= 609350) tax = 53977 + (taxableIncome - 243700) * 0.35;
+            else tax = 181955 + (taxableIncome - 609350) * 0.37;
+        }
+        
+        tax = Math.max(0, tax - credits);
+        const afterTax = income - tax;
+        const effectiveRate = income > 0 ? ((tax / income) * 100).toFixed(1) : 0;
+        
+        document.getElementById('taxEstimated').textContent = '$' + Math.round(tax).toLocaleString();
+        document.getElementById('taxAfterTax').textContent = '$' + Math.round(afterTax).toLocaleString();
+        document.getElementById('taxTaxable').textContent = '$' + Math.round(taxableIncome).toLocaleString();
+        document.getElementById('taxEffective').textContent = effectiveRate + '%';
+    }
+    
+    function clearIncomeTax() {
+        document.getElementById('taxFilingStatus').value = 'single';
+        document.getElementById('taxIncome').value = '';
+        document.getElementById('taxDeductions').value = '';
+        document.getElementById('taxCredits').value = '';
+        document.getElementById('taxEstimated').textContent = '$0';
+        document.getElementById('taxAfterTax').textContent = '$0';
+        document.getElementById('taxTaxable').textContent = '$0';
+        document.getElementById('taxEffective').textContent = '0%';
+    }
+    
+    function copyTaxResults() {
+        const tax = document.getElementById('taxEstimated').textContent;
+        const afterTax = document.getElementById('taxAfterTax').textContent;
+        const text = `Income Tax Results:\nEstimated Tax: ${tax}\nAfter-Tax Income: ${afterTax}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"State Tax Calculator", icon:"fa-map-marker-alt", url:"state-tax-calculator.html"},
+            {name:"Federal Tax Calculator", icon:"fa-flag-usa", url:"federal-tax-calculator.html"},
+            {name:"Sales Tax Calculator", icon:"fa-receipt", url:"sales-tax-calculator.html"},
+            {name:"401k Calculator", icon:"fa-briefcase", url:"401k-calculator.html"},
+            {name:"IRA Calculator", icon:"fa-piggy-bank", url:"ira-calculator.html"},
+            {name:"HSA Calculator", icon:"fa-medkit", url:"hsa-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridTax").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

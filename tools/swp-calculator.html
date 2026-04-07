@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SWP Calculator – Systematic Withdrawal Plan | ToolGram</title>
+    <meta name="description" content="Calculate systematic withdrawal plan returns. Free online SWP calculator for retirement income planning.">
+    <meta name="keywords" content="SWP calculator, systematic withdrawal plan, retirement income, mutual fund withdrawal, SWP returns">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/swp-calculator.html">
+    <meta property="og:title" content="SWP Calculator | ToolGram">
+    <meta property="og:description" content="Calculate systematic withdrawal plan returns for retirement income.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/swp-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SWP Calculator",
+        "description": "Calculate systematic withdrawal plan returns for retirement income.",
+        "applicationCategory": "Finance",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/swp-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["SWP Returns", "Systematic Withdrawal", "Retirement Income"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-wallet"></i></div>
+            <div>
+                <h1 style="margin:0;">SWP Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Plan your systematic withdrawals for steady income</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> SWP Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Initial Investment ($)</label>
+                        <input type="number" id="swpInitial" placeholder="1000000" value="1000000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Monthly Withdrawal ($)</label>
+                        <input type="number" id="swpWithdrawal" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Expected Return (%)</label>
+                        <input type="number" id="swpRate" placeholder="10" value="10" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Duration (Years)</label>
+                        <input type="number" id="swpYears" placeholder="20" value="20" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateSWP()"><i class="fas fa-calculator"></i> Calculate SWP</button>
+                    <button class="secondary-btn" onclick="clearSWP()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> SWP Results</div>
+                <div class="output-display" id="swpOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Total Withdrawn:</strong> <span id="totalWithdrawn">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Remaining Corpus:</strong> <span id="remainingCorpus">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Returns:</strong> <span id="swpReturns">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Sustainability:</strong> <span id="sustainability">-</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySWPResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridSWP"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is SWP?</h3>
+            <p>Systematic Withdrawal Plan (SWP) is a facility that allows investors to withdraw a fixed amount from their mutual fund investments at regular intervals, typically monthly. It is the opposite of SIP - instead of investing money periodically, you withdraw money systematically. SWP is an excellent strategy for generating a steady income stream from your investments during retirement or when you need regular cash flow while keeping your capital invested.</p>
+            <p>SWP works by redeeming units from your mutual fund portfolio equivalent to the withdrawal amount you specify. The key advantage is that you only withdraw what you need while the remaining corpus continues to earn returns. This approach helps in managing your cash flow requirements systematically without the need to time the market or manually redeem units each time you need money.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your initial investment corpus - the total amount you have accumulated and plan to withdraw from.<br>
+            <strong>Step 2:</strong> Input your desired monthly withdrawal amount - this should cover your regular expenses.<br>
+            <strong>Step 3:</strong> Specify the expected annual rate of return on the remaining corpus.<br>
+            <strong>Step 4:</strong> Enter the duration for which you need the withdrawals.<br>
+            <strong>Step 5:</strong> Click "Calculate SWP" to see if your corpus can sustain your withdrawals.<br>
+            <strong>Step 6:</strong> Review sustainability - if the corpus depletes before the duration, consider reducing withdrawals.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1:</strong> Initial: ₹50,00,000, Monthly: ₹30,000, Return: 10%, Duration: 20 years. Total Withdrawn: ₹72,00,000. Remaining: ₹2,15,000. Returns Earned: ₹24,15,000. Sustainable: Corpus lasts 20+ years with comfortable margin.</p>
+            <p><strong>Example 2:</strong> Initial: ₹30,00,000, Monthly: ₹25,000, Return: 8%, Duration: 15 years. Total Withdrawn: ₹45,00,000. Remaining: ₹0 (depleted). Returns: ₹15,00,000. Not Sustainable: Corpus depletes at year 14. Reduce withdrawal to ₹20,000 for sustainability.</p>
+            <p><strong>Example 3:</strong> Initial: ₹1,00,00,000, Monthly: ₹50,000, Return: 12%, Duration: 25 years. Total Withdrawn: ₹1,50,00,000. Remaining: ₹1,85,00,000. Returns: ₹2,35,00,000. Highly Sustainable: Corpus actually grows despite withdrawals due to high returns.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use SWP?</h3>
+            <ul>
+                <li><strong>Retirees</strong> – Generate regular income from retirement corpus without depleting principal quickly.</li>
+                <li><strong>Financial Independence Seekers</strong> – Create passive income streams from investments.</li>
+                <li><strong>Senior Citizens</strong> – Alternative to fixed deposits with potentially higher returns.</li>
+                <li><strong>Parents</strong> – Regular payouts for children's education or other recurring expenses.</li>
+                <li><strong>Freelancers</strong> – Stabilize irregular income with systematic withdrawals from savings.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Withdrawal rate should not exceed 4-5% annually to ensure corpus sustainability.</li>
+                <li>Start SWP from debt or balanced funds for stability; equity funds for growth with higher risk.</li>
+                <li>Review withdrawal rate annually and adjust based on portfolio performance.</li>
+                <li>Keep a separate emergency fund; don't rely solely on SWP for unexpected expenses.</li>
+                <li>Consider inflation - increase withdrawal amount by 5-6% annually to maintain purchasing power.</li>
+                <li>Use SWP from equity funds in up markets; switch to debt funds in bear markets.</li>
+                <li>Tax-efficient: SWP from equity funds held over 1 year attract only 10% LTCG above ₹1 lakh.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How is SWP different from dividends?</div>
+            <div class="faq-answer">SWP is a systematic redemption of units where you decide the amount and frequency. Dividends are distributed by the fund when it has surplus profits. SWP provides predictable cash flow, while dividends are irregular and depend on fund performance. SWP is more tax-efficient in most cases and gives you control over the withdrawal amount and timing.</div>
+
+            <div class="faq-question">Can I modify my SWP amount?</div>
+            <div class="faq-answer">Yes, most mutual funds allow you to modify, pause, or stop your SWP anytime. You can increase or decrease the withdrawal amount, change the frequency, or cancel the facility by submitting a request to the fund house. This flexibility makes SWP suitable for changing financial needs during different life stages.</div>
+
+            <div class="faq-question">Is SWP taxable?</div>
+            <div class="faq-answer">Yes, SWP is taxable as capital gains. For equity funds: STCG (held <1 year) at 15%, LTCG (held >1 year) at 10% above ₹1 lakh exemption. For debt funds: STCG added to income, LTCG at 20% with indexation. Each SWP redemption is treated as selling units, so the tax applies to the gains portion of that specific redemption.</div>
+
+            <div class="faq-question">What is a safe withdrawal rate?</div>
+            <div class="faq-answer">A safe withdrawal rate is typically 4% of the initial corpus per year (adjusted for inflation), commonly known as the 4% rule. This means if you have ₹1 crore, you can withdraw ₹4 lakhs annually (₹33,333 monthly) with high probability of the corpus lasting 30 years. Conservative investors may use 3-3.5%, while those with shorter horizons may use 5-6%.</div>
+
+            <div class="faq-question">Which funds are best for SWP?</div>
+            <div class="faq-answer">For short-term SWP (1-5 years): Liquid funds, ultra-short duration funds. For medium-term (5-10 years): Short-term debt funds, conservative hybrid funds. For long-term (10+ years): Balanced advantage funds, equity savings funds, or diversified equity funds. Choose based on your risk tolerance and withdrawal duration. Conservative investors prefer debt-oriented funds for stability.</div>
+
+            <div class="faq-question">Can SWP deplete my investment?</div>
+            <div class="faq-answer">Yes, if the withdrawal rate is higher than the portfolio's return rate, your corpus will deplete over time. For example, if you withdraw 8% annually but earn only 7%, the corpus will eventually run out. It's crucial to set a sustainable withdrawal rate (typically 4-5%) that allows your corpus to last through your intended withdrawal period while accounting for inflation.</div>
+
+            <div class="faq-question">How do I start an SWP?</div>
+            <div class="faq-answer">To start SWP: 1) Have an existing mutual fund investment or make a fresh lumpsum investment. 2) Fill the SWP enrollment form available on the fund house website or through your distributor. 3) Specify the withdrawal amount, frequency (monthly/quarterly), start date, and bank account for credit. 4) Submit the form. 5) Withdrawals will begin as per your instructions. Most platforms also allow online SWP setup.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateSWP() {
+        const initial = parseFloat(document.getElementById('swpInitial').value) || 0;
+        const monthly = parseFloat(document.getElementById('swpWithdrawal').value) || 0;
+        const rate = parseFloat(document.getElementById('swpRate').value) || 0;
+        const years = parseFloat(document.getElementById('swpYears').value) || 0;
+        
+        const months = years * 12;
+        const monthlyRate = rate / 12 / 100;
+        
+        let corpus = initial;
+        let totalWithdrawn = 0;
+        let monthsLasted = 0;
+        
+        for (let i = 0; i < months; i++) {
+            if (corpus <= 0) break;
+            corpus = corpus * (1 + monthlyRate);
+            const withdraw = Math.min(monthly, corpus);
+            corpus -= withdraw;
+            totalWithdrawn += withdraw;
+            monthsLasted++;
+        }
+        
+        const returns = totalWithdrawn - (initial - Math.max(0, corpus));
+        const yearsLasted = Math.floor(monthsLasted / 12);
+        let sustainability = yearsLasted >= years ? "Sustainable ✓" : `Depletes in ${yearsLasted} years`;
+        
+        document.getElementById('totalWithdrawn').textContent = '$' + Math.round(totalWithdrawn).toLocaleString();
+        document.getElementById('remainingCorpus').textContent = '$' + Math.round(Math.max(0, corpus)).toLocaleString();
+        document.getElementById('swpReturns').textContent = '$' + Math.round(returns).toLocaleString();
+        document.getElementById('sustainability').textContent = sustainability;
+    }
+    
+    function clearSWP() {
+        document.getElementById('swpInitial').value = '';
+        document.getElementById('swpWithdrawal').value = '';
+        document.getElementById('swpRate').value = '';
+        document.getElementById('swpYears').value = '';
+        document.getElementById('totalWithdrawn').textContent = '$0';
+        document.getElementById('remainingCorpus').textContent = '$0';
+        document.getElementById('swpReturns').textContent = '$0';
+        document.getElementById('sustainability').textContent = '-';
+    }
+    
+    function copySWPResults() {
+        const withdrawn = document.getElementById('totalWithdrawn').textContent;
+        const remaining = document.getElementById('remainingCorpus').textContent;
+        const sustain = document.getElementById('sustainability').textContent;
+        const text = `SWP Results:\nTotal Withdrawn: ${withdrawn}\nRemaining Corpus: ${remaining}\nSustainability: ${sustain}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"SIP Calculator", icon:"fa-chart-line", url:"sip-calculator.html"},
+            {name:"Lumpsum Calculator", icon:"fa-coins", url:"lumpsum-calculator.html"},
+            {name:"Mutual Fund Calculator", icon:"fa-chart-pie", url:"mutual-fund-calculator.html"},
+            {name:"Annuity Calculator", icon:"fa-hand-holding-usd", url:"annuity-calculator.html"},
+            {name:"Pension Calculator", icon:"fa-calendar-check", url:"pension-calculator.html"},
+            {name:"401k Calculator", icon:"fa-briefcase", url:"401k-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridSWP").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

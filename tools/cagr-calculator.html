@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CAGR Calculator – Compound Annual Growth Rate | ToolGram</title>
+    <meta name="description" content="Calculate Compound Annual Growth Rate (CAGR) for investments. Free online CAGR calculator for measuring annualized investment returns.">
+    <meta name="keywords" content="CAGR calculator, compound annual growth rate, annualized return, investment growth rate, CAGR formula">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/cagr-calculator.html">
+    <meta property="og:title" content="CAGR Calculator | ToolGram">
+    <meta property="og:description" content="Calculate Compound Annual Growth Rate (CAGR) for investments.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/cagr-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CAGR Calculator",
+        "description": "Calculate Compound Annual Growth Rate (CAGR) for investments.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/cagr-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["CAGR Calculation", "Annualized Return", "Growth Rate", "Investment Analysis"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .cagr-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+                <h1 style="margin:0;">CAGR Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Compound Annual Growth Rate</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-dollar-sign"></i> Investment Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Initial Value ($)</label>
+                        <input type="number" id="initialCAGR" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Final Value ($)</label>
+                        <input type="number" id="finalCAGR" placeholder="18000" value="18000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Number of Years</label>
+                        <input type="number" id="yearsCAGR" placeholder="5" value="5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateCAGR()"><i class="fas fa-calculator"></i> Calculate CAGR</button>
+                        <button class="secondary-btn" onclick="clearCAGR()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-percentage"></i> CAGR Results</div>
+                <div class="output-display" id="outputCAGR">
+                    <div class="cagr-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-chart-line"></i> CAGR</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="cagrResult">0%</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Annualized growth rate</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Return:</strong> <span id="totalReturnCAGR">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Gain:</strong> <span id="totalGainCAGR">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Initial Value:</strong> <span id="initialDisplayCAGR">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Final Value:</strong> <span id="finalDisplayCAGR">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyCAGRResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridCAGR"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a CAGR Calculator?</h3>
+            <p>A CAGR (Compound Annual Growth Rate) Calculator measures the mean annual growth rate of an investment over a specified time period longer than one year. It represents the rate of return that would be required for an investment to grow from its beginning balance to its ending balance, assuming the profits were reinvested at the end of each year.</p>
+            <p>Unlike simple average returns, CAGR accounts for compounding and provides a smoothed annual rate that accurately reflects the investment's growth trajectory. This makes it the gold standard for comparing investment performance across different time periods and asset classes, as it eliminates the distortion caused by volatility.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the initial investment value or starting amount.<br>
+            <strong>Step 2:</strong> Input the final value or current value of the investment.<br>
+            <strong>Step 3:</strong> Enter the number of years the investment was held.<br>
+            <strong>Step 4:</strong> Click "Calculate CAGR" to see the annualized growth rate.<br>
+            <strong>Step 5:</strong> Review total return and total gain alongside CAGR.<br>
+            <strong>Step 6:</strong> Use CAGR to compare different investments fairly.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> CAGR Examples</h3>
+            <p><strong>Example 1 - Stock Investment:</strong> Invested $10,000 in a stock that grew to $18,000 over 5 years. Total return: 80%. CAGR: 12.47% annually. This means the investment effectively grew at 12.47% each year, compounded. Compare this to the S&P 500's historical 10% average to see outperformance.</p>
+            <p><strong>Example 2 - Real Estate Appreciation:</strong> Bought a property for $250,000 that is now worth $400,000 after 10 years. Total gain: $150,000 (60% total return). CAGR: 4.81% annually. This modest but steady return reflects typical real estate appreciation rates before rental income.</p>
+            <p><strong>Example 3 - Business Growth:</strong> Company revenue grew from $1 million to $5 million over 8 years. CAGR: 22.5% annually. This exceptional growth rate indicates strong business performance, far exceeding typical market returns and justifying premium valuations.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <p>Investors comparing different investments across various time periods need CAGR to make fair comparisons. A 50% return over 3 years is very different from 50% over 10 years—CAGR reveals the true annual performance difference.</p>
+            <p>Financial analysts and advisors use CAGR to report portfolio performance to clients. It provides a standardized metric that clients can easily understand and compare to market benchmarks like the S&P 500 or bond indices.</p>
+            <p>Business owners and executives use CAGR to measure company growth rates, from revenue and profits to customer acquisition. It helps set realistic growth targets and evaluate whether the business is meeting market expectations.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> CAGR Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Formula Understanding:</strong> CAGR = (Ending Value / Beginning Value)^(1/n) - 1</li>
+                <li><strong>Volatility Smoothing:</strong> CAGR ignores year-to-year volatility, showing steady-state growth</li>
+                <li><strong>Benchmark Comparison:</strong> Compare your CAGR to S&P 500 (~10% historical) for context</li>
+                <li><strong>Time Sensitivity:</strong> CAGR becomes more meaningful with longer time periods (5+ years)</li>
+                <li><strong>Negative CAGR:</strong> Negative values indicate investment loss over the period</li>
+                <li><strong>Zero Handling:</strong> Initial value cannot be zero—use absolute returns instead</li>
+                <li><strong>Multi-Period Analysis:</strong> Calculate CAGR over rolling periods to spot trends</li>
+                <li><strong>Inflation Adjustment:</strong> Subtract inflation rate (2-3%) for real CAGR</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">What does CAGR stand for and mean?</div>
+            <div class="faq-answer">CAGR stands for Compound Annual Growth Rate. It measures the mean annual growth rate of an investment over a specified time period longer than one year. CAGR assumes that investment growth is compounded annually, meaning profits are reinvested each year. Unlike simple average returns, CAGR accounts for compounding effects and provides a smoothed, annualized figure that makes it easier to compare investments with different time horizons.</div>
+
+            <div class="faq-question">What is the difference between CAGR and average annual return?</div>
+            <div class="faq-answer">Average Annual Return (Arithmetic Mean): Simple average of yearly returns. Doesn't account for compounding. Can be misleading with volatile investments. Example: Year 1: +100%, Year 2: -50%. Average: 25%. Actual result: Break-even (0% total). CAGR (Geometric Mean): Accounts for compounding. Shows true annualized growth rate. Same example: CAGR = 0% (accurate). Always use CAGR for comparing investments and measuring true growth over multiple years. Arithmetic averages overstate performance, especially with volatile investments.</div>
+
+            <div class="faq-question">How do I calculate CAGR in Excel?</div>
+            <div class="faq-answer">Excel offers multiple ways to calculate CAGR: Formula method: =(Ending_Value/Beginning_Value)^(1/Number_of_Years)-1. RATE function: =RATE(nper,,-pv,fv) where nper=years, pv=initial value (negative), fv=final value. POWER function: =POWER(Ending_Value/Beginning_Value,1/Years)-1. Example: Initial $10,000, Final $18,000, 5 years. =POWER(18000/10000,1/5)-1 = 12.47%. Format result as percentage. All methods yield identical results.</div>
+
+            <div class="faq-question">Can CAGR be negative?</div>
+            <div class="faq-answer">Yes, negative CAGR indicates the investment lost value over the measured period. Example: Initial $10,000, Final $8,000 over 3 years. CAGR = (8000/10000)^(1/3)-1 = -7.19%. Interpretation: Investment declined at 7.19% annually. Compare negative CAGR to: Inflation rate (loss of purchasing power), Alternative investments, Cost of holding (fees, opportunity cost). Negative CAGR over long periods may indicate fundamental problems with the investment strategy.</div>
+
+            <div class="faq-question">What is a good CAGR for investments?</div>
+            <div class="faq-answer">Context determines "good" CAGR: Stock Market (S&P 500): ~10% historical average; 7-10% considered good. Bonds: 3-5% typical for quality bonds. Balanced Portfolio: 5-7% realistic long-term target. Tech/Growth Stocks: 15-20%+ expected but with higher risk. Real Estate: 3-5% appreciation plus rental income. Startups/Venture: 20-30%+ target but high failure risk. Inflation-adjusted: Subtract 2-3% from nominal CAGR for real return. Compare your CAGR to appropriate benchmarks with similar risk profiles.</div>
+
+            <div class="faq-question">What are the limitations of CAGR?</div>
+            <div class="faq-answer">CAGR limitations include: No Volatility Insight: Smooths out all year-to-year fluctuations—two investments can have same CAGR with very different risk profiles. Assumes Reinvestment: Assumes all gains reinvested, which may not reflect actual behavior. Single Period Only: Doesn't show varying performance across sub-periods. No Cash Flow Adjustment: Doesn't account for additions or withdrawals during the period. Sensitive to Start/End Dates: Beginning and ending points significantly affect results— cherry-picking dates can distort CAGR. Use alongside other metrics like standard deviation, Sharpe ratio, and rolling returns for complete analysis.</div>
+
+            <div class="faq-question">How does CAGR compare to IRR?</div>
+            <div class="faq-answer">Similarities: Both measure compounded returns over time. Differences: CAGR: Assumes single initial investment and single final value. Simple calculation. Best for lump-sum investments without interim cash flows. IRR (Internal Rate of Return): Accounts for multiple cash flows in and out at various times. More complex calculation. Best for investments with periodic contributions or withdrawals. Use CAGR for simple investment performance. Use IRR for analyzing portfolios with ongoing contributions, real estate with rental income, or any investment with multiple cash flows.</div>
+
+            <div class="faq-question">Why is my CAGR different from my broker's reported return?</div>
+            <div class="faq-answer">Possible reasons for discrepancy: Time-Weighted vs. Dollar-Weighted: Brokers often show time-weighted returns (removing impact of your cash flows) while your personal CAGR is dollar-weighted. Fees: Your calculation may not include management fees, expense ratios, or trading costs. Dividend Treatment: Reinvested vs. non-reinvested dividends affect calculations. Starting Date Differences: Even small date variations affect multi-year CAGR. Currency Effects: International investments may have currency conversion impacts. Verify both calculations are using identical parameters including dates, cash flows, and fee treatment.</div>
+
+            <div class="faq-question">Can I use CAGR for portfolio performance?</div>
+            <div class="faq-answer">Yes, with considerations: Single Lump Sum: CAGR works perfectly if you made one initial investment with no additions. Multiple Contributions: Use IRR (Internal Rate of Return) instead for accurate personal performance. Time-Weighted Return: For evaluating manager skill independent of your cash flow timing. Dollar-Weighted Return (IRR): For your actual experienced return including timing of contributions. For most investors making regular contributions, IRR more accurately reflects personal performance than CAGR.</div>
+
+            <div class="faq-question">How do I calculate CAGR with monthly data?</div>
+            <div class="faq-answer">For periods less than one year or monthly data: Less than 1 year: CAGR may not be meaningful—consider simple return or annualized return instead. Monthly to Annual: If you have monthly returns, convert to years: Years = Number of Months / 12. Example: 18 months = 1.5 years. Then apply normal CAGR formula. Monthly CAGR: You can calculate monthly CAGR with: =(Ending/Initial)^(1/Months)-1. Annualize it: =(1+Monthly_CAGR)^12-1. Most investors prefer annual CAGR for standardization and comparison purposes.</div>
+
+            <div class="faq-question">What is the Rule of 72 and how does it relate to CAGR?</div>
+            <div class="faq-answer">Rule of 72 is a mental math shortcut to estimate doubling time: Years to Double = 72 / Annual Growth Rate. Examples: 6% CAGR: 72/6 = 12 years to double. 8% CAGR: 72/8 = 9 years to double. 12% CAGR: 72/12 = 6 years to double. Relationship to CAGR: If you know your CAGR, Rule of 72 estimates how long until investment doubles. Reverse: If investment doubled in X years, approximate CAGR = 72/X. Accuracy: Most accurate for rates between 6-10%; less precise for very high or low rates. Useful for quick mental calculations without a calculator.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateCAGR(){
+const initial=parseFloat(document.getElementById('initialCAGR').value)||0;
+const final=parseFloat(document.getElementById('finalCAGR').value)||0;
+const years=parseFloat(document.getElementById('yearsCAGR').value)||1;
+
+const cagr=initial>0?(Math.pow(final/initial,1/years)-1)*100:0;
+const totalReturn=initial>0?((final-initial)/initial)*100:0;
+const gain=final-initial;
+
+document.getElementById('cagrResult').textContent=cagr.toFixed(2)+'%';
+document.getElementById('cagrResult').style.color=cagr>=0?'#22c55e':'#ef4444';
+document.getElementById('totalReturnCAGR').textContent=totalReturn.toFixed(2)+'%';
+document.getElementById('totalGainCAGR').textContent='$'+gain.toLocaleString();
+document.getElementById('initialDisplayCAGR').textContent='$'+initial.toLocaleString();
+document.getElementById('finalDisplayCAGR').textContent='$'+final.toLocaleString();
+}
+function clearCAGR(){
+document.getElementById('initialCAGR').value='';
+document.getElementById('finalCAGR').value='';
+document.getElementById('yearsCAGR').value='';
+document.getElementById('cagrResult').textContent='0%';
+document.getElementById('cagrResult').style.color='#8B5CF6';
+document.getElementById('totalReturnCAGR').textContent='0%';
+document.getElementById('totalGainCAGR').textContent='$0.00';
+document.getElementById('initialDisplayCAGR').textContent='$0.00';
+document.getElementById('finalDisplayCAGR').textContent='$0.00';
+}
+function copyCAGRResults(){
+const cagr=document.getElementById('cagrResult').textContent;
+const total=document.getElementById('totalReturnCAGR').textContent;
+const text=`CAGR Results:
+CAGR: ${cagr}
+Total Return: ${total}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+function loadRelated(){
+const tools=[
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"529 Savings",icon:"fa-graduation-cap",url:"529-savings-calculator.html"},
+{name:"Annuity",icon:"fa-hand-holding-usd",url:"annuity-calculator.html"},
+{name:"Pension",icon:"fa-calendar-check",url:"pension-calculator.html"},
+{name:"IRA",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"College Savings",icon:"fa-university",url:"college-savings-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridCAGR").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

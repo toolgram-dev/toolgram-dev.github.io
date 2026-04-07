@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Stock Average Calculator – Cost Basis Estimator | ToolGram</title>
+    <meta name="description" content="Calculate average cost per share for multiple stock purchases. Free online stock average calculator for dollar-cost averaging analysis.">
+    <meta name="keywords" content="stock average calculator, average cost basis, dollar cost average, stock purchase average, share price average">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/stock-average-calculator.html">
+    <meta property="og:title" content="Stock Average Calculator | ToolGram">
+    <meta property="og:description" content="Calculate average cost per share for multiple stock purchases.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/stock-average-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Stock Average Calculator",
+        "description": "Calculate average cost per share for multiple stock purchases.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/stock-average-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Average Cost", "Cost Basis", "Dollar Cost Averaging", "Multi-Purchase Average"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .avg-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-bar"></i></div>
+            <div>
+                <h1 style="margin:0;">Stock Average Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Average cost basis calculator</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-shopping-cart"></i> Purchase 1</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Shares</label>
+                        <input type="number" id="shares1" placeholder="50" value="50" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Price per Share ($)</label>
+                        <input type="number" id="price1" placeholder="100" value="100" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title"><i class="fas fa-shopping-cart"></i> Purchase 2</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Shares</label>
+                        <input type="number" id="shares2" placeholder="30" value="30" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Price per Share ($)</label>
+                        <input type="number" id="price2" placeholder="80" value="80" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title"><i class="fas fa-shopping-cart"></i> Purchase 3</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Shares</label>
+                        <input type="number" id="shares3" placeholder="20" value="20" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Price per Share ($)</label>
+                        <input type="number" id="price3" placeholder="60" value="60" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateAverage()"><i class="fas fa-calculator"></i> Calculate Average</button>
+                        <button class="secondary-btn" onclick="clearAverage()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-pie"></i> Average Results</div>
+                <div class="output-display" id="outputAvg">
+                    <div class="avg-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-chart-bar"></i> Average Cost Per Share</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="avgCost">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Weighted average price</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Shares:</strong> <span id="totalShares">0</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Investment:</strong> <span id="totalInvested">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Highest Price Paid:</strong> <span id="highPrice">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Lowest Price Paid:</strong> <span id="lowPrice">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyAvgResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridAvg"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Stock Average Calculator?</h3>
+            <p>A Stock Average Calculator computes the weighted average cost per share when you've made multiple purchases of the same stock at different prices. This average cost basis is crucial for tax reporting, portfolio tracking, and evaluating your position's performance.</p>
+            <p>When you buy shares at various prices over time (dollar-cost averaging), you need to know your blended average to calculate gains/losses accurately and make informed decisions about adding to or reducing your position.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter shares and price for your first purchase.<br>
+            <strong>Step 2:</strong> Input details for second purchase (if applicable).<br>
+            <strong>Step 3:</strong> Add third purchase details (if applicable).<br>
+            <strong>Step 4:</strong> Click "Calculate Average" to see weighted average cost.<br>
+            <strong>Step 5:</strong> Review total shares and total investment amount.<br>
+            <strong>Step 6:</strong> Use average cost to evaluate gains/losses vs. current price.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Stock Average Examples</h3>
+            <p><strong>Example 1 - Dollar-Cost Averaging:</strong> Purchase 1: 50 shares at $100 = $5,000. Purchase 2: 50 shares at $80 = $4,000. Purchase 3: 50 shares at $60 = $3,000. Total: 150 shares, $12,000 invested. Average cost: $80/share. Even though you bought at $100, $80, and $60, your average is exactly in the middle because equal shares at each price.</p>
+            <p><strong>Example 2 - Weighted Average:</strong> Purchase 1: 100 shares at $50 = $5,000. Purchase 2: 25 shares at $40 = $1,000. Total: 125 shares, $6,000 invested. Average cost: $48/share. The average is closer to $50 because you bought more shares at that price. Understanding this helps see how position size affects your cost basis.</p>
+            <p><strong>Example 3 - Adding to Winner:</strong> Initial: 20 shares at $200 = $4,000. Addition: 30 shares at $250 = $7,500. Total: 50 shares, $11,500 invested. Average cost: $230/share. Even though current price is $250, your average is $230, giving you a built-in profit cushion while maintaining exposure to continued growth.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <p>Investors using dollar-cost averaging need this calculator to track their blended cost basis across multiple purchases over time. This is essential for tax reporting and performance evaluation.</p>
+            <p>Active traders adding to positions at different prices use this tool to quickly calculate their break-even point and average cost for position management decisions.</p>
+            <p>Tax planners need accurate cost basis calculations for Schedule D reporting. The average cost method is commonly used for mutual funds and can be elected for stocks.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Stock Average Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Dollar-Cost Averaging:</strong> Regular fixed-dollar purchases naturally buy more shares when price is low, lowering average cost</li>
+                <li><strong>Averaging Down:</strong> Buying more as price falls reduces average cost but increases total risk exposure</li>
+                <li><strong>Averaging Up:</strong> Adding to winners at higher prices shows conviction but raises average cost</li>
+                <li><strong>Tax Lots:</strong> Consider using specific lot identification for tax-loss harvesting instead of average cost</li>
+                <li><strong>Record Keeping:</strong> Track every purchase date, shares, and price for accurate cost basis</li>
+                <li><strong>Brokerage Tracking:</strong> Most brokers track average cost automatically, but verify accuracy</li>
+                <li><strong>Wash Sales:</strong> Buying within 30 days of selling at loss affects cost basis calculations</li>
+                <li><strong>Corporate Actions:</strong> Splits, mergers, and spin-offs adjust historical cost basis</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">How do I calculate average cost per share?</div>
+            <div class="faq-answer">Formula: Average Cost = Total Amount Invested / Total Shares Owned. Calculation Steps: 1) Multiply shares × price for each purchase. 2) Sum all purchase amounts. 3) Sum all shares purchased. 4) Divide total amount by total shares. Example: Buy 100 shares at $50 = $5,000. Buy 50 shares at $60 = $3,000. Total invested: $8,000. Total shares: 150. Average cost: $8,000 / 150 = $53.33 per share.</div>
+
+            <div class="faq-question">What is dollar-cost averaging?</div>
+            <div class="faq-answer">Dollar-cost averaging (DCA) is an investment strategy where you invest a fixed dollar amount at regular intervals regardless of price. Benefits: Reduces timing risk—no need to predict market bottoms. Automatically buys more shares when prices are low. Smooths out volatility over time. Removes emotion from investing. Disciplined approach builds wealth consistently. Example: Invest $500 monthly in a $50 stock. Month 1: $50 price → 10 shares. Month 2: $40 price → 12.5 shares. Month 3: $60 price → 8.33 shares. You bought more shares when price was low, lowering average cost. Studies show DCA often outperforms lump-sum investing in volatile markets.</div>
+
+            <div class="faq-question">Should I average down on a losing stock?</div>
+            <div class="faq-answer">Averaging down reduces your cost basis but increases total investment and risk. Consider: Company Fundamentals: Is the decline temporary or permanent? Position Size: Will averaging down create an oversized position? Opportunity Cost: Could money be better deployed elsewhere? Risk Tolerance: Can you afford to lose more if stock keeps falling? Emotional Factor: Are you averaging down rationally or refusing to accept a loss? Best Practice: Average down only if you would buy the stock fresh at current prices. Don't throw good money after bad just to lower average cost. Set a maximum position size and stop adding once reached.</div>
+
+            <div class="faq-question">What is the difference between FIFO and average cost?</div>
+            <div class="faq-answer">FIFO (First In, First Out): Assumes you sell oldest shares first. Often results in higher taxable gains if prices rise over time. Required method for stocks unless you specify otherwise. Average Cost: Blends all purchases together into single average price. Simplifies calculations. Required for mutual funds. Can be elected for stocks by informing broker. Example: Buy 100 shares at $40, then 100 at $60. Average cost: $50. Sell 100 shares at $70. FIFO: $70 - $40 = $30 gain per share. Average Cost: $70 - $50 = $20 gain per share. Method affects taxes—consult tax advisor for optimal approach.</div>
+
+            <div class="faq-question">How do stock splits affect average cost?</div>
+            <div class="faq-answer">Stock splits proportionally adjust your shares and average cost but don't change total value. Example: You own 100 shares at average cost $50 ($5,000 total). 2-for-1 split: Now own 200 shares at $25 average cost ($5,000 total). Calculation: New share count = Old count × split ratio. New average cost = Old average cost / split ratio. Total investment value unchanged. Your cost basis per share decreases, but you have proportionally more shares. Tax reporting: Adjust historical purchase records to reflect split ratios. Brokers typically handle this automatically.</div>
+
+            <div class="faq-question">What is a wash sale and how does it affect cost basis?</div>
+            <div class="faq-answer">Wash Sale Rule: If you sell a stock at a loss and buy the same or "substantially identical" security within 30 days before or after the sale, the loss is disallowed for tax purposes. Effect on Cost Basis: Disallowed loss is added to the cost basis of the new shares. Holding period of sold shares tacks onto new shares. Example: Buy 100 shares at $50 ($5,000). Sell at $40 ($1,000 loss). Buy 100 shares at $38 within 30 days. Wash sale triggered. New cost basis: $38 purchase price + $1,000 disallowed loss = $48/share. Purpose: Prevents tax-loss harvesting without genuine economic disposition.</div>
+
+            <div class="faq-question">How do I track cost basis for tax reporting?</div>
+            <div class="faq-answer">Record Keeping Requirements: Date of each purchase. Number of shares bought. Price per share. Commission/fees paid. Corporate actions affecting basis (splits, mergers). Tracking Methods: Brokerage Statements: Most brokers track cost basis and provide Form 1099-B. Spreadsheet: Manual tracking with formulas for average cost. Software: Quicken, Personal Capital, or specialized investment software. Tax Forms: Form 8949: Report sales with cost basis. Schedule D: Summarize capital gains/losses. Broker Reporting: Brokers must report cost basis for stocks bought after 2011. Earlier purchases may require your records.</div>
+
+            <div class="faq-question">What happens to cost basis in a merger?</div>
+            <div class="faq-answer">Mergers and acquisitions affect cost basis depending on deal structure: Stock-for-Stock: Original cost basis carries over to new shares received. Cash Deal: Cost basis determines capital gain/loss on full cashout. Mixed: Allocate basis between cash received and stock received proportionally. Spin-offs: Original cost basis allocated between parent and spun-off company based on relative fair market values. Example: Own $10,000 basis in Company A. Merged into Company B in stock deal. New basis in Company B shares: $10,000 (regardless of current value). Tax reporting: Use Form 8949 with code explaining corporate action. Brokers typically provide guidance on basis allocation.</div>
+
+            <div class="faq-question">Can I change my cost basis method?</div>
+            <div class="faq-answer">Changing Cost Basis Methods: Mutual Funds: Can elect average cost, FIFO, or specific lot identification. Change requires informing broker in writing. Stocks: Default is FIFO. Can elect specific lot identification at time of sale. Some brokers offer average cost election. Cryptocurrency: IRS allows FIFO, specific lot, or average cost methods. Consistency required unless change approved. Once Method Chosen: Generally must stick with it for that security. Changing may require IRS approval. Retroactive changes usually not permitted. Best Practice: Choose method before selling and consult tax advisor for optimal strategy based on your situation.</div>
+
+            <div class="faq-question">How do I calculate gains/losses using average cost?</div>
+            <div class="faq-answer">Using Average Cost for Gains/Losses: Determine Average Cost: Total invested / Total shares. Calculate Gain/Loss per Share: Sale price - Average cost. Total Gain/Loss: (Sale price - Average cost) × Shares sold. Example: Total invested: $15,000 in 300 shares. Average cost: $50/share. Sell 100 shares at $70. Gain per share: $70 - $50 = $20. Total gain: $20 × 100 = $2,000. Remaining position: 200 shares with $50 average cost. Reporting: Report on Form 8949 with average cost basis. Note that you can't use specific lot identification once average cost method is elected for a security.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateAverage(){
+const s1=parseFloat(document.getElementById('shares1').value)||0;
+const p1=parseFloat(document.getElementById('price1').value)||0;
+const s2=parseFloat(document.getElementById('shares2').value)||0;
+const p2=parseFloat(document.getElementById('price2').value)||0;
+const s3=parseFloat(document.getElementById('shares3').value)||0;
+const p3=parseFloat(document.getElementById('price3').value)||0;
+
+const total1=s1*p1;
+const total2=s2*p2;
+const total3=s3*p3;
+
+const totalShares=s1+s2+s3;
+const totalInvested=total1+total2+total3;
+const avgCost=totalShares>0?(totalInvested/totalShares):0;
+
+const prices=[p1,p2,p3].filter(p=>p>0);
+const highPrice=prices.length>0?Math.max(...prices):0;
+const lowPrice=prices.length>0?Math.min(...prices):0;
+
+document.getElementById('avgCost').textContent='$'+avgCost.toFixed(2);
+document.getElementById('totalShares').textContent=totalShares.toLocaleString();
+document.getElementById('totalInvested').textContent='$'+totalInvested.toLocaleString();
+document.getElementById('highPrice').textContent='$'+highPrice.toFixed(2);
+document.getElementById('lowPrice').textContent='$'+lowPrice.toFixed(2);
+}
+function clearAverage(){
+document.getElementById('shares1').value='';
+document.getElementById('price1').value='';
+document.getElementById('shares2').value='';
+document.getElementById('price2').value='';
+document.getElementById('shares3').value='';
+document.getElementById('price3').value='';
+document.getElementById('avgCost').textContent='$0.00';
+document.getElementById('totalShares').textContent='0';
+document.getElementById('totalInvested').textContent='$0.00';
+document.getElementById('highPrice').textContent='$0.00';
+document.getElementById('lowPrice').textContent='$0.00';
+}
+function copyAvgResults(){
+const avg=document.getElementById('avgCost').textContent;
+const shares=document.getElementById('totalShares').textContent;
+const text=`Stock Average Results:
+Average Cost: ${avg}
+Total Shares: ${shares}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+function loadRelated(){
+const tools=[
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"529 Savings",icon:"fa-graduation-cap",url:"529-savings-calculator.html"},
+{name:"Annuity",icon:"fa-hand-holding-usd",url:"annuity-calculator.html"},
+{name:"Pension",icon:"fa-calendar-check",url:"pension-calculator.html"},
+{name:"IRA",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"College Savings",icon:"fa-university",url:"college-savings-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridAvg").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

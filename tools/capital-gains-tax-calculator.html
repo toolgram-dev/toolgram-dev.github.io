@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Capital Gains Calculator – Investment Tax Estimator | ToolGram</title>
+    <meta name="description" content="Calculate capital gains tax on investments. Free online capital gains calculator for short-term and long-term gains.">
+    <meta name="keywords" content="capital gains calculator, investment tax, stock gains tax, long term capital gains, short term capital gains">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/capital-gains-calculator.html">
+    <meta property="og:title" content="Capital Gains Calculator | ToolGram">
+    <meta property="og:description" content="Calculate capital gains tax on investments.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/capital-gains-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Capital Gains Calculator",
+        "description": "Calculate capital gains tax on investments.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/capital-gains-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Capital Gains Tax", "Investment Tax", "Short Term Gains", "Long Term Gains"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .gain-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+                <h1 style="margin:0;">Capital Gains Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Investment tax estimator</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-shopping-cart"></i> Investment Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Purchase Price ($)</label>
+                        <input type="number" id="purchasePrice" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Sale Price ($)</label>
+                        <input type="number" id="salePrice" placeholder="15000" value="15000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Holding Period</label>
+                        <select id="holdingPeriod"><option value="long">Long-Term (>1 year)</option><option value="short">Short-Term (<1 year)</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Tax Rate (%)</label>
+                        <input type="number" id="taxRate" placeholder="15" value="15" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateGains()"><i class="fas fa-calculator"></i> Calculate Tax</button>
+                        <button class="secondary-btn" onclick="clearGains()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-invoice-dollar"></i> Tax Summary</div>
+                <div class="output-display" id="outputGains">
+                    <div class="gain-box">
+                        <div style="font-weight:600;color:#22c55e;margin-bottom:5px;"><i class="fas fa-chart-line"></i> Capital Gain</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="capitalGain" style="color:#22c55e">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Tax Rate: <span id="taxRateDisplay">15%</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Estimated Tax:</strong> <span id="taxOwed">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">After-Tax Proceeds:</strong> <span id="afterTax">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Purchase:</strong> <span id="purchaseDisplay">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Sale:</strong> <span id="saleDisplay">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyGainsResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridGains"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Capital Gains Calculator?</h3>
+            <p>A Capital Gains Calculator estimates the tax you'll owe when selling investments like stocks, bonds, or real estate for a profit. It distinguishes between short-term gains (held less than one year) taxed as ordinary income and long-term gains (held more than one year) taxed at preferential rates.</p>
+            <p>This tool helps you plan the timing of sales to optimize tax rates, estimate after-tax proceeds, and make informed decisions about holding periods. Understanding capital gains tax is essential for maximizing after-tax investment returns.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your original purchase price (cost basis).<br>
+            <strong>Step 2:</strong> Input the sale price of your investment.<br>
+            <strong>Step 3:</strong> Select holding period—long-term or short-term.<br>
+            <strong>Step 4:</strong> Enter your applicable tax rate.<br>
+            <strong>Step 5:</strong> Click "Calculate Tax" to see estimated tax liability.<br>
+            <strong>Step 6:</strong> Review after-tax proceeds to understand net gain.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Capital Gains Examples</h3>
+            <p><strong>Example 1 - Long-Term Gain:</strong> Bought stock for $10,000, sold 2 years later for $18,000. Gain: $8,000. Tax rate: 15%. Tax: $1,200. After-tax proceeds: $16,800. If sold after 11 months (short-term), tax would be ~$1,760 at 22% rate—holding one extra month saved $560.</p>
+            <p><strong>Example 2 - 0% Rate:</strong> Married couple with $75,000 taxable income sells stock with $5,000 gain held 3 years. Their income is below $94,050 threshold. Tax rate: 0%. Tax: $0. This demonstrates the power of staying in the 0% bracket for long-term gains.</p>
+            <p><strong>Example 3 - High Earner:</strong> Single filer with $500,000 income sells investment with $100,000 gain held 5 years. Long-term rate: 20%. Plus 3.8% Net Investment Income Tax = $3,800. Total tax: $23,800. Combined rate: 23.8% effective.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <p>Investors planning to sell appreciated stocks should use this calculator to estimate tax consequences before executing trades. This helps decide whether to hold for long-term treatment or sell now.</p>
+            <p>Tax planners use capital gains analysis for year-end tax planning. Harvesting losses, timing charitable giving of appreciated securities, and managing income levels to stay within favorable brackets are all strategies that require accurate tax calculations.</p>
+            <p>Real estate investors considering property sales need capital gains estimates to evaluate whether to sell or exchange via 1031 exchange. Primary home sales may qualify for exclusion ($250,000 single, $500,000 married).</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Capital Gains Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Hold for 1 Year:</strong> Long-term gains taxed at 0%, 15%, or 20% vs ordinary income rates up to 37%</li>
+                <li><strong>Tax-Loss Harvesting:</strong> Sell losers to offset gains; up to $3,000 can offset ordinary income</li>
+                <li><strong>0% Rate Opportunity:</strong> Lower-income years may qualify for 0% long-term capital gains rate</li>
+                <li><strong>Wash Sale Rule:</strong> Can't claim loss if repurchasing same security within 30 days</li>
+                <li><strong>Charitable Giving:</strong> Donate appreciated securities instead of cash for full deduction without capital gains</li>
+                <li><strong>Step-Up Basis:</strong> Inherited assets receive stepped-up basis to date of death</li>
+                <li><strong>Primary Home Exclusion:</strong> $250,000 ($500,000 married) exclusion if lived in home 2 of last 5 years</li>
+                <li><strong>Qualified Small Business:</strong> Section 1202 exclusion may eliminate tax on qualified stock gains</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">What is the difference between short-term and long-term capital gains?</div>
+            <div class="faq-answer">Short-term: Assets held less than 1 year, taxed as ordinary income (10-37% federal). Long-term: Assets held more than 1 year, taxed at preferential rates (0%, 15%, or 20%). The 1-year threshold is critical. Example: Sell at 11 months = short-term at your tax bracket (say 24%). Sell at 13 months = long-term at 15%. On $10,000 gain, difference is $900 in tax. Always check holding period before selling appreciated assets.</div>
+
+            <div class="faq-question">What are the 2024 long-term capital gains tax rates?</div>
+            <div class="faq-answer">2024 Long-term capital gains rates by taxable income: 0% rate: Single up to $47,025; Married up to $94,050; HOH up to $63,000. 15% rate: Single $47,026-$518,900; Married $94,051-$583,750; HOH $63,001-$551,350. 20% rate: Above those 15% thresholds. Additional 3.8% Net Investment Income Tax applies to investment income for singles over $200,000 and married over $250,000. State taxes may also apply (0-13.3% depending on state).</div>
+
+            <div class="faq-question">How do I calculate my cost basis?</div>
+            <div class="faq-answer">Cost basis is generally what you paid for the asset including commissions and fees. For stocks: Purchase price × shares + commissions. Corporate actions affect basis: Stock splits divide basis (2:1 split halves per-share basis), Mergers may exchange shares at specific ratio. Inherited property: Stepped-up basis to fair market value at date of death. Gifted property: Carryover basis from donor.</div>
+
+            <div class="faq-question">Can I avoid capital gains tax?</div>
+            <div class="faq-answer">Legal strategies to reduce/avoid capital gains: 1) Hold assets >1 year for lower rates, 2) Use tax-advantaged accounts (401k, IRA, Roth, 529, HSA), 3) Tax-loss harvesting to offset gains, 4) Donate appreciated securities to charity, 5) Gift appreciated assets to family in lower brackets, 6) Primary home exclusion for residences, 7) Opportunity Zone investments for deferral, 8) 1031 exchanges for real estate, 9) Qualified Small Business Stock exclusion, 10) Step-up basis planning (hold until death for heirs).</div>
+
+            <div class="faq-question">What is tax-loss harvesting?</div>
+            <div class="faq-answer">Strategy of selling losing investments to realize capital losses that offset capital gains, reducing tax liability. Rules: Losses offset gains dollar-for-dollar. If losses exceed gains, up to $3,000 can offset ordinary income annually ($1,500 if married filing separately). Unused losses carry forward indefinitely. Wash sale rule: Can't claim loss if you buy same or "substantially identical" security within 30 days before or after sale.</div>
+
+            <div class="faq-question">Do I pay capital gains tax on my primary home?</div>
+            <div class="faq-answer">Primary residence exclusion: Up to $250,000 gain ($500,000 married filing jointly) is tax-free if you: Owned the home at least 2 years, Lived in it as primary residence at least 2 of last 5 years, Haven't claimed exclusion on another home in past 2 years. Gains above exclusion limit are taxed at capital gains rates. Exclusion applies to both federal and most state taxes.</div>
+
+            <div class="faq-question">What is depreciation recapture?</div>
+            <div class="faq-answer">When you sell rental property, depreciation you claimed over the years must be "recaptured" and taxed. Rate: 25% maximum on recaptured depreciation (could be lower if in lower bracket). Example: Bought rental for $200,000, claimed $50,000 depreciation over 10 years. Adjusted basis = $150,000. Sell for $250,000. Total gain = $100,000. Depreciation recapture = $50,000 taxed at 25% = $12,500. Remaining $50,000 gain taxed at long-term capital gains rates.</div>
+
+            <div class="faq-question">How do I report capital gains?</div>
+            <div class="faq-answer">Report capital gains on Schedule D (Capital Gains and Losses) attached to Form 1040. Process: Brokers send Form 1099-B showing proceeds and basis. Use Form 8949 to list each transaction, then summarize on Schedule D. Separate short-term and long-term transactions. Short-term on Part I, Long-term on Part II. Carryover losses from prior years also reported.</div>
+
+            <div class="faq-question">What is the 3.8% Net Investment Income Tax?</div>
+            <div class="faq-answer">Additional 3.8% tax on net investment income for high earners. Applies if: Modified AGI exceeds $200,000 (single) or $250,000 (married). Applies to: Interest, dividends, capital gains, rental income, royalty income, passive business income. Does NOT apply to: Wages, self-employment income, active business income, tax-exempt interest, retirement plan distributions.</div>
+
+            <div class="faq-question">How do Opportunity Zones work for capital gains?</div>
+            <div class="faq-answer">Opportunity Zones are economically distressed areas where investments receive tax benefits. Defer capital gains by investing in Qualified Opportunity Fund (QOF) within 180 days of sale. Benefits: Defer tax on original gain until 2026 or earlier sale, 10% step-up in basis if held 5 years, 15% step-up if held 7 years, Zero tax on new OZ investment gains if held 10+ years.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateGains(){
+const purchase=parseFloat(document.getElementById('purchasePrice').value)||0;
+const sale=parseFloat(document.getElementById('salePrice').value)||0;
+const holding=document.getElementById('holdingPeriod').value;
+const taxRate=(parseFloat(document.getElementById('taxRate').value)||0)/100;
+
+const gain=sale-purchase;
+const tax=Math.max(0,gain*taxRate);
+const afterTax=sale-tax;
+
+document.getElementById('capitalGain').textContent='$'+gain.toLocaleString();
+document.getElementById('capitalGain').style.color=gain>=0?'#22c55e':'#ef4444';
+document.getElementById('taxRateDisplay').textContent=(taxRate*100)+'%';
+document.getElementById('taxOwed').textContent='$'+tax.toLocaleString();
+document.getElementById('afterTax').textContent='$'+Math.round(afterTax).toLocaleString();
+document.getElementById('purchaseDisplay').textContent='$'+purchase.toLocaleString();
+document.getElementById('saleDisplay').textContent='$'+sale.toLocaleString();
+}
+function clearGains(){
+document.getElementById('purchasePrice').value='';
+document.getElementById('salePrice').value='';
+document.getElementById('holdingPeriod').value='long';
+document.getElementById('taxRate').value='';
+document.getElementById('capitalGain').textContent='$0.00';
+document.getElementById('capitalGain').style.color='#8B5CF6';
+document.getElementById('taxRateDisplay').textContent='15%';
+document.getElementById('taxOwed').textContent='$0.00';
+document.getElementById('afterTax').textContent='$0.00';
+document.getElementById('purchaseDisplay').textContent='$0.00';
+document.getElementById('saleDisplay').textContent='$0.00';
+}
+function copyGainsResults(){
+const gain=document.getElementById('capitalGain').textContent;
+const tax=document.getElementById('taxOwed').textContent;
+const text=`Capital Gains Results:
+Capital Gain: ${gain}
+Estimated Tax: ${tax}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+function loadRelated(){
+const tools=[
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"529 Savings",icon:"fa-graduation-cap",url:"529-savings-calculator.html"},
+{name:"Annuity",icon:"fa-hand-holding-usd",url:"annuity-calculator.html"},
+{name:"Pension",icon:"fa-calendar-check",url:"pension-calculator.html"},
+{name:"IRA",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"College Savings",icon:"fa-university",url:"college-savings-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridGains").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>State Tax Calculator – US State Income Tax | ToolGram</title>
+    <meta name="description" content="Calculate state income tax for US states. Free online state tax calculator for tax planning.">
+    <meta name="keywords" content="state tax calculator, state income tax, US state taxes, tax estimator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/state-tax-calculator.html">
+    <meta property="og:title" content="State Tax Calculator | ToolGram">
+    <meta property="og:description" content="Calculate state income tax for US states.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/state-tax-calculator.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">State Tax Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate state income tax by state</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> State & Income</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">State</label>
+                        <select id="state" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;"><option value="ca">California</option><option value="ny">New York</option><option value="tx">Texas (No Tax)</option><option value="fl">Florida (No Tax)</option><option value="wa">Washington (No Tax)</option><option value="nv">Nevada (No Tax)</option><option value="il">Illinois (Flat Tax)</option><option value="pa">Pennsylvania (Flat Tax)</option><option value="ma">Massachusetts (Flat Tax)</option><option value="other">Other Progressive</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Filing Status</label>
+                        <select id="stateFiling" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;"><option value="single">Single</option><option value="married">Married</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Annual Income ($)</label>
+                        <input type="number" id="stateIncome" placeholder="80000" value="80000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Deductions ($)</label>
+                        <input type="number" id="stateDeductions" placeholder="5000" value="5000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateStateTax()"><i class="fas fa-calculator"></i> Calculate State Tax</button>
+                    <button class="secondary-btn" onclick="clearStateTax()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-invoice-dollar"></i> State Tax Summary</div>
+                <div class="output-display" id="stateOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">State Tax:</strong> <span id="stateTax">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Taxable Income:</strong> <span id="stateTaxable">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Effective Rate:</strong> <span id="stateEffective">0%</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Marginal Rate:</strong> <span id="stateMarginal">0%</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyStateTaxResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridState"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is State Income Tax?</h3>
+            <p>State income tax is levied by individual states on income earned within that state. Rates and structures vary dramatically - from 0% in nine states (Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, Wyoming, New Hampshire) to over 13% in California for high earners. State taxes are deductible on federal returns (subject to $10,000 SALT cap), making them a key factor in relocation decisions.</p>
+            <p>This calculator helps you understand your state tax burden based on your residence, income level, and filing status. For remote workers or those considering relocation, comparing state taxes can reveal significant savings opportunities. Remember to consider total tax burden including property and sales taxes, not just income tax.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Select your state of residence.<br>
+            <strong>Step 2:</strong> Choose filing status.<br>
+            <strong>Step 3:</strong> Enter annual income.<br>
+            <strong>Step 4:</strong> Add state deductions.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see estimate.<br>
+            <strong>Step 6:</strong> Compare states if considering a move.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>California:</strong> Income: $100,000, Single. State tax: ~$4,500. Effective rate: ~4.7%. Progressive rates up to 13.3%.</p>
+            <p><strong>Texas:</strong> Income: $100,000. State tax: $0. Effective rate: 0%. No state income tax.</p>
+            <p><strong>Illinois:</strong> Income: $100,000. State tax: ~$4,950. Flat 4.95% rate on taxable income.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This?</h3>
+            <ul>
+                <li><strong>Remote Workers</strong> - Compare after-tax income by state.</li>
+                <li><strong>Retirees</strong> - Evaluate retirement destinations.</li>
+                <li><strong>Relocators</strong> - Factor taxes into moving decisions.</li>
+                <li><strong>High Earners</strong> - Assess high-tax vs no-tax states.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>No-income-tax states: TX, FL, NV, WA, WY, SD, AK, TN, NH.</li>
+                <li>SALT cap limits state tax deduction to $10,000 on federal.</li>
+                <li>Reciprocity agreements between states prevent double taxation.</li>
+                <li>Remote workers may owe tax to both resident and employer states.</li>
+                <li>Some states exempt Social Security and pension income.</li>
+                <li>Moving mid-year requires part-year returns in both states.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> FAQ</h3>
+            <div class="faq-question">Which states have no income tax?</div>
+            <div class="faq-answer">Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, Wyoming, and New Hampshire (only interest/dividends taxed in NH). These states fund government through sales tax, property tax, and other revenue sources.</div>
+
+            <div class="faq-question">How do state tax brackets work?</div>
+            <div class="faq-answer">Most states use progressive brackets (like federal) where higher income is taxed at higher rates. Some states (Illinois, Pennsylvania, Massachusetts) use flat tax where all income is taxed at the same rate. California has the most progressive system with 9 brackets.</div>
+
+            <div class="faq-question">Can I deduct state taxes on my federal return?</div>
+            <div class="faq-answer">State income tax is deductible as part of SALT (State and Local Tax) deduction, but capped at $10,000 per household. This limit affects high earners in high-tax states most significantly.</div>
+
+            <div class="faq-question">Do I pay tax where I work or live?</div>
+            <div class="faq-answer">Generally, you pay tax to your resident state on all income. If you work in a different state, you may owe tax there too, but your resident state typically gives a credit for taxes paid to other states. Some neighboring states have reciprocity agreements to simplify this.</div>
+
+            <div class="faq-question">Which states tax retirement income?</div>
+            <div class="faq-answer">Most states don't tax Social Security. Many exempt pension income (Illinois, Pennsylvania, Mississippi, Alabama, Hawaii). States with no income tax don't tax any retirement income. Check specific state rules as they vary significantly.</div>
+
+            <div class="faq-question">What is tax reciprocity?</div>
+            <div class="faq-answer">Reciprocity agreements allow workers who live in one state but work in another to pay tax only to their resident state. Common examples include DC metro area agreements and Midwest state compacts. Eliminates double taxation and simplifies filing.</div>
+
+            <div class="faq-question">What's the most tax-friendly state?</div>
+            <div class="faq-answer">Depends on your situation. No-tax states are best for high earners. States like Florida, Tennessee, and Pennsylvania are popular with retirees due to no tax on Social Security/pensions. Consider total burden: income + property + sales taxes.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateStateTax() {
+        const state = document.getElementById('state').value;
+        const income = parseFloat(document.getElementById('stateIncome').value) || 0;
+        const deductions = parseFloat(document.getElementById('stateDeductions').value) || 0;
+        const taxable = Math.max(0, income - deductions);
+        let tax = 0, marginal = 0;
+        
+        switch(state) {
+            case 'ca':
+                if(taxable<=10412){tax=taxable*0.01;marginal=1;}
+                else if(taxable<=24684){tax=104.12+(taxable-10412)*0.02;marginal=2;}
+                else if(taxable<=38959){tax=390.56+(taxable-24684)*0.04;marginal=4;}
+                else if(taxable<=54081){tax=961.56+(taxable-38959)*0.06;marginal=6;}
+                else if(taxable<=68350){tax=1868.88+(taxable-54081)*0.08;marginal=8;}
+                else if(taxable<=349137){tax=3010.40+(taxable-68350)*0.093;marginal=9.3;}
+                else if(taxable<=418961){tax=29124.39+(taxable-349137)*0.103;marginal=10.3;}
+                else if(taxable<=698271){tax=36315.46+(taxable-418961)*0.113;marginal=11.3;}
+                else if(taxable<=1000000){tax=67876.59+(taxable-698271)*0.123;marginal=12.3;}
+                else{tax=105889.40+(taxable-1000000)*0.133;marginal=13.3;}
+                break;
+            case 'ny':
+                if(taxable<=8500){tax=taxable*0.04;marginal=4;}
+                else if(taxable<=11700){tax=340+(taxable-8500)*0.045;marginal=4.5;}
+                else if(taxable<=13900){tax=484+(taxable-11700)*0.0525;marginal=5.25;}
+                else if(taxable<=80650){tax=599.50+(taxable-13900)*0.0585;marginal=5.85;}
+                else if(taxable<=215400){tax=4504.38+(taxable-80650)*0.0625;marginal=6.25;}
+                else if(taxable<=1077550){tax=12927.06+(taxable-215400)*0.0685;marginal=6.85;}
+                else if(taxable<=5000000){tax=72057.43+(taxable-1077550)*0.0965;marginal=9.65;}
+                else{tax=450463.88+(taxable-5000000)*0.103;marginal=10.3;}
+                break;
+            case 'tx': case 'fl': case 'wa': case 'nv': case 'tn': case 'sd': case 'wy': case 'ak':
+                tax=0; marginal=0;
+                break;
+            case 'il': tax=taxable*0.0495; marginal=4.95; break;
+            case 'pa': tax=taxable*0.0307; marginal=3.07; break;
+            case 'ma': tax=taxable*0.05; marginal=5; break;
+            default: tax=taxable*0.05; marginal=5;
+        }
+        
+        const effective = income>0?((tax/income)*100).toFixed(1):0;
+        document.getElementById('stateTax').textContent = '$' + Math.round(tax).toLocaleString();
+        document.getElementById('stateTaxable').textContent = '$' + Math.round(taxable).toLocaleString();
+        document.getElementById('stateEffective').textContent = effective + '%';
+        document.getElementById('stateMarginal').textContent = marginal + '%';
+    }
+    
+    function clearStateTax() {
+        document.getElementById('state').value = 'ca';
+        document.getElementById('stateFiling').value = 'single';
+        document.getElementById('stateIncome').value = '';
+        document.getElementById('stateDeductions').value = '';
+        document.getElementById('stateTax').textContent = '$0';
+        document.getElementById('stateTaxable').textContent = '$0';
+        document.getElementById('stateEffective').textContent = '0%';
+        document.getElementById('stateMarginal').textContent = '0%';
+    }
+    
+    function copyStateTaxResults() {
+        const tax = document.getElementById('stateTax').textContent;
+        const rate = document.getElementById('stateEffective').textContent;
+        navigator.clipboard.writeText(`State Tax Results:\nState Tax: ${tax}\nEffective Rate: ${rate}`);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"Income Tax Calculator", icon:"fa-calculator", url:"income-tax-calculator.html"},
+            {name:"Federal Tax Calculator", icon:"fa-flag-usa", url:"federal-tax-calculator.html"},
+            {name:"Sales Tax Calculator", icon:"fa-receipt", url:"sales-tax-calculator.html"},
+            {name:"401k Calculator", icon:"fa-briefcase", url:"401k-calculator.html"},
+            {name:"IRA Calculator", icon:"fa-piggy-bank", url:"ira-calculator.html"},
+            {name:"HSA Calculator", icon:"fa-medkit", url:"hsa-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => { html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`; });
+        document.getElementById("relatedGridState").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

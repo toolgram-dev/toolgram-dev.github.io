@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>W4 Calculator – Withholding Form Estimator | ToolGram</title>
+    <meta name="description" content="Estimate W4 withholding allowances and tax withholding. Free online W4 calculator to optimize your paycheck withholding.">
+    <meta name="keywords" content="W4 calculator, withholding calculator, tax withholding, W4 form, paycheck tax">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/w4-calculator.html">
+    <meta property="og:title" content="W4 Calculator | ToolGram">
+    <meta property="og:description" content="Estimate W4 withholding allowances and tax withholding.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/w4-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "W4 Calculator",
+        "description": "Estimate W4 withholding allowances and tax withholding.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/w4-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["W4 Withholding", "Tax Allowances", "Paycheck Estimation", "Tax Form"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .w4-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-file-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">W4 Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Estimate W4 withholding allowances</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-user"></i> Personal Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Filing Status</label>
+                        <select id="filingStatus"><option value="single" selected>Single</option><option value="married">Married</option><option value="hoh">Head of Household</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Salary ($)</label>
+                        <input type="number" id="salary" placeholder="60000" value="60000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Dependents</label>
+                        <input type="number" id="dependents" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Other Income ($)</label>
+                        <input type="number" id="otherIncome" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Deductions ($)</label>
+                        <input type="number" id="deductions" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateW4()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearW4()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-pie"></i> W4 Results</div>
+                <div class="output-display" id="outputW4">
+                    <div class="w4-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-file-alt"></i> Recommended Allowances</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="allowances">0</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">W4 Step 3/4 adjustments</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Est. Tax:</strong> <span id="estTax">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Withholding:</strong> <span id="monthlyWithhold">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Taxable Income:</strong> <span id="taxableIncome">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Standard Deduction:</strong> <span id="stdDeduction">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyW4Results()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridW4"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a W4 Calculator?</h3>
+            <p>A W4 calculator estimates your ideal tax withholding allowances for Form W4, the document that tells your employer how much federal income tax to withhold from each paycheck. Properly filling out your W4 prevents over-withholding (giving the IRS an interest-free loan) or under-withholding (owing money at tax time with potential penalties).</p>
+            <p>This calculator helps determine the right number of allowances or dollar amounts to enter on each step of the modern W4 form, which was redesigned in 2020 to be more straightforward. The calculator considers your filing status, income, dependents, other income sources, and deductions to project your annual tax liability and recommend appropriate withholding adjustments.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select your filing status (single, married, or head of household).<br>
+            <strong>Step 2:</strong> Enter your annual salary from your primary job.<br>
+            <strong>Step 3:</strong> Input number of qualifying dependents under age 17 for tax credits.<br>
+            <strong>Step 4:</strong> Add other income (interest, dividends, gig work, etc.) not subject to withholding.<br>
+            <strong>Step 5:</strong> Enter expected deductions if you'll itemize instead of taking standard deduction.<br>
+            <strong>Step 6:</strong> Click "Calculate" to see recommended allowances and withholding estimate.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> W4 Examples</h3>
+            <p><strong>Example 1 - Single, No Dependents:</strong> Sarah earns $50,000/year as a single filer with no children and takes the standard deduction. Calculator recommends claiming 2 allowances. Withholding set to approximately $430/month covers her estimated $5,160 tax liability. Result: Minimal refund or balance due at tax time—optimal withholding.</p>
+            <p><strong>Example 2 - Married with Children:</strong> John and Mary file jointly with combined $90,000 income and two children under 17. Calculator recommends claiming 4 allowances including child tax credits. Their monthly withholding drops to about $520, reflecting the $4,000 in child tax credits. Without adjusting W4 for children, they'd over-withhold by $4,000/year.</p>
+            <p><strong>Example 3 - Multiple Jobs:</strong> David has two jobs earning $40,000 each ($80,000 total). Using Step 2 worksheet, calculator recommends extra $200/month withholding from second job to avoid underpayment. Combined withholding properly covers his higher tax bracket liability that neither employer knows about individually.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <p>New employees starting a job need this calculator to complete their initial W4 correctly. Starting with the right withholding prevents surprises at tax time and optimizes cash flow throughout the year.</p>
+            <p>Anyone experiencing major life changes—marriage, divorce, having children, getting a second job, or starting a side business—should recalculate their withholding. These events dramatically change your tax situation and old W4 settings may no longer be appropriate.</p>
+            <p>Taxpayers who owed money last year or received a large refund should use this calculator to fine-tune their withholding. Owing more than $1,000 may trigger penalties; large refunds mean you gave the government an interest-free loan. Both situations indicate your W4 needs adjustment.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> W4 Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Check Annually:</strong> Review withholding whenever income or deductions change significantly</li>
+                <li><strong>Multiple Jobs:</strong> Use Step 2 worksheet or extra withholding box to avoid underpayment</li>
+                <li><strong>Side Income:</strong> Report other income on Step 4(a) or make estimated quarterly payments</li>
+                <li><strong>Two-Earner Households:</strong> Use checkbox in Step 2(c) if both spouses work</li>
+                <li><strong>Itemizers:</strong> Enter deductions on Step 4(b) if exceeding standard deduction</li>
+                <li><strong>Child Tax Credit:</strong> Multiply qualifying children by $2,000 on Step 3</li>
+                <li><strong>Safe Harbor:</strong> Withhold 90% of current year tax or 100% of prior year tax (110% if AGI >$150k) to avoid penalties</li>
+                <li><strong>Mid-Year Changes:</strong> Submit updated W4 anytime—changes take effect next pay period</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">What is Form W4?</div>
+            <div class="faq-answer">Form W4 (Employee's Withholding Certificate) is the IRS form you complete when starting a new job or when you want to adjust tax withholding from your paycheck. It tells your employer how much federal income tax to withhold based on your personal situation. The form was redesigned in 2020 to be simpler and more accurate. Key sections include: Step 1 (Personal info), Step 2 (Multiple jobs or spouse works), Step 3 (Claim dependents), Step 4 (Other adjustments), Step 5 (Sign).</div>
+
+            <div class="faq-question">How many allowances should I claim?</div>
+            <div class="faq-answer">The modern W4 (2020+) doesn't use "allowances" in the traditional sense. Instead: Most people claim their situation directly—filing status, dependents, other income. Each child under 17 reduces withholding by about $170/month ($2,000 credit ÷ 12). If you want a refund, withhold extra on Step 4(c). If you want to break even, follow calculator recommendations. Old rules (1 allowance per exemption) no longer apply to the new form structure.</div>
+
+            <div class="faq-question">Should I claim 0 or 1 on my W4?</div>
+            <div class="faq-answer">This question applies to pre-2020 W4 forms. On modern W4s: Claiming "0" allowances (old system) was equivalent to maximum withholding. On current W4: To withhold at single rate even if married, check the box in Step 2(c). For maximum withholding, enter extra amount on Step 4(c). For minimum withholding (legally), claim all dependents and deductions accurately. Don't artificially inflate or deflate withholding—accuracy prevents surprises.</div>
+
+            <div class="faq-question">What happens if I under-withhold?</div>
+            <div class="faq-answer">Consequences of under-withholding: Owe tax when you file your return. Possible underpayment penalties if you owe more than $1,000 and didn't meet safe harbor rules. Interest charges on unpaid tax from original due date. IRS may issue lock-in letter requiring specific withholding (rare). Safe harbor to avoid penalties: Withhold at least 90% of current year tax liability, OR 100% of prior year tax (110% if prior year AGI >$150,000).</div>
+
+            <div class="faq-question">How often can I change my W4?</div>
+            <div class="faq-answer">You can submit a new W4 to your employer anytime—there's no limit. Changes typically take effect with your next paycheck (may take 1-2 pay periods depending on payroll timing). Common times to update: Starting new job, Getting married or divorced, Having a baby or adopting, Starting second job or side business, Buying house with mortgage interest/property tax deductions, Major change in other income (investments, rentals). Review annually when doing your tax return.</div>
+
+            <div class="faq-question">What is the Step 2(c) checkbox?</div>
+            <div class="faq-answer">Step 2(c) checkbox is for married filing jointly couples where both spouses work, OR for taxpayers with multiple jobs. Effect: Withholds at higher single rate instead of lower married rate. Helps prevent under-withholding when multiple incomes push you into higher tax brackets. Alternative: Use Step 2(a/b) worksheet to calculate exact withholding adjustment. Trade-off: Checkbox is simpler but may over-withhold slightly.</div>
+
+            <div class="faq-question">How do I claim child tax credit on W4?</div>
+            <div class="faq-answer">Step 3 is specifically for tax credits: Multiply qualifying children under age 17 by $2,000 each. Multiply other dependents by $500 each. Enter total on Step 3. This reduces withholding throughout the year to account for credits you'll claim at tax time. Example: 2 children under 17. Step 3 = $4,000. Withholding reduced by ~$333/month.</div>
+
+            <div class="faq-question">What if I have multiple jobs?</div>
+            <div class="faq-answer">Multiple job situations require special handling because each employer withholds as if it's your only income. Combined income often pushes you into higher brackets. Options: Check Step 2(c) box on W4s for all jobs (withholds at higher rate). Use Step 2(b) worksheet to calculate additional withholding needed. Enter extra withholding amount on Step 4(c) of highest-paying job's W4. Don't just divide allowances—use these methods to avoid year-end underpayment.</div>
+
+            <div class="faq-question">Can I claim exempt from withholding?</div>
+            <div class="faq-answer">Yes, but only if you meet strict requirements: You had no federal income tax liability last year ($0 tax due), AND you expect no liability this year. Write "EXEMPT" on Step 4(c). Common qualifying situations: Students with minimal income, Part-year workers starting late in year, Those with large deductions exceeding income. Risk: If wrong, you could owe significant tax and penalties. IRS scrutinizes exempt claims.</div>
+
+            <div class="faq-question">How do state withholding forms work?</div>
+            <div class="faq-answer">Many states have their own withholding forms similar to federal W4: Some use federal W4 for state withholding too (state follows federal). Others require separate state-specific forms (DE-4 for California, IT-2104 for New York, etc.). State rules differ: Some conform to federal, others have different allowances/credits. Check with your employer's HR or state tax agency for requirements. Update both federal and state forms when situations change.</div>
+
+            <div class="faq-question">What is backup withholding?</div>
+            <div class="faq-answer">Backup withholding (24% rate) applies when: You don't provide correct TIN (SSN/EIN) on W9 forms, IRS notifies payer that you underreported interest/dividends, You've been notified of underpayment but haven't corrected it. Not related to W4 employment withholding—applies to 1099 income (interest, dividends, independent contractor payments). Payer withholds 24% and sends to IRS. Claim credit when you file tax return. Resolve by providing correct SSN or fixing underreporting issues.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateW4(){
+const filing=document.getElementById('filingStatus').value;
+const salary=parseFloat(document.getElementById('salary').value)||0;
+const dependents=parseInt(document.getElementById('dependents').value)||0;
+const otherIncome=parseFloat(document.getElementById('otherIncome').value)||0;
+const deductions=parseFloat(document.getElementById('deductions').value)||0;
+
+const stdDeduction={single:14600,married:29200,hoh:21900}[filing]||14600;
+const taxable=Math.max(0,salary+otherIncome-stdDeduction-deductions);
+
+let tax=0;
+if(filing==='single'){
+if(taxable>11600){tax+=(Math.min(taxable,47150)-11600)*0.10}
+if(taxable>47150){tax+=(Math.min(taxable,100525)-47150)*0.12}
+if(taxable>100525){tax+=(Math.min(taxable,191950)-100525)*0.22}
+if(taxable>191950){tax+=(taxable-191950)*0.24}
+}else if(filing==='married'){
+if(taxable>23200){tax+=(Math.min(taxable,94300)-23200)*0.10}
+if(taxable>94300){tax+=(Math.min(taxable,201050)-94300)*0.12}
+if(taxable>201050){tax+=(Math.min(taxable,383900)-201050)*0.22}
+if(taxable>383900){tax+=(taxable-383900)*0.24}
+}else{
+if(taxable>16650){tax+=(Math.min(taxable,63100)-16650)*0.10}
+if(taxable>63100){tax+=(Math.min(taxable,100500)-63100)*0.12}
+if(taxable>100500){tax+=(Math.min(taxable,191950)-100500)*0.22}
+if(taxable>191950){tax+=(taxable-191950)*0.24}
+}
+
+const childCredit=dependents*2000;
+const netTax=Math.max(0,tax-childCredit);
+const monthlyWithhold=netTax/12;
+
+document.getElementById('allowances').textContent=dependents;
+document.getElementById('estTax').textContent='$'+Math.round(netTax).toLocaleString();
+document.getElementById('monthlyWithhold').textContent='$'+monthlyWithhold.toFixed(2);
+document.getElementById('taxableIncome').textContent='$'+Math.round(taxable).toLocaleString();
+document.getElementById('stdDeduction').textContent='$'+stdDeduction.toLocaleString();
+}
+function clearW4(){
+document.getElementById('filingStatus').value='single';
+document.getElementById('salary').value='';
+document.getElementById('dependents').value='';
+document.getElementById('otherIncome').value='';
+document.getElementById('deductions').value='';
+document.getElementById('allowances').textContent='0';
+document.getElementById('estTax').textContent='$0.00';
+document.getElementById('monthlyWithhold').textContent='$0.00';
+document.getElementById('taxableIncome').textContent='$0.00';
+document.getElementById('stdDeduction').textContent='$0.00';
+}
+function copyW4Results(){
+const allowances=document.getElementById('allowances').textContent;
+const tax=document.getElementById('estTax').textContent;
+const text=`W4 Results:
+Recommended Allowances: ${allowances}
+Estimated Tax: ${tax}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+function loadRelated(){
+const tools=[
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"529 Savings",icon:"fa-graduation-cap",url:"529-savings-calculator.html"},
+{name:"Annuity",icon:"fa-hand-holding-usd",url:"annuity-calculator.html"},
+{name:"Pension",icon:"fa-calendar-check",url:"pension-calculator.html"},
+{name:"IRA",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"College Savings",icon:"fa-university",url:"college-savings-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridW4").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

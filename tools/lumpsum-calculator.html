@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lumpsum Calculator – One-Time Investment Returns | ToolGram</title>
+    <meta name="description" content="Calculate returns on lumpsum investments. Free online calculator for one-time mutual fund and investment growth projections.">
+    <meta name="keywords" content="lumpsum calculator, one time investment, lumpsum mutual fund, investment calculator, lumpsum returns">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/lumpsum-calculator.html">
+    <meta property="og:title" content="Lumpsum Calculator | ToolGram">
+    <meta property="og:description" content="Calculate returns on one-time lumpsum investments.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/lumpsum-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Lumpsum Calculator",
+        "description": "Calculate returns on one-time lumpsum investments.",
+        "applicationCategory": "Finance",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/lumpsum-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Lumpsum Returns", "One-time Investment", "Growth Projection"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-coins"></i></div>
+            <div>
+                <h1 style="margin:0;">Lumpsum Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate returns on your one-time investments</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Investment Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Investment Amount ($)</label>
+                        <input type="number" id="lumpsumAmount" placeholder="100000" value="100000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Expected Return (%)</label>
+                        <input type="number" id="lumpsumRate" placeholder="12" value="12" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Time Period (Years)</label>
+                        <input type="number" id="lumpsumYears" placeholder="10" value="10" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateLumpsum()"><i class="fas fa-calculator"></i> Calculate Returns</button>
+                    <button class="secondary-btn" onclick="clearLumpsum()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Lumpsum Results</div>
+                <div class="output-display" id="lumpsumOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Invested Amount:</strong> <span id="lumpsumInvested">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Estimated Returns:</strong> <span id="lumpsumReturns">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Value:</strong> <span id="lumpsumTotal">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Times Multiplied:</strong> <span id="lumpsumMultiple">0x</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyLumpsumResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridLumpsum"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Lumpsum Investment?</h3>
+            <p>A lumpsum investment is a one-time investment of a substantial amount into a financial instrument like mutual funds, stocks, or bonds. Unlike SIP where you invest regularly, lumpsum involves investing the entire amount at once. This approach is suitable when you have a large sum available from bonuses, inheritance, savings, or sale of assets, and want to put it to work immediately in the market.</p>
+            <p>Lumpsum investments benefit immediately from the full power of compounding since the entire amount starts earning returns from day one. However, timing the market becomes crucial as investing a large amount just before a market downturn can lead to significant short-term losses. Long-term investors generally fare better as markets tend to rise over extended periods, smoothing out volatility.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your one-time investment amount - the total sum you plan to invest at once.<br>
+            <strong>Step 2:</strong> Input the expected annual rate of return based on your investment choice (equity: 12-15%, debt: 6-8%).<br>
+            <strong>Step 3:</strong> Specify the investment duration in years - longer periods show greater compounding benefits.<br>
+            <strong>Step 4:</strong> Click "Calculate Returns" to see your projected investment value.<br>
+            <strong>Step 5:</strong> Review how many times your money has multiplied and the total wealth created.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1:</strong> Investment: ₹1,00,000, Return: 12%, Duration: 10 years. Total Value: ₹3,10,585. Returns: ₹2,10,585. Money multiplied by 3.1x. A single investment grows to over 3 times in a decade.</p>
+            <p><strong>Example 2:</strong> Investment: ₹5,00,000, Return: 15%, Duration: 20 years. Total Value: ₹81,83,146. Returns: ₹76,83,146. Money multiplied by 16.4x. The power of compounding creates substantial wealth over two decades.</p>
+            <p><strong>Example 3:</strong> Investment: ₹25,000, Return: 10%, Duration: 5 years. Total Value: ₹40,263. Returns: ₹15,263. Money multiplied by 1.6x. Even modest amounts grow significantly with disciplined investing.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Invest via Lumpsum?</h3>
+            <ul>
+                <li><strong>Bonus Recipients</strong> – Invest year-end bonuses for long-term growth.</li>
+                <li><strong>Retirees</strong> – Deploy retirement corpus into suitable instruments.</li>
+                <li><strong>Inheritance Receivers</strong> – Put windfall gains to productive use.</li>
+                <li><strong>Business Owners</strong> – Invest surplus profits during good business cycles.</li>
+                <li><strong>Market Timers</strong> – Invest during market corrections for better valuations.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Invest during market corrections or bear phases for better entry points.</li>
+                <li>Consider splitting large amounts into 2-3 tranches if markets are volatile.</li>
+                <li>Stay invested for at least 5-7 years to overcome market volatility.</li>
+                <li>Diversify across asset classes rather than putting all money in one fund.</li>
+                <li>Review and rebalance your portfolio annually to maintain asset allocation.</li>
+                <li>Have an emergency fund in place before making large lumpsum investments.</li>
+                <li>Consider tax implications - capital gains tax applies on redemption.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Is lumpsum better than SIP?</div>
+            <div class="faq-answer">Neither is universally better - they serve different purposes. Lumpsum works best when markets are undervalued and you have a large amount ready to invest immediately. SIP is better for regular income earners and during overvalued markets as it averages purchase costs. If you receive a large windfall, lumpsum gets your money working immediately, while SIP instills discipline for monthly savers.</div>
+
+            <div class="faq-question">What is the best time for lumpsum investment?</div>
+            <div class="faq-answer">The best time for lumpsum investment is during market corrections or bear markets when valuations are attractive. However, timing the market is difficult even for professionals. A practical approach is to invest when you have the money available and stay invested for the long term. For large amounts, consider Systematic Transfer Plan (STP) - invest in debt fund first, then transfer gradually to equity.</div>
+
+            <div class="faq-question">Can I lose money in lumpsum investment?</div>
+            <div class="faq-answer">Yes, short-term losses are possible, especially in equity investments if markets decline after your investment. However, historically, equity markets have delivered positive returns over periods of 7+ years. The key is to stay invested through market cycles rather than redeeming during downturns. Diversification across asset classes also helps reduce risk.</div>
+
+            <div class="faq-question">How is lumpsum return calculated?</div>
+            <div class="faq-answer">Lumpsum returns use the compound interest formula: A = P(1 + r)^t, where A is the final amount, P is the principal invested, r is the annual rate of return, and t is the time in years. This assumes annual compounding. For more frequent compounding (monthly, quarterly), the formula adjusts the rate and number of periods accordingly.</div>
+
+            <div class="faq-question">Should I invest lumpsum in equity or debt?</div>
+            <div class="faq-answer">The choice depends on your investment horizon, risk tolerance, and financial goals. Equity funds are suitable for long-term goals (7+ years) with higher return potential but more volatility. Debt funds suit shorter horizons (1-5 years) with stable but lower returns. A balanced approach divides lumpsum between equity and debt based on your asset allocation strategy.</div>
+
+            <div class="faq-question">What is the minimum amount for lumpsum investment?</div>
+            <div class="faq-answer">Most mutual funds accept lumpsum investments starting from ₹1,000 or ₹5,000. However, to make a meaningful impact, consider investing at least ₹10,000-₹25,000. There's no upper limit - you can invest lakhs or crores depending on your financial capacity and goals. Some funds offer benefits or lower expense ratios for very large investments.</div>
+
+            <div class="faq-question">Can I add more money to a lumpsum investment?</div>
+            <div class="faq-answer">Yes, you can make additional lumpsum investments in the same fund anytime. There's no restriction on how many times you can invest in a mutual fund. Each investment is treated separately for capital gains tax purposes based on the purchase date. You can also start a SIP in the same fund while having an existing lumpsum investment.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateLumpsum() {
+        const investment = parseFloat(document.getElementById('lumpsumAmount').value) || 0;
+        const rate = parseFloat(document.getElementById('lumpsumRate').value) || 0;
+        const years = parseFloat(document.getElementById('lumpsumYears').value) || 0;
+        
+        const totalValue = investment * Math.pow((1 + rate / 100), years);
+        const returns = totalValue - investment;
+        const multiple = investment > 0 ? (totalValue / investment).toFixed(1) : 0;
+        
+        document.getElementById('lumpsumInvested').textContent = '$' + Math.round(investment).toLocaleString();
+        document.getElementById('lumpsumReturns').textContent = '$' + Math.round(returns).toLocaleString();
+        document.getElementById('lumpsumTotal').textContent = '$' + Math.round(totalValue).toLocaleString();
+        document.getElementById('lumpsumMultiple').textContent = multiple + 'x';
+    }
+    
+    function clearLumpsum() {
+        document.getElementById('lumpsumAmount').value = '';
+        document.getElementById('lumpsumRate').value = '';
+        document.getElementById('lumpsumYears').value = '';
+        document.getElementById('lumpsumInvested').textContent = '$0';
+        document.getElementById('lumpsumReturns').textContent = '$0';
+        document.getElementById('lumpsumTotal').textContent = '$0';
+        document.getElementById('lumpsumMultiple').textContent = '0x';
+    }
+    
+    function copyLumpsumResults() {
+        const invested = document.getElementById('lumpsumInvested').textContent;
+        const returns = document.getElementById('lumpsumReturns').textContent;
+        const total = document.getElementById('lumpsumTotal').textContent;
+        const text = `Lumpsum Results:\nInvested Amount: ${invested}\nEstimated Returns: ${returns}\nTotal Value: ${total}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"SIP Calculator", icon:"fa-chart-line", url:"sip-calculator.html"},
+            {name:"SWP Calculator", icon:"fa-wallet", url:"swp-calculator.html"},
+            {name:"Mutual Fund Calculator", icon:"fa-chart-pie", url:"mutual-fund-calculator.html"},
+            {name:"Bond Price Calculator", icon:"fa-dollar-sign", url:"bond-price-calculator.html"},
+            {name:"CD Calculator", icon:"fa-university", url:"cd-calculator.html"},
+            {name:"Money Market Calculator", icon:"fa-money-bill-wave", url:"money-market-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridLumpsum").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

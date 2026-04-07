@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dividend Calculator – Yield & Income Estimator | ToolGram</title>
+    <meta name="description" content="Calculate dividend yield, annual income, and DRIP growth. Free online dividend calculator for income investors.">
+    <meta name="keywords" content="dividend calculator, dividend yield, dividend income, DRIP calculator, dividend reinvestment">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/dividend-calculator.html">
+    <meta property="og:title" content="Dividend Calculator | ToolGram">
+    <meta property="og:description" content="Calculate dividend yield, annual income, and DRIP growth.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/dividend-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Dividend Calculator",
+        "description": "Calculate dividend yield, annual income, and DRIP growth.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/dividend-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Dividend Yield", "Dividend Income", "DRIP Growth", "Yield on Cost"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .div-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <div>
+                <h1 style="margin:0;">Dividend Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Yield and income estimator</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Stock Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Shares Owned</label>
+                        <input type="number" id="shares" placeholder="100" value="100" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Stock Price ($)</label>
+                        <input type="number" id="stockPrice" placeholder="50" value="50" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Dividend/Share ($)</label>
+                        <input type="number" id="annualDiv" placeholder="2" value="2" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Dividend Growth Rate (%)</label>
+                        <input type="number" id="divGrowth" placeholder="5" value="5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateDividend()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearDividend()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-hand-holding-usd"></i> Dividend Income</div>
+                <div class="output-display" id="outputDiv">
+                    <div class="div-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-money-bill-wave"></i> Annual Dividend Income</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="annualIncomeDiv">$0.00</span>/year</div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Quarterly: <span id="quarterlyDiv">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Dividend Yield:</strong> <span id="divYield">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Investment Value:</strong> <span id="investValue">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Income:</strong> <span id="monthlyDiv">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">5-Year Projected:</strong> <span id="projectedDiv">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyDivResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridDiv"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Dividend Calculator?</h3>
+            <p>A Dividend Calculator helps income investors estimate their dividend payments, yields, and projected income growth. It calculates current yield, quarterly and annual income, and projects future dividends based on growth rates.</p>
+            <p>This tool is essential for building dividend portfolios, planning retirement income, and comparing dividend stocks. It shows both immediate yield and long-term income potential through dividend growth and reinvestment.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter number of shares you own.<br>
+            <strong>Step 2:</strong> Input current stock price per share.<br>
+            <strong>Step 3:</strong> Enter annual dividend per share.<br>
+            <strong>Step 4:</strong> Add expected dividend growth rate.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see yield and income.<br>
+            <strong>Step 6:</strong> Review monthly, quarterly, and annual income projections.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Dividend Examples</h3>
+            <p><strong>Example 1 - Blue-Chip Stock:</strong> 200 shares of a $60 stock paying $2.40 annual dividend with 6% growth. Current yield: 4%. Annual income: $480. Quarterly: $120. Projected year 5 income: $643. This demonstrates steady income growth from both dividend increases and compounding.</p>
+            <p><strong>Example 2 - High-Yield REIT:</strong> 500 shares of a $25 REIT paying $2.00 dividend (8% yield) with 2% growth. Annual income: $1,000. Monthly equivalent: $83. Higher current yield but lower growth suits investors needing immediate income.</p>
+            <p><strong>Example 3 - Dividend Growth Stock:</strong> 100 shares of $100 stock paying $1.50 dividend with 10% annual growth. Starting yield: 1.5%. Year 5 income: $2.42/share. Total 5-year income: $915. Lower initial yield but strong growth compounds significantly over time.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <p>Retirees and pre-retirees building income portfolios use this calculator to project sustainable retirement income from dividend-paying stocks, REITs, and other income investments.</p>
+            <p>Dividend growth investors seeking compounding income need this tool to evaluate stocks based on yield, growth rate, and total return potential over multi-year horizons.</p>
+            <p>Financial planners use dividend projections to create income plans for clients, showing how dividend portfolios can provide inflation-adjusted income through retirement.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Dividend Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Yield vs. Growth:</strong> Balance high current yield with dividend growth for total return</li>
+                <li><strong>DRIP Programs:</strong> Reinvest dividends to compound share count and future income</li>
+                <li><strong>Dividend Aristocrats:</strong> Companies with 25+ years of dividend increases offer reliability</li>
+                <li><strong>Sector Diversification:</strong> Spread across utilities, consumer staples, healthcare, and REITs</li>
+                <li><strong>Payout Ratio:</strong> Look for ratios under 60% for sustainable dividends</li>
+                <li><strong>Tax Efficiency:</strong> Hold dividend stocks in tax-advantaged accounts when possible</li>
+                <li><strong>Yield Traps:</strong> Extremely high yields (>8%) may signal dividend cuts ahead</li>
+                <li><strong>Dividend Dates:</strong> Know ex-dividend, record, and payment dates for planning</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">What is dividend yield?</div>
+            <div class="faq-answer">Dividend yield is the annual dividend payment expressed as a percentage of the stock price. Formula: Dividend Yield = (Annual Dividend per Share / Stock Price) × 100. Example: Stock trades at $50, pays $2 annual dividend. Yield = (2 / 50) × 100 = 4%. Interpretation: You earn 4% annually in dividends relative to your investment. Yield changes as stock price fluctuates—even if the dividend stays constant.</div>
+
+            <div class="faq-question">How are dividends taxed?</div>
+            <div class="faq-answer">Qualified Dividends: Taxed at capital gains rates (0%, 15%, or 20%) based on income. Must meet holding period requirements (60 days common stock, 90 days preferred). Ordinary Dividends: Taxed as ordinary income (up to 37%) if not qualified. REITs, MLPs typically pay ordinary dividends. Tax Rates 2024 (Qualified): 0%: Single up to $47,025; Married up to $94,050. 15%: Most taxpayers in middle brackets. 20%: High earners (single >$518,900; married >$583,750). Strategy: Hold dividend stocks in tax-advantaged accounts (IRA, 401k) when possible.</div>
+
+            <div class="faq-question">What is DRIP and should I use it?</div>
+            <div class="faq-answer">DRIP (Dividend Reinvestment Plan) automatically uses dividends to buy more shares instead of receiving cash. Benefits: Compounding: More shares = more future dividends. Dollar-Cost Averaging: Buy shares at various prices over time. Convenience: Automatic, no action needed. No Commission: Most DRIPs are fee-free. Considerations: Taxes: Still owe taxes on dividends even if reinvested. Flexibility: Cash gives you investment options. Record-Keeping: Must track cost basis of each reinvestment for taxes. Best For: Long-term investors not needing immediate income. Not ideal for retirees depending on dividend income.</div>
+
+            <div class="faq-question">What is a good dividend yield?</div>
+            <div class="faq-answer">Context determines "good" yield: S&P 500 Average: ~1.5% currently; historically 3-4%. Dividend Stocks: 2-4% with growth potential. High-Yield Stocks: 4-6% with moderate risk. REITs: 4-8% legally required to distribute 90% of income. Utilities: 3-5% typically. Consumer Staples: 2-3% with stability. Warning Signs: Yields above 8% often indicate financial distress. Yields significantly above sector averages may be unsustainable. Balance: Consider yield + growth. 3% yield + 7% growth = 10% total return potential.</div>
+
+            <div class="faq-question">What is yield on cost?</div>
+            <div class="faq-answer">Yield on Cost (YOC) = Current Annual Dividend / Original Purchase Price. Shows the effective yield based on what you paid, not current price. Example: Bought stock at $40, now trades at $60. Annual dividend $2.40. Current Yield: 4% ($2.40/$60). Yield on Cost: 6% ($2.40/$40). Meaning: You're earning 6% annually on your original investment, regardless of price appreciation. Tracking YOC shows the power of dividend growth over time—successful dividend growth stocks can achieve 10%+ YOC after holding for years.</div>
+
+            <div class="faq-question">How often are dividends paid?</div>
+            <div class="faq-answer">Payment Frequencies: Quarterly: Most common for U.S. stocks (4 times/year). Monthly: REITs, some ETFs, BDCs, preferred stocks. Semi-Annual: Common for international stocks. Annual: Some international and small companies. Special Dividends: One-time payments outside regular schedule. Typical Schedule: Declaration Date: Board announces dividend. Ex-Dividend Date: Last day to buy and receive dividend. Record Date: Who gets paid (2 days after ex-date). Payment Date: When cash arrives (2-4 weeks after record). Example: Quarterly $1 dividend = $0.25 every 3 months.</div>
+
+            <div class="faq-question">What are dividend aristocrats?</div>
+            <div class="faq-answer">Dividend Aristocrats are S&P 500 companies that have increased dividends for 25+ consecutive years. Current count: ~65 companies. Characteristics: Financial strength to maintain payments through recessions. Predictable, growing income stream. Historically outperformed broader market with lower volatility. Examples: Johnson & Johnson (61 years), Procter & Gamble (67 years), Coca-Cola (61 years), 3M (65 years). Benefits for Investors: Reliability during market downturns. Inflation protection through dividend growth. Quality companies with strong moats. Considerations: Often lower current yield than high-yield alternatives. Growth rate may slow as companies mature.</div>
+
+            <div class="faq-question">Can dividends be cut or eliminated?</div>
+            <div class="faq-answer">Yes, companies can reduce or stop dividends anytime. Warning Signs: Payout ratio >80% (especially >100%). Earnings decline or negative cash flow. High debt levels. Industry disruption or secular decline. Recent Examples: 2020: Many companies cut dividends due to COVID-19. Energy sector: Dividends cut when oil prices crash. Retail: Many brick-and-mortar retailers eliminated dividends. Protection Strategies: Diversify across multiple sectors. Monitor payout ratios quarterly. Focus on companies with long dividend growth streaks. Maintain cash reserves for income shortfalls. Have backup income sources.</div>
+
+            <div class="faq-question">What is the difference between dividend rate and yield?</div>
+            <div class="faq-answer">Dividend Rate: The actual dollar amount paid per share annually. Example: $2.40 per share per year. Fixed until company changes it. Yield: Rate expressed as percentage of stock price. Example: $2.40 dividend, $60 stock price = 4% yield. Changes constantly as stock price moves. Key Difference: Rate is absolute dollars. Yield is relative percentage. Both matter: Rate determines your dollar income. Yield helps compare valuations across stocks. A $2.40 dividend could yield 4% ($60 stock) or 8% ($30 stock)—same rate, very different situations.</div>
+
+            <div class="faq-question">How do I build a dividend portfolio?</div>
+            <div class="faq-answer">Steps to Build Dividend Portfolio: Set Goals: Current income vs. future growth. Target Yield: 3-4% for balanced approach. Diversify by Sector: Utilities, REITs, consumer staples, healthcare, financials. Mix Yield Types: High yield for income + growth for total return. Quality Screen: Payout ratio <60%, debt manageable, consistent earnings. Dividend Growth: Look for 5%+ annual dividend growth. Number of Holdings: 20-30 stocks for adequate diversification. Reinvestment: Use DRIP or manually reinvest. Monitor: Review quarterly, rebalance annually. Examples by Goal: Income: Utilities, REITs, telecoms (4-6% yield). Growth: Tech dividend payers, dividend aristocrats (2-3% yield, 8%+ growth). Balanced: Mix of both categories.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateDividend(){
+const shares=parseFloat(document.getElementById('shares').value)||0;
+const price=parseFloat(document.getElementById('stockPrice').value)||0;
+const divPerShare=parseFloat(document.getElementById('annualDiv').value)||0;
+const growth=(parseFloat(document.getElementById('divGrowth').value)||0)/100;
+
+const annualIncome=shares*divPerShare;
+const quarterly=annualIncome/4;
+const monthly=annualIncome/12;
+const yield_pct=price>0?(divPerShare/price)*100:0;
+const investValue=shares*price;
+
+const projectedDiv=divPerShare*Math.pow(1+growth,5);
+const projectedAnnual=shares*projectedDiv;
+
+document.getElementById('annualIncomeDiv').textContent='$'+annualIncome.toFixed(2);
+document.getElementById('quarterlyDiv').textContent='$'+quarterly.toFixed(2);
+document.getElementById('divYield').textContent=yield_pct.toFixed(2)+'%';
+document.getElementById('investValue').textContent='$'+investValue.toLocaleString();
+document.getElementById('monthlyDiv').textContent='$'+monthly.toFixed(2);
+document.getElementById('projectedDiv').textContent='$'+projectedAnnual.toFixed(2);
+}
+function clearDividend(){
+document.getElementById('shares').value='';
+document.getElementById('stockPrice').value='';
+document.getElementById('annualDiv').value='';
+document.getElementById('divGrowth').value='';
+document.getElementById('annualIncomeDiv').textContent='$0.00';
+document.getElementById('quarterlyDiv').textContent='$0.00';
+document.getElementById('divYield').textContent='0%';
+document.getElementById('investValue').textContent='$0.00';
+document.getElementById('monthlyDiv').textContent='$0.00';
+document.getElementById('projectedDiv').textContent='$0.00';
+}
+function copyDivResults(){
+const annual=document.getElementById('annualIncomeDiv').textContent;
+const yield=document.getElementById('divYield').textContent;
+const text=`Dividend Results:
+Annual Income: ${annual}
+Dividend Yield: ${yield}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+function loadRelated(){
+const tools=[
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"529 Savings",icon:"fa-graduation-cap",url:"529-savings-calculator.html"},
+{name:"Annuity",icon:"fa-hand-holding-usd",url:"annuity-calculator.html"},
+{name:"Pension",icon:"fa-calendar-check",url:"pension-calculator.html"},
+{name:"IRA",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"College Savings",icon:"fa-university",url:"college-savings-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridDiv").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

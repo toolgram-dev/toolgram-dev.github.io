@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SIP Calculator – Systematic Investment Plan | ToolGram</title>
+    <meta name="description" content="Calculate SIP returns and growth. Free online Systematic Investment Plan calculator for mutual fund investing.">
+    <meta name="keywords" content="SIP calculator, systematic investment plan, mutual fund SIP, monthly investment calculator, SIP returns">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/sip-calculator.html">
+    <meta property="og:title" content="SIP Calculator | ToolGram">
+    <meta property="og:description" content="Calculate SIP returns and growth with monthly investments.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/sip-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SIP Calculator",
+        "description": "Calculate SIP returns with monthly mutual fund investments.",
+        "applicationCategory": "Finance",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/sip-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["SIP Returns", "Investment Growth", "Monthly Investment"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+                <h1 style="margin:0;">SIP Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate returns on your monthly mutual fund investments</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Investment Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Monthly Investment ($)</label>
+                        <input type="number" id="sipAmount" placeholder="5000" value="5000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Expected Return (%)</label>
+                        <input type="number" id="sipRate" placeholder="12" value="12" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Time Period (Years)</label>
+                        <input type="number" id="sipYears" placeholder="10" value="10" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateSIP()"><i class="fas fa-calculator"></i> Calculate SIP Returns</button>
+                    <button class="secondary-btn" onclick="clearSIP()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> SIP Results</div>
+                <div class="output-display" id="sipOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Invested Amount:</strong> <span id="investedAmount">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Estimated Returns:</strong> <span id="estimatedReturns">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Value:</strong> <span id="totalValue">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Wealth Gain:</strong> <span id="wealthGain">$0</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySIPResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridSIP"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is SIP?</h3>
+            <p>Systematic Investment Plan (SIP) is a disciplined approach to investing in mutual funds where you invest a fixed amount regularly, typically monthly. This method allows you to accumulate wealth over time through the power of compounding and rupee cost averaging, making it ideal for long-term financial goals like retirement planning, children's education, or buying a home.</p>
+            <p>SIP investments help investors overcome market volatility by spreading purchases across different market cycles. When markets are down, your fixed investment buys more units, and when markets are up, it buys fewer units. Over time, this averages out the cost of your investments and potentially reduces the impact of market fluctuations on your portfolio value.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your monthly investment amount - this is the fixed sum you plan to invest every month in your chosen mutual fund scheme.<br>
+            <strong>Step 2:</strong> Input the expected annual rate of return - for equity mutual funds, historically this has been around 12-15%, while debt funds may offer 6-8%.<br>
+            <strong>Step 3:</strong> Specify your investment duration in years - longer durations benefit more from compounding.<br>
+            <strong>Step 4:</strong> Click "Calculate SIP Returns" to see your projected corpus.<br>
+            <strong>Step 5:</strong> Review the breakdown of invested amount versus returns earned.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1:</strong> Monthly Investment: ₹5,000, Return: 12%, Duration: 10 years. Total Invested: ₹6,00,000. Estimated Returns: ₹5,61,695. Total Value: ₹11,61,695. Your money approximately doubles in 10 years at 12% returns.</p>
+            <p><strong>Example 2:</strong> Monthly Investment: ₹10,000, Return: 15%, Duration: 20 years. Total Invested: ₹24,00,000. Estimated Returns: ₹1,32,52,288. Total Value: ₹1,56,52,288. The power of compounding creates substantial wealth over 20 years.</p>
+            <p><strong>Example 3:</strong> Monthly Investment: ₹2,000, Return: 10%, Duration: 5 years. Total Invested: ₹1,20,000. Estimated Returns: ₹35,424. Total Value: ₹1,55,424. Even modest amounts grow significantly with disciplined investing.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use SIP?</h3>
+            <ul>
+                <li><strong>Salaried Employees</strong> – Invest a portion of monthly income systematically.</li>
+                <li><strong>First-Time Investors</strong> – Start with small amounts and learn about markets.</li>
+                <li><strong>Goal-Based Planners</strong> – Save for specific goals like marriage, education, or home.</li>
+                <li><strong>Retirement Planners</strong> – Build a retirement corpus over 20-30 years.</li>
+                <li><strong>Busy Professionals</strong> – Automated investing requires minimal time commitment.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Start early to maximize compounding benefits - even small amounts grow big over time.</li>
+                <li>Increase your SIP amount annually by 10-15% as your income grows (Step-up SIP).</li>
+                <li>Don't stop SIPs during market downturns - this is when you get more units.</li>
+                <li>Diversify across equity and debt funds based on your risk appetite and goals.</li>
+                <li>Review your portfolio annually but avoid frequent switching between funds.</li>
+                <li>Set up auto-debit from your bank account to maintain investment discipline.</li>
+                <li>Keep an emergency fund separate before starting long-term SIP investments.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the minimum amount to start SIP?</div>
+            <div class="faq-answer">Most mutual fund houses allow SIP investments starting from ₹500 per month. Some funds may have higher minimums of ₹1,000. There is no upper limit - you can invest as much as your financial goals and cash flow permit. The key is consistency rather than the amount.</div>
+
+            <div class="faq-question">Can I stop or modify my SIP anytime?</div>
+            <div class="faq-answer">Yes, SIPs offer complete flexibility. You can stop, pause, increase, or decrease your SIP amount by submitting a request to your fund house or through your investment platform. There are no penalties for stopping a SIP, though it's recommended to continue for the planned duration to achieve your financial goals.</div>
+
+            <div class="faq-question">Is SIP better than lump sum investment?</div>
+            <div class="faq-answer">SIP and lump sum serve different purposes. SIP is better for regular income earners as it instills discipline and averages out market volatility. Lump sum may be suitable when you have a large amount to invest and markets are undervalued. For most retail investors, SIP is recommended as it removes the need to time the market.</div>
+
+            <div class="faq-question">What happens if I miss a SIP payment?</div>
+            <div class="faq-answer">If you miss a SIP payment due to insufficient funds, the mutual fund company typically doesn't levy any penalty. However, if you miss multiple consecutive payments (usually 3), your SIP may be automatically canceled. You can restart a new SIP anytime without any issues.</div>
+
+            <div class="faq-question">Are SIP returns guaranteed?</div>
+            <div class="faq-answer">No, SIP returns are not guaranteed. Mutual fund investments are subject to market risks. The returns depend on the performance of the underlying securities in the fund. However, historically, equity mutual funds have delivered average annual returns of 12-15% over long periods (10+ years), though past performance doesn't guarantee future results.</div>
+
+            <div class="faq-question">What is the best duration for SIP?</div>
+            <div class="faq-answer">For equity mutual funds, a minimum of 5-7 years is recommended to ride out market volatility and benefit from compounding. For long-term goals like retirement, 15-20 years or more is ideal. Debt funds can be used for shorter durations of 1-3 years. The longer you stay invested, the better the wealth creation potential.</div>
+
+            <div class="faq-question">How are SIP returns calculated?</div>
+            <div class="faq-answer">SIP returns use the compound interest formula with monthly contributions. The formula accounts for each monthly installment growing independently at the specified annual rate, converted to a monthly rate. The XIRR (Extended Internal Rate of Return) method is commonly used to calculate actual SIP returns as it considers the timing of each cash flow.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateSIP() {
+        const monthlyInvestment = parseFloat(document.getElementById('sipAmount').value) || 0;
+        const annualRate = parseFloat(document.getElementById('sipRate').value) || 0;
+        const years = parseFloat(document.getElementById('sipYears').value) || 0;
+        
+        const months = years * 12;
+        const monthlyRate = annualRate / 12 / 100;
+        
+        const investedAmount = monthlyInvestment * months;
+        
+        let totalValue = 0;
+        if (monthlyRate > 0) {
+            totalValue = monthlyInvestment * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
+        } else {
+            totalValue = investedAmount;
+        }
+        
+        const estimatedReturns = totalValue - investedAmount;
+        const wealthGain = estimatedReturns;
+        
+        document.getElementById('investedAmount').textContent = '$' + Math.round(investedAmount).toLocaleString();
+        document.getElementById('estimatedReturns').textContent = '$' + Math.round(estimatedReturns).toLocaleString();
+        document.getElementById('totalValue').textContent = '$' + Math.round(totalValue).toLocaleString();
+        document.getElementById('wealthGain').textContent = '$' + Math.round(wealthGain).toLocaleString();
+    }
+    
+    function clearSIP() {
+        document.getElementById('sipAmount').value = '';
+        document.getElementById('sipRate').value = '';
+        document.getElementById('sipYears').value = '';
+        document.getElementById('investedAmount').textContent = '$0';
+        document.getElementById('estimatedReturns').textContent = '$0';
+        document.getElementById('totalValue').textContent = '$0';
+        document.getElementById('wealthGain').textContent = '$0';
+    }
+    
+    function copySIPResults() {
+        const invested = document.getElementById('investedAmount').textContent;
+        const returns = document.getElementById('estimatedReturns').textContent;
+        const total = document.getElementById('totalValue').textContent;
+        const text = `SIP Results:\nInvested Amount: ${invested}\nEstimated Returns: ${returns}\nTotal Value: ${total}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"Lumpsum Calculator", icon:"fa-coins", url:"lumpsum-calculator.html"},
+            {name:"SWP Calculator", icon:"fa-wallet", url:"swp-calculator.html"},
+            {name:"Mutual Fund Calculator", icon:"fa-chart-pie", url:"mutual-fund-calculator.html"},
+            {name:"ETF Calculator", icon:"fa-exchange-alt", url:"etf-calculator.html"},
+            {name:"Bond Yield Calculator", icon:"fa-percentage", url:"bond-yield-calculator.html"},
+            {name:"CD Calculator", icon:"fa-university", url:"cd-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridSIP").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

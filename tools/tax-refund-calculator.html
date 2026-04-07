@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tax Refund Calculator – Estimate Your Refund | ToolGram</title>
+    <meta name="description" content="Calculate your expected tax refund or amount due. Free online tax refund estimator.">
+    <meta name="keywords" content="tax refund calculator, tax refund estimator, tax due, refund amount">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/tax-refund-calculator.html">
+    <meta property="og:title" content="Tax Refund Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your expected tax refund or amount due.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/tax-refund-calculator.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        .refund-positive{color:#22c55e;font-weight:700}
+        .refund-negative{color:#ef4444;font-weight:700}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-money-check-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">Tax Refund Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Estimate your refund or amount due</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Income & Payments</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Filing Status</label>
+                        <select id="refundStatus" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;"><option value="single">Single</option><option value="married">Married Filing Jointly</option><option value="hoh">Head of Household</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Total Income ($)</label>
+                        <input type="number" id="refundIncome" placeholder="75000" value="75000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Tax Withheld ($)</label>
+                        <input type="number" id="refundWithheld" placeholder="12000" value="12000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Deductions ($)</label>
+                        <input type="number" id="refundDeductions" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Tax Credits ($)</label>
+                        <input type="number" id="refundCredits" placeholder="2000" value="2000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateRefund()"><i class="fas fa-calculator"></i> Calculate Refund</button>
+                    <button class="secondary-btn" onclick="clearRefund()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-invoice-dollar"></i> Refund Estimate</div>
+                <div class="output-display" id="refundOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Estimated Tax:</strong> <span id="refundTax">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Total Payments:</strong> <span id="refundPayments">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#fff;">Refund / Amount Due:</strong> <span id="refundResult" class="refund-positive">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Effective Rate:</strong> <span id="refundRate">0%</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyRefundResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridRefund"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Tax Refund?</h3>
+            <p>A tax refund occurs when you overpay your taxes throughout the year through withholding or estimated payments. The government returns the excess amount after you file your tax return. Conversely, if you underpay, you'll owe taxes when filing. A large refund means you gave the government an interest-free loan; owing a small amount means you kept more money throughout the year.</p>
+            <p>This calculator helps you estimate whether you'll receive a refund or owe taxes, allowing you to plan accordingly. By adjusting your withholding (W-4) based on these estimates, you can optimize your cash flow - keeping more money in each paycheck or ensuring you don't face a large unexpected tax bill.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Select your filing status.<br>
+            <strong>Step 2:</strong> Enter total annual income (wages, business, investments).<br>
+            <strong>Step 3:</strong> Input total tax already withheld from paychecks.<br>
+            <strong>Step 4:</strong> Add deductions (401k, HSA, mortgage interest, etc.).<br>
+            <strong>Step 5:</strong> Enter tax credits (child credit, education credits).<br>
+            <strong>Step 6:</strong> Click "Calculate" to see refund or amount due.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1 - Refund:</strong> Income: $60,000, Withheld: $8,000, Deductions: $10,000, Credits: $2,000. Tax: ~$5,500. Refund: ~$2,500. Overpaid during year.</p>
+            <p><strong>Example 2 - Break Even:</strong> Income: $80,000, Withheld: $10,000, Deductions: $12,000, Credits: $0. Tax: ~$10,000. Refund: $0. Perfect withholding.</p>
+            <p><strong>Example 3 - Owe:</strong> Income: $100,000, Withheld: $12,000, Deductions: $8,000, Credits: $0. Tax: ~$15,000. Owe: ~$3,000. Underpaid - adjust W-4.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This?</h3>
+            <ul>
+                <li><strong>W-2 Employees</strong> - Check if withholding is correct.</li>
+                <li><strong>New Workers</strong> - Understand first-year tax situation.</li>
+                <li><strong>Life Changers</strong> - Marriage, children, home purchase.</li>
+                <li><strong>Side Gig Workers</strong> - Account for additional income.</li>
+                <li><strong>Financial Planners</strong> - Optimize cash flow and withholding.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Ideal refund: Break even or owe small amount ($0-$500).</li>
+                <li>Adjust W-4 if refund consistently exceeds $2,000 or you owe.</li>
+                <li>Use IRS Tax Withholding Estimator for precise adjustments.</li>
+                <li>Large refunds mean interest-free loans to government.</li>
+                <li>Quarterly payments may be needed for self-employment income.</li>
+                <li>Update W-4 after major life events (marriage, birth, new home).</li>
+                <li>Direct deposit refunds typically arrive in 2-3 weeks.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> FAQ</h3>
+            <div class="faq-question">Why am I getting a large refund?</div>
+            <div class="faq-answer">Large refunds usually mean too much tax is being withheld from paychecks. This happens when W-4 allowances are too low, you claimed single when married, or you have significant deductions/credits. While a refund feels good, you've essentially given the government an interest-free loan. Adjust your W-4 to keep more money throughout the year.</div>
+
+            <div class="faq-question">Why do I owe taxes?</div>
+            <div class="faq-answer">Owing taxes typically means insufficient withholding. Common causes: Multiple jobs without proper W-4 adjustments, self-employment income without quarterly payments, claiming too many allowances, significant investment income, or losing deductions you previously claimed. If you owe $1,000+, you may face underpayment penalties.</div>
+
+            <div class="faq-question">How do I adjust my withholding?</div>
+            <div class="faq-answer">Submit a new Form W-4 to your employer. The 2020+ W-4 is different - no more allowances. Instead, you can: Check "Multiple Jobs" box if applicable, add deductions worksheet amount, add extra withholding per paycheck in Step 4(c). Use IRS Tax Withholding Estimator (irs.gov/W4app) for precise calculations.</div>
+
+            <div class="faq-question">What's the best refund size?</div>
+            <div class="faq-answer">The ideal situation is breaking even (no refund, nothing owed) or owing a small amount (under $500). This means you had perfect withholding and kept maximum money throughout the year. Large refunds ($2,000+) indicate over-withholding. Owing large amounts ($1,000+) may trigger penalties.</div>
+
+            <div class="faq-question">How long does it take to get a refund?</div>
+            <div class="faq-answer">E-file with direct deposit: 2-3 weeks typically. Paper filing: 6-8 weeks. Check status at irs.gov/refunds using "Where's My Refund?" tool. Delays occur if: Return has errors, needs review, includes Earned Income Credit or Additional Child Tax Credit ( PATH Act delay until mid-February), or suspected identity theft.</div>
+
+            <div class="faq-question">Can I split my refund?</div>
+            <div class="faq-answer">Yes, when e-filing you can direct your refund to up to 3 accounts: checking, savings, IRA, or HSA. Use Form 8888. This is useful for automatic savings contributions or funding retirement accounts. You can also buy up to $5,000 in Series I Savings Bonds with your refund by requesting on Form 8888.</div>
+
+            <div class="faq-question">What if I can't pay what I owe?</div>
+            <div class="faq-answer">Options: 1) File on time even if you can't pay (failure-to-file penalty is 5% per month vs 0.5% for failure-to-pay). 2) Pay what you can by deadline. 3) Set up IRS payment plan (online installment agreement for balances under $50,000). 4) Request "Currently Not Collectible" status. 5) Offer in Compromise (settle for less if truly unable to pay). Contact IRS at 1-800-829-1040.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateRefund() {
+        const status = document.getElementById('refundStatus').value;
+        const income = parseFloat(document.getElementById('refundIncome').value) || 0;
+        const withheld = parseFloat(document.getElementById('refundWithheld').value) || 0;
+        const deductions = parseFloat(document.getElementById('refundDeductions').value) || 0;
+        const credits = parseFloat(document.getElementById('refundCredits').value) || 0;
+        
+        const taxable = Math.max(0, income - deductions);
+        let tax = 0;
+        
+        if (status === 'single') {
+            if (taxable <= 11600) tax = taxable * 0.10;
+            else if (taxable <= 47150) tax = 1160 + (taxable - 11600) * 0.12;
+            else if (taxable <= 100525) tax = 5426 + (taxable - 47150) * 0.22;
+            else if (taxable <= 191950) tax = 17168 + (taxable - 100525) * 0.24;
+            else if (taxable <= 243725) tax = 39110 + (taxable - 191950) * 0.32;
+            else if (taxable <= 609350) tax = 55678 + (taxable - 243725) * 0.35;
+            else tax = 183647 + (taxable - 609350) * 0.37;
+        } else if (status === 'married') {
+            if (taxable <= 23200) tax = taxable * 0.10;
+            else if (taxable <= 94300) tax = 2320 + (taxable - 23200) * 0.12;
+            else if (taxable <= 201050) tax = 10852 + (taxable - 94300) * 0.22;
+            else if (taxable <= 383900) tax = 34337 + (taxable - 201050) * 0.24;
+            else if (taxable <= 487450) tax = 78221 + (taxable - 383900) * 0.32;
+            else if (taxable <= 731200) tax = 111357 + (taxable - 487450) * 0.35;
+            else tax = 196669 + (taxable - 731200) * 0.37;
+        } else {
+            if (taxable <= 16550) tax = taxable * 0.10;
+            else if (taxable <= 63100) tax = 1655 + (taxable - 16550) * 0.12;
+            else if (taxable <= 100500) tax = 7241 + (taxable - 63100) * 0.22;
+            else if (taxable <= 191950) tax = 15469 + (taxable - 100500) * 0.24;
+            else if (taxable <= 243700) tax = 37417 + (taxable - 191950) * 0.32;
+            else if (taxable <= 609350) tax = 53977 + (taxable - 243700) * 0.35;
+            else tax = 181955 + (taxable - 609350) * 0.37;
+        }
+        
+        const finalTax = Math.max(0, tax - credits);
+        const refund = withheld - finalTax;
+        const effectiveRate = income > 0 ? ((finalTax / income) * 100).toFixed(1) : 0;
+        
+        document.getElementById('refundTax').textContent = '$' + Math.round(finalTax).toLocaleString();
+        document.getElementById('refundPayments').textContent = '$' + Math.round(withheld).toLocaleString();
+        
+        const refundEl = document.getElementById('refundResult');
+        if (refund >= 0) {
+            refundEl.textContent = '+$' + Math.round(refund).toLocaleString() + ' (Refund)';
+            refundEl.className = 'refund-positive';
+        } else {
+            refundEl.textContent = '-$' + Math.round(Math.abs(refund)).toLocaleString() + ' (Owe)';
+            refundEl.className = 'refund-negative';
+        }
+        
+        document.getElementById('refundRate').textContent = effectiveRate + '%';
+    }
+    
+    function clearRefund() {
+        document.getElementById('refundStatus').value = 'single';
+        document.getElementById('refundIncome').value = '';
+        document.getElementById('refundWithheld').value = '';
+        document.getElementById('refundDeductions').value = '';
+        document.getElementById('refundCredits').value = '';
+        document.getElementById('refundTax').textContent = '$0';
+        document.getElementById('refundPayments').textContent = '$0';
+        document.getElementById('refundResult').textContent = '$0';
+        document.getElementById('refundResult').className = 'refund-positive';
+        document.getElementById('refundRate').textContent = '0%';
+    }
+    
+    function copyRefundResults() {
+        const result = document.getElementById('refundResult').textContent;
+        const tax = document.getElementById('refundTax').textContent;
+        navigator.clipboard.writeText(`Tax Refund Results:\nEstimated Tax: ${tax}\n${result}`);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"Income Tax Calculator", icon:"fa-calculator", url:"income-tax-calculator.html"},
+            {name:"Federal Tax Calculator", icon:"fa-flag-usa", url:"federal-tax-calculator.html"},
+            {name:"Withholding Calculator", icon:"fa-file-invoice", url:"withholding-calculator.html"},
+            {name:"W-4 Calculator", icon:"fa-id-card", url:"w4-calculator.html"},
+            {name:"State Tax Calculator", icon:"fa-map-marker-alt", url:"state-tax-calculator.html"},
+            {name:"Self Employment Tax", icon:"fa-user-tie", url:"self-employment-tax-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => { html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`; });
+        document.getElementById("relatedGridRefund").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

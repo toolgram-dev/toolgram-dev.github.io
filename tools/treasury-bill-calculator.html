@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Treasury Bill Calculator – T-Bill Returns | ToolGram</title>
+    <meta name="description" content="Calculate Treasury Bill returns and pricing. Free online T-Bill calculator for government securities.">
+    <meta name="keywords" content="treasury bill calculator, T-bill calculator, government securities, T-bill yield, short term investment">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/treasury-bill-calculator.html">
+    <meta property="og:title" content="Treasury Bill Calculator | ToolGram">
+    <meta property="og:description" content="Calculate Treasury Bill returns and pricing.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/treasury-bill-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Treasury Bill Calculator",
+        "description": "Calculate Treasury Bill returns and pricing.",
+        "applicationCategory": "Finance",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/treasury-bill-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["T-Bill Returns", "Government Securities", "Short Term Investment"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-landmark"></i></div>
+            <div>
+                <h1 style="margin:0;">Treasury Bill Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate T-Bill returns and pricing</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> T-Bill Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Face Value ($)</label>
+                        <input type="number" id="tbillFace" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Discount Rate (%)</label>
+                        <input type="number" id="tbillRate" placeholder="4" value="4" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Days to Maturity</label>
+                        <input type="number" id="tbillDays" placeholder="91" value="91" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateTBill()"><i class="fas fa-calculator"></i> Calculate T-Bill</button>
+                    <button class="secondary-btn" onclick="clearTBill()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> T-Bill Results</div>
+                <div class="output-display" id="tbillOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Purchase Price:</strong> <span id="tbillPurchase">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Investment Return:</strong> <span id="tbillReturn">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Discount Amount:</strong> <span id="tbillDiscount">$0.00</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Bond Equivalent Yield:</strong> <span id="tbillBEY">0%</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyTBillResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridTBill"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What are Treasury Bills?</h3>
+            <p>Treasury Bills (T-Bills) are short-term U.S. government debt securities with maturities of one year or less. They are considered one of the safest investments as they are backed by the full faith and credit of the U.S. government. T-Bills are sold at a discount to face value and pay the full face value at maturity, with the difference representing the investor's return.</p>
+            <p>T-Bills are an excellent cash management tool for conservative investors seeking safety and liquidity. They are auctioned regularly by the U.S. Treasury in denominations starting from $100. Income from T-Bills is exempt from state and local taxes, though subject to federal income tax, making them particularly attractive for investors in high-tax states.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the T-Bill face value - typically $10,000 or $25,000.<br>
+            <strong>Step 2:</strong> Input the discount rate from the Treasury auction or your required yield.<br>
+            <strong>Step 3:</strong> Enter days to maturity - 91 days (3-month), 182 days (6-month), or 364 days (1-year).<br>
+            <strong>Step 4:</strong> Click "Calculate T-Bill" to see purchase price and yields.<br>
+            <strong>Step 5:</strong> Review Bond Equivalent Yield (BEY) to compare with other investments.<br>
+            <strong>Step 6:</strong> Compare T-Bill returns with savings accounts or CDs.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1 - 91-Day T-Bill:</strong> Face: $10,000, Rate: 4%, Days: 91. Discount: ~$99. Purchase: ~$9,901. Return: $99 (1.0%). BE Yield: ~4.06%. Good for short-term cash parking.</p>
+            <p><strong>Example 2 - 182-Day T-Bill:</strong> Face: $25,000, Rate: 4.5%, Days: 182. Discount: ~$563. Purchase: ~$24,437. Return: $563 (2.3%). BE Yield: ~4.63%. Better for medium-term cash.</p>
+            <p><strong>Example 3 - 364-Day T-Bill:</strong> Face: $50,000, Rate: 5%, Days: 364. Discount: ~$2,500. Purchase: ~$47,500. Return: $2,500 (5.3%). BE Yield: ~5.26%. Maximum return for T-Bills.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Invest in T-Bills?</h3>
+            <ul>
+                <li><strong>Conservative Investors</strong> – Seek safety of principal above all else.</li>
+                <li><strong>Emergency Fund Builders</strong> – Park cash safely with government backing.</li>
+                <li><strong>Corporate Treasury</strong> – Manage short-term business cash.</li>
+                <li><strong>High-Tax State Residents</strong> – Benefit from state tax exemption.</li>
+                <li><strong>Flight-to-Quality Seekers</strong> – Move money to safety during market stress.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Create a T-Bill ladder with staggered maturities for regular liquidity.</li>
+                <li>Interest is state and local tax exempt - advantage over CDs in high-tax states.</li>
+                <li>No credit risk but inflation risk exists - returns may not keep up with inflation.</li>
+                <li>Secondary market available for liquidity if needed before maturity.</li>
+                <li>Auto-roll feature at TreasuryDirect reinvests automatically at maturity.</li>
+                <li>Buy directly from TreasuryDirect to avoid broker fees.</li>
+                <li>T-Bills serve as a safe haven during stock market volatility.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What are Treasury Bills?</div>
+            <div class="faq-answer">Treasury Bills are short-term government securities issued by the U.S. Treasury with maturities of 4, 8, 13, 17, 26, and 52 weeks. They are sold at a discount to face value and redeemed at full face value at maturity. No periodic interest is paid. The difference between purchase price and face value represents the return. Backed by the U.S. government, they are considered risk-free from credit default.</div>
+
+            <div class="faq-question">How are T-Bills different from T-Notes and T-Bonds?</div>
+            <div class="faq-answer">T-Bills have maturities up to 1 year, pay no coupons, and are sold at discount. T-Notes have 2-10 year maturities and pay semi-annual coupons. T-Bonds have 20-30 year maturities with semi-annual coupons. All are government-backed but differ in duration, income pattern, and interest rate sensitivity. T-Bills have the lowest duration and are least sensitive to rate changes.</div>
+
+            <div class="faq-question">How do I buy Treasury Bills?</div>
+            <div class="faq-answer">You can buy T-Bills through TreasuryDirect.gov (official government website, no fees) or through banks/brokers (may charge fees). Minimum purchase is $100. Auctions are held weekly. You can place non-competitive bids (accept whatever rate is determined) or competitive bids (specify minimum rate). TreasuryDirect offers auto-reinvestment when T-Bills mature.</div>
+
+            <div class="faq-question">What is the difference between discount rate and investment yield?</div>
+            <div class="faq-answer">Discount rate is based on face value and used in T-Bill auctions: ((Face - Price) / Face) × (360 / Days). Investment yield (Bond Equivalent Yield) is based on actual purchase price and uses 365 days: ((Face - Price) / Price) × (365 / Days). Investment yield is always higher than discount rate and should be used when comparing T-Bills to other investments.</div>
+
+            <div class="faq-question">Are T-Bills tax-free?</div>
+            <div class="faq-answer">T-Bills are exempt from state and local income taxes but subject to federal income tax. The discount/interest is taxable as ordinary income in the year the T-Bill matures. This state tax exemption makes T-Bills particularly attractive compared to CDs or corporate bonds for investors in high-tax states like California or New York.</div>
+
+            <div class="faq-question">Can I sell T-Bills before maturity?</div>
+            <div class="faq-answer">Yes, T-Bills can be sold in the secondary market before maturity, though TreasuryDirect requires transfer to a broker first. Active secondary market exists for standard maturities. You may receive more or less than purchase price depending on rate changes since purchase. For guaranteed liquidity, buy through brokerage accounts rather than TreasuryDirect.</div>
+
+            <div class="faq-question">What is a T-Bill ladder?</div>
+            <div class="faq-answer">A T-Bill ladder involves buying T-Bills with staggered maturity dates (e.g., one maturing each month). As each T-Bill matures, you buy a new longer-term one. This provides regular access to cash, averages rates over time, and maintains continuous investment. Example: $50,000 split into five $10,000 T-Bills maturing in months 1, 2, 3, 4, and 5.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateTBill() {
+        const face = parseFloat(document.getElementById('tbillFace').value) || 0;
+        const rate = parseFloat(document.getElementById('tbillRate').value) || 0;
+        const days = parseFloat(document.getElementById('tbillDays').value) || 0;
+        
+        const discount = face * (rate / 100) * (days / 360);
+        const purchasePrice = face - discount;
+        const investmentReturn = discount;
+        
+        // Bond Equivalent Yield
+        const bey = purchasePrice > 0 ? ((discount / purchasePrice) * (365 / days) * 100) : 0;
+        
+        document.getElementById('tbillPurchase').textContent = '$' + purchasePrice.toFixed(2);
+        document.getElementById('tbillReturn').textContent = '$' + investmentReturn.toFixed(2);
+        document.getElementById('tbillDiscount').textContent = '$' + discount.toFixed(2);
+        document.getElementById('tbillBEY').textContent = bey.toFixed(2) + '%';
+    }
+    
+    function clearTBill() {
+        document.getElementById('tbillFace').value = '';
+        document.getElementById('tbillRate').value = '';
+        document.getElementById('tbillDays').value = '';
+        document.getElementById('tbillPurchase').textContent = '$0.00';
+        document.getElementById('tbillReturn').textContent = '$0.00';
+        document.getElementById('tbillDiscount').textContent = '$0.00';
+        document.getElementById('tbillBEY').textContent = '0%';
+    }
+    
+    function copyTBillResults() {
+        const price = document.getElementById('tbillPurchase').textContent;
+        const ret = document.getElementById('tbillReturn').textContent;
+        const text = `T-Bill Results:\nPurchase Price: ${price}\nInvestment Return: ${ret}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"Bond Yield Calculator", icon:"fa-percentage", url:"bond-yield-calculator.html"},
+            {name:"CD Calculator", icon:"fa-university", url:"cd-calculator.html"},
+            {name:"Money Market Calculator", icon:"fa-money-bill-wave", url:"money-market-calculator.html"},
+            {name:"Bond Price Calculator", icon:"fa-dollar-sign", url:"bond-price-calculator.html"},
+            {name:"Savings Goal Calculator", icon:"fa-piggy-bank", url:"savings-goal-calculator.html"},
+            {name:"Compound Interest Calculator", icon:"fa-chart-line", url:"compound-interest-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridTBill").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

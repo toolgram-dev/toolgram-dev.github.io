@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NPV Calculator – Net Present Value | ToolGram</title>
+    <meta name="description" content="Calculate Net Present Value (NPV) for investments and projects. Free online NPV calculator with discount rate and cash flow analysis.">
+    <meta name="keywords" content="NPV calculator, net present value, discounted cash flow, investment valuation, project analysis">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/npv-calculator.html">
+    <meta property="og:title" content="NPV Calculator | ToolGram">
+    <meta property="og:description" content="Calculate Net Present Value (NPV) for investments and projects.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/npv-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "NPV Calculator",
+        "description": "Calculate Net Present Value (NPV) for investments and projects.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/npv-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["NPV Calculation", "Net Present Value", "Discounted Cash Flow", "Investment Analysis"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .npv-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-coins"></i></div>
+            <div>
+                <h1 style="margin:0;">NPV Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Net Present Value calculator</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Inputs</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Initial Investment ($)</label>
+                        <input type="number" id="initialNPV" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Discount Rate (%)</label>
+                        <input type="number" id="discountRate" placeholder="8" value="8" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Year 1 Cash Flow ($)</label>
+                        <input type="number" id="year1NPV" placeholder="3000" value="3000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Year 2 Cash Flow ($)</label>
+                        <input type="number" id="year2NPV" placeholder="4000" value="4000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Year 3 Cash Flow ($)</label>
+                        <input type="number" id="year3NPV" placeholder="5000" value="5000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Year 4 Cash Flow ($)</label>
+                        <input type="number" id="year4NPV" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Year 5 Cash Flow ($)</label>
+                        <input type="number" id="year5NPV" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateNPV()"><i class="fas fa-calculator"></i> Calculate NPV</button>
+                        <button class="secondary-btn" onclick="clearNPV()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-pie"></i> NPV Results</div>
+                <div class="output-display" id="outputNPV">
+                    <div class="npv-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-coins"></i> Net Present Value</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="npvResult">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Present value of cash flows</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Cash Inflows:</strong> <span id="totalInflows">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Present Value:</strong> <span id="totalPV">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Investment:</strong> <span id="investmentNPV">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Decision:</strong> <span id="decisionNPV">Enter values</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyNPVResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridNPV"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is an NPV Calculator?</h3>
+            <p>An NPV (Net Present Value) Calculator determines the current value of a future stream of cash flows, discounted at a specific rate to account for the time value of money. It helps evaluate whether an investment or project will add value by comparing the present value of future cash inflows to the initial investment.</p>
+            <p>NPV is the gold standard for capital budgeting decisions because it measures absolute wealth creation in today's dollars. A positive NPV indicates the investment generates returns exceeding the discount rate (cost of capital), while negative NPV suggests the project destroys value.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the initial investment amount (upfront cost).<br>
+            <strong>Step 2:</strong> Input the discount rate (your cost of capital or required return).<br>
+            <strong>Step 3:</strong> Enter projected cash inflows for each year.<br>
+            <strong>Step 4:</strong> Leave unused years at 0 if project has shorter duration.<br>
+            <strong>Step 5:</strong> Click "Calculate NPV" to see net present value.<br>
+            <strong>Step 6:</strong> NPV > 0 means accept; NPV < 0 means reject.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> NPV Examples</h3>
+            <p><strong>Example 1 - Equipment Purchase:</strong> Machine costs $50,000, generates $15,000/year savings for 4 years, 10% discount rate. Year 1 PV: $13,636; Year 2: $12,397; Year 3: $11,270; Year 4: $10,245. Total PV: $47,548. NPV: -$2,452. Decision: Reject—doesn't meet required return threshold.</p>
+            <p><strong>Example 2 - Software Implementation:</strong> Cost: $100,000. Year 1 benefit: $40,000; Year 2: $50,000; Year 3: $60,000. Discount rate: 12%. PV Year 1: $35,714; Year 2: $39,859; Year 3: $42,710. Total PV: $118,283. NPV: $18,283. Decision: Accept—creates $18,283 in value above cost of capital.</p>
+            <p><strong>Example 3 - Marketing Campaign:</strong> Cost: $25,000. Returns: Year 1: $15,000; Year 2: $20,000. Discount rate: 15%. PV Year 1: $13,043; Year 2: $15,123. Total PV: $28,166. NPV: $3,166. Decision: Marginal—positive but small NPV suggests modest value creation.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <p>Financial managers and CFOs use NPV for capital budgeting decisions, evaluating equipment purchases, facility expansions, and major projects. It provides the most accurate measure of value creation.</p>
+            <p>Business owners assessing new ventures or product launches need NPV analysis to determine if projected returns justify the investment and risk. It helps prioritize limited capital across competing opportunities.</p>
+            <p>Investors evaluating real estate, private equity, or business acquisitions use NPV to model scenarios and determine fair purchase prices based on expected future cash flows discounted appropriately.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> NPV Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Discount Rate Selection:</strong> Use WACC for corporate projects; required return for personal investments</li>
+                <li><strong>Sensitivity Analysis:</strong> Test NPV with optimistic, base, and pessimistic cash flow scenarios</li>
+                <li><strong>Terminal Value:</strong> For perpetual projects, include terminal value calculation for years beyond explicit forecast</li>
+                <li><strong>Inflation Consistency:</strong> Match nominal cash flows with nominal discount rates; real with real</li>
+                <li><strong>Opportunity Costs:</strong> Include all opportunity costs—NPV should reflect true economic profit</li>
+                <li><strong>Mutually Exclusive Projects:</strong> Choose highest NPV, not necessarily highest IRR</li>
+                <li><strong>Reinvestment Assumption:</strong> NPV assumes reinvestment at discount rate—more realistic than IRR</li>
+                <li><strong>Break-Even Analysis:</strong> Find the discount rate where NPV = 0 to understand margin of safety</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">What is Net Present Value (NPV)?</div>
+            <div class="faq-answer">NPV is the difference between the present value of cash inflows and the present value of cash outflows over a period of time. It represents the absolute dollar value created (if positive) or destroyed (if negative) by an investment. Formula: NPV = Σ [Cash Flow_t / (1 + r)^t] - Initial Investment where r = discount rate, t = time period. Interpretation: NPV > 0: Investment creates value—accept. NPV = 0: Investment meets required return exactly—indifferent. NPV < 0: Investment destroys value—reject.</div>
+
+            <div class="faq-question">How do I choose the discount rate for NPV?</div>
+            <div class="faq-answer">The discount rate should reflect your opportunity cost of capital: Corporate Projects: Use WACC (Weighted Average Cost of Capital)—typically 8-12%. Personal Investments: Use your required rate of return—often 7-10% for conservative investors, higher for aggressive. Real Estate: Often 10-15% reflecting illiquidity and risk. Venture/Startups: 15-30%+ reflecting high failure risk. Risk Adjustment: Higher risk projects need higher discount rates. Inflation: Use nominal rate with nominal cash flows; real rate with inflation-adjusted cash flows.</div>
+
+            <div class="faq-question">What is the difference between NPV and PV?</div>
+            <div class="faq-answer">PV (Present Value): The current worth of a future sum of money or stream of cash flows given a specified rate of return. NPV (Net Present Value): PV of inflows minus PV of outflows (including initial investment). Example: Investment costs $10,000. Future cash flows have PV of $12,000. PV of inflows: $12,000. NPV: $12,000 - $10,000 = $2,000. Key Difference: PV doesn't consider investment cost; NPV is net of all costs. NPV is the decision metric—PV alone doesn't tell you if an investment is worthwhile.</div>
+
+            <div class="faq-question">Can NPV be negative?</div>
+            <div class="faq-answer">Yes, negative NPV means the investment's returns don't justify the cost of capital. Interpretation: Project earns less than the discount rate. Value would be destroyed if undertaken. Decision: Reject the project. However, consider: Strategic Value: Some projects have non-financial benefits (market position, learning). Required Projects: Regulatory compliance may force negative NPV investments. Real Options: Future opportunities may justify modest negative NPV today. Sunk Costs: Don't continue projects just because you've already spent money—evaluate marginal NPV.</div>
+
+            <div class="faq-question">What is the NPV rule?</div>
+            <div class="faq-answer">The NPV decision rule: Accept projects with NPV > 0. Reject projects with NPV < 0. Indifferent to projects with NPV = 0. Mutually Exclusive Projects: Choose the one with highest positive NPV. Independent Projects: Accept all with NPV > 0 (if capital available). Capital Rationing: Rank by NPV or profitability index and select best combination within budget. Why it works: NPV directly measures wealth creation in today's dollars. Positive NPV means you're earning more than your cost of capital, creating shareholder or personal value.</div>
+
+            <div class="faq-question">How does inflation affect NPV calculations?</div>
+            <div class="faq-answer">Two approaches: Nominal Approach: Use nominal cash flows (including inflation) with nominal discount rate. Real Approach: Use inflation-adjusted cash flows with real discount rate (nominal rate minus inflation). Consistency is critical—never mix nominal cash flows with real discount rates or vice versa. Example: 3% inflation, 10% nominal discount rate, $100 cash flow in year 1. Nominal: $103 cash flow, 10% discount rate. Real: $100 cash flow, ~6.8% real discount rate (1.10/1.03 - 1). Both give same NPV result. Most practitioners use nominal approach as it's more intuitive.</div>
+
+            <div class="faq-question">What is the profitability index and how does it relate to NPV?</div>
+            <div class="faq-answer">Profitability Index (PI) = Present Value of Future Cash Flows / Initial Investment. Relationship to NPV: PI > 1 means NPV > 0 (accept). PI < 1 means NPV < 0 (reject). PI = 1 means NPV = 0 (indifferent). When to use PI: Capital Rationing: When you can't fund all positive NPV projects, PI helps rank by efficiency (return per dollar invested). Resource Allocation: Choose highest PI projects first until capital exhausted. Limitation: PI can favor smaller projects over larger value creators—use NPV when comparing mutually exclusive projects.</div>
+
+            <div class="faq-question">How do I calculate NPV with unequal time periods?</div>
+            <div class="faq-answer">For irregular cash flow timing, use XNPV (Excel function) or adjust manually: XNPV Formula: Accounts for exact dates of each cash flow. More precise than assuming year-end cash flows. Manual Calculation: NPV = Σ [Cash Flow_i / (1 + r)^((Date_i - Date_0)/365)] where dates are actual calendar dates. Example: Investment Jan 1, return June 30. Time = 0.5 years. Discount factor = (1.10)^0.5 = 1.0488. Most business projects assume year-end for simplicity, but XNPV is more accurate for precise analysis.</div>
+
+            <div class="faq-question">What is the discount factor in NPV?</div>
+            <div class="faq-answer">The discount factor converts future cash flows to present value. Formula: Discount Factor = 1 / (1 + r)^t where r = discount rate, t = time period. Example: 10% discount rate. Year 1: 1 / (1.10)^1 = 0.909. Year 2: 1 / (1.10)^2 = 0.826. Year 3: 1 / (1.10)^3 = 0.751. Application: Future Value × Discount Factor = Present Value. $100 in year 3 at 10% = $100 × 0.751 = $75.10 today. Discount factors decrease over time—money further in the future is worth less today.</div>
+
+            <div class="faq-question">Should I use NPV or IRR for investment decisions?</div>
+            <div class="faq-answer">NPV is generally preferred for these reasons: Absolute Value: NPV shows dollar value created; IRR shows percentage. Wealth Maximization: NPV directly measures shareholder/personal wealth increase. Reinvestment Assumption: NPV assumes reinvestment at discount rate (more realistic); IRR assumes reinvestment at IRR (often unrealistic). Multiple Solutions: IRR can have multiple values; NPV is unique. Scale: NPV properly accounts for project size—larger projects can have lower IRR but higher NPV. Use IRR when: Comparing efficiency of similar-sized projects. Communicating with non-financial stakeholders (percentages are intuitive). Quick screening before detailed NPV analysis. Best Practice: Calculate both. If they conflict, trust NPV.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateNPV(){
+const initial=parseFloat(document.getElementById('initialNPV').value)||0;
+const rate=(parseFloat(document.getElementById('discountRate').value)||0)/100;
+const cf1=parseFloat(document.getElementById('year1NPV').value)||0;
+const cf2=parseFloat(document.getElementById('year2NPV').value)||0;
+const cf3=parseFloat(document.getElementById('year3NPV').value)||0;
+const cf4=parseFloat(document.getElementById('year4NPV').value)||0;
+const cf5=parseFloat(document.getElementById('year5NPV').value)||0;
+
+const pv1=cf1/Math.pow(1+rate,1);
+const pv2=cf2/Math.pow(1+rate,2);
+const pv3=cf3/Math.pow(1+rate,3);
+const pv4=cf4/Math.pow(1+rate,4);
+const pv5=cf5/Math.pow(1+rate,5);
+
+const totalPV=pv1+pv2+pv3+pv4+pv5;
+const npv=totalPV-initial;
+const totalIn=cf1+cf2+cf3+cf4+cf5;
+
+let decision='Enter values';
+if(npv>0)decision='Accept - Positive NPV';
+else if(npv<0)decision='Reject - Negative NPV';
+else decision='Indifferent - Break-even';
+
+document.getElementById('npvResult').textContent='$'+npv.toFixed(2);
+document.getElementById('npvResult').style.color=npv>=0?'#22c55e':'#ef4444';
+document.getElementById('totalInflows').textContent='$'+totalIn.toLocaleString();
+document.getElementById('totalPV').textContent='$'+totalPV.toFixed(2);
+document.getElementById('investmentNPV').textContent='$'+initial.toLocaleString();
+document.getElementById('decisionNPV').textContent=decision;
+}
+function clearNPV(){
+document.getElementById('initialNPV').value='';
+document.getElementById('discountRate').value='';
+document.getElementById('year1NPV').value='';
+document.getElementById('year2NPV').value='';
+document.getElementById('year3NPV').value='';
+document.getElementById('year4NPV').value='';
+document.getElementById('year5NPV').value='';
+document.getElementById('npvResult').textContent='$0.00';
+document.getElementById('npvResult').style.color='#8B5CF6';
+document.getElementById('totalInflows').textContent='$0.00';
+document.getElementById('totalPV').textContent='$0.00';
+document.getElementById('investmentNPV').textContent='$0.00';
+document.getElementById('decisionNPV').textContent='Enter values';
+}
+function copyNPVResults(){
+const npv=document.getElementById('npvResult').textContent;
+const decision=document.getElementById('decisionNPV').textContent;
+const text=`NPV Results:
+Net Present Value: ${npv}
+Decision: ${decision}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+function loadRelated(){
+const tools=[
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"529 Savings",icon:"fa-graduation-cap",url:"529-savings-calculator.html"},
+{name:"Annuity",icon:"fa-hand-holding-usd",url:"annuity-calculator.html"},
+{name:"Pension",icon:"fa-calendar-check",url:"pension-calculator.html"},
+{name:"IRA",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"College Savings",icon:"fa-university",url:"college-savings-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridNPV").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

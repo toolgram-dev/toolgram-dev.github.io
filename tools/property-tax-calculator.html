@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Stock Profit Calculator – Trading P&L Estimator | ToolGram</title>
+    <meta name="description" content="Calculate stock trading profits and losses with commissions. Free online stock profit calculator for buy and sell scenarios.">
+    <meta name="keywords" content="stock profit calculator, trading calculator, stock P&L, gain loss calculator, stock return">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/stock-profit-calculator.html">
+    <meta property="og:title" content="Stock Profit Calculator | ToolGram">
+    <meta property="og:description" content="Calculate stock trading profits and losses with commissions.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/stock-profit-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Stock Profit Calculator",
+        "description": "Calculate stock trading profits and losses with commissions.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/stock-profit-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Stock Profit", "Trading P&L", "Commission Calculator", "Stock Return"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .profit-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .loss-box{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+                <h1 style="margin:0;">Stock Profit Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Trading profit and loss calculator</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-shopping-cart"></i> Buy Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Buy Price ($)</label>
+                        <input type="number" id="buyPrice" placeholder="100" value="100" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Number of Shares</label>
+                        <input type="number" id="buyShares" placeholder="100" value="100" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Buy Commission ($)</label>
+                        <input type="number" id="buyCommission" placeholder="5" value="5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                </div>
+                <div class="tool-column-title"><i class="fas fa-dollar-sign"></i> Sell Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Sell Price ($)</label>
+                        <input type="number" id="sellPrice" placeholder="120" value="120" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Sell Commission ($)</label>
+                        <input type="number" id="sellCommission" placeholder="5" value="5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateProfit()"><i class="fas fa-calculator"></i> Calculate Profit</button>
+                        <button class="secondary-btn" onclick="clearProfit()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-pie"></i> Profit/Loss Results</div>
+                <div class="output-display" id="outputProfit">
+                    <div class="profit-box" id="resultBox">
+                        <div style="font-weight:600;color:#22c55e;margin-bottom:5px;"><i class="fas fa-arrow-up"></i> Net Profit</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="netProfitSL" style="color:#22c55e">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Return: <span id="returnPct">0%</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Gross Profit:</strong> <span id="grossProfit">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Commissions:</strong> <span id="totalComm">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Buy Value:</strong> <span id="buyValue">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Sell Value:</strong> <span id="sellValue">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Breakeven Price:</strong> <span id="breakeven">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyProfitResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridProfit"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Stock Profit Calculator?</h3>
+            <p>A Stock Profit Calculator determines your net profit or loss from buying and selling stocks, accounting for commissions and fees. It shows both gross profit (before fees) and net profit (after all costs), plus your percentage return on investment.</p>
+            <p>This tool helps traders plan exit strategies by calculating breakeven prices and showing how commissions impact overall returns. It's essential for day traders, swing traders, and long-term investors evaluating when to take profits or cut losses.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your purchase price per share.<br>
+            <strong>Step 2:</strong> Input number of shares bought.<br>
+            <strong>Step 3:</strong> Add buy commission (if any).<br>
+            <strong>Step 4:</strong> Enter target or actual sell price.<br>
+            <strong>Step 5:</strong> Add sell commission.<br>
+            <strong>Step 6:</strong> Click "Calculate Profit" to see net P&L and breakeven price.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Stock Profit Examples</h3>
+            <p><strong>Example 1 - Winning Trade:</strong> Buy 100 shares at $50 ($5,000 + $5 commission). Sell at $60 ($6,000 - $5 commission). Gross profit: $1,000. Net profit: $990. Return: 19.8%. Breakeven: $50.10. This shows how a 20% price gain translates to slightly lower percentage return after commissions.</p>
+            <p><strong>Example 2 - Day Trade:</strong> Buy 500 shares at $20 ($10,000 + $5). Sell same day at $20.50 ($10,250 - $5). Gross profit: $250. Net profit: $240. Return: 2.4%. Commissions represent only 4% of profit on larger trades, showing why position size matters.</p>
+            <p><strong>Example 3 - Losing Trade:</strong> Buy 200 shares at $80 ($16,000 + $5). Sell at $75 ($15,000 - $5). Gross loss: $1,000. Net loss: $1,010. Return: -6.3%. Understanding exact losses helps with tax-loss harvesting and evaluating whether to hold or sell.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <p>Active traders need this calculator before entering positions to set profit targets and stop-loss levels based on realistic return expectations after all costs.</p>
+            <p>Long-term investors use it to evaluate whether to take profits on winners or hold for further gains, calculating the true cost of selling and potential rebuying.</p>
+            <p>Tax planners need accurate profit/loss calculations for Schedule D reporting, including cost basis and proceeds for capital gains tax calculations.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Stock Profit Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Commission Impact:</strong> Small trades suffer disproportionately—$10 commission on $500 trade = 2% cost</li>
+                <li><strong>Breakeven Analysis:</strong> Always know your breakeven price before entering a position</li>
+                <li><strong>Percentage vs. Dollar:</strong> Focus on percentage returns to compare trades fairly</li>
+                <li><strong>Tax Timing:</strong> Consider holding period for short-term vs. long-term capital gains</li>
+                <li><strong>Position Sizing:</strong> Larger positions reduce commission drag as percentage of trade</li>
+                <li><strong>Round Lots:</strong> 100-share lots often have better fills than odd lots</li>
+                <li><strong>Limit Orders:</strong> Use limit orders to control entry/exit prices precisely</li>
+                <li><strong>Track Everything:</strong> Keep detailed records of all trades for tax reporting</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">How do I calculate stock profit?</div>
+            <div class="faq-answer">Basic Formula: Net Profit = (Sell Price × Shares) - (Buy Price × Shares) - Buy Commission - Sell Commission. Return % = (Net Profit / (Buy Price × Shares)) × 100. Example: Buy 100 shares at $50 = $5,000. Sell at $60 = $6,000. Commissions: $5 each way. Net Profit = $6,000 - $5,000 - $5 - $5 = $990. Return % = ($990 / $5,000) × 100 = 19.8%. Breakeven: (Buy Price × Shares + Total Commissions) / Shares = ($5,000 + $10) / 100 = $50.10.</div>
+
+            <div class="faq-question">What is breakeven price?</div>
+            <div class="faq-answer">Breakeven price is the stock price at which you neither make nor lose money on a trade, covering all costs including commissions. Formula: Breakeven = (Buy Price × Shares + Buy Commission + Sell Commission) / Shares. Example: Buy 100 shares at $50 with $5 commission each way. Breakeven = ($5,000 + $5 + $5) / 100 = $50.10. Interpretation: You must sell at $50.10 or higher to profit. Selling at exactly $50.10 = break even. Selling below $50.10 = loss. This helps set minimum profit targets and stop-loss levels.</div>
+
+            <div class="faq-question">How do commissions affect my returns?</div>
+            <div class="faq-answer">Commission Impact on Returns: Small Trades: $10 commission on $500 trade = 2% drag. $10 on $5,000 trade = 0.2% drag. Round-Trip Cost: Both buy and sell commissions reduce profit. Zero-Commission Brokers: Many brokers now offer free stock trades. Options Still Have Fees: Contract fees and exercise fees apply. Hidden Costs: Spread between bid and ask, market impact on large orders. Break-Even Analysis: Must overcome commission costs before profitable. Tax Implications: Commissions add to cost basis and reduce proceeds. Best Practice: Factor commissions into all profit calculations and target returns.</div>
+
+            <div class="faq-question">Should I include taxes in profit calculations?</div>
+            <div class="faq-answer">For Pre-Trade Planning: Focus on gross/net profit before taxes. Tax rates vary by holding period and income. For After-Tax Reality: Short-term gains (held <1 year): Taxed as ordinary income (10-37%). Long-term gains (held >1 year): Taxed at 0%, 15%, or 20% based on income. State taxes may also apply. Net After-Tax Return: Multiply profit by (1 - tax rate). Example: $1,000 profit, 24% tax bracket short-term. After-tax: $1,000 × (1 - 0.24) = $760. Tax-Loss Harvesting: Offset gains with losses to reduce tax burden. Planning: Consider holding period in profit targets—long-term holds have tax advantages.</div>
+
+            <div class="faq-question">What is the difference between gross and net profit?</div>
+            <div class="faq-answer">Gross Profit: (Sell Price - Buy Price) × Shares. Doesn't account for costs. Shows price appreciation only. Example: Buy at $50, sell at $60, 100 shares. Gross = ($60 - $50) × 100 = $1,000. Net Profit: Gross Profit - All Costs (commissions, fees, taxes). Shows true economic gain. Same example with $10 total commissions: Net = $1,000 - $10 = $990. Key Difference: Gross profit looks good on paper but doesn't reflect reality. Net profit is what actually enters your account. Always calculate both—gross shows trading skill, net shows actual returns.</div>
+
+            <div class="faq-question">How do I calculate percentage return on a stock trade?</div>
+            <div class="faq-answer">Simple Return Formula: Return % = ((Sell Price - Buy Price) / Buy Price) × 100. Total Return Including Costs: Return % = (Net Profit / Total Investment) × 100. Example: Buy 100 shares at $50 ($5,000). Sell at $60 ($6,000). Commissions: $10 total. Simple Return: (($60 - $50) / $50) × 100 = 20%. Total Return: (($6,000 - $5,000 - $10) / $5,000) × 100 = 19.8%. Annualized Return: If held for less than a year, annualize to compare: (1 + Total Return)^(365/Days Held) - 1. Multiple Trades: Track cumulative returns, not per-trade averages.</div>
+
+            <div class="faq-question">What is a good return on a stock trade?</div>
+            <div class="faq-answer">"Good" depends on strategy and timeframe: Day Trading: 1-3% per trade is typical target. Needs high win rate. Swing Trading: 5-10% over days/weeks. Position Trading: 15-25% over months. Long-Term Investing: 10-15% annualized (S&P 500 average). Risk-Adjusted: Higher returns should justify higher risk taken. Benchmark: Did you beat buy-and-hold of index fund? Win Rate Matters: 50% win rate with 2:1 profit/loss ratio can be profitable. Consistency: Steady 8% beats sporadic 50% returns with big losses. Personal Goals: Match returns to your financial objectives and risk tolerance.</div>
+
+            <div class="faq-question">How do I track profits across multiple trades?</div>
+            <div class="faq-answer">Tracking Methods: Spreadsheet: Log each trade with date, symbol, shares, prices, P&L. Portfolio Software: Quicken, Personal Capital, brokerage tools. Brokerage Reports: Most provide realized gains/losses reports. Key Metrics to Track: Win Rate: % of profitable trades. Average Winner: Average profit on winning trades. Average Loser: Average loss on losing trades. Profit Factor: Gross profits / Gross losses. Maximum Drawdown: Largest peak-to-trough decline. Sharpe Ratio: Risk-adjusted returns. Review Frequency: Daily: Active day traders. Weekly: Swing traders. Monthly: Long-term investors. Analyze patterns to improve strategy.</div>
+
+            <div class="faq-question">When should I take profits on a stock?</div>
+            <div class="faq-answer">Profit-Taking Strategies: Price Targets: Set targets based on technical analysis or valuation. Percentage Gains: Take partial profits at 20%, 50%, 100% gains. Time-Based: Sell after holding period (e.g., 1 year for long-term gains). Trailing Stops: Let winners run with stop-loss that follows price up. Fundamental Change: Sell if thesis no longer valid. Portfolio Rebalancing: Trim oversized positions. Considerations: Taxes: Long-term gains have favorable rates. Opportunity Cost: Could money work harder elsewhere? Original Thesis: Did you achieve your goal? Emotional Discipline: Don't let greed turn winners into losers.</div>
+
+            <div class="faq-question">How do I calculate profit on partial sells?</div>
+            <div class="faq-answer">Partial Sale Calculation: Method: Use specific lot identification or average cost basis. Specific Lot: Choose which shares to sell. Minimize taxes or maximize losses. Average Cost: Total cost / Total shares = Cost per share. Apply to shares sold. Example: Buy 100 shares at $50 ($5,000). Buy 100 at $60 ($6,000). Average cost: $55/share. Sell 100 shares at $70. Profit: ($70 - $55) × 100 = $1,500. Remaining position: 100 shares at $55 cost basis. Tax Implications: FIFO (First In, First Out) is default if no method specified. Specific lot identification requires informing broker before settlement.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateProfit(){
+const buyPrice=parseFloat(document.getElementById('buyPrice').value)||0;
+const shares=parseFloat(document.getElementById('buyShares').value)||0;
+const buyComm=parseFloat(document.getElementById('buyCommission').value)||0;
+const sellPrice=parseFloat(document.getElementById('sellPrice').value)||0;
+const sellComm=parseFloat(document.getElementById('sellCommission').value)||0;
+
+const buyValue=buyPrice*shares;
+const sellValue=sellPrice*shares;
+const grossProfit=sellValue-buyValue;
+const totalComm=buyComm+sellComm;
+const netProfit=grossProfit-totalComm;
+const returnPct=buyValue>0?((netProfit/buyValue)*100):0;
+const breakeven=shares>0?((buyValue+totalComm)/shares):0;
+
+const resultBox=document.getElementById('resultBox');
+if(netProfit>=0){
+resultBox.className='profit-box';
+resultBox.innerHTML=`<div style="font-weight:600;color:#22c55e;margin-bottom:5px;"><i class="fas fa-arrow-up"></i> Net Profit</div>
+<div style="margin-bottom:10px;"><span class="loan-result" id="netProfitSL" style="color:#22c55e">$${netProfit.toFixed(2)}</span></div>
+<div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Return: <span id="returnPct">${returnPct.toFixed(2)}%</span></div>`;
+}else{
+resultBox.className='loss-box';
+resultBox.innerHTML=`<div style="font-weight:600;color:#ef4444;margin-bottom:5px;"><i class="fas fa-arrow-down"></i> Net Loss</div>
+<div style="margin-bottom:10px;"><span class="loan-result" id="netProfitSL" style="color:#ef4444">$${netProfit.toFixed(2)}</span></div>
+<div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Return: <span id="returnPct">${returnPct.toFixed(2)}%</span></div>`;
+}
+
+document.getElementById('grossProfit').textContent='$'+grossProfit.toFixed(2);
+document.getElementById('totalComm').textContent='$'+totalComm.toFixed(2);
+document.getElementById('buyValue').textContent='$'+buyValue.toLocaleString();
+document.getElementById('sellValue').textContent='$'+sellValue.toLocaleString();
+document.getElementById('breakeven').textContent='$'+breakeven.toFixed(2);
+}
+function clearProfit(){
+document.getElementById('buyPrice').value='';
+document.getElementById('buyShares').value='';
+document.getElementById('buyCommission').value='';
+document.getElementById('sellPrice').value='';
+document.getElementById('sellCommission').value='';
+document.getElementById('resultBox').className='profit-box';
+document.getElementById('resultBox').innerHTML=`<div style="font-weight:600;color:#22c55e;margin-bottom:5px;"><i class="fas fa-arrow-up"></i> Net Profit</div>
+<div style="margin-bottom:10px;"><span class="loan-result" id="netProfitSL" style="color:#22c55e">$0.00</span></div>
+<div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Return: <span id="returnPct">0%</span></div>`;
+document.getElementById('grossProfit').textContent='$0.00';
+document.getElementById('totalComm').textContent='$0.00';
+document.getElementById('buyValue').textContent='$0.00';
+document.getElementById('sellValue').textContent='$0.00';
+document.getElementById('breakeven').textContent='$0.00';
+}
+function copyProfitResults(){
+const profit=document.getElementById('netProfitSL').textContent;
+const ret=document.getElementById('returnPct').textContent;
+const text=`Stock Profit Results:
+Net Profit: ${profit}
+Return: ${ret}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+function loadRelated(){
+const tools=[
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"529 Savings",icon:"fa-graduation-cap",url:"529-savings-calculator.html"},
+{name:"Annuity",icon:"fa-hand-holding-usd",url:"annuity-calculator.html"},
+{name:"Pension",icon:"fa-calendar-check",url:"pension-calculator.html"},
+{name:"IRA",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"College Savings",icon:"fa-university",url:"college-savings-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridProfit").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

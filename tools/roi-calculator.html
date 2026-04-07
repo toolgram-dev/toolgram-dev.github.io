@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ROI Calculator – Return on Investment | ToolGram</title>
+    <meta name="description" content="Calculate Return on Investment (ROI) for any investment. Free online ROI calculator with percentage returns and payback period.">
+    <meta name="keywords" content="ROI calculator, return on investment, investment return percentage, ROI formula, profit calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/roi-calculator.html">
+    <meta property="og:title" content="ROI Calculator | ToolGram">
+    <meta property="og:description" content="Calculate Return on Investment (ROI) for any investment.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/roi-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ROI Calculator",
+        "description": "Calculate Return on Investment (ROI) for any investment.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/roi-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["ROI Calculation", "Return Percentage", "Investment Profit", "Payback Period"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .roi-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-percentage"></i></div>
+            <div>
+                <h1 style="margin:0;">ROI Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Return on Investment calculator</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-dollar-sign"></i> Investment Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Initial Investment ($)</label>
+                        <input type="number" id="initialROI" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Final Value ($)</label>
+                        <input type="number" id="finalROI" placeholder="14000" value="14000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Investment Period (Years)</label>
+                        <input type="number" id="yearsROI" placeholder="3" value="3" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Additional Costs ($)</label>
+                        <input type="number" id="costsROI" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateROI()"><i class="fas fa-calculator"></i> Calculate ROI</button>
+                        <button class="secondary-btn" onclick="clearROI()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-pie"></i> ROI Results</div>
+                <div class="output-display" id="outputROI">
+                    <div class="roi-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-percentage"></i> ROI</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="roiResult">0%</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Total return percentage</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Annualized ROI:</strong> <span id="annualROI">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Net Profit:</strong> <span id="netProfit">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Gain:</strong> <span id="totalGainROI">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Investment Cost:</strong> <span id="investmentCost">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyROIResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridROI"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is an ROI Calculator?</h3>
+            <p>An ROI (Return on Investment) Calculator measures the profitability of an investment by comparing the net profit to the initial investment cost. It expresses returns as a percentage, making it easy to compare different investments regardless of their size or time period.</p>
+            <p>This calculator goes beyond simple ROI by also showing annualized returns, which helps compare investments held for different time periods. Whether you're evaluating stocks, real estate, business ventures, or marketing campaigns, ROI provides a standardized metric for decision-making.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the initial amount invested.<br>
+            <strong>Step 2:</strong> Input the final value or current worth of the investment.<br>
+            <strong>Step 3:</strong> Enter the investment period in years.<br>
+            <strong>Step 4:</strong> Add any additional costs like fees, commissions, or maintenance (optional).<br>
+            <strong>Step 5:</strong> Click "Calculate ROI" to see return percentage and annualized rate.<br>
+            <strong>Step 6:</strong> Compare ROI across different investment opportunities.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> ROI Examples</h3>
+            <p><strong>Example 1 - Stock Investment:</strong> Invested $10,000 in stocks with $200 in trading fees. Sold for $14,000 after 3 years. Net investment: $10,200. Net profit: $3,800. ROI: 37.25%. Annualized ROI: 11.1%. This solid return outperformed savings accounts but was roughly in line with stock market averages.</p>
+            <p><strong>Example 2 - Real Estate Flip:</strong> Bought property for $200,000, spent $50,000 on renovations, sold for $320,000 after 18 months with $20,000 in closing costs. Total cost: $270,000. Net profit: $50,000. ROI: 18.52%. Annualized: 12.35%. This shows how leveraging improvements can generate strong returns in a short period.</p>
+            <p><strong>Example 3 - Marketing Campaign:</strong> Spent $5,000 on digital advertising, generated $20,000 in additional revenue with $8,000 in product costs. Net profit: $7,000. ROI: 140%. Annualized (3-month campaign): 560%. This demonstrates why marketing ROI can be exceptionally high for successful campaigns.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <p>Individual investors evaluating stocks, bonds, real estate, or other assets need ROI calculations to compare opportunities and track portfolio performance against benchmarks and personal goals.</p>
+            <p>Business owners use ROI to assess capital investments, equipment purchases, marketing campaigns, and expansion projects. It helps prioritize projects that generate the highest returns relative to their costs.</p>
+            <p>Marketing professionals rely on ROI to demonstrate campaign effectiveness and justify budgets. By showing the return generated per dollar spent, they can optimize spending across different channels.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> ROI Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Include All Costs:</strong> Factor in fees, taxes, maintenance, and opportunity costs for accurate ROI</li>
+                <li><strong>Time Matters:</strong> Compare annualized ROI for investments with different time horizons</li>
+                <li><strong>Risk Adjustment:</strong> Higher ROI often comes with higher risk—consider risk-adjusted metrics</li>
+                <li><strong>Cash Flow vs. Appreciation:</strong> Some investments show low ROI but provide steady income</li>
+                <li><strong>Tax Impact:</strong> Calculate after-tax ROI for the true picture, especially for short-term gains</li>
+                <li><strong>Break-Even Analysis:</strong> Use ROI to determine minimum performance needed to justify investments</li>
+                <li><strong>Benchmark Comparison:</strong> Compare your ROI to market indices (S&P 500) or industry averages</li>
+                <li><strong>Reinvestment:</strong> Consider how ROI compounds when reinvesting profits over multiple cycles</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">What is the ROI formula?</div>
+            <div class="faq-answer">Basic ROI Formula: ROI = (Net Profit / Cost of Investment) × 100. Net Profit = Current Value - Cost of Investment. Example: Invested $10,000, now worth $13,000. Net Profit = $3,000. ROI = (3,000 / 10,000) × 100 = 30%. Alternative Formula: ROI = ((Current Value - Cost) / Cost) × 100. Some calculations include additional costs: Total Cost = Initial Investment + Fees + Maintenance. Use consistent cost definitions when comparing investments.</div>
+
+            <div class="faq-question">What is a good ROI percentage?</div>
+            <div class="faq-answer">"Good" ROI depends on asset class, risk level, and time horizon: Stocks: 7-10% annualized long-term (S&P 500 average). Real Estate: 8-12% including appreciation and rental income. Bonds: 3-5% for investment-grade. Business/Projects: 15-30% often targeted to justify risk. Marketing: 500%+ for digital campaigns is common. Time Horizon: 20% over 1 year is excellent; 20% over 10 years is poor. Compare ROI to: Risk-free rate (Treasury yields), Inflation rate (must exceed to grow real wealth), Opportunity cost (what else could you do with the money).</div>
+
+            <div class="faq-question">What is the difference between ROI and ROE?</div>
+            <div class="faq-answer">ROI (Return on Investment): Measures return on a specific investment. Used by investors evaluating opportunities. Formula: (Gain - Cost) / Cost. ROE (Return on Equity): Measures company profitability relative to shareholder equity. Used to evaluate business performance. Formula: Net Income / Shareholder Equity. Key Difference: ROI applies to any investment type. ROE specifically measures how effectively a company uses equity capital. ROI is investor-focused; ROE is company-focused. Complementary metrics used for different purposes.</div>
+
+            <div class="faq-question">How do I calculate annualized ROI?</div>
+            <div class="faq-answer">Annualized ROI formula: Annualized ROI = [(1 + Total ROI)^(1/n) - 1] × 100 where n = number of years. This converts total return to an equivalent annual rate. Example: 50% total ROI over 5 years. Annualized = [(1 + 0.50)^(1/5) - 1] × 100 = 8.45%. Why annualize? Enables fair comparison of investments held for different periods. An investment returning 30% over 3 years (9.14% annualized) underperforms one returning 40% over 5 years (6.96% annualized) on a risk-adjusted basis.</div>
+
+            <div class="faq-question">Can ROI be negative?</div>
+            <div class="faq-answer">Yes, negative ROI indicates a loss on the investment. Example: Invested $10,000, current value $8,000. ROI = (8,000 - 10,000) / 10,000 × 100 = -20%. Interpretation: Lost 20% of invested capital. Common causes: Market downturns, Poor investment selection, High fees eroding returns, Unexpected costs, Early liquidation. Tax benefit: Capital losses can offset capital gains and up to $3,000 of ordinary income annually. Decisions: Negative ROI doesn't always mean sell—consider recovery potential, time horizon, and alternative opportunities.</div>
+
+            <div class="faq-question">How does inflation affect ROI?</div>
+            <div class="faq-answer">Inflation erodes purchasing power, so nominal ROI overstates real gains. Real ROI = [(1 + Nominal ROI) / (1 + Inflation Rate) - 1] × 100. Example: 10% nominal ROI with 3% inflation. Real ROI = (1.10/1.03 - 1) × 100 = 6.8%. Impact over time: 10% nominal return over 30 years = 1,645% total gain. After 3% annual inflation: 632% real gain. $10,000 grows to $174,494 nominally but only $73,222 in purchasing power. Always consider real (inflation-adjusted) returns for long-term planning.</div>
+
+            <div class="faq-question">Should I use ROI or NPV for investment decisions?</div>
+            <div class="faq-answer">Use ROI when: Comparing simple investments, Evaluating marketing campaigns, Quick assessment of profitability, Comparing different asset classes. Use NPV when: Analyzing multi-year projects, Considering time value of money, Corporate capital budgeting, Investments with varying cash flows. Key Difference: ROI shows percentage return but ignores timing and size of cash flows. NPV accounts for when money is received and the time value of money. Best practice: Use both—ROI for quick comparisons, NPV for detailed analysis of complex investments.</div>
+
+            <div class="faq-question">How do I compare ROI across different investments?</div>
+            <div class="faq-answer">Fair comparison requires standardization: Time Period: Annualize all ROIs to compare per-year rates. Risk Level: Adjust for risk or compare within same risk categories. Liquidity: Consider how quickly you can access your money. Tax Treatment: Compare after-tax returns. Cash Flow: Distinguish between income-producing and appreciation-focused investments. Total Costs: Include all fees, commissions, and carrying costs. Example: Investment A: 50% total return over 5 years = 8.45% annualized. Investment B: 30% over 2 years = 14.04% annualized. Despite lower total return, B has higher annualized ROI.</div>
+
+            <div class="faq-question">What is the difference between ROI and IRR?</div>
+            <div class="faq-answer">ROI (Return on Investment): Simple calculation: (Final - Initial) / Initial. Assumes single investment and single return. Doesn't account for interim cash flows. Best for simple, short-term investments. IRR (Internal Rate of Return): Complex calculation considering timing and amount of all cash flows. Solves for the discount rate that makes NPV = 0. Best for investments with multiple contributions or withdrawals. Key difference: $10,000 invested, $500 added in year 2, $16,000 final value after 3 years. ROI ignores the year-2 contribution timing. IRR accounts for exactly when each dollar was invested.</div>
+
+            <div class="faq-question">How do businesses use ROI?</div>
+            <div class="faq-answer">Business ROI Applications: Capital Projects: Evaluate equipment purchases, facility expansions. Marketing: Measure campaign effectiveness—ROI > 500% often seen in digital. Training Programs: Calculate productivity gains vs. training costs. Technology: Assess software implementations and automation projects. Hiring: Evaluate revenue generated by new employees vs. compensation. Product Lines: Identify which products generate highest returns. Project Prioritization: Rank initiatives by expected ROI when capital is limited. Minimum Thresholds: Many companies require 15-30% ROI to approve projects, depending on risk level.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateROI(){
+const initial=parseFloat(document.getElementById('initialROI').value)||0;
+const final=parseFloat(document.getElementById('finalROI').value)||0;
+const years=parseFloat(document.getElementById('yearsROI').value)||1;
+const costs=parseFloat(document.getElementById('costsROI').value)||0;
+
+const totalCost=initial+costs;
+const gain=final-totalCost;
+const roi=totalCost>0?(gain/totalCost)*100:0;
+const annualized=roi!==-100?((Math.pow(1+roi/100,1/years)-1)*100):0;
+
+const netProfit=gain;
+
+document.getElementById('roiResult').textContent=roi.toFixed(2)+'%';
+document.getElementById('roiResult').style.color=roi>=0?'#22c55e':'#ef4444';
+document.getElementById('annualROI').textContent=annualized.toFixed(2)+'%';
+document.getElementById('netProfit').textContent='$'+netProfit.toLocaleString();
+document.getElementById('totalGainROI').textContent='$'+gain.toLocaleString();
+document.getElementById('investmentCost').textContent='$'+totalCost.toLocaleString();
+}
+function clearROI(){
+document.getElementById('initialROI').value='';
+document.getElementById('finalROI').value='';
+document.getElementById('yearsROI').value='';
+document.getElementById('costsROI').value='';
+document.getElementById('roiResult').textContent='0%';
+document.getElementById('roiResult').style.color='#8B5CF6';
+document.getElementById('annualROI').textContent='0%';
+document.getElementById('netProfit').textContent='$0.00';
+document.getElementById('totalGainROI').textContent='$0.00';
+document.getElementById('investmentCost').textContent='$0.00';
+}
+function copyROIResults(){
+const roi=document.getElementById('roiResult').textContent;
+const annual=document.getElementById('annualROI').textContent;
+const text=`ROI Results:
+ROI: ${roi}
+Annualized ROI: ${annual}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+function loadRelated(){
+const tools=[
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"529 Savings",icon:"fa-graduation-cap",url:"529-savings-calculator.html"},
+{name:"Annuity",icon:"fa-hand-holding-usd",url:"annuity-calculator.html"},
+{name:"Pension",icon:"fa-calendar-check",url:"pension-calculator.html"},
+{name:"IRA",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"College Savings",icon:"fa-university",url:"college-savings-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridROI").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

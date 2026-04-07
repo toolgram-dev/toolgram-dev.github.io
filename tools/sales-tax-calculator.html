@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sales Tax Calculator – Sales Tax & Total Price | ToolGram</title>
+    <meta name="description" content="Calculate sales tax and total price for purchases. Free online sales tax calculator for all US states.">
+    <meta name="keywords" content="sales tax calculator, sales tax, total price calculator, purchase tax, state sales tax">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/sales-tax-calculator.html">
+    <meta property="og:title" content="Sales Tax Calculator | ToolGram">
+    <meta property="og:description" content="Calculate sales tax and total price for purchases.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/sales-tax-calculator.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-receipt"></i></div>
+            <div>
+                <h1 style="margin:0;">Sales Tax Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate sales tax and total purchase price</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Purchase Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Item Price ($)</label>
+                        <input type="number" id="itemPrice" placeholder="100" value="100" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">State</label>
+                        <select id="salesState" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;"><option value="0">Delaware (0%)</option><option value="0">Montana (0%)</option><option value="0">New Hampshire (0%)</option><option value="0">Oregon (0%)</option><option value="2.9">Colorado (2.9%)</option><option value="4">Alabama (4%)</option><option value="4">Georgia (4%)</option><option value="4">Hawaii (4%)</option><option value="4">New York (4%)</option><option value="4">Wyoming (4%)</option><option value="4.225">Missouri (4.225%)</option><option value="5">Maine (5%)</option><option value="5">Nebraska (5%)</option><option value="5">North Carolina (5%)</option><option value="5">Wisconsin (5%)</option><option value="5.125">New Mexico (5.125%)</option><option value="5.3">Virginia (5.3%)</option><option value="5.5">South Dakota (5.5%)</option><option value="6">Florida (6%)</option><option value="6">Idaho (6%)</option><option value="6">Illinois (6%)</option><option value="6">Iowa (6%)</option><option value="6">Kentucky (6%)</option><option value="6">Maryland (6%)</option><option value="6">Michigan (6%)</option><option value="6">Nevada (6%)</option><option value="6">New Jersey (6.625%)</option><option value="6">Pennsylvania (6%)</option><option value="6">Texas (6.25%)</option><option value="6">Vermont (6%)</option><option value="6">West Virginia (6%)</option><option value="6.25">Massachusetts (6.25%)</option><option value="6.5">Connecticut (6.35%)</option><option value="6.5">Kansas (6.5%)</option><option value="6.5">Ohio (5.75%)</option><option value="6.5">Utah (4.85%)</option><option value="7">Arkansas (6.5%)</option><option value="7">California (7.25%)</option><option value="7">Indiana (7%)</option><option value="7">Mississippi (7%)</option><option value="7">Rhode Island (7%)</option><option value="7">South Carolina (6%)</option><option value="7">Tennessee (7%)</option><option value="7">Minnesota (6.875%)</option><option value="7">Oklahoma (4.5%)</option><option value="7">North Dakota (5%)</option><option value="7">Arizona (5.6%)</option><option value="7.5">Alaska (0%)</option><option value="8">Louisiana (4.45%)</option><option value="custom">Custom Rate</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Custom Tax Rate (%)</label>
+                        <input type="number" id="customRate" placeholder="0" value="0" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Quantity</label>
+                        <input type="number" id="quantity" placeholder="1" value="1" min="1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateSalesTax()"><i class="fas fa-calculator"></i> Calculate Tax</button>
+                    <button class="secondary-btn" onclick="clearSalesTax()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-invoice-dollar"></i> Purchase Summary</div>
+                <div class="output-display" id="salesOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Subtotal:</strong> <span id="salesSubtotal">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Sales Tax:</strong> <span id="salesTax">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Tax Rate:</strong> <span id="salesRate">0%</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Total:</strong> <span id="salesTotal">$0</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySalesResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridSales"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Sales Tax?</h3>
+            <p>Sales tax is a consumption tax imposed by state and local governments on the sale of goods and services. Unlike income tax which is progressive, sales tax is a flat percentage applied uniformly to purchases. The United States doesn't have a federal sales tax - each state sets its own rate, and local jurisdictions may add additional taxes.</p>
+            <p>Some items are exempt from sales tax, such as groceries, prescription medications, and clothing below a certain threshold (varies by state). This calculator shows you the tax and total for taxable purchases. Note that displayed state rates are base rates; local taxes may increase the actual rate at the point of sale.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Enter the item price before tax.<br>
+            <strong>Step 2:</strong> Select your state from the dropdown.<br>
+            <strong>Step 3:</strong> Use custom rate field if you know the exact combined rate.<br>
+            <strong>Step 4:</strong> Enter quantity if purchasing multiple items.<br>
+            <strong>Step 5:</strong> Click "Calculate Tax" to see breakdown.<br>
+            <strong>Step 6:</strong> Review subtotal, tax amount, and total price.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1 - California:</strong> Price: $500, CA rate: 7.25%. Subtotal: $500. Tax: $36.25. Total: $536.25. Actual rate may be 8-10% with local taxes.</p>
+            <p><strong>Example 2 - Oregon (No Tax):</strong> Price: $200, OR rate: 0%. Subtotal: $200. Tax: $0. Total: $200. Oregon has no sales tax on any purchases.</p>
+            <p><strong>Example 3 - New York:</strong> Price: $150, NY rate: 4%, Quantity: 3. Subtotal: $450. Tax: $18. Total: $468. NYC adds 4.5% local tax = 8.875% total.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This?</h3>
+            <ul>
+                <li><strong>Shoppers</strong> - Calculate total before checkout.</li>
+                <li><strong>Budget Planners</strong> - Account for taxes in spending plans.</li>
+                <li><strong>Retailers</strong> - Quick tax reference for pricing.</li>
+                <li><strong>Travelers</strong> - Compare tax costs across states.</li>
+                <li><strong>Online Shoppers</strong> - Estimate tax on e-commerce orders.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>5 states have no sales tax: AK, DE, MT, NH, OR.</li>
+                <li>Local taxes can add 1-5% to state base rates.</li>
+                <li>Some states tax services as well as goods.</li>
+                <li>Use tax applies to out-of-state purchases brought home.</li>
+                <li>Sales tax holidays exist in some states for back-to-school.</li>
+                <li>Online purchases now require tax collection per Wayfair ruling.</li>
+                <li>Businesses with nexus must collect sales tax in that state.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> FAQ</h3>
+            <div class="faq-question">Which states have no sales tax?</div>
+            <div class="faq-answer">Five states have no state sales tax: Alaska, Delaware, Montana, New Hampshire, and Oregon. However, Alaska allows local jurisdictions to impose sales taxes, so you may still pay tax in certain Alaskan cities. Montana, New Hampshire, and Oregon have essentially no sales tax statewide. Delaware is popular for tax-free shopping.</div>
+
+            <div class="faq-question">What's the difference between sales tax and use tax?</div>
+            <div class="faq-answer">Sales tax is collected by the seller at the point of purchase. Use tax is paid by the buyer directly to the state for items purchased out-of-state or online where sales tax wasn't collected. Technically, if you buy something tax-free online and bring it to your state, you owe use tax. Most states include a use tax line on income tax returns, though enforcement varies.</div>
+
+            <div class="faq-question">Do I pay sales tax on online purchases?</div>
+            <div class="faq-answer">Since the 2018 Wayfair Supreme Court decision, online retailers must collect sales tax if they have "economic nexus" in your state (typically $100,000 in sales or 200 transactions). Most major online retailers now collect sales tax. Marketplace facilitators like Amazon, eBay, and Etsy are required to collect tax on behalf of third-party sellers in most states.</div>
+
+            <div class="faq-question">What's included/excluded from sales tax?</div>
+            <div class="faq-answer">Common exemptions vary by state: Groceries (most states exempt), prescription drugs (universally exempt), clothing (NY exempts under $110), textbooks, medical devices, agricultural supplies. Luxury items, alcohol, tobacco, and prepared food often have additional or higher taxes. Each state has unique rules.</div>
+
+            <div class="faq-question">What are the highest and lowest sales tax rates?</div>
+            <div class="faq-answer">Highest combined rates: Tennessee (9.55% average), Louisiana (9.52%), Arkansas (9.46%). California has highest state rate at 7.25% but locals can push it to 10.75%. Lowest: 0% in the five no-tax states. Colorado has lowest state rate at 2.9%. Local taxes significantly impact the total rate you actually pay.</div>
+
+            <div class="faq-question">What is a sales tax holiday?</div>
+            <div class="faq-answer">Sales tax holidays are designated periods when specific items are exempt from sales tax, typically back-to-school clothing and supplies in August, or emergency preparedness items before hurricane season, or Energy Star appliances. 17+ states offer these holidays. Check your state's revenue department for dates and qualifying items.</div>
+
+            <div class="faq-question">How do I calculate tax-inclusive vs tax-exclusive prices?</div>
+            <div class="faq-answer">Tax-exclusive: Price shown does NOT include tax. Tax added at checkout. US standard. Formula: Tax = Price × Rate, Total = Price + Tax. Tax-inclusive (VAT style): Price shown includes tax. To find pre-tax: Pre-tax = Total ÷ (1 + Rate), Tax = Total - Pre-tax. Most countries outside US use tax-inclusive pricing.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateSalesTax() {
+        const price = parseFloat(document.getElementById('itemPrice').value) || 0;
+        const stateRate = parseFloat(document.getElementById('salesState').value) || 0;
+        const customRate = parseFloat(document.getElementById('customRate').value) || 0;
+        const quantity = parseFloat(document.getElementById('quantity').value) || 1;
+        
+        const rate = customRate > 0 ? customRate : stateRate;
+        const subtotal = price * quantity;
+        const tax = subtotal * (rate / 100);
+        const total = subtotal + tax;
+        
+        document.getElementById('salesSubtotal').textContent = '$' + subtotal.toFixed(2);
+        document.getElementById('salesTax').textContent = '$' + tax.toFixed(2);
+        document.getElementById('salesRate').textContent = rate.toFixed(2) + '%';
+        document.getElementById('salesTotal').textContent = '$' + total.toFixed(2);
+    }
+    
+    function clearSalesTax() {
+        document.getElementById('itemPrice').value = '';
+        document.getElementById('salesState').value = '0';
+        document.getElementById('customRate').value = '';
+        document.getElementById('quantity').value = '';
+        document.getElementById('salesSubtotal').textContent = '$0';
+        document.getElementById('salesTax').textContent = '$0';
+        document.getElementById('salesRate').textContent = '0%';
+        document.getElementById('salesTotal').textContent = '$0';
+    }
+    
+    function copySalesResults() {
+        const total = document.getElementById('salesTotal').textContent;
+        const tax = document.getElementById('salesTax').textContent;
+        navigator.clipboard.writeText(`Sales Tax Results:\nSales Tax: ${tax}\nTotal: ${total}`);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"State Tax Calculator", icon:"fa-map-marker-alt", url:"state-tax-calculator.html"},
+            {name:"Income Tax Calculator", icon:"fa-calculator", url:"income-tax-calculator.html"},
+            {name:"Federal Tax Calculator", icon:"fa-flag-usa", url:"federal-tax-calculator.html"},
+            {name:"Tax Refund Calculator", icon:"fa-money-check-alt", url:"tax-refund-calculator.html"},
+            {name:"Budget Calculator", icon:"fa-wallet", url:"budget-calculator.html"},
+            {name:"Expense Calculator", icon:"fa-receipt", url:"expense-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => { html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`; });
+        document.getElementById("relatedGridSales").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

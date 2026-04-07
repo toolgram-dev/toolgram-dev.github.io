@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bond Yield Calculator – Current & YTM Calculator | ToolGram</title>
+    <meta name="description" content="Calculate bond yields including current yield and yield to maturity. Free online bond yield calculator for fixed income analysis.">
+    <meta name="keywords" content="bond yield calculator, current yield, YTM, yield to maturity, bond returns, fixed income calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/bond-yield-calculator.html">
+    <meta property="og:title" content="Bond Yield Calculator | ToolGram">
+    <meta property="og:description" content="Calculate bond yields including current yield and YTM.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/bond-yield-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Bond Yield Calculator",
+        "description": "Calculate bond yields including current yield and yield to maturity.",
+        "applicationCategory": "Finance",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/bond-yield-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Current Yield", "Yield to Maturity", "Bond Analysis"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-percentage"></i></div>
+            <div>
+                <h1 style="margin:0;">Bond Yield Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate current yield and yield to maturity</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Bond Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Face Value ($)</label>
+                        <input type="number" id="bondFace" placeholder="1000" value="1000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Market Price ($)</label>
+                        <input type="number" id="bondPrice" placeholder="950" value="950" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Coupon Rate (%)</label>
+                        <input type="number" id="bondCoupon" placeholder="5" value="5" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Years to Maturity</label>
+                        <input type="number" id="bondYears" placeholder="10" value="10" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateBondYield()"><i class="fas fa-calculator"></i> Calculate Yield</button>
+                    <button class="secondary-btn" onclick="clearBondYield()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Yield Results</div>
+                <div class="output-display" id="bondYieldOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Current Yield:</strong> <span id="currentYield">0%</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Yield to Maturity (YTM):</strong> <span id="ytm">0%</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Annual Coupon:</strong> <span id="annualCoupon">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Price vs Par:</strong> <span id="priceVsPar">-</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyBondYieldResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridBondYield"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Bond Yield?</h3>
+            <p>Bond yield represents the return an investor realizes on a bond investment. There are two primary measures: Current Yield which is the annual coupon payment divided by the bond's current market price, and Yield to Maturity (YTM) which is the total return anticipated if the bond is held until maturity. YTM considers both coupon payments and any capital gain or loss at maturity.</p>
+            <p>Bonds trade at premiums or discounts to their face value based on interest rate movements. When market rates rise above a bond's coupon rate, the bond trades at a discount. When market rates fall below the coupon rate, the bond trades at a premium. Understanding yields helps investors compare bonds with different coupons and prices on an equal basis.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the bond's face value - typically $1,000 for corporate bonds.<br>
+            <strong>Step 2:</strong> Input the current market price - what you'd pay to buy the bond today.<br>
+            <strong>Step 3:</strong> Enter the annual coupon rate - the stated interest rate on the bond.<br>
+            <strong>Step 4:</strong> Specify years to maturity - remaining time until principal repayment.<br>
+            <strong>Step 5:</strong> Click "Calculate Yield" to see current yield and YTM.<br>
+            <strong>Step 6:</strong> Compare YTM across bonds to find the best risk-adjusted returns.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1 - Discount Bond:</strong> Face: $1,000, Price: $900, Coupon: 5%, Years: 10. Current Yield: 5.56%. YTM: ~6.38%. Trading at discount since price < par. YTM > coupon rate.</p>
+            <p><strong>Example 2 - Premium Bond:</strong> Face: $1,000, Price: $1,100, Coupon: 8%, Years: 5. Current Yield: 7.27%. YTM: ~6.23%. Trading at premium since price > par. YTM < coupon rate.</p>
+            <p><strong>Example 3 - Par Bond:</strong> Face: $1,000, Price: $1,000, Coupon: 6%, Years: 8. Current Yield: 6%. YTM: 6%. Trading at par. Coupon rate equals both yields.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Uses Bond Yield Calculators?</h3>
+            <ul>
+                <li><strong>Fixed Income Investors</strong> – Compare yields across different bond offerings.</li>
+                <li><strong>Portfolio Managers</strong> – Assess bond valuations for institutional portfolios.</li>
+                <li><strong>Financial Advisors</strong> – Help clients understand bond investment returns.</li>
+                <li><strong>Students</strong> – Learn bond mathematics and yield concepts.</li>
+                <li><strong>Retirees</strong> – Evaluate bonds for income-generating portfolios.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Yield to Maturity is more comprehensive than Current Yield for comparing bonds.</li>
+                <li>Bonds trading at discount have YTM > Coupon Rate - potential capital appreciation.</li>
+                <li>Bonds trading at premium have YTM < Coupon Rate - capital loss at maturity.</li>
+                <li>Consider tax implications - municipal bonds may be tax-free.</li>
+                <li>Check credit ratings - higher yields often indicate higher default risk.</li>
+                <li>Zero-coupon bonds have no current yield; all return comes as capital gain.</li>
+                <li>Yield to Call is important for callable bonds held until call date.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the difference between current yield and YTM?</div>
+            <div class="faq-answer">Current Yield only considers annual coupon income relative to current price: Annual Coupon ÷ Current Price. It ignores capital gains/losses at maturity. YTM is the comprehensive measure that includes both coupon payments and any capital gain or loss if held to maturity. YTM assumes all coupons are reinvested at the same yield rate. For comparing bonds with different prices and coupons, YTM is the superior metric.</div>
+
+            <div class="faq-question">Why do bonds trade at premium or discount?</div>
+            <div class="faq-answer">Bonds trade at premiums or discounts based on interest rate changes since issuance. If market rates fall below a bond's coupon rate, that bond becomes more valuable - buyers pay a premium to get higher coupons. If market rates rise above the coupon rate, the bond becomes less attractive and sells at a discount. The price adjusts so that the bond's YTM aligns with current market rates for similar risk bonds.</div>
+
+            <div class="faq-question">Is higher YTM always better?</div>
+            <div class="faq-answer">Not necessarily. Higher YTM often indicates higher risk. Corporate bonds with lower credit ratings offer higher yields to compensate for default risk. Always consider: Credit rating of issuer, Call provisions that might limit upside, Liquidity of the bond, Tax status (municipal vs taxable), Duration/interest rate risk. The best bond balances yield with acceptable risk for your portfolio.</div>
+
+            <div class="faq-question">How does inflation affect bond yields?</div>
+            <div class="faq-answer">Inflation erodes the purchasing power of fixed bond payments. When inflation rises, investors demand higher yields to compensate, causing bond prices to fall (yields rise). Conversely, when inflation falls, bond prices rise (yields fall). This is why bonds are considered vulnerable to inflation risk. Treasury Inflation-Protected Securities (TIPS) adjust principal for inflation, providing protection.</div>
+
+            <div class="faq-question">What is duration and how does it relate to yield?</div>
+            <div class="faq-answer">Duration measures a bond's price sensitivity to interest rate changes, expressed in years. Higher duration means greater price volatility when yields change. It's related to time to maturity but also considers coupon size - lower coupons mean higher duration. When yields rise, bonds with higher duration experience larger price declines. Investors match duration to their investment horizon to minimize interest rate risk.</div>
+
+            <div class="faq-question">Can bond yields be negative?</div>
+            <div class="faq-answer">Yes, bond yields can be negative, and this has occurred in several countries including Japan, Germany, and Switzerland. Investors accept negative yields when they expect even worse returns elsewhere (like cash) or anticipate further rate declines (bond price appreciation). Central bank policies can also drive yields negative. Negative yielding bonds still pay positive coupons, but the premium paid over face value exceeds total coupon payments.</div>
+
+            <div class="faq-question">What is the yield curve?</div>
+            <div class="faq-answer">The yield curve is a graph plotting yields of bonds with identical credit quality but different maturity dates. A normal yield curve slopes upward - longer maturities have higher yields. An inverted curve (short-term yields > long-term) often predicts recession. A flat curve suggests economic uncertainty. Investors use the yield curve to: Compare relative value across maturities, Predict economic direction, and Make asset allocation decisions between short and long-term bonds.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateBondYield() {
+        const face = parseFloat(document.getElementById('bondFace').value) || 0;
+        const price = parseFloat(document.getElementById('bondPrice').value) || 0;
+        const coupon = parseFloat(document.getElementById('bondCoupon').value) || 0;
+        const years = parseFloat(document.getElementById('bondYears').value) || 0;
+        
+        const annualCoupon = face * (coupon / 100);
+        const currentYield = price > 0 ? (annualCoupon / price) * 100 : 0;
+        
+        // Approximate YTM calculation
+        const capitalGain = (face - price) / years;
+        const avgPrice = (face + price) / 2;
+        const ytm = avgPrice > 0 ? ((annualCoupon + capitalGain) / avgPrice) * 100 : 0;
+        
+        const priceVsPar = price > face ? 'Premium' : (price < face ? 'Discount' : 'Par');
+        
+        document.getElementById('currentYield').textContent = currentYield.toFixed(2) + '%';
+        document.getElementById('ytm').textContent = ytm.toFixed(2) + '%';
+        document.getElementById('annualCoupon').textContent = '$' + annualCoupon.toFixed(2);
+        document.getElementById('priceVsPar').textContent = priceVsPar;
+    }
+    
+    function clearBondYield() {
+        document.getElementById('bondFace').value = '';
+        document.getElementById('bondPrice').value = '';
+        document.getElementById('bondCoupon').value = '';
+        document.getElementById('bondYears').value = '';
+        document.getElementById('currentYield').textContent = '0%';
+        document.getElementById('ytm').textContent = '0%';
+        document.getElementById('annualCoupon').textContent = '$0';
+        document.getElementById('priceVsPar').textContent = '-';
+    }
+    
+    function copyBondYieldResults() {
+        const current = document.getElementById('currentYield').textContent;
+        const ytm = document.getElementById('ytm').textContent;
+        const text = `Bond Yield Results:\nCurrent Yield: ${current}\nYield to Maturity: ${ytm}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"Bond Price Calculator", icon:"fa-dollar-sign", url:"bond-price-calculator.html"},
+            {name:"Treasury Bill Calculator", icon:"fa-landmark", url:"treasury-bill-calculator.html"},
+            {name:"CD Calculator", icon:"fa-university", url:"cd-calculator.html"},
+            {name:"Money Market Calculator", icon:"fa-money-bill-wave", url:"money-market-calculator.html"},
+            {name:"SIP Calculator", icon:"fa-chart-line", url:"sip-calculator.html"},
+            {name:"Lumpsum Calculator", icon:"fa-coins", url:"lumpsum-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridBondYield").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

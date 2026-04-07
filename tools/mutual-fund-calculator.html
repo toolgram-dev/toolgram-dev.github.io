@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mutual Fund Calculator – MF Returns & Growth | ToolGram</title>
+    <meta name="description" content="Calculate mutual fund returns including expense ratio impact. Free online MF calculator for investment planning.">
+    <meta name="keywords" content="mutual fund calculator, MF returns, mutual fund growth, expense ratio calculator, SIP calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/mutual-fund-calculator.html">
+    <meta property="og:title" content="Mutual Fund Calculator | ToolGram">
+    <meta property="og:description" content="Calculate mutual fund returns including expense ratio impact.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/mutual-fund-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mutual Fund Calculator",
+        "description": "Calculate mutual fund returns including expense ratio impact.",
+        "applicationCategory": "Finance",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/mutual-fund-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["MF Returns", "Expense Ratio Impact", "Investment Growth"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-pie"></i></div>
+            <div>
+                <h1 style="margin:0;">Mutual Fund Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate returns with expense ratio impact</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Investment Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Investment Amount ($)</label>
+                        <input type="number" id="mfAmount" placeholder="100000" value="100000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Expected Return (%)</label>
+                        <input type="number" id="mfRate" placeholder="12" value="12" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Expense Ratio (%)</label>
+                        <input type="number" id="mfExpense" placeholder="1" value="1" step="0.01" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Time Period (Years)</label>
+                        <input type="number" id="mfYears" placeholder="10" value="10" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateMF()"><i class="fas fa-calculator"></i> Calculate MF Returns</button>
+                    <button class="secondary-btn" onclick="clearMF()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> MF Results</div>
+                <div class="output-display" id="mfOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Invested Amount:</strong> <span id="mfInvested">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Net Returns:</strong> <span id="mfNetReturns">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Value:</strong> <span id="mfTotal">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#ef4444;">Expense Impact:</strong> <span id="mfExpenseImpact">$0</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyMFResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridMF"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Mutual Fund?</h3>
+            <p>A mutual fund is an investment vehicle that pools money from multiple investors to invest in a diversified portfolio of stocks, bonds, or other securities. Professional fund managers handle the investment decisions, making mutual funds an excellent option for investors who want exposure to markets without needing to research and select individual securities themselves.</p>
+            <p>Mutual funds offer diversification, professional management, and liquidity. They are regulated by market authorities and provide transparency through daily NAV (Net Asset Value) publication. Expense ratios are charged annually to cover fund management costs, and this calculator helps you understand how these fees impact your long-term returns.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your lumpsum investment amount - either one-time or accumulated value.<br>
+            <strong>Step 2:</strong> Input the expected annual return rate before expenses (gross return).<br>
+            <strong>Step 3:</strong> Enter the fund's expense ratio - typically 0.5% to 2.5% depending on fund type.<br>
+            <strong>Step 4:</strong> Specify your investment duration in years.<br>
+            <strong>Step 5:</strong> Click "Calculate MF Returns" to see net returns after expenses.<br>
+            <strong>Step 6:</strong> Review the expense impact to understand fee erosion over time.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1 - Equity Fund:</strong> Amount: ₹5,00,000, Return: 15%, Expense: 1.5%, Years: 10. Without expenses: ₹20,22,842. With expenses: ₹17,38,286. Expense impact: ₹2,84,556. Net returns: ₹12,38,286.</p>
+            <p><strong>Example 2 - Index Fund (Low Cost):</strong> Amount: ₹5,00,000, Return: 12%, Expense: 0.2%, Years: 15. Without expenses: ₹27,36,147. With expenses: ₹26,28,918. Expense impact: ₹1,07,229. Low costs preserve more wealth.</p>
+            <p><strong>Example 3 - Debt Fund:</strong> Amount: ₹10,00,000, Return: 7%, Expense: 0.8%, Years: 5. Without expenses: ₹14,02,552. With expenses: ₹13,61,424. Expense impact: ₹41,128. Conservative returns with moderate fees.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Invest in Mutual Funds?</h3>
+            <ul>
+                <li><strong>New Investors</strong> – Get professional management without stock-picking expertise.</li>
+                <li><strong>Busy Professionals</strong> – Set and forget with automatic investing options.</li>
+                <li><strong>Goal-Based Savers</strong> – Match fund types to specific financial goals.</li>
+                <li><strong>Retirement Planners</strong> – Build corpus through equity and debt funds.</li>
+                <li><strong>Diversification Seekers</strong> – Access multiple securities with small investments.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Choose direct plans over regular plans to save on distributor commissions (0.5-1% lower expense).</li>
+                <li>Index funds typically have lower expense ratios (0.1-0.5%) compared to actively managed funds (1-2.5%).</li>
+                <li>Over 20+ years, a 1% lower expense ratio can mean lakhs more in your corpus.</li>
+                <li>Don't chase last year's top performers - consistency matters more.</li>
+                <li>Review fund performance against benchmark quarterly, not daily.</li>
+                <li>Exit load applies if redeemed before specified period (typically 1 year for equity).</li>
+                <li>Tax harvesting: Use SWP instead of dividends for better tax efficiency.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is expense ratio in mutual funds?</div>
+            <div class="faq-answer">Expense ratio is the annual fee expressed as a percentage of assets that mutual funds charge to cover operating costs including management fees, administrative costs, and distribution fees. It's deducted daily from the NAV, so you don't see it as a separate charge. Lower expense ratios mean more of your money stays invested and compounds over time.</div>
+
+            <div class="faq-question">How do I choose the right mutual fund?</div>
+            <div class="faq-answer">Consider these factors: 1) Investment objective matching your goals, 2) Fund manager track record and experience, 3) Consistent performance over 3-5 years vs benchmark, 4) Reasonable expense ratio, 5) Fund size (avoid very small or oversized funds), 6) Exit load structure, 7) Your risk tolerance and investment horizon. Review portfolio holdings to ensure alignment with your preferences.</div>
+
+            <div class="faq-question">What is the difference between direct and regular plans?</div>
+            <div class="faq-answer">Direct plans are bought directly from the fund house without intermediaries, resulting in lower expense ratios (0.5-1% less). Regular plans are bought through distributors/brokers who receive commission built into the higher expense ratio. Over long periods, direct plans can result in significantly higher corpus due to compounding of lower costs. Both have same portfolio, only expense differs.</div>
+
+            <div class="faq-question">Are mutual fund returns guaranteed?</div>
+            <div class="faq-answer">No, mutual fund returns are not guaranteed. They are market-linked investments subject to volatility. Past performance does not guarantee future results. However, over long periods (7+ years), equity funds have historically delivered inflation-beating returns. Debt funds offer more stability but lower returns. Always match your investment horizon and risk tolerance with the appropriate fund category.</div>
+
+            <div class="faq-question">How are mutual funds taxed?</div>
+            <div class="faq-answer">Equity funds: STCG (held <1 year) taxed at 15%, LTCG (held >1 year) at 10% on gains above ₹1 lakh per year. Debt funds: STCG added to your income tax slab, LTCG at 20% with indexation benefit if held >3 years. Hybrid funds taxed based on their equity/debt allocation (65%+ equity = equity taxation). SIP investments follow FIFO (First In First Out) for tax calculations.</div>
+
+            <div class="faq-question">What is NAV in mutual funds?</div>
+            <div class="faq-answer">NAV (Net Asset Value) is the per-unit market value of a mutual fund scheme. It's calculated by dividing the total value of all securities in the portfolio minus liabilities by the number of outstanding units. NAV changes daily based on market movements of underlying securities. Unlike stock prices, NAV doesn't reflect demand-supply dynamics - it's purely based on underlying asset values. You buy/sell MF units at day's closing NAV.</div>
+
+            <div class="faq-question">Can I lose money in mutual funds?</div>
+            <div class="faq-answer">Yes, you can lose money in mutual funds, especially in the short term. Equity funds are volatile and can see 10-20% declines in bear markets. Even debt funds can give negative returns if interest rates rise sharply or credit defaults occur. However, diversified equity funds held for 7+ years have historically not given negative returns. The key is to match your investment horizon with the fund type and stay invested through market cycles.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateMF() {
+        const amount = parseFloat(document.getElementById('mfAmount').value) || 0;
+        const rate = parseFloat(document.getElementById('mfRate').value) || 0;
+        const expense = parseFloat(document.getElementById('mfExpense').value) || 0;
+        const years = parseFloat(document.getElementById('mfYears').value) || 0;
+        
+        const netRate = rate - expense;
+        const totalValue = amount * Math.pow((1 + netRate / 100), years);
+        const withoutExpense = amount * Math.pow((1 + rate / 100), years);
+        const expenseImpact = withoutExpense - totalValue;
+        const netReturns = totalValue - amount;
+        
+        document.getElementById('mfInvested').textContent = '$' + Math.round(amount).toLocaleString();
+        document.getElementById('mfNetReturns').textContent = '$' + Math.round(netReturns).toLocaleString();
+        document.getElementById('mfTotal').textContent = '$' + Math.round(totalValue).toLocaleString();
+        document.getElementById('mfExpenseImpact').textContent = '$' + Math.round(expenseImpact).toLocaleString();
+    }
+    
+    function clearMF() {
+        document.getElementById('mfAmount').value = '';
+        document.getElementById('mfRate').value = '';
+        document.getElementById('mfExpense').value = '';
+        document.getElementById('mfYears').value = '';
+        document.getElementById('mfInvested').textContent = '$0';
+        document.getElementById('mfNetReturns').textContent = '$0';
+        document.getElementById('mfTotal').textContent = '$0';
+        document.getElementById('mfExpenseImpact').textContent = '$0';
+    }
+    
+    function copyMFResults() {
+        const invested = document.getElementById('mfInvested').textContent;
+        const returns = document.getElementById('mfNetReturns').textContent;
+        const total = document.getElementById('mfTotal').textContent;
+        const text = `Mutual Fund Results:\nInvested Amount: ${invested}\nNet Returns: ${returns}\nTotal Value: ${total}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"SIP Calculator", icon:"fa-chart-line", url:"sip-calculator.html"},
+            {name:"Lumpsum Calculator", icon:"fa-coins", url:"lumpsum-calculator.html"},
+            {name:"ETF Calculator", icon:"fa-exchange-alt", url:"etf-calculator.html"},
+            {name:"SWP Calculator", icon:"fa-wallet", url:"swp-calculator.html"},
+            {name:"IRA Calculator", icon:"fa-piggy-bank", url:"ira-calculator.html"},
+            {name:"401k Calculator", icon:"fa-briefcase", url:"401k-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridMF").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

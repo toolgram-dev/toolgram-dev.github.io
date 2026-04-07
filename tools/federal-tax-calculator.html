@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Federal Tax Calculator – US Federal Tax Estimator | ToolGram</title>
+    <meta name="description" content="Calculate US federal tax including income, self-employment, and other taxes. Free online federal tax calculator.">
+    <meta name="keywords" content="federal tax calculator, US federal tax, income tax, self employment tax, federal taxes">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/federal-tax-calculator.html">
+    <meta property="og:title" content="Federal Tax Calculator | ToolGram">
+    <meta property="og:description" content="Calculate US federal tax including income, self-employment, and other taxes.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/federal-tax-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Federal Tax Calculator",
+        "description": "Calculate US federal tax including income, self-employment, and other taxes.",
+        "applicationCategory": "Finance",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/federal-tax-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Federal Tax Calculation", "Self-Employment Tax", "Total Tax Estimator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-flag-usa"></i></div>
+            <div>
+                <h1 style="margin:0;">Federal Tax Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate total federal tax liability</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Income & Status</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Filing Status</label>
+                        <select id="fedFilingStatus" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;"><option value="single">Single</option><option value="married">Married Filing Jointly</option><option value="hoh">Head of Household</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">W-2 Income ($)</label>
+                        <input type="number" id="fedW2" placeholder="80000" value="80000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">1099/Self-Employment ($)</label>
+                        <input type="number" id="fed1099" placeholder="20000" value="20000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Deductions ($)</label>
+                        <input type="number" id="fedDeductions" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateFederalTax()"><i class="fas fa-calculator"></i> Calculate Federal Tax</button>
+                    <button class="secondary-btn" onclick="clearFederalTax()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-invoice-dollar"></i> Federal Tax Summary</div>
+                <div class="output-display" id="fedTaxOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Income Tax:</strong> <span id="fedIncomeTax">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Self-Employment Tax:</strong> <span id="fedSETax">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Federal Tax:</strong> <span id="fedTotal">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Effective Rate:</strong> <span id="fedEffective">0%</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyFedTaxResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridFedTax"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Federal Tax?</h3>
+            <p>Federal tax includes all taxes levied by the US federal government, primarily income tax on wages and investments, plus self-employment tax for independent contractors and business owners. Unlike state taxes that vary by location, federal taxes apply uniformly across all states. Understanding your total federal tax burden is essential for accurate financial planning and quarterly estimated tax payments.</p>
+            <p>This calculator provides a comprehensive view of your federal tax liability by combining income tax calculations with self-employment tax. This is particularly valuable for freelancers, gig workers, and small business owners who need to account for both the employee and employer portions of Social Security and Medicare taxes that are automatically withheld for W-2 employees.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select your filing status - determines tax brackets and standard deduction.<br>
+            <strong>Step 2:</strong> Enter W-2 wage income from your job where taxes are withheld.<br>
+            <strong>Step 3:</strong> Add 1099/self-employment income - freelance, side gig, or business income.<br>
+            <strong>Step 4:</strong> Enter deductions - 401k, HSA, and other above-the-line deductions.<br>
+            <strong>Step 5:</strong> Click "Calculate Federal Tax" to see total liability.<br>
+            <strong>Step 6:</strong> Plan quarterly estimated payments if not withholding enough.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1 - Employee Only:</strong> W-2: $80,000, 1099: $0, Deductions: $10,000. Income Tax: ~$10,500. SE Tax: $0. Total: ~$10,500. Effective rate: ~13%. Withholding likely covers this.</p>
+            <p><strong>Example 2 - Mixed Income:</strong> W-2: $60,000, 1099: $30,000, Deductions: $10,000. Income Tax: ~$13,000. SE Tax: ~$4,200. Total: ~$17,200. Effective rate: ~19%. Need quarterly payments on 1099 income.</p>
+            <p><strong>Example 3 - Full Self-Employed:</strong> W-2: $0, 1099: $100,000, Deductions: $15,000. Income Tax: ~$14,000. SE Tax: ~$12,200. Total: ~$26,200. Effective rate: ~26%. Must make quarterly estimated payments.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <ul>
+                <li><strong>Freelancers</strong> – Calculate both income and self-employment tax on 1099 income.</li>
+                <li><strong>Side Gig Workers</strong> – Understand tax impact of additional income beyond W-2 job.</li>
+                <li><strong>Small Business Owners</strong> – Plan for total federal tax including SE tax.</li>
+                <li><strong>Tax Planners</strong> – Optimize retirement contributions and business expenses.</li>
+                <li><strong>New Entrepreneurs</strong> – Learn about quarterly estimated tax requirements.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Self-employment tax is 15.3% on 92.35% of net business income.</li>
+                <li>You can deduct half of SE tax from your income tax calculation.</li>
+                <li>Set aside 25-30% of 1099 income for taxes to avoid surprises.</li>
+                <li>Safe harbor: Pay 100% of prior year tax (110% if AGI >$150k) to avoid penalty.</li>
+                <li>Quarterly payments due: April 15, June 15, September 15, January 15.</li>
+                <li>Solo 401(k) or SEP IRA reduce both income tax and SE tax base.</li>
+                <li>QBI deduction (20% of qualified business income) available for pass-through entities.</li>
+                <li>Health insurance premiums deductible for self-employed above-the-line.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What federal taxes do I need to pay?</div>
+            <div class="faq-answer">Major federal taxes: Individual Income Tax (10-37% progressive rates on all income), Self-Employment Tax (15.3% on business income covering Social Security and Medicare), Additional Medicare Tax (0.9% on income over $200k/$250k), Net Investment Income Tax (3.8% for high earners), and Alternative Minimum Tax (AMT) for some high-income taxpayers. Most employees only pay income tax (withheld from paycheck), while self-employed pay both income and SE tax.</div>
+
+            <div class="faq-question">What is self-employment tax?</div>
+            <div class="faq-answer">SE tax is 15.3% of 92.35% of net self-employment income, covering both employee and employer portions of Social Security (12.4%) and Medicare (2.9%). W-2 employees pay 7.65% and employers pay 7.65%. Self-employed individuals pay both portions since they are their own employer. The 92.35% adjustment accounts for the deductible employer portion.</div>
+
+            <div class="faq-question">How do I make federal tax payments?</div>
+            <div class="faq-answer">Payment methods: IRS Direct Pay (free online bank transfer), EFTPS (Electronic Federal Tax Payment System), check with Form 1040-V voucher, or credit/debit card (fees apply). Quarterly estimated payments due April 15, June 15, September 15, and January 15. Safe harbor rules: Pay 90% of current year tax or 100% of prior year tax (110% if AGI over $150,000) to avoid underpayment penalties.</div>
+
+            <div class="faq-question">What is the Qualified Business Income deduction?</div>
+            <div class="faq-answer">QBI deduction (Section 199A) allows deducting up to 20% of qualified business income from pass-through entities (sole proprietorships, partnerships, S-corps, LLCs). Limitations apply above $191,950 (single) / $383,900 (married) in taxable income based on W-2 wages and qualified property. Specified service businesses (doctors, lawyers, consultants) face additional restrictions.</div>
+
+            <div class="faq-question">What retirement plans can self-employed use?</div>
+            <div class="faq-answer">SEP IRA: Contribute up to 25% of compensation, max $69,000 (2024). Simplest option. Solo 401(k): Employee deferral up to $23,000, employer contribution up to 25% of compensation, total max $69,000 or $76,500 if age 50+. Best for high earners. SIMPLE IRA: Up to $16,000 deferral plus employer match, good if you have employees.</div>
+
+            <div class="faq-question">How do I calculate quarterly estimated taxes?</div>
+            <div class="faq-answer">Calculate steps: 1) Project annual income (W-2 + 1099). 2) Calculate expected tax using brackets plus SE tax. 3) Subtract deductions, credits, and any W-2 withholding. 4) Result is estimated tax due. 5) Divide by 4 for quarterly payments. Adjust quarterly if income changes significantly. Form 1040-ES worksheets help with calculations.</div>
+
+            <div class="faq-question">What is the difference between W-2 and 1099?</div>
+            <div class="faq-answer">W-2 employees have taxes withheld by employers who pay half of Social Security/Medicare (7.65% each). 1099 contractors receive gross payments and must pay both portions (15.3% SE tax) plus income tax. W-2 workers receive benefits and legal protections; 1099 workers have more flexibility but higher tax complexity. Misclassification by employers can result in IRS penalties.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateFederalTax() {
+        const status = document.getElementById('fedFilingStatus').value;
+        const w2 = parseFloat(document.getElementById('fedW2').value) || 0;
+        const self = parseFloat(document.getElementById('fed1099').value) || 0;
+        const deductions = parseFloat(document.getElementById('fedDeductions').value) || 0;
+        
+        const totalIncome = w2 + self;
+        const taxableIncome = Math.max(0, totalIncome - deductions);
+        
+        // Calculate income tax using 2024 brackets
+        let incomeTax = 0;
+        if (status === 'single') {
+            if (taxableIncome <= 11600) incomeTax = taxableIncome * 0.10;
+            else if (taxableIncome <= 47150) incomeTax = 1160 + (taxableIncome - 11600) * 0.12;
+            else if (taxableIncome <= 100525) incomeTax = 5426 + (taxableIncome - 47150) * 0.22;
+            else if (taxableIncome <= 191950) incomeTax = 17168 + (taxableIncome - 100525) * 0.24;
+            else if (taxableIncome <= 243725) incomeTax = 39110 + (taxableIncome - 191950) * 0.32;
+            else if (taxableIncome <= 609350) incomeTax = 55678 + (taxableIncome - 243725) * 0.35;
+            else incomeTax = 183647 + (taxableIncome - 609350) * 0.37;
+        } else if (status === 'married') {
+            if (taxableIncome <= 23200) incomeTax = taxableIncome * 0.10;
+            else if (taxableIncome <= 94300) incomeTax = 2320 + (taxableIncome - 23200) * 0.12;
+            else if (taxableIncome <= 201050) incomeTax = 10852 + (taxableIncome - 94300) * 0.22;
+            else if (taxableIncome <= 383900) incomeTax = 34337 + (taxableIncome - 201050) * 0.24;
+            else if (taxableIncome <= 487450) incomeTax = 78221 + (taxableIncome - 383900) * 0.32;
+            else if (taxableIncome <= 731200) incomeTax = 111357 + (taxableIncome - 487450) * 0.35;
+            else incomeTax = 196669 + (taxableIncome - 731200) * 0.37;
+        } else {
+            if (taxableIncome <= 16550) incomeTax = taxableIncome * 0.10;
+            else if (taxableIncome <= 63100) incomeTax = 1655 + (taxableIncome - 16550) * 0.12;
+            else if (taxableIncome <= 100500) incomeTax = 7241 + (taxableIncome - 63100) * 0.22;
+            else if (taxableIncome <= 191950) incomeTax = 15469 + (taxableIncome - 100500) * 0.24;
+            else if (taxableIncome <= 243700) incomeTax = 37417 + (taxableIncome - 191950) * 0.32;
+            else if (taxableIncome <= 609350) incomeTax = 53977 + (taxableIncome - 243700) * 0.35;
+            else incomeTax = 181955 + (taxableIncome - 609350) * 0.37;
+        }
+        
+        // SE tax: 15.3% of 92.35% of self-employment income
+        const seTax = self * 0.9235 * 0.153;
+        
+        const totalFedTax = incomeTax + seTax;
+        const effectiveRate = totalIncome > 0 ? ((totalFedTax / totalIncome) * 100).toFixed(1) : 0;
+        
+        document.getElementById('fedIncomeTax').textContent = '$' + Math.round(incomeTax).toLocaleString();
+        document.getElementById('fedSETax').textContent = '$' + Math.round(seTax).toLocaleString();
+        document.getElementById('fedTotal').textContent = '$' + Math.round(totalFedTax).toLocaleString();
+        document.getElementById('fedEffective').textContent = effectiveRate + '%';
+    }
+    
+    function clearFederalTax() {
+        document.getElementById('fedFilingStatus').value = 'single';
+        document.getElementById('fedW2').value = '';
+        document.getElementById('fed1099').value = '';
+        document.getElementById('fedDeductions').value = '';
+        document.getElementById('fedIncomeTax').textContent = '$0';
+        document.getElementById('fedSETax').textContent = '$0';
+        document.getElementById('fedTotal').textContent = '$0';
+        document.getElementById('fedEffective').textContent = '0%';
+    }
+    
+    function copyFedTaxResults() {
+        const total = document.getElementById('fedTotal').textContent;
+        const income = document.getElementById('fedIncomeTax').textContent;
+        const text = `Federal Tax Results:\nTotal Federal Tax: ${total}\nIncome Tax: ${income}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"Income Tax Calculator", icon:"fa-calculator", url:"income-tax-calculator.html"},
+            {name:"State Tax Calculator", icon:"fa-map-marker-alt", url:"state-tax-calculator.html"},
+            {name:"Self Employment Tax", icon:"fa-user-tie", url:"self-employment-tax-calculator.html"},
+            {name:"Sales Tax Calculator", icon:"fa-receipt", url:"sales-tax-calculator.html"},
+            {name:"Solo 401k Calculator", icon:"fa-briefcase", url:"solo-401k-calculator.html"},
+            {name:"SEP IRA Calculator", icon:"fa-piggy-bank", url:"sep-ira-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridFedTax").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

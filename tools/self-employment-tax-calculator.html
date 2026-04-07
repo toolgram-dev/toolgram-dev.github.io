@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Self Employment Tax Calculator – SE Tax Estimator | ToolGram</title>
+    <meta name="description" content="Calculate self-employment tax for freelancers and business owners. Free online SE tax calculator for 1099 workers.">
+    <meta name="keywords" content="self employment tax calculator, SE tax, self employment, 1099 tax, freelance tax">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/self-employment-tax-calculator.html">
+    <meta property="og:title" content="Self Employment Tax Calculator | ToolGram">
+    <meta property="og:description" content="Calculate self-employment tax for freelancers and business owners.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/self-employment-tax-calculator.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-user-tie"></i></div>
+            <div>
+                <h1 style="margin:0;">Self Employment Tax Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate Social Security and Medicare taxes for self-employed</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Business Income</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Net Business Income ($)</label>
+                        <input type="number" id="seIncome" placeholder="50000" value="50000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Other W-2 Wages ($)</label>
+                        <input type="number" id="seWages" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Business Deductions ($)</label>
+                        <input type="number" id="seDeductions" placeholder="5000" value="5000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateSETax()"><i class="fas fa-calculator"></i> Calculate SE Tax</button>
+                    <button class="secondary-btn" onclick="clearSETax()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-invoice-dollar"></i> SE Tax Summary</div>
+                <div class="output-display" id="seOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Total SE Tax:</strong> <span id="seTotal">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Social Security:</strong> <span id="seSocial">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Medicare:</strong> <span id="seMedicare">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Deductible Half:</strong> <span id="seDeductible">$0</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySEResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridSE"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Self-Employment Tax?</h3>
+            <p>Self-employment tax is the combined Social Security and Medicare tax that self-employed individuals must pay. Unlike W-2 employees who split this tax with their employer (each paying 7.65%), self-employed workers pay both portions (15.3% total). This tax applies to 92.35% of your net self-employment income.</p>
+            <p>The SE tax consists of 12.4% for Social Security (on earnings up to $168,600 for 2024) and 2.9% for Medicare (no earnings cap). Additional Medicare tax of 0.9% applies to income over $200,000 for single filers or $250,000 for married couples. You can deduct one-half of your SE tax from your income tax calculation.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Enter net business income from Schedule C or 1099s.<br>
+            <strong>Step 2:</strong> Add W-2 wages if you also have employment income (affects Social Security cap).<br>
+            <strong>Step 3:</strong> Enter business deductions like equipment, supplies, home office.<br>
+            <strong>Step 4:</strong> Click "Calculate SE Tax" to see your liability.<br>
+            <strong>Step 5:</strong> Note the deductible half - reduces your income tax.<br>
+            <strong>Step 6:</strong> Plan quarterly payments based on the total.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1 - Freelancer:</strong> Income: $50,000, Deductions: $5,000. Net: $45,000. SE Taxable: $41,573. SE Tax: ~$6,361. Deductible: ~$3,181.</p>
+            <p><strong>Example 2 - Side Gig:</strong> Income: $20,000, Wages: $80,000, Deductions: $2,000. Net: $18,000. Already maxed SS from wages. Medicare only on SE. SE Tax: ~$522.</p>
+            <p><strong>Example 3 - Consultant:</strong> Income: $100,000, Deductions: $15,000. Net: $85,000. SE Taxable: $78,498. SS portion: $21,848 (maxed). Medicare: $2,277. SE Tax: ~$9,902.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Pays SE Tax?</h3>
+            <ul>
+                <li><strong>Freelancers</strong> - Writers, designers, developers on 1099.</li>
+                <li><strong>Gig Workers</strong> - Uber, DoorDash, TaskRabbit drivers.</li>
+                <li><strong>Consultants</strong> - Independent business advisors.</li>
+                <li><strong>Sole Proprietors</strong> - Single-owner businesses.</li>
+                <li><strong>Partners</strong> - LLC members and partnership partners.</li>
+                <li><strong>Independent Contractors</strong> - Any 1099-NEC recipient with $400+.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>SE tax applies only to 92.35% of net income (accounting for employer portion).</li>
+                <li>Social Security portion maxes at $168,600 total earned income (2024).</li>
+                <li>Deduct half of SE tax on line 23 of Schedule 1 (Form 1040).</li>
+                <li>Form 1040-ES calculates quarterly estimated payments including SE tax.</li>
+                <li>Sole proprietors file Schedule SE with their tax return.</li>
+                <li>S-Corp owners pay SE tax only on reasonable salary, not distributions.</li>
+                <li>Keep 25-30% of net income set aside for total tax liability.</li>
+                <li>Quarterly payments: April 15, June 15, September 15, January 15.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> FAQ</h3>
+            <div class="faq-question">What income is subject to SE tax?</div>
+            <div class="faq-answer">Net self-employment income from Schedule C or partnership K-1s. After deducting business expenses, multiply by 92.35% to get SE taxable amount. Income below $400 is exempt. W-2 wages are not subject to SE tax (already had FICA withheld). Investment income, rental income, and some passive activities are generally not subject.</div>
+
+            <div class="faq-question">How does SE tax differ from income tax?</div>
+            <div class="faq-answer">SE tax is a flat 15.3% on 92.35% of net self-employment income (12.4% Social Security + 2.9% Medicare). Income tax is progressive (10-37%) on all taxable income including wages, investments, and business profit. You pay both taxes on self-employment income. SE tax funds Social Security and Medicare; income tax funds general government operations.</div>
+
+            <div class="faq-question">Can I reduce my SE tax?</div>
+            <div class="faq-answer">Strategies to reduce SE tax: Maximize business deductions to lower net income; Form an S-Corp and take distributions (only salary subject to SE tax, not distributions); Stay under Social Security wage base with employment income; Structure as partnership if multiple owners. Note: You cannot deduct retirement contributions from SE tax calculation - they're deducted after SE tax is calculated.</div>
+
+            <div class="faq-question">What forms do I file for SE tax?</div>
+            <div class="faq-answer">Schedule C (Form 1040) reports business income and expenses. Schedule SE calculates self-employment tax. Form 1040-ES for quarterly estimated payments. Form 1040 includes SE tax on line 23. If S-Corp: Form 1120-S and K-1 (no SE tax, but W-2 wages subject to payroll tax). These forms are filed with your annual tax return.</div>
+
+            <div class="faq-question">Do I pay SE tax on rental income?</div>
+            <div class="faq-answer">Generally no. Rental income is passive and not subject to SE tax. However, if you provide substantial services (hotel-like operations, Airbnb with extensive services), the IRS may consider it a business subject to SE tax. Real estate professionals who materially participate may have different treatment. Consult a tax professional for complex situations.</div>
+
+            <div class="faq-question">How do quarterly estimated payments work?</div>
+            <div class="faq-answer">Self-employed individuals must pay estimated taxes quarterly since no employer withholds. Calculate: Expected income tax + SE tax - credits and withholding. Divide by 4 for payment amounts. Due dates: April 15, June 15, September 15, January 15. Underpayment penalties apply if you owe $1,000+ and paid less than 90% of current year or 100% of prior year tax.</div>
+
+            <div class="faq-question">What if I have both W-2 and 1099 income?</div>
+            <div class="faq-answer">You pay SE tax only on 1099 income. W-2 wages have FICA already withheld by employer. However, Social Security wage base ($168,600 for 2024) applies to combined W-2 and SE income. If W-2 wages exceed the cap, you only pay Medicare portion (2.9%) on self-employment income, not Social Security. Your W-2 employer still pays their half regardless.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateSETax() {
+        const income = parseFloat(document.getElementById('seIncome').value) || 0;
+        const wages = parseFloat(document.getElementById('seWages').value) || 0;
+        const deductions = parseFloat(document.getElementById('seDeductions').value) || 0;
+        
+        const netIncome = Math.max(0, income - deductions);
+        const seTaxable = netIncome * 0.9235;
+        const ssCap = 168600;
+        const remainingSSCap = Math.max(0, ssCap - wages);
+        
+        const ssTaxable = Math.min(seTaxable, remainingSSCap);
+        const ssTax = ssTaxable * 0.124;
+        const medicareTax = seTaxable * 0.029;
+        const totalSE = ssTax + medicareTax;
+        const deductible = totalSE * 0.5;
+        
+        document.getElementById('seTotal').textContent = '$' + Math.round(totalSE).toLocaleString();
+        document.getElementById('seSocial').textContent = '$' + Math.round(ssTax).toLocaleString();
+        document.getElementById('seMedicare').textContent = '$' + Math.round(medicareTax).toLocaleString();
+        document.getElementById('seDeductible').textContent = '$' + Math.round(deductible).toLocaleString();
+    }
+    
+    function clearSETax() {
+        document.getElementById('seIncome').value = '';
+        document.getElementById('seWages').value = '';
+        document.getElementById('seDeductions').value = '';
+        document.getElementById('seTotal').textContent = '$0';
+        document.getElementById('seSocial').textContent = '$0';
+        document.getElementById('seMedicare').textContent = '$0';
+        document.getElementById('seDeductible').textContent = '$0';
+    }
+    
+    function copySEResults() {
+        const total = document.getElementById('seTotal').textContent;
+        const deductible = document.getElementById('seDeductible').textContent;
+        navigator.clipboard.writeText(`SE Tax Results:\nTotal SE Tax: ${total}\nDeductible Half: ${deductible}`);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"Federal Tax Calculator", icon:"fa-flag-usa", url:"federal-tax-calculator.html"},
+            {name:"Income Tax Calculator", icon:"fa-calculator", url:"income-tax-calculator.html"},
+            {name:"Quarterly Tax Calculator", icon:"fa-calendar-alt", url:"quarterly-tax-calculator.html"},
+            {name:"Solo 401k Calculator", icon:"fa-briefcase", url:"solo-401k-calculator.html"},
+            {name:"SEP IRA Calculator", icon:"fa-piggy-bank", url:"sep-ira-calculator.html"},
+            {name:"QBI Deduction Calculator", icon:"fa-percentage", url:"qbi-deduction-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => { html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`; });
+        document.getElementById("relatedGridSE").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>IRR Calculator – Internal Rate of Return | ToolGram</title>
+    <meta name="description" content="Calculate Internal Rate of Return (IRR) for investments with multiple cash flows. Free online IRR calculator for project evaluation and investment analysis.">
+    <meta name="keywords" content="IRR calculator, internal rate of return, investment analysis, project evaluation, cash flow analysis">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/irr-calculator.html">
+    <meta property="og:title" content="IRR Calculator | ToolGram">
+    <meta property="og:description" content="Calculate Internal Rate of Return (IRR) for investments with multiple cash flows.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/irr-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "IRR Calculator",
+        "description": "Calculate Internal Rate of Return (IRR) for investments with multiple cash flows.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/irr-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["IRR Calculation", "Internal Rate of Return", "Cash Flow Analysis", "Investment Evaluation"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .irr-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+                <h1 style="margin:0;">IRR Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Internal Rate of Return</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-dollar-sign"></i> Cash Flows</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Initial Investment ($)</label>
+                        <input type="number" id="initialIRR" placeholder="-10000" value="-10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Year 1 Cash Flow ($)</label>
+                        <input type="number" id="year1IRR" placeholder="3000" value="3000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Year 2 Cash Flow ($)</label>
+                        <input type="number" id="year2IRR" placeholder="4000" value="4000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Year 3 Cash Flow ($)</label>
+                        <input type="number" id="year3IRR" placeholder="5000" value="5000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Year 4 Cash Flow ($)</label>
+                        <input type="number" id="year4IRR" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Year 5 Cash Flow ($)</label>
+                        <input type="number" id="year5IRR" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateIRR()"><i class="fas fa-calculator"></i> Calculate IRR</button>
+                        <button class="secondary-btn" onclick="clearIRR()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-percentage"></i> IRR Results</div>
+                <div class="output-display" id="outputIRR">
+                    <div class="irr-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-chart-line"></i> IRR</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="irrResult">0%</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Internal rate of return</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Cash In:</strong> <span id="totalInIRR">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Net Present Value:</strong> <span id="npvIRR">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Investment Period:</strong> <span id="periodIRR">5 years</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Decision:</strong> <span id="decisionIRR">Enter cash flows</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyIRRResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridIRR"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is an IRR Calculator?</h3>
+            <p>An IRR (Internal Rate of Return) Calculator determines the discount rate that makes the net present value (NPV) of all cash flows equal to zero. It represents the annualized effective compounded return rate that an investment is expected to generate.</p>
+            <p>Unlike simple ROI calculations, IRR accounts for the timing of cash flows, making it ideal for evaluating investments with multiple periods of inflows and outflows. It helps answer: "What annual return am I actually earning considering when money went in and came out?"</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter initial investment as a negative number (cash outflow).<br>
+            <strong>Step 2:</strong> Input cash inflows for each year (positive numbers).<br>
+            <strong>Step 3:</strong> Leave unused years as 0 or enter all projected cash flows.<br>
+            <strong>Step 4:</strong> Click "Calculate IRR" to see the internal rate of return.<br>
+            <strong>Step 5:</strong> Compare IRR to your required rate of return or cost of capital.<br>
+            <strong>Step 6:</strong> IRR > hurdle rate means the investment is acceptable.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> IRR Examples</h3>
+            <p><strong>Example 1 - Real Estate Investment:</strong> Initial investment: -$100,000 (property purchase). Year 1-3 rental income: $12,000/year. Year 4 sale: $130,000. IRR: 16.8%. This exceeds typical stock market returns, indicating a potentially attractive real estate opportunity when accounting for both rental income and appreciation.</p>
+            <p><strong>Example 2 - Business Project:</strong> Equipment purchase: -$50,000. Year 1 savings: $15,000. Year 2 savings: $20,000. Year 3 savings: $25,000. Salvage value: $5,000. IRR: 18.5%. Since this exceeds the company's 12% hurdle rate, the project is financially viable and should be approved.</p>
+            <p><strong>Example 3 - Savings with Contributions:</strong> Initial: -$10,000. Monthly contributions tracked annually: -$6,000/year for 5 years. Final value: $60,000. IRR: 9.2%. This shows the actual return experienced, accounting for the timing of each contribution rather than just total dollars in vs. out.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <p>Business managers evaluating capital projects use IRR to decide which investments to pursue. Projects with IRR exceeding the company's cost of capital create value and should be approved.</p>
+            <p>Real estate investors analyzing rental properties need IRR to account for irregular cash flows from rental income, expenses, refinancing, and eventual property sale. It provides a true picture of investment performance.</p>
+            <p>Personal investors tracking portfolios with regular contributions or withdrawals benefit from IRR. Unlike simple return calculations, IRR accurately reflects the impact of deposit and withdrawal timing on overall performance.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> IRR Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Hurdle Rate Comparison:</strong> Accept projects where IRR exceeds your cost of capital or required return</li>
+                <li><strong>Multiple IRRs:</strong> Projects with alternating cash flows may have multiple IRRs—use NPV instead</li>
+                <li><strong>Reinvestment Assumption:</strong> IRR assumes cash flows reinvest at the IRR rate—may be unrealistic</li>
+                <li><strong>Modified IRR (MIRR):</strong> Uses realistic reinvestment rate for more conservative analysis</li>
+                <li><strong>Scale Blindness:</strong> IRR doesn't consider investment size—$1M project with 20% IRR beats $10K with 25%</li>
+                <li><strong>Terminal Value:</strong> Include realistic exit values or salvage for accurate multi-year projects</li>
+                <li><strong>Sensitivity Analysis:</strong> Test IRR with optimistic, pessimistic, and expected cash flow scenarios</li>
+                <li><strong>Combined Metrics:</strong> Use IRR with NPV and payback period for comprehensive evaluation</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">What is IRR and how is it calculated?</div>
+            <div class="faq-answer">IRR (Internal Rate of Return) is the discount rate that makes the net present value (NPV) of all cash flows equal to zero. In other words, it's the break-even rate of return where the present value of inflows equals the present value of outflows. Calculation: IRR solves this equation for r: 0 = Σ [Cash Flow_t / (1 + r)^t] where t = time period. No algebraic solution exists—calculated through iterative numerical methods (trial and error until NPV = 0). Financial calculators and software use sophisticated algorithms to find IRR instantly.</div>
+
+            <div class="faq-question">What is the difference between IRR and ROI?</div>
+            <div class="faq-answer">ROI (Return on Investment): Simple percentage return calculation. Formula: (Gain - Cost) / Cost. Ignores timing of cash flows. Best for single-period investments. IRR (Internal Rate of Return): Accounts for timing of all cash flows. Solves for the rate that makes NPV = 0. Best for multi-period investments with irregular cash flows. Example: $10,000 invested, $500 added month 6, $16,000 final value after 1 year. ROI: 52.4% (ignores timing). IRR: ~28% (accounts for mid-year contribution). Use ROI for simple comparisons. Use IRR when timing matters.</div>
+
+            <div class="faq-question">What is a good IRR percentage?</div>
+            <div class="faq-answer">"Good" IRR is relative to your cost of capital and risk: Corporate Projects: Usually 12-20% depending on industry risk. Real Estate: 12-18% for value-add projects; 8-12% for stabilized properties. Private Equity: 20-30% target for leveraged buyouts. Venture Capital: 30%+ for early-stage (high failure risk). Personal Investments: Should exceed stock market returns (7-10%). Cost of Capital Benchmark: IRR > WACC (Weighted Average Cost of Capital) creates value. Risk Adjustment: Higher risk projects should show proportionally higher IRR to justify investment.</div>
+
+            <div class="faq-question">Can IRR be negative?</div>
+            <div class="faq-answer">Yes, negative IRR means the investment loses money at any discount rate. Indicators: NPV is negative at all positive discount rates. Cash outflows exceed inflows in present value terms. Project destroys rather than creates value. Interpretation: IRR < 0: Reject project (unless strategic/non-financial reasons). IRR = 0: Break-even in nominal terms. IRR between 0 and hurdle rate: Reject (doesn't meet minimum return). Always compare IRR to your required rate of return or cost of capital.</div>
+
+            <div class="faq-question">What are the limitations of IRR?</div>
+            <div class="faq-answer">IRR limitations include: Multiple IRRs: Projects with alternating positive/negative cash flows may have multiple solutions. Unrealistic Reinvestment: Assumes cash flows reinvest at IRR rate—often too optimistic. Scale Ignorance: Favors smaller high-percentage returns over larger lower-percentage returns. Mutually Exclusive Projects: May give conflicting rankings with NPV for projects of different sizes. Timing Sensitivity: Highly sensitive to cash flow timing assumptions. No Dollar Value: Doesn't show absolute wealth created (use NPV for that). Solutions: Use NPV alongside IRR. Consider MIRR (Modified IRR) for realistic reinvestment. Analyze payback period for liquidity assessment.</div>
+
+            <div class="faq-question">How do I interpret IRR results?</div>
+            <div class="faq-answer">Decision Rules: IRR > Cost of Capital: Accept project (creates value). IRR = Cost of Capital: Indifferent (break-even). IRR < Cost of Capital: Reject project (destroys value). Comparisons: Higher IRR is generally better when comparing similar-sized projects. IRR vs. NPV: NPV shows dollar value created; IRR shows percentage return. Example: Project A: IRR 15%, NPV $100K. Project B: IRR 12%, NPV $500K. IRR favors A; NPV favors B. If mutually exclusive, choose B (more total value). If capital is abundant, do both.</div>
+
+            <div class="faq-question">What is MIRR (Modified IRR)?</div>
+            <div class="faq-answer">MIRR addresses IRR's unrealistic reinvestment assumption. Standard IRR assumes cash flows reinvest at the IRR itself. MIRR assumes: Negative cash flows (investments) financed at financing rate. Positive cash flows reinvested at reinvestment rate (more conservative). Calculation: MIRR = (FV of positive cash flows / PV of negative cash flows)^(1/n) - 1. When to use: When IRR seems too optimistic. For projects with high early returns. When reinvestment opportunities yield less than IRR. Corporate finance often prefers MIRR for conservative planning.</div>
+
+            <div class="faq-question">How does IRR compare to NPV?</div>
+            <div class="faq-answer">NPV (Net Present Value): Shows dollar value created in today's dollars. Considers absolute wealth generation. Preferred for mutually exclusive projects of different sizes. IRR (Internal Rate of Return): Shows percentage return. Easier to communicate and compare to benchmarks. Preferred when comparing projects of similar scale. Conflict Resolution: When NPV and IRR disagree on project ranking: If projects are mutually exclusive, trust NPV (maximizes wealth). If independent projects, both can be acceptable if IRR > hurdle and NPV > 0. Best Practice: Calculate both metrics for comprehensive analysis.</div>
+
+            <div class="faq-question">Can I calculate IRR for my investment portfolio?</div>
+            <div class="faq-answer">Yes, portfolio IRR (also called money-weighted return or dollar-weighted return) is your personal return accounting for contribution and withdrawal timing. Tools: Excel: XIRR function for irregular dates; IRR function for regular periods. Financial software: Most portfolio trackers calculate IRR automatically. This calculator: Input portfolio cash flows (contributions negative, withdrawals positive, current value as final positive). Why use it: Your IRR differs from time-weighted returns if you added/removed money. Shows your actual experienced return, not just market performance.</div>
+
+            <div class="faq-question">What causes multiple IRRs?</div>
+            <div class="faq-answer">Multiple IRRs occur with non-conventional cash flows that change signs more than once. Conventional: Outflow followed by inflows (one sign change = one IRR). Non-conventional: Pattern like: -, +, -, + (multiple sign changes). Example: -$1000, +$3000, -$2500, +$500. This pattern has two sign changes and potentially two IRRs. Solutions: Use NPV instead when multiple IRRs appear. Apply modified IRR (MIRR) methodology. Examine the pattern to ensure cash flows are realistic. In practice, true non-conventional patterns are rare in standard business projects.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateIRR(){
+const cf0=parseFloat(document.getElementById('initialIRR').value)||0;
+const cf1=parseFloat(document.getElementById('year1IRR').value)||0;
+const cf2=parseFloat(document.getElementById('year2IRR').value)||0;
+const cf3=parseFloat(document.getElementById('year3IRR').value)||0;
+const cf4=parseFloat(document.getElementById('year4IRR').value)||0;
+const cf5=parseFloat(document.getElementById('year5IRR').value)||0;
+
+const cashFlows=[cf0,cf1,cf2,cf3,cf4,cf5];
+let irr=0.1;
+let npv=0;
+for(let i=0;i<100;i++){
+npv=0;
+for(let t=0;t<cashFlows.length;t++){npv+=cashFlows[t]/Math.pow(1+irr,t)}
+if(Math.abs(npv)<0.01)break;
+irr+=npv>0?0.01:-0.01;
+if(irr<0)irr=0.001;
+}
+irr=irr*100;
+
+const totalIn=cf1+cf2+cf3+cf4+cf5;
+let decision='Enter cash flows';
+if(irr>15)decision='Strong investment - Accept';
+else if(irr>8)decision='Acceptable - Consider';
+else if(irr>0)decision='Below typical returns - Review';
+else decision='Reject - Negative return';
+
+document.getElementById('irrResult').textContent=irr.toFixed(2)+'%';
+document.getElementById('irrResult').style.color=irr>=8?'#22c55e':(irr>=0?'#FBBF24':'#ef4444');
+document.getElementById('totalInIRR').textContent='$'+totalIn.toLocaleString();
+document.getElementById('npvIRR').textContent='$'+npv.toFixed(2);
+document.getElementById('decisionIRR').textContent=decision;
+}
+function clearIRR(){
+document.getElementById('initialIRR').value='';
+document.getElementById('year1IRR').value='';
+document.getElementById('year2IRR').value='';
+document.getElementById('year3IRR').value='';
+document.getElementById('year4IRR').value='';
+document.getElementById('year5IRR').value='';
+document.getElementById('irrResult').textContent='0%';
+document.getElementById('irrResult').style.color='#8B5CF6';
+document.getElementById('totalInIRR').textContent='$0.00';
+document.getElementById('npvIRR').textContent='$0.00';
+document.getElementById('decisionIRR').textContent='Enter cash flows';
+}
+function copyIRRResults(){
+const irr=document.getElementById('irrResult').textContent;
+const decision=document.getElementById('decisionIRR').textContent;
+const text=`IRR Results:
+IRR: ${irr}
+Decision: ${decision}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+function loadRelated(){
+const tools=[
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"529 Savings",icon:"fa-graduation-cap",url:"529-savings-calculator.html"},
+{name:"Annuity",icon:"fa-hand-holding-usd",url:"annuity-calculator.html"},
+{name:"Pension",icon:"fa-calendar-check",url:"pension-calculator.html"},
+{name:"IRA",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"College Savings",icon:"fa-university",url:"college-savings-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridIRR").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Investment Return Calculator – ROI & Yield Estimator | ToolGram</title>
+    <meta name="description" content="Calculate investment returns, total gain, and annual yield. Free online investment return calculator for stocks, bonds, and portfolios.">
+    <meta name="keywords" content="investment return calculator, ROI calculator, yield calculator, investment gain, portfolio return">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/investment-return-calculator.html">
+    <meta property="og:title" content="Investment Return Calculator | ToolGram">
+    <meta property="og:description" content="Calculate investment returns, total gain, and annual yield.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/investment-return-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Investment Return Calculator",
+        "description": "Calculate investment returns, total gain, and annual yield.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/investment-return-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Investment Return", "ROI Calculation", "Annual Yield", "Total Return"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .inv-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+                <h1 style="margin:0;">Investment Return Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate ROI and annual yield</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-dollar-sign"></i> Investment Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Initial Investment ($)</label>
+                        <input type="number" id="initialInv" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Final Value ($)</label>
+                        <input type="number" id="finalValue" placeholder="15000" value="15000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Time Period (Years)</label>
+                        <input type="number" id="invYears" placeholder="5" value="5" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Additional Contributions ($)</label>
+                        <input type="number" id="contributions" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateInvReturn()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearInvReturn()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-pie"></i> Return Summary</div>
+                <div class="output-display" id="outputInv">
+                    <div class="inv-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-chart-line"></i> Total Return</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="totalReturn">0%</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Overall gain percentage</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Annualized Return (CAGR):</strong> <span id="cagrReturn">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Gain ($):</strong> <span id="totalGain">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Initial Investment:</strong> <span id="initialDisplay">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Final Value:</strong> <span id="finalDisplay">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyInvResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridInv"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is an Investment Return Calculator?</h3>
+            <p>An Investment Return Calculator helps you measure the performance of your investments by calculating total return, annualized return (CAGR), and dollar gains. It provides clear metrics to evaluate how well your investments have performed over a specific time period.</p>
+            <p>This calculator shows both the percentage return and the compound annual growth rate, which smooths out volatility to show a standardized annual performance figure. This makes it easier to compare investments with different time horizons and assess whether your returns are meeting your financial goals.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your initial investment amount.<br>
+            <strong>Step 2:</strong> Input the current or final value of your investment.<br>
+            <strong>Step 3:</strong> Enter the time period in years.<br>
+            <strong>Step 4:</strong> Add any additional contributions made during the period (optional).<br>
+            <strong>Step 5:</strong> Click "Calculate" to see total return, CAGR, and dollar gains.<br>
+            <strong>Step 6:</strong> Use results to compare against benchmarks like S&P 500.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Investment Return Examples</h3>
+            <p><strong>Example 1 - Stock Investment:</strong> Invested $10,000 in a stock 3 years ago, now worth $14,000. Total return: 40%. CAGR: 11.9% annually. This outperformed the historical S&P 500 average of 10%. Total gain: $4,000. On a risk-adjusted basis, this was a solid investment return.</p>
+            <p><strong>Example 2 - Long-Term Portfolio:</strong> $50,000 invested 10 years ago with $5,000 annual additions, now worth $180,000. Total contributions: $100,000. Total gain: $80,000. CAGR calculation shows 9.2% annual return. This demonstrates the power of consistent investing and compound growth over a decade.</p>
+            <p><strong>Example 3 - Underperforming Asset:</strong> Bought $25,000 of bonds 5 years ago, now worth $26,500. Total return: 6%. CAGR: 1.17% annually. This significantly underperformed inflation and stock market returns, showing opportunity cost of conservative investments in growth periods.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <p>Individual investors tracking portfolio performance should use this calculator regularly to measure how their investments are performing against their goals and market benchmarks. It provides concrete numbers to assess investment decisions.</p>
+            <p>Financial advisors use return calculations to report client performance and make rebalancing recommendations. Understanding actual returns versus expected returns guides strategic asset allocation decisions.</p>
+            <p>Retirement planners need to calculate expected returns to determine if their savings will meet future income needs. This calculator helps project whether current investments can sustain retirement withdrawals over decades.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Investment Return Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Benchmark Against Market:</strong> Compare your returns to S&P 500 (stocks) or aggregate bond indices</li>
+                <li><strong>Time Period Matters:</strong> Short-term returns can be misleading—focus on 5+ year CAGR</li>
+                <li><strong>Risk-Adjusted Returns:</strong> Higher returns with higher volatility may not be better than steady returns</li>
+                <li><strong>Tax Considerations:</strong> Calculate after-tax returns for accurate performance measurement</li>
+                <li><strong>Reinvestment Impact:</strong> Include dividends and interest reinvestment for total return calculation</li>
+                <li><strong>Currency Adjustment:</strong> For international investments, consider exchange rate impacts</li>
+                <li><strong>Inflation Reality:</strong> Subtract 2-3% inflation for real (inflation-adjusted) return</li>
+                <li><strong>Sequence Risk:</strong> Same average return can produce different outcomes depending on timing</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">What is CAGR and why is it important?</div>
+            <div class="faq-answer">CAGR (Compound Annual Growth Rate) represents the mean annual growth rate of an investment over a specified time period longer than one year. It assumes profits are reinvested at the end of each period. Formula: CAGR = (Ending Value / Beginning Value)^(1/n) - 1 where n = number of years. CAGR is important because it smooths out returns, providing a standardized annual figure that's easier to compare across different investments and time periods. Unlike simple average returns, CAGR accounts for compounding and gives a more realistic picture of growth.</div>
+
+            <div class="faq-question">What's the difference between total return and annualized return?</div>
+            <div class="faq-answer">Total Return: The complete percentage change in investment value over the entire holding period. Example: $10,000 to $15,000 over 5 years = 50% total return. Annualized Return (CAGR): The equivalent constant annual return that would produce the same ending value. Same example: 8.45% annualized. Key difference: Total return doesn't account for time—50% over 5 years is very different from 50% over 20 years. Annualized return normalizes for time, making comparisons fair. Always use annualized returns when comparing investments with different time horizons.</div>
+
+            <div class="faq-question">How do I calculate investment return with contributions?</div>
+            <div class="faq-answer">With periodic contributions, simple return calculations don't work because money was invested at different times. Methods: 1) Dollar-Weighted Return (IRR): Accounts for timing and amount of cash flows—your personal experience. 2) Time-Weighted Return: Removes impact of contributions/withdrawals—shows manager skill. For personal tracking, use IRR/XIRR functions in spreadsheets. This calculator estimates by subtracting total contributions from final value before calculating return. More precise calculations require knowing exact dates of each contribution.</div>
+
+            <div class="faq-question">What is a good investment return?</div>
+            <div class="faq-answer">"Good" depends on asset class, risk level, and time period: Stocks: 7-10% annualized long-term is typical (S&P 500 historical average). Bonds: 3-5% annualized for high-quality bonds. Balanced Portfolio (60/40): 5-7% annualized historically. Inflation-adjusted (real returns): Subtract 2-3% from nominal returns. Risk-adjusted: Higher returns with lower volatility are better. Compare to: Benchmark indices, Inflation rate, Your financial goals, Similar investments with comparable risk.</div>
+
+            <div class="faq-question">Should I use nominal or real returns?</div>
+            <div class="faq-answer">Nominal Returns: The actual percentage gain without adjusting for inflation. What your account statement shows. Real Returns: Nominal return minus inflation rate. Shows true purchasing power growth. Example: 10% nominal return with 3% inflation = 7% real return. Use Nominal: For tax calculations, comparing to other nominal investments, short-term periods. Use Real: For retirement planning, long-term projections, understanding actual wealth growth. For long-term planning, real returns matter more—you need your money to outpace inflation to maintain lifestyle.</div>
+
+            <div class="faq-question">How does volatility affect returns?</div>
+            <div class="faq-answer">Volatility drag: Higher volatility reduces compound returns even if arithmetic average is the same. Example: Year 1: +20%, Year 2: -10%. Average return: 5%. Actual result: +8% total (4% annualized). The volatility reduced your compound return from 5% to 4%. This is why consistent, steady returns often beat volatile high-return investments. Risk-adjusted return measures like Sharpe ratio account for this. When evaluating investments, consider both return and the volatility required to achieve it.</div>
+
+            <div class="faq-question">What fees should I include in return calculations?</div>
+            <div class="faq-answer">For accurate net returns, include: Expense ratios (mutual funds, ETFs), Trading commissions, Advisory fees (percentage or flat), Account maintenance fees, Load fees (front-end or back-end on some mutual funds), 12b-1 fees (marketing/distribution), Tax costs (if calculating after-tax returns). Example: Fund returns 8% but has 1% expense ratio and 1% advisor fee. Your net return: 6%. Over 30 years, that 2% fee difference compounds to 45% less wealth. Always focus on net-of-fee returns when evaluating investments.</div>
+
+            <div class="faq-question">How do taxes affect investment returns?</div>
+            <div class="faq-answer">Taxes significantly impact net returns. Consider: Tax-Deferred Accounts (401k, IRA): No taxes until withdrawal—full compounding. Taxable Accounts: Annual taxes on dividends, interest, capital gains distributions. Long-term capital gains (held >1 year): 0%, 15%, or 20% federal rate. Short-term gains: Taxed as ordinary income (up to 37%). Tax-Loss Harvesting: Offset gains with losses to reduce tax burden. Municipal Bonds: Tax-free at federal level. Location Optimization: Put tax-inefficient investments (bonds, REITs) in tax-deferred accounts.</div>
+
+            <div class="faq-question">What is alpha in investing?</div>
+            <div class="faq-answer">Alpha measures an investment's return relative to a benchmark, after accounting for risk (beta). Positive alpha: Outperformance after risk adjustment. Negative alpha: Underperformance. Example: Fund returns 12% when benchmark returns 10%. If fund has same risk as benchmark, alpha is +2%. If fund is twice as risky (beta=2) and returns 12% vs benchmark 10%, alpha might be 0 or negative because you didn't earn enough extra return for the extra risk. Alpha is the "value add" of active management—whether skill or luck generated excess returns.</div>
+
+            <div class="faq-question">Can I trust historical returns as predictors of future performance?</div>
+            <div class="faq-answer">No—past performance doesn't guarantee future results. Historical returns provide context but can't predict the future. Markets are dynamic: Economic conditions change, Interest rate environments shift, Technology disrupts industries, Geopolitical events occur. Use historical returns for: Understanding typical volatility ranges, Setting realistic long-term expectations, Comparing asset class behaviors. Don't use for: Expecting exact repetition, Timing markets based on recent performance, Assuming recent trends continue. Focus on building diversified portfolios aligned with your goals rather than chasing past winners.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateInvReturn(){
+const initial=parseFloat(document.getElementById('initialInv').value)||0;
+const final=parseFloat(document.getElementById('finalValue').value)||0;
+const years=parseFloat(document.getElementById('invYears').value)||1;
+const contrib=parseFloat(document.getElementById('contributions').value)||0;
+
+const gain=final-initial-contrib;
+const totalReturn=initial>0?(gain/initial)*100:0;
+const cagr=initial>0?(Math.pow((final-contrib)/initial,1/years)-1)*100:0;
+
+document.getElementById('totalReturn').textContent=totalReturn.toFixed(2)+'%';
+document.getElementById('totalReturn').style.color=totalReturn>=0?'#22c55e':'#ef4444';
+document.getElementById('cagrReturn').textContent=cagr.toFixed(2)+'%';
+document.getElementById('totalGain').textContent='$'+gain.toLocaleString();
+document.getElementById('initialDisplay').textContent='$'+initial.toLocaleString();
+document.getElementById('finalDisplay').textContent='$'+final.toLocaleString();
+}
+function clearInvReturn(){
+document.getElementById('initialInv').value='';
+document.getElementById('finalValue').value='';
+document.getElementById('invYears').value='';
+document.getElementById('contributions').value='';
+document.getElementById('totalReturn').textContent='0%';
+document.getElementById('totalReturn').style.color='#8B5CF6';
+document.getElementById('cagrReturn').textContent='0%';
+document.getElementById('totalGain').textContent='$0.00';
+document.getElementById('initialDisplay').textContent='$0.00';
+document.getElementById('finalDisplay').textContent='$0.00';
+}
+function copyInvResults(){
+const total=document.getElementById('totalReturn').textContent;
+const cagr=document.getElementById('cagrReturn').textContent;
+const text=`Investment Return Results:
+Total Return: ${total}
+Annualized Return (CAGR): ${cagr}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+function loadRelated(){
+const tools=[
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"529 Savings",icon:"fa-graduation-cap",url:"529-savings-calculator.html"},
+{name:"Annuity",icon:"fa-hand-holding-usd",url:"annuity-calculator.html"},
+{name:"Pension",icon:"fa-calendar-check",url:"pension-calculator.html"},
+{name:"IRA",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"College Savings",icon:"fa-university",url:"college-savings-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridInv").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

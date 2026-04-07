@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Social Security Calculator – Benefits Estimator | ToolGram</title>
+    <meta name="description" content="Estimate your Social Security retirement benefits. Free online Social Security calculator with full retirement age and benefit projections.">
+    <meta name="keywords" content="Social Security calculator, retirement benefits, Social Security estimator, benefits calculator, retirement age">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/social-security-calculator.html">
+    <meta property="og:title" content="Social Security Calculator | ToolGram">
+    <meta property="og:description" content="Estimate your Social Security retirement benefits.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/social-security-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Social Security Calculator",
+        "description": "Estimate your Social Security retirement benefits.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/social-security-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Social Security Benefits", "Retirement Age", "Benefit Estimation", "Retirement Planning"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .ss-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">Social Security Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Estimate your retirement benefits</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-user"></i> Your Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Current Age</label>
+                        <input type="number" id="currentAge" placeholder="35" value="35" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Retirement Age</label>
+                        <input type="number" id="retirementAge" placeholder="67" value="67" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Income ($)</label>
+                        <input type="number" id="annualIncome" placeholder="60000" value="60000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Years Worked</label>
+                        <input type="number" id="yearsWorked" placeholder="10" value="10" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;box-sizing:border-box">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateSS()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearSS()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-pie"></i> Benefit Estimate</div>
+                <div class="output-display" id="outputSS">
+                    <div class="ss-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-shield-alt"></i> Monthly Benefit</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="monthlyBenefit">$0.00</span>/month</div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">At full retirement age</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Annual Benefit:</strong> <span id="annualBenefit">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Full Retirement Age:</strong> <span id="fra">67</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">PIA Estimate:</strong> <span id="pia">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySSResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridSS"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Social Security Calculator?</h3>
+            <p>A Social Security Calculator helps you estimate your future Social Security retirement benefits based on your earnings history, age, and planned retirement date. Social Security provides a foundation of income protection for millions of retirees, and understanding your potential benefits is crucial for retirement planning.</p>
+            <p>This calculator uses the Social Security benefit formula to estimate your Primary Insurance Amount (PIA) and monthly benefit at different retirement ages. Your benefit amount depends on your 35 highest-earning years, your age when you start benefits, and cost-of-living adjustments over time.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your current age.<br>
+            <strong>Step 2:</strong> Input your planned retirement age (62-70).<br>
+            <strong>Step 3:</strong> Enter your current annual income or average career earnings.<br>
+            <strong>Step 4:</strong> Input years you've worked or expect to work.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see estimated monthly and annual benefits.<br>
+            <strong>Step 6:</strong> Adjust retirement age to see how it affects your benefit amount.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Social Security Examples</h3>
+            <p><strong>Example 1 - Early Retirement at 62:</strong> Maria has averaged $50,000 annually over 35 years. If she claims benefits at 62 (the earliest age), her monthly benefit would be approximately $1,050, reduced by about 30% from her full retirement age amount. Annual benefit: $12,600. This reduction is permanent.</p>
+            <p><strong>Example 2 - Full Retirement at 67:</strong> John earned an average of $65,000 over his career. At his full retirement age of 67, his monthly benefit would be approximately $1,850. Annual benefit: $22,200. This represents 100% of his Primary Insurance Amount with no reductions or delayed credits.</p>
+            <p><strong>Example 3 - Delayed Retirement at 70:</strong> David earned $75,000 on average and waits until 70 to claim. His monthly benefit increases to approximately $2,400 due to delayed retirement credits (8% per year after FRA). Annual benefit: $28,800—about $6,600 more per year than claiming at 67.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This Calculator?</h3>
+            <p>Anyone planning for retirement should use this calculator to understand their Social Security income foundation. Whether you're decades from retirement or approaching it, knowing your estimated benefit helps you make informed decisions about additional savings needs.</p>
+            <p>Pre-retirees aged 50-65 particularly benefit from this calculator when deciding when to claim benefits. The decision between claiming at 62, 67, or 70 can mean tens of thousands of dollars difference over your lifetime. This calculator helps visualize those trade-offs.</p>
+            <p>Financial advisors use Social Security estimates to create comprehensive retirement income plans. Knowing this guaranteed income source helps determine how much additional income is needed from 401(k)s, IRAs, pensions, and other sources to maintain your lifestyle.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Social Security Strategies & Pro Tips</h3>
+            <ul>
+                <li><strong>Delay if Possible:</strong> Each year you delay past FRA up to age 70 increases benefits by 8% annually</li>
+                <li><strong>35-Year Rule:</strong> Benefits are based on your 35 highest-earning years—work at least 35 years to avoid zeros in the calculation</li>
+                <li><strong>Spousal Benefits:</strong> Even if you never worked, you may claim up to 50% of your spouse's benefit</li>
+                <li><strong>Earnings Test:</strong> If you work before FRA, benefits may be reduced if you earn above annual limits</li>
+                <li><strong>COLA Protection:</strong> Benefits receive annual cost-of-living adjustments based on inflation</li>
+                <li><strong>Taxation:</strong> Up to 85% of benefits may be taxable depending on your other income</li>
+                <li><strong>Coordinate with Spouse:</strong> Higher earner should often delay while lower earner claims early</li>
+                <li><strong>Break-Even Analysis:</strong> Calculate how long you must live to make delaying worthwhile</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">At what age can I claim Social Security?</div>
+            <div class="faq-answer">You can claim Social Security retirement benefits as early as age 62. However, claiming before your full retirement age (FRA) permanently reduces your benefit. Your FRA depends on your birth year: 1943-1954: FRA is 66; 1955-1959: FRA is 66 plus 2-10 months; 1960 and later: FRA is 67. You can also delay claiming up to age 70, which increases your benefit by 8% per year past your FRA.</div>
+
+            <div class="faq-question">How are Social Security benefits calculated?</div>
+            <div class="faq-answer">Benefits are based on your 35 highest-earning years. The calculation: 1) Adjust each year's earnings for wage inflation, 2) Average the 35 highest years, 3) Apply a progressive formula: 90% of first $1,174 of average monthly earnings, 32% of earnings between $1,174 and $7,078, 15% of earnings above $7,078 (2024 bend points). Result is your Primary Insurance Amount (PIA), payable at full retirement age.</div>
+
+            <div class="faq-question">Will Social Security run out of money?</div>
+            <div class="faq-answer">The Social Security Trust Fund is projected to be depleted around 2033-2034 if no changes are made. However, this doesn't mean benefits disappear—ongoing payroll taxes would still fund about 77-80% of promised benefits. Congress could act to address the shortfall through various combinations of tax increases, benefit adjustments, or retirement age changes. Most experts expect some solution will be implemented.</div>
+
+            <div class="faq-question">Can I work and collect Social Security?</div>
+            <div class="faq-answer">Yes, but if you're under full retirement age, there's an earnings limit. In 2024: If under FRA all year, $1 in benefits withheld for every $2 earned above $22,320. In the year you reach FRA, $1 withheld for every $3 earned above $59,520 until the month you reach FRA. After reaching FRA, no earnings limit—you can work and receive full benefits. Withheld benefits aren't lost—they're recalculated into your benefit when you reach FRA.</div>
+
+            <div class="faq-question">Are Social Security benefits taxable?</div>
+            <div class="faq-answer">Possibly, depending on your combined income. Calculate: Adjusted Gross Income + Nontaxable Interest + 1/2 of Social Security Benefits. If single and combined income is: $25,000-$34,000: up to 50% taxable; above $34,000: up to 85% taxable. If married filing jointly: $32,000-$44,000: up to 50% taxable; above $44,000: up to 85% taxable. No state taxes Social Security benefits.</div>
+
+            <div class="faq-question">What is the maximum Social Security benefit?</div>
+            <div class="faq-answer">The maximum benefit depends on retirement age and year. For 2024: Age 62: $2,710/month; Full Retirement Age (67): $3,822/month; Age 70: $4,873/month. To receive the maximum, you must have had maximum taxable earnings for 35 years. Most beneficiaries receive less than these maximums—the average monthly benefit is around $1,800.</div>
+
+            <div class="faq-question">Can I collect benefits from my ex-spouse?</div>
+            <div class="faq-answer">Yes, if you were married at least 10 years and are currently unmarried. You can claim up to 50% of your ex-spouse's benefit if it's higher than your own. Your ex-spouse doesn't need to have claimed benefits for you to qualify. This doesn't affect your ex-spouse's benefit or their current spouse's benefits. If you remarry, you generally can't claim on your former spouse's record unless the later marriage ends.</div>
+
+            <div class="faq-question">What happens to my benefits if I die?</div>
+            <div class="faq-answer">Survivor benefits may be available to your spouse and dependent children. If you were already collecting: Your spouse can receive 100% of your benefit amount if they're at full retirement age (or reduced amount as early as age 60, or 50 if disabled). Dependent children under 18 (or 19 if still in high school) can receive 75% of your benefit. If you weren't collecting yet: Survivors receive benefits based on your earnings record and their age/circumstances.</div>
+
+            <div class="faq-question">How do I apply for Social Security?</div>
+            <div class="faq-answer">Apply online at SSA.gov (fastest, most convenient), by phone at 1-800-772-1213, or in person at your local Social Security office. You should apply 3 months before you want benefits to start. Required information includes: Social Security number, birth certificate, W-2 forms or tax returns, bank account information for direct deposit, and proof of U.S. citizenship or lawful alien status. Medicare enrollment is automatic at 65 if you're already collecting Social Security.</div>
+
+            <div class="faq-question">What is the Windfall Elimination Provision (WEP)?</div>
+            <div class="faq-answer">WEP affects people who receive a pension from non-Social Security covered employment (such as some government jobs) and also qualify for Social Security from other work. It may reduce your Social Security benefit, but not by more than half your pension amount. The reduction is smaller if you have 30+ years of substantial Social Security earnings. WEP doesn't apply if you have 30+ years of substantial earnings under Social Security.</div>
+
+            <div class="faq-question">Should I take benefits at 62 or wait?</div>
+            <div class="faq-answer">Consider: Health—if poor health, claiming early may make sense; if good health and family longevity, delay likely pays off. Cash needs—if you need income immediately and have no other sources, claim early. Employment—if working before FRA, earnings test may reduce benefits. Spousal benefits—coordinate timing with spouse. Break-even—typically around age 80-82; if you expect to live longer, delaying usually wins. There's no universal right answer—it depends on your specific circumstances.</div>
+
+            <div class="faq-question">What is my Social Security full retirement age?</div>
+            <div class="faq-answer">Your full retirement age (FRA) depends on your birth year: 1943-1954: Age 66; 1955: 66 and 2 months; 1956: 66 and 4 months; 1957: 66 and 6 months; 1958: 66 and 8 months; 1959: 66 and 10 months; 1960 and later: Age 67. At FRA, you receive 100% of your calculated benefit (Primary Insurance Amount). Claim earlier reduces benefits; delay increases them.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateSS(){
+const currentAge=parseInt(document.getElementById('currentAge').value)||35;
+const retirementAge=parseInt(document.getElementById('retirementAge').value)||67;
+const income=parseFloat(document.getElementById('annualIncome').value)||60000;
+const yearsWorked=parseInt(document.getElementById('yearsWorked').value)||10;
+
+const aime=income/12;
+let pia=0;
+if(aime<=1174){pia=aime*0.9}
+else if(aime<=7078){pia=1174*0.9+(aime-1174)*0.32}
+else{pia=1174*0.9+(7078-1174)*0.32+(aime-7078)*0.15}
+
+let monthlyBenefit=pia;
+if(retirementAge<67){monthlyBenefit*=(1-0.00625*(67-retirementAge)*12)}
+else if(retirementAge>67){monthlyBenefit*=(1+0.0066667*(retirementAge-67)*12)}
+
+const annualBenefit=monthlyBenefit*12;
+
+document.getElementById('monthlyBenefit').textContent='$'+monthlyBenefit.toFixed(2);
+document.getElementById('annualBenefit').textContent='$'+Math.round(annualBenefit).toLocaleString();
+document.getElementById('fra').textContent=retirementAge;
+document.getElementById('pia').textContent='$'+pia.toFixed(2);
+}
+function clearSS(){
+document.getElementById('currentAge').value='';
+document.getElementById('retirementAge').value='';
+document.getElementById('annualIncome').value='';
+document.getElementById('yearsWorked').value='';
+document.getElementById('monthlyBenefit').textContent='$0.00';
+document.getElementById('annualBenefit').textContent='$0.00';
+document.getElementById('fra').textContent='67';
+document.getElementById('pia').textContent='$0.00';
+}
+function copySSResults(){
+const monthly=document.getElementById('monthlyBenefit').textContent;
+const annual=document.getElementById('annualBenefit').textContent;
+const text=`Social Security Results:
+Monthly Benefit: ${monthly}
+Annual Benefit: ${annual}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+function loadRelated(){
+const tools=[
+{name:"401k Calculator",icon:"fa-briefcase",url:"401k-calculator.html"},
+{name:"529 Savings",icon:"fa-graduation-cap",url:"529-savings-calculator.html"},
+{name:"Annuity",icon:"fa-hand-holding-usd",url:"annuity-calculator.html"},
+{name:"Pension",icon:"fa-calendar-check",url:"pension-calculator.html"},
+{name:"IRA",icon:"fa-piggy-bank",url:"ira-calculator.html"},
+{name:"College Savings",icon:"fa-university",url:"college-savings-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridSS").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Money Market Calculator – MMF & Account Returns | ToolGram</title>
+    <meta name="description" content="Calculate money market fund and account returns. Free online money market calculator for cash management.">
+    <meta name="keywords" content="money market calculator, money market fund, money market account, cash management, short term savings">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/money-market-calculator.html">
+    <meta property="og:title" content="Money Market Calculator | ToolGram">
+    <meta property="og:description" content="Calculate money market fund and account returns.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/money-market-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Money Market Calculator",
+        "description": "Calculate money market fund and account returns.",
+        "applicationCategory": "Finance",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/money-market-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Money Market Returns", "Cash Management", "Short Term Savings"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <div>
+                <h1 style="margin:0;">Money Market Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate money market fund and account returns</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Money Market Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Initial Deposit ($)</label>
+                        <input type="number" id="mmInitial" placeholder="25000" value="25000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Annual Rate (%)</label>
+                        <input type="number" id="mmRate" placeholder="4.5" value="4.5" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Monthly Addition ($)</label>
+                        <input type="number" id="mmMonthly" placeholder="1000" value="1000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Time Period (Years)</label>
+                        <input type="number" id="mmYears" placeholder="2" value="2" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateMM()"><i class="fas fa-calculator"></i> Calculate Returns</button>
+                    <button class="secondary-btn" onclick="clearMM()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Money Market Results</div>
+                <div class="output-display" id="mmOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Final Balance:</strong> <span id="mmFinal">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Interest Earned:</strong> <span id="mmInterest">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Total Deposited:</strong> <span id="mmDeposited">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Effective APY:</strong> <span id="mmAPY">0%</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyMMResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridMM"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Money Market?</h3>
+            <p>Money market instruments are short-term, highly liquid investments that provide modest returns with minimal risk. They include money market deposit accounts (offered by banks with FDIC insurance) and money market funds (mutual funds investing in short-term debt securities). Both offer higher yields than traditional savings accounts while maintaining easy access to your cash.</p>
+            <p>Money market accounts and funds are ideal for parking cash that you may need in the short to medium term, such as emergency funds, upcoming large purchases, or business operating cash. They provide a balance between earning returns and maintaining liquidity that longer-term investments like CDs or bonds cannot match.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your initial deposit amount - the starting balance in your money market account.<br>
+            <strong>Step 2:</strong> Input the current money market interest rate (APY) offered by your bank or fund.<br>
+            <strong>Step 3:</strong> Add monthly contribution amount if you plan to add regularly (set to 0 for no additions).<br>
+            <strong>Step 4:</strong> Specify the time period you plan to keep the money invested.<br>
+            <strong>Step 5:</strong> Click "Calculate Returns" to see projected growth.<br>
+            <strong>Step 6:</strong> Review final balance and interest earned to plan your savings strategy.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1 - Emergency Fund:</strong> Initial: $10,000, Rate: 4.5%, Monthly: $500, Years: 2. Final: ~$32,700. Interest: ~$1,200. Building 6-month emergency fund with regular contributions.</p>
+            <p><strong>Example 2 - Short-Term Savings:</strong> Initial: $25,000, Rate: 4%, Monthly: $0, Years: 1. Final: ~$26,000. Interest: ~$1,000. Saving for home down payment with easy access.</p>
+            <p><strong>Example 3 - Business Cash:</strong> Initial: $50,000, Rate: 5%, Monthly: $2,000, Years: 3. Final: ~$129,000. Interest: ~$7,000. Managing operating cash flow with monthly additions.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use Money Markets?</h3>
+            <ul>
+                <li><strong>Emergency Fund Builders</strong> – Keep 3-6 months expenses accessible but earning interest.</li>
+                <li><strong>Short-Term Savers</strong> – Save for goals within 1-3 years like vacations or car purchases.</li>
+                <li><strong>Business Owners</strong> – Manage operating cash with better returns than checking accounts.</li>
+                <li><strong>Conservative Investors</strong> – Park cash between investments or during market volatility.</li>
+                <li><strong>Retirees</strong> – Hold cash reserves with modest growth for expenses.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Online banks typically offer higher money market rates than traditional banks.</li>
+                <li>Money market deposit accounts are FDIC insured; money market funds are not (but very safe).</li>
+                <li>Rates adjust with Fed policy - they rise when the Fed raises rates.</li>
+                <li>Consider high-yield savings accounts as alternatives - rates are often comparable.</li>
+                <li>Many MMAs offer limited check writing or debit card access for liquidity.</li>
+                <li>Watch for minimum balance requirements to avoid fees or get best rates.</li>
+                <li>Use for cash you might need soon; invest longer-term money in CDs or bonds for higher returns.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the difference between MMA and MMF?</div>
+            <div class="faq-answer">Money Market Deposit Account (MMA) is a bank product with FDIC insurance up to $250,000. It may offer check writing and debit cards. Money Market Fund (MMF) is a mutual fund investing in short-term debt. It's not FDIC insured but historically very safe. MMAs are best for maximum safety; MMFs may offer slightly higher yields and brokerage integration.</div>
+
+            <div class="faq-question">Are money markets safe?</div>
+            <div class="faq-answer">Bank money market accounts are very safe with FDIC insurance. Money market funds are also very safe but not guaranteed - they invest in high-quality short-term instruments and maintain $1.00 NAV. While extremely rare, MMFs can theoretically "break the buck" (drop below $1). For most investors, both are appropriate for cash management and emergency funds.</div>
+
+            <div class="faq-question">What are current money market rates?</div>
+            <div class="faq-answer">Money market rates follow the Federal Funds rate. As of 2024, top online bank MMAs offer 4-5% APY, while traditional banks may offer 0.5-2%. MMFs currently yield 4.5-5.2%. Rates change with Fed policy - check current rates at Bankrate, NerdWallet, or bank websites. Shop around as rates vary significantly between institutions.</div>
+
+            <div class="faq-question">How do money market rates compare to savings accounts?</div>
+            <div class="faq-answer">At online banks, high-yield savings and money market accounts often have nearly identical rates (4-5%). Traditional banks typically offer higher rates on MMAs than regular savings. MMAs may offer additional features like check writing that savings accounts lack. For best returns, compare APY across both account types at the same institution.</div>
+
+            <div class="faq-question">Do money market funds have fees?</div>
+            <div class="faq-answer">Yes, MMFs charge expense ratios (0.10-0.50% typically), deducted from yield before distribution. Government MMFs: 0.10-0.20%. Prime MMFs: 0.15-0.30%. These fees reduce your actual return. Look for low-fee options from providers like Vanguard or Fidelity. Compare net yield after expenses, not gross yield.</div>
+
+            <div class="faq-question">Are money market funds taxable?</div>
+            <div class="faq-answer">Taxable MMFs pay ordinary income (taxed at your marginal rate). Municipal MMFs invest in state/local securities and are federally tax-exempt (and potentially state-exempt if buying your state's bonds). For high tax brackets, municipal MMF after-tax yield may exceed taxable MMF. Calculate: Taxable Yield × (1 - Tax Rate) vs Municipal Yield.</div>
+
+            <div class="faq-question">How do I choose between money market and CD?</div>
+            <div class="faq-answer">Choose money market if you need liquidity, are uncertain when you'll need the money, expect rates to rise (MM rates adjust; CD locks), or want to add money regularly. Choose CD if you have a specific timeline, want guaranteed rate, won't need early access, and prefer higher rate over flexibility. Many investors use both: MM for emergency funds, CDs for known future expenses.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateMM() {
+        const initial = parseFloat(document.getElementById('mmInitial').value) || 0;
+        const rate = parseFloat(document.getElementById('mmRate').value) || 0;
+        const monthly = parseFloat(document.getElementById('mmMonthly').value) || 0;
+        const years = parseFloat(document.getElementById('mmYears').value) || 0;
+        
+        const months = years * 12;
+        const monthlyRate = (rate / 100) / 12;
+        
+        let balance = initial;
+        for (let i = 0; i < months; i++) {
+            balance = (balance + monthly) * (1 + monthlyRate);
+        }
+        
+        const totalDeposited = initial + (monthly * months);
+        const interestEarned = balance - totalDeposited;
+        const apy = (Math.pow(1 + monthlyRate, 12) - 1) * 100;
+        
+        document.getElementById('mmFinal').textContent = '$' + Math.round(balance).toLocaleString();
+        document.getElementById('mmInterest').textContent = '$' + Math.round(interestEarned).toLocaleString();
+        document.getElementById('mmDeposited').textContent = '$' + Math.round(totalDeposited).toLocaleString();
+        document.getElementById('mmAPY').textContent = apy.toFixed(2) + '%';
+    }
+    
+    function clearMM() {
+        document.getElementById('mmInitial').value = '';
+        document.getElementById('mmRate').value = '';
+        document.getElementById('mmMonthly').value = '';
+        document.getElementById('mmYears').value = '';
+        document.getElementById('mmFinal').textContent = '$0';
+        document.getElementById('mmInterest').textContent = '$0';
+        document.getElementById('mmDeposited').textContent = '$0';
+        document.getElementById('mmAPY').textContent = '0%';
+    }
+    
+    function copyMMResults() {
+        const final = document.getElementById('mmFinal').textContent;
+        const interest = document.getElementById('mmInterest').textContent;
+        const text = `Money Market Results:\nFinal Balance: ${final}\nInterest Earned: ${interest}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"CD Calculator", icon:"fa-university", url:"cd-calculator.html"},
+            {name:"Treasury Bill Calculator", icon:"fa-landmark", url:"treasury-bill-calculator.html"},
+            {name:"Savings Goal Calculator", icon:"fa-piggy-bank", url:"savings-goal-calculator.html"},
+            {name:"SIP Calculator", icon:"fa-chart-line", url:"sip-calculator.html"},
+            {name:"High Yield Savings Calculator", icon:"fa-percentage", url:"high-yield-savings-calculator.html"},
+            {name:"Emergency Fund Calculator", icon:"fa-shield-alt", url:"emergency-fund-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridMM").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

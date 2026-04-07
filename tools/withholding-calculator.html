@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Withholding Calculator – W-4 Tax Withholding | ToolGram</title>
+    <meta name="description" content="Calculate optimal tax withholding for your W-4. Free online withholding calculator to avoid over or under-paying.">
+    <meta name="keywords" content="withholding calculator, W-4 calculator, tax withholding, paycheck withholding, W4 form">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/withholding-calculator.html">
+    <meta property="og:title" content="Withholding Calculator | ToolGram">
+    <meta property="og:description" content="Calculate optimal tax withholding for your W-4.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/withholding-calculator.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        .w4-tip{background:rgba(139,92,246,0.1);border-left:4px solid #8B5CF6;padding:15px;margin-top:15px;border-radius:0 8px 8px 0}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-file-invoice"></i></div>
+            <div>
+                <h1 style="margin:0;">Withholding Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Optimize your W-4 tax withholding</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Income & Settings</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Pay Frequency</label>
+                        <select id="whFrequency" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;"><option value="weekly">Weekly</option><option value="biweekly">Bi-Weekly</option><option value="monthly">Monthly</option><option value="semimonthly">Semi-Monthly</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Gross Pay ($)</label>
+                        <input type="number" id="whPay" placeholder="3000" value="3000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Filing Status</label>
+                        <select id="whStatus" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;"><option value="single">Single</option><option value="married">Married</option><option value="hoh">Head of Household</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Other Income ($/yr)</label>
+                        <input type="number" id="whOtherIncome" placeholder="0" value="0" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Deductions ($/yr)</label>
+                        <input type="number" id="whDeductions" placeholder="5000" value="5000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateWithholding()"><i class="fas fa-calculator"></i> Calculate Withholding</button>
+                    <button class="secondary-btn" onclick="clearWithholding()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-invoice-dollar"></i> Withholding Results</div>
+                <div class="output-display" id="whOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Per Paycheck:</strong> <span id="whPerCheck">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Annual Withholding:</strong> <span id="whAnnual">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Estimated Tax:</strong> <span id="whTax">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">Net Refund/Owe:</strong> <span id="whRefund">$0</span></div>
+                    <div class="w4-tip">
+                        <strong style="color:#fff;">W-4 Step 4(c):</strong><br>
+                        <span style="color:rgba(255,255,255,0.8);font-size:0.9rem;">Extra withholding per paycheck: <span id="w4Extra" style="color:#FBBF24;font-weight:700;">$0</span></span>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyWHResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridWH"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Tax Withholding?</h3>
+            <p>Tax withholding is the amount of federal income tax your employer deducts from each paycheck and sends to the IRS on your behalf. Your W-4 form determines how much is withheld based on your filing status, income, deductions, and credits. Proper withholding ensures you neither owe a large amount at tax time nor receive a huge refund (which means you overpaid throughout the year).</p>
+            <p>The modern W-4 form (redesigned in 2020) no longer uses "allowances." Instead, it has five steps: personal information, multiple jobs or spouse works, dependents, other income and deductions, and extra withholding. This calculator helps you determine the right settings for your W-4 to optimize your withholding and maximize your take-home pay while avoiding underpayment penalties.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use</h3>
+            <p><strong>Step 1:</strong> Select your pay frequency (how often you get paid).<br>
+            <strong>Step 2:</strong> Enter your gross pay per paycheck (before taxes).<br>
+            <strong>Step 3:</strong> Choose filing status from your W-4.<br>
+            <strong>Step 4:</strong> Add other income (interest, dividends, gig work).<br>
+            <strong>Step 5:</strong> Enter expected annual deductions.<br>
+            <strong>Step 6:</strong> Click "Calculate" to see recommended withholding.<br>
+            <strong>Step 7:</strong> Use "Extra Withholding" amount in W-4 Step 4(c).</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1 - Single:</strong> Bi-weekly $2,500, Single, No other income. Recommended withholding: ~$200/paycheck. Annual: ~$5,200. This should result in break-even or small refund.</p>
+            <p><strong>Example 2 - Married:</strong> Monthly $6,000, Married, $5,000 other income. Standard withholding too low. Add $100/paycheck in Step 4(c) to cover additional tax on other income.</p>
+            <p><strong>Example 3 - Multiple Jobs:</strong> Job 1: $4,000/month, Job 2: $2,000/month. Check "Multiple Jobs" box on W-4 or use extra withholding to avoid underpayment on second job.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Use This?</h3>
+            <ul>
+                <li><strong>New Employees</strong> - Complete W-4 correctly from start.</li>
+                <li><strong>Life Changers</strong> - Marriage, divorce, new child, new home.</li>
+                <li><strong>Multiple Job Workers</strong> - Avoid underpayment on extra jobs.</li>
+                <li><strong>Side Gig Workers</strong> - Account for self-employment income.</li>
+                <li><strong>Refund Optimizers</strong> - Reduce large refunds, increase take-home.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Check "Two Jobs" box if you and spouse both work or you have two jobs.</li>
+                <li>Use Step 4(a) for other income; Step 4(b) for deductions above standard.</li>
+                <li>Step 4(c) adds exact dollar amount to each paycheck's withholding.</li>
+                <li>Safe harbor: Withhold 100% of prior year tax (110% if AGI >$150k).</li>
+                <li>Update W-4 whenever income or deductions change significantly.</li>
+                <li>New W-4 (2020+) is more accurate but requires more information.</li>
+                <li>Use IRS Tax Withholding Estimator for complex situations.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> FAQ</h3>
+            <div class="faq-question">What's the difference between old and new W-4?</div>
+            <div class="faq-answer">Old W-4 (pre-2020) used "allowances" - the more you claimed, the less was withheld. New W-4 (2020+) uses dollar amounts and checkboxes: Step 2 for multiple jobs, Step 3 for tax credits (dollar amount), Step 4(a) for other income, 4(b) for deductions, 4(c) for extra withholding. The new form is more accurate but requires more information.</div>
+
+            <div class="faq-question">Should I claim exempt on my W-4?</div>
+            <div class="faq-answer">Only if you had no federal tax liability last year AND expect none this year. Common situations: Student with low summer income, someone with significant deductions exceeding income. If you improperly claim exempt, you'll owe taxes and penalties. Most people should not claim exempt.</div>
+
+            <div class="faq-question">How do multiple jobs affect withholding?</div>
+            <div class="faq-answer">Each job withholds as if it's your only income, often resulting in too little total withholding. Solutions: Check "Two Jobs" box on W-4 (uses higher withholding rate), use Step 4(c) extra withholding, or use IRS calculator for precise adjustments. Married couples with both spouses working face similar issues.</div>
+
+            <div class="faq-question">What if I have self-employment income?</div>
+            <div class="faq-answer">Options for handling SE income through withholding: 1) Increase W-4 withholding to cover both W-2 and SE tax liability. 2) Make quarterly estimated payments (Form 1040-ES). 3) Combination approach. Many people set aside 25-30% of SE income and either increase W-4 or make quarterly payments.</div>
+
+            <div class="faq-question">How often should I update my W-4?</div>
+            <div class="faq-answer">Update your W-4 when: You get married or divorced, have a child, buy a home (mortgage interest deduction), start/stop a second job, have significant changes in deductions or credits, or your refund/amount owed is consistently large. Otherwise, review annually during open enrollment or tax season.</div>
+
+            <div class="faq-question">What's the ideal refund amount?</div>
+            <div class="faq-answer">Ideally, you should break even (no refund, nothing owed) or owe a small amount under $500. This means your withholding was accurate and you kept maximum money throughout the year. Large refunds ($2,000+) mean you over-withheld. Owing $1,000+ may trigger underpayment penalties.</div>
+
+            <div class="faq-question">Can my employer refuse my W-4?</div>
+            <div class="faq-answer">Employers cannot refuse to accept a valid W-4. However, the IRS may notify your employer if your W-4 appears incorrect (claiming exempt when you had tax liability, for example). In rare cases, the IRS may instruct your employer to withhold at a higher "lock-in" rate. Keep documentation if claiming unusual deductions or credits.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateWithholding() {
+        const freq = document.getElementById('whFrequency').value;
+        const pay = parseFloat(document.getElementById('whPay').value) || 0;
+        const status = document.getElementById('whStatus').value;
+        const otherIncome = parseFloat(document.getElementById('whOtherIncome').value) || 0;
+        const deductions = parseFloat(document.getElementById('whDeductions').value) || 0;
+        
+        let periods = 26; // default biweekly
+        if (freq === 'weekly') periods = 52;
+        else if (freq === 'biweekly') periods = 26;
+        else if (freq === 'semimonthly') periods = 24;
+        else if (freq === 'monthly') periods = 12;
+        
+        const annualPay = pay * periods;
+        const totalIncome = annualPay + otherIncome;
+        const taxable = Math.max(0, totalIncome - deductions);
+        
+        let tax = 0;
+        if (status === 'single') {
+            if (taxable <= 11600) tax = taxable * 0.10;
+            else if (taxable <= 47150) tax = 1160 + (taxable - 11600) * 0.12;
+            else if (taxable <= 100525) tax = 5426 + (taxable - 47150) * 0.22;
+            else if (taxable <= 191950) tax = 17168 + (taxable - 100525) * 0.24;
+            else if (taxable <= 243725) tax = 39110 + (taxable - 191950) * 0.32;
+            else if (taxable <= 609350) tax = 55678 + (taxable - 243725) * 0.35;
+            else tax = 183647 + (taxable - 609350) * 0.37;
+        } else if (status === 'married') {
+            if (taxable <= 23200) tax = taxable * 0.10;
+            else if (taxable <= 94300) tax = 2320 + (taxable - 23200) * 0.12;
+            else if (taxable <= 201050) tax = 10852 + (taxable - 94300) * 0.22;
+            else if (taxable <= 383900) tax = 34337 + (taxable - 201050) * 0.24;
+            else if (taxable <= 487450) tax = 78221 + (taxable - 383900) * 0.32;
+            else if (taxable <= 731200) tax = 111357 + (taxable - 487450) * 0.35;
+            else tax = 196669 + (taxable - 731200) * 0.37;
+        } else {
+            if (taxable <= 16550) tax = taxable * 0.10;
+            else if (taxable <= 63100) tax = 1655 + (taxable - 16550) * 0.12;
+            else if (taxable <= 100500) tax = 7241 + (taxable - 63100) * 0.22;
+            else if (taxable <= 191950) tax = 15469 + (taxable - 100500) * 0.24;
+            else if (taxable <= 243700) tax = 37417 + (taxable - 191950) * 0.32;
+            else if (taxable <= 609350) tax = 53977 + (taxable - 243700) * 0.35;
+            else tax = 181955 + (taxable - 609350) * 0.37;
+        }
+        
+        // Estimate base withholding (simplified - assumes standard withholding)
+        const baseWithholdingPerCheck = tax / periods;
+        const annualWithholding = baseWithholdingPerCheck * periods;
+        const refund = annualWithholding - tax;
+        
+        // Calculate extra withholding needed if underpaying
+        let extraPerCheck = 0;
+        if (refund < 0) {
+            extraPerCheck = Math.abs(refund) / periods;
+        }
+        
+        document.getElementById('whPerCheck').textContent = '$' + Math.round(baseWithholdingPerCheck).toLocaleString();
+        document.getElementById('whAnnual').textContent = '$' + Math.round(annualWithholding).toLocaleString();
+        document.getElementById('whTax').textContent = '$' + Math.round(tax).toLocaleString();
+        
+        const refundEl = document.getElementById('whRefund');
+        if (refund >= 0) {
+            refundEl.textContent = '+$' + Math.round(refund).toLocaleString() + ' (Refund)';
+            refundEl.style.color = '#22c55e';
+        } else {
+            refundEl.textContent = '-$' + Math.round(Math.abs(refund)).toLocaleString() + ' (Owe)';
+            refundEl.style.color = '#ef4444';
+        }
+        
+        document.getElementById('w4Extra').textContent = extraPerCheck > 0 ? '$' + Math.ceil(extraPerCheck) : '$0';
+    }
+    
+    function clearWithholding() {
+        document.getElementById('whFrequency').value = 'biweekly';
+        document.getElementById('whPay').value = '';
+        document.getElementById('whStatus').value = 'single';
+        document.getElementById('whOtherIncome').value = '';
+        document.getElementById('whDeductions').value = '';
+        document.getElementById('whPerCheck').textContent = '$0';
+        document.getElementById('whAnnual').textContent = '$0';
+        document.getElementById('whTax').textContent = '$0';
+        document.getElementById('whRefund').textContent = '$0';
+        document.getElementById('whRefund').style.color = '#fff';
+        document.getElementById('w4Extra').textContent = '$0';
+    }
+    
+    function copyWHResults() {
+        const perCheck = document.getElementById('whPerCheck').textContent;
+        const extra = document.getElementById('w4Extra').textContent;
+        navigator.clipboard.writeText(`Withholding Results:\nPer Paycheck: ${perCheck}\nW-4 Step 4(c) Extra: ${extra}`);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"Tax Refund Calculator", icon:"fa-money-check-alt", url:"tax-refund-calculator.html"},
+            {name:"Income Tax Calculator", icon:"fa-calculator", url:"income-tax-calculator.html"},
+            {name:"Federal Tax Calculator", icon:"fa-flag-usa", url:"federal-tax-calculator.html"},
+            {name:"W-4 Calculator", icon:"fa-id-card", url:"w4-calculator.html"},
+            {name:"State Tax Calculator", icon:"fa-map-marker-alt", url:"state-tax-calculator.html"},
+            {name:"Self Employment Tax", icon:"fa-user-tie", url:"self-employment-tax-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => { html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`; });
+        document.getElementById("relatedGridWH").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>

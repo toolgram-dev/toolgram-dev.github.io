@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CD Calculator – Certificate of Deposit Returns | ToolGram</title>
+    <meta name="description" content="Calculate Certificate of Deposit returns and growth. Free online CD calculator for bank deposit planning.">
+    <meta name="keywords" content="CD calculator, certificate of deposit, CD returns, bank deposit, fixed deposit calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram-dev.github.io/tools/cd-calculator.html">
+    <meta property="og:title" content="CD Calculator | ToolGram">
+    <meta property="og:description" content="Calculate Certificate of Deposit returns and growth.">
+    <meta property="og:url" content="https://toolgram-dev.github.io/tools/cd-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CD Calculator",
+        "description": "Calculate Certificate of Deposit returns and growth.",
+        "applicationCategory": "Finance",
+        "operatingSystem": "Any",
+        "url": "https://toolgram-dev.github.io/tools/cd-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["CD Returns", "Certificate of Deposit", "Bank Deposit Growth"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}
+        select option{background:#fff!important;color:#000!important}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch}
+            .var-row label{min-width:auto;margin-bottom:5px}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-university"></i></div>
+            <div>
+                <h1 style="margin:0;">CD Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate Certificate of Deposit returns</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> CD Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Deposit Amount ($)</label>
+                        <input type="number" id="cdAmount" placeholder="10000" value="10000" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Interest Rate (%)</label>
+                        <input type="number" id="cdRate" placeholder="4" value="4" step="0.1" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Term (Months)</label>
+                        <input type="number" id="cdTerm" placeholder="12" value="12" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px;">Compounding</label>
+                        <select id="cdCompounding" style="flex:1;padding:12px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;"><option value="daily">Daily</option><option value="monthly">Monthly</option><option value="quarterly">Quarterly</option><option value="annually">Annually</option></select>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="calculateCD()"><i class="fas fa-calculator"></i> Calculate CD</button>
+                    <button class="secondary-btn" onclick="clearCD()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> CD Results</div>
+                <div class="output-display" id="cdOutput">
+                    <div style="margin-bottom:15px;"><strong style="color:#FBBF24;">Maturity Value:</strong> <span id="cdMaturity">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#22c55e;">Interest Earned:</strong> <span id="cdInterest">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#8B5CF6;">Initial Deposit:</strong> <span id="cdDeposit">$0</span></div>
+                    <div style="margin-bottom:15px;"><strong style="color:#EC4899;">APY:</strong> <span id="cdAPY">0%</span></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyCDResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div class="related-grid" id="relatedGridCD"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Certificate of Deposit?</h3>
+            <p>A Certificate of Deposit (CD) is a time deposit offered by banks and credit unions with a fixed interest rate and maturity date. CDs offer higher interest rates than regular savings accounts in exchange for keeping your money deposited for a specified term. They are FDIC insured up to $250,000 per depositor per bank, making them one of the safest investment options available.</p>
+            <p>CDs are ideal for conservative investors who want guaranteed returns without market risk. Unlike stocks or bonds, your principal is protected and returns are predictable. This calculator helps you estimate your exact maturity value and interest earned, accounting for different compounding frequencies to show your true APY (Annual Percentage Yield).</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your deposit amount - the principal you plan to invest in the CD.<br>
+            <strong>Step 2:</strong> Input the offered annual interest rate (APY or nominal rate).<br>
+            <strong>Step 3:</strong> Specify the CD term in months (common terms: 3, 6, 12, 24, 60 months).<br>
+            <strong>Step 4:</strong> Select compounding frequency - daily gives highest returns.<br>
+            <strong>Step 5:</strong> Click "Calculate CD" to see maturity value and interest.<br>
+            <strong>Step 6:</strong> Compare APY across different banks to find the best rate.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Examples</h3>
+            <p><strong>Example 1 - 1-Year CD:</strong> Deposit: $10,000, Rate: 4.5%, Compounding: Daily. Maturity: ~$10,460. Interest: ~$460. APY: ~4.6%. Good for short-term savings goals with guaranteed returns.</p>
+            <p><strong>Example 2 - 5-Year CD:</strong> Deposit: $25,000, Rate: 4%, Compounding: Monthly. Maturity: ~$30,526. Interest: ~$5,526. APY: ~4.07%. Long-term wealth preservation with FDIC safety.</p>
+            <p><strong>Example 3 - 6-Month CD:</strong> Deposit: $5,000, Rate: 5%, Compounding: Daily. Maturity: ~$5,127. Interest: ~$127. APY: ~5.12%. Higher rates often available for shorter terms.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Invest in CDs?</h3>
+            <ul>
+                <li><strong>Conservative Savers</strong> – Want guaranteed returns with no market risk.</li>
+                <li><strong>Emergency Fund Builders</strong> – Build 3-6 months expenses in laddered CDs.</li>
+                <li><strong>Goal-Based Savers</strong> – Save for known future expenses like weddings, down payments.</li>
+                <li><strong>Retirees</strong> – Generate stable income from retirement savings.</li>
+                <li><strong>Short-Term Investors</strong> – Park cash safely while deciding on longer investments.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <ul>
+                <li>Create a CD ladder with multiple maturity dates for regular liquidity access.</li>
+                <li>Online banks often offer better rates than traditional brick-and-mortar banks.</li>
+                <li>Jumbo CDs ($100,000+) may offer premium rates over standard CDs.</li>
+                <li>No-penalty CDs allow early withdrawal without fees but typically have lower rates.</li>
+                <li>Bump-up CDs let you increase your rate once if rates rise during your term.</li>
+                <li>Add-on CDs allow additional deposits during the term.</li>
+                <li>Consider IRA CDs for tax-advantaged growth in retirement accounts.</li>
+                <li>Early withdrawal penalties typically cost 3-6 months of interest.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the difference between APY and interest rate?</div>
+            <div class="faq-answer">Interest rate is the nominal rate before compounding. APY (Annual Percentage Yield) includes the effect of compounding and shows the true annual return. For example, 5% interest rate compounded monthly gives 5.12% APY. APY allows apples-to-apples comparison between banks with different compounding schedules. Always compare APY when shopping for CDs.</div>
+
+            <div class="faq-question">What happens if I withdraw early from a CD?</div>
+            <div class="faq-answer">Early withdrawal typically incurs a penalty, usually 3-6 months of interest for terms under 1 year, and 6-12 months for longer terms. Some banks charge a flat fee or percentage. No-penalty CDs exist but offer lower rates. The penalty is deducted from your principal if accrued interest is insufficient. Some exceptions exist for death, disability, or bank error.</div>
+
+            <div class="faq-question">Are CDs FDIC insured?</div>
+            <div class="faq-answer">Yes, CDs at FDIC-member banks are insured up to $250,000 per depositor, per bank, per ownership category. This includes all deposits at that bank (checking, savings, CDs). Credit union CDs have similar NCUA insurance. This government backing makes CDs virtually risk-free. Spread deposits across multiple banks if you have more than $250,000 to insure.</div>
+
+            <div class="faq-question">What is a CD ladder strategy?</div>
+            <div class="faq-answer">A CD ladder involves dividing your money into CDs with staggered maturity dates. Example with $30,000: $10,000 in 1-year CD, $10,000 in 2-year CD, $10,000 in 3-year CD. When each matures, reinvest in a new 3-year CD. Benefits: Regular access to portions of your money, capture higher long-term rates, flexibility to adjust as rates change, reduced reinvestment risk.</div>
+
+            <div class="faq-question">How does CD compounding work?</div>
+            <div class="faq-answer">Compounding means earning interest on previously earned interest. Daily compounding calculates interest every day and adds to principal, giving slightly higher returns than monthly or annual compounding. Formula: A = P × (1 + r/n)^(n×t). More frequent compounding = higher effective yield. This calculator shows the impact of different compounding frequencies on your returns.</div>
+
+            <div class="faq-question">Can I add money to an existing CD?</div>
+            <div class="faq-answer">Most CDs don't allow additional deposits after opening. However, some banks offer "add-on" CDs that permit additional contributions during the term, often with limitations on amount and frequency. Alternatively, you can open a new CD with additional funds. Consider high-yield savings accounts for accumulating new money before moving to CDs.</div>
+
+            <div class="faq-question">What happens when my CD matures?</div>
+            <div class="faq-answer">At maturity, you typically have a 7-10 day grace period to: Withdraw funds without penalty, transfer to another account, or renew the CD. If you take no action, many banks automatically renew the CD for the same term at current rates (which may be lower). Best practice: Shop rates before maturity and actively choose your next step rather than letting auto-renewal decide for you.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    function calculateCD() {
+        const principal = parseFloat(document.getElementById('cdAmount').value) || 0;
+        const rate = parseFloat(document.getElementById('cdRate').value) || 0;
+        const months = parseFloat(document.getElementById('cdTerm').value) || 0;
+        const compounding = document.getElementById('cdCompounding').value;
+        
+        let n;
+        switch(compounding) {
+            case 'daily': n = 365; break;
+            case 'monthly': n = 12; break;
+            case 'quarterly': n = 4; break;
+            case 'annually': n = 1; break;
+            default: n = 365;
+        }
+        
+        const years = months / 12;
+        const amount = principal * Math.pow(1 + (rate / 100) / n, n * years);
+        const interest = amount - principal;
+        const apy = (Math.pow(1 + (rate / 100) / n, n) - 1) * 100;
+        
+        document.getElementById('cdMaturity').textContent = '$' + Math.round(amount).toLocaleString();
+        document.getElementById('cdInterest').textContent = '$' + Math.round(interest).toLocaleString();
+        document.getElementById('cdDeposit').textContent = '$' + Math.round(principal).toLocaleString();
+        document.getElementById('cdAPY').textContent = apy.toFixed(2) + '%';
+    }
+    
+    function clearCD() {
+        document.getElementById('cdAmount').value = '';
+        document.getElementById('cdRate').value = '';
+        document.getElementById('cdTerm').value = '';
+        document.getElementById('cdCompounding').value = 'daily';
+        document.getElementById('cdMaturity').textContent = '$0';
+        document.getElementById('cdInterest').textContent = '$0';
+        document.getElementById('cdDeposit').textContent = '$0';
+        document.getElementById('cdAPY').textContent = '0%';
+    }
+    
+    function copyCDResults() {
+        const maturity = document.getElementById('cdMaturity').textContent;
+        const interest = document.getElementById('cdInterest').textContent;
+        const text = `CD Results:\nMaturity Value: ${maturity}\nInterest Earned: ${interest}`;
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy Results', 2000);
+    }
+    
+    function loadRelated() {
+        const tools = [
+            {name:"Treasury Bill Calculator", icon:"fa-landmark", url:"treasury-bill-calculator.html"},
+            {name:"Money Market Calculator", icon:"fa-money-bill-wave", url:"money-market-calculator.html"},
+            {name:"Savings Goal Calculator", icon:"fa-piggy-bank", url:"savings-goal-calculator.html"},
+            {name:"Bond Yield Calculator", icon:"fa-percentage", url:"bond-yield-calculator.html"},
+            {name:"SIP Calculator", icon:"fa-chart-line", url:"sip-calculator.html"},
+            {name:"Lumpsum Calculator", icon:"fa-coins", url:"lumpsum-calculator.html"}
+        ];
+        let html = "";
+        tools.forEach(t => {
+            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+        });
+        document.getElementById("relatedGridCD").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
