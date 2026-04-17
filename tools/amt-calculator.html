@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AMT Calculator – Alternative Minimum Tax Estimator | ToolGram</title>
+    <meta name="description" content="Calculate Alternative Minimum Tax (AMT) exposure. Estimate if AMT applies to your tax situation from ISO exercises, high deductions, and plan accordingly.">
+    <meta name="keywords" content="AMT calculator, alternative minimum tax, AMT exemption, ISO tax, incentive stock options, tax preference items, AMT calculation">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/amt-calculator.html">
+    <meta property="og:title" content="AMT Calculator | ToolGram">
+    <meta property="og:description" content="Calculate Alternative Minimum Tax (AMT) exposure and estimate if AMT applies.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/amt-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "AMT Calculator",
+        "description": "Calculate Alternative Minimum Tax (AMT) exposure and estimate if AMT applies.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/amt-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["AMT Calculation", "Exemption Amount", "Preference Items", "Tax Comparison", "ISO Impact"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-calculator"></i></div>
+            <div>
+                <h1 style="margin:0;">AMT Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Estimate Alternative Minimum Tax exposure</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Income & Adjustments</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Tax Year</label>
+                        <select id="taxYear"><option value="2024" selected>2024</option><option value="2023">2023</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Filing Status</label>
+                        <select id="filingStatus"><option value="single" selected>Single</option><option value="married">Married Filing Jointly</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Regular Taxable Income ($)</label>
+                        <input type="number" id="regularIncome" placeholder="200000" value="200000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">State/Local Tax Deduction ($)</label>
+                        <input type="number" id="saltDeduction" placeholder="10000" value="10000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Property Tax ($)</label>
+                        <input type="number" id="propertyTax" placeholder="8000" value="8000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">ISO Bargain Element ($)</label>
+                        <input type="number" id="isoIncome" placeholder="50000" value="0">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateAMT()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearAMT()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> AMT Results</div>
+                <div class="output-display" id="outputAMT">
+                    <div class="tax-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> AMT Owed</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="amtOwed">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);" id="amtApplies">AMT does not apply</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">AMTI:</strong> <span id="amti">$0.00</span> (Alternative Minimum Taxable Income)</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">AMT Exemption:</strong> <span id="amtExemption">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Exemption Phase-out:</strong> <span id="exemptionPhaseOut">$609,350</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Regular Tax:</strong> <span id="regularTax">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Tentative Minimum Tax:</strong> <span id="tentativeMinTax">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">AMT Difference:</strong> <span id="amtDifference">$0.00</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyAMTResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tax Tools</h2>
+            <div class="related-grid" id="relatedGridTax"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is the Alternative Minimum Tax?</h3>
+            <p>The Alternative Minimum Tax (AMT) is a parallel tax system designed to ensure that high-income taxpayers pay a minimum amount of tax, regardless of deductions and credits. It adds back certain tax preference items to your income and applies a flat tax rate after an exemption amount.</p>
+            <p>AMT was originally created to prevent wealthy taxpayers from using loopholes to avoid paying taxes. However, because it was not initially indexed for inflation, it began affecting middle-income taxpayers. Congress has made several adjustments, and the 2017 Tax Cuts and Jobs Act significantly increased AMT exemptions, reducing its impact on many taxpayers.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select your tax year and filing status (affects exemption amounts and brackets).<br>
+            <strong>Step 2:</strong> Enter your regular taxable income from your tax return.<br>
+            <strong>Step 3:</strong> Enter state and local tax deductions (SALT) and property taxes paid.<br>
+            <strong>Step 4:</strong> If you exercised Incentive Stock Options (ISOs), enter the bargain element (difference between exercise price and fair market value).<br>
+            <strong>Step 5:</strong> Click "Calculate" to see your AMT exposure and whether you owe additional tax under AMT.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> AMT Examples</h3>
+            <p><strong>Example 1 - High SALT Deductions:</strong> A married couple has $250,000 in regular taxable income and $25,000 in state and property tax deductions (capped at $10,000 under current law). Their AMTI is $260,000. After the $133,300 exemption, they owe approximately $2,000 in AMT in addition to their regular tax liability.</p>
+            <p><strong>Example 2 - ISO Exercise Impact:</strong> An executive exercises ISOs with a $100,000 bargain element. Even with only $150,000 in regular taxable income, the ISO income added back triggers approximately $8,000 in AMT liability. This illustrates how ISO exercises can significantly impact AMT calculations.</p>
+            <p><strong>Example 3 - Below Exemption:</strong> A single taxpayer with $180,000 in regular income and $8,000 in SALT deductions falls below the AMT exemption amount of $85,700 (reduced by phase-out). After calculating AMTI, no AMT is owed because their tentative minimum tax is less than their regular tax liability.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Common AMT Trigger Items</h3>
+            <ul>
+                <li><strong>State and Local Tax (SALT) Deductions:</strong> High state income and property tax deductions that exceed the $10,000 cap still add back for AMT purposes.</li>
+                <li><strong>Incentive Stock Options (ISOs):</strong> The bargain element (difference between exercise price and fair market value) is a major AMT adjustment item.</li>
+                <li><strong>Large Capital Gains:</strong> While capital gains themselves are taxed the same under both systems, they can push you into the AMT exemption phase-out range.</li>
+                <li><strong>Private Activity Bond Interest:</strong> Tax-exempt for regular tax purposes but taxable for AMT.</li>
+                <li><strong>Depreciation Adjustments:</strong> Different depreciation methods for AMT can create adjustments.</li>
+                <li><strong>Net Operating Losses:</strong> NOL calculations differ between regular tax and AMT.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> AMT Planning Tips</h3>
+            <ul>
+                <li><strong>AMT Exemption (2024):</strong> $85,700 for single filers, $133,300 for married filing jointly—phased out at higher income levels.</li>
+                <li><strong>AMT Rates:</strong> 26% on first $232,600 of AMTI, 28% above that threshold (2024).</li>
+                <li><strong>ISO Timing:</strong> Consider spreading ISO exercises over multiple years to manage AMT exposure, especially in years with lower regular income.</li>
+                <li><strong>SALT Bunching:</strong> Pre-paying state taxes in high-income years may trigger AMT; plan carefully with your tax advisor.</li>
+                <li><strong>AMT Credit:</strong> AMT paid on timing differences (like ISOs) can generate future AMT credits when you sell the stock.</li>
+                <li><strong>Early Exercise:</strong> Consider early exercising ISOs when the spread is small to minimize AMT exposure.</li>
+                <li><strong>AMT-Free Year Strategy:</strong> If you have a low-income year, consider exercising ISOs then to minimize AMT impact.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">Who is subject to AMT?</div>
+            <div class="faq-answer">Generally, households with income between $200,000-$500,000 are most likely to owe AMT. Very high earners often aren't affected because their regular tax exceeds tentative minimum tax. Middle-income households with many deductions, especially large SALT deductions or ISO exercises, may also trigger AMT.</div>
+
+            <div class="faq-question">How is AMT calculated?</div>
+            <div class="faq-answer">Start with regular taxable income, add back preference items and adjustments (like SALT deductions, ISO income, private activity bond interest), subtract the AMT exemption (which phases out at high incomes), and apply AMT rates (26%/28%). If tentative minimum tax exceeds regular tax, the difference is your AMT liability.</div>
+
+            <div class="faq-question">Can I avoid AMT?</div>
+            <div class="faq-answer">Complete avoidance is difficult, but you can minimize AMT by: timing ISO exercises strategically, spreading capital gains across years, avoiding large SALT deductions in high-income years, and structuring investments to avoid private activity bonds if AMT applies. Work with a tax professional for personalized strategies.</div>
+
+            <div class="faq-question">Is AMT credit refundable?</div>
+            <div class="faq-answer">The AMT credit for timing differences (primarily from ISO exercises) is refundable but subject to certain limitations. It can be carried forward indefinitely. Credits from ISO exercises are typically recoverable in years when you sell the stock and pay regular tax on the capital gains. Exclusion items (like SALT deductions) don't generate AMT credits.</div>
+
+            <div class="faq-question">How do ISOs affect AMT?</div>
+            <div class="faq-answer">When you exercise ISOs, the "bargain element" (fair market value minus exercise price) is included as an AMT adjustment, even though it's not taxable for regular tax purposes until you sell the stock. This can create significant AMT liability in the year of exercise. However, you'll receive an AMT credit in future years when you sell the stock.</div>
+
+            <div class="faq-question">Does the SALT cap affect AMT?</div>
+            <div class="faq-answer">Yes, indirectly. The $10,000 SALT deduction cap applies to both regular tax and AMT calculations. However, any state taxes above this cap are still added back for AMT purposes. The 2017 tax law changes actually reduced AMT exposure for many taxpayers by both increasing exemptions and capping SALT deductions.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateAMT(){
+const regularIncome=parseFloat(document.getElementById('regularIncome').value)||0;
+const saltDeduction=Math.min(parseFloat(document.getElementById('saltDeduction').value)||0,10000);
+const propertyTax=parseFloat(document.getElementById('propertyTax').value)||0;
+const isoIncome=parseFloat(document.getElementById('isoIncome').value)||0;
+const filingStatus=document.getElementById('filingStatus').value;
+
+let exemption=85700;
+let phaseOutStart=609350;
+if(filingStatus==='married'){
+exemption=133300;
+phaseOutStart=1181700;
+}
+
+const saltAdjustment=saltDeduction+Math.min(propertyTax,10000-saltDeduction);
+const amti=regularIncome+saltAdjustment+isoIncome;
+
+let adjustedExemption=exemption;
+if(amti>phaseOutStart){
+const phaseOutAmount=(amti-phaseOutStart)*0.25;
+adjustedExemption=Math.max(0,exemption-phaseOutAmount);
+}
+
+const amtBase=Math.max(0,amti-adjustedExemption);
+let tentativeMinTax=0;
+if(amtBase<=232600){
+tentativeMinTax=amtBase*0.26;
+}else{
+tentativeMinTax=(232600*0.26)+((amtBase-232600)*0.28);
+}
+
+let regularTax=0;
+if(regularIncome<=11600)regularTax=regularIncome*0.10;
+else if(regularIncome<=47150)regularTax=1160+(regularIncome-11600)*0.12;
+else if(regularIncome<=100525)regularTax=5426+(regularIncome-47150)*0.22;
+else if(regularIncome<=191950)regularTax=17168.50+(regularIncome-100525)*0.24;
+else if(regularIncome<=243725)regularTax=39110.50+(regularIncome-191950)*0.32;
+else if(regularIncome<=609350)regularTax=55678.50+(regularIncome-243725)*0.35;
+else regularTax=183647.25+(regularIncome-609350)*0.37;
+
+const amtOwed=Math.max(0,tentativeMinTax-regularTax);
+const amtApplies=amtOwed>0;
+
+document.getElementById('amtOwed').textContent='$'+amtOwed.toFixed(2);
+document.getElementById('amtApplies').textContent=amtApplies?'AMT applies - additional tax owed':'No AMT liability';
+document.getElementById('amti').textContent='$'+amti.toLocaleString();
+document.getElementById('amtExemption').textContent='$'+adjustedExemption.toLocaleString();
+document.getElementById('exemptionPhaseOut').textContent='$'+phaseOutStart.toLocaleString();
+document.getElementById('regularTax').textContent='$'+regularTax.toFixed(2);
+document.getElementById('tentativeMinTax').textContent='$'+tentativeMinTax.toFixed(2);
+document.getElementById('amtDifference').textContent='$'+amtOwed.toFixed(2);
+}
+
+function clearAMT(){
+document.getElementById('regularIncome').value='';
+document.getElementById('saltDeduction').value='';
+document.getElementById('propertyTax').value='';
+document.getElementById('isoIncome').value='';
+document.getElementById('amtOwed').textContent='$0.00';
+document.getElementById('amtApplies').textContent='AMT does not apply';
+document.getElementById('amti').textContent='$0.00';
+document.getElementById('amtExemption').textContent='$0.00';
+document.getElementById('exemptionPhaseOut').textContent='$609,350';
+document.getElementById('regularTax').textContent='$0.00';
+document.getElementById('tentativeMinTax').textContent='$0.00';
+document.getElementById('amtDifference').textContent='$0.00';
+}
+
+function copyAMTResults(){
+const amt=document.getElementById('amtOwed').textContent;
+const applies=document.getElementById('amtApplies').textContent;
+const text=`AMT Results:
+AMT Owed: ${amt}
+Status: ${applies}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Estimated Tax Calculator",icon:"fa-file-invoice-dollar",url:"estimated-tax-calculator.html"},
+{name:"Payroll Tax Calculator",icon:"fa-money-check-alt",url:"payroll-tax-calculator.html"},
+{name:"Child Tax Credit",icon:"fa-child",url:"child-tax-credit-calculator.html"},
+{name:"Earned Income Credit",icon:"fa-hand-holding-usd",url:"earned-income-credit-calculator.html"},
+{name:"VAT Calculator",icon:"fa-receipt",url:"vat-calculator.html"},
+{name:"GST Calculator",icon:"fa-globe",url:"gst-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridTax").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

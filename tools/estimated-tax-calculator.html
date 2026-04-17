@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Estimated Tax Calculator – Quarterly Tax Estimator | ToolGram</title>
+    <meta name="description" content="Calculate your estimated quarterly tax payments for self-employment and freelance income. Free online estimated tax calculator with IRS safe harbor rules.">
+    <meta name="keywords" content="estimated tax calculator, quarterly tax payments, self employment tax, 1040-ES calculator, freelance tax estimator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/estimated-tax-calculator.html">
+    <meta property="og:title" content="Estimated Tax Calculator | ToolGram">
+    <meta property="og:description" content="Calculate quarterly tax payments for self-employment and freelance income.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/estimated-tax-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Estimated Tax Calculator",
+        "description": "Calculate quarterly tax payments for self-employment and freelance income.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/estimated-tax-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Quarterly Tax Estimation", "Self-Employment Tax", "IRS Safe Harbor", "1040-ES Calculation"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+            <div>
+                <h1 style="margin:0;">Estimated Tax Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate quarterly tax payments for self-employment</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Income Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Tax Year</label>
+                        <select id="taxYear"><option value="2024" selected>2024</option><option value="2025">2025</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Filing Status</label>
+                        <select id="filingStatus"><option value="single" selected>Single</option><option value="married">Married Filing Jointly</option><option value="head">Head of Household</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Expected Income ($)</label>
+                        <input type="number" id="expectedIncome" placeholder="75000" value="75000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Self-Employment ($)</label>
+                        <input type="number" id="selfEmployment" placeholder="50000" value="50000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">W-2 Withholding ($)</label>
+                        <input type="number" id="w2Withholding" placeholder="0" value="0">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Deductions ($)</label>
+                        <input type="number" id="deductions" placeholder="13850" value="13850">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateEstimatedTax()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearEstimatedTax()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Estimated Tax Results</div>
+                <div class="output-display" id="outputEstimatedTax">
+                    <div class="tax-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-calendar-alt"></i> Quarterly Payment</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="quarterlyPayment">$0.00</span>/quarter</div>
+                        <div style="margin-bottom:10px;">Annual Total: <span id="annualTaxDue">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Income Tax:</strong> <span id="incomeTax">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Self-Employment Tax:</strong> <span id="seTax">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Tax:</strong> <span id="totalTax">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Less Withholding:</strong> <span id="lessWithholding">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Safe Harbor 100%:</strong> <span id="safeHarbor100">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Safe Harbor 110%:</strong> <span id="safeHarbor110">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Due dates: Apr 15, Jun 15, Sep 15, Jan 15</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyEstimatedTaxResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tax Tools</h2>
+            <div class="related-grid" id="relatedGridTax"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Estimated Tax?</h3>
+            <p>Estimated tax is the method used to pay tax on income that is not subject to withholding, including income from self-employment, interest, dividends, rent, gains from the sale of assets, prizes, and awards. This calculator helps you determine your quarterly estimated tax payments for IRS Form 1040-ES.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select your tax year and filing status.<br>
+            <strong>Step 2:</strong> Enter your expected total income for the year.<br>
+            <strong>Step 3:</strong> Enter your self-employment income (if any).<br>
+            <strong>Step 4:</strong> Enter any W-2 withholding already paid.<br>
+            <strong>Step 5:</strong> Enter your expected deductions.<br>
+            <strong>Step 6:</strong> Click "Calculate" to see your quarterly payment amount.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Estimated Tax Examples</h3>
+            <p><strong>Example 1 - Freelancer:</strong> Sarah, single, expects $75,000 in freelance income in 2024. She takes the standard deduction ($13,850). Her estimated quarterly tax payment is approximately $4,850 per quarter, covering both income tax and self-employment tax.</p>
+            <p><strong>Example 2 - Side Business:</strong> Mike, married filing jointly, earns $50,000 from his W-2 job (with $8,000 withheld) and $30,000 from a side business. After deductions, his estimated quarterly payment for the business income is about $2,200 per quarter.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Needs to Pay Estimated Taxes?</h3>
+            <p>You generally need to make estimated tax payments if you expect to owe tax of $1,000 or more when you file your return. This typically includes self-employed individuals, freelancers, independent contractors, small business owners, and those with significant investment income.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> IRS Safe Harbor Rules</h3>
+            <ul>
+                <li><strong>100% Rule:</strong> Pay 100% of last year's tax liability to avoid penalties.</li>
+                <li><strong>110% Rule:</strong> If your AGI exceeds $150,000, pay 110% of last year's tax.</li>
+                <li><strong>90% Rule:</strong> Pay at least 90% of current year's tax liability.</li>
+                <li><strong>Quarterly Due Dates:</strong> April 15, June 15, September 15, and January 15.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">How are estimated taxes calculated?</div>
+            <div class="faq-answer">Estimated taxes combine your income tax (based on tax brackets) plus 15.3% self-employment tax (Social Security and Medicare), minus any withholding. The result is divided by 4 for quarterly payments.</div>
+
+            <div class="faq-question">What happens if I underpay estimated taxes?</div>
+            <div class="faq-answer">You may owe an underpayment penalty. However, you can avoid penalties by meeting one of the IRS safe harbor rules: paying 100% (or 110% for high earners) of last year's tax, or 90% of current year's tax.</div>
+
+            <div class="faq-question">Can I pay estimated taxes annually instead of quarterly?</div>
+            <div class="faq-answer">No, the IRS requires quarterly payments. Missing quarterly deadlines can result in penalties, even if you pay the full amount by the annual tax filing deadline.</div>
+
+            <div class="faq-question">Do I need to pay estimated taxes if I have a W-2 job?</div>
+            <div class="faq-answer">If your W-2 withholding covers your total tax liability, you don't need estimated payments. You can also increase your W-2 withholding to cover side income instead of making separate estimated payments.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateEstimatedTax(){
+const income=parseFloat(document.getElementById('expectedIncome').value)||0;
+const seIncome=parseFloat(document.getElementById('selfEmployment').value)||0;
+const withholding=parseFloat(document.getElementById('w2Withholding').value)||0;
+const deductions=parseFloat(document.getElementById('deductions').value)||0;
+const filingStatus=document.getElementById('filingStatus').value;
+
+const taxableIncome=Math.max(0,income-deductions);
+let incomeTax=0;
+if(filingStatus==='single'){
+if(taxableIncome<=11600)incomeTax=taxableIncome*0.10;
+else if(taxableIncome<=47150)incomeTax=1160+(taxableIncome-11600)*0.12;
+else if(taxableIncome<=100525)incomeTax=5426+(taxableIncome-47150)*0.22;
+else if(taxableIncome<=191950)incomeTax=17168.50+(taxableIncome-100525)*0.24;
+else if(taxableIncome<=243725)incomeTax=39110.50+(taxableIncome-191950)*0.32;
+else if(taxableIncome<=609350)incomeTax=55678.50+(taxableIncome-243725)*0.35;
+else incomeTax=183647.25+(taxableIncome-609350)*0.37;
+}else if(filingStatus==='married'){
+if(taxableIncome<=23200)incomeTax=taxableIncome*0.10;
+else if(taxableIncome<=94300)incomeTax=2320+(taxableIncome-23200)*0.12;
+else if(taxableIncome<=201050)incomeTax=10852+(taxableIncome-94300)*0.22;
+else if(taxableIncome<=383900)incomeTax=34337+(taxableIncome-201050)*0.24;
+else if(taxableIncome<=487450)incomeTax=78221+(taxableIncome-383900)*0.32;
+else if(taxableIncome<=731200)incomeTax=111357+(taxableIncome-487450)*0.35;
+else incomeTax=196669.50+(taxableIncome-731200)*0.37;
+}else{
+if(taxableIncome<=16550)incomeTax=taxableIncome*0.10;
+else if(taxableIncome<=63100)incomeTax=1655+(taxableIncome-16550)*0.12;
+else if(taxableIncome<=100500)incomeTax=7241+(taxableIncome-63100)*0.22;
+else if(taxableIncome<=191950)incomeTax=15469+(taxableIncome-100500)*0.24;
+else if(taxableIncome<=243700)incomeTax=37417+(taxableIncome-191950)*0.32;
+else if(taxableIncome<=609350)incomeTax=53977+(taxableIncome-243700)*0.35;
+else incomeTax=181954.50+(taxableIncome-609350)*0.37;
+}
+
+const seTaxable=seIncome*0.9235;
+const seTax=seTaxable*0.153;
+const totalTax=incomeTax+seTax;
+const netTaxDue=Math.max(0,totalTax-withholding);
+const quarterly=netTaxDue/4;
+
+const safeHarbor100=totalTax;
+const safeHarbor110=totalTax*1.1;
+
+document.getElementById('quarterlyPayment').textContent='$'+quarterly.toFixed(2);
+document.getElementById('annualTaxDue').textContent='$'+netTaxDue.toLocaleString(undefined,{maximumFractionDigits:0});
+document.getElementById('incomeTax').textContent='$'+incomeTax.toLocaleString(undefined,{maximumFractionDigits:0});
+document.getElementById('seTax').textContent='$'+seTax.toLocaleString(undefined,{maximumFractionDigits:0});
+document.getElementById('totalTax').textContent='$'+totalTax.toLocaleString(undefined,{maximumFractionDigits:0});
+document.getElementById('lessWithholding').textContent='-$'+withholding.toLocaleString();
+document.getElementById('safeHarbor100').textContent='$'+safeHarbor100.toLocaleString(undefined,{maximumFractionDigits:0});
+document.getElementById('safeHarbor110').textContent='$'+safeHarbor110.toLocaleString(undefined,{maximumFractionDigits:0});
+}
+
+function clearEstimatedTax(){
+document.getElementById('expectedIncome').value='';
+document.getElementById('selfEmployment').value='';
+document.getElementById('w2Withholding').value='';
+document.getElementById('deductions').value='';
+document.getElementById('quarterlyPayment').textContent='$0.00';
+document.getElementById('annualTaxDue').textContent='$0.00';
+document.getElementById('incomeTax').textContent='$0.00';
+document.getElementById('seTax').textContent='$0.00';
+document.getElementById('totalTax').textContent='$0.00';
+document.getElementById('lessWithholding').textContent='$0.00';
+document.getElementById('safeHarbor100').textContent='$0.00';
+document.getElementById('safeHarbor110').textContent='$0.00';
+}
+
+function copyEstimatedTaxResults(){
+const quarterly=document.getElementById('quarterlyPayment').textContent;
+const annual=document.getElementById('annualTaxDue').textContent;
+const text=`Estimated Tax Results:
+Quarterly Payment: ${quarterly}
+Annual Total: ${annual}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Payroll Tax Calculator",icon:"fa-money-check-alt",url:"payroll-tax-calculator.html"},
+{name:"VAT Calculator",icon:"fa-receipt",url:"vat-calculator.html"},
+{name:"GST Calculator",icon:"fa-globe",url:"gst-calculator.html"},
+{name:"Sales Tax Deduction",icon:"fa-receipt",url:"sales-tax-deduction-calculator.html"},
+{name:"Mileage Tax Deduction",icon:"fa-car",url:"mileage-tax-deduction-calculator.html"},
+{name:"Home Office Deduction",icon:"fa-home",url:"home-office-deduction-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridTax").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

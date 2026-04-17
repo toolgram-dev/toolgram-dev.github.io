@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Savings Rate Calculator – Personal Savings Percentage | ToolGram</title>
+    <meta name="description" content="Calculate your personal savings rate as percentage of income. Compare to recommended savings benchmarks and optimize your financial plan.">
+    <meta name="keywords" content="savings rate calculator, personal savings rate, savings percentage, save money calculator, financial independence savings rate">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/savings-rate-calculator.html">
+    <meta property="og:title" content="Savings Rate Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your personal savings rate and compare to recommended benchmarks.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/savings-rate-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Savings Rate Calculator",
+        "description": "Calculate your personal savings rate and compare to recommended benchmarks.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/savings-rate-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Savings Rate Calculation", "Income Analysis", "Benchmark Comparison", "FIRE Timeline"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .rate-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .rate-low{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3)}
+        .rate-medium{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3)}
+        .rate-high{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3)}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-piggy-bank"></i></div>
+            <div>
+                <h1 style="margin:0;">Savings Rate Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate your personal savings percentage</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Income & Savings</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Gross Income ($)</label>
+                        <input type="number" id="grossIncome" placeholder="75000" value="75000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Taxes ($)</label>
+                        <input type="number" id="taxes" placeholder="15000" value="15000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">401(k) Contributions ($)</label>
+                        <input type="number" id="retirement401k" placeholder="5000" value="5000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">IRA Contributions ($)</label>
+                        <input type="number" id="retirementIRA" placeholder="3000" value="3000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Other Savings ($)</label>
+                        <input type="number" id="otherSavings" placeholder="3000" value="3000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Debt Principal Paid ($)</label>
+                        <input type="number" id="debtPrincipal" placeholder="2000" value="2000">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateSavingsRate()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearSavingsRate()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Savings Rate Results</div>
+                <div class="output-display" id="outputSavingsRate">
+                    <div class="rate-box" id="rateBox">
+                        <div style="font-weight:600;color:#22C55E;margin-bottom:5px;"><i class="fas fa-percentage"></i> Your Savings Rate</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="savingsRate">0%</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);" id="rateAssessment">Enter data to see results</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Gross Savings Rate:</strong> <span id="grossRate">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Net Savings Rate:</strong> <span id="netRate">0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Annual Savings:</strong> <span id="totalSavings">$0</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Take-Home Pay:</strong> <span id="takeHome">$0</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Years to FI:</strong> <span id="yearsToFI">-</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Based on 4% withdrawal rule</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySavingsRateResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Finance Tools</h2>
+            <div class="related-grid" id="relatedGridFinance"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Savings Rate?</h3>
+            <p>Savings rate is the percentage of your income that you save rather than spend. It's one of the most important metrics in personal finance and a key predictor of financial independence timeline. A higher savings rate dramatically shortens the time needed to reach financial freedom.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your annual gross income.<br>
+            <strong>Step 2:</strong> Input total annual taxes (federal, state, local).<br>
+            <strong>Step 3:</strong> Add all retirement contributions (401k, IRA, etc.).<br>
+            <strong>Step 4:</strong> Include other savings and debt principal payments.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see your savings rate and FI estimate.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Savings Rate Examples</h3>
+            <p><strong>Example 1 - 15% Saver:</strong> Income $60,000, saves $9,000/year. At this rate, financial independence takes approximately 43 years assuming 5% investment returns.</p>
+            <p><strong>Example 2 - 30% Saver:</strong> Income $80,000, saves $24,000/year. Can reach FI in about 28 years—15 years faster than the 15% saver.</p>
+            <p><strong>Example 3 - 50% Saver:</strong> Income $100,000, saves $50,000/year. Can reach FI in approximately 17 years through aggressive saving and investing.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Savings Rate Benchmarks</h3>
+            <ul>
+                <li><strong>0-5%:</strong> Critical - Saving too little, financial stress likely</li>
+                <li><strong>5-10%:</strong> Below average - Minimum recommended for emergencies</li>
+                <li><strong>10-15%:</strong> Average - Standard retirement savings advice</li>
+                <li><strong>15-20%:</strong> Good - On track for traditional retirement</li>
+                <li><strong>20-30%:</strong> Excellent - Accelerated wealth building</li>
+                <li><strong>30-50%:</strong> Outstanding - Early retirement possible</li>
+                <li><strong>50%+:</strong> Exceptional - Very early financial independence</li>
+            </ul>
+            <p>The median US household savings rate is approximately 3-4%, but financial advisors typically recommend 15-20% minimum.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Increasing Your Savings Rate</h3>
+            <ul>
+                <li><strong>Automate Savings:</strong> Set up automatic transfers on payday.</li>
+                <li><strong>Maximize 401(k):</strong> Contribute at least enough to get full employer match.</li>
+                <li><strong>Reduce Big Expenses:</strong> Housing, transportation, and food are largest categories.</li>
+                <li><strong>Avoid Lifestyle Inflation:</strong> Don't increase spending as income rises.</li>
+                <li><strong>Side Income:</strong> Use extra income entirely for savings acceleration.</li>
+                <li><strong>Annual Reviews:</strong> Increase savings rate by 1-2% each year.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">What is a good savings rate?</div>
+            <div class="faq-answer">Financial experts recommend saving at least 15-20% of gross income for a traditional retirement around age 65. To retire earlier, target 30-50% or higher. The right rate depends on your goals, age, and current savings. Higher rates dramatically accelerate financial independence.</div>
+
+            <div class="faq-question">Should I calculate based on gross or net income?</div>
+            <div class="faq-answer">Both methods are valid. Gross savings rate (before taxes) typically ranges 15-30% for good savers. Net savings rate (after taxes) is usually higher, often 20-50%. Gross rate is easier to benchmark; net rate reflects actual disposable income allocation. Use whichever motivates you more consistently.</div>
+
+            <div class="faq-question">Does paying down debt count as saving?</div>
+            <div class="faq-answer">Yes, paying principal on debt (not interest) increases your net worth just like saving does. Include debt principal payments in your savings rate calculation. However, interest payments are an expense, not savings. Once debt-free, redirect those payments to investments.</div>
+
+            <div class="faq-question">How does savings rate affect retirement timeline?</div>
+            <div class="faq-answer">Higher savings rates dramatically shorten working years needed. At 10% savings rate, you need ~51 years of work. At 25%, ~32 years. At 50%, just ~17 years. This is because you're both saving more and spending less (requiring a smaller nest egg to support lower expenses).</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateSavingsRate(){
+const grossIncome=parseFloat(document.getElementById('grossIncome').value)||0;
+const taxes=parseFloat(document.getElementById('taxes').value)||0;
+const retirement401k=parseFloat(document.getElementById('retirement401k').value)||0;
+const retirementIRA=parseFloat(document.getElementById('retirementIRA').value)||0;
+const otherSavings=parseFloat(document.getElementById('otherSavings').value)||0;
+const debtPrincipal=parseFloat(document.getElementById('debtPrincipal').value)||0;
+
+const totalSavings=retirement401k+retirementIRA+otherSavings+debtPrincipal;
+const takeHome=grossIncome-taxes;
+const grossRate=(totalSavings/grossIncome)*100;
+const netRate=takeHome>0?(totalSavings/takeHome)*100:0;
+
+let yearsToFI='-';
+if(netRate>0){
+yearsToFI=Math.round(Math.log(1+((1-netRate/100)/netRate)*25)/Math.log(1.05));
+}
+
+let assessment='',rateClass='';
+if(grossRate<5){assessment='Critical - Increase savings urgently';rateClass='rate-low';}
+else if(grossRate<15){assessment='Below average - Aim for 15%+';rateClass='rate-medium';}
+else if(grossRate<25){assessment='Good - On track for retirement';rateClass='rate-high';}
+else if(grossRate<40){assessment='Excellent - Early retirement possible';rateClass='rate-high';}
+else{assessment='Outstanding - Very fast FI timeline';rateClass='rate-high';}
+
+const rateBox=document.getElementById('rateBox');
+rateBox.className='rate-box '+rateClass;
+
+document.getElementById('savingsRate').textContent=grossRate.toFixed(1)+'%';
+document.getElementById('rateAssessment').textContent=assessment;
+document.getElementById('grossRate').textContent=grossRate.toFixed(1)+'%';
+document.getElementById('netRate').textContent=netRate.toFixed(1)+'%';
+document.getElementById('totalSavings').textContent='$'+totalSavings.toLocaleString();
+document.getElementById('takeHome').textContent='$'+takeHome.toLocaleString();
+document.getElementById('yearsToFI').textContent=yearsToFI==='-'?'-':yearsToFI+' years';
+}
+
+function clearSavingsRate(){
+const ids=['grossIncome','taxes','retirement401k','retirementIRA','otherSavings','debtPrincipal'];
+ids.forEach(id=>document.getElementById(id).value='');
+document.getElementById('savingsRate').textContent='0%';
+document.getElementById('rateAssessment').textContent='Enter data to see results';
+document.getElementById('grossRate').textContent='0%';
+document.getElementById('netRate').textContent='0%';
+document.getElementById('totalSavings').textContent='$0';
+document.getElementById('takeHome').textContent='$0';
+document.getElementById('yearsToFI').textContent='-';
+document.getElementById('rateBox').className='rate-box';
+}
+
+function copySavingsRateResults(){
+const rate=document.getElementById('savingsRate').textContent;
+const savings=document.getElementById('totalSavings').textContent;
+const text=`Savings Rate Results:
+Rate: ${rate}
+Annual Savings: ${savings}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Net Worth Calculator",icon:"fa-gem",url:"net-worth-calculator.html"},
+{name:"FIRE Calculator",icon:"fa-fire",url:"fire-calculator.html"},
+{name:"Retirement Calculator",icon:"fa-umbrella-beach",url:"retirement-planning-calculator.html"},
+{name:"Monthly Budget",icon:"fa-calendar-alt",url:"monthly-budget-calculator.html"},
+{name:"Expense Tracker",icon:"fa-wallet",url:"expense-tracker.html"},
+{name:"Cost of Living",icon:"fa-city",url:"cost-of-living-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridFinance").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Term Life Insurance Calculator – Premium & Coverage Estimator | ToolGram</title>
+    <meta name="description" content="Calculate term life insurance premiums and coverage needs. Compare rates for 10, 20, and 30-year term policies.">
+    <meta name="keywords" content="term life insurance calculator, term life premium, life insurance rates, term policy calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/term-life-insurance-calculator.html">
+    <meta property="og:title" content="Term Life Insurance Calculator | ToolGram">
+    <meta property="og:description" content="Calculate term life insurance premiums and coverage needs.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/term-life-insurance-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Term Life Insurance Calculator","description": "Calculate term life insurance premiums and coverage needs.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/term-life-insurance-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Premium Calculation", "Term Length", "Coverage Amount", "Rate Comparison"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background:#fff!important;color:#000!important}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-file-contract"></i></div>
+            <div><h1 style="margin:0;">Term Life Insurance Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate premiums and coverage needs</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Policy Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Age</label><input type="number" id="age" placeholder="35" value="35"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Gender</label><select id="gender"><option value="male">Male</option><option value="female" selected>Female</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Coverage Amount ($)</label><input type="number" id="coverage" placeholder="500000" value="500000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Term Length</label><select id="term"><option value="10">10 Years</option><option value="20" selected>20 Years</option><option value="30">30 Years</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Health Status</label><select id="health"><option value="excellent">Excellent</option><option value="good" selected>Good</option><option value="average">Average</option><option value="poor">Poor</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Smoker?</label><select id="smoker"><option value="no" selected>No</option><option value="yes">Yes</option></select></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateTermLife()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearTermLife()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Premium Results</div>
+                <div class="output-display" id="outputTermLife">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> Estimated Monthly Premium</div><div style="margin-bottom:10px;"><span class="loan-result" id="monthlyPremium">$0</span></div><div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Level premium for term</div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Annual Premium:</strong> <span id="annualPremium">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Cost (Term):</strong> <span id="totalCost">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Cost per $1K:</strong> <span id="costPerK">$0</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Health Class:</strong> <span id="healthClass">-</span></div><div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Rates vary by carrier</div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyTermLifeResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">🔧 Related Insurance Tools</h2>
+            <div class="related-grid" id="relatedGridInsurance"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Term Life Insurance?</h3>
+            <p>Term life insurance provides death benefit protection for a specific period, typically 10, 20, or 30 years. It offers the most affordable way to get substantial life insurance coverage, making it ideal for families during their highest-need years when children are young and mortgages are large. If you die during the term, your beneficiaries receive the full death benefit tax-free.</p>
+            <p>Unlike permanent insurance, term life has no cash value component—you're paying purely for protection. This simplicity makes term policies significantly cheaper, often costing 5-15 times less than whole life insurance for the same death benefit. Most financial advisors recommend term insurance for the vast majority of families who need life insurance protection.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your current age (premiums increase significantly with age).<br><strong>Step 2:</strong> Select your gender (rates differ between males and females).<br><strong>Step 3:</strong> Input desired coverage amount using our life insurance calculator for guidance.<br><strong>Step 4:</strong> Choose term length matching your protection needs (20 years for young families).<br><strong>Step 5:</strong> Select health status and smoking status (major premium factors).<br><strong>Step 6:</strong> Click "Calculate" to see estimated monthly and annual premiums.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Term Life Insurance Examples</h3>
+            <p><strong>Example 1 - Healthy 30-Year-Old:</strong> A 30-year-old non-smoking male in excellent health seeking $500,000 coverage for 20 years can expect to pay approximately $20-30 per month. A female of the same age and health might pay $15-25 monthly. Over 20 years, total premiums would be roughly $4,800-$7,200 for $500,000 protection.</p>
+            <p><strong>Example 2 - Smoker Premiums:</strong> A 40-year-old male smoker seeking the same $500,000 policy for 20 years would pay significantly more—approximately $100-150 monthly due to increased mortality risk. This illustrates why quitting smoking before applying can save thousands over the policy term.</p>
+            <p><strong>Example 3 - Shorter Term Savings:</strong> A 35-year-old needing coverage only until their mortgage is paid off in 10 years might pay just $15-20 monthly for $250,000 coverage. Choosing a shorter term when appropriate can cut premiums by 40-60% compared to longer terms.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Buy Term Life Insurance?</h3>
+            <ul>
+                <li><strong>Young Parents:</strong> Provides affordable protection during child-rearing years when needs are highest.</li>
+                <li><strong>Homeowners with Mortgages:</strong> Match term length to mortgage payoff date for debt protection.</li>
+                <li><strong>Dual-Income Families:</strong> Cover both earners to maintain lifestyle if one income is lost.</li>
+                <li><strong>Single Breadwinners:</strong> Essential protection for families relying on one income source.</li>
+                <li><strong>Business Owners:</strong> Protect business debts and provide time for succession planning.</li>
+                <li><strong>Stay-at-Home Parents:</strong> Replace childcare and household services they provide.</li>
+                <li><strong>Recent Graduates with Debt:</strong> Protect cosigners from student loan obligations.</li>
+                <li><strong>Newlyweds Planning Family:</strong> Lock in low rates before having children.</li>
+                <li><strong>Divorced Parents:</strong> Secure child support obligations and alimony payments.</li>
+                <li><strong>Anyone with Time-Limited Needs:</strong> Perfect when protection needs decrease over time.</li>
+                <li><strong>Budget-Conscious Shoppers:</strong> Maximum coverage per dollar spent on premiums.</li>
+                <li><strong>Investment-Focused Individuals:</strong> "Buy term, invest the difference" strategy followers.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Term Life Insurance Tips</h3>
+            <ul>
+                <li><strong>Buy Young:</strong> Rates increase with age—purchase in your 20s or 30s for best pricing.</li>
+                <li><strong>Match Term to Needs:</strong> Choose length covering your highest financial obligations period.</li>
+                <li><strong>Get Multiple Quotes:</strong> Rates vary 50-100% between carriers for identical coverage.</li>
+                <li><strong>Consider Laddering:</strong> Buy multiple policies with different terms to match decreasing needs.</li>
+                <li><strong>Annual Payment Discount:</strong> Pay yearly instead of monthly to save 5-10% on premiums.</li>
+                <li><strong>Health Improvements:</strong> Reapply after significant health improvements for better rates.</li>
+                <li><strong>Independent Agents:</strong> Work with brokers who can access multiple insurance companies.</li>
+                <li><strong>Guaranteed Renewable:</strong> Choose policies offering conversion to permanent insurance later.</li>
+                <li><strong>Avoid Return-of-Premium:</strong> Basic term is cheaper—invest the premium difference yourself.</li>
+                <li><strong>Review Before Renewal:</strong> Shop around when term ends rather than auto-renewing at higher age rates.</li>
+                <li><strong>Lock Rates During Pregnancy:</strong> Apply before pregnancy complications affect health classification.</li>
+                <li><strong>Name Contingent Beneficiaries:</strong> Backup beneficiaries if primary predeceases you.</li>
+                <li><strong>Tell Beneficiaries:</strong> Ensure loved ones know policy exists and where to find documents.</li>
+                <li><strong>Update as Life Changes:</strong> Review coverage after marriage, births, home purchases, or divorces.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What happens when my term life insurance expires?</div>
+            <div class="faq-answer">When your term ends, coverage terminates and no death benefit is paid if you outlive the policy. Most insurers offer renewal at significantly higher age-adjusted rates or conversion to permanent insurance without medical underwriting. Plan ahead—apply for new coverage 1-2 years before expiration if you still need protection.</div>
+            <div class="faq-question">Can I convert term life to permanent insurance?</div>
+            <div class="faq-answer">Many term policies include conversion privileges allowing you to switch to permanent coverage without new medical exams. Conversion typically must occur before age 70 or within the first 10-20 years of the term. Premiums will increase substantially based on your age at conversion, but you'll lock in lifetime coverage.</div>
+            <div class="faq-question">Does term life insurance have cash value?</div>
+            <div class="faq-answer">No—term life insurance is pure protection with no cash value accumulation component. You pay only for the death benefit during the coverage period. If you want cash value that grows over time, consider whole life or universal life insurance, though these cost significantly more for the same death benefit amount.</div>
+            <div class="faq-question">What medical exams are required?</div>
+            <div class="faq-answer">Most term life policies require a paramedical exam including blood draw, urine sample, height/weight, blood pressure, and health questionnaire. Some insurers offer "simplified issue" or "guaranteed issue" policies without exams, but these cost more and offer lower coverage limits. Young, healthy applicants may qualify for accelerated underwriting with no exam.</div>
+            <div class="faq-question">Can I increase my coverage amount later?</div>
+            <div class="faq-answer">Generally no—you cannot increase coverage on an existing term policy. However, you can purchase additional policies to supplement coverage. Some policies offer "guaranteed insurability riders" allowing future coverage increases at specified life events (marriage, birth of child) without medical underwriting. Otherwise, you'll need new applications requiring updated health evaluation.</div>
+            <div class="faq-question">Is term life insurance tax deductible?</div>
+            <div class="faq-answer">Personal life insurance premiums are not tax deductible for individuals. However, if you're self-employed and purchase life insurance as part of a business continuation plan, premiums may be deductible as a business expense. Death benefits paid to beneficiaries are generally income tax-free regardless of policy type.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateTermLife(){const age=parseInt(document.getElementById('age').value)||35;const gender=document.getElementById('gender').value;const coverage=parseFloat(document.getElementById('coverage').value)||500000;const term=parseInt(document.getElementById('term').value)||20;const health=document.getElementById('health').value;const smoker=document.getElementById('smoker').value;let baseRate=0.15;if(gender==='male')baseRate*=1.25;const ageFactor=1+((age-25)*0.03);let healthMultiplier={excellent:0.7,good:1,average:1.5,poor:2.5}[health]||1;let smokerMultiplier=smoker==='yes'?2.5:1;const monthly=(coverage/1000)*baseRate*ageFactor*healthMultiplier*smokerMultiplier;const annual=monthly*12;const total=annual*term;const perK=(monthly/(coverage/1000));let healthClass=health.charAt(0).toUpperCase()+health.slice(1);if(smoker==='yes')healthClass+=' Smoker';document.getElementById('monthlyPremium').textContent='$'+monthly.toFixed(2);document.getElementById('annualPremium').textContent='$'+annual.toFixed(0);document.getElementById('totalCost').textContent='$'+total.toLocaleString();document.getElementById('costPerK').textContent='$'+perK.toFixed(2);document.getElementById('healthClass').textContent=healthClass;}
+function clearTermLife(){['age','coverage'].forEach(id=>document.getElementById(id).value='');document.getElementById('monthlyPremium').textContent='$0';document.getElementById('annualPremium').textContent='$0';document.getElementById('totalCost').textContent='$0';document.getElementById('costPerK').textContent='$0';document.getElementById('healthClass').textContent='-';}
+function copyTermLifeResults(){const prem=document.getElementById('monthlyPremium').textContent;const text=`Term Life Insurance Monthly Premium: ${prem}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Life Insurance",icon:"fa-heart",url:"life-insurance-calculator.html"},{name:"Whole Life Insurance",icon:"fa-infinity",url:"whole-life-insurance-calculator.html"},{name:"Car Insurance",icon:"fa-car",url:"car-insurance-calculator.html"},{name:"Health Insurance",icon:"fa-heartbeat",url:"health-insurance-calculator.html"},{name:"Homeowners Insurance",icon:"fa-home",url:"homeowners-insurance-calculator.html"},{name:"Renters Insurance",icon:"fa-building",url:"renters-insurance-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridInsurance").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

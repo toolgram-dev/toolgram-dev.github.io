@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Long Term Care Insurance Calculator – LTC Premium Estimator | ToolGram</title>
+    <meta name="description" content="Calculate long-term care insurance premiums and coverage needs for nursing home, assisted living, and home health care.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Long Term Care Insurance Calculator","description": "Calculate long-term care insurance premiums and coverage needs.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/long-term-care-insurance-calculator.html","offers": {"@type": "Offer", "price": "0"}}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0}select,input[type="number"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%;margin-bottom:3px}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-hands-helping"></i></div>
+            <div><h1 style="margin:0;">Long Term Care Insurance Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Plan for future care costs</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Policy Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Age</label><input type="number" id="currentAge" placeholder="55" value="55"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Health Status</label><select id="health"><option value="excellent">Excellent</option><option value="good" selected>Good</option><option value="fair">Fair</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Daily Benefit ($)</label><input type="number" id="dailyBenefit" placeholder="200" value="200"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Benefit Period</label><select id="benefitYears"><option value="3" selected>3 Years</option><option value="5">5 Years</option><option value="unlimited">Unlimited</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Elimination Period</label><select id="elimination"><option value="30">30 Days</option><option value="60">60 Days</option><option value="90" selected>90 Days</option></select></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateLTC()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearLTC()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Coverage Results</div>
+                <div class="output-display" id="outputLTC">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> Estimated Annual Premium</div><div style="margin-bottom:10px;"><span class="loan-result" id="annualPremium">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Premium:</strong> <span id="monthlyPremium">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Benefit Pool:</strong> <span id="benefitPool">$0</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyLTCResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">🔧 Related Insurance Tools</h2>
+            <div class="related-grid" id="relatedGridInsurance"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Long Term Care Insurance?</h3>
+            <p>Long-term care insurance helps pay for extended care services when you can't perform daily activities due to aging, illness, or cognitive impairment. Services include nursing home care, assisted living, and home health care. With nursing home costs exceeding $100,000 annually, LTC insurance protects your retirement savings and provides care choices.</p>
+            <p>Unlike health insurance that covers medical treatments, LTC insurance pays for custodial care assistance with activities like bathing, dressing, and eating. Most policies trigger benefits when you can't perform 2 of 6 activities of daily living or have severe cognitive impairment. Benefits can be used for care at home, adult day care, assisted living, or nursing facilities.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your current age—premiums are lower when purchased at 50-55.<br><strong>Step 2:</strong> Select your health status as it affects eligibility and pricing.<br><strong>Step 3:</strong> Input desired daily benefit based on local care costs ($150-300 typical).<br><strong>Step 4:</strong> Choose benefit period—3 years covers average needs, 5 years provides more security.<br><strong>Step 5:</strong> Select elimination period before benefits start (90 days is standard).<br><strong>Step 6:</strong> Click "Calculate" for premium estimates.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Long Term Care Cost Examples</h3>
+            <p><strong>Example 1 - Home Care Focus:</strong> A 55-year-old purchasing $150 daily benefit, 3-year benefit period, 90-day elimination period would pay approximately $2,000-2,500 annually. This covers in-home care allowing aging in place rather than facility care.</p>
+            <p><strong>Example 2 - Comprehensive Coverage:</strong> A 60-year-old selecting $250 daily benefit with 5-year benefit period faces annual premiums of approximately $3,500-4,500. This provides approximately $456,000 in total benefits for nursing home or assisted living coverage.</p>
+            <p><strong>Example 3 - Budget Option:</strong> A 50-year-old choosing $100 daily benefit, 2-year benefit period, 90-day elimination would pay approximately $800-1,200 annually. Less comprehensive but still valuable coverage for home care and short facility stays.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Current Long Term Care Costs (2024)</h3>
+            <ul>
+                <li><strong>Nursing Home (Private Room):</strong> $100,000-$120,000 annually ($275-$330 daily).</li>
+                <li><strong>Assisted Living:</strong> $50,000-$70,000 annually ($4,200-$5,800 monthly).</li>
+                <li><strong>Home Health Aide:</strong> $50,000-$65,000 annually ($25-$35 hourly).</li>
+                <li><strong>Adult Day Care:</strong> $15,000-$25,000 annually ($60-$100 daily).</li>
+                <li><strong>Regional Variations:</strong> Alaska, Northeast, West Coast significantly higher than Midwest/South.</li>
+                <li><strong>Inflation:</strong> Care costs rise 3-5% annually—faster than general inflation.</li>
+                <li><strong>Medicare:</strong> Limited to 100 days skilled nursing after hospitalization—not long-term care.</li>
+                <li><strong>Medicaid:</strong> Requires spending down assets to poverty levels.</li>
+                <li><strong>Average Duration:</strong> 2.2 years men, 3.7 years women; 20% need 5+ years.</li>
+                <li><strong>Care Location:</strong> 56% at home, 32% in facilities, 12% combination.</li>
+                <li><strong>Alzheimer's Impact:</strong> Patients may need 8-10 years of care.</li>
+                <li><strong>Who Needs Care:</strong> 70% of people over 65 will need some long-term care services.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> LTC Insurance Planning Tips</h3>
+            <ul>
+                <li><strong>Buy in Your 50s:</strong> Premiums are significantly lower when purchased at 50-55 versus 60-65.</li>
+                <li><strong>Include Inflation Protection:</strong> Essential for policies purchased before age 65 to keep pace with rising costs.</li>
+                <li><strong>Match Benefits to Local Costs:</strong> Research actual care costs in your area, not national averages.</li>
+                <li><strong>Consider Shared Care:</strong> Couples policies allowing spouses to share benefit pools add flexibility.</li>
+                <li><strong>Understand Elimination Period:</strong> Choose 90-100 days and self-insure the gap with savings.</li>
+                <li><strong>Tax-Qualified Policies:</strong> Premiums may be deductible; benefits are tax-free.</li>
+                <li><strong>Hybrid Life/LTC Policies:</strong> Consider if concerned about "use it or lose it" nature of traditional LTC.</li>
+                <li><strong>Financial Strength:</strong> Choose insurers with strong ratings—claims may be decades away.</li>
+                <li><strong>State Partnership Programs:</strong> Qualified policies allow asset protection when accessing Medicaid.</li>
+                <li><strong>Don't Over-Insure:</strong> Cover 60-80% of expected costs and pay remainder from retirement income.</li>
+                <li><strong>Review Every 3 Years:</strong> Reassess coverage as your health and financial situation changes.</li>
+                <li><strong>Consider Self-Insurance:</strong> If you have $1.5M+ in assets, you may be able to pay costs directly.</li>
+                <li><strong>Annuities with LTC Riders:</strong> Alternative approach providing both income and care coverage.</li>
+                <li><strong>Life Insurance with LTC:</strong> Some policies allow accessing death benefit for chronic care needs.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What does long term care insurance cover?</div>
+            <div class="faq-answer">LTC insurance covers assistance with activities of daily living (ADLs) including bathing, dressing, eating, transferring, toileting, and continence. Benefits can be used for nursing home care, assisted living facilities, adult day care, home health care, and sometimes home modifications. Policies typically cover skilled, intermediate, and custodial care. The care can be provided in various settings including your home, assisted living facilities, adult day care centers, hospice facilities, or nursing homes depending on your policy terms.</div>
+            <div class="faq-question">When should I buy long term care insurance?</div>
+            <div class="faq-answer">The optimal time to purchase LTC insurance is between ages 50-65, when premiums are still affordable and you're likely healthy enough to qualify. Buying at age 55 versus 65 can save 30-50% on lifetime premiums. Waiting until after age 65 significantly increases costs, and health issues may make you uninsurable. Buy when you're healthy—conditions like diabetes, stroke history, or cognitive concerns can result in declined coverage or exclusions.</div>
+            <div class="faq-question">How are LTC insurance benefits triggered?</div>
+            <div class="faq-answer">Benefits typically trigger when a licensed health care practitioner certifies that you either: (1) cannot perform 2 out of 6 activities of daily living (bathing, dressing, eating, transferring, toileting, continence) for a period expected to last at least 90 days, or (2) have severe cognitive impairment requiring substantial supervision. Some policies also cover medical necessity triggers. A waiting period (elimination period) must be satisfied before benefits begin, typically 30, 60, 90, or 180 days.</div>
+            <div class="faq-question">What is the difference between traditional and hybrid LTC insurance?</div>
+            <div class="faq-answer">Traditional LTC insurance works like other insurance—you pay premiums and if you need care, the policy pays benefits. If you never need care, you receive no return of premiums. Hybrid policies combine long-term care benefits with life insurance or annuities. They typically require a large upfront premium or series of payments, but provide either LTC benefits OR a death benefit to beneficiaries OR a return of premium if you cancel. Hybrids appeal to those who don't like the "use it or lose it" aspect of traditional LTC but cost more for equivalent LTC coverage.</div>
+            <div class="faq-question">Does Medicare cover long term care?</div>
+            <div class="faq-answer">No—Medicare does not cover most long-term care services. It only provides limited skilled nursing facility care for up to 100 days following a qualifying hospital stay, and some home health care for rehabilitation. Medicare does not cover custodial care, which makes up the majority of long-term care needs. Once the 100 days are exhausted or if you don't meet the hospitalization requirement, you're responsible for all costs. This is why LTC insurance or Medicaid (for those who qualify) is essential for extended care needs.</div>
+            <div class="faq-question">How much does long term care insurance cost?</div>
+            <div class="faq-answer">Costs vary significantly based on age at purchase, health status, benefit amount, benefit period, elimination period, and inflation protection. A healthy 55-year-old might pay $1,500-2,500 annually for a comprehensive policy with $150-200 daily benefit, 3-year benefit period, and inflation protection. The same policy at age 65 could cost $3,000-5,000 annually. Women typically pay 20-40% more than men as they live longer and use more care. Work with an independent agent to compare multiple carriers for your specific situation.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateLTC(){const age=parseInt(document.getElementById('currentAge').value)||55;const health=document.getElementById('health').value;const dailyBenefit=parseInt(document.getElementById('dailyBenefit').value)||200;const benefitYears=document.getElementById('benefitYears').value;const elimination=document.getElementById('elimination').value;let baseRate=800;const ageFactor=1+((age-50)*0.08);const healthMultiplier={excellent:0.85,good:1,fair:1.4}[health]||1;const benefitMultiplier=benefitYears==='unlimited'?2.5:benefitYears==='5'?1.5:1;const eliminationDiscount={30:1.3,60:1.1,90:1}[elimination]||1;const annual=baseRate*ageFactor*healthMultiplier*benefitMultiplier*eliminationDiscount*(dailyBenefit/150);const totalBenefit=dailyBenefit*365*(benefitYears==='unlimited'?20:parseInt(benefitYears));document.getElementById('annualPremium').textContent='$'+annual.toFixed(0);document.getElementById('monthlyPremium').textContent='$'+(annual/12).toFixed(0);document.getElementById('benefitPool').textContent='$'+totalBenefit.toLocaleString();}
+function clearLTC(){['currentAge','dailyBenefit'].forEach(id=>document.getElementById(id).value='');document.getElementById('annualPremium').textContent='$0';document.getElementById('monthlyPremium').textContent='$0';document.getElementById('benefitPool').textContent='$0';}
+function copyLTCResults(){const annual=document.getElementById('annualPremium').textContent;const text=`Long Term Care Insurance Annual Premium: ${annual}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Life Insurance",icon:"fa-heart",url:"life-insurance-calculator.html"},{name:"Term Life Insurance",icon:"fa-file-contract",url:"term-life-insurance-calculator.html"},{name:"Whole Life Insurance",icon:"fa-infinity",url:"whole-life-insurance-calculator.html"},{name:"Car Insurance",icon:"fa-car",url:"car-insurance-calculator.html"},{name:"Health Insurance",icon:"fa-heartbeat",url:"health-insurance-calculator.html"},{name:"Disability Insurance",icon:"fa-wheelchair",url:"disability-insurance-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridInsurance").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

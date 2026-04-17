@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Child Tax Credit Calculator – CTC & Dependent Credit | ToolGram</title>
+    <meta name="description" content="Calculate your Child Tax Credit and Additional Child Tax Credit. Estimate tax savings per qualifying child under age 17. Free online tax credit calculator.">
+    <meta name="keywords" content="child tax credit calculator, CTC calculator, dependent credit, child tax credit 2024, tax credit for kids, qualifying children">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/child-tax-credit-calculator.html">
+    <meta property="og:title" content="Child Tax Credit Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your Child Tax Credit and Additional Child Tax Credit.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/child-tax-credit-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Child Tax Credit Calculator",
+        "description": "Calculate your Child Tax Credit and Additional Child Tax Credit.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/child-tax-credit-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Child Tax Credit", "Additional CTC", "Credit Phase-out", "Dependent Credit", "Tax Savings"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-child"></i></div>
+            <div>
+                <h1 style="margin:0;">Child Tax Credit Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate your child tax credit amount</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Family Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Tax Year</label>
+                        <select id="taxYear"><option value="2024" selected>2024</option><option value="2023">2023</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Filing Status</label>
+                        <select id="filingStatus"><option value="single" selected>Single</option><option value="married">Married Filing Jointly</option><option value="head">Head of Household</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Children Under 17</label>
+                        <input type="number" id="childrenUnder17" placeholder="2" value="2" min="0">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Other Dependents (17+)</label>
+                        <input type="number" id="otherDependents" placeholder="0" value="0" min="0">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">AGI ($)</label>
+                        <input type="number" id="agi" placeholder="75000" value="75000">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateChildTaxCredit()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearChildTaxCredit()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Credit Results</div>
+                <div class="output-display" id="outputChildTaxCredit">
+                    <div class="tax-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> Total Tax Credit</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="totalCredit">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Child Tax Credit:</strong> <span id="ctcAmount">$0.00</span> ($2,000/child)</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Credit for Other Dependents:</strong> <span id="odcAmount">$0.00</span> ($500/dependent)</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Qualifying Children:</strong> <span id="qualifyingChildren">0</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Credit Reduction:</strong> <span id="creditReduction">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Phase-out Threshold:</strong> <span id="phaseOutThreshold">$200,000</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Credit reduces $50 per $1,000 over threshold</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyChildTaxCreditResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tax Tools</h2>
+            <div class="related-grid" id="relatedGridTax"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is the Child Tax Credit?</h3>
+            <p>The Child Tax Credit (CTC) is a tax benefit for families with qualifying children under age 17. For 2024, the credit is up to $2,000 per qualifying child. The credit begins to phase out at higher income levels. The credit is partially refundable as the Additional Child Tax Credit (ACTC), meaning you may receive a refund even if you owe no tax.</p>
+            <p>The Credit for Other Dependents (ODC) provides up to $500 for dependents who don't qualify for the CTC, such as children age 17 or older, college students, or elderly parents you support.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select your tax year and filing status.<br>
+            <strong>Step 2:</strong> Enter the number of qualifying children under age 17.<br>
+            <strong>Step 3:</strong> Enter any other dependents (age 17 or older).<br>
+            <strong>Step 4:</strong> Enter your Adjusted Gross Income (AGI) from your tax return.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see your credit amount and any phase-out reduction.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Child Tax Credit Examples</h3>
+            <p><strong>Example 1 - Single Parent:</strong> Maria is single with AGI of $60,000 and two children ages 5 and 8. She qualifies for the full $2,000 per child, totaling $4,000 in Child Tax Credit. Since her income is below the phase-out threshold, she receives the full credit amount.</p>
+            <p><strong>Example 2 - High Income Phase-out:</strong> John and Jane are married filing jointly with AGI of $420,000 and two children. The phase-out threshold for MFJ is $400,000. Their excess income is $20,000, resulting in a $1,000 reduction ($50 × 20). Their final credit is $3,000 ($4,000 - $1,000).</p>
+            <p><strong>Example 3 - Mixed Dependents:</strong> Tom, head of household with AGI of $55,000, has one child age 10 and one college student age 19. He gets $2,000 for the child under 17 and $500 for the college student (Credit for Other Dependents), totaling $2,500.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Qualifies for the Credit?</h3>
+            <p>To qualify for the Child Tax Credit, a child must meet all these requirements:</p>
+            <ul>
+                <li><strong>Age:</strong> Under age 17 at the end of the tax year</li>
+                <li><strong>Relationship:</strong> Your son, daughter, stepchild, foster child, sibling, stepsibling, or descendant of any of these</li>
+                <li><strong>Residency:</strong> Must have lived with you for more than half the year</li>
+                <li><strong>Support:</strong> Must not have provided more than half of their own support</li>
+                <li><strong>SSN:</strong> Must have a valid Social Security Number issued before the tax return due date</li>
+                <li><strong>Dependent:</strong> Must be claimed as your dependent on your tax return</li>
+                <li><strong>Citizenship:</strong> Must be a US citizen, US national, or US resident alien</li>
+                <li><strong>Joint Return:</strong> Cannot file a joint return with their spouse (unless filing only to claim a refund)</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Child Tax Credit Tips</h3>
+            <ul>
+                <li><strong>Credit Amount:</strong> Up to $2,000 per qualifying child under age 17 for 2024.</li>
+                <li><strong>Refundable Portion:</strong> Up to $1,700 per child may be refundable as Additional CTC (ACTC) even if you owe no tax.</li>
+                <li><strong>Income Phase-out:</strong> Begins at $200,000 (single/HoH) or $400,000 (married filing jointly).</li>
+                <li><strong>Phase-out Rate:</strong> Credit reduces by $50 for each $1,000 (or fraction) your income exceeds the threshold.</li>
+                <li><strong>Other Dependent Credit:</strong> $500 credit for dependents age 17+ (including college students) and elderly parents.</li>
+                <li><strong>SSN Required:</strong> Children must have valid Social Security numbers by the tax return due date (including extensions).</li>
+                <li><strong>Valid for Adoption:</strong> Adopted children qualify if they meet all other tests and have an SSN.</li>
+                <li><strong>Divorced Parents:</strong> The custodial parent typically claims the credit unless they sign Form 8332 releasing it.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">How much is the Child Tax Credit for 2024?</div>
+            <div class="faq-answer">For 2024, the Child Tax Credit is up to $2,000 per qualifying child under age 17. Up to $1,700 per child is refundable as the Additional Child Tax Credit, meaning you can receive it as a refund even if you owe no federal income tax. The non-refundable portion can reduce your tax liability to zero.</div>
+
+            <div class="faq-question">What if my income is too high for the full credit?</div>
+            <div class="faq-answer">The credit phases out by $50 for each $1,000 (or fraction thereof) that your income exceeds the threshold: $200,000 for single or head of household filers, or $400,000 for married filing jointly. For example, if you're single with $210,000 income, that's $10,000 over the threshold, so your credit is reduced by $500 ($50 × 10).</div>
+
+            <div class="faq-question">Can I claim the credit for my 17-year-old?</div>
+            <div class="faq-answer">Children must be under age 17 at the end of the tax year to qualify for the full $2,000 Child Tax Credit. However, you may claim the $500 Credit for Other Dependents for children age 17 or older who meet other dependency requirements, such as your 19-year-old college student or an elderly parent you support.</div>
+
+            <div class="faq-question">Is the Child Tax Credit refundable?</div>
+            <div class="faq-answer">Yes, partially. The Additional Child Tax Credit (ACTC) allows up to $1,700 per child (for 2024) to be refundable, meaning you can receive it as a refund even if you owe no federal income taxes. The remainder of the credit (up to $300 per child) is non-refundable and can only reduce your tax liability.</div>
+
+            <div class="faq-question">What if my child doesn't have a Social Security Number?</div>
+            <div class="faq-answer">Your child must have a valid Social Security Number (SSN) issued by the tax return due date (including extensions) to qualify for the Child Tax Credit. If your child has an Individual Taxpayer Identification Number (ITIN) instead, they don't qualify for CTC but may qualify for the $500 Credit for Other Dependents. Apply for your child's SSN as soon as possible if they don't have one.</div>
+
+            <div class="faq-question">Can divorced parents both claim the credit?</div>
+            <div class="faq-answer">No, only one parent can claim the credit for each child. Generally, the custodial parent (the parent the child lived with for the greater part of the year) claims the credit. However, the custodial parent can sign Form 8332 to release their claim to the non-custodial parent, who can then claim the child as a dependent and receive the credit.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateChildTaxCredit(){
+const childrenUnder17=parseInt(document.getElementById('childrenUnder17').value)||0;
+const otherDependents=parseInt(document.getElementById('otherDependents').value)||0;
+const agi=parseFloat(document.getElementById('agi').value)||0;
+const filingStatus=document.getElementById('filingStatus').value;
+
+let threshold=200000;
+if(filingStatus==='married')threshold=400000;
+
+const qualifyingChildren=childrenUnder17;
+const ctcPerChild=2000;
+const odcPerDependent=500;
+
+let totalCTC=qualifyingChildren*ctcPerChild;
+let totalODC=otherDependents*odcPerDependent;
+let totalCredit=totalCTC+totalODC;
+
+let creditReduction=0;
+if(agi>threshold){
+const excess=Math.ceil((agi-threshold)/1000);
+creditReduction=excess*50;
+totalCredit=Math.max(0,totalCredit-creditReduction);
+if(totalCTC>0){
+totalCTC=Math.max(0,totalCTC-creditReduction);
+totalODC=Math.max(0,totalODC-(creditReduction-(qualifyingChildren*ctcPerChild-totalCTC)));
+}
+}
+
+document.getElementById('totalCredit').textContent='$'+totalCredit.toLocaleString();
+document.getElementById('ctcAmount').textContent='$'+totalCTC.toLocaleString();
+document.getElementById('odcAmount').textContent='$'+totalODC.toLocaleString();
+document.getElementById('qualifyingChildren').textContent=qualifyingChildren;
+document.getElementById('creditReduction').textContent='$'+creditReduction.toLocaleString();
+document.getElementById('phaseOutThreshold').textContent='$'+threshold.toLocaleString();
+}
+
+function clearChildTaxCredit(){
+document.getElementById('childrenUnder17').value='';
+document.getElementById('otherDependents').value='';
+document.getElementById('agi').value='';
+document.getElementById('totalCredit').textContent='$0.00';
+document.getElementById('ctcAmount').textContent='$0.00';
+document.getElementById('odcAmount').textContent='$0.00';
+document.getElementById('qualifyingChildren').textContent='0';
+document.getElementById('creditReduction').textContent='$0.00';
+}
+
+function copyChildTaxCreditResults(){
+const total=document.getElementById('totalCredit').textContent;
+const ctc=document.getElementById('ctcAmount').textContent;
+const text=`Child Tax Credit Results:
+Total Credit: ${total}
+CTC Amount: ${ctc}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Estimated Tax Calculator",icon:"fa-file-invoice-dollar",url:"estimated-tax-calculator.html"},
+{name:"Payroll Tax Calculator",icon:"fa-money-check-alt",url:"payroll-tax-calculator.html"},
+{name:"Earned Income Credit",icon:"fa-hand-holding-usd",url:"earned-income-credit-calculator.html"},
+{name:"VAT Calculator",icon:"fa-receipt",url:"vat-calculator.html"},
+{name:"GST Calculator",icon:"fa-globe",url:"gst-calculator.html"},
+{name:"AMT Calculator",icon:"fa-calculator",url:"amt-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridTax").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Retirement Income Calculator – Sustainable Withdrawal | ToolGram</title>
+    <meta name="description" content="Calculate sustainable retirement income from savings, Social Security, and pensions. Free retirement income planner with withdrawal strategy.">
+    <meta name="keywords" content="retirement income calculator, sustainable withdrawal, retirement cash flow, pension income, social security income">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/retirement-income-calculator.html">
+    <meta property="og:title" content="Retirement Income Calculator | ToolGram">
+    <meta property="og:description" content="Calculate sustainable retirement income from savings and pensions.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/retirement-income-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0}select,input[type="number"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;gap:5px}.var-row label{min-width:100%;margin-bottom:3px}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-wallet"></i></div>
+            <div><h1 style="margin:0;">Retirement Income Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Plan your retirement cash flow</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Income Sources</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Total Savings ($)</label><input type="number" id="totalSavings" placeholder="1000000" value="1000000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Social Security ($/mo)</label><input type="number" id="socialSecurity" placeholder="2000" value="2000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Pension ($/mo)</label><input type="number" id="pension" placeholder="0" value="0"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Other Income ($/mo)</label><input type="number" id="otherIncome" placeholder="0" value="0"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Withdrawal Rate (%)</label><input type="number" id="withdrawalRate" placeholder="4" value="4"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Tax Rate (%)</label><input type="number" id="taxRate" placeholder="15" value="15"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateRetirementIncome()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearRetirementIncome()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Income Results</div>
+                <div class="output-display" id="outputIncome">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> Total Monthly Income</div><div style="margin-bottom:10px;"><span class="loan-result" id="totalMonthly">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Portfolio Withdrawal:</strong> <span id="portfolioWithdrawal">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Guaranteed Income:</strong> <span id="guaranteedIncome">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Annual After-Tax:</strong> <span id="annualAfterTax">$0</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyIncomeResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">🔧 Related Retirement Tools</h2>
+            <div class="related-grid" id="relatedGridRetirement"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is the Retirement Income Calculator?</h3>
+            <p>The Retirement Income Calculator helps you project your total retirement income from all sources including portfolio withdrawals, Social Security benefits, pension payments, and other income streams. It calculates your sustainable monthly and annual income, accounting for taxes, to help you determine if your retirement plan meets your spending needs.</p>
+            <p>Understanding your retirement income sources is crucial because different income types have different characteristics—portfolio withdrawals fluctuate with markets, Social Security provides inflation-adjusted guaranteed income, and pensions offer fixed payments. This calculator shows how these pieces fit together to create your retirement paycheck and whether adjustments are needed to ensure financial security throughout retirement.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter total retirement savings across all accounts (401k, IRA, taxable).<br><strong>Step 2:</strong> Input expected monthly Social Security benefit from SSA.gov.<br><strong>Step 3:</strong> Enter any pension or annuity monthly payments.<br><strong>Step 4:</strong> Include other income sources (rental, part-time work, royalties).<br><strong>Step 5:</strong> Set withdrawal rate from savings (4% is standard, 3.5% for early retirement).<br><strong>Step 6:</strong> Enter expected tax rate on retirement income.<br><strong>Step 7:</strong> Click "Calculate" to see total monthly and annual income.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Retirement Income Examples</h3>
+            <p><strong>Example 1 - Traditional Retirement:</strong> With $800,000 in savings using 4% withdrawal rate, monthly portfolio income is $2,667. Adding $2,000 Social Security and $500 pension gives $5,167 monthly gross. After 15% taxes, net monthly income is $4,392 ($52,704 annually). This supports a comfortable middle-class retirement lifestyle in most US regions.</p>
+            <p><strong>Example 2 - High Income Retiree:</strong> $2 million portfolio at 3.5% withdrawal provides $5,833 monthly. With $3,000 Social Security (delayed until 70) and no pension, gross monthly is $8,833. After 20% effective tax rate, net is $7,066 monthly. This "Fat FIRE" level allows for luxury travel, fine dining, and discretionary spending without budget constraints.</p>
+            <p><strong>Example 3 - Lean Retirement:</strong> $500,000 savings at 4% withdrawal gives $1,667 monthly. With $1,500 Social Security (claimed early at 62) totaling $3,167 gross. After minimal 10% tax rate, net is $2,850 monthly ($34,200 annually). This requires careful budgeting and may benefit from geographic arbitrage to lower-cost areas or countries.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Retirement Income Sources</h3>
+            <ul>
+                <li><strong>Portfolio Withdrawals:</strong> 401k, IRA, taxable accounts using 3-4% withdrawal strategies.</li>
+                <li><strong>Social Security:</strong> Inflation-adjusted guaranteed income for life. Maximize by delaying to 70.</li>
+                <li><strong>Pensions:</strong> Employer-provided guaranteed payments; consider lump sum vs annuity carefully.</li>
+                <li><strong>Annuities:</strong> Personal purchased lifetime income; immediate or deferred options available.</li>
+                <li><strong>Rental Income:</strong> Real estate investments providing cash flow; requires active management.</li>
+                <li><strong>Part-Time Work:</strong> Consulting, teaching, gig economy; provides income and social engagement.</li>
+                <li><strong>Dividend Income:</strong> Stock dividends from taxable accounts; may be tax-advantaged.</li>
+                <li><strong>Interest Income:</strong> Bonds, CDs, savings accounts; generally lower returns but stable.</li>
+                <li><strong>Business Income:</strong> Ongoing profits from businesses owned; passive or active involvement.</li>
+                <li><strong>Royalties:</strong> Intellectual property, mineral rights, book publishing income.</li>
+                <li><strong>Reverse Mortgage:</strong> Home equity conversion for cash flow; complex product requiring careful analysis.</li>
+                <li><strong>Inheritance:</strong> Not guaranteed but potential future income source.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Maximizing Retirement Income</h3>
+            <ul>
+                <li><strong>Delay Social Security:</strong> Waiting until 70 increases benefits 24-32% over FRA amount.</li>
+                <li><strong>Optimize Withdrawal Order:</strong> Tap taxable accounts first, then tax-deferred, then Roth.</li>
+                <li><strong>Tax Bracket Management:</strong> Keep income in lower brackets through Roth conversions.</li>
+                <li><strong>Coordinate with Spouse:</strong> Higher earner delays; lower earner claims early if needed.</li>
+                <li><strong>Consider Annuities:</strong> Partial annuitization provides secure floor of guaranteed income.</li>
+                <li><strong>Manage RMDs:</strong> Plan Required Minimum Distributions to avoid tax bracket creep.</li>
+                <li><strong>QCD Strategy:</strong> Use Qualified Charitable Distributions to satisfy RMDs tax-free.</li>
+                <li><strong>Asset Location:</strong> Place tax-inefficient investments in tax-advantaged accounts.</li>
+                <li><strong>Harvest Losses:</strong> Tax-loss harvesting in taxable accounts reduces tax drag.</li>
+                <li><strong>Geographic Arbitrage:</strong> Move to lower-tax states or countries to increase spendable income.</li>
+                <li><strong>Part-Time Bridge:</strong> Work part-time early in retirement to reduce portfolio withdrawals.</li>
+                <li><strong>Downsizing:</strong> Smaller home releases equity and reduces property taxes and maintenance.</li>
+                <li><strong>Review Fees:</strong> Minimize investment fees, advisory fees, and account costs.</li>
+                <li><strong>Inflation Protection:</strong> Ensure portion of income grows with inflation (Social Security, TIPS, I Bonds).</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is a safe withdrawal rate in retirement?</div>
+            <div class="faq-answer">The 4% rule works for 30-year retirements with 95% success. For 40-50 years, use 3.25-3.5%. Variable strategies reducing spending 10-20% in downturns improve safety and allow higher initial rates.</div>
+            <div class="faq-question">How much retirement income will I pay taxes on?</div>
+            <div class="faq-answer">401k/IRA withdrawals are ordinary income. Roth is tax-free. Social Security is 0-85% taxable based on income. Many retirees pay 10-15% federal tax. State taxes vary—some states don't tax retirement income.</div>
+            <div class="faq-question">Should I include home equity in retirement income?</div>
+            <div class="faq-answer">Home equity is usually excluded as it's illiquid. Access via downsizing, reverse mortgages, or HELOCs. Treat it as a safety net, not primary income. If downsizing, include expected equity conservatively.</div>
+            <div class="faq-question">What if my retirement income isn't enough?</div>
+            <div class="faq-answer">Work longer, reduce expenses, delay Social Security, or annuitize savings. The most powerful fixes are delaying retirement 2-3 years and reducing spending. Part-time work in retirement also helps.</div>
+            <div class="faq-question">How does inflation affect retirement income?</div>
+            <div class="faq-answer">At 3% inflation, $50,000 today buys $37,000 in 10 years. Social Security has COLA adjustments. Maintain stock allocation, consider TIPS and I Bonds. Plan for 3% average inflation in your projections.</div>
+            <div class="faq-question">Can I increase my retirement income after retiring?</div>
+            <div class="faq-answer">Yes, through part-time work, side hustles, rental income, delaying Social Security (within 12 months), or annuitizing savings. Retirement planning is ongoing—review and adjust regularly for best results.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/main.js"></script>
+<script src="../js/nav-manager.js"></script>
+<script>
+function calculateRetirementIncome(){const totalSavings=parseFloat(document.getElementById('totalSavings').value)||0;const socialSecurity=parseFloat(document.getElementById('socialSecurity').value)||0;const pension=parseFloat(document.getElementById('pension').value)||0;const otherIncome=parseFloat(document.getElementById('otherIncome').value)||0;const withdrawalRate=parseFloat(document.getElementById('withdrawalRate').value)||4;const taxRate=parseFloat(document.getElementById('taxRate').value)||15;const annualPortfolio=totalSavings*(withdrawalRate/100);const monthlyPortfolio=annualPortfolio/12;const monthlyGuaranteed=socialSecurity+pension+otherIncome;const totalMonthly=monthlyPortfolio+monthlyGuaranteed;const annualGross=totalMonthly*12;const annualAfterTax=annualGross*(1-taxRate/100);document.getElementById('totalMonthly').textContent='$'+totalMonthly.toFixed(0);document.getElementById('portfolioWithdrawal').textContent='$'+monthlyPortfolio.toFixed(0)+'/mo';document.getElementById('guaranteedIncome').textContent='$'+monthlyGuaranteed.toFixed(0)+'/mo';document.getElementById('annualAfterTax').textContent='$'+annualAfterTax.toFixed(0);}
+function clearRetirementIncome(){['totalSavings','socialSecurity','pension','otherIncome','withdrawalRate','taxRate'].forEach(id=>document.getElementById(id).value='');document.getElementById('totalMonthly').textContent='$0';document.getElementById('portfolioWithdrawal').textContent='$0';document.getElementById('guaranteedIncome').textContent='$0';document.getElementById('annualAfterTax').textContent='$0';}
+function copyIncomeResults(){const monthly=document.getElementById('totalMonthly').textContent;const annual=document.getElementById('annualAfterTax').textContent;const text=`Retirement Monthly Income: ${monthly}, Annual After-Tax: ${annual}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Retirement Age",icon:"fa-calendar-check",url:"retirement-age-calculator.html"},{name:"RMD Calculator",icon:"fa-money-bill-wave",url:"rmd-calculator.html"},{name:"Pension Payout",icon:"fa-hand-holding-usd",url:"pension-payout-calculator.html"},{name:"Early Retirement",icon:"fa-sun",url:"early-retirement-calculator.html"},{name:"FIRE Calculator",icon:"fa-fire",url:"fire-calculator.html"},{name:"Social Security",icon:"fa-shield-alt",url:"social-security-break-even-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridRetirement").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Net Worth Tracker – Wealth Growth Monitor | ToolGram</title>
+    <meta name="description" content="Track your net worth growth over time. Monitor assets, liabilities, and financial progress with this simple net worth tracker tool.">
+    <meta name="keywords" content="net worth tracker, wealth tracker, financial progress, net worth history, wealth monitoring">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/net-worth-tracker.html">
+    <meta property="og:title" content="Net Worth Tracker | ToolGram">
+    <meta property="og:description" content="Track your net worth growth over time and monitor financial progress.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/net-worth-tracker.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Net Worth Tracker",
+        "description": "Track your net worth growth over time and monitor financial progress.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/net-worth-tracker.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Net Worth Tracking", "Wealth Growth", "Progress Monitor", "Financial History"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .history-row{display:flex;gap:10px;padding:10px;background:rgba(255,255,255,0.03);border-radius:8px;margin-bottom:8px}
+        .history-date{flex:1;font-weight:600}
+        .history-value{flex:1;text-align:right}
+        .history-change{flex:1;text-align:right;color:#22C55E}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+                <h1 style="margin:0;">Net Worth Tracker</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Monitor your wealth growth journey</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-plus-circle"></i> Add Net Worth Entry</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Date</label>
+                        <input type="date" id="entryDate">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Total Assets ($)</label>
+                        <input type="number" id="entryAssets" placeholder="500000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Total Liabilities ($)</label>
+                        <input type="number" id="entryLiabilities" placeholder="200000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Notes (Optional)</label>
+                        <input type="text" id="entryNotes" placeholder="Q1 2024 check-in">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="addEntry()"><i class="fas fa-plus"></i> Add Entry</button>
+                        <button class="secondary-btn" onclick="clearEntryForm()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Current Status</div>
+                <div style="padding:20px">
+                    <div class="tax-box" style="text-align:center;padding:20px;">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:10px;">Latest Net Worth</div>
+                        <div style="font-size:2.5rem;font-weight:bold;color:#8B5CF6;margin-bottom:10px;" id="currentNetWorth">$0</div>
+                        <div style="font-size:1rem;color:rgba(255,255,255,0.7);" id="entriesCount">0 entries recorded</div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:20px;">
+                        <div class="tax-box" style="text-align:center;">
+                            <div style="font-size:0.9rem;margin-bottom:5px;">Total Change</div>
+                            <div style="font-size:1.4rem;font-weight:bold;" id="totalChange">$0</div>
+                        </div>
+                        <div class="tax-box" style="text-align:center;">
+                            <div style="font-size:0.9rem;margin-bottom:5px;">Percent Growth</div>
+                            <div style="font-size:1.4rem;font-weight:bold;" id="percentGrowth">0%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-interface" style="margin-top:30px;">
+            <div class="tool-column" style="flex:1">
+                <div class="tool-column-title"><i class="fas fa-history"></i> Net Worth History</div>
+                <div style="padding:20px">
+                    <div id="historyList">
+                        <div style="text-align:center;color:rgba(255,255,255,0.5);padding:40px;">
+                            <i class="fas fa-chart-area" style="font-size:3rem;margin-bottom:15px;"></i>
+                            <p>No entries yet. Add your first net worth snapshot above.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="padding:0 20px 20px;">
+                    <button class="secondary-btn" onclick="clearAllEntries()"><i class="fas fa-trash-alt"></i> Clear All History</button>
+                    <button class="copy-btn" onclick="exportData()"><i class="fas fa-download"></i> Export Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Finance Tools</h2>
+            <div class="related-grid" id="relatedGridFinance"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Why Track Net Worth?</h3>
+            <p>Tracking your net worth over time provides a complete picture of your financial health. Unlike income or savings rate alone, net worth captures all assets and liabilities, showing true wealth accumulation. Regular tracking helps you stay motivated, identify trends, and make informed financial decisions.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Tracker</h3>
+            <p><strong>Step 1:</strong> Calculate your current net worth using the Net Worth Calculator.<br>
+            <strong>Step 2:</strong> Enter the date, total assets, and total liabilities.<br>
+            <strong>Step 3:</strong> Add optional notes (e.g., "Q1 2024", "After bonus").<br>
+            <strong>Step 4:</strong> Click "Add Entry" to save.<br>
+            <strong>Step 5:</strong> Return quarterly to add new entries and watch your progress.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Tracking Best Practices</h3>
+            <ul>
+                <li><strong>Quarterly Reviews:</strong> Update every 3 months for meaningful trends.</li>
+                <li><strong>Consistent Method:</strong> Use same asset valuations each time.</li>
+                <li><strong>Celebrate Milestones:</strong> Note $100K, $250K, $500K achievements.</li>
+                <li><strong>Review Annually:</strong> Analyze year-over-year growth patterns.</li>
+                <li><strong>Share Progress:</strong> Discuss with partner or financial advisor.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">How often should I track net worth?</div>
+            <div class="faq-answer">Quarterly is ideal for most people—frequent enough to see progress, infrequent enough to avoid obsession. Monthly may show too much market volatility; annually may miss important trends. Pick a consistent schedule and stick to it.</div>
+
+            <div class="faq-question">What if my net worth goes down?</div>
+            <div class="faq-answer">Temporary declines are normal due to market fluctuations, especially if you have significant investments. Focus on the long-term trend over 1-3 years. If net worth consistently declines, review your budget, savings rate, and debt payoff strategy.</div>
+
+            <div class="faq-question">Should I include home equity?</div>
+            <div class="faq-answer">Yes, include your home's current value as an asset and mortgage balance as liability. However, your primary residence is less liquid than investments. Some people track both "total net worth" and "investable net worth" (excluding home) for different purposes.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+let entries=[];
+
+function addEntry(){
+const date=document.getElementById('entryDate').value;
+const assets=parseFloat(document.getElementById('entryAssets').value)||0;
+const liabilities=parseFloat(document.getElementById('entryLiabilities').value)||0;
+const notes=document.getElementById('entryNotes').value;
+
+if(!date){alert('Please select a date');return;}
+
+const netWorth=assets-liabilities;
+const entry={date,assets,liabilities,netWorth,notes};
+entries.push(entry);
+entries.sort((a,b)=>new Date(a.date)-new Date(b.date));
+
+renderHistory();
+updateSummary();
+clearEntryForm();
+}
+
+function renderHistory(){
+const container=document.getElementById('historyList');
+if(entries.length===0){
+container.innerHTML='<div style="text-align:center;color:rgba(255,255,255,0.5);padding:40px;"><i class="fas fa-chart-area" style="font-size:3rem;margin-bottom:15px;"></i><p>No entries yet. Add your first net worth snapshot above.</p></div>';
+return;
+}
+
+let html='';
+entries.forEach((entry,index)=>{
+const prev=index>0?entries[index-1]:null;
+const change=prev?entry.netWorth-prev.netWorth:0;
+const pctChange=prev?((change/prev.netWorth)*100).toFixed(1):'0.0';
+const changeColor=change>=0?'#22C55E':'#EF4444';
+const changeSign=change>=0?'+':'';
+
+html+=`<div class="history-row">
+<div class="history-date">${entry.date}</div>
+<div class="history-value">$${entry.netWorth.toLocaleString()}</div>
+<div class="history-change" style="color:${changeColor}">${index===0?'-':changeSign+'$'+change.toLocaleString()+' ('+changeSign+pctChange+'%)'}</div>
+</div>`;
+});
+
+container.innerHTML=html;
+}
+
+function updateSummary(){
+if(entries.length===0){
+document.getElementById('currentNetWorth').textContent='$0';
+document.getElementById('entriesCount').textContent='0 entries recorded';
+document.getElementById('totalChange').textContent='$0';
+document.getElementById('percentGrowth').textContent='0%';
+return;
+}
+
+const latest=entries[entries.length-1];
+const first=entries[0];
+const totalChange=latest.netWorth-first.netWorth;
+const pctGrowth=((totalChange/first.netWorth)*100).toFixed(1);
+
+document.getElementById('currentNetWorth').textContent='$'+latest.netWorth.toLocaleString();
+document.getElementById('entriesCount').textContent=entries.length+' entr'+(entries.length===1?'y':'ies')+' recorded';
+document.getElementById('totalChange').textContent=(totalChange>=0?'+':'')+'$'+totalChange.toLocaleString();
+document.getElementById('totalChange').style.color=totalChange>=0?'#22C55E':'#EF4444';
+document.getElementById('percentGrowth').textContent=(totalChange>=0?'+':'')+pctGrowth+'%';
+document.getElementById('percentGrowth').style.color=totalChange>=0?'#22C55E':'#EF4444';
+}
+
+function clearEntryForm(){
+document.getElementById('entryDate').value='';
+document.getElementById('entryAssets').value='';
+document.getElementById('entryLiabilities').value='';
+document.getElementById('entryNotes').value='';
+}
+
+function clearAllEntries(){
+if(entries.length>0&&confirm('Clear all net worth history? This cannot be undone.')){
+entries=[];
+renderHistory();
+updateSummary();
+}
+}
+
+function exportData(){
+if(entries.length===0){alert('No data to export');return;}
+const data=entries.map(e=>`${e.date},${e.assets},${e.liabilities},${e.netWorth},${e.notes||''}`).join('\n');
+const csv='Date,Assets,Liabilities,Net Worth,Notes\n'+data;
+const blob=new Blob([csv],{type:'text/csv'});
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');
+a.href=url;
+a.download='net-worth-history.csv';
+a.click();
+URL.revokeObjectURL(url);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Net Worth Calculator",icon:"fa-gem",url:"net-worth-calculator.html"},
+{name:"Savings Rate Calculator",icon:"fa-piggy-bank",url:"savings-rate-calculator.html"},
+{name:"Retirement Calculator",icon:"fa-umbrella-beach",url:"retirement-planning-calculator.html"},
+{name:"Monthly Budget",icon:"fa-calendar-alt",url:"monthly-budget-calculator.html"},
+{name:"Expense Tracker",icon:"fa-wallet",url:"expense-tracker.html"},
+{name:"Cost of Living",icon:"fa-city",url:"cost-of-living-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridFinance").innerHTML=html;
+}
+
+window.addEventListener("load",()=>{
+document.getElementById('entryDate').valueAsDate=new Date();
+loadRelated();
+});
+</script>
+</body>
+</html>

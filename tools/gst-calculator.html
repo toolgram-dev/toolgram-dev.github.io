@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>GST Calculator – Goods and Services Tax Estimator | ToolGram</title>
+    <meta name="description" content="Calculate GST (Goods and Services Tax) for Australia, Canada, India, and other countries. Add or remove GST with country-specific rates. Free online GST calculator.">
+    <meta name="keywords" content="GST calculator, goods and services tax calculator, Australia GST, Canada GST, India GST, tax calculator, GST inclusive, GST exclusive">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/gst-calculator.html">
+    <meta property="og:title" content="GST Calculator | ToolGram">
+    <meta property="og:description" content="Calculate GST (Goods and Services Tax) for Australia, Canada, India, and other countries.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/gst-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "GST Calculator",
+        "description": "Calculate GST (Goods and Services Tax) for Australia, Canada, India, and other countries.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/gst-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["GST Addition", "GST Removal", "Country-Specific Rates", "Net/Gross Calculation", "Multi-Country Support"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-globe"></i></div>
+            <div>
+                <h1 style="margin:0;">GST Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate Goods and Services Tax</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> GST Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Country</label>
+                        <select id="country" onchange="updateGSTRate()"><option value="australia" selected>Australia (10%)</option><option value="canada">Canada (5%)</option><option value="india">India (18%)</option><option value="newzealand">New Zealand (15%)</option><option value="singapore">Singapore (9%)</option><option value="custom">Custom Rate</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Calculation Type</label>
+                        <select id="calcType"><option value="add" selected>Add GST (Net → Gross)</option><option value="remove">Remove GST (Gross → Net)</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Amount ($)</label>
+                        <input type="number" id="gstAmount" placeholder="1000" value="1000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">GST Rate (%)</label>
+                        <input type="number" id="gstRate" placeholder="10" value="10" step="0.1">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateGST()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearGST()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> GST Results</div>
+                <div class="output-display" id="outputGST">
+                    <div class="tax-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-calculator"></i> GST Amount</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="gstResult">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Net Amount:</strong> <span id="netAmount">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">GST (Tax):</strong> <span id="gstTax">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Gross Amount:</strong> <span id="grossAmount">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">GST Rate Applied:</strong> <span id="rateApplied">10%</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyGSTResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tax Tools</h2>
+            <div class="related-grid" id="relatedGridTax"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is GST?</h3>
+            <p>Goods and Services Tax (GST) is a value-added tax levied on most goods and services sold for domestic consumption. Customers pay GST at the point of sale, and businesses remit it to the government. It is used in over 160 countries including Australia, Canada, India, New Zealand, and Singapore as a comprehensive indirect tax on the supply of goods and services.</p>
+            <p>GST is designed as a single, comprehensive tax that subsumes multiple indirect taxes previously levied by central and state governments. It creates a unified national market by eliminating the cascading effect of taxes (tax on tax) and allows for seamless input tax credit across the supply chain.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select your country for automatic GST rate application.<br>
+            <strong>Step 2:</strong> Choose calculation type: Add GST (to get gross amount) or Remove GST (to extract net amount from gross).<br>
+            <strong>Step 3:</strong> Enter the amount you want to calculate GST for.<br>
+            <strong>Step 4:</strong> The GST rate auto-fills based on your selected country, or you can enter a custom rate.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see net amount, GST amount, and gross amount instantly.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> GST Calculation Examples</h3>
+            <p><strong>Example 1 - Australia (10% GST):</strong> A product costs $100 net. Adding 10% GST: $100 × 0.10 = $10 GST. The gross price is $110. If you have a gross price of $110 and need to remove GST: $110 ÷ 1.10 = $100 net, with $10 GST.</p>
+            <p><strong>Example 2 - India (18% GST):</strong> You paid $1,180 gross including 18% GST. The net amount is $1,180 ÷ 1.18 = $1,000. The GST amount is $180. This calculation is common for services in India which typically fall under the 18% slab.</p>
+            <p><strong>Example 3 - Canada (5% GST + Provincial Tax):</strong> In Canada, the federal GST is 5%, but provinces may add PST or HST. For a $200 item in Ontario with 13% HST: $200 × 0.13 = $26 HST, making the gross price $226.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> GST Rates by Country</h3>
+            <ul>
+                <li><strong>Australia:</strong> 10% standard rate (applied to most goods and services)</li>
+                <li><strong>Canada:</strong> 5% federal GST + provincial rates (PST/HST varies: Ontario 13%, BC 12%, Alberta 5%)</li>
+                <li><strong>India:</strong> Multi-tier system - 5%, 12%, 18%, 28% depending on product/service category</li>
+                <li><strong>New Zealand:</strong> 15% standard rate (very few exemptions)</li>
+                <li><strong>Singapore:</strong> 9% standard rate (increased from 7% in 2024)</li>
+                <li><strong>Malaysia:</strong> 6% standard rate (SST for some items)</li>
+                <li><strong>UK:</strong> Uses VAT system instead (20% standard)</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> GST Tips for Businesses</h3>
+            <ul>
+                <li><strong>GST Registration:</strong> Register when turnover exceeds threshold (AUD 75,000 in Australia, varies in other countries).</li>
+                <li><strong>Tax Invoices:</strong> Include GST amount, your registration number, date, ABN (in Australia), and clear itemization on all invoices.</li>
+                <li><strong>Input Tax Credit:</strong> Claim credits for GST paid on business purchases against GST collected on sales.</li>
+                <li><strong>BAS/GST Returns:</strong> Lodge Business Activity Statements regularly (quarterly or monthly depending on turnover).</li>
+                <li><strong>GST-Free Supplies:</strong> Some items are GST-free (basic food, medical services, exports in Australia).</li>
+                <li><strong>Input Taxed Supplies:</strong> Some supplies don't have GST but also don't allow input credits (financial services, residential rent).</li>
+                <li><strong>Mixed Supplies:</strong> When selling items with different GST rates, clearly separate them and apply correct rates.</li>
+                <li><strong>Record Keeping:</strong> Maintain all tax invoices for at least 5 years for audit purposes.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">How is GST calculated?</div>
+            <div class="faq-answer">To add GST: Net Amount × (1 + GST Rate) = Gross Amount. To remove GST: Gross Amount ÷ (1 + GST Rate) = Net Amount. The GST amount is calculated as: Net Amount × GST Rate. For example, with 10% GST on $100: $100 × 1.10 = $110 gross, or $100 × 0.10 = $10 GST.</div>
+
+            <div class="faq-question">What's the difference between GST and VAT?</div>
+            <div class="faq-answer">GST and VAT are essentially the same concept—a consumption tax at each supply chain stage. Different countries use different terms: GST in Australia, Canada, India, New Zealand, Singapore; VAT in UK, EU countries; sales tax in USA. The fundamental mechanism of input credits and value-added taxation is identical.</div>
+
+            <div class="faq-question">Do I need to register for GST?</div>
+            <div class="faq-answer">GST registration is mandatory when your business turnover exceeds the country's threshold. In Australia, this is AUD 75,000 (or $150,000 for non-profit organizations). Even below threshold, voluntary registration lets you claim input credits and appear more professional to business customers.</div>
+
+            <div class="faq-question">Can tourists claim GST refunds?</div>
+            <div class="faq-answer">Yes, many countries offer Tourist Refund Schemes (TRS) where visitors can claim GST/VAT refunds on goods purchased and taken overseas. Australia has the TRS, Canada offers visitor rebates, and many other countries have similar programs. Minimum purchase amounts and specific procedures apply.</div>
+
+            <div class="faq-question">What is the difference between GST-inclusive and GST-exclusive pricing?</div>
+            <div class="faq-answer">GST-inclusive pricing shows the total price including GST (common in Australia for consumer pricing). GST-exclusive pricing shows the price before GST is added (common in B2B transactions). Always clarify which method you're using to avoid confusion.</div>
+
+            <div class="faq-question">How does GST work for imports and exports?</div>
+            <div class="faq-answer">Generally, exports are GST-free (zero-rated), meaning you charge 0% GST but can still claim input credits on costs to produce them. Imports typically have GST applied at the border by customs, which registered businesses can claim as input credits. Check specific rules for your country and product type.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function updateGSTRate(){
+const country=document.getElementById('country').value;
+let rate=10;
+if(country==='australia')rate=10;
+else if(country==='canada')rate=5;
+else if(country==='india')rate=18;
+else if(country==='newzealand')rate=15;
+else if(country==='singapore')rate=9;
+document.getElementById('gstRate').value=rate;
+}
+
+function calculateGST(){
+const amount=parseFloat(document.getElementById('gstAmount').value)||0;
+const calcType=document.getElementById('calcType').value;
+const rate=parseFloat(document.getElementById('gstRate').value)||0;
+const rateDecimal=rate/100;
+
+let netAmount=0,gstTax=0,grossAmount=0;
+
+if(calcType==='add'){
+netAmount=amount;
+gstTax=amount*rateDecimal;
+grossAmount=amount+gstTax;
+}else{
+grossAmount=amount;
+netAmount=amount/(1+rateDecimal);
+gstTax=amount-netAmount;
+}
+
+document.getElementById('gstResult').textContent='$'+gstTax.toFixed(2);
+document.getElementById('netAmount').textContent='$'+netAmount.toFixed(2);
+document.getElementById('gstTax').textContent='$'+gstTax.toFixed(2);
+document.getElementById('grossAmount').textContent='$'+grossAmount.toFixed(2);
+document.getElementById('rateApplied').textContent=rate.toFixed(1)+'%';
+}
+
+function clearGST(){
+document.getElementById('gstAmount').value='';
+document.getElementById('gstRate').value='10';
+document.getElementById('country').value='australia';
+document.getElementById('gstResult').textContent='$0.00';
+document.getElementById('netAmount').textContent='$0.00';
+document.getElementById('gstTax').textContent='$0.00';
+document.getElementById('grossAmount').textContent='$0.00';
+document.getElementById('rateApplied').textContent='10%';
+}
+
+function copyGSTResults(){
+const gst=document.getElementById('gstTax').textContent;
+const net=document.getElementById('netAmount').textContent;
+const gross=document.getElementById('grossAmount').textContent;
+const text=`GST Results:
+Net: ${net}
+GST: ${gst}
+Gross: ${gross}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Estimated Tax Calculator",icon:"fa-file-invoice-dollar",url:"estimated-tax-calculator.html"},
+{name:"Payroll Tax Calculator",icon:"fa-money-check-alt",url:"payroll-tax-calculator.html"},
+{name:"VAT Calculator",icon:"fa-receipt",url:"vat-calculator.html"},
+{name:"Sales Tax Deduction",icon:"fa-receipt",url:"sales-tax-deduction-calculator.html"},
+{name:"Mileage Tax Deduction",icon:"fa-car",url:"mileage-tax-deduction-calculator.html"},
+{name:"Home Office Deduction",icon:"fa-home",url:"home-office-deduction-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridTax").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

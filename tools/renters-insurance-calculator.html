@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Renters Insurance Calculator – Apartment Coverage Estimator | ToolGram</title>
+    <meta name="description" content="Calculate renters insurance premiums for personal property and liability coverage. Protect your belongings in a rental home or apartment.">
+    <meta name="keywords" content="renters insurance calculator, apartment insurance, tenant insurance, rental coverage, personal property insurance">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/renters-insurance-calculator.html">
+    <meta property="og:title" content="Renters Insurance Calculator | ToolGram">
+    <meta property="og:description" content="Calculate renters insurance premiums for personal property and liability coverage.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/renters-insurance-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Renters Insurance Calculator","description": "Calculate renters insurance premiums for personal property and liability coverage.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/renters-insurance-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Premium Estimation", "Personal Property", "Liability Coverage", "Rental Protection"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background:#fff!important;color:#000!important}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-building"></i></div>
+            <div><h1 style="margin:0;">Renters Insurance Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Protect your belongings in a rental</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Rental Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Monthly Rent ($)</label><input type="number" id="monthlyRent" placeholder="1500" value="1500"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Personal Property Value ($)</label><input type="number" id="propertyValue" placeholder="30000" value="30000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Location Type</label><select id="location"><option value="suburban" selected>Suburban</option><option value="urban">Urban</option><option value="rural">Rural</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Deductible</label><select id="deductible"><option value="250">$250</option><option value="500" selected>$500</option><option value="1000">$1,000</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Liability Coverage</label><select id="liability"><option value="100000">$100,000</option><option value="300000" selected>$300,000</option><option value="500000">$500,000</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Safety Features</label><select id="safety"><option value="basic" selected>Basic</option><option value="alarm">Security System</option><option value="sprinkler">Sprinkler + Alarm</option></select></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateRenters()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearRenters()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Premium Estimate</div>
+                <div class="output-display" id="outputRenters">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> Estimated Annual Premium</div><div style="margin-bottom:10px;"><span class="loan-result" id="annualPremium">$0</span></div><div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Affordable protection</div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Premium:</strong> <span id="monthlyPremium">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Personal Property:</strong> <span id="personalProperty">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Loss of Use:</strong> <span id="lossOfUse">$0</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Liability Coverage:</strong> <span id="liabilityCoverage">$300,000</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Medical Payments:</strong> <span id="medicalPayments">$5,000</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyRentersResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">🔧 Related Insurance Tools</h2>
+            <div class="related-grid" id="relatedGridInsurance"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Renters Insurance?</h3>
+            <p>Renters insurance is a policy designed for people who rent their homes, whether apartments, houses, or condos. It provides financial protection for your personal belongings against theft, fire, vandalism, and other covered perils. Unlike homeowners insurance, it doesn't cover the building structure itself—that's your landlord's responsibility—but it protects everything you own inside the rental unit.</p>
+            <p>Beyond property protection, renters insurance includes crucial liability coverage that protects you if someone is injured in your rental or if you accidentally damage someone else's property. It also pays for additional living expenses if your rental becomes uninhabitable due to a covered loss, covering hotel stays and meals while repairs are made. Despite offering comprehensive protection, renters insurance is surprisingly affordable, often costing less than a few cups of coffee per month.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your monthly rent amount.<br><strong>Step 2:</strong> Estimate the total value of your personal property (furniture, electronics, clothing).<br><strong>Step 3:</strong> Select your location type affecting crime rates and premiums.<br><strong>Step 4:</strong> Choose your deductible amount—higher means lower premiums.<br><strong>Step 5:</strong> Select liability coverage level based on your risk exposure.<br><strong>Step 6:</strong> Indicate safety features for potential discounts.<br><strong>Step 7:</strong> Click "Calculate" for premium and coverage estimates.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Renters Insurance Examples</h3>
+            <p><strong>Example 1 - Studio Apartment:</strong> A young professional renting a $1,200/month studio apartment with $20,000 in personal property (laptop, TV, furniture, clothing) would typically pay $120-180 annually ($10-15 monthly) for a standard policy with $30,000 property coverage and $100,000 liability. Adding a security system might reduce this to $100-150 annually.</p>
+            <p><strong>Example 2 - Family Rental:</strong> A family renting a $2,000/month house with $60,000 in combined belongings needs higher coverage limits. Their annual premium would be approximately $250-350 ($21-29 monthly) for $60,000 property coverage, $300,000 liability, and $25,000 loss of use. Bundling with auto insurance could save 10-15%.</p>
+            <p><strong>Example 3 - High-Value Items:</strong> A renter with standard $30,000 property coverage but owning $8,000 in jewelry and $5,000 in camera equipment would need additional scheduled personal property endorsements. While base coverage limits jewelry to $1,500, scheduling these items adds approximately $50-100 annually but provides full replacement cost coverage with no deductible for those specific items.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Standard Renters Coverage Components</h3>
+            <ul>
+                <li><strong>Personal Property (Coverage C):</strong> Protects your belongings from theft, fire, water damage, and named perils both in your rental and when traveling.</li>
+                <li><strong>Loss of Use (Coverage D):</strong> Pays for temporary housing and additional living expenses if your rental becomes uninhabitable due to a covered loss.</li>
+                <li><strong>Personal Liability (Coverage E):</strong> Protects against lawsuits if you're responsible for injury to others or damage to their property.</li>
+                <li><strong>Medical Payments (Coverage F):</strong> Covers minor medical expenses for guests injured in your rental, regardless of fault—usually $1,000-$5,000.</li>
+                <li><strong>Replacement Cost vs. Actual Cash Value:</strong> Replacement cost pays current prices for new items; ACV subtracts depreciation.</li>
+                <li><strong>Scheduled Personal Property:</strong> Additional coverage for high-value items like jewelry, art, collectibles, and musical instruments.</li>
+                <li><strong>Off-Premises Coverage:</strong> Belongings are covered worldwide, not just in your rental unit—typically 10% of property limit.</li>
+                <li><strong>Water Backup Coverage:</strong> Optional add-on for damage from backed-up drains, sewers, or sump pump failures.</li>
+                <li><strong>Identity Theft:</strong> Optional coverage for expenses related to restoring your identity after theft.</li>
+                <li><strong>Pet Liability:</strong> Some policies exclude certain dog breeds—verify coverage if you own pets.</li>
+                <li><strong>Earthquake/Flood:</strong> Standard policies exclude these perils—separate endorsements or policies required.</li>
+                <li><strong>Roommate Coverage:</strong> Policies typically don't cover roommates' belongings—they need their own policies.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Renters Insurance Money-Saving Tips</h3>
+            <ul>
+                <li><strong>Bundle with Auto Insurance:</strong> Multi-policy discounts save 10-25% when combining renters and car insurance.</li>
+                <li><strong>Choose Higher Deductible:</strong> Increasing from $250 to $1,000 can reduce premiums 15-25%.</li>
+                <li><strong>Install Safety Features:</strong> Smoke detectors, deadbolts, and security systems earn premium discounts.</li>
+                <li><strong>Maintain Good Credit:</strong> Credit scores significantly impact renters insurance rates in most states.</li>
+                <li><strong>Pay Annually:</strong> Avoid monthly installment fees by paying premiums in full.</li>
+                <li><strong>Shop Around:</strong> Compare quotes from multiple insurers—rates vary significantly.</li>
+                <li><strong>Inventory Your Belongings:</strong> Know what you own to avoid over-insuring or under-insuring.</li>
+                <li><strong>Choose Actual Cash Value:</strong> Lower premiums than replacement cost, but understand depreciation applies.</li>
+                <li><strong>Avoid Small Claims:</strong> Pay for minor losses yourself to maintain claim-free discounts.</li>
+                <li><strong>Ask About Discounts:</strong> Non-smoker, claims-free, and loyalty discounts may be available.</li>
+                <li><strong>Review Annually:</strong> Update coverage as you acquire or dispose of valuable items.</li>
+                <li><strong>Consider Roommate Impact:</strong> Some insurers charge more for multiple unrelated adults—verify pricing.</li>
+                <li><strong>Document Everything:</strong> Photos, videos, and receipts make claims easier and faster.</li>
+                <li><strong>Store Inventory Offsite:</strong> Keep documentation in cloud storage or safe deposit box.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">Does my landlord's insurance cover my belongings?</div>
+            <div class="faq-answer">No—your landlord's insurance only covers the building structure and their own liability, not your personal property. If there's a fire, flood, or theft in your rental, your landlord's policy repairs the building but doesn't replace your furniture, electronics, clothing, or other belongings. Renters insurance is the only way to protect your personal property in a rental situation, and most landlords now require tenants to carry it.</div>
+            <div class="faq-question">How much renters insurance do I need?</div>
+            <div class="faq-answer">Complete a thorough inventory of all your possessions—furniture, electronics, clothing, kitchenware, sporting equipment, and personal items. Most people underestimate their belongings' value; the average renter owns $30,000-$50,000 in personal property. Liability coverage should be at least $100,000, though $300,000 is recommended for better protection. Consider scheduled coverage for individual items worth over $1,000-$2,000 that exceed standard policy limits.</div>
+            <div class="faq-question">What does renters insurance not cover?</div>
+            <div class="faq-answer">Standard renters policies exclude flood damage, earthquake damage, bed bugs and other pests, your roommate's belongings, damage from intentional acts, high-value items beyond policy limits (jewelry typically capped at $1,500), business equipment for home businesses, and vehicles (even if parked on the property). Additionally, policies have sub-limits for categories like cash ($200), securities, and watercraft. For excluded perils or insufficient coverage limits, purchase additional endorsements or separate policies.</div>
+            <div class="faq-question">Is renters insurance required?</div>
+            <div class="faq-answer">Renters insurance isn't required by law, but most landlords now require it as a lease condition. They may ask for proof of coverage before you move in and require annual renewals. Even when not required, it's highly recommended—at $150-300 annually, it protects tens of thousands of dollars in belongings plus provides crucial liability coverage. Some apartment complexes include renters insurance in monthly rent, but verify coverage limits meet your needs.</div>
+            <div class="faq-question">Does renters insurance cover theft outside my home?</div>
+            <div class="faq-answer">Yes—renters insurance covers your belongings worldwide, not just inside your rental. If your laptop is stolen from a coffee shop, your luggage is taken while traveling, or items are stolen from your car, you're covered (typically at 10% of your policy's personal property limit for off-premises coverage). File a police report promptly for theft claims, as it's required by most insurers. Keep in mind your deductible applies to all claims.</div>
+            <div class="faq-question">What's the difference between replacement cost and actual cash value?</div>
+            <div class="faq-answer">Replacement cost coverage pays to replace your damaged or stolen items with new ones of similar kind and quality, without deducting for depreciation. Actual cash value (ACV) pays what the item is worth today, subtracting depreciation for age and wear. For example, a 5-year-old TV might cost $800 to replace but only have a $200 ACV. Replacement cost coverage costs about 10-15% more but provides significantly better protection for your belongings.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateRenters(){const monthlyRent=parseFloat(document.getElementById('monthlyRent').value)||1500;const propertyValue=parseFloat(document.getElementById('propertyValue').value)||30000;const location=document.getElementById('location').value;const deductible=document.getElementById('deductible').value;const liability=document.getElementById('liability').value;const safety=document.getElementById('safety').value;let baseRate=0.5;const locationMultiplier={suburban:1,urban:1.1,rural:0.9}[location]||1;const deductibleMultiplier={250:1.1,500:1,1000:0.9}[deductible]||1;const liabilityMultiplier=liability==='100000'?0.95:liability==='300000'?1:1.1;const safetyDiscount={basic:1,alarm:0.9,sprinkler:0.85}[safety]||1;const annual=(propertyValue/1000)*baseRate*locationMultiplier*deductibleMultiplier*liabilityMultiplier*safetyDiscount;const lossOfUse=monthlyRent*12;document.getElementById('annualPremium').textContent='$'+annual.toFixed(0);document.getElementById('monthlyPremium').textContent='$'+(annual/12).toFixed(2);document.getElementById('personalProperty').textContent='$'+propertyValue.toLocaleString();document.getElementById('lossOfUse').textContent='$'+lossOfUse.toLocaleString();document.getElementById('liabilityCoverage').textContent='$'+parseInt(liability).toLocaleString();document.getElementById('medicalPayments').textContent='$5,000';}
+function clearRenters(){['monthlyRent','propertyValue'].forEach(id=>document.getElementById(id).value='');document.getElementById('annualPremium').textContent='$0';document.getElementById('monthlyPremium').textContent='$0';document.getElementById('personalProperty').textContent='$0';document.getElementById('lossOfUse').textContent='$0';document.getElementById('liabilityCoverage').textContent='$300,000';document.getElementById('medicalPayments').textContent='$5,000';}
+function copyRentersResults(){const annual=document.getElementById('annualPremium').textContent;const text=`Renters Insurance Annual Premium: ${annual}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Life Insurance",icon:"fa-heart",url:"life-insurance-calculator.html"},{name:"Term Life Insurance",icon:"fa-file-contract",url:"term-life-insurance-calculator.html"},{name:"Whole Life Insurance",icon:"fa-infinity",url:"whole-life-insurance-calculator.html"},{name:"Car Insurance",icon:"fa-car",url:"car-insurance-calculator.html"},{name:"Health Insurance",icon:"fa-heartbeat",url:"health-insurance-calculator.html"},{name:"Homeowners Insurance",icon:"fa-home",url:"homeowners-insurance-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridInsurance").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

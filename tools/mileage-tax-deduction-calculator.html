@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mileage Tax Deduction Calculator – IRS Mileage Rate Estimator | ToolGram</title>
+    <meta name="description" content="Calculate mileage tax deduction for business, medical, and charitable driving. Track miles and estimate tax savings with current IRS standard mileage rates.">
+    <meta name="keywords" content="mileage tax deduction calculator, business mileage, IRS mileage rate, vehicle deduction, mileage tracker, tax deduction">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/mileage-tax-deduction-calculator.html">
+    <meta property="og:title" content="Mileage Tax Deduction Calculator | ToolGram">
+    <meta property="og:description" content="Calculate mileage tax deduction for business, medical, and charitable driving with IRS rates.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/mileage-tax-deduction-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mileage Tax Deduction Calculator",
+        "description": "Calculate mileage tax deduction for business, medical, and charitable driving with IRS rates.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/mileage-tax-deduction-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Business Mileage", "Medical Mileage", "Charitable Mileage", "Tax Deduction Estimation", "IRS Rates"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-car"></i></div>
+            <div>
+                <h1 style="margin:0;">Mileage Tax Deduction Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate mileage deductions and tax savings</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Mileage Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Tax Year</label>
+                        <select id="taxYear"><option value="2024" selected>2024 (67¢/21¢/14¢)</option><option value="2023">2023 (65.5¢/22¢/14¢)</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Business Miles</label>
+                        <input type="number" id="businessMiles" placeholder="10000" value="10000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Medical Miles</label>
+                        <input type="number" id="medicalMiles" placeholder="500" value="500">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Charitable Miles</label>
+                        <input type="number" id="charitableMiles" placeholder="200" value="200">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Tax Bracket (%)</label>
+                        <input type="number" id="taxBracket" placeholder="22" value="22" step="1">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateMileageDeduction()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearMileageDeduction()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Deduction Results</div>
+                <div class="output-display" id="outputMileageDeduction">
+                    <div class="tax-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> Total Deduction</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="totalDeduction">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Business Deduction:</strong> <span id="businessDeduction">$0.00</span> (<span id="businessRate">$0.67</span>/mile)</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Medical Deduction:</strong> <span id="medicalDeduction">$0.00</span> (<span id="medicalRate">$0.21</span>/mile)</div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Charitable Deduction:</strong> <span id="charitableDeduction">$0.00</span> (<span id="charitableRate">$0.14</span>/mile)</div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Estimated Tax Savings:</strong> <span id="taxSavings">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Based on your tax bracket</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyMileageDeductionResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tax Tools</h2>
+            <div class="related-grid" id="relatedGridTax"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is the Mileage Tax Deduction?</h3>
+            <p>The mileage tax deduction allows you to deduct vehicle expenses when you use your car for business, medical, or charitable purposes. You can use the standard mileage rate set by the IRS or deduct actual vehicle expenses. The standard mileage method is simpler and often provides comparable deductions without the need for detailed expense tracking.</p>
+            <p>The IRS sets standard mileage rates annually based on study of the fixed and variable costs of operating an automobile. These rates include depreciation, insurance, maintenance, and fuel costs built into a single per-mile amount.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select the tax year for current IRS mileage rates.<br>
+            <strong>Step 2:</strong> Enter business miles driven for work purposes.<br>
+            <strong>Step 3:</strong> Enter medical miles for trips to doctors, hospitals, or medical treatments.<br>
+            <strong>Step 4:</strong> Enter charitable miles for volunteer work with qualified organizations.<br>
+            <strong>Step 5:</strong> Enter your tax bracket percentage for estimated savings calculation.<br>
+            <strong>Step 6:</strong> Click "Calculate" to see your total deduction and potential tax savings.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Mileage Deduction Examples</h3>
+            <p><strong>Example 1 - Real Estate Agent:</strong> Sarah drives 15,000 miles for her real estate business in 2024. At $0.67/mile, her deduction is $10,050. In the 22% tax bracket, she saves $2,211 in federal taxes. This is significantly more valuable than tracking actual expenses like gas and maintenance separately.</p>
+            <p><strong>Example 2 - Medical Mileage:</strong> John drives 800 miles for medical appointments including specialists 50 miles away. At $0.21/mile (2024 medical rate), he can deduct $168. However, medical expenses must exceed 7.5% of AGI to be deductible, so this works best for those with high medical costs.</p>
+            <p><strong>Example 3 - Volunteer Work:</strong> Maria volunteers 500 miles driving for a qualified 501(c)(3) organization at $0.14/mile. Her charitable deduction is $70. While modest, every deduction helps, and the rate is set by Congress rather than the IRS.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> IRS Standard Mileage Rates (2024)</h3>
+            <ul>
+                <li><strong>Business:</strong> $0.67 per mile (increased from $0.655 in 2023)</li>
+                <li><strong>Medical:</strong> $0.21 per mile (decreased from $0.22 in 2023)</li>
+                <li><strong>Charitable:</strong> $0.14 per mile (set by Congress, unchanged since 1998)</li>
+                <li><strong>Moving (Military only):</strong> $0.21 per mile (for active duty military with permanent change of station)</li>
+            </ul>
+            <p>Note: The business rate includes depreciation, insurance, maintenance, and fuel. You cannot deduct actual expenses if you use the standard mileage rate, except for parking fees and tolls which can be deducted separately.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Mileage Tracking Best Practices</h3>
+            <ul>
+                <li><strong>Log Every Business Trip:</strong> Record date, starting location, destination, purpose, and miles driven for all business trips immediately.</li>
+                <li><strong>Use Mileage Apps:</strong> Apps like MileIQ, Everlance, Stride, or TripLog can automatically track and categorize your drives using GPS.</li>
+                <li><strong>Commuting Doesn't Count:</strong> Driving from home to your regular workplace is never deductible—this is considered personal commuting.</li>
+                <li><strong>Between Jobs Counts:</strong> Driving between two different workplaces, to client meetings, or for business errands is fully deductible.</li>
+                <li><strong>Medical Documentation:</strong> Keep records of medical appointments to support your medical mileage deduction if questioned.</li>
+                <li><strong>Charitable Requirements:</strong> Only driving for qualified 501(c)(3) organizations counts. Political organizations don't qualify.</li>
+                <li><strong>Keep Records 3+ Years:</strong> Maintain your mileage log for at least 3 years after filing your tax return in case of audit.</li>
+                <li><strong>Year-End Odometer:</strong> Note your odometer reading on January 1 and December 31 to calculate total annual mileage.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">What counts as deductible business mileage?</div>
+            <div class="faq-answer">Business mileage includes driving between workplaces, to client or customer meetings, to business conferences or training, to run business-related errands (bank, office supply store), and to meet with vendors or partners. Commuting from home to your regular workplace is never deductible. If you have a home office that qualifies as your principal place of business, then trips from home to other work locations become deductible.</div>
+
+            <div class="faq-question">Should I use standard mileage or actual expenses?</div>
+            <div class="faq-answer">The standard mileage rate is simpler and includes depreciation, gas, oil, repairs, tires, insurance, and registration. Use it if you drive a moderate amount for business. Actual expenses may yield higher deductions for expensive vehicles, very low-mileage business use, or if you have exceptionally high repair costs. You must use standard mileage in the first year to have flexibility to switch methods later.</div>
+
+            <div class="faq-question">Can I deduct mileage for a side business or gig work?</div>
+            <div class="faq-answer">Yes, you can deduct business mileage for any legitimate business activity including side gigs, freelance work, real estate activities, ride-share driving (Uber/Lyft), delivery services, and consulting. Keep detailed records separating business miles from personal miles. The deduction applies whether your business is full-time or a side hustle.</div>
+
+            <div class="faq-question">What records do I need to keep for mileage?</div>
+            <div class="faq-answer">For each business trip, document: date, starting location, destination, business purpose, and miles driven. For year-end, note odometer readings. Acceptable formats include paper logbooks, spreadsheets, or mileage tracking apps. The key is consistency and contemporaneous recording—don't try to reconstruct logs months later. For medical and charitable mileage, less detailed records are needed but you should still track dates and purposes.</div>
+
+            <div class="faq-question">Can employees deduct mileage?</div>
+            <div class="faq-answer">Unfortunately, W-2 employees cannot deduct unreimbursed business mileage. The Tax Cuts and Jobs Act of 2017 suspended miscellaneous itemized deductions for employees through 2025. However, self-employed individuals, independent contractors, and business owners can still deduct business mileage. If you're an employee with significant business driving, consider asking your employer for mileage reimbursement or negotiating a car allowance.</div>
+
+            <div class="faq-question">Can I deduct mileage for driving to a second job?</div>
+            <div class="faq-answer">Generally no—commuting to any regular workplace, including a second job, is considered personal commuting and not deductible. However, if you drive from your first job directly to your second job, that leg of the trip is deductible. Also, if you have a qualified home office, driving from home to any job location becomes deductible business mileage.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateMileageDeduction(){
+const businessMiles=parseFloat(document.getElementById('businessMiles').value)||0;
+const medicalMiles=parseFloat(document.getElementById('medicalMiles').value)||0;
+const charitableMiles=parseFloat(document.getElementById('charitableMiles').value)||0;
+const taxBracket=parseFloat(document.getElementById('taxBracket').value)||0;
+const taxYear=document.getElementById('taxYear').value;
+
+let businessRate=0.67,medicalRate=0.21,charitableRate=0.14;
+if(taxYear==='2023'){
+businessRate=0.655;
+medicalRate=0.22;
+charitableRate=0.14;
+}
+
+const businessDeduction=businessMiles*businessRate;
+const medicalDeduction=medicalMiles*medicalRate;
+const charitableDeduction=charitableMiles*charitableRate;
+const totalDeduction=businessDeduction+medicalDeduction+charitableDeduction;
+const taxSavings=totalDeduction*(taxBracket/100);
+
+document.getElementById('totalDeduction').textContent='$'+totalDeduction.toFixed(2);
+document.getElementById('businessDeduction').textContent='$'+businessDeduction.toFixed(2);
+document.getElementById('businessRate').textContent='$'+businessRate.toFixed(2);
+document.getElementById('medicalDeduction').textContent='$'+medicalDeduction.toFixed(2);
+document.getElementById('medicalRate').textContent='$'+medicalRate.toFixed(2);
+document.getElementById('charitableDeduction').textContent='$'+charitableDeduction.toFixed(2);
+document.getElementById('charitableRate').textContent='$'+charitableRate.toFixed(2);
+document.getElementById('taxSavings').textContent='$'+taxSavings.toFixed(2);
+}
+
+function clearMileageDeduction(){
+document.getElementById('businessMiles').value='';
+document.getElementById('medicalMiles').value='';
+document.getElementById('charitableMiles').value='';
+document.getElementById('taxBracket').value='';
+document.getElementById('totalDeduction').textContent='$0.00';
+document.getElementById('businessDeduction').textContent='$0.00';
+document.getElementById('medicalDeduction').textContent='$0.00';
+document.getElementById('charitableDeduction').textContent='$0.00';
+document.getElementById('taxSavings').textContent='$0.00';
+}
+
+function copyMileageDeductionResults(){
+const total=document.getElementById('totalDeduction').textContent;
+const savings=document.getElementById('taxSavings').textContent;
+const text=`Mileage Deduction Results:
+Total Deduction: ${total}
+Tax Savings: ${savings}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Estimated Tax Calculator",icon:"fa-file-invoice-dollar",url:"estimated-tax-calculator.html"},
+{name:"Payroll Tax Calculator",icon:"fa-money-check-alt",url:"payroll-tax-calculator.html"},
+{name:"VAT Calculator",icon:"fa-receipt",url:"vat-calculator.html"},
+{name:"GST Calculator",icon:"fa-globe",url:"gst-calculator.html"},
+{name:"Sales Tax Deduction",icon:"fa-receipt",url:"sales-tax-deduction-calculator.html"},
+{name:"Home Office Deduction",icon:"fa-home",url:"home-office-deduction-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridTax").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

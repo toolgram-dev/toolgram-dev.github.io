@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home Insurance Calculator – Coverage Estimator & Cost | ToolGram</title>
+    <meta name="description" content="Calculate home insurance coverage needs and premiums. Dwelling, personal property, liability coverage estimator with replacement cost calculator.">
+    <meta name="keywords" content="home insurance calculator, homeowners insurance estimator, dwelling coverage calculator, personal property insurance, liability coverage, replacement cost estimator, home insurance quote, property insurance calculator, house insurance cost">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/home-insurance-calculator.html">
+    <meta property="og:title" content="Home Insurance Calculator | ToolGram">
+    <meta property="og:description" content="Calculate home insurance coverage needs and premiums. Dwelling and property coverage estimator.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/home-insurance-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Home Insurance Calculator",
+        "description": "Calculate home insurance coverage needs and premiums.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/home-insurance-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Dwelling Coverage", "Personal Property", "Liability Coverage", "Deductible Calculator"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}
+        select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;gap:5px}.var-row label{min-width:100%;margin-bottom:3px}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-home"></i></div>
+            <div><h1 style="margin:0;">Home Insurance Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Coverage needs & premium estimator</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Property Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Home Value ($)</label><input type="number" id="homeValue" placeholder="350000" value="350000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Square Footage</label><input type="number" id="sqFt" placeholder="2000" value="2000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Year Built</label><input type="number" id="yearBuilt" placeholder="2005" value="2005"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Home Type</label><select id="homeType"><option value="single" selected>Single Family</option><option value="condo">Condo</option><option value="townhome">Townhome</option><option value="mobile">Mobile Home</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Deductible ($)</label><select id="deductible"><option value="500">$500</option><option value="1000" selected>$1,000</option><option value="2500">$2,500</option><option value="5000">$5,000</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Location Risk</label><select id="locationRisk"><option value="low" selected>Low Risk</option><option value="medium">Medium Risk</option><option value="high">High Risk (Coastal/Flood)</option></select></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateHomeInsurance()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearHomeInsurance()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Coverage Recommendations</div>
+                <div class="output-display" id="outputHome">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-shield-alt"></i> Estimated Annual Premium</div><div style="margin-bottom:10px;"><span class="loan-result" id="annualPremium">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Dwelling Coverage:</strong> <span id="dwellingCoverage">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Personal Property:</strong> <span id="personalProperty">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Liability Coverage:</strong> <span id="liabilityCoverage">$300,000</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Loss of Use:</strong> <span id="lossOfUse">$0</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyHomeInsuranceResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">🔧 Related Insurance Tools</h2>
+            <div class="related-grid" id="relatedGridInsurance"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Home Insurance?</h3>
+            <p>Home insurance protects your house and belongings from damage, theft, and liability. It covers dwelling structure, personal property, liability if someone gets injured, and additional living expenses if you can't live in your home.</p>
+            <p>Most lenders require home insurance for mortgages. Even without a mortgage, it's essential to protect your biggest asset from fires, storms, theft, and lawsuits.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your home's current market value or rebuild cost.<br><strong>Step 2:</strong> Input square footage for accurate dwelling coverage.<br><strong>Step 3:</strong> Select year built (affects replacement cost).<br><strong>Step 4:</strong> Choose home type and deductible amount.<br><strong>Step 5:</strong> Select location risk level.<br><strong>Step 6:</strong> Click Calculate for coverage recommendations.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Coverage Types Explained</h3>
+            <p><strong>Dwelling Coverage:</strong> Pays to rebuild your home structure. Should equal full replacement cost, not market value.</p>
+            <p><strong>Personal Property:</strong> Covers your belongings. Typically 50-70% of dwelling coverage.</p>
+            <p><strong>Liability:</strong> Protects if someone sues you for injury on your property. Minimum $300,000 recommended.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Tips to Save on Home Insurance</h3>
+            <ul>
+                <li><strong>Bundle Policies:</strong> Combine auto and home for 10-25% discount.</li>
+                <li><strong>Raise Deductible:</strong> Higher deductible means lower premium.</li>
+                <li><strong>Improve Security:</strong> Alarm systems and deadbolts reduce rates.</li>
+                <li><strong>Shop Around:</strong> Compare quotes from multiple insurers.</li>
+                <li><strong>Bundle Discounts:</strong> Multi-policy savings add up.</li>
+                <li><strong>Claim History:</strong> Avoid small claims to keep rates low.</li>
+                <li><strong>Credit Score:</strong> Better credit often means lower premiums.</li>
+                <li><strong>Roof Updates:</strong> New roof can lower premiums significantly.</li>
+                <li><strong>Home Age:</strong> Older homes cost more to insure.</li>
+                <li><strong>Safety Features:</strong> Smoke detectors and sprinklers help.</li>
+                <li><strong>Loyalty Discounts:</strong> Staying with insurer 5+ years saves.</li>
+                <li><strong>Annual Review:</strong> Shop rates yearly for best price.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How much home insurance do I need?</div>
+            <div class="faq-answer">Get dwelling coverage equal to full replacement cost to rebuild your home. Personal property at 50-70% of dwelling. Liability at least $300,000. Add flood or earthquake coverage if in risk zones.</div>
+            <div class="faq-question">What does home insurance not cover?</div>
+            <div class="faq-answer">Standard policies exclude floods, earthquakes, normal wear and tear, and intentional damage. Separate policies needed for flood and earthquake coverage in high-risk areas.</div>
+            <div class="faq-question">How is my premium calculated?</div>
+            <div class="faq-answer">Insurers consider home value, location, age, construction type, deductible, credit score, claim history, and coverage limits. High-risk areas and older homes pay more.</div>
+            <div class="faq-question">Should I choose actual cash value or replacement cost?</div>
+            <div class="faq-answer">Choose replacement cost coverage. It pays to replace items at current prices. Actual cash value subtracts depreciation, leaving you with less money to replace belongings.</div>
+            <div class="faq-question">Does home insurance cover my belongings away from home?</div>
+            <div class="faq-answer">Yes, personal property coverage extends to belongings anywhere in the world. Items stolen from your car or hotel are covered, typically at 10% of your policy limit.</div>
+            <div class="faq-question">How can I lower my home insurance premium?</div>
+            <div class="faq-answer">Raise your deductible, bundle with auto insurance, improve home security, maintain good credit, avoid small claims, and shop around for better rates annually.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/main.js"></script>
+<script src="../js/nav-manager.js"></script>
+<script>
+function calculateHomeInsurance(){
+const homeValue=parseFloat(document.getElementById('homeValue').value)||350000;
+const sqFt=parseFloat(document.getElementById('sqFt').value)||2000;
+const yearBuilt=parseInt(document.getElementById('yearBuilt').value)||2005;
+const homeType=document.getElementById('homeType').value;
+const deductible=parseFloat(document.getElementById('deductible').value)||1000;
+const locationRisk=document.getElementById('locationRisk').value;
+const age=2026-yearBuilt;
+let dwelling=homeValue;
+if(age>30)dwelling=dwelling*1.2;
+let personalProp=dwelling*0.5;
+let lossOfUse=dwelling*0.2;
+let baseRate=0.0035;
+if(homeType==='condo')baseRate=0.0025;
+else if(homeType==='mobile')baseRate=0.007;
+if(locationRisk==='medium')baseRate=baseRate*1.3;
+else if(locationRisk==='high')baseRate=baseRate*1.8;
+if(deductible===500)baseRate=baseRate*1.15;
+else if(deductible===2500)baseRate=baseRate*0.85;
+else if(deductible===5000)baseRate=baseRate*0.7;
+if(age>50)baseRate=baseRate*1.4;
+else if(age>30)baseRate=baseRate*1.2;
+const annualPremium=dwelling*baseRate;
+document.getElementById('annualPremium').textContent='$'+annualPremium.toFixed(0);
+document.getElementById('dwellingCoverage').textContent='$'+dwelling.toLocaleString();
+document.getElementById('personalProperty').textContent='$'+personalProp.toLocaleString();
+document.getElementById('lossOfUse').textContent='$'+lossOfUse.toLocaleString();
+}
+function clearHomeInsurance(){
+['homeValue','sqFt','yearBuilt'].forEach(id=>document.getElementById(id).value='');
+document.getElementById('annualPremium').textContent='$0';
+document.getElementById('dwellingCoverage').textContent='$0';
+document.getElementById('personalProperty').textContent='$0';
+document.getElementById('lossOfUse').textContent='$0';
+}
+function copyHomeInsuranceResults(){
+const premium=document.getElementById('annualPremium').textContent;
+const text=`Home Insurance Annual Premium: ${premium}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+function loadRelated(){
+const tools=[
+{name:"Life Insurance",icon:"fa-heartbeat",url:"life-insurance-calculator.html"},
+{name:"Car Insurance",icon:"fa-car",url:"car-insurance-calculator.html"},
+{name:"Health Insurance",icon:"fa-medkit",url:"health-insurance-calculator.html"},
+{name:"Renters Insurance",icon:"fa-warehouse",url:"renters-insurance-calculator.html"},
+{name:"Umbrella Insurance",icon:"fa-umbrella",url:"umbrella-insurance-calculator.html"},
+{name:"Disability Insurance",icon:"fa-wheelchair",url:"disability-insurance-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridInsurance").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

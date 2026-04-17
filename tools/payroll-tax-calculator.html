@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Payroll Tax Calculator – Employee Paycheck Tax Estimator | ToolGram</title>
+    <meta name="description" content="Calculate payroll taxes including federal, state, Social Security, and Medicare deductions. Free online paycheck tax calculator for employees.">
+    <meta name="keywords" content="payroll tax calculator, paycheck calculator, tax withholding, Social Security tax, Medicare tax, payroll deductions, federal tax, state tax">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/payroll-tax-calculator.html">
+    <meta property="og:title" content="Payroll Tax Calculator | ToolGram">
+    <meta property="og:description" content="Calculate payroll taxes including federal, state, Social Security, and Medicare deductions.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/payroll-tax-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Payroll Tax Calculator",
+        "description": "Calculate payroll taxes including federal, state, Social Security, and Medicare deductions.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/payroll-tax-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Federal Tax", "State Tax", "Social Security", "Medicare", "Paycheck Estimation", "Tax Withholding"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-money-check-alt"></i></div>
+            <div>
+                <h1 style="margin:0;">Payroll Tax Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate paycheck deductions and net pay</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Paycheck Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Gross Pay ($)</label>
+                        <input type="number" id="grossPay" placeholder="5000" value="5000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Pay Frequency</label>
+                        <select id="payFrequency"><option value="weekly">Weekly</option><option value="biweekly" selected>Bi-Weekly</option><option value="monthly">Monthly</option><option value="annual">Annual</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Filing Status</label>
+                        <select id="filingStatus"><option value="single" selected>Single</option><option value="married">Married</option><option value="head">Head of Household</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Federal Allowances</label>
+                        <input type="number" id="allowances" placeholder="2" value="2">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">State Tax Rate (%)</label>
+                        <input type="number" id="stateRate" placeholder="5" value="5" step="0.1">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Pre-Tax Deductions ($)</label>
+                        <input type="number" id="pretaxDeductions" placeholder="200" value="200">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculatePayrollTax()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearPayrollTax()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Payroll Tax Results</div>
+                <div class="output-display" id="outputPayrollTax">
+                    <div class="tax-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-wallet"></i> Net Pay</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="netPay">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">After all deductions</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Federal Tax:</strong> <span id="federalTax">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Social Security (6.2%):</strong> <span id="socialSecurity">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Medicare (1.45%):</strong> <span id="medicareTax">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">State Tax:</strong> <span id="stateTax">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Deductions:</strong> <span id="totalDeductions">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Effective Tax Rate:</strong> <span id="effectiveRate">0%</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyPayrollTaxResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tax Tools</h2>
+            <div class="related-grid" id="relatedGridTax"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Payroll Tax?</h3>
+            <p>Payroll taxes are taxes withheld from an employee's paycheck by their employer. These include federal income tax, Social Security tax, Medicare tax, and state income tax. This calculator estimates your net pay after all mandatory and optional deductions.</p>
+            <p>Payroll taxes consist of two main components: employee-paid taxes (federal and state income tax) and taxes paid by both employee and employer (Social Security and Medicare, collectively known as FICA taxes). The employer withholds these amounts from your paycheck and remits them to the appropriate government agencies.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your gross pay amount before any deductions.<br>
+            <strong>Step 2:</strong> Select your pay frequency (weekly, bi-weekly, monthly, or annual).<br>
+            <strong>Step 3:</strong> Choose your filing status (single, married, or head of household).<br>
+            <strong>Step 4:</strong> Enter federal withholding allowances from your W-4.<br>
+            <strong>Step 5:</strong> Enter your state tax rate percentage.<br>
+            <strong>Step 6:</strong> Add any pre-tax deductions such as 401k contributions or health insurance premiums.<br>
+            <strong>Step 7:</strong> Click "Calculate" to see your net pay and tax breakdown.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Payroll Tax Examples</h3>
+            <p><strong>Example 1 - Bi-Weekly Pay:</strong> John earns $5,000 bi-weekly, is single with 2 allowances, has a 5% state tax rate, and contributes $200 to his 401k. His pre-tax deductions reduce his taxable income to $4,800. Federal tax withholding is approximately $640, Social Security is $310 (6.2%), Medicare is $72.50 (1.45%), and state tax is $250 (5%). His net pay is approximately $3,527.50 per paycheck.</p>
+            <p><strong>Example 2 - Monthly Salary:</strong> Sarah earns $8,000 monthly, is married filing jointly with 3 allowances, lives in a state with no income tax, and contributes $400 pre-tax to her 401k plus $200 for health insurance. Her taxable income is $7,400. Federal tax withholding is approximately $720, Social Security is $496 (6.2%), and Medicare is $116 (1.45%). Her net pay is approximately $6,668 per month, with no state income tax.</p>
+            <p><strong>Example 3 - Weekly Pay:</strong> Mike earns $1,200 weekly, is single with 1 allowance, has a 6% state tax rate, and has no pre-tax deductions. Federal tax withholding is approximately $180, Social Security is $74.40 (6.2%), Medicare is $17.40 (1.45%), and state tax is $72 (6%). His net pay is approximately $856.20 per week.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Understanding Payroll Deductions</h3>
+            <p>Payroll deductions are split into two categories: pre-tax and post-tax. Pre-tax deductions like 401k contributions, health insurance premiums, and flexible spending account contributions reduce your taxable income, lowering both federal and state tax liability. Post-tax deductions such as Roth 401k contributions, union dues, and charitable contributions don't affect your tax liability but reduce your take-home pay.</p>
+            <p>Understanding the distinction between pre-tax and post-tax deductions helps you maximize your take-home pay while minimizing your tax burden. Always prioritize pre-tax deductions when available, as they provide immediate tax savings.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Payroll Tax Tips</h3>
+            <ul>
+                <li><strong>Review Your W-4:</strong> Adjust withholding allowances to avoid owing taxes or getting large refunds. Use the IRS Tax Withholding Estimator for accuracy.</li>
+                <li><strong>Maximize Pre-Tax Benefits:</strong> Contribute to 401k, health savings accounts (HSAs), and flexible spending accounts (FSAs) to reduce taxable income.</li>
+                <li><strong>Check State Tax:</strong> Some states have no income tax (Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, Wyoming), while others have high rates.</li>
+                <li><strong>Social Security Cap:</strong> Social Security tax only applies to the first $168,600 of earnings (2024 limit). High earners stop paying this tax after reaching the cap.</li>
+                <li><strong>Medicare Surcharge:</strong> High earners (over $200,000 single/$250,000 married) pay an additional 0.9% Medicare tax on wages above these thresholds.</li>
+                <li><strong>Quarterly Check:</strong> Review your paystub quarterly to ensure withholding aligns with your tax situation and adjust if needed.</li>
+                <li><strong>Employer Match:</strong> Always contribute enough to your 401k to receive the full employer match—it's essentially free money.</li>
+                <li><strong>State Reciprocity:</strong> If you work in one state and live in another, check for tax reciprocity agreements to avoid double taxation.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">What percentage of my paycheck goes to taxes?</div>
+            <div class="faq-answer">Total payroll taxes typically range from 20-35% of gross pay for most workers. This includes federal income tax (7-22% depending on income and filing status), state income tax (0-13% depending on state), Social Security tax (6.2% up to wage cap), and Medicare tax (1.45%, plus 0.9% for high earners). Your effective rate depends on your income level, filing status, state of residence, and pre-tax deductions.</div>
+
+            <div class="faq-question">How is federal income tax calculated on my paycheck?</div>
+            <div class="faq-answer">Federal income tax is calculated using progressive tax brackets based on your taxable income after deductions. Your employer uses IRS withholding tables (Publication 15-T) which consider your filing status, pay frequency, and the information on your Form W-4. The 2024 federal tax brackets range from 10% for low incomes to 37% for incomes over $609,350 (single) or $731,200 (married filing jointly).</div>
+
+            <div class="faq-question">What's the difference between gross pay and net pay?</div>
+            <div class="faq-answer">Gross pay is your total earnings before any deductions or taxes are taken out—essentially your base salary or hourly wage multiplied by hours worked. Net pay (also called take-home pay) is what remains after all deductions including federal tax, state tax, Social Security, Medicare, health insurance, 401k contributions, and other withholdings are subtracted from your gross pay.</div>
+
+            <div class="faq-question">Why is my first paycheck lower than expected?</div>
+            <div class="faq-answer">First paychecks often have higher withholding because employers may use default withholding settings (single with zero allowances) until your W-4 is properly processed. Additionally, if you started mid-pay period, you may receive a prorated amount. Always verify your W-4 was correctly entered into the payroll system and check that your name, Social Security number, and filing status are accurate.</div>
+
+            <div class="faq-question">Can I change my tax withholding mid-year?</div>
+            <div class="faq-answer">Yes, you can adjust your tax withholding at any time by submitting a new Form W-4 to your employer. Changes typically take effect within 1-2 pay periods. This is useful if you receive a large refund (increase allowances) or owe taxes (decrease allowances), have a major life change (marriage, divorce, new child), or take on a second job or side gig.</div>
+
+            <div class="faq-question">What happens to my payroll taxes if I work multiple jobs?</div>
+            <div class="faq-answer">With multiple jobs, each employer withholds taxes based only on your earnings with them. This can result in under-withholding for federal tax and over-withholding for Social Security if your combined income exceeds the wage base limit ($168,600 in 2024). Complete the Multiple Jobs Worksheet on your W-4 or use the IRS Tax Withholding Estimator to adjust. Social Security overpayments are refunded when you file your tax return.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculatePayrollTax(){
+const grossPay=parseFloat(document.getElementById('grossPay').value)||0;
+const stateRate=parseFloat(document.getElementById('stateRate').value)||0;
+const allowances=parseInt(document.getElementById('allowances').value)||0;
+const pretaxDeductions=parseFloat(document.getElementById('pretaxDeductions').value)||0;
+const frequency=document.getElementById('payFrequency').value;
+
+let annualPay=grossPay;
+if(frequency==='weekly')annualPay=grossPay*52;
+else if(frequency==='biweekly')annualPay=grossPay*26;
+else if(frequency==='monthly')annualPay=grossPay*12;
+
+const taxableIncome=Math.max(0,annualPay-pretaxDeductions-(13850+allowances*4300));
+
+let federalTax=0;
+if(taxableIncome<=11600)federalTax=taxableIncome*0.10;
+else if(taxableIncome<=47150)federalTax=1160+(taxableIncome-11600)*0.12;
+else if(taxableIncome<=100525)federalTax=5426+(taxableIncome-47150)*0.22;
+else if(taxableIncome<=191950)federalTax=17168.50+(taxableIncome-100525)*0.24;
+else if(taxableIncome<=243725)federalTax=39110.50+(taxableIncome-191950)*0.32;
+else if(taxableIncome<=609350)federalTax=55678.50+(taxableIncome-243725)*0.35;
+else federalTax=183647.25+(taxableIncome-609350)*0.37;
+
+let periodFederal=federalTax;
+if(frequency==='weekly')periodFederal=federalTax/52;
+else if(frequency==='biweekly')periodFederal=federalTax/26;
+else if(frequency==='monthly')periodFederal=federalTax/12;
+
+const ssTax=Math.min(grossPay*0.062,(168600/12)*(frequency==='monthly'?1:1));
+const medicareTax=grossPay*0.0145;
+const stateTax=grossPay*(stateRate/100);
+
+const totalDeductions=periodFederal+ssTax+medicareTax+stateTax;
+const netPay=grossPay-totalDeductions;
+const effectiveRate=(totalDeductions/grossPay)*100;
+
+document.getElementById('netPay').textContent='$'+netPay.toFixed(2);
+document.getElementById('federalTax').textContent='$'+periodFederal.toFixed(2);
+document.getElementById('socialSecurity').textContent='$'+ssTax.toFixed(2);
+document.getElementById('medicareTax').textContent='$'+medicareTax.toFixed(2);
+document.getElementById('stateTax').textContent='$'+stateTax.toFixed(2);
+document.getElementById('totalDeductions').textContent='$'+totalDeductions.toFixed(2);
+document.getElementById('effectiveRate').textContent=effectiveRate.toFixed(1)+'%';
+}
+
+function clearPayrollTax(){
+document.getElementById('grossPay').value='';
+document.getElementById('stateRate').value='';
+document.getElementById('allowances').value='';
+document.getElementById('pretaxDeductions').value='';
+document.getElementById('netPay').textContent='$0.00';
+document.getElementById('federalTax').textContent='$0.00';
+document.getElementById('socialSecurity').textContent='$0.00';
+document.getElementById('medicareTax').textContent='$0.00';
+document.getElementById('stateTax').textContent='$0.00';
+document.getElementById('totalDeductions').textContent='$0.00';
+document.getElementById('effectiveRate').textContent='0%';
+}
+
+function copyPayrollTaxResults(){
+const netPay=document.getElementById('netPay').textContent;
+const totalDeductions=document.getElementById('totalDeductions').textContent;
+const text=`Payroll Tax Results:
+Net Pay: ${netPay}
+Total Deductions: ${totalDeductions}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Estimated Tax Calculator",icon:"fa-file-invoice-dollar",url:"estimated-tax-calculator.html"},
+{name:"VAT Calculator",icon:"fa-receipt",url:"vat-calculator.html"},
+{name:"GST Calculator",icon:"fa-globe",url:"gst-calculator.html"},
+{name:"Sales Tax Deduction",icon:"fa-receipt",url:"sales-tax-deduction-calculator.html"},
+{name:"Mileage Tax Deduction",icon:"fa-car",url:"mileage-tax-deduction-calculator.html"},
+{name:"Home Office Deduction",icon:"fa-home",url:"home-office-deduction-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridTax").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

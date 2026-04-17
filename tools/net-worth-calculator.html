@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Net Worth Calculator – Assets & Liabilities Estimator | ToolGram</title>
+    <meta name="description" content="Calculate your net worth by entering assets and liabilities. Track wealth growth over time and compare to benchmarks. Free online net worth calculator.">
+    <meta name="keywords" content="net worth calculator, assets, liabilities, wealth calculator, personal net worth, financial health">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/net-worth-calculator.html">
+    <meta property="og:title" content="Net Worth Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your net worth by entering assets and liabilities.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/net-worth-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Net Worth Calculator",
+        "description": "Calculate your net worth by entering assets and liabilities.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/net-worth-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Assets Calculation", "Liabilities Tracking", "Net Worth", "Financial Health"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .asset-box{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .liability-box{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-gem"></i></div>
+            <div>
+                <h1 style="margin:0;">Net Worth Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate your total wealth position</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-plus-circle"></i> Assets</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Cash & Savings ($)</label>
+                        <input type="number" id="cash" placeholder="25000" value="25000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Investments ($)</label>
+                        <input type="number" id="investments" placeholder="75000" value="75000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Retirement Accounts ($)</label>
+                        <input type="number" id="retirement" placeholder="100000" value="100000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Home Value ($)</label>
+                        <input type="number" id="homeValue" placeholder="300000" value="300000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Vehicle Value ($)</label>
+                        <input type="number" id="vehicles" placeholder="15000" value="15000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Other Assets ($)</label>
+                        <input type="number" id="otherAssets" placeholder="10000" value="10000">
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-minus-circle"></i> Liabilities</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Mortgage ($)</label>
+                        <input type="number" id="mortgage" placeholder="200000" value="200000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Car Loans ($)</label>
+                        <input type="number" id="carLoans" placeholder="5000" value="5000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Student Loans ($)</label>
+                        <input type="number" id="studentLoans" placeholder="20000" value="20000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Credit Cards ($)</label>
+                        <input type="number" id="creditCards" placeholder="3000" value="3000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Other Debts ($)</label>
+                        <input type="number" id="otherDebts" placeholder="5000" value="5000">
+                    </div>
+                    <div class="tool-actions" style="margin-top:20px;">
+                        <button class="action-btn" onclick="calculateNetWorth()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearNetWorth()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-interface" style="margin-top:30px;">
+            <div class="tool-column" style="flex:1">
+                <div class="tool-column-title"><i class="fas fa-chart-pie"></i> Net Worth Results</div>
+                <div style="padding:20px">
+                    <div class="tax-box" style="text-align:center;padding:20px;">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:10px;font-size:1.2rem;"><i class="fas fa-balance-scale"></i> Your Net Worth</div>
+                        <div style="font-size:2.5rem;font-weight:bold;color:#8B5CF6;margin-bottom:10px;" id="netWorthResult">$0</div>
+                        <div style="font-size:1rem;color:rgba(255,255,255,0.7);" id="netWorthStatus">Calculate to see results</div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px;">
+                        <div class="asset-box" style="text-align:center;">
+                            <div style="color:#22C55E;font-size:0.9rem;margin-bottom:5px;">Total Assets</div>
+                            <div style="font-size:1.4rem;font-weight:bold;color:#22C55E;" id="totalAssets">$0</div>
+                        </div>
+                        <div class="liability-box" style="text-align:center;">
+                            <div style="color:#EF4444;font-size:0.9rem;margin-bottom:5px;">Total Liabilities</div>
+                            <div style="font-size:1.4rem;font-weight:bold;color:#EF4444;" id="totalLiabilities">$0</div>
+                        </div>
+                        <div class="tax-box" style="text-align:center;">
+                            <div style="color:#FBBF24;font-size:0.9rem;margin-bottom:5px;">Debt-to-Assets</div>
+                            <div style="font-size:1.4rem;font-weight:bold;color:#FBBF24;" id="debtRatio">0%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="padding:0 20px 20px;">
+                    <button class="copy-btn" onclick="copyNetWorthResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Finance Tools</h2>
+            <div class="related-grid" id="relatedGridFinance"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Net Worth?</h3>
+            <p>Net worth is the value of all your assets minus all your liabilities. It's a snapshot of your financial health and wealth at a specific point in time. Positive net worth means you own more than you owe; negative net worth means you owe more than you own.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter all your assets (cash, investments, property, vehicles).<br>
+            <strong>Step 2:</strong> Enter all your liabilities (mortgage, loans, credit card debt).<br>
+            <strong>Step 3:</strong> Click "Calculate" to see your net worth and debt-to-asset ratio.<br>
+            <strong>Step 4:</strong> Use this as a baseline to track your financial progress over time.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Net Worth Examples</h3>
+            <p><strong>Example 1 - Positive Net Worth:</strong> Assets: $500,000 home, $100,000 investments, $50,000 cash = $650,000. Liabilities: $300,000 mortgage, $20,000 car loan = $320,000. Net Worth: $330,000 (healthy position).</p>
+            <p><strong>Example 2 - Young Professional:</strong> Assets: $15,000 car, $10,000 savings, $5,000 investments = $30,000. Liabilities: $25,000 student loans, $8,000 car loan, $2,000 credit cards = $35,000. Net Worth: -$5,000 (improving).</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Net Worth Benchmarks by Age</h3>
+            <ul>
+                <li><strong>Ages 20-29:</strong> Median $10,000-$20,000 (building phase)</li>
+                <li><strong>Ages 30-39:</strong> Median $50,000-$100,000 (home buying, career growth)</li>
+                <li><strong>Ages 40-49:</strong> Median $150,000-$250,000 (peak earning years)</li>
+                <li><strong>Ages 50-59:</strong> Median $300,000-$500,000 (pre-retirement)</li>
+                <li><strong>Ages 60+:</strong> Median $400,000+ (retirement phase)</li>
+            </ul>
+            <p>These are general guidelines. Your path depends on income, savings rate, and life circumstances.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Building Net Worth Tips</h3>
+            <ul>
+                <li><strong>Increase Savings Rate:</strong> Aim to save 15-20% of income minimum.</li>
+                <li><strong>Pay Down High-Interest Debt:</strong> Credit cards often cost 20%+ annually.</li>
+                <li><strong>Invest Early:</strong> Compound growth builds wealth over decades.</li>
+                <li><strong>Track Quarterly:</strong> Monitor net worth every 3 months to stay motivated.</li>
+                <li><strong>Emergency Fund:</strong> Build 3-6 months expenses before aggressive investing.</li>
+                <li><strong>Home Equity:</strong> Paying down mortgage increases net worth automatically.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">How do I calculate net worth?</div>
+            <div class="faq-answer">Net Worth = Total Assets - Total Liabilities. Assets include cash, investments, property, vehicles. Liabilities include mortgages, loans, credit card debt. The result shows your financial position.</div>
+
+            <div class="faq-question">What is a good net worth?</div>
+            <div class="faq-answer">"Good" depends on age, income, and goals. A common target is 1x annual salary by 30, 3x by 40, 6x by 50, and 10x+ by retirement. Focus on steady progress rather than comparison.</div>
+
+            <div class="faq-question">Should I include my home in net worth?</div>
+            <div class="faq-answer">Yes, include home value as an asset and mortgage as liability. However, your primary residence is less liquid than other assets. Some calculate both total net worth and "investable net worth" (excluding home).</div>
+
+            <div class="faq-question">How often should I calculate net worth?</div>
+            <div class="faq-answer">Quarterly is ideal for tracking progress. Monthly may show too much volatility; annually may miss trends. Set a consistent schedule and update asset/liability values accordingly.</div>
+
+            <div class="faq-question">What if my net worth is negative?</div>
+            <div class="faq-answer">Negative net worth is common early in careers, especially with student loans. Focus on: increasing income, reducing expenses, paying high-interest debt first, and building emergency savings. Net worth often turns positive in your late 20s or 30s.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateNetWorth(){
+const cash=parseFloat(document.getElementById('cash').value)||0;
+const investments=parseFloat(document.getElementById('investments').value)||0;
+const retirement=parseFloat(document.getElementById('retirement').value)||0;
+const homeValue=parseFloat(document.getElementById('homeValue').value)||0;
+const vehicles=parseFloat(document.getElementById('vehicles').value)||0;
+const otherAssets=parseFloat(document.getElementById('otherAssets').value)||0;
+
+const mortgage=parseFloat(document.getElementById('mortgage').value)||0;
+const carLoans=parseFloat(document.getElementById('carLoans').value)||0;
+const studentLoans=parseFloat(document.getElementById('studentLoans').value)||0;
+const creditCards=parseFloat(document.getElementById('creditCards').value)||0;
+const otherDebts=parseFloat(document.getElementById('otherDebts').value)||0;
+
+const totalAssets=cash+investments+retirement+homeValue+vehicles+otherAssets;
+const totalLiabilities=mortgage+carLoans+studentLoans+creditCards+otherDebts;
+const netWorth=totalAssets-totalLiabilities;
+const debtRatio=totalAssets>0?(totalLiabilities/totalAssets)*100:0;
+
+let status='';
+if(netWorth>0){
+status='Positive Net Worth - Keep Building!';
+}else if(netWorth===0){
+status='Breaking Even - Room to Grow';
+}else{
+status='Negative Net Worth - Focus on Debt Payoff';
+}
+
+document.getElementById('netWorthResult').textContent='$'+netWorth.toLocaleString();
+document.getElementById('netWorthStatus').textContent=status;
+document.getElementById('totalAssets').textContent='$'+totalAssets.toLocaleString();
+document.getElementById('totalLiabilities').textContent='$'+totalLiabilities.toLocaleString();
+document.getElementById('debtRatio').textContent=debtRatio.toFixed(1)+'%';
+}
+
+function clearNetWorth(){
+const ids=['cash','investments','retirement','homeValue','vehicles','otherAssets','mortgage','carLoans','studentLoans','creditCards','otherDebts'];
+ids.forEach(id=>document.getElementById(id).value='');
+document.getElementById('netWorthResult').textContent='$0';
+document.getElementById('netWorthStatus').textContent='Calculate to see results';
+document.getElementById('totalAssets').textContent='$0';
+document.getElementById('totalLiabilities').textContent='$0';
+document.getElementById('debtRatio').textContent='0%';
+}
+
+function copyNetWorthResults(){
+const netWorth=document.getElementById('netWorthResult').textContent;
+const assets=document.getElementById('totalAssets').textContent;
+const liabilities=document.getElementById('totalLiabilities').textContent;
+const text=`Net Worth Results:
+Net Worth: ${netWorth}
+Assets: ${assets}
+Liabilities: ${liabilities}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Net Worth Tracker",icon:"fa-chart-line",url:"net-worth-tracker.html"},
+{name:"Savings Rate Calculator",icon:"fa-piggy-bank",url:"savings-rate-calculator.html"},
+{name:"Retirement Calculator",icon:"fa-umbrella-beach",url:"retirement-planning-calculator.html"},
+{name:"Cost of Living",icon:"fa-city",url:"cost-of-living-calculator.html"},
+{name:"Debt Payoff",icon:"fa-credit-card",url:"debt-payoff-calculator.html"},
+{name:"Expense Tracker",icon:"fa-wallet",url:"expense-tracker.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridFinance").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

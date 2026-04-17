@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Earned Income Credit Calculator – EITC Estimator | ToolGram</title>
+    <meta name="description" content="Calculate your Earned Income Tax Credit (EITC). Estimate tax refund for working individuals and families with low to moderate income.">
+    <meta name="keywords" content="earned income credit calculator, EITC calculator, EIC, working family credit, tax credit calculator, refundable credit">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/earned-income-credit-calculator.html">
+    <meta property="og:title" content="Earned Income Credit Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your Earned Income Tax Credit (EITC) for working families.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/earned-income-credit-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Earned Income Credit Calculator",
+        "description": "Calculate your Earned Income Tax Credit (EITC) for working families.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/earned-income-credit-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["EITC Calculation", "Refundable Credit", "Income Limits", "Qualifying Children", "Tax Refund"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-hand-holding-usd"></i></div>
+            <div>
+                <h1 style="margin:0;">Earned Income Credit Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate EITC for working families</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Income & Family</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Tax Year</label>
+                        <select id="taxYear"><option value="2024" selected>2024</option><option value="2023">2023</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Filing Status</label>
+                        <select id="filingStatus"><option value="single" selected>Single</option><option value="married">Married Filing Jointly</option><option value="head">Head of Household</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Qualifying Children</label>
+                        <select id="qualifyingChildren"><option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3+</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Earned Income ($)</label>
+                        <input type="number" id="earnedIncome" placeholder="25000" value="25000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Investment Income ($)</label>
+                        <input type="number" id="investmentIncome" placeholder="0" value="0">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateEITC()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearEITC()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> EITC Results</div>
+                <div class="output-display" id="outputEITC">
+                    <div class="tax-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> EITC Amount</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="eitcAmount">$0.00</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Refundable tax credit</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Maximum Possible:</strong> <span id="maxEITC">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Income Limit:</strong> <span id="incomeLimit">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Qualifies:</strong> <span id="qualifies">No</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Credit Phase:</strong> <span id="creditPhase">-</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Based on earned income</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyEITCResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tax Tools</h2>
+            <div class="related-grid" id="relatedGridTax"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is the Earned Income Credit?</h3>
+            <p>The Earned Income Tax Credit (EITC or EIC) is a refundable tax credit for low to moderate-income working individuals and families. The credit amount depends on your income, filing status, and number of qualifying children. It can result in a refund even if you owe no tax, making it one of the most valuable tax benefits for working families.</p>
+            <p>EITC is designed to offset payroll taxes and supplement wages for low-income workers, providing significant financial relief to those who need it most. Unlike many tax credits that only reduce tax liability, EITC is fully refundable—you can receive the full amount even if it exceeds your tax owed.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select your tax year and filing status.<br>
+            <strong>Step 2:</strong> Enter the number of qualifying children in your household.<br>
+            <strong>Step 3:</strong> Enter your earned income (wages, salaries, tips, self-employment income).<br>
+            <strong>Step 4:</strong> Enter any investment income (interest, dividends, capital gains).<br>
+            <strong>Step 5:</strong> Click "Calculate" to see your estimated EITC amount and eligibility.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> EITC Examples (2024)</h3>
+            <p><strong>Example 1 - Single with 1 Child:</strong> Maria is single with $28,000 in wages and one qualifying child age 4. Her EITC is approximately $3,461. In the 12% tax bracket, this credit more than offsets her federal income tax liability and provides a substantial refund.</p>
+            <p><strong>Example 2 - Married with 2 Children:</strong> John and Jane are married filing jointly with $35,000 in combined income from their jobs and two children ages 3 and 7. Their EITC is approximately $5,776—the maximum for their family size—providing crucial support for their household.</p>
+            <p><strong>Example 3 - No Children:</strong> Tom is 30 years old, single, with $12,000 in wages and no qualifying children. His EITC is approximately $600. While smaller than credits for families with children, it still provides meaningful tax relief for a low-income worker.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> EITC Income Limits & Maximum Credits (2024)</h3>
+            <ul>
+                <li><strong>No Children:</strong> Maximum credit $632; Income limit $18,591 (single) / $25,511 (married)</li>
+                <li><strong>1 Child:</strong> Maximum credit $4,213; Income limit $49,084 (single) / $56,004 (married)</li>
+                <li><strong>2 Children:</strong> Maximum credit $6,960; Income limit $55,768 (single) / $62,688 (married)</li>
+                <li><strong>3+ Children:</strong> Maximum credit $7,830; Income limit $59,899 (single) / $66,819 (married)</li>
+                <li><strong>Investment Income Limit:</strong> Must be under $11,600 for all filers</li>
+            </ul>
+            <p><strong>Age Requirements:</strong> If you have no qualifying children, you must be between ages 25 and 64 to claim EITC. There are no age limits if you have qualifying children.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> EITC Tips & Important Information</h3>
+            <ul>
+                <li><strong>Fully Refundable:</strong> EITC can result in a refund even if you owe zero federal income tax. This makes it extremely valuable for low-income workers.</li>
+                <li><strong>Investment Income Limit:</strong> If your investment income exceeds $11,600, you cannot claim EITC regardless of your earned income level.</li>
+                <li><strong>SSN Required:</strong> All family members on the tax return must have valid Social Security numbers that allow work in the US.</li>
+                <li><strong>Filing Required:</strong> You must file a tax return to claim EITC, even if your income is below the filing requirement threshold.</li>
+                <li><strong>Combat Pay:</strong> You can elect to include nontaxable combat pay as earned income for EITC calculation if it increases your credit.</li>
+                <li><strong>Disability Benefits:</strong> Some disability retirement benefits may qualify as earned income for EITC purposes.</li>
+                <li><strong>Separated Spouses:</strong> Legally separated spouses may qualify to file as head of household if they lived apart for the last 6 months of the year.</li>
+                <li><strong>Free Tax Preparation:</strong> VITA (Volunteer Income Tax Assistance) sites offer free help claiming EITC and other credits.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">Who qualifies for EITC?</div>
+            <div class="faq-answer">You must have earned income from working, meet income limits based on family size, have a valid Social Security number, be a US citizen or resident alien all year, and not file Form 2555 (foreign earned income exclusion). Investment income must be under $11,600. If you have no qualifying children, you must be age 25-64 and cannot be a dependent of another taxpayer.</div>
+
+            <div class="faq-question">What is a qualifying child for EITC?</div>
+            <div class="faq-answer">A qualifying child must meet four tests: (1) Relationship—your child, stepchild, foster child, sibling, or descendant; (2) Age—under 19, under 24 if a full-time student, or any age if permanently disabled; (3) Residency—must live with you in the US for more than half the year; (4) Joint Return—child cannot file a joint return with a spouse (unless only to claim a refund). The child does not have to be your dependent for EITC in some situations.</div>
+
+            <div class="faq-question">Can self-employed workers claim EITC?</div>
+            <div class="faq-answer">Yes, self-employment income counts as earned income for EITC purposes. You must report all self-employment income even if you don't receive a Form 1099. Net earnings from self-employment (after business expenses) qualify. This includes gig economy work, freelancing, consulting, and small business income.</div>
+
+            <div class="faq-question">How does EITC affect my tax refund?</div>
+            <div class="faq-answer">EITC is refundable, meaning it can increase your refund dollar-for-dollar up to the maximum amount. For example, if you owe $500 in taxes and qualify for $4,000 in EITC, you'll receive a $3,500 refund. If you owe no taxes, you'll receive the full EITC amount as a refund. However, EITC refunds may be held until mid-February by law to allow for additional verification.</div>
+
+            <div class="faq-question">Can I claim EITC if I'm married but my spouse doesn't have a Social Security Number?</div>
+            <div class="faq-answer">Generally no—you cannot claim EITC if you are married filing jointly and your spouse doesn't have a valid SSN. However, you may be able to file as married filing separately or head of household (if you qualify under the separated spouse rules) to claim the credit. Consult a tax professional for guidance on your specific situation.</div>
+
+            <div class="faq-question">What happens if my income increases during the year?</div>
+            <div class="faq-answer">The EITC has three phases: (1) Phase-in—credit increases as your income rises from zero; (2) Plateau—maximum credit over a range of income; (3) Phase-out—credit decreases as income rises above the threshold. If your income increases from the plateau into the phase-out range, your credit will be reduced. If it increases beyond the income limit, you lose the credit entirely. Plan accordingly if expecting significant income changes.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateEITC(){
+const earnedIncome=parseFloat(document.getElementById('earnedIncome').value)||0;
+const investmentIncome=parseFloat(document.getElementById('investmentIncome').value)||0;
+const children=parseInt(document.getElementById('qualifyingChildren').value)||0;
+const filingStatus=document.getElementById('filingStatus').value;
+
+let maxEITC=0,incomeLimit=0;
+if(children===0){
+maxEITC=632;
+incomeLimit=filingStatus==='married'?25511:18591;
+}else if(children===1){
+maxEITC=4213;
+incomeLimit=filingStatus==='married'?56004:49084;
+}else if(children===2){
+maxEITC=6960;
+incomeLimit=filingStatus==='married'?62688:55768;
+}else{
+maxEITC=7830;
+incomeLimit=filingStatus==='married'?66819:59899;
+}
+
+let qualifies=true,eitcAmount=0,creditPhase='-';
+
+if(investmentIncome>11600)qualifies=false;
+if(earnedIncome>incomeLimit)qualifies=false;
+if(children===0&&(earnedIncome<1))qualifies=false;
+
+if(qualifies){
+const phaseInRate=[0.0765,0.34,0.4,0.45][children];
+const phaseInEnd=[7840,10920,15410,15410][children];
+const plateauEnd=[9000,20430,20430,20430][children];
+const phaseOutStart=[9430,20950,26210,26210][children];
+const phaseOutRate=[0.0765,0.1598,0.2106,0.2106][children];
+
+if(earnedIncome<=phaseInEnd){
+eitcAmount=earnedIncome*phaseInRate;
+creditPhase='Phase In';
+}else if(earnedIncome<=plateauEnd){
+eitcAmount=maxEITC;
+creditPhase='Maximum Credit';
+}else{
+const excess=earnedIncome-plateauEnd;
+eitcAmount=Math.max(0,maxEITC-(excess*phaseOutRate));
+creditPhase='Phase Out';
+}
+}
+
+eitcAmount=Math.min(eitcAmount,maxEITC);
+
+document.getElementById('eitcAmount').textContent='$'+Math.round(eitcAmount).toLocaleString();
+document.getElementById('maxEITC').textContent='$'+maxEITC.toLocaleString();
+document.getElementById('incomeLimit').textContent='$'+incomeLimit.toLocaleString();
+document.getElementById('qualifies').textContent=qualifies?'Yes':'No';
+document.getElementById('creditPhase').textContent=creditPhase;
+}
+
+function clearEITC(){
+document.getElementById('earnedIncome').value='';
+document.getElementById('investmentIncome').value='';
+document.getElementById('eitcAmount').textContent='$0.00';
+document.getElementById('maxEITC').textContent='$0.00';
+document.getElementById('incomeLimit').textContent='$0.00';
+document.getElementById('qualifies').textContent='No';
+document.getElementById('creditPhase').textContent='-';
+}
+
+function copyEITCResults(){
+const eitc=document.getElementById('eitcAmount').textContent;
+const qualifies=document.getElementById('qualifies').textContent;
+const text=`EITC Results:
+Credit Amount: ${eitc}
+Qualifies: ${qualifies}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Estimated Tax Calculator",icon:"fa-file-invoice-dollar",url:"estimated-tax-calculator.html"},
+{name:"Payroll Tax Calculator",icon:"fa-money-check-alt",url:"payroll-tax-calculator.html"},
+{name:"Child Tax Credit",icon:"fa-child",url:"child-tax-credit-calculator.html"},
+{name:"VAT Calculator",icon:"fa-receipt",url:"vat-calculator.html"},
+{name:"GST Calculator",icon:"fa-globe",url:"gst-calculator.html"},
+{name:"AMT Calculator",icon:"fa-calculator",url:"amt-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridTax").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

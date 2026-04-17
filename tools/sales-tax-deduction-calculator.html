@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sales Tax Deduction Calculator – Itemized Deduction Estimator | ToolGram</title>
+    <meta name="description" content="Calculate sales tax deduction for itemized deductions on Schedule A. Compare state income tax vs sales tax deduction to maximize tax savings.">
+    <meta name="keywords" content="sales tax deduction calculator, itemized deductions, schedule A, state sales tax, tax deduction, SALT deduction">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/sales-tax-deduction-calculator.html">
+    <meta property="og:title" content="Sales Tax Deduction Calculator | ToolGram">
+    <meta property="og:description" content="Calculate sales tax deduction for itemized deductions and maximize tax savings.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/sales-tax-deduction-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Sales Tax Deduction Calculator",
+        "description": "Calculate sales tax deduction for itemized deductions and maximize tax savings.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/sales-tax-deduction-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Sales Tax Deduction", "Itemized Deductions", "Schedule A", "State Tax Comparison"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-receipt"></i></div>
+            <div>
+                <h1 style="margin:0;">Sales Tax Deduction Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate sales tax deduction for itemized deductions</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Tax Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Tax Year</label>
+                        <select id="taxYear"><option value="2024" selected>2024</option><option value="2023">2023</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Filing Status</label>
+                        <select id="filingStatus"><option value="single" selected>Single</option><option value="married">Married Filing Jointly</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">State</label>
+                        <select id="state"><option value="texas" selected>Texas (No Income Tax)</option><option value="florida">Florida (No Income Tax)</option><option value="washington">Washington (No Income Tax)</option><option value="tennessee">Tennessee (No Income Tax)</option><option value="california">California</option><option value="newyork">New York</option><option value="other">Other State</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">AGI ($)</label>
+                        <input type="number" id="agi" placeholder="75000" value="75000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Major Purchases ($)</label>
+                        <input type="number" id="majorPurchases" placeholder="0" value="0">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">State Sales Tax Rate (%)</label>
+                        <input type="number" id="salesTaxRate" placeholder="6.25" value="6.25" step="0.01">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Local Sales Tax Rate (%)</label>
+                        <input type="number" id="localRate" placeholder="2.0" value="2.0" step="0.01">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateSalesTaxDeduction()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearSalesTaxDeduction()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Deduction Results</div>
+                <div class="output-display" id="outputSalesTaxDeduction">
+                    <div class="tax-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> Sales Tax Deduction</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="salesTaxDeduction">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">IRS Table Amount (Est.):</strong> <span id="tableAmount">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Major Purchases Tax:</strong> <span id="majorPurchasesAmount">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Sales Tax Paid:</strong> <span id="totalSalesTax">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">State Income Tax (Est.):</strong> <span id="compareState">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Recommended:</strong> <span id="recommendation">Choose larger deduction</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">SALT deduction capped at $10,000</div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copySalesTaxDeductionResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tax Tools</h2>
+            <div class="related-grid" id="relatedGridTax"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is the Sales Tax Deduction?</h3>
+            <p>The sales tax deduction allows taxpayers who itemize deductions on Schedule A to deduct either state and local income taxes OR state and local general sales taxes paid during the tax year. You cannot deduct both—you must choose whichever provides the larger deduction for your tax situation. This deduction is particularly valuable for residents of states with no income tax but relatively high sales taxes.</p>
+            <p>The Tax Cuts and Jobs Act of 2017 limited the total SALT (State and Local Tax) deduction—including property tax plus either sales tax or income tax—to $10,000 per year ($5,000 if married filing separately). This cap applies through the 2025 tax year unless Congress extends or modifies it.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select your tax year (affects standard deduction amounts and tax brackets).<br>
+            <strong>Step 2:</strong> Choose your filing status (single or married filing jointly).<br>
+            <strong>Step 3:</strong> Select your state or indicate if you live in a state with no income tax.<br>
+            <strong>Step 4:</strong> Enter your Adjusted Gross Income (AGI) from your tax return.<br>
+            <strong>Step 5:</strong> Add any major purchases (vehicles, boats, home building materials) where you paid significant sales tax.<br>
+            <strong>Step 6:</strong> Enter your combined state and local sales tax rates.<br>
+            <strong>Step 7:</strong> Click "Calculate" to see your estimated sales tax deduction and compare it to your potential state income tax deduction.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Sales Tax Deduction Examples</h3>
+            <p><strong>Example 1 - No Income Tax State:</strong> Tom lives in Texas (no state income tax) with 8.25% combined sales tax rate. His AGI is $60,000. Using the IRS sales tax tables for his income and family size, his estimated deduction is approximately $1,200. Since Texas has no income tax, he should definitely claim the sales tax deduction. This saves him $264 in federal taxes (22% bracket).</p>
+            <p><strong>Example 2 - With Major Purchase:</strong> Sarah in Florida (no income tax) bought a $30,000 car with 6% sales tax ($1,800). Her regular spending yields another $800 in estimated sales tax from the IRS tables. Her total sales tax deduction is $2,600. If she had $2,000 in state income tax (hypothetically), the sales tax is the better choice.</p>
+            <p><strong>Example 3 - Income Tax State Comparison:</strong> Mike in California earns $80,000 and pays $4,000 in state income tax. His estimated sales tax from the table is $1,500. He should take the state income tax deduction ($4,000 > $1,500). The calculator helps make this comparison clear.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Take the Sales Tax Deduction?</h3>
+            <p>The sales tax deduction is most valuable for:</p>
+            <ul>
+                <li><strong>Residents of no-income-tax states:</strong> Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, and Wyoming have no state income tax, making sales tax your only SALT deduction option.</li>
+                <li><strong>Those who made large purchases:</strong> Major purchases like vehicles, boats, RVs, or home building materials can generate substantial deductible sales tax.</li>
+                <li><strong>People with low state income tax:</strong> If your state income tax liability is minimal, sales tax may provide a larger deduction.</li>
+                <li><strong>Retirees:</strong> Those with lower taxable income may have minimal state income tax but still pay sales tax on purchases.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Sales Tax Deduction Tips</h3>
+            <ul>
+                <li><strong>Save Receipts:</strong> Keep all receipts for major purchases to claim the actual sales tax paid. For regular spending, use the IRS sales tax tables.</li>
+                <li><strong>IRS Sales Tax Tables:</strong> The IRS provides optional sales tax tables in the Schedule A instructions that estimate your deduction based on income, family size, and state.</li>
+                <li><strong>Major Purchases Rule:</strong> Always add sales tax on vehicles, boats, aircraft, homes (building materials), and mobile homes separately—these are in addition to the table amount.</li>
+                <li><strong>Compare Annually:</strong> Each year, compare your sales tax vs. income tax deduction. Your situation may change, and the better option can vary year to year.</li>
+                <li><strong>$10,000 SALT Cap:</strong> The total of property tax + sales tax OR income tax is capped at $10,000. Consider this when choosing your deduction method.</li>
+                <li><strong>No Income Tax States:</strong> If you live in AK, FL, NV, SD, TN, TX, WA, or WY, sales tax is your only SALT option for state taxes.</li>
+                <li><strong>Itemizing Required:</strong> You must itemize deductions on Schedule A to claim the sales tax deduction. If you take the standard deduction, you cannot claim it.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">Can I deduct both sales tax and state income tax?</div>
+            <div class="faq-answer">No, you must choose one or the other. You cannot deduct both sales tax and state income tax on the same tax return. Choose whichever provides the larger deduction for your situation. The IRS requires you to make this choice each tax year.</div>
+
+            <div class="faq-question">What is the maximum sales tax deduction?</div>
+            <div class="faq-answer">Under current tax law (Tax Cuts and Jobs Act), the total SALT deduction—which includes property tax plus either sales tax OR income tax—is capped at $10,000 per household per year ($5,000 if married filing separately). This cap is in effect through 2025 unless Congress makes changes.</div>
+
+            <div class="faq-question">Do I need receipts for the sales tax deduction?</div>
+            <div class="faq-answer">If using the IRS sales tax tables for your estimated deduction, receipts are not strictly required. However, if you're claiming actual sales tax paid on major purchases (vehicles, boats, etc.), you should keep those receipts in case of an IRS audit. Good record-keeping is always recommended.</div>
+
+            <div class="faq-question">What major purchases qualify for additional sales tax deduction?</div>
+            <div class="faq-answer">Qualifying major purchases include motor vehicles (cars, trucks, motorcycles, RVs), boats and aircraft, materials to build or renovate a home, and mobile homes. The sales tax on these items can be added to the amount from the IRS tables. Regular household items are covered by the table amount.</div>
+
+            <div class="faq-question">Can I take the sales tax deduction if I take the standard deduction?</div>
+            <div class="faq-answer">No, the sales tax deduction is an itemized deduction claimed on Schedule A. If you take the standard deduction (which is $13,850 for single filers in 2023, $27,700 for married filing jointly), you cannot separately deduct sales taxes. You must choose whichever benefits you more—standard deduction or itemized deductions.</div>
+
+            <div class="faq-question">How do I know which deduction to choose—sales tax or income tax?</div>
+            <div class="faq-answer">Calculate both options and choose the larger amount. Generally, if you live in a state with no income tax, choose sales tax. If you live in a high-income-tax state like California or New York, income tax is usually better. If you made a major purchase (vehicle, boat) in a year, that might tip the scale toward sales tax.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateSalesTaxDeduction(){
+const agi=parseFloat(document.getElementById('agi').value)||0;
+const salesTaxRate=parseFloat(document.getElementById('salesTaxRate').value)||0;
+const localRate=parseFloat(document.getElementById('localRate').value)||0;
+const majorPurchases=parseFloat(document.getElementById('majorPurchases').value)||0;
+const state=document.getElementById('state').value;
+
+const totalRate=salesTaxRate+localRate;
+const tableAmount=agi*0.016;
+const majorPurchasesTax=majorPurchases*(totalRate/100);
+const totalSalesTax=Math.min(tableAmount+majorPurchasesTax,10000);
+
+const stateIncomeTax=agi*0.05;
+const largerDeduction=Math.max(totalSalesTax,stateIncomeTax);
+let recommendation='';
+if(totalSalesTax>stateIncomeTax){
+recommendation='Take the sales tax deduction';
+}else{
+recommendation='Take the state income tax deduction';
+}
+
+if(state==='texas'||state==='florida'||state==='washington'||state==='tennessee'){
+recommendation='Take sales tax (no state income tax in your state)';
+}
+
+document.getElementById('salesTaxDeduction').textContent='$'+totalSalesTax.toFixed(2);
+document.getElementById('tableAmount').textContent='$'+tableAmount.toFixed(2);
+document.getElementById('majorPurchasesAmount').textContent='$'+majorPurchasesTax.toFixed(2);
+document.getElementById('totalSalesTax').textContent='$'+totalSalesTax.toFixed(2);
+document.getElementById('compareState').textContent='$'+stateIncomeTax.toFixed(2);
+document.getElementById('recommendation').textContent=recommendation;
+}
+
+function clearSalesTaxDeduction(){
+document.getElementById('agi').value='';
+document.getElementById('salesTaxRate').value='';
+document.getElementById('localRate').value='';
+document.getElementById('majorPurchases').value='';
+document.getElementById('salesTaxDeduction').textContent='$0.00';
+document.getElementById('tableAmount').textContent='$0.00';
+document.getElementById('majorPurchasesAmount').textContent='$0.00';
+document.getElementById('totalSalesTax').textContent='$0.00';
+document.getElementById('compareState').textContent='$0.00';
+document.getElementById('recommendation').textContent='Choose larger deduction';
+}
+
+function copySalesTaxDeductionResults(){
+const deduction=document.getElementById('salesTaxDeduction').textContent;
+const total=document.getElementById('totalSalesTax').textContent;
+const text=`Sales Tax Deduction Results:
+Deduction: ${deduction}
+Total Sales Tax: ${total}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Estimated Tax Calculator",icon:"fa-file-invoice-dollar",url:"estimated-tax-calculator.html"},
+{name:"Payroll Tax Calculator",icon:"fa-money-check-alt",url:"payroll-tax-calculator.html"},
+{name:"VAT Calculator",icon:"fa-receipt",url:"vat-calculator.html"},
+{name:"GST Calculator",icon:"fa-globe",url:"gst-calculator.html"},
+{name:"Mileage Tax Deduction",icon:"fa-car",url:"mileage-tax-deduction-calculator.html"},
+{name:"Home Office Deduction",icon:"fa-home",url:"home-office-deduction-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridTax").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Umbrella Insurance Calculator – Excess Liability Coverage | ToolGram</title>
+    <meta name="description" content="Calculate umbrella insurance premiums and coverage needs. Protect your assets with excess liability coverage beyond auto and home policies.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Umbrella Insurance Calculator","description": "Calculate umbrella insurance premiums and excess liability coverage needs.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/umbrella-insurance-calculator.html","offers": {"@type": "Offer", "price": "0"}}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0}select,input[type="number"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}
+select option:hover{background-color:#f0f0f0!important}
+.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%;margin-bottom:3px}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-umbrella"></i></div>
+            <div><h1 style="margin:0;">Umbrella Insurance Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Extra liability protection for your assets</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Coverage Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Umbrella Coverage ($)</label><select id="umbrellaCoverage"><option value="1000000" selected>$1 Million</option><option value="2000000">$2 Million</option><option value="3000000">$3 Million</option><option value="5000000">$5 Million</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Household Vehicles</label><input type="number" id="vehicles" placeholder="2" value="2"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Young Drivers (Under 25)</label><input type="number" id="youngDrivers" placeholder="0" value="0"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Properties Owned</label><input type="number" id="properties" placeholder="1" value="1"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Rental Properties</label><input type="number" id="rentals" placeholder="0" value="0"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Risk Factors</label><select id="riskFactors"><option value="low" selected>Low Risk</option><option value="medium">Medium Risk</option><option value="high">High Risk (Pool, Dog, etc.)</option></select></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateUmbrella()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearUmbrella()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Premium Results</div>
+                <div class="output-display" id="outputUmbrella">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> Estimated Annual Premium</div><div style="margin-bottom:10px;"><span class="loan-result" id="annualPremium">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Coverage Amount:</strong> <span id="coverageAmount">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Cost per $1M:</strong> <span id="costPerM">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Underlying Required:</strong> <span id="underlying">$300K/$500K</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyUmbrellaResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">🔧 Related Insurance Tools</h2>
+            <div class="related-grid" id="relatedGridInsurance"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Umbrella Insurance?</h3>
+            <p>Umbrella insurance is excess liability coverage that sits on top of your auto and homeowners insurance policies, providing additional protection when those underlying limits are exhausted. It protects your assets and future earnings from major lawsuits and claims. A $1 million umbrella policy is surprisingly affordable—typically $150-300 annually—and provides peace of mind that one catastrophic accident won't wipe out everything you've worked for.</p>
+            <p>Unlike primary policies that cover specific risks, umbrella insurance is broader and can cover situations your underlying policies might exclude. This includes coverage for libel, slander, defamation, false arrest, and worldwide incidents. It kicks in after your auto or home liability limits are reached, paying legal defense costs plus judgments or settlements up to your umbrella limit. Given the litigious nature of society and the potential for multi-million dollar judgments, umbrella coverage is essential for anyone with significant assets or future earning potential.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select desired umbrella coverage amount ($1M to $5M).<br><strong>Step 2:</strong> Enter number of vehicles in your household.<br><strong>Step 3:</strong> Input young drivers as they increase premiums.<br><strong>Step 4:</strong> Enter properties owned (primary plus any second homes).<br><strong>Step 5:</strong> Input rental properties as they add liability exposure.<br><strong>Step 6:</strong> Select risk factors like pools, certain dog breeds, trampolines.<br><strong>Step 7:</strong> Click "Calculate" for premium estimates.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Umbrella Insurance Examples</h3>
+            <p><strong>Example 1 - Basic Family:</strong> A married couple with two cars, one teenage driver, a single-family home with swimming pool, and $1 million umbrella coverage would pay approximately $300-500 annually. The pool adds risk but the coverage protects against drowning liability. Their auto policy must carry at least $300,000/$500,000 liability, and homeowners at least $300,000 to qualify for the umbrella.</p>
+            <p><strong>Example 2 - High Net Worth:</strong> An individual with $3 million umbrella coverage, three vehicles including a sports car, primary residence plus vacation home, and two rental properties would pay approximately $600-900 annually. The rental properties add significant landlord liability exposure. This coverage protects against tenant injuries, dog bites, slip-and-falls, and auto accidents.</p>
+            <p><strong>Example 3 - Minimal Risk:</strong> A single person with one car, rented apartment (no property ownership), no high-risk hobbies, and $1 million umbrella coverage would pay approximately $150-250 annually. Even renters benefit from umbrella coverage for auto liability and personal activities. This is the most affordable scenario while still providing crucial lawsuit protection.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Needs Umbrella Insurance?</h3>
+            <ul>
+                <li><strong>Homeowners:</strong> Anyone with significant equity in their home should protect it from lawsuit judgments.</li>
+                <li><strong>High Income Earners:</strong> Future earnings can be garnished in judgments—protect your income potential.</li>
+                <li><strong>Parents of Teen Drivers:</strong> Young drivers have higher accident rates and judgment risks.</li>
+                <li><strong>Pool Owners:</strong> Drowning liability can result in multi-million dollar wrongful death suits.</li>
+                <li><strong>Dog Owners:</strong> Certain breeds and any dog with bite history create significant liability exposure.</li>
+                <li><strong>Landlords:</strong> Rental property owners face tenant injury claims and habitability lawsuits.</li>
+                <li><strong>Boat/ATV/RV Owners:</strong> Recreational vehicles carry high injury and accident risks.</li>
+                <li><strong>Coaches/Volunteers:</strong> Working with children or youth creates abuse allegation exposure.</li>
+                <li><strong>Business Owners:</strong> Personal umbrella can cover business activities run from home.</li>
+                <li><strong>Social Media Users:</strong> Libel, slander, and defamation claims from online posts.</li>
+                <li><strong>Sports Participants:</strong> Golfers, hunters, and skiers can accidentally injure others.</li>
+                <li><strong>Anyone with $500K+ Assets:</strong> When net worth exceeds underlying liability limits, umbrella is essential.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Umbrella Insurance Tips</h3>
+            <ul>
+                <li><strong>Match Coverage to Net Worth:</strong> Coverage should equal or exceed your total assets plus 5 years income.</li>
+                <li><strong>Minimum $1 Million:</strong> Even those with modest assets need at least $1M given lawsuit trends.</li>
+                <li><strong>Bundle for Discounts:</strong> Purchase umbrella from same carrier as auto/home for best rates.</li>
+                <li><strong>Maintain Underlying Limits:</strong> Auto and home policies must meet minimums (typically $300K/$500K auto, $300K home).</li>
+                <li><strong>Cover All Properties:</strong> Include all owned properties even if in different states.</li>
+                <li><strong>List All Drivers:</strong> Ensure all household members and regular drivers are listed on the policy.</li>
+                <li><strong>Update Annually:</strong> Increase coverage as your assets and income grow.</li>
+                <li><strong>Consider Additional Layers:</strong> High net worth individuals may need $5M, $10M, or higher coverage.</li>
+                <li><strong>Understand Exclusions:</strong> Umbrella doesn't cover business activities unless endorsed, intentional acts, or contract disputes.</li>
+                <li><strong>Worldwide Protection:</strong> Unlike auto/home, umbrella often covers incidents anywhere in the world.</li>
+                <li><strong>Legal Defense Included:</strong> Defense costs are paid in addition to the coverage limit.</li>
+                <li><strong>Review High-Risk Exposures:</strong> Trampolines, certain dog breeds, and home businesses may require disclosures.</li>
+                <li><strong>Independent Agent Shopping:</strong> Rates vary significantly—compare quotes from multiple carriers.</li>
+                <li><strong>Don't Drop Underlying:</strong> If underlying policy lapses, umbrella becomes void—maintain all coverage.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What does umbrella insurance cover?</div>
+            <div class="faq-answer">Umbrella insurance provides excess liability coverage above your auto and homeowners policies. It covers bodily injury liability (serious accidents you cause), property damage liability (damage to others' property), personal injury liability (libel, slander, defamation, false arrest, malicious prosecution), and certain lawsuits your underlying policies might exclude. It also pays legal defense costs, which can be substantial even if you win the case. Worldwide coverage is typically included, unlike the territory-limited auto and home policies.</div>
+            <div class="faq-question">How much umbrella insurance do I need?</div>
+            <div class="faq-answer">A good rule of thumb is coverage equal to your net worth plus 3-5 years of income, rounded up to the next million. At minimum, carry $1 million even if your assets are modest. If you have $1 million in assets, carry $2 million umbrella. The cost for additional millions is relatively small—$2 million often costs only $50-100 more than $1 million annually. Consider your risk factors: teenage drivers, rental properties, pools, and certain professions increase lawsuit likelihood and potential judgment amounts.</div>
+            <div class="faq-question">What are the minimum underlying insurance requirements?</div>
+            <div class="faq-answer">To qualify for umbrella insurance, you must maintain minimum liability limits on your underlying policies. Typically this means: Auto insurance with at least $250,000/$500,000/$100,000 (per person/per accident/property damage) or $300,000/$500,000/$100,000, and Homeowners insurance with at least $300,000 liability. Some insurers require higher minimums for larger umbrellas ($3M+ may require $500,000 underlying). Your umbrella carrier will verify these limits and may reject claims if underlying coverage is insufficient or lapsed.</div>
+            <div class="faq-question">Does umbrella insurance cover my business?</div>
+            <div class="faq-answer">Standard personal umbrella policies do not cover business activities, even if you run a business from home. You need a commercial umbrella policy for business liability. However, some personal umbrellas can be endorsed to cover certain home-based businesses or rental properties owned personally. If you have an LLC, corporation, or significant business activities, consult your agent about appropriate commercial coverage. Personal umbrella coverage may apply to volunteer activities, board service for non-profits, and some rental property exposures depending on policy terms.</div>
+            <div class="faq-question">Can I get umbrella insurance if I rent rather than own a home?</div>
+            <div class="faq-answer">Yes—renters can and should purchase umbrella insurance. While you may not have significant assets to protect yet, you have future earnings potential that could be garnished in a judgment. Auto accidents are the primary source of umbrella claims, and renters are just as likely to cause serious accidents as homeowners. You'll need to maintain higher auto liability limits (typically $300,000/$500,000) since you don't have homeowners insurance to serve as one of the underlying policies. Umbrella is particularly affordable for renters with minimal other risk factors.</div>
+            <div class="faq-question">What is NOT covered by umbrella insurance?</div>
+            <div class="faq-answer">Umbrella insurance does not cover: intentional acts or criminal behavior, business activities (without specific endorsement), damage to your own property, contract disputes, workers compensation claims for household employees (unless specifically endorsed), liability from vehicles not listed on the policy, pollution liability, and aircraft/watercraft over certain sizes. The policy also won't cover if your underlying auto or home insurance lapses. Read your policy exclusions carefully, and remember that umbrella is for catastrophic liability claims, not day-to-day losses or first-party damage.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateUmbrella(){const coverage=parseInt(document.getElementById('umbrellaCoverage').value)||1000000;const vehicles=parseInt(document.getElementById('vehicles').value)||2;const youngDrivers=parseInt(document.getElementById('youngDrivers').value)||0;const properties=parseInt(document.getElementById('properties').value)||1;const rentals=parseInt(document.getElementById('rentals').value)||0;const riskFactors=document.getElementById('riskFactors').value;let baseRate=200;const coverageMultiplier=(coverage/1000000);const vehicleMultiplier=1+((vehicles-1)*0.15);const youngDriverMultiplier=1+(youngDrivers*0.3);const propertyMultiplier=1+((properties-1)*0.1)+(rentals*0.25);const riskMultiplier={low:1,medium:1.3,high:1.6}[riskFactors]||1;const annual=baseRate*coverageMultiplier*vehicleMultiplier*youngDriverMultiplier*propertyMultiplier*riskMultiplier;const costPerM=annual/coverageMultiplier;document.getElementById('annualPremium').textContent='$'+annual.toFixed(0);document.getElementById('coverageAmount').textContent='$'+(coverage/1000000).toFixed(0)+' Million';document.getElementById('costPerM').textContent='$'+costPerM.toFixed(0);}
+function clearUmbrella(){['vehicles','youngDrivers','properties','rentals'].forEach(id=>document.getElementById(id).value='');document.getElementById('annualPremium').textContent='$0';document.getElementById('coverageAmount').textContent='$0';document.getElementById('costPerM').textContent='$0';}
+function copyUmbrellaResults(){const annual=document.getElementById('annualPremium').textContent;const coverage=document.getElementById('coverageAmount').textContent;const text=`Umbrella Insurance: ${coverage} coverage for ${annual}/year`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Life Insurance",icon:"fa-heart",url:"life-insurance-calculator.html"},{name:"Term Life Insurance",icon:"fa-file-contract",url:"term-life-insurance-calculator.html"},{name:"Whole Life Insurance",icon:"fa-infinity",url:"whole-life-insurance-calculator.html"},{name:"Car Insurance",icon:"fa-car",url:"car-insurance-calculator.html"},{name:"Health Insurance",icon:"fa-heartbeat",url:"health-insurance-calculator.html"},{name:"Homeowners Insurance",icon:"fa-home",url:"homeowners-insurance-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridInsurance").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

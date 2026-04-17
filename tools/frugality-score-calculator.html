@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Frugality Score Calculator – Spending Efficiency Rating | ToolGram</title>
+    <meta name="description" content="Calculate your frugality score based on spending habits, savings rate, and financial behaviors. Get personalized tips to optimize your finances.">
+    <meta name="keywords" content="frugality score calculator, spending habits, frugal living, money efficiency, financial habits, saving money">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/frugality-score-calculator.html">
+    <meta property="og:title" content="Frugality Score Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your frugality score and get personalized tips for optimizing your finances.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/frugality-score-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Frugality Score Calculator",
+        "description": "Calculate your frugality score and get personalized tips for optimizing your finances.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/frugality-score-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Frugality Score", "Spending Analysis", "Saving Habits", "Financial Tips"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        .score-excellent{background:rgba(34,197,94,0.2);border:1px solid rgba(34,197,94,0.5)}
+        .score-good{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3)}
+        .score-average{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3)}
+        .score-needswork{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3)}
+        .question-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:15px;margin-bottom:10px}
+        .question-label{color:#fff;margin-bottom:8px;font-weight:500}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-leaf"></i></div>
+            <div>
+                <h1 style="margin:0;">Frugality Score Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Rate your spending efficiency and get tips</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-clipboard-list"></i> Spending Habits</div>
+                <div style="padding:20px">
+                    <div class="question-box">
+                        <div class="question-label">Monthly Savings Rate</div>
+                        <select id="savingsRate"><option value="0">Less than 5%</option><option value="5">5-10%</option><option value="10" selected>10-20%</option><option value="20">20-30%</option><option value="30">30%+</option></select>
+                    </div>
+                    <div class="question-box">
+                        <div class="question-label">How often do you eat out?</div>
+                        <select id="diningOut"><option value="0">Rarely/Never</option><option value="5">1-2 times/week</option><option value="10" selected>3-4 times/week</option><option value="15">5+ times/week</option></select>
+                    </div>
+                    <div class="question-box">
+                        <div class="question-label">Do you comparison shop before purchases?</div>
+                        <select id="comparisonShop"><option value="10">Always</option><option value="5" selected>Sometimes</option><option value="0">Rarely/Never</option></select>
+                    </div>
+                    <div class="question-box">
+                        <div class="question-label">Do you have unused subscriptions?</div>
+                        <select id="subscriptions"><option value="10">None</option><option value="5" selected>1-2</option><option value="0">3+</option></select>
+                    </div>
+                    <div class="question-box">
+                        <div class="question-label">How do you handle windfalls (bonus, tax refund)?</div>
+                        <select id="windfalls"><option value="15">Save most of it</option><option value="8" selected>Split save/spend</option><option value="0">Spend it all</option></select>
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateFrugalityScore()"><i class="fas fa-calculator"></i> Calculate Score</button>
+                        <button class="secondary-btn" onclick="clearFrugalityScore()"><i class="fas fa-trash"></i> Reset</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-trophy"></i> Your Frugality Score</div>
+                <div class="output-display" id="outputFrugalityScore">
+                    <div class="tax-box" id="scoreBox" style="text-align:center;padding:25px;">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:10px;font-size:1.2rem;"><i class="fas fa-star"></i> Your Score</div>
+                        <div style="font-size:3.5rem;font-weight:bold;color:#8B5CF6;margin-bottom:10px;" id="frugalityScore">-</div>
+                        <div style="font-size:1rem;color:rgba(255,255,255,0.7);margin-bottom:15px;" id="scoreRating">Answer questions to see score</div>
+                        <div style="width:100%;height:20px;background:rgba(255,255,255,0.1);border-radius:10px;overflow:hidden;">
+                            <div id="scoreBar" style="width:0%;height:100%;background:linear-gradient(90deg,#8B5CF6,#EC4899);transition:width 0.5s ease;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Category Breakdown:</strong></div>
+                        <div id="categoryScores" style="font-size:0.9rem;color:rgba(255,255,255,0.8);">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span>Savings Rate:</span><span id="catSavings">-</span></div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span>Dining Out:</span><span id="catDining">-</span></div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span>Shopping Habits:</span><span id="catShopping">-</span></div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span>Subscriptions:</span><span id="catSubs">-</span></div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span>Windfalls:</span><span id="catWindfalls">-</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyFrugalityScore()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-interface" style="margin-top:30px;">
+            <div class="tool-column" style="flex:1">
+                <div class="tool-column-title"><i class="fas fa-lightbulb"></i> Personalized Recommendations</div>
+                <div style="padding:20px">
+                    <div id="recommendations" style="color:rgba(255,255,255,0.8);">
+                        <p style="text-align:center;color:rgba(255,255,255,0.5);padding:20px;">Complete the assessment to see personalized tips for improving your frugality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Finance Tools</h2>
+            <div class="related-grid" id="relatedGridFinance"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Frugality?</h3>
+            <p>Frugality is the careful management of resources—spending money intentionally on what matters while cutting waste. It's not about deprivation; it's about efficiency and aligning spending with values. A high frugality score indicates smart money habits that accelerate wealth building.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Answer all 5 questions about your spending habits honestly.<br>
+            <strong>Step 2:</strong> Click "Calculate Score" to see your frugality rating.<br>
+            <strong>Step 3:</strong> Review your category breakdown to identify strengths and weaknesses.<br>
+            <strong>Step 4:</strong> Read personalized recommendations for improvement.<br>
+            <strong>Step 5:</strong> Re-take quarterly to track progress.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Frugality Score Ranges</h3>
+            <ul>
+                <li><strong>80-100 (Excellent):</strong> Master of intentional spending. Fast path to FI.</li>
+                <li><strong>60-79 (Good):</strong> Above-average frugality. Room for minor tweaks.</li>
+                <li><strong>40-59 (Average):</strong> Typical American spending patterns. Significant improvement possible.</li>
+                <li><strong>20-39 (Below Average):</strong> Lifestyle inflation likely. Focus needed.</li>
+                <li><strong>0-19 (Needs Work):</strong> Critical spending review required.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Quick Frugality Wins</h3>
+            <ul>
+                <li><strong>Cancel Unused Subscriptions:</strong> Audit monthly charges.</li>
+                <li><strong>Meal Plan:</strong> Reduce food waste and dining out.</li>
+                <li><strong>Shop with Lists:</strong> Avoid impulse purchases.</li>
+                <li><strong>Use Library:</strong> Free books, movies, events.</li>
+                <li><strong>Negotiate Bills:</strong> Insurance, phone, internet rates.</li>
+                <li><strong>DIY When Possible:</strong> Simple repairs, grooming, cleaning.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">Is being frugal the same as being cheap?</div>
+            <div class="faq-answer">No. Cheapness focuses on paying less regardless of quality or impact. Frugality means spending intentionally—paying full price for things that matter while cutting costs mercilessly on things that don't. Frugal people invest in quality when it provides long-term value.</div>
+
+            <div class="faq-question">Can I be too frugal?</div>
+            <div class="faq-answer">Yes, if frugality causes stress, social isolation, or health compromises. Balance is key. The goal is optimization, not deprivation. Your frugality should support your life goals and happiness, not detract from them.</div>
+
+            <div class="faq-question">How do I increase my frugality score?</div>
+            <div class="faq-answer">Focus on big wins first: increase savings rate, reduce housing costs, minimize transportation expenses. Then tackle smaller areas like dining out, subscriptions, and impulse shopping. Small changes compound over time into significant improvements.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateFrugalityScore(){
+const savingsPoints=parseInt(document.getElementById('savingsRate').value)||0;
+const diningPoints=10-(parseInt(document.getElementById('diningOut').value)||0);
+const shoppingPoints=parseInt(document.getElementById('comparisonShop').value)||0;
+const subsPoints=parseInt(document.getElementById('subscriptions').value)||0;
+const windfallPoints=parseInt(document.getElementById('windfalls').value)||0;
+
+const totalScore=savingsPoints+diningPoints+shoppingPoints+subsPoints+windfallPoints;
+const maxScore=65;
+const percentage=Math.round((totalScore/maxScore)*100);
+
+let rating='',scoreClass='';
+if(percentage>=80){rating='Excellent - Frugality Master!';scoreClass='score-excellent';}
+else if(percentage>=60){rating='Good - Smart Spender';scoreClass='score-good';}
+else if(percentage>=40){rating='Average - Room for Improvement';scoreClass='score-average';}
+else{rating='Needs Work - Review Spending Habits';scoreClass='score-needswork';}
+
+document.getElementById('frugalityScore').textContent=percentage;
+document.getElementById('scoreRating').textContent=rating;
+document.getElementById('scoreBar').style.width=percentage+'%';
+document.getElementById('scoreBox').className='tax-box '+scoreClass;
+
+document.getElementById('catSavings').textContent=savingsPoints+'/30';
+document.getElementById('catDining').textContent=diningPoints+'/10';
+document.getElementById('catShopping').textContent=shoppingPoints+'/10';
+document.getElementById('catSubs').textContent=subsPoints+'/10';
+document.getElementById('catWindfalls').textContent=windfallPoints+'/15';
+
+const tips=[];
+if(savingsPoints<15)tips.push('Try increasing savings rate by 5%—automate it.');
+if(diningPoints<5)tips.push('Cook at home more often. Meal prep on Sundays.');
+if(shoppingPoints<5)tips.push('Always comparison shop. Use price tracking tools.');
+if(subsPoints<5)tips.push('Audit subscriptions monthly. Cancel unused services.');
+if(windfallPoints<8)tips.push('Save 50%+ of windfalls before spending any.');
+
+const recsDiv=document.getElementById('recommendations');
+if(tips.length>0){
+recsDiv.innerHTML='<ul style="padding-left:20px;">'+tips.map(t=>'<li style="margin-bottom:8px;">'+t+'</li>').join('')+'</ul>';
+}else{
+recsDiv.innerHTML='<p style="color:#22C55E;"><i class="fas fa-check-circle"></i> Great job! Your frugality habits are excellent. Keep maintaining these good practices.</p>';
+}
+}
+
+function clearFrugalityScore(){
+document.getElementById('savingsRate').value='10';
+document.getElementById('diningOut').value='10';
+document.getElementById('comparisonShop').value='5';
+document.getElementById('subscriptions').value='5';
+document.getElementById('windfalls').value='8';
+document.getElementById('frugalityScore').textContent='-';
+document.getElementById('scoreRating').textContent='Answer questions to see score';
+document.getElementById('scoreBar').style.width='0%';
+document.getElementById('scoreBox').className='tax-box';
+const cats=['catSavings','catDining','catShopping','catSubs','catWindfalls'];
+cats.forEach(c=>document.getElementById(c).textContent='-');
+document.getElementById('recommendations').innerHTML='<p style="text-align:center;color:rgba(255,255,255,0.5);padding:20px;">Complete the assessment to see personalized tips.</p>';
+}
+
+function copyFrugalityScore(){
+const score=document.getElementById('frugalityScore').textContent;
+const rating=document.getElementById('scoreRating').textContent;
+const text=`Frugality Score: ${score}/100
+Rating: ${rating}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Savings Rate Calculator",icon:"fa-piggy-bank",url:"savings-rate-calculator.html"},
+{name:"Monthly Budget",icon:"fa-calendar-alt",url:"monthly-budget-calculator.html"},
+{name:"Expense Tracker",icon:"fa-wallet",url:"expense-tracker.html"},
+{name:"Net Worth Calculator",icon:"fa-gem",url:"net-worth-calculator.html"},
+{name:"Cost of Living",icon:"fa-city",url:"cost-of-living-calculator.html"},
+{name:"50/30/20 Budget",icon:"fa-chart-pie",url:"503020-budget-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridFinance").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

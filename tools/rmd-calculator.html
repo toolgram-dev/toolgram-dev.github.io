@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RMD Calculator – Required Minimum Distribution | ToolGram</title>
+    <meta name="description" content="Calculate your Required Minimum Distribution from retirement accounts. Free RMD calculator for 401k and IRA to avoid IRS penalties.">
+    <meta name="keywords" content="RMD calculator, required minimum distribution, 401k RMD, IRA RMD, retirement withdrawal calculator, IRS RMD table">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/rmd-calculator.html">
+    <meta property="og:title" content="RMD Calculator | ToolGram">
+    <meta property="og:description" content="Calculate Required Minimum Distribution from retirement accounts.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/rmd-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "RMD Calculator","description": "Calculate Required Minimum Distribution from retirement accounts.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/rmd-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["RMD Calculation", "IRS Table Lookup", "401k Distribution", "IRA Withdrawal"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0}select,input[type="number"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;gap:5px}.var-row label{min-width:100%;margin-bottom:3px}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <div><h1 style="margin:0;">RMD Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Required Minimum Distribution</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Account Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Age</label><input type="number" id="currentAge" placeholder="73" value="73"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Account Balance ($)</label><input type="number" id="accountBalance" placeholder="500000" value="500000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Account Type</label><select id="accountType"><option value="traditional" selected>Traditional IRA/401k</option><option value="roth">Roth 401k</option><option value="inherited">Inherited IRA</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Spouse Age (if applicable)</label><input type="number" id="spouseAge" placeholder="0" value="0"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateRMD()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearRMD()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> RMD Results</div>
+                <div class="output-display" id="outputRMD">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> Annual RMD Amount</div><div style="margin-bottom:10px;"><span class="loan-result" id="rmdAmount">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Distribution Period:</strong> <span id="distPeriod">-</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">RMD Percentage:</strong> <span id="rmdPercent">0%</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Deadline:</strong> <span id="deadline">Dec 31</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyRMDResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">🔧 Related Retirement Tools</h2>
+            <div class="related-grid" id="relatedGridRetirement"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is RMD (Required Minimum Distribution)?</h3>
+            <p>Required Minimum Distributions (RMDs) are mandatory withdrawals that the IRS requires you to take annually from tax-deferred retirement accounts once you reach a certain age. The government allowed your investments to grow tax-deferred for decades, and RMDs ensure they eventually collect taxes on those funds. RMDs apply to traditional IRAs, 401(k)s, 403(b)s, and other qualified retirement plans, but not to Roth IRAs while the owner is alive.</p>
+            <p>The RMD amount is calculated by dividing your account balance as of December 31 of the prior year by a life expectancy factor from IRS tables. This factor decreases as you age, meaning you must withdraw a larger percentage of your remaining balance each year. Failing to take your full RMD results in a steep penalty of 25% of the amount not withdrawn, though this may be reduced to 10% if corrected promptly.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your current age at the end of the calendar year.<br><strong>Step 2:</strong> Input your retirement account balance as of December 31 of last year.<br><strong>Step 3:</strong> Select your account type (Traditional, Roth 401k, or Inherited).<br><strong>Step 4:</strong> If married and your spouse is more than 10 years younger, enter their age.<br><strong>Step 5:</strong> Click "Calculate" to see your required distribution amount.<br><strong>Step 6:</strong> Plan your withdrawal strategy before the annual deadline.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> RMD Calculation Examples</h3>
+            <p><strong>Example 1 - Standard RMD:</strong> At age 73 with a $500,000 traditional IRA balance, using the Uniform Lifetime Table factor of 26.5, your RMD would be $18,868 ($500,000 ÷ 26.5). This amount is fully taxable as ordinary income and must be withdrawn by December 31. Subsequent years use progressively smaller distribution periods, increasing the percentage that must be withdrawn.</p>
+            <p><strong>Example 2 - Younger Spouse:</strong> At age 75 with a $400,000 balance and a spouse age 65 (10+ years younger), you can use the Joint Life and Last Survivor Expectancy table. The factor might be 28.7 instead of 22.9, resulting in a lower RMD of $13,937 instead of $17,467. This provision helps preserve assets when there's a significant age difference between spouses.</p>
+            <p><strong>Example 3 - Inherited IRA:</strong> An inherited IRA from a parent who died after 2019 requires full distribution within 10 years under the SECURE Act. However, if the beneficiary is an eligible designated beneficiary (spouse, minor child, disabled, chronically ill, or not more than 10 years younger), they can stretch distributions over their life expectancy, taking smaller annual RMDs.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> RMD Rules and Deadlines</h3>
+            <ul>
+                <li><strong>Age 73 Rule:</strong> RMDs must begin by April 1 of the year after you turn 73 (if born 1951-1959).</li>
+                <li><strong>Age 75 Rule:</strong> Those born 1960 or later start RMDs at age 75.</li>
+                <li><strong>First Year Deadline:</strong> First RMD can be delayed until April 1 of the following year, but then two RMDs in one year.</li>
+                <li><strong>Annual Deadline:</strong> All subsequent RMDs must be taken by December 31 each year.</li>
+                <li><strong>Still Working Exception:</strong> If working past RMD age with current employer 401k, may delay until retirement.</li>
+                <li><strong>Roth 401k:</strong> RMDs required from Roth 401k, but not from Roth IRA (while owner lives).</li>
+                <li><strong>Multiple Accounts:</strong> Calculate RMD for each IRA separately, but can withdraw total from one IRA.</li>
+                <li><strong>401k Aggregation:</strong> Must take RMD separately from each 401k account (cannot aggregate).</li>
+                <li><strong>Penalty:</strong> Failure to take RMD results in 25% excise tax on amount not distributed.</li>
+                <li><strong>Penalty Reduction:</strong> Correct missed RMDs promptly—penalty may be reduced to 10%.</li>
+                <li><strong>Qualified Charitable Distributions:</strong> QCDs up to $105,000 can satisfy RMDs tax-free.</li>
+                <li><strong>Inherited IRAs:</strong> 10-year rule for most non-spouse beneficiaries; no annual RMDs required but full distribution by year 10.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> RMD Strategies and Tips</h3>
+            <ul>
+                <li><strong>Don't Delay First RMD:</strong> Taking two RMDs in one year could push you into higher tax bracket.</li>
+                <li><strong>Consider Roth Conversions:</strong> Convert traditional IRA to Roth before RMD age to reduce future RMDs.</li>
+                <li><strong>Qualified Charitable Distributions:</strong> Use QCDs to satisfy RMDs tax-free while supporting charities.</li>
+                <li><strong>Consolidate Accounts:</strong> Fewer accounts make RMD calculations and management easier.</li>
+                <li><strong>Coordinate with Social Security:</strong> Time RMDs to minimize taxation of Social Security benefits.</li>
+                <li><strong>Tax Withholding:</strong> Consider having taxes withheld from RMDs to avoid quarterly estimates.</li>
+                <li><strong>Reinvest if Not Needed:</strong> Move unwanted RMDs to taxable brokerage account to stay invested.</li>
+                <li><strong>Review Beneficiaries:</strong> Ensure inherited IRA rules are understood by beneficiaries.</li>
+                <li><strong>Mark Calendar:</strong> Set reminders for December 1 to ensure RMDs are completed timely.</li>
+                <li><strong>Calculate Annually:</strong> Distribution period changes each year—recalculate every December.</li>
+                <li><strong>Coordinate with Spouse:</strong> Consider joint tax bracket when planning withdrawal timing.</li>
+                <li><strong>Life Expectancy Tables:</strong> Use correct table—Uniform Lifetime for most, Joint Life if spouse 10+ years younger.</li>
+                <li><strong>IRA Aggregation:</strong> Can take total IRA RMD from one account if multiple IRAs exist.</li>
+                <li><strong>Plan Early:</strong> Don't wait until December—market volatility could affect account balances.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">When do I have to start taking RMDs?</div>
+            <div class="faq-answer">RMDs start at age 73 for those born 1951-1959, or age 75 for those born 1960 or later. First RMD is due by April 1 of the following year. After that, RMDs are due by December 31 each year.</div>
+            <div class="faq-question">What accounts are subject to RMDs?</div>
+            <div class="faq-answer">Traditional IRAs, 401ks, and most employer plans have RMDs. Roth IRAs have no RMDs while the owner lives. Roth 401ks do have RMDs unless rolled to Roth IRA. Inherited accounts also have distribution rules.</div>
+            <div class="faq-question">How is the RMD calculated?</div>
+            <div class="faq-answer">Divide your December 31 account balance by the IRS life expectancy factor. Most use the Uniform Lifetime Table. If your spouse is 10+ years younger, use the Joint Life table for a smaller RMD.</div>
+            <div class="faq-question">What happens if I don't take my RMD?</div>
+            <div class="faq-answer">The IRS charges a 25% penalty on any RMD amount not withdrawn. The penalty may be waived if you correct the mistake promptly and file Form 5329 with a reasonable explanation.</div>
+            <div class="faq-question">Can I satisfy my RMD by converting to a Roth IRA?</div>
+            <div class="faq-answer">No, Roth conversions don't satisfy RMDs. You must take the RMD first as a taxable distribution, then convert additional amounts. You cannot roll over an RMD into another account.</div>
+            <div class="faq-question">Do I have to take RMDs from each account separately?</div>
+            <div class="faq-answer">For IRAs, calculate separately but you can withdraw the total from any one IRA. For 401ks, you must take RMDs separately from each account. This is why many retirees consolidate 401ks into IRAs.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/main.js"></script>
+<script src="../js/nav-manager.js"></script>
+<script>
+function calculateRMD(){const age=parseInt(document.getElementById('currentAge').value)||73;const balance=parseFloat(document.getElementById('accountBalance').value)||0;const spouseAge=parseInt(document.getElementById('spouseAge').value)||0;const spouseYounger=spouseAge>0&&(spouseAge<age-10);let distributionPeriod=27.4;if(age>=73&&age<=80){const periods=[27.4,26.5,25.5,24.6,23.7,22.9,22.0,21.1];distributionPeriod=periods[age-73];}else if(age>80&&age<=90){distributionPeriod=21.1-((age-80)*1.1);}else if(age>90){distributionPeriod=11.4-((age-90)*0.5);distributionPeriod=Math.max(1.9,distributionPeriod);}if(spouseYounger){distributionPeriod+=2;}const rmd=balance/distributionPeriod;const percent=(100/distributionPeriod).toFixed(2);document.getElementById('rmdAmount').textContent='$'+rmd.toFixed(0);document.getElementById('distPeriod').textContent=distributionPeriod.toFixed(1)+' years';document.getElementById('rmdPercent').textContent=percent+'%';}
+function clearRMD(){['currentAge','accountBalance','spouseAge'].forEach(id=>document.getElementById(id).value='');document.getElementById('rmdAmount').textContent='$0';document.getElementById('distPeriod').textContent='-';document.getElementById('rmdPercent').textContent='0%';}
+function copyRMDResults(){const amount=document.getElementById('rmdAmount').textContent;const text=`Required Minimum Distribution: ${amount}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Retirement Age",icon:"fa-calendar-check",url:"retirement-age-calculator.html"},{name:"Pension Payout",icon:"fa-hand-holding-usd",url:"pension-payout-calculator.html"},{name:"Early Retirement",icon:"fa-sun",url:"early-retirement-calculator.html"},{name:"FIRE Calculator",icon:"fa-fire",url:"fire-calculator.html"},{name:"Social Security",icon:"fa-shield-alt",url:"social-security-break-even-calculator.html"},{name:"Retirement Income",icon:"fa-wallet",url:"retirement-income-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridRetirement").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

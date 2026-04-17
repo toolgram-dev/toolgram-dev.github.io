@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Whole Life Insurance Calculator – Cash Value & Premium Estimator | ToolGram</title>
+    <meta name="description" content="Calculate whole life insurance premiums and cash value projections. Estimate lifetime coverage costs and dividend earnings.">
+    <meta name="keywords" content="whole life insurance calculator, cash value calculator, permanent life insurance, whole life premium">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/whole-life-insurance-calculator.html">
+    <meta property="og:title" content="Whole Life Insurance Calculator | ToolGram">
+    <meta property="og:description" content="Calculate whole life insurance premiums and cash value projections.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/whole-life-insurance-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Whole Life Insurance Calculator","description": "Calculate whole life insurance premiums and cash value projections.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/whole-life-insurance-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Premium Calculation", "Cash Value", "Dividend Projection", "Lifetime Coverage"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background:#fff!important;color:#000!important}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-infinity"></i></div>
+            <div><h1 style="margin:0;">Whole Life Insurance Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate premiums and cash value growth</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Policy Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Age</label><input type="number" id="age" placeholder="35" value="35"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Gender</label><select id="gender"><option value="male">Male</option><option value="female" selected>Female</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Coverage Amount ($)</label><input type="number" id="coverage" placeholder="250000" value="250000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Payment Period</label><select id="paymentPeriod"><option value="lifetime" selected>Life</option><option value="20">20-Pay</option><option value="10">10-Pay</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Health Class</label><select id="health"><option value="preferred">Preferred</option><option value="standard" selected>Standard</option><option value="rated">Rated</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Project Years</label><input type="number" id="projectYears" placeholder="30" value="30"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateWholeLife()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearWholeLife()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Policy Results</div>
+                <div class="output-display" id="outputWholeLife">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> Monthly Premium</div><div style="margin-bottom:10px;"><span class="loan-result" id="monthlyPremium">$0</span></div><div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Guaranteed level premium</div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Annual Premium:</strong> <span id="annualPremium">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Projected Cash Value:</strong> <span id="cashValue">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Net Death Benefit:</strong> <span id="netDeathBenefit">$0</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Premiums Paid:</strong> <span id="totalPremiums">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Cash Value Ratio:</strong> <span id="cvRatio">0%</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyWholeLifeResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">🔧 Related Insurance Tools</h2>
+            <div class="related-grid" id="relatedGridInsurance"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Whole Life Insurance?</h3>
+            <p>Whole life insurance is a type of permanent life insurance that provides coverage for your entire lifetime as long as premiums are paid. Unlike term insurance which expires, whole life never expires and includes a cash value component that grows tax-deferred over time. The death benefit is guaranteed and premiums remain level throughout your life, providing predictable costs and permanent protection.</p>
+            <p>The cash value component sets whole life apart from term insurance. A portion of each premium payment goes into a savings account that grows over time, typically earning 2-4% annually. You can borrow against this cash value, use it to pay premiums, or surrender the policy for the accumulated amount. Many policies also pay dividends that can increase your cash value or death benefit further.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your current age when applying for the policy.<br><strong>Step 2:</strong> Select gender as rates differ between males and females.<br><strong>Step 3:</strong> Input desired death benefit coverage amount.<br><strong>Step 4:</strong> Choose payment period—lifetime payments, 20-pay, or 10-pay.<br><strong>Step 5:</strong> Select your health classification from medical underwriting.<br><strong>Step 6:</strong> Enter projection years to see cash value growth over time.<br><strong>Step 7:</strong> Click "Calculate" to see premiums and cash value projections.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Whole Life Insurance Examples</h3>
+            <p><strong>Example 1 - Standard Whole Life:</strong> A 35-year-old female in standard health purchasing $250,000 whole life coverage with lifetime payments might pay approximately $200-250 monthly. After 30 years, the policy could accumulate $80,000-100,000 in cash value while maintaining the full $250,000 death benefit. Total premiums paid over 30 years would be approximately $86,400-90,000.</p>
+            <p><strong>Example 2 - Limited Pay Option:</strong> A 40-year-old male choosing a 20-pay whole life policy for $500,000 coverage would pay higher monthly premiums of approximately $600-800 for only 20 years, then have fully paid-up lifetime coverage. This option builds cash value faster and eliminates premium obligations in retirement years when income may decrease.</p>
+            <p><strong>Example 3 - Cash Value Growth:</strong> Starting a $100,000 whole life policy at age 30 with preferred health rates might cost $150 monthly. By age 65 (35 years later), the cash value could grow to $60,000-70,000—providing a source of tax-advantaged funds for retirement supplementation or emergency needs while maintaining death benefit protection.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Should Consider Whole Life Insurance?</h3>
+            <ul>
+                <li><strong>Lifetime Protection Needs:</strong> Those who need coverage that never expires, regardless of age.</li>
+                <li><strong>Estate Planning:</strong> Individuals needing liquidity for estate taxes or equalizing inheritances.</li>
+                <li><strong>Business Succession:</strong> Funding buy-sell agreements and key person protection permanently.</li>
+                <li><strong>Charitable Giving:</strong> Creating legacy gifts that grow and provide tax benefits.</li>
+                <li><strong>Supplemental Retirement:</strong> Those wanting tax-advantaged cash value accumulation.</li>
+                <li><strong>Final Expense Coverage:</strong> Seniors ensuring funeral and end-of-life costs are covered.</li>
+                <li><strong>Special Needs Dependents:</strong> Providing lifelong care funding for disabled family members.</li>
+                <li><strong>Wealth Preservation:</strong> High-net-worth individuals protecting estates from taxes.</li>
+                <li><strong>Guaranteed Insurability:</strong> Those wanting coverage that cannot be canceled due to health changes.</li>
+                <li><strong>Conservative Savers:</strong> People preferring guaranteed growth over market volatility.</li>
+                <li><strong>Loan Collateral:</strong> Business owners needing cash value for securing loans.</li>
+                <li><strong>Dividend Seekers:</strong> Those wanting participation in insurer's financial performance.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Whole Life Insurance Tips</h3>
+            <ul>
+                <li><strong>Compare Multiple Carriers:</strong> Premiums and dividend histories vary significantly between mutual insurance companies.</li>
+                <li><strong>Consider Paid-Up Additions:</strong> Use dividends to buy additional paid-up coverage rather than taking cash.</li>
+                <li><strong>Start Young:</strong> Cash value growth is most powerful over long time periods—start in your 20s or 30s.</li>
+                <li><strong>Choose Mutual Companies:</strong> Policyholder-owned insurers typically offer better dividends than stock companies.</li>
+                <li><strong>Understand Non-Forfeiture Options:</strong> Know your choices if you can't continue premium payments.</li>
+                <li><strong>Policy Loans Carefully:</strong> Borrowing reduces death benefit if not repaid—use strategically.</li>
+                <li><strong>Maximize Tax Benefits:</strong> Cash value grows tax-deferred; loans are tax-free; death benefits are income tax-free.</li>
+                <li><strong>Review Annually:</strong> Check dividend performance and consider adjusting dividend options yearly.</li>
+                <li><strong>Combine with Term:</strong> Use whole life for permanent needs and term for temporary high-coverage periods.</li>
+                <li><strong>Don't Overcommit:</strong> Ensure premiums are affordable long-term—lapsing wastes significant money.</li>
+                <li><strong>Check Financial Ratings:</strong> Choose insurers with A.M. Best ratings of A or higher for stability.</li>
+                <li><strong>Understand Surrender Charges:</strong> Early cancellation may result in significant fees and loss of value.</li>
+                <li><strong>Assign Policy Ownership:</strong> Consider irrevocable life insurance trusts for estate tax benefits.</li>
+                <li><strong>Compare with Universal Life:</strong> Evaluate flexible premium options if payment certainty is concern.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How does whole life insurance cash value work?</div>
+            <div class="faq-answer">Cash value is a savings component within your whole life policy that grows tax-deferred over time. A portion of each premium payment funds this account, which earns guaranteed interest (typically 2-4%) plus potential dividends. You can borrow against cash value at favorable rates, withdraw it (may reduce death benefit), or surrender the policy to receive it. The cash value eventually equals the death benefit at age 100 or maturity date.</div>
+            <div class="faq-question">Is whole life insurance worth the higher cost?</div>
+            <div class="faq-answer">Whole life costs 5-15 times more than term insurance for the same death benefit, making it unsuitable for most family's pure protection needs. However, it can be valuable for specific situations: lifetime coverage needs, estate planning, tax-advantaged savings, business purposes, or final expense funding. For most young families, "buy term and invest the difference" provides better value. Evaluate your specific needs and compare internal rates of return before purchasing.</div>
+            <div class="faq-question">What are policy dividends?</div>
+            <div class="faq-answer">Dividends are returns of excess premium that mutual insurance companies distribute to policyholders when investment returns, mortality experience, and expenses are favorable. Dividends are not guaranteed but many established companies have paid them consistently for decades. You can typically use dividends to: reduce premiums, buy paid-up additional insurance (most popular), receive cash, accumulate at interest, or pay off policy loans.</div>
+            <div class="faq-question">Can I borrow from my whole life policy?</div>
+            <div class="faq-answer">Yes, you can borrow against your policy's cash value without credit checks or qualification requirements. Policy loans typically charge 5-8% interest, but this is often offset by continued cash value growth. Loans are not taxable as long as the policy remains in force. If you die with an outstanding loan, the death benefit is reduced by the loan amount plus interest. You can repay loans on your own schedule or not at all.</div>
+            <div class="faq-question">What happens if I stop paying premiums?</div>
+            <div class="faq-answer">If you stop paying premiums, the policy will use available cash value to fund premiums through automatic premium loans or reduced paid-up insurance conversion. If cash value is insufficient, the policy may lapse. Most policies offer non-forfeiture options: take cash surrender value, convert to extended term insurance, or reduced paid-up whole life with lower face amount. Understand these options before purchasing to avoid surprises later.</div>
+            <div class="faq-question">Should I choose whole life or universal life?</div>
+            <div class="faq-answer">Whole life offers guaranteed premiums, death benefits, and cash value growth with no surprises but less flexibility. Universal life provides adjustable premiums and death benefits with potential for higher cash value growth tied to interest rates or market indexes, but carries risk of policy lapse if poorly funded. Choose whole life for predictability and guarantees; choose universal life if you want flexibility and are comfortable managing funding levels.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateWholeLife(){const age=parseInt(document.getElementById('age').value)||35;const coverage=parseFloat(document.getElementById('coverage').value)||250000;const paymentPeriod=document.getElementById('paymentPeriod').value;const health=document.getElementById('health').value;const projectYears=parseInt(document.getElementById('projectYears').value)||30;let baseRate=0.8;const ageFactor=1+((age-25)*0.04);let healthMultiplier={preferred:0.8,standard:1,rated:1.8}[health]||1;let paymentMultiplier=paymentPeriod==='lifetime'?1:paymentPeriod==='20'?1.5:2.2;const monthly=(coverage/1000)*baseRate*ageFactor*healthMultiplier*paymentMultiplier;const annual=monthly*12;const totalPremiums=annual*(paymentPeriod==='lifetime'?projectYears:parseInt(paymentPeriod));let cashValue=0;if(projectYears<=10)cashValue=totalPremiums*0.25;else if(projectYears<=20)cashValue=totalPremiums*0.45;else cashValue=totalPremiums*0.65;const netDeathBenefit=coverage;const cvRatio=totalPremiums>0?(cashValue/totalPremiums)*100:0;document.getElementById('monthlyPremium').textContent='$'+monthly.toFixed(2);document.getElementById('annualPremium').textContent='$'+annual.toFixed(0);document.getElementById('cashValue').textContent='$'+cashValue.toLocaleString();document.getElementById('netDeathBenefit').textContent='$'+netDeathBenefit.toLocaleString();document.getElementById('totalPremiums').textContent='$'+totalPremiums.toLocaleString();document.getElementById('cvRatio').textContent=cvRatio.toFixed(0)+'%';}
+function clearWholeLife(){['age','coverage','projectYears'].forEach(id=>document.getElementById(id).value='');document.getElementById('monthlyPremium').textContent='$0';document.getElementById('annualPremium').textContent='$0';document.getElementById('cashValue').textContent='$0';document.getElementById('netDeathBenefit').textContent='$0';document.getElementById('totalPremiums').textContent='$0';document.getElementById('cvRatio').textContent='0%';}
+function copyWholeLifeResults(){const prem=document.getElementById('monthlyPremium').textContent;const cv=document.getElementById('cashValue').textContent;const text=`Whole Life Insurance Monthly Premium: ${prem}, Projected Cash Value: ${cv}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Life Insurance",icon:"fa-heart",url:"life-insurance-calculator.html"},{name:"Term Life Insurance",icon:"fa-file-contract",url:"term-life-insurance-calculator.html"},{name:"Car Insurance",icon:"fa-car",url:"car-insurance-calculator.html"},{name:"Health Insurance",icon:"fa-heartbeat",url:"health-insurance-calculator.html"},{name:"Homeowners Insurance",icon:"fa-home",url:"homeowners-insurance-calculator.html"},{name:"Renters Insurance",icon:"fa-building",url:"renters-insurance-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridInsurance").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

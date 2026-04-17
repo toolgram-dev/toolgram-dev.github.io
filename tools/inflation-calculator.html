@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Inflation Calculator – Purchasing Power & Price Estimator | ToolGram</title>
+    <meta name="description" content="Calculate inflation impact on purchasing power. Adjust prices for inflation using historical CPI data. Plan for future costs with inflation estimates.">
+    <meta name="keywords" content="inflation calculator, purchasing power, CPI calculator, price adjustment, inflation rate, cost of living">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/inflation-calculator.html">
+    <meta property="og:title" content="Inflation Calculator | ToolGram">
+    <meta property="og:description" content="Calculate inflation impact on purchasing power and adjust prices using CPI data.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/inflation-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Inflation Calculator",
+        "description": "Calculate inflation impact on purchasing power and adjust prices using CPI data.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/inflation-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Purchasing Power", "CPI Adjustment", "Future Cost Projection", "Historical Inflation"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+                <h1 style="margin:0;">Inflation Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate purchasing power and future costs</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Inflation Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Calculation Type</label>
+                        <select id="calcType"><option value="future" selected>Future Value</option><option value="past">Past Value</option><option value="rate">Find Inflation Rate</option></select>
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Amount ($)</label>
+                        <input type="number" id="amount" placeholder="1000" value="1000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">From Year</label>
+                        <input type="number" id="fromYear" placeholder="2020" value="2020">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">To Year</label>
+                        <input type="number" id="toYear" placeholder="2024" value="2024">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Inflation Rate (%)</label>
+                        <input type="number" id="inflationRate" placeholder="3" value="3" step="0.1">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateInflation()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearInflation()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Inflation Results</div>
+                <div class="output-display" id="outputInflation">
+                    <div class="tax-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> Adjusted Amount</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="adjustedAmount">$0.00</span></div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Original Amount:</strong> <span id="originalAmount">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Change in Value:</strong> <span id="changeValue">$0.00</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Percent Change:</strong> <span id="percentChange">0%</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Annual Inflation:</strong> <span id="annualInflation">3.0%</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Purchasing Power:</strong> <span id="purchasingPower">100%</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyInflationResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Budget Tools</h2>
+            <div class="related-grid" id="relatedGridBudget"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Inflation?</h3>
+            <p>Inflation is the rate at which the general level of prices for goods and services rises, causing purchasing power to fall. It is measured by the Consumer Price Index (CPI) and expressed as an annual percentage increase. Understanding inflation is crucial for financial planning, salary negotiations, and retirement preparation.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select calculation type: Future Value, Past Value, or Find Rate.<br>
+            <strong>Step 2:</strong> Enter the dollar amount to adjust.<br>
+            <strong>Step 3:</strong> Input start and end years.<br>
+            <strong>Step 4:</strong> Enter expected inflation rate.<br>
+            <strong>Step 5:</strong> Click "Calculate" to see adjusted amounts and purchasing power.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Inflation Examples</h3>
+            <p><strong>Example 1 - Future Value:</strong> $1,000 in 2024 will be worth approximately $1,159 in 2029 with 3% annual inflation.</p>
+            <p><strong>Example 2 - Past Value:</strong> $50,000 salary in 2020 needs to be $59,136 in 2024 to maintain the same purchasing power.</p>
+            <p><strong>Example 3 - Retirement:</strong> You need $80,000/year in retirement starting in 2044. With 3% inflation, that's equivalent to about $40,000 today.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Historical US Inflation Rates</h3>
+            <ul>
+                <li><strong>2023:</strong> 4.1%</li>
+                <li><strong>2022:</strong> 8.0% (40-year high)</li>
+                <li><strong>2021:</strong> 4.7%</li>
+                <li><strong>2020:</strong> 1.2%</li>
+                <li><strong>2010s Average:</strong> ~1.8%</li>
+                <li><strong>2000s Average:</strong> ~2.6%</li>
+                <li><strong>1990s Average:</strong> ~3.0%</li>
+                <li><strong>Long-term Average:</strong> ~3.1% (1913-2023)</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Inflation Planning Tips</h3>
+            <ul>
+                <li><strong>Salary Negotiations:</strong> Request raises that at least match inflation to maintain purchasing power.</li>
+                <li><strong>Retirement Planning:</strong> Plan for expenses to double every 20-25 years at 3% inflation.</li>
+                <li><strong>Emergency Fund:</strong> Increase your emergency fund as costs rise to maintain 3-6 months of expenses.</li>
+                <li><strong>Investments:</strong> Stocks historically outpace inflation over long periods.</li>
+                <li><strong>I Bonds:</strong> Consider inflation-protected securities for cash reserves.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">How is inflation calculated?</div>
+            <div class="faq-answer">Inflation is calculated using the formula: Future Value = Present Value × (1 + Inflation Rate)^Years. This compound formula accounts for inflation accumulating year over year. The Consumer Price Index (CPI) tracks price changes across a basket of goods and services.</div>
+
+            <div class="faq-question">What is purchasing power?</div>
+            <div class="faq-answer">Purchasing power represents the quantity of goods and services that can be bought with a unit of currency. As inflation rises, purchasing power falls—the same dollar amount buys fewer goods over time.</div>
+
+            <div class="faq-question">How do I protect against inflation?</div>
+            <div class="faq-answer">Protect against inflation by investing in assets that historically outpace it (stocks, real estate), requesting cost-of-living salary adjustments, considering Treasury Inflation-Protected Securities (TIPS) or I Bonds, and regularly reviewing your budget as prices change.</div>
+
+            <div class="faq-question">What is a good inflation rate?</div>
+            <div class="faq-answer">The Federal Reserve targets 2% annual inflation as optimal—high enough to encourage spending and investment, but low enough to maintain price stability. Rates significantly above 2% erode purchasing power rapidly, while deflation (negative inflation) can discourage economic activity.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateInflation(){
+const amount=parseFloat(document.getElementById('amount').value)||0;
+const fromYear=parseInt(document.getElementById('fromYear').value)||2024;
+const toYear=parseInt(document.getElementById('toYear').value)||2024;
+const rate=parseFloat(document.getElementById('inflationRate').value)||0;
+const calcType=document.getElementById('calcType').value;
+
+const years=Math.abs(toYear-fromYear);
+const rateDecimal=rate/100;
+
+let adjustedAmount=0,changeValue=0,percentChange=0;
+
+if(calcType==='future'){
+adjustedAmount=amount*Math.pow(1+rateDecimal,years);
+changeValue=adjustedAmount-amount;
+percentChange=(changeValue/amount)*100;
+}else if(calcType==='past'){
+adjustedAmount=amount/Math.pow(1+rateDecimal,years);
+changeValue=amount-adjustedAmount;
+percentChange=(changeValue/adjustedAmount)*100;
+}else{
+adjustedAmount=amount*Math.pow(1+rateDecimal,years);
+changeValue=adjustedAmount-amount;
+percentChange=(changeValue/amount)*100;
+}
+
+const purchasingPower=(amount/adjustedAmount)*100;
+
+document.getElementById('adjustedAmount').textContent='$'+adjustedAmount.toFixed(2);
+document.getElementById('originalAmount').textContent='$'+amount.toFixed(2);
+document.getElementById('changeValue').textContent='$'+Math.abs(changeValue).toFixed(2);
+document.getElementById('percentChange').textContent=percentChange.toFixed(1)+'%';
+document.getElementById('annualInflation').textContent=rate.toFixed(1)+'%';
+document.getElementById('purchasingPower').textContent=purchasingPower.toFixed(0)+'%';
+}
+
+function clearInflation(){
+document.getElementById('amount').value='';
+document.getElementById('fromYear').value='';
+document.getElementById('toYear').value='';
+document.getElementById('inflationRate').value='';
+document.getElementById('adjustedAmount').textContent='$0.00';
+document.getElementById('originalAmount').textContent='$0.00';
+document.getElementById('changeValue').textContent='$0.00';
+document.getElementById('percentChange').textContent='0%';
+document.getElementById('annualInflation').textContent='0%';
+document.getElementById('purchasingPower').textContent='100%';
+}
+
+function copyInflationResults(){
+const adjusted=document.getElementById('adjustedAmount').textContent;
+const original=document.getElementById('originalAmount').textContent;
+const text=`Inflation Results:
+Original: ${original}
+Adjusted: ${adjusted}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Cost of Living Calculator",icon:"fa-city",url:"cost-of-living-calculator.html"},
+{name:"Net Worth Calculator",icon:"fa-gem",url:"net-worth-calculator.html"},
+{name:"Savings Rate Calculator",icon:"fa-piggy-bank",url:"savings-rate-calculator.html"},
+{name:"Retirement Calculator",icon:"fa-umbrella-beach",url:"retirement-planning-calculator.html"},
+{name:"Monthly Budget",icon:"fa-calendar-alt",url:"monthly-budget-calculator.html"},
+{name:"Expense Tracker",icon:"fa-wallet",url:"expense-tracker.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridBudget").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

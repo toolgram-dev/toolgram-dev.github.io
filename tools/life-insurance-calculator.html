@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Life Insurance Calculator – Coverage Needs Estimator | ToolGram</title>
+    <meta name="description" content="Calculate how much life insurance coverage you need. Protect your family's financial future with the right death benefit amount.">
+    <meta name="keywords" content="life insurance calculator, life insurance needs, death benefit calculator, term life coverage, family protection">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/life-insurance-calculator.html">
+    <meta property="og:title" content="Life Insurance Calculator | ToolGram">
+    <meta property="og:description" content="Calculate how much life insurance coverage you need to protect your family.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/life-insurance-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Life Insurance Calculator",
+        "description": "Calculate how much life insurance coverage you need to protect your family.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/life-insurance-calculator.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["Coverage Calculation", "Death Benefit", "Family Protection", "Financial Security"]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        select,input[type="number"],input[type="date"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}
+        select:focus,input[type="number"]:focus,input[type="date"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+        select option{background:#fff!important;color:#000!important}
+        .loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}
+        .tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}
+        @media(max-width:768px){
+            .related-grid{grid-template-columns:1fr}
+            .var-row{flex-direction:column;align-items:stretch;gap:5px}
+            .var-row label{min-width:100%!important;width:100%;margin-bottom:3px}
+            .var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}
+            .tool-interface{padding:10px}
+            .tool-column{padding:10px}
+            .output-display{word-break:break-word;overflow-wrap:break-word}
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-heart"></i></div>
+            <div>
+                <h1 style="margin:0;">Life Insurance Calculator</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Determine your coverage needs</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Financial Details</div>
+                <div style="padding:20px">
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Annual Income ($)</label>
+                        <input type="number" id="annualIncome" placeholder="75000" value="75000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Years of Income to Replace</label>
+                        <input type="number" id="yearsReplace" placeholder="10" value="10">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Outstanding Mortgage ($)</label>
+                        <input type="number" id="mortgageBalance" placeholder="200000" value="200000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Other Debts ($)</label>
+                        <input type="number" id="otherDebts" placeholder="25000" value="25000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Future Education Costs ($)</label>
+                        <input type="number" id="educationCosts" placeholder="100000" value="100000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Existing Savings ($)</label>
+                        <input type="number" id="existingSavings" placeholder="50000" value="50000">
+                    </div>
+                    <div class="var-row">
+                        <label style="color:#fff;min-width:150px">Existing Life Insurance ($)</label>
+                        <input type="number" id="existingInsurance" placeholder="0" value="0">
+                    </div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateLifeInsurance()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearLifeInsurance()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Coverage Results</div>
+                <div class="output-display" id="outputLifeInsurance">
+                    <div class="tax-box">
+                        <div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-shield-alt"></i> Recommended Coverage</div>
+                        <div style="margin-bottom:10px;"><span class="loan-result" id="recommendedCoverage">$0</span></div>
+                        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Death benefit needed</div>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Income Replacement:</strong> <span id="incomeReplacement">$0</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Debt Coverage:</strong> <span id="debtCoverage">$0</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Education Fund:</strong> <span id="educationFund">$0</span></div>
+                    </div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Needs:</strong> <span id="totalNeeds">$0</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Existing Resources:</strong> <span id="existingResources">$0</span></div>
+                        <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Additional Coverage Needed:</strong> <span id="additionalNeeded">$0</span></div>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyLifeInsuranceResults()"><i class="far fa-copy"></i> Copy Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Insurance Tools</h2>
+            <div class="related-grid" id="relatedGridInsurance"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Life Insurance?</h3>
+            <p>Life insurance is a financial contract between you and an insurance company that provides a death benefit to your beneficiaries when you pass away. This tax-free lump sum payment helps replace your income, pay off debts, cover funeral expenses, and fund future needs like your children's education. It ensures your loved ones maintain their standard of living even after you're gone.</p>
+            <p>There are two main types: term life insurance provides coverage for a specific period (typically 10-30 years) at lower costs, while permanent life insurance (whole life, universal life) offers lifetime coverage with a cash value component. Most families need 10-15 times their annual income in coverage to adequately protect their dependents.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your gross annual income before taxes and deductions.<br>
+            <strong>Step 2:</strong> Specify how many years of income your family would need to replace.<br>
+            <strong>Step 3:</strong> Input your outstanding mortgage balance and other debts like car loans or credit cards.<br>
+            <strong>Step 4:</strong> Estimate future education costs for children (approximately $100,000-$200,000 per child for college).<br>
+            <strong>Step 5:</strong> Enter existing savings and current life insurance to offset total needs.<br>
+            <strong>Step 6:</strong> Click "Calculate" to see your recommended coverage amount.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Life Insurance Examples</h3>
+            <p><strong>Example 1 - Young Family:</strong> Sarah (35) earns $70,000/year with a $250,000 mortgage, $30,000 in other debts, and two young children needing $150,000 for future college. She has $40,000 in savings. Calculator recommends $900,000-$1,000,000 in coverage to replace 10 years of income plus debts and education minus existing assets.</p>
+            <p><strong>Example 2 - Single Professional:</strong> Mike (28) earns $55,000/year with $15,000 in student loans and no dependents. He needs minimal coverage—perhaps $100,000-$200,000 to cover debts and funeral expenses. As his life circumstances change (marriage, children), he should revisit and increase coverage accordingly.</p>
+            <p><strong>Example 3 - Established Family:</strong> The Johnsons have paid off their home, have $300,000 in retirement savings, and their children are grown. With $80,000 annual income, they only need $200,000-$400,000 to cover final expenses and provide a modest income supplement, significantly less than during their child-rearing years.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Who Needs Life Insurance?</h3>
+            <ul>
+                <li><strong>Parents with Minor Children:</strong> Essential to replace income and fund upbringing costs.</li>
+                <li><strong>Married Couples:</strong> Protects spouse from financial hardship if one income is lost.</li>
+                <li><strong>Homeowners with Mortgages:</strong> Ensures family can keep the home if breadwinner dies.</li>
+                <li><strong>Business Owners:</strong> Covers business debts and provides succession planning funds.</li>
+                <li><strong>Cosigners on Loans:</strong> Protects cosigners from inherited debt obligations.</li>
+                <li><strong>Stay-at-Home Parents:</strong> Replace valuable services (childcare, housekeeping) they provide.</li>
+                <li><strong>Adults with Aging Parents:</strong> Provides funds to care for elderly dependents.</li>
+                <li><strong>High Debt Individuals:</strong> Prevents passing significant debts to family members.</li>
+                <li><strong>Single Adults with No Dependents:</strong> Minimal need—perhaps small policy for funeral costs.</li>
+                <li><strong>Retirees with Sufficient Assets:</strong> Often no longer need life insurance if estate is secure.</li>
+                <li><strong>Divorced Parents:</strong> Court-ordered coverage to secure child support obligations.</li>
+                <li><strong>Anyone with Financial Dependents:</strong> If someone relies on your income or care, you need coverage.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Life Insurance Planning Tips</h3>
+            <ul>
+                <li><strong>Buy Term, Invest the Difference:</strong> Term insurance offers more coverage per dollar than permanent policies.</li>
+                <li><strong>Get Coverage Early:</strong> Premiums increase with age—lock in rates when you're young and healthy.</li>
+                <li><strong>Review Every 5 Years:</strong> Reassess coverage after major life events (marriage, births, home purchase).</li>
+                <li><strong>Ladder Policies:</strong> Buy multiple term policies with different lengths to match decreasing needs over time.</li>
+                <li><strong>Consider Group Coverage:</strong> Employer-provided insurance is often cheaper but isn't portable if you leave.</li>
+                <li><strong>Name Beneficiaries Properly:</strong> Update beneficiaries after life changes; avoid naming minors directly.</li>
+                <li><strong>Shop Multiple Carriers:</strong> Rates vary significantly—get quotes from at least 3-5 companies.</li>
+                <li><strong>Don't Overinsure Children:</strong> Small policy for funeral costs is sufficient; invest excess in their education.</li>
+                <li><strong>Understand Exclusions:</strong> Most policies have 2-year suicide exclusion and fraud provisions.</li>
+                <li><strong>Stay Healthy:</strong> Non-smokers and those in good health pay significantly lower premiums.</li>
+                <li><strong>Pay Annually:</strong> Monthly payment options often include extra fees—save by paying yearly.</li>
+                <li><strong>Work with Independent Agent:</strong> They can compare policies across multiple insurance companies.</li>
+                <li><strong>Consider Riders:</strong> Add-ons like disability waiver or accelerated death benefit can provide extra protection.</li>
+                <li><strong>Keep Documents Accessible:</strong> Ensure beneficiaries know where to find policy information.</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+
+            <div class="faq-question">How much life insurance do I really need?</div>
+            <div class="faq-answer">Most financial experts recommend 10-15 times your annual income, but your specific needs depend on your family's situation, debts, future expenses (like college), and existing assets. Use this calculator for a personalized estimate based on your actual financial obligations and goals rather than relying on general rules of thumb.</div>
+
+            <div class="faq-question">What's the difference between term and whole life insurance?</div>
+            <div class="faq-answer">Term life provides coverage for a specific period (10-30 years) at lower premiums but expires worthless if you outlive the term. Whole life offers lifetime coverage with a cash value component that grows over time, but costs 5-15 times more than term. For most families, term insurance provides better value for pure protection needs.</div>
+
+            <div class="faq-question">Can I have multiple life insurance policies?</div>
+            <div class="faq-answer">Yes, you can own multiple policies from different insurers. This strategy, called "laddering," lets you match coverage to specific time periods when needs are highest. For example, you might have a $500,000 20-year policy for family protection and a $200,000 10-year policy specifically to cover your mortgage.</div>
+
+            <div class="faq-question">What happens if I stop paying premiums?</div>
+            <div class="faq-answer">Term policies lapse immediately when premiums stop, and coverage ends. Permanent policies may have a grace period (typically 30-31 days) and can use accumulated cash value to pay premiums temporarily. If the cash value runs out, the policy terminates. Some permanent policies can be converted to reduced paid-up insurance with no further premiums due.</div>
+
+            <div class="faq-question">Are life insurance proceeds taxable?</div>
+            <div class="faq-answer">Generally no—life insurance death benefits paid to individual beneficiaries are income tax-free. However, if the benefit is paid to an estate, it may be subject to estate taxes. Interest earned on delayed payouts may be taxable. Consult a tax professional for complex situations involving large estates or business-owned policies.</div>
+
+            <div class="faq-question">When should I buy life insurance?</div>
+            <div class="faq-answer">The best time is when you're young and healthy, as premiums are lowest. Key life stages to consider: getting married, having children, buying a home, starting a business, or taking on cosigned debt. Don't wait until you have health issues—pre-existing conditions can make coverage expensive or unavailable. Lock in coverage during your 20s or 30s for the best rates.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateLifeInsurance(){
+const annualIncome=parseFloat(document.getElementById('annualIncome').value)||0;
+const yearsReplace=parseFloat(document.getElementById('yearsReplace').value)||0;
+const mortgageBalance=parseFloat(document.getElementById('mortgageBalance').value)||0;
+const otherDebts=parseFloat(document.getElementById('otherDebts').value)||0;
+const educationCosts=parseFloat(document.getElementById('educationCosts').value)||0;
+const existingSavings=parseFloat(document.getElementById('existingSavings').value)||0;
+const existingInsurance=parseFloat(document.getElementById('existingInsurance').value)||0;
+
+const incomeReplacement=annualIncome*yearsReplace;
+const debtCoverage=mortgageBalance+otherDebts;
+const educationFund=educationCosts;
+const totalNeeds=incomeReplacement+debtCoverage+educationFund;
+const existingResources=existingSavings+existingInsurance;
+const additionalNeeded=Math.max(0,totalNeeds-existingResources);
+const recommendedCoverage=additionalNeeded;
+
+document.getElementById('recommendedCoverage').textContent='$'+recommendedCoverage.toLocaleString();
+document.getElementById('incomeReplacement').textContent='$'+incomeReplacement.toLocaleString();
+document.getElementById('debtCoverage').textContent='$'+debtCoverage.toLocaleString();
+document.getElementById('educationFund').textContent='$'+educationFund.toLocaleString();
+document.getElementById('totalNeeds').textContent='$'+totalNeeds.toLocaleString();
+document.getElementById('existingResources').textContent='$'+existingResources.toLocaleString();
+document.getElementById('additionalNeeded').textContent='$'+additionalNeeded.toLocaleString();
+}
+
+function clearLifeInsurance(){
+const ids=['annualIncome','yearsReplace','mortgageBalance','otherDebts','educationCosts','existingSavings','existingInsurance'];
+ids.forEach(id=>document.getElementById(id).value='');
+document.getElementById('recommendedCoverage').textContent='$0';
+document.getElementById('incomeReplacement').textContent='$0';
+document.getElementById('debtCoverage').textContent='$0';
+document.getElementById('educationFund').textContent='$0';
+document.getElementById('totalNeeds').textContent='$0';
+document.getElementById('existingResources').textContent='$0';
+document.getElementById('additionalNeeded').textContent='$0';
+}
+
+function copyLifeInsuranceResults(){
+const coverage=document.getElementById('recommendedCoverage').textContent;
+const text=`Life Insurance Coverage Needed: ${coverage}`;
+navigator.clipboard.writeText(text);
+const btn=document.querySelector('.copy-btn');
+btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);
+}
+
+function loadRelated(){
+const tools=[
+{name:"Term Life Insurance",icon:"fa-file-contract",url:"term-life-insurance-calculator.html"},
+{name:"Whole Life Insurance",icon:"fa-infinity",url:"whole-life-insurance-calculator.html"},
+{name:"Car Insurance",icon:"fa-car",url:"car-insurance-calculator.html"},
+{name:"Health Insurance",icon:"fa-heartbeat",url:"health-insurance-calculator.html"},
+{name:"Homeowners Insurance",icon:"fa-home",url:"homeowners-insurance-calculator.html"},
+{name:"Renters Insurance",icon:"fa-building",url:"renters-insurance-calculator.html"}
+];
+let html="";
+tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});
+document.getElementById("relatedGridInsurance").innerHTML=html;
+}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

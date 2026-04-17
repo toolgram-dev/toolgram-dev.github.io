@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>FIRE Calculator – Financial Independence Retire Early | ToolGram</title>
+    <meta name="description" content="Calculate your FIRE number and timeline to financial independence. Free FIRE calculator for Lean, Fat, and Coast FIRE planning.">
+    <meta name="keywords" content="FIRE calculator, financial independence retire early, FIRE number calculator, lean FIRE, fat FIRE, coast FIRE">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/fire-calculator.html">
+    <meta property="og:title" content="FIRE Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your FIRE number and timeline to financial independence.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/fire-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0}select,input[type="number"]{background:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;gap:5px}.var-row label{min-width:100%;margin-bottom:3px}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-fire"></i></div>
+            <div><h1 style="margin:0;">FIRE Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Financial Independence Retire Early</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> FIRE Details</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Age</label><input type="number" id="currentAge" placeholder="30" value="30"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Annual Income ($)</label><input type="number" id="annualIncome" placeholder="80000" value="80000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Net Worth ($)</label><input type="number" id="currentNetWorth" placeholder="100000" value="100000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Annual Expenses ($)</label><input type="number" id="annualExpenses" placeholder="40000" value="40000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">FIRE Type</label><select id="fireType"><option value="lean">Lean FIRE (3% withdrawal)</option><option value="standard" selected>Standard FIRE (4% withdrawal)</option><option value="fat">Fat FIRE (2.5-3% withdrawal)</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Expected Return (%)</label><input type="number" id="expectedReturn" placeholder="7" value="7"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateFIRE()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearFIRE()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-line"></i> Your FIRE Results</div>
+                <div class="output-display" id="outputFIRE">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-bullseye"></i> Your FIRE Number</div><div style="margin-bottom:10px;"><span class="loan-result" id="fireNumber">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Years to FIRE:</strong> <span id="yearsToFIRE">-</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">FIRE Age:</strong> <span id="fireAge">-</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Safe Withdrawal:</strong> <span id="safeWithdrawal">$0</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyFIREResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">🔧 Related Retirement Tools</h2>
+            <div class="related-grid" id="relatedGridRetirement"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is FIRE (Financial Independence Retire Early)?</h3>
+            <p>FIRE is a movement focused on achieving financial independence through aggressive saving and investing, allowing you to retire decades earlier than traditional retirement age. The core philosophy centers on maximizing your savings rate, minimizing unnecessary spending, and building investment portfolios that generate sufficient passive income to cover your living expenses indefinitely.</p>
+            <p>The FIRE movement encompasses several variations: Lean FIRE (minimalist lifestyle with lower expenses), Fat FIRE (maintaining higher spending and luxury), Coast FIRE (saving enough early that compound growth does the rest), and Barista FIRE (partial retirement with part-time work). Regardless of the variation, the mathematical foundation remains the same—accumulate 25-30 times your annual expenses to safely withdraw 3-4% annually forever.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your current age to establish timeline baseline.<br><strong>Step 2:</strong> Input your gross annual income before taxes.<br><strong>Step 3:</strong> Enter your current net worth including all investments and savings.<br><strong>Step 4:</strong> Input your annual expenses—this determines your FIRE number.<br><strong>Step 5:</strong> Select your FIRE type (affects safe withdrawal rate).<br><strong>Step 6:</strong> Enter expected investment return (7% is conservative).<br><strong>Step 7:</strong> Click "Calculate" to see your FIRE number and timeline.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> FIRE Types Explained</h3>
+            <p><strong>Lean FIRE:</strong> Living frugally on $30,000-40,000 annually requires $750,000-1M portfolio. Appeals to minimalists who value time freedom over material possessions. Often involves geoarbitrage—moving to lower cost areas or countries to stretch dollars further. Higher withdrawal rate of 3-3.5% acceptable with flexibility to reduce spending during market downturns.</p>
+            <p><strong>Standard FIRE:</strong> Comfortable middle-class lifestyle on $50,000-80,000 annually requires $1.25M-2M portfolio. Uses classic 4% rule for 30-year retirements, though early retirees often use 3.5% for 40-50 year horizons. Balances security with lifestyle enjoyment, allowing for travel, hobbies, and occasional luxuries without extreme frugality.</p>
+            <p><strong>Fat FIRE:</strong> Affluent lifestyle on $100,000-200,000+ annually requires $2.5M-5M+ portfolio. Conservative 2.5-3% withdrawal rate provides maximum safety and allows for luxury travel, dining, high-end housing, and discretionary spending without budget constraints. Often pursued by high-income professionals who want to maintain pre-retirement lifestyle.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> FIRE Community Variations</h3>
+            <ul>
+                <li><strong>Coast FIRE:</strong> Save aggressively early, then let compound growth do the work while reducing savings rate.</li>
+                <li><strong>Barista FIRE:</strong> Reach partial FI, then work part-time for benefits and supplemental income.</li>
+                <li><strong>Coast Barista FIRE:</strong> Combination—coast to full retirement with part-time enjoyable work.</li>
+                <li><strong>Slow FIRE:</strong> Intentionally take longer to reach FI while maintaining higher current lifestyle.</li>
+                <li><strong>Mini Retirements:</strong> Take 1-2 year sabbaticals periodically rather than one permanent retirement.</li>
+                <li><strong>Geoarbitrage FIRE:</strong> Earn in high-cost areas, retire to lower-cost locations or countries.</li>
+                <li><strong>House Hacking FIRE:</strong> Eliminate housing costs through multi-unit properties or room rentals.</li>
+                <li><strong>Side FIRE:</strong> Build small business or side income that becomes passive or enjoyable work.</li>
+                <li><strong>Investment Property FIRE:</strong> Build real estate portfolio generating rental income for cash flow.</li>
+                <li><strong>Digital Nomad FIRE:</strong> Combine remote work with travel before and after reaching FI.</li>
+                <li><strong>Stealth Wealth:</strong> Reach FI without displaying outward signs of wealth—live below means.</li>
+                <li><strong>Chubby FIRE:</strong> Between Lean and Fat—comfortable lifestyle without extreme frugality or luxury.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Achieving FIRE Faster</h3>
+            <ul>
+                <li><strong>Maximize Savings Rate:</strong> Every 10% increase reduces time to FI by 5-7 years.</li>
+                <li><strong>House Hacking:</strong> Rent portions of home to eliminate housing costs entirely.</li>
+                <li><strong>Geoarbitrage:</strong> Move to lower cost-of-living area or country after reaching FI.</li>
+                <li><strong>Tax Optimization:</strong> Maximize 401k, IRA, HSA contributions to reduce tax drag.</li>
+                <li><strong>Side Hustles:</strong> Build income streams that can continue post-FI or accelerate savings.</li>
+                <li><strong>Investment Property:</strong> Real estate can provide cash flow and appreciation.</li>
+                <li><strong>Career Advancement:</strong> Focus on increasing income while maintaining spending discipline.</li>
+                <li><strong>Frugal Hobbies:</strong> Develop low-cost passions that enrich life without draining wallet.</li>
+                <li><strong>Meal Planning:</strong> Food costs are major budget category—cooking saves thousands.</li>
+                <li><strong>Transportation Optimization:</strong> One car families, biking, public transit save significantly.</li>
+                <li><strong>DIY Skills:</strong> Home and auto repairs learned over time reduce service costs.</li>
+                <li><strong>Negotiate Bills:</strong> Regular review and negotiation of recurring expenses.</li>
+                <li><strong>Community Engagement:</strong> Free activities, libraries, parks provide entertainment value.</li>
+                <li><strong>Continuous Learning:</strong> Invest in skills that increase earning potential over time.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the 4% rule in FIRE?</div>
+            <div class="faq-answer">The 4% rule from the Trinity Study shows 95% success over 30 years with 4% withdrawals adjusted for inflation. For 40-50 year retirements, use 3.25-3.5%. Many reduce spending 10-20% during downturns to improve success rates.</div>
+            <div class="faq-question">How much do I need for FIRE?</div>
+            <div class="faq-answer">Your FIRE number is 25x annual expenses for standard FIRE, or 33x for conservative. Spending $50,000 yearly needs $1.25M. Reducing expenses helps you save more now and need less later. Lower spenders reach FI faster.</div>
+            <div class="faq-question">What about healthcare in FIRE?</div>
+            <div class="faq-answer">Use ACA marketplace subsidies by keeping income below 400% FPL, healthcare sharing ministries, part-time work with benefits, or spousal coverage. Many engineer income to maximize ACA subsidies. Budget $10,000-15,000 annually for a couple before Medicare.</div>
+            <div class="faq-question">Can I change my mind after FIRE?</div>
+            <div class="faq-answer">Absolutely. Many return to work in consulting, businesses, or passion projects. Work becomes optional, not mandatory. Financial independence provides optionality—the choice to work based on desire, not necessity.</div>
+            <div class="faq-question">Is FIRE possible with average income?</div>
+            <div class="faq-answer">Yes, FIRE depends on savings rate, not income. Someone earning $50,000 saving 50% reaches FIRE as fast as someone earning $150,000 saving 50%. Geographic arbitrage and house hacking help average earners succeed.</div>
+            <div class="faq-question">What is Coast FIRE?</div>
+            <div class="faq-answer">Coast FIRE is when your current savings will grow to your retirement goal without additional contributions. At 30 with $200,000 needing $1.5M at 65, 7% returns get you there. You can then take easier work or enjoy more spending.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/main.js"></script>
+<script src="../js/nav-manager.js"></script>
+<script>
+function calculateFIRE(){const currentAge=parseInt(document.getElementById('currentAge').value)||30;const annualIncome=parseFloat(document.getElementById('annualIncome').value)||80000;const currentNetWorth=parseFloat(document.getElementById('currentNetWorth').value)||0;const annualExpenses=parseFloat(document.getElementById('annualExpenses').value)||40000;const fireType=document.getElementById('fireType').value;const expectedReturn=parseFloat(document.getElementById('expectedReturn').value)||7;let multiplier=25;if(fireType==='lean')multiplier=28;else if(fireType==='fat')multiplier=35;const fireNumber=annualExpenses*multiplier;const annualSavings=annualIncome-annualExpenses;const realReturn=(expectedReturn-3)/100;let netWorth=currentNetWorth;let years=0;while(netWorth<fireNumber&&years<60){netWorth=(netWorth+annualSavings)*(1+realReturn);years++;}const fireAge=currentAge+years;const withdrawalRate=(100/multiplier).toFixed(1);document.getElementById('fireNumber').textContent='$'+fireNumber.toLocaleString();document.getElementById('yearsToFIRE').textContent=years>=60?'30+ years':years+' years';document.getElementById('fireAge').textContent=years>=60?'60+':fireAge;document.getElementById('safeWithdrawal').textContent='$'+annualExpenses.toLocaleString()+' ('+withdrawalRate+'%)';}
+function clearFIRE(){['currentAge','annualIncome','currentNetWorth','annualExpenses','expectedReturn'].forEach(id=>document.getElementById(id).value='');document.getElementById('fireNumber').textContent='$0';document.getElementById('yearsToFIRE').textContent='-';document.getElementById('fireAge').textContent='-';document.getElementById('safeWithdrawal').textContent='$0';}
+function copyFIREResults(){const number=document.getElementById('fireNumber').textContent;const age=document.getElementById('fireAge').textContent;const text=`FIRE Number: ${number}, FIRE Age: ${age}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Retirement Age",icon:"fa-calendar-check",url:"retirement-age-calculator.html"},{name:"RMD Calculator",icon:"fa-money-bill-wave",url:"rmd-calculator.html"},{name:"Pension Payout",icon:"fa-hand-holding-usd",url:"pension-payout-calculator.html"},{name:"Early Retirement",icon:"fa-sun",url:"early-retirement-calculator.html"},{name:"Social Security",icon:"fa-shield-alt",url:"social-security-break-even-calculator.html"},{name:"Retirement Income",icon:"fa-wallet",url:"retirement-income-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridRetirement").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>
