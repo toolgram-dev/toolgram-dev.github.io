@@ -76,66 +76,6 @@
                     `).join('');
                 }
             });
-        
-        // Search functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('mobile-search-input');
-            const navSearch = document.getElementById('nav-search');
-            const searchResults = document.getElementById('search-results');
-            
-            function performSearch(query) {
-                fetch('tools-data.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        const results = data.tools.filter(tool => 
-                            tool.title.toLowerCase().includes(query.toLowerCase()) || 
-                            tool.desc.toLowerCase().includes(query.toLowerCase())
-                        );
-                        
-                        searchResults.innerHTML = '';
-                        if (results.length === 0) {
-                            searchResults.innerHTML = '<div class="result-item">No tools found</div>';
-                        } else {
-                            results.forEach(tool => {
-                                const item = document.createElement('div');
-                                item.className = 'result-item';
-                                item.innerHTML = `
-                                    <div style="font-weight:600;">${tool.title}</div>
-                                    <div style="font-size:0.9em;color:rgba(255,255,255,0.6);margin-top:4px;">${tool.desc}</div>
-                                `;
-                                item.onclick = () => {
-                                    window.location.href = `tools/${tool.file}`;
-                                    searchInput.value = '';
-                                    if (navSearch) navSearch.value = '';
-                                    searchResults.style.display = 'none';
-                                };
-                                searchResults.appendChild(item);
-                            });
-                        }
-                        searchResults.style.display = 'block';
-                    });
-            }
-            
-            if (searchInput) {
-                searchInput.addEventListener('input', function() {
-                    if (this.value.trim()) {
-                        performSearch(this.value);
-                    } else {
-                        searchResults.style.display = 'none';
-                    }
-                });
-            }
-            
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.search') && !e.target.closest('.mobile-search')) {
-                    searchResults.style.display = 'none';
-                }
-            });
-        });
     </script>
 </body>
-
 </html>
-
-
-
