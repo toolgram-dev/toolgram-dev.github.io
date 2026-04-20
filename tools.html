@@ -1,13 +1,10 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>All Developer Tools | ToolGram</title><meta name="description" content="Browse all ToolGram developer tools: JSON formatter, Base64 encoder, UUID generator, SHA256 hasher, URL encoder, text converter, and more. Free online tools."><meta name="keywords" content="developer tools, online tools, JSON formatter, Base64 encoder, UUID generator, SHA256 hasher, free tools"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram.tech/tools.html"><meta property="og:title" content="All Developer Tools | ToolGram"><meta property="og:description" content="Browse complete collection of free developer tools"><meta property="og:url" content="https://toolgram.tech/tools.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/tool.css"><link rel="icon" href="/favicon.ico" sizes="64x64"><style>
 .groups-container{width:calc(100% - 2rem);margin:0 1rem 20px 1rem;background:rgba(255,255,255,0.03);border-radius:16px;overflow-x:auto;overflow-y:visible}
 .groups-container::-webkit-scrollbar{height:10px}
-.groups-container::-webkit-scrollbar-track{background:rgba(255,255,255,0.05);border-radius:10px;margin:0 20px}
+.groups-container::-webkit-scrollbar-track{background: transparent;border-radius:10px;margin:0 20px}
 .groups-container::-webkit-scrollbar-thumb{background:radial-gradient(circle,#8B5CF6,#EC4899);border-radius:10px}
 .main-groups-row{display:flex;flex-wrap:nowrap;gap:12px;padding:14px 20px;min-width:min-content;border-bottom:1px solid rgba(255,255,255,0.1)}
-.subgroups-row{display:flex;flex-wrap:nowrap;gap:10px;padding:12px 20px;background:rgba(0,0,0,0.2);overflow-x:auto;overflow-y:hidden}
-.subgroups-row::-webkit-scrollbar{height:8px}
-.subgroups-row::-webkit-scrollbar-track{background:rgba(255,255,255,0.05);border-radius:10px}
-.subgroups-row::-webkit-scrollbar-thumb{background:radial-gradient(circle,#8B5CF6,#EC4899);border-radius:10px}
+.subgroups-row{display:flex;flex-wrap:nowrap;gap:10px;padding:12px 20px;background:rgba(255,255,255,0.03);overflow-x:visible;overflow-y:visible}
 .group-btn{padding:10px 24px;border-radius:40px;font-weight:700;font-size:1rem;border:none;cursor:pointer;white-space:nowrap;flex-shrink:0;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.1);transition:all 0.2s ease}
 .group-btn:hover{background:rgba(255,255,255,0.15);color:#fff}
 .subgroup-btn{padding:8px 18px;border-radius:40px;font-weight:600;font-size:.85rem;border:none;cursor:pointer;white-space:nowrap;flex-shrink:0;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.15);transition:all 0.2s ease}
@@ -62,8 +59,14 @@ function buildSubgroupsFromTools(){
 let subs={};
 allTools.forEach(tool=>{
 if(!subs[tool.group])subs[tool.group]=new Set();
-if(tool.subgroup)subs[tool.group].add(tool.subgroup);
+let subgroupName=tool.subgroup;
+if(subgroupName==="Misc")subgroupName="MISCELLANEOUS";
+if(subgroupName)subs[tool.group].add(subgroupName);
 });
+if(subs["others"]){
+if(!subs["others"].has("Pet Care"))subs["others"].add("Pet Care");
+if(!subs["others"].has("Parenting"))subs["others"].add("Parenting");
+}
 for(let group in subs){
 subs[group]=Array.from(subs[group]).sort();
 }
@@ -125,7 +128,9 @@ if(currentGroup!=="all"){
 filtered=allTools.filter(t=>t.group===currentGroup);
 hasRealTools=filtered.length>0;
 if(currentSubgroup){
-filtered=filtered.filter(t=>t.subgroup===currentSubgroup);
+let filterSubgroup=currentSubgroup;
+if(filterSubgroup==="MISCELLANEOUS")filterSubgroup="Misc";
+filtered=filtered.filter(t=>t.subgroup===filterSubgroup);
 hasRealTools=filtered.length>0;
 }
 }else{
