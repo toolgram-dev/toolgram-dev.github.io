@@ -40,19 +40,6 @@
 .coming-soon-card{padding:20px;min-height:240px}
 .back-btn{margin-left:12px}
 }
-.group-btn:active, .subgroup-btn:active,
-.group-btn:focus, .subgroup-btn:focus {
-    box-shadow: none !important;
-    outline: none !important;
-    transform: scale(0.98);
-}
-
-/* ===== FIX MOBILE HEADING HIDING ===== */
-@media(max-width: 768px) {
-    .tools-page {
-        padding-top: 100px !important;
-    }
-}
 </style></head><body><div class="nav-container"></div><div class="tools-page"><button class="back-btn" onclick="window.location.href='index.html'"><i class="fas fa-arrow-left"></i> Back</button><h1 style="text-align:center;font-size:clamp(3rem, 8vw, 4.9rem);margin-bottom:20px;background:linear-gradient(135deg,var(--lb),var(--p),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Calculate what matters most :)</h1><p style="text-align:center;color:rgba(255,255,255,0.8);margin-bottom:40px;font-size:1.8rem;">A universe of infinite tools behind your click.</p><div class="groups-container"><div class="main-groups-row" id="mainGroupsRow"></div><div id="subgroupsRow" class="subgroups-row" style="display:none"></div></div><div class="tools-grid" id="tools-grid"></div><div class="ad-space-tool"></div><footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="about.html">About Us</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div><script src="js/nav-manager.js"></script><script src="js/main.js"></script><script>
 const mainGroups=[
 {id:"all",name:"All Tools",hasSubgroups:false},
