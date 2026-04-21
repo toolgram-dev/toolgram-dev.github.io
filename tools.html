@@ -2,9 +2,7 @@
 .groups-container{width:calc(100% - 2rem);margin:0 1rem 20px 1rem;background:rgba(255,255,255,0.03);border-radius:16px;overflow-x:auto;overflow-y:visible}
 .groups-container::-webkit-scrollbar{height:10px}
 .groups-container::-webkit-scrollbar-track{background: transparent;border-radius:10px;margin:0 20px}
-.groups-container::-webkit-scrollbar-thumb{background:radial-gradient(circle,#8B5CF6,#06B6D4);border-radius:10px;transition:all 0.2s ease}
-.groups-container::-webkit-scrollbar-thumb:hover{background:radial-gradient(circle,#EC4899,#8B5CF6)}
-.groups-container::-webkit-scrollbar-thumb:active{background:radial-gradient(circle,#06B6D4,#EC4899)}`
+.groups-container::-webkit-scrollbar-thumb{background:radial-gradient(circle,#8B5CF6,#06B6D4);border-radius:10px}
 .main-groups-row{display:flex;flex-wrap:nowrap;gap:12px;padding:14px 20px;min-width:min-content;border-bottom:1px solid rgba(255,255,255,0.1)}
 .subgroups-row{display:flex;flex-wrap:wrap;gap:10px;padding:12px 20px;background:transparent;overflow-y:visible}
 .group-btn{padding:10px 24px;border-radius:40px;font-weight:700;font-size:1rem;border:none;cursor:pointer;white-space:nowrap;flex-shrink:0;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.1);transition:all 0.2s ease}
@@ -49,7 +47,7 @@
     transform: scale(0.98);
 }
 
-MOBILE HEADING
+/* ===== FIX MOBILE HEADING HIDING ===== */
 @media(max-width: 768px) {
     .tools-page {
         padding-top: 100px !important;
