@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Discount Calculator – Calculate Sale Price & Savings | ToolGram</title>
+    <meta name="description" content="Calculate discount percentage and sale price. Free discount calculator for shopping and business pricing.">
+    <meta name="keywords" content="discount calculator, sale price calculator, percent off calculator, savings calculator, discount percentage">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/discount-calculator.html">
+    <meta property="og:title" content="Discount Calculator | ToolGram">
+    <meta property="og:description" content="Calculate discount percentage and sale price instantly.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/discount-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Discount Calculator","description": "Calculate discount percentage and sale price instantly.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/discount-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Discount Calculation", "Sale Price", "Savings Amount", "Percentage Off"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-tags"></i></div>
+            <div><h1 style="margin:0;">Discount Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate sale price and savings</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Original Price & Discount</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Original Price ($)</label><input type="number" id="originalPrice" placeholder="100" value="100"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Discount (%)</label><input type="number" id="discountPercent" placeholder="20" value="20"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateDiscount()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearDiscount()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Discount Results</div>
+                <div class="output-display" id="outputDiscount">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-tag"></i> Sale Price</div><div style="margin-bottom:10px;"><span class="loan-result" id="salePrice">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">You Save:</strong> <span id="savings">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Discount Amount:</strong> <span id="discountAmount">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Final Price:</strong> <span id="finalPrice">$0</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Original Price:</strong> <span id="originalDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Discount:</strong> <span id="discountDisplay">0%</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyDiscountResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💼 Related Business Tools</h2>
+            <div class="related-grid" id="relatedGridBusiness"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is a Discount?</h3>
+            <p>A discount is a reduction from the original price of a product or service. Discounts are commonly used in retail and business to attract customers, clear inventory, reward loyalty, or respond to market conditions. Understanding discount calculations helps consumers make informed purchasing decisions and businesses set profitable promotional pricing.</p>
+            <p>Discounts can be expressed as a percentage of the original price or as a fixed amount. The most common form is percentage discount, where the discount amount is calculated as a percentage of the original price. The sale price is then the original price minus the discount amount.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the original price of the item.<br><strong>Step 2:</strong> Input the discount percentage.<br><strong>Step 3:</strong> Click "Calculate" to see sale price and savings.<br><strong>Step 4:</strong> Use results for shopping decisions or pricing strategy.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Discount Examples</h3>
+            <p><strong>Example 1 - Retail Sale:</strong> Original price $200, discount 25%. Discount amount = $200 × 0.25 = $50. Sale price = $200 - $50 = $150. You save $50 on this purchase, making it a good deal if the item meets your needs.</p>
+            <p><strong>Example 2 - Seasonal Clearance:</strong> Original price $80, discount 60%. Discount amount = $80 × 0.60 = $48. Sale price = $80 - $48 = $32. Significant savings of $48 on clearance items, perfect for budget-conscious shoppers.</p>
+            <p><strong>Example 3 - Small Discount:</strong> Original price $50, discount 10%. Discount amount = $50 × 0.10 = $5. Sale price = $50 - $5 = $45. Modest savings of $5, but every discount adds up over multiple purchases.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Discount Shopping Tips</h3>
+            <ul>
+                <li><strong>Compare Prices:</strong> Check multiple retailers before purchasing. A discount from one store may still be higher than a competitor's regular price.</li>
+                <li><strong>Calculate True Savings:</strong> Use this calculator to verify actual savings. Some retailers inflate original prices to make discounts appear larger.</li>
+                <li><strong>Stack Discounts:</strong> Combine percentage discounts with fixed-amount coupons or cashback offers for maximum savings when allowed.</li>
+                <li><strong>Timing Matters:</strong> Shop during major sales events like Black Friday, end-of-season clearances, or holiday sales for the deepest discounts.</li>
+                <li><strong>Read Fine Print:</strong> Check for exclusions, minimum purchase requirements, or expiration dates that may affect discount value.</li>
+                <li><strong>Quality Over Price:</strong> Don't buy just because of deep discounts. Consider quality, need, and long-term value before purchasing.</li>
+                <li><strong>Return Policy:</strong> Check return policies on discounted items. Some sales are final, especially on clearance merchandise.</li>
+                <li><strong>Budget Wisely:</strong> Use discounts to stretch your budget, but avoid unnecessary purchases just because items are on sale.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How do I calculate discount percentage?</div>
+            <div class="faq-answer">Discount percentage = (Discount Amount / Original Price) × 100. For example, if an item originally cost $100 and is now $75, the discount is $25. Discount percentage = ($25 / $100) × 100 = 25%.</div>
+            <div class="faq-question">What is the difference between discount and sale price?</div>
+            <div class="faq-answer">Discount is the amount or percentage reduced from the original price. Sale price is the final price after the discount is applied. Sale Price = Original Price - Discount Amount.</div>
+            <div class="faq-question">Are bigger discounts always better deals?</div>
+            <div class="faq-answer">Not necessarily. Compare final prices across retailers. A 50% discount on an inflated price may still be more expensive than a 20% discount from a competitor with lower regular pricing.</div>
+            <div class="faq-question">How do businesses calculate discount pricing?</div>
+            <div class="faq-answer">Businesses calculate discounts based on desired profit margins, inventory needs, competitive pricing, and marketing goals. They ensure discounted prices still cover costs and maintain profitability at target sales volumes.</div>
+            <div class="faq-question">Can I combine multiple discounts?</div>
+            <div class="faq-answer">Many retailers allow stacking discounts: percentage off plus fixed amount off, or discount plus free shipping. However, some restrictions apply. Always read terms and check which discounts can be combined.</div>
+            <div class="faq-question">What is a good discount percentage?</div>
+            <div class="faq-answer">Good discounts vary by context. 10-20% is common for regular promotions, 30-50% for seasonal sales, and 50-70% or more for clearance. Evaluate whether the final price represents good value regardless of discount percentage.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateDiscount(){const originalPrice=parseFloat(document.getElementById('originalPrice').value)||0;const discountPercent=parseFloat(document.getElementById('discountPercent').value)||0;if(originalPrice<=0){alert('Original price must be greater than 0');return;}const discountAmount=originalPrice*(discountPercent/100);const salePrice=originalPrice-discountAmount;document.getElementById('salePrice').textContent='$'+salePrice.toFixed(2);document.getElementById('savings').textContent='$'+discountAmount.toFixed(2);document.getElementById('discountAmount').textContent='$'+discountAmount.toFixed(2);document.getElementById('finalPrice').textContent='$'+salePrice.toFixed(2);document.getElementById('originalDisplay').textContent='$'+originalPrice.toFixed(2);document.getElementById('discountDisplay').textContent=discountPercent+'%';}
+function clearDiscount(){document.getElementById('originalPrice').value='';document.getElementById('discountPercent').value='';document.getElementById('salePrice').textContent='$0';document.getElementById('savings').textContent='$0';document.getElementById('discountAmount').textContent='$0';document.getElementById('finalPrice').textContent='$0';document.getElementById('originalDisplay').textContent='$0';document.getElementById('discountDisplay').textContent='0%';}
+function copyDiscountResults(){const sale=document.getElementById('salePrice').textContent;const savings=document.getElementById('savings').textContent;const text=`Sale Price: ${sale}, You Save: ${savings}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Markup Calculator",icon:"fa-percent",url:"markup-calculator.html"},{name:"Profit Margin",icon:"fa-chart-pie",url:"profit-margin-calculator.html"},{name:"Breakeven Analysis",icon:"fa-chart-line",url:"breakeven-analysis-calculator.html"},{name:"Cash Flow",icon:"fa-money-bill-wave",url:"cash-flow-calculator.html"},{name:"Working Capital",icon:"fa-coins",url:"working-capital-calculator.html"},{name:"Startup Costs",icon:"fa-rocket",url:"startup-cost-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridBusiness").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

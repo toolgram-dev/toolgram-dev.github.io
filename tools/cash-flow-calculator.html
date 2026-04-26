@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Cash Flow Calculator – Calculate Business Cash Flow | ToolGram</title>
+    <meta name="description" content="Calculate business cash flow from operations. Free cash flow calculator for cash management and financial planning.">
+    <meta name="keywords" content="cash flow calculator, business cash flow, operating cash flow, cash management, financial planning">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/cash-flow-calculator.html">
+    <meta property="og:title" content="Cash Flow Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your business cash flow from operations.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/cash-flow-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Cash Flow Calculator","description": "Calculate your business cash flow from operations.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/cash-flow-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Cash Flow Calculation", "Operating Cash Flow", "Cash Management", "Financial Planning"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <div><h1 style="margin:0;">Cash Flow Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate business cash flow from operations</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Cash Flow Components</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Net Income ($)</label><input type="number" id="netIncome" placeholder="100000" value="100000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Depreciation ($)</label><input type="number" id="depreciation" placeholder="15000" value="15000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Accounts Receivable Change ($)</label><input type="number" id="arChange" placeholder="5000" value="5000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Accounts Payable Change ($)</label><input type="number" id="apChange" placeholder="-3000" value="-3000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Inventory Change ($)</label><input type="number" id="inventoryChange" placeholder="8000" value="8000"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateCashFlow()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearCashFlow()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Cash Flow Results</div>
+                <div class="output-display" id="outputCashFlow">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-money-bill-wave"></i> Operating Cash Flow</div><div style="margin-bottom:10px;"><span class="loan-result" id="operatingCashFlow">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Net Income:</strong> <span id="netIncomeDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Depreciation:</strong> <span id="depreciationDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Working Capital Change:</strong> <span id="workingCapitalChange">$0</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">AR Change:</strong> <span id="arDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">AP Change:</strong> <span id="apDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Inventory Change:</strong> <span id="inventoryDisplay">$0</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyCashFlowResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💼 Related Business Tools</h2>
+            <div class="related-grid" id="relatedGridBusiness"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Cash Flow?</h3>
+            <p>Cash flow represents the movement of money in and out of a business. Operating cash flow specifically measures cash generated from core business operations, excluding financing and investing activities. Positive operating cash flow indicates the business generates enough cash from operations to cover expenses and invest in growth.</p>
+            <p>Cash flow differs from net income because it includes non-cash items like depreciation and changes in working capital accounts. A business can be profitable on paper but have negative cash flow if customers pay slowly or inventory builds up. Monitoring cash flow is crucial for business survival and growth planning.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter net income from your income statement.<br><strong>Step 2:</strong> Input depreciation (non-cash expense to add back).<br><strong>Step 3:</strong> Enter change in accounts receivable (negative if AR increased).<br><strong>Step 4:</strong> Enter change in accounts payable (positive if AP increased).<br><strong>Step 5:</strong> Enter change in inventory (negative if inventory increased).<br><strong>Step 6:</strong> Click "Calculate" to see operating cash flow.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Cash Flow Examples</h3>
+            <p><strong>Example 1 - Growing Business:</strong> Net income $100,000, depreciation $15,000, AR change -$5,000 (increased), AP change $3,000 (increased), inventory change -$8,000 (increased). Operating cash flow = $100,000 + $15,000 - $5,000 + $3,000 - $8,000 = $105,000. Growth investments reduce cash flow despite profit.</p>
+            <p><strong>Example 2 - Stable Business:</strong> Net income $80,000, depreciation $10,000, AR change $2,000 (decreased), AP change -$1,000 (decreased), inventory change $1,000 (decreased). Operating cash flow = $80,000 + $10,000 + $2,000 - $1,000 + $1,000 = $92,000. Efficient working capital management boosts cash flow.</p>
+            <p><strong>Example 3 - Declining Business:</strong> Net income $50,000, depreciation $8,000, AR change $10,000 (decreased), AP change $5,000 (increased), inventory change $15,000 (decreased). Operating cash flow = $50,000 + $8,000 + $10,000 + $5,000 + $15,000 = $88,000. Selling inventory improves cash flow even with lower profit.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Cash Flow Improvement Tips</h3>
+            <ul>
+                <li><strong>Accelerate Receivables:</strong> Offer early payment discounts, invoice promptly, and follow up on overdue accounts. Faster collections improve cash flow immediately.</li>
+                <li><strong>Extend Payables:</strong> Negotiate longer payment terms with suppliers while maintaining good relationships. Use cash for longer before paying out.</li>
+                <li><strong>Optimize Inventory:</strong> Reduce inventory levels through just-in-time ordering. Less inventory tied up means more cash available.</li>
+                <li><strong>Forecast Cash Flow:</strong> Project cash needs 3-6 months ahead. Anticipate shortfalls and arrange financing before problems arise.</li>
+                <li><strong>Reduce Expenses:</strong> Cut unnecessary costs and negotiate better terms with vendors. Every dollar saved improves cash flow.</li>
+                <li><strong>Increase Pricing:</strong> Small price increases can significantly improve cash flow without losing customers if demand allows.</li>
+                <li><strong>Secure Credit Lines:</strong> Arrange credit facilities before needed. Having access to credit provides cash flow flexibility during seasonal dips.</li>
+                <li><strong>Monitor Weekly:</strong> Track cash flow weekly, not just monthly. Early detection of problems allows quicker corrective action.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the difference between cash flow and profit?</div>
+            <div class="faq-answer">Profit is net income on the income statement, accounting for revenue and expenses when earned/incurred. Cash flow tracks actual money movement. A business can be profitable but have negative cash flow if customers pay slowly or inventory accumulates.</div>
+            <div class="faq-question">Why is depreciation added back in cash flow?</div>
+            <div class="faq-answer">Depreciation is a non-cash expense. It reduces net income but doesn't involve actual cash outflow. Adding it back converts accrual accounting profit to actual cash generated from operations.</div>
+            <div class="faq-question">What is working capital change?</div>
+            <div class="faq-answer">Working capital change reflects changes in current assets and liabilities: accounts receivable, inventory, and accounts payable. Increases in working capital use cash, while decreases free up cash for operations.</div>
+            <div class="faq-question">How do I improve my operating cash flow?</div>
+            <div class="faq-answer">Accelerate customer collections, extend supplier payment terms, reduce inventory levels, cut unnecessary expenses, and improve pricing. Focus on converting sales to cash faster and delaying cash outflows where possible.</div>
+            <div class="faq-question">What is a healthy operating cash flow margin?</div>
+            <div class="faq-answer">Operating cash flow margin (OCF / Revenue) varies by industry: manufacturing 10-15%, retail 5-10%, services 15-25%, and software 25-35%. Compare to industry benchmarks and track trends over time.</div>
+            <div class="faq-question">Can a profitable business run out of cash?</div>
+            <div class="faq-answer">Yes, this is called cash flow insolvency. If customers pay slowly while expenses must be paid immediately, a profitable business can exhaust cash reserves. This is why cash flow management is as important as profitability.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateCashFlow(){const netIncome=parseFloat(document.getElementById('netIncome').value)||0;const depreciation=parseFloat(document.getElementById('depreciation').value)||0;const arChange=parseFloat(document.getElementById('arChange').value)||0;const apChange=parseFloat(document.getElementById('apChange').value)||0;const inventoryChange=parseFloat(document.getElementById('inventoryChange').value)||0;const workingCapitalChange=arChange+apChange+inventoryChange;const operatingCashFlow=netIncome+depreciation+workingCapitalChange;document.getElementById('operatingCashFlow').textContent='$'+operatingCashFlow.toLocaleString();document.getElementById('netIncomeDisplay').textContent='$'+netIncome.toLocaleString();document.getElementById('depreciationDisplay').textContent='$'+depreciation.toLocaleString();document.getElementById('workingCapitalChange').textContent='$'+workingCapitalChange.toLocaleString();document.getElementById('arDisplay').textContent='$'+arChange.toLocaleString();document.getElementById('apDisplay').textContent='$'+apChange.toLocaleString();document.getElementById('inventoryDisplay').textContent='$'+inventoryChange.toLocaleString();}
+function clearCashFlow(){document.getElementById('netIncome').value='';document.getElementById('depreciation').value='';document.getElementById('arChange').value='';document.getElementById('apChange').value='';document.getElementById('inventoryChange').value='';document.getElementById('operatingCashFlow').textContent='$0';document.getElementById('netIncomeDisplay').textContent='$0';document.getElementById('depreciationDisplay').textContent='$0';document.getElementById('workingCapitalChange').textContent='$0';document.getElementById('arDisplay').textContent='$0';document.getElementById('apDisplay').textContent='$0';document.getElementById('inventoryDisplay').textContent='$0';}
+function copyCashFlowResults(){const ocf=document.getElementById('operatingCashFlow').textContent;const text=`Operating Cash Flow: ${ocf}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Working Capital",icon:"fa-coins",url:"working-capital-calculator.html"},{name:"Startup Costs",icon:"fa-rocket",url:"startup-cost-calculator.html"},{name:"Business Valuation",icon:"fa-building",url:"business-valuation-calculator.html"},{name:"Profit Margin",icon:"fa-chart-pie",url:"profit-margin-calculator.html"},{name:"Breakeven Analysis",icon:"fa-chart-line",url:"breakeven-analysis-calculator.html"},{name:"Markup Calculator",icon:"fa-percent",url:"markup-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridBusiness").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

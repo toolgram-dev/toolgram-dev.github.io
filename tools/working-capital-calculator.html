@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Working Capital Calculator – Calculate Working Capital | ToolGram</title>
+    <meta name="description" content="Calculate working capital ratio and net working capital. Free working capital calculator for financial analysis and liquidity management.">
+    <meta name="keywords" content="working capital calculator, net working capital, working capital ratio, liquidity calculator, financial analysis">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/working-capital-calculator.html">
+    <meta property="og:title" content="Working Capital Calculator | ToolGram">
+    <meta property="og:description" content="Calculate working capital ratio and liquidity metrics.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/working-capital-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Working Capital Calculator","description": "Calculate working capital ratio and liquidity metrics.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/working-capital-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Working Capital", "Liquidity Ratio", "Financial Analysis", "Current Ratio"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-coins"></i></div>
+            <div><h1 style="margin:0;">Working Capital Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate working capital ratio and liquidity</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Current Assets & Liabilities</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Assets ($)</label><input type="number" id="currentAssets" placeholder="200000" value="200000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Current Liabilities ($)</label><input type="number" id="currentLiabilities" placeholder="100000" value="100000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Inventory ($)</label><input type="number" id="inventory" placeholder="50000" value="50000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Cash ($)</label><input type="number" id="cash" placeholder="30000" value="30000"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateWorkingCapital()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearWorkingCapital()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Working Capital Results</div>
+                <div class="output-display" id="outputWorkingCapital">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-coins"></i> Net Working Capital</div><div style="margin-bottom:10px;"><span class="loan-result" id="netWorkingCapital">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Current Ratio:</strong> <span id="currentRatio">0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Quick Ratio:</strong> <span id="quickRatio">0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Working Capital Ratio:</strong> <span id="workingCapitalRatio">0%</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Current Assets:</strong> <span id="assetsDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Current Liabilities:</strong> <span id="liabilitiesDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Cash Position:</strong> <span id="cashDisplay">$0</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyWorkingCapitalResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💼 Related Business Tools</h2>
+            <div class="related-grid" id="relatedGridBusiness"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Working Capital?</h3>
+            <p>Working capital represents the difference between a company's current assets and current liabilities. It measures short-term liquidity and operational efficiency. Positive working capital indicates the company can cover short-term obligations and invest in growth. Negative working capital suggests potential liquidity problems and difficulty meeting near-term obligations.</p>
+            <p>Key working capital ratios include the current ratio (current assets divided by current liabilities) and quick ratio (current assets minus inventory, divided by current liabilities). These ratios help assess a company's ability to pay short-term debts and overall financial health.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter total current assets (cash, receivables, inventory, etc.).<br><strong>Step 2:</strong> Input total current liabilities (payables, short-term debt, etc.).<br><strong>Step 3:</strong> Enter inventory value separately for quick ratio calculation.<br><strong>Step 4:</strong> Enter cash on hand for liquidity assessment.<br><strong>Step 5:</strong> Click "Calculate" to see working capital metrics.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Working Capital Examples</h3>
+            <p><strong>Example 1 - Healthy Business:</strong> Current assets $200,000, current liabilities $100,000, inventory $50,000, cash $30,000. Net working capital = $100,000. Current ratio = 2.0. Quick ratio = 1.5. Strong liquidity position with ability to cover obligations twice over.</p>
+            <p><strong>Example 2 - Tight Position:</strong> Current assets $150,000, current liabilities $120,000, inventory $60,000, cash $20,000. Net working capital = $30,000. Current ratio = 1.25. Quick ratio = 0.75. Adequate but tight liquidity, with quick ratio below 1.0 indicating reliance on inventory.</p>
+            <p><strong>Example 3 - Distressed:</strong> Current assets $80,000, current liabilities $100,000, inventory $40,000, cash $10,000. Net working capital = -$20,000. Current ratio = 0.8. Quick ratio = 0.4. Negative working capital and ratios below 1.0 indicate serious liquidity problems.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Working Capital Management Tips</h3>
+            <ul>
+                <li><strong>Monitor Ratios:</strong> Track current and quick ratios monthly. Ratios below 1.0 indicate potential problems. Aim for current ratio above 1.5 and quick ratio above 1.0 for stability.</li>
+                <li><strong>Accelerate Collections:</strong> Improve accounts receivable collection to increase current assets. Faster collections directly improve working capital position.</li>
+                <li><strong>Extend Payables:</strong> Negotiate longer payment terms with suppliers to reduce current liabilities. This increases net working capital by delaying cash outflows.</li>
+                <li><strong>Optimize Inventory:</strong> Reduce excess inventory through better forecasting and just-in-time ordering. Less inventory ties up less cash in current assets.</li>
+                <li><strong>Build Cash Reserves:</strong> Maintain adequate cash reserves for emergencies. Cash is the most liquid current asset and provides immediate liquidity.</li>
+                <li><strong>Short-Term Financing:</strong> Use lines of credit or short-term loans to cover temporary working capital gaps. Arrange facilities before they're needed.</li>
+                <li><strong>Forecast Working Capital:</strong> Project working capital needs based on sales growth and seasonal patterns. Plan for increased needs during growth phases.</li>
+                <li><strong>Review Regularly:</strong> Analyze working capital components monthly. Identify trends and address deteriorating positions before they become critical.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is a good working capital ratio?</div>
+            <div class="faq-answer">A current ratio above 2.0 is generally considered good, indicating strong liquidity. Current ratio between 1.5-2.0 is adequate. Below 1.5 suggests potential liquidity problems. Quick ratio should ideally be above 1.0, meaning liquid assets cover current liabilities.</div>
+            <div class="faq-question">What is the difference between current and quick ratio?</div>
+            <div class="faq-answer">Current ratio includes all current assets (cash, receivables, inventory). Quick ratio excludes inventory, using only the most liquid assets (cash, receivables). Quick ratio is a more conservative measure of immediate liquidity.</div>
+            <div class="faq-question">Can negative working capital be good?</div>
+            <div class="faq-answer">Rarely. Some businesses like Amazon operate with negative working capital by collecting payments from customers before paying suppliers. This requires strong market power and efficient operations. For most businesses, negative working capital indicates financial stress.</div>
+            <div class="faq-question">How do I improve my working capital?</div>
+            <div class="faq-answer">Accelerate customer collections, extend supplier payment terms, reduce inventory levels, increase profitability, secure longer-term financing, and manage cash flow more efficiently. Focus on increasing current assets and decreasing current liabilities.</div>
+            <div class="faq-question">What causes working capital problems?</div>
+            <div class="faq-answer">Common causes include slow-paying customers, excessive inventory, rapid growth requiring more working capital, seasonal fluctuations, unexpected expenses, and poor cash flow management. Growth often strains working capital as it requires upfront investment.</div>
+            <div class="faq-question">How much working capital do I need?</div>
+            <div class="faq-answer">Calculate based on operating cycle: days to collect receivables plus days to hold inventory minus days to pay suppliers. Multiply daily operating costs by this cycle length. Add buffer for contingencies. Most businesses need 15-25% of annual revenue as working capital.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateWorkingCapital(){const currentAssets=parseFloat(document.getElementById('currentAssets').value)||0;const currentLiabilities=parseFloat(document.getElementById('currentLiabilities').value)||0;const inventory=parseFloat(document.getElementById('inventory').value)||0;const cash=parseFloat(document.getElementById('cash').value)||0;if(currentLiabilities<=0){alert('Current liabilities must be greater than 0');return;}const netWorkingCapital=currentAssets-currentLiabilities;const currentRatio=currentAssets/currentLiabilities;const quickRatio=(currentAssets-inventory)/currentLiabilities;const workingCapitalRatio=(netWorkingCapital/currentLiabilities*100).toFixed(1);document.getElementById('netWorkingCapital').textContent='$'+netWorkingCapital.toLocaleString();document.getElementById('currentRatio').textContent=currentRatio.toFixed(2);document.getElementById('quickRatio').textContent=quickRatio.toFixed(2);document.getElementById('workingCapitalRatio').textContent=workingCapitalRatio+'%';document.getElementById('assetsDisplay').textContent='$'+currentAssets.toLocaleString();document.getElementById('liabilitiesDisplay').textContent='$'+currentLiabilities.toLocaleString();document.getElementById('cashDisplay').textContent='$'+cash.toLocaleString();}
+function clearWorkingCapital(){document.getElementById('currentAssets').value='';document.getElementById('currentLiabilities').value='';document.getElementById('inventory').value='';document.getElementById('cash').value='';document.getElementById('netWorkingCapital').textContent='$0';document.getElementById('currentRatio').textContent='0';document.getElementById('quickRatio').textContent='0';document.getElementById('workingCapitalRatio').textContent='0%';document.getElementById('assetsDisplay').textContent='$0';document.getElementById('liabilitiesDisplay').textContent='$0';document.getElementById('cashDisplay').textContent='$0';}
+function copyWorkingCapitalResults(){const nwc=document.getElementById('netWorkingCapital').textContent;const cr=document.getElementById('currentRatio').textContent;const text=`Net Working Capital: ${nwc}, Current Ratio: ${cr}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Cash Flow",icon:"fa-money-bill-wave",url:"cash-flow-calculator.html"},{name:"Startup Costs",icon:"fa-rocket",url:"startup-cost-calculator.html"},{name:"Business Valuation",icon:"fa-building",url:"business-valuation-calculator.html"},{name:"Profit Margin",icon:"fa-chart-pie",url:"profit-margin-calculator.html"},{name:"Breakeven Analysis",icon:"fa-chart-line",url:"breakeven-analysis-calculator.html"},{name:"Markup Calculator",icon:"fa-percent",url:"markup-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridBusiness").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

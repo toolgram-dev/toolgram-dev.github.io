@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pace Calculator – Calculate Running Pace | ToolGram</title>
+    <meta name="description" content="Calculate running pace with our free pace calculator. Convert time and distance to pace per km or mile.">
+    <meta name="keywords" content="pace calculator, running pace, min per km, min per mile, speed calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/pace-calculator.html">
+    <meta property="og:title" content="Pace Calculator | ToolGram">
+    <meta property="og:description" content="Calculate running pace per kilometer or mile from time and distance.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/pace-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Pace Calculator","description": "Calculate running pace per kilometer or mile from time and distance.","applicationCategory": "HealthApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/pace-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Pace Calculation", "Running Pace", "Min per KM", "Speed"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}.time-inputs{display:flex;gap:5px}.time-inputs input{flex:1}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-tachometer-alt"></i></div>
+            <div><h1 style="margin:0;">Pace Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate running pace</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Run Data</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Distance (km)</label><input type="number" id="distance" placeholder="5" value="5" step="0.01"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Time</label><div class="time-inputs"><input type="number" id="hours" placeholder="0" value="0" min="0"><input type="number" id="minutes" placeholder="30" value="30" min="0"><input type="number" id="seconds" placeholder="0" value="0" min="0"></div></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Output Unit</label><select id="outputUnit"><option value="km">Min per KM</option><option value="mile">Min per Mile</option></select></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculatePace()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearPace()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Pace Results</div>
+                <div class="output-display" id="outputPace">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-tachometer-alt"></i> Pace</div><div style="margin-bottom:10px;"><span class="loan-result" id="paceResult">0:00</span> <span id="paceUnit">min/km</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Distance:</strong> <span id="distanceDisplay">0</span> km</div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Time:</strong> <span id="timeDisplay">0:00:00</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Speed:</strong> <span id="speedDisplay">0</span> km/h</div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Pace (other unit):</strong> <span id="paceAlt">0:00</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">5K at this pace:</strong> <span id="fiveKTime">0:00:00</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">10K at this pace:</strong> <span id="tenKTime">0:00:00</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyPaceResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💪 Related Health Tools</h2>
+            <div class="related-grid" id="relatedGridHealth"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Running Pace?</h3>
+            <p>Running pace is the time it takes to cover a specific distance, typically expressed as minutes per kilometer (min/km) or minutes per mile (min/mile). Pace is the inverse of speed - slower pace means slower speed, faster pace means faster speed. Pace is essential for runners to track performance, set goals, and plan training.</p>
+            <p>This calculator determines your pace from distance and time. It also shows speed in km/h, pace in both units (km and mile), and projected times for 5K and 10K distances at your calculated pace. Understanding your pace helps with race strategy, training progress tracking, and achieving running goals.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the distance you ran in kilometers.<br><strong>Step 2:</strong> Enter your time in hours, minutes, and seconds.<br><strong>Step 3:</strong> Select your preferred output unit (min/km or min/mile).<br><strong>Step 4:</strong> Click "Calculate" to see your pace and related metrics.<br><strong>Step 5:</strong> Review pace, speed, and projected times for other distances.<br><strong>Step 6:</strong> Use this to track training progress and plan race strategies.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Pace Calculation Examples</h3>
+            <p><strong>Example 1 - 5K in 30 min:</strong> Distance: 5 km, Time: 30:00. Pace: 6:00 min/km (9:39 min/mile), Speed: 10 km/h.</p>
+            <p><strong>Example 2 - 10K in 50 min:</strong> Distance: 10 km, Time: 50:00. Pace: 5:00 min/km (8:03 min/mile), Speed: 12 km/h.</p>
+            <p><strong>Example 3 - 5 miles in 40 min:</strong> Distance: 8.05 km, Time: 40:00. Pace: 4:58 min/km (8:00 min/mile), Speed: 12.1 km/h.</p>
+            <p><strong>Example 4 - Half Marathon in 2 hours:</strong> Distance: 21.1 km, Time: 2:00:00. Pace: 5:41 min/km (9:09 min/mile), Speed: 10.5 km/h.</p>
+            <p><strong>Example 5 - Marathon in 4 hours:</strong> Distance: 42.2 km, Time: 4:00:00. Pace: 5:41 min/km (9:09 min/mile), Speed: 10.5 km/h.</p>
+            <p><strong>Example 6 - 1 km in 4 min:</strong> Distance: 1 km, Time: 4:00. Pace: 4:00 min/km (6:26 min/mile), Speed: 15 km/h.</p>
+            <p><strong>Example 7 - 3 km in 15 min:</strong> Distance: 3 km, Time: 15:00. Pace: 5:00 min/km (8:03 min/mile), Speed: 12 km/h.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is a good running pace?</div>
+            <div class="faq-answer">A good running pace varies by fitness level and experience. Beginners often run 7-8 min/km, intermediate runners 5-6 min/km, and advanced runners 4-5 min/km. Elite runners can sustain 3-4 min/km. Focus on your own improvement rather than comparisons.</div>
+            <div class="faq-question">How do I improve my pace?</div>
+            <div class="faq-answer">Improve pace through consistent training, interval workouts, tempo runs, hill training, strength training, adequate rest, and proper nutrition. Gradually increase mileage and intensity to avoid injury.</div>
+            <div class="faq-question">What's the difference between pace and speed?</div>
+            <div class="faq-answer">Pace is time per distance (min/km or min/mile), while speed is distance per time (km/h or mph). They're inversely related - faster speed equals faster pace (lower minutes per distance). Pace is more commonly used by runners.</div>
+            <div class="faq-question">How do I calculate pace for a race?</div>
+            <div class="faq-answer">For a target race time, divide total time by distance to get pace per unit. For example, to finish a marathon in 4 hours: 240 minutes / 42.2 km = 5:41 min/km pace. Practice this pace in training.</div>
+            <div class="faq-question">Should I run at the same pace every day?</div>
+            <div class="faq-answer">No, vary your training with easy runs, tempo runs, interval sessions, and long runs at different paces. This builds different energy systems and prevents overuse. Most runs should be at easy pace.</div>
+            <div class="faq-question">How does pace affect calorie burn?</div>
+            <div class="faq-answer">Faster pace burns more calories per minute, but slower pace can be sustained longer. Total calorie burn depends on distance covered, not pace alone. Running 5 km at any pace burns similar total calories, though faster paces may burn slightly more due to afterburn.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculatePace(){const distance=parseFloat(document.getElementById('distance').value)||0;const hours=parseInt(document.getElementById('hours').value)||0;const minutes=parseInt(document.getElementById('minutes').value)||0;const seconds=parseInt(document.getElementById('seconds').value)||0;const outputUnit=document.getElementById('outputUnit').value;if(distance<=0){alert('Distance must be greater than 0');return;}const totalTimeSeconds=(hours*3600)+(minutes*60)+seconds;if(totalTimeSeconds<=0){alert('Time must be greater than 0');return;}const paceSecondsPerKm=totalTimeSeconds/distance;const paceSecondsPerMile=paceSecondsPerKm*1.60934;const speedKmh=distance/(totalTimeSeconds/3600);let paceSeconds=outputUnit==='km'?paceSecondsPerKm:paceSecondsPerMile;const paceMin=Math.floor(paceSeconds/60);const paceSec=Math.round(paceSeconds%60);const paceFormatted=`${paceMin}:${paceSec.toString().padStart(2,'0')}`;const paceAltSeconds=outputUnit==='km'?paceSecondsPerMile:paceSecondsPerKm;const paceAltMin=Math.floor(paceAltSeconds/60);const paceAltSec=Math.round(paceAltSeconds%60);const paceAltFormatted=`${paceAltMin}:${paceAltSec.toString().padStart(2,'0')}`;const fiveKSeconds=paceSecondsPerKm*5;const tenKSeconds=paceSecondsPerKm*10;const timeFormatted=formatTime(totalTimeSeconds);document.getElementById('paceResult').textContent=paceFormatted;document.getElementById('paceUnit').textContent=outputUnit==='km'?'min/km':'min/mile';document.getElementById('distanceDisplay').textContent=distance;document.getElementById('timeDisplay').textContent=timeFormatted;document.getElementById('speedDisplay').textContent=speedKmh.toFixed(1);document.getElementById('paceAlt').textContent=paceAltFormatted;document.getElementById('fiveKTime').textContent=formatTime(fiveKSeconds);document.getElementById('tenKTime').textContent=formatTime(tenKSeconds);}
+function formatTime(totalSeconds){const h=Math.floor(totalSeconds/3600);const m=Math.floor((totalSeconds%3600)/60);const s=Math.round(totalSeconds%60);if(h>0){return`${h}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;}else{return`${m}:${s.toString().padStart(2,'0')}`;}}
+function clearPace(){document.getElementById('distance').value='5';document.getElementById('hours').value='0';document.getElementById('minutes').value='30';document.getElementById('seconds').value='0';document.getElementById('paceResult').textContent='0:00';document.getElementById('paceUnit').textContent='min/km';document.getElementById('distanceDisplay').textContent='0';document.getElementById('timeDisplay').textContent='0:00:00';document.getElementById('speedDisplay').textContent='0';document.getElementById('paceAlt').textContent='0:00';document.getElementById('fiveKTime').textContent='0:00:00';document.getElementById('tenKTime').textContent='0:00:00';}
+function copyPaceResults(){const pace=document.getElementById('paceResult').textContent;const unit=document.getElementById('paceUnit').textContent;const text=`Pace: ${pace} ${unit}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Running Pace Calculator",icon:"fa-running",url:"running-pace-calculator.html"},{name:"Marathon Pace Calculator",icon:"fa-flag-checkered",url:"marathon-pace-calculator.html"},{name:"5K Pace Calculator",icon:"fa-running",url:"5k-pace-calculator.html"},{name:"10K Pace Calculator",icon:"fa-running",url:"10k-pace-calculator.html"},{name:"BMI Calculator",icon:"fa-weight",url:"bmi-calculator.html"},{name:"BMR Calculator",icon:"fa-fire",url:"bmr-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridHealth").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

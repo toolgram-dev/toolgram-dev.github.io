@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sales Commission Calculator – Calculate Commission | ToolGram</title>
+    <meta name="description" content="Calculate sales commission based on revenue and commission rate. Free commission calculator for sales professionals and business owners.">
+    <meta name="keywords" content="sales commission calculator, commission calculator, sales pay calculator, commission rate, sales compensation">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/sales-commission-calculator.html">
+    <meta property="og:title" content="Sales Commission Calculator | ToolGram">
+    <meta property="og:description" content="Calculate sales commission based on revenue and rate.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/sales-commission-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Sales Commission Calculator","description": "Calculate sales commission based on revenue and rate.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/sales-commission-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Commission Calculation", "Sales Compensation", "Revenue Tracking", "Commission Rate"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+            <div><h1 style="margin:0;">Sales Commission Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate commission from sales revenue</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Sales & Commission Rate</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Total Sales ($)</label><input type="number" id="totalSales" placeholder="50000" value="50000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Commission Rate (%)</label><input type="number" id="commissionRate" placeholder="10" value="10"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Base Salary ($)</label><input type="number" id="baseSalary" placeholder="3000" value="3000"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateCommission()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearCommission()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Commission Results</div>
+                <div class="output-display" id="outputCommission">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dollar-sign"></i> Commission Earned</div><div style="margin-bottom:10px;"><span class="loan-result" id="commissionEarned">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Compensation:</strong> <span id="totalCompensation">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Base Salary:</strong> <span id="baseDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Commission Rate:</strong> <span id="rateDisplay">0%</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Sales:</strong> <span id="salesDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Effective Rate:</strong> <span id="effectiveRate">0%</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyCommissionResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💼 Related Business Tools</h2>
+            <div class="related-grid" id="relatedGridBusiness"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Sales Commission?</h3>
+            <p>Sales commission is a form of variable compensation paid to sales professionals based on their performance, typically calculated as a percentage of sales revenue. Commission structures incentivize salespeople to maximize their sales performance and align their earnings with company revenue. Understanding commission calculations helps both sales professionals and business owners plan compensation strategies.</p>
+            <p>Commission rates vary widely by industry, product type, and sales role. Common structures include flat percentage rates, tiered rates that increase with sales volume, and base-plus-commission models. Some roles use draw against commission, where advances are paid against future commissions.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter total sales revenue generated.<br><strong>Step 2:</strong> Input commission rate percentage.<br><strong>Step 3:</strong> Enter base salary if applicable.<br><strong>Step 4:</strong> Click "Calculate" to see commission and total compensation.<br><strong>Step 5:</strong> Use results for income planning and compensation analysis.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Commission Examples</h3>
+            <p><strong>Example 1 - Retail Sales:</strong> Total sales $50,000, commission rate 10%, base salary $3,000. Commission = $50,000 × 0.10 = $5,000. Total compensation = $3,000 + $5,000 = $8,000. Effective rate = 16% of total sales including base salary consideration.</p>
+            <p><strong>Example 2 - Software Sales:</strong> Total sales $200,000, commission rate 15%, base salary $5,000. Commission = $200,000 × 0.15 = $30,000. Total compensation = $5,000 + $30,000 = $35,000. High-ticket sales often command higher commission rates due to longer sales cycles.</p>
+            <p><strong>Example 3 - Real Estate:</strong> Total sales $500,000 property value, commission rate 3%, no base salary. Commission = $500,000 × 0.03 = $15,000. Total compensation = $15,000. Real estate agents typically work on commission-only with higher rates to compensate for risk.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Commission Structure Tips</h3>
+            <ul>
+                <li><strong>Know Your Structure:</strong> Understand whether you have flat rate, tiered, or base-plus-commission. Each affects earnings differently at various sales levels.</li>
+                <li><strong>Track Sales Daily:</strong> Monitor your sales progress against commission thresholds. Knowing where you stand helps maximize earnings through strategic timing.</li>
+                <li><strong>Understand Tiers:</strong> If you have tiered commissions, know the thresholds. Pushing sales to the next tier can significantly increase your effective rate.</li>
+                <li><strong>Plan for Variability:</strong> Commission income fluctuates. Budget based on average earnings and save during high-performance months for lower periods.</li>
+                <li><strong>Negotiate Rates:</strong> When possible, negotiate commission rates based on your experience, territory potential, and industry standards.</li>
+                <li><strong>Consider Product Mix:</strong> Some products may have different commission rates. Focus on higher-commission products when strategically appropriate.</li>
+                <li><strong>Factor in Expenses:</strong> Commission-only roles require covering your own expenses. Calculate true take-home after business expenses and taxes.</li>
+                <li><strong>Review Contracts:</strong> Understand commission caps, clawback provisions, and payment terms before accepting commission-based roles.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is a typical sales commission rate?</div>
+            <div class="faq-answer">Commission rates vary significantly by industry: retail 1-5%, wholesale 5-10%, software 10-20%, real estate 2-6%, B2B sales 5-15%. Research your specific industry for accurate benchmarks. High-ticket or complex sales typically command higher rates.</div>
+            <div class="faq-question">How is commission calculated with base salary?</div>
+            <div class="faq-answer">Commission is calculated as Sales × Commission Rate. Total compensation = Base Salary + Commission. The base salary provides guaranteed income, while commission incentivizes performance. Some structures reduce base salary for higher commission rates.</div>
+            <div class="faq-question">What is tiered commission?</div>
+            <div class="faq-answer">Tiered commission increases the rate as sales volume increases. For example: 5% on first $50,000, 7% on $50,001-$100,000, 10% above $100,000. This structure rewards higher performance and encourages salespeople to exceed targets.</div>
+            <div class="faq-question">What is draw against commission?</div>
+            <div class="faq-answer">Draw is an advance payment against future commissions. Salespeople receive regular payments that are later deducted from earned commissions. If commissions exceed the draw, the difference is paid. If not, the draw may be forgiven or carried forward.</div>
+            <div class="faq-question">How do taxes affect commission income?</div>
+            <div class="faq-answer">Commission is taxable income. Since it fluctuates, estimate annual taxes based on expected earnings and set aside funds regularly. Commission-only workers may need to pay quarterly estimated taxes. Consult a tax professional for guidance.</div>
+            <div class="faq-question">Can commission be negotiated?</div>
+            <div class="faq-answer">Yes, commission rates are often negotiable, especially for experienced salespeople or when taking on challenging territories. Negotiate based on your track record, market rates, and the value you bring. Get agreements in writing.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateCommission(){const totalSales=parseFloat(document.getElementById('totalSales').value)||0;const commissionRate=parseFloat(document.getElementById('commissionRate').value)||0;const baseSalary=parseFloat(document.getElementById('baseSalary').value)||0;if(totalSales<0){alert('Total sales cannot be negative');return;}const commissionEarned=totalSales*(commissionRate/100);const totalCompensation=baseSalary+commissionEarned;const effectiveRate=totalCompensation>0?(totalCompensation/totalSales*100).toFixed(2):0;document.getElementById('commissionEarned').textContent='$'+commissionEarned.toLocaleString();document.getElementById('totalCompensation').textContent='$'+totalCompensation.toLocaleString();document.getElementById('baseDisplay').textContent='$'+baseSalary.toLocaleString();document.getElementById('rateDisplay').textContent=commissionRate+'%';document.getElementById('salesDisplay').textContent='$'+totalSales.toLocaleString();document.getElementById('effectiveRate').textContent=effectiveRate+'%';}
+function clearCommission(){document.getElementById('totalSales').value='';document.getElementById('commissionRate').value='';document.getElementById('baseSalary').value='';document.getElementById('commissionEarned').textContent='$0';document.getElementById('totalCompensation').textContent='$0';document.getElementById('baseDisplay').textContent='$0';document.getElementById('rateDisplay').textContent='0%';document.getElementById('salesDisplay').textContent='$0';document.getElementById('effectiveRate').textContent='0%';}
+function copyCommissionResults(){const commission=document.getElementById('commissionEarned').textContent;const total=document.getElementById('totalCompensation').textContent;const text=`Commission: ${commission}, Total: ${total}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Profit Margin",icon:"fa-chart-pie",url:"profit-margin-calculator.html"},{name:"Markup Calculator",icon:"fa-percent",url:"markup-calculator.html"},{name:"Breakeven Analysis",icon:"fa-chart-line",url:"breakeven-analysis-calculator.html"},{name:"Cash Flow",icon:"fa-money-bill-wave",url:"cash-flow-calculator.html"},{name:"Working Capital",icon:"fa-coins",url:"working-capital-calculator.html"},{name:"Startup Costs",icon:"fa-rocket",url:"startup-cost-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridBusiness").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

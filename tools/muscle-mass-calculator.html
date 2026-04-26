@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Muscle Mass Calculator – Body Composition | ToolGram</title>
+    <meta name="description" content="Calculate your muscle mass with our free muscle mass calculator. Estimate skeletal muscle mass for fitness tracking and body composition analysis.">
+    <meta name="keywords" content="muscle mass calculator, skeletal muscle mass, body composition, muscle percentage, fitness calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/muscle-mass-calculator.html">
+    <meta property="og:title" content="Muscle Mass Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your muscle mass for fitness tracking.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/muscle-mass-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Muscle Mass Calculator","description": "Calculate your muscle mass for fitness tracking.","applicationCategory": "HealthApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/muscle-mass-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Muscle Mass Calculation", "Body Composition", "Skeletal Muscle", "Fitness Metrics"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-dumbbell"></i></div>
+            <div><h1 style="margin:0;">Muscle Mass Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate your muscle mass</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Body Data</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Gender</label><select id="gender"><option value="male">Male</option><option value="female">Female</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Weight (kg)</label><input type="number" id="weight" placeholder="70" value="70"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Height (cm)</label><input type="number" id="height" placeholder="175" value="175"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Age (years)</label><input type="number" id="age" placeholder="30" value="30"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateMuscleMass()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearMuscleMass()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Muscle Mass Results</div>
+                <div class="output-display" id="outputMuscleMass">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-dumbbell"></i> Muscle Mass</div><div style="margin-bottom:10px;"><span class="loan-result" id="muscleMass">0</span> kg</div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Muscle %:</strong> <span id="musclePercent">0</span>%</div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Bone Mass:</strong> <span id="boneMass">0</span> kg</div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Organ Mass:</strong> <span id="organMass">0</span> kg</div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Lean Body Mass:</strong> <span id="lbm">0</span> kg</div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">BMI:</strong> <span id="bmi">0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Category:</strong> <span id="category">-</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyMuscleResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💪 Related Health Tools</h2>
+            <div class="related-grid" id="relatedGridHealth"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Muscle Mass?</h3>
+            <p>Muscle mass refers to the total amount of skeletal muscle tissue in your body. It's a key component of body composition and is crucial for movement, metabolism, strength, and overall health. Skeletal muscle accounts for about 40-50% of total body weight in men and 30-40% in women. Higher muscle mass is associated with better metabolic health, improved athletic performance, and reduced risk of chronic diseases.</p>
+            <p>This calculator estimates muscle mass using the Boer formula for lean body mass and then estimates skeletal muscle as approximately 45-50% of LBM for men and 35-40% for women. While this is an estimation, it provides a useful baseline for tracking muscle changes over time through diet and exercise.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select your gender. Men typically have higher muscle mass due to hormonal differences and larger frame size.<br><strong>Step 2:</strong> Enter your weight in kilograms. Total weight is needed to estimate muscle mass percentage.<br><strong>Step 3:</strong> Enter your height in centimeters. Height is used in the estimation formula to predict ideal muscle mass based on frame.<br><strong>Step 4:</strong> Enter your age in years. Age affects muscle mass, with natural decline occurring after age 30.<br><strong>Step 5:</strong> Click "Calculate" to see your estimated muscle mass, muscle percentage, and related body composition metrics.<br><strong>Step 6:</strong> Use the results to track muscle gain through strength training or monitor age-related muscle loss.<br><strong>Step 7:</strong> Compare your muscle percentage to healthy ranges for your gender and activity level.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Muscle Mass Examples</h3>
+            <p><strong>Example 1 - Male Athlete:</strong> 30 years, 80kg, 180cm. Muscle mass = 38 kg, Muscle % = 47.5%. Category: Excellent. High muscle mass typical of athletes.</p>
+            <p><strong>Example 2 - Female Fitness:</strong> 28 years, 58kg, 165cm. Muscle mass = 20 kg, Muscle % = 34.5%. Category: Good. Healthy muscle mass for active female.</p>
+            <p><strong>Example 3 - Male Average:</strong> 40 years, 85kg, 175cm. Muscle mass = 35 kg, Muscle % = 41.2%. Category: Average. Typical muscle mass for adult male.</p>
+            <p><strong>Example 4 - Female Average:</strong> 35 years, 65kg, 160cm. Muscle mass = 22 kg, Muscle % = 33.8%. Category: Average. Normal muscle mass for adult female.</p>
+            <p><strong>Example 5 - Male Bodybuilder:</strong> 25 years, 95kg, 185cm. Muscle mass = 45 kg, Muscle % = 47.4%. Category: Excellent. Very high muscle mass from training.</p>
+            <p><strong>Example 6 - Male Elderly:</strong> 65 years, 75kg, 170cm. Muscle mass = 28 kg, Muscle % = 37.3%. Category: Below Average. Age-related muscle loss evident.</p>
+            <p><strong>Example 7 - Female Sedentary:</strong> 50 years, 70kg, 165cm. Muscle mass = 21 kg, Muscle % = 30%. Category: Below Average. Low muscle mass from inactivity.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Muscle Building Tips</h3>
+            <ul>
+                <li><strong>Progressive Overload:</strong> Gradually increase weight, reps, or intensity over time. This is the primary driver of muscle growth. Track your progress and consistently challenge your muscles.</li>
+                <li><strong>Protein Intake:</strong> Consume 1.6-2.2g of protein per kg of body weight daily for muscle building. Spread intake across meals for optimal muscle protein synthesis.</li>
+                <li><strong>Compound Movements:</strong> Focus on compound exercises like squats, deadlifts, bench press, and rows. These work multiple muscle groups and stimulate more overall muscle growth.</li>
+                <li><strong>Rest and Recovery:</strong> Muscles grow during rest, not training. Allow 48-72 hours between training the same muscle group. Get 7-9 hours of quality sleep nightly.</li>
+                <li><strong>Caloric Surplus:</strong> For muscle gain, consume 200-500 calories above maintenance. This provides energy for training and muscle building without excessive fat gain.</li>
+                <li><strong>Consistency Over Intensity:</strong> Regular training (3-5 days per week) is more important than occasional high-intensity sessions. Build sustainable habits for long-term results.</li>
+                <li><strong>Age Considerations:</strong> Muscle building becomes more challenging with age but remains possible. Older adults may need slightly higher protein and longer recovery periods.</li>
+                <li><strong>Track Progress:</strong> Use strength gains, measurements, and photos to track progress rather than just scale weight. Muscle is denser than fat, so body composition matters more.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is a healthy muscle mass percentage?</div>
+            <div class="faq-answer">Healthy ranges vary by gender and activity level. Men: 40-50% average, 45-55% athletic. Women: 30-40% average, 35-45% athletic. Athletes and strength-trained individuals typically have higher percentages.</div>
+            <div class="faq-question">How accurate is this calculator?</div>
+            <div class="faq-answer">This is an estimation based on formulas. For precise muscle mass measurement, use DEXA scans, bioelectrical impedance analysis (BIA), or MRI. This calculator provides a useful baseline for tracking changes.</div>
+            <div class="faq-question">Can I build muscle while losing fat?</div>
+            <div class="faq-answer">Yes, especially for beginners or those returning to training. This is called body recomposition. Requires adequate protein, strength training, and moderate calorie deficit. Results are slower than focusing on one goal.</div>
+            <div class="faq-question">Why does muscle mass decrease with age?</div>
+            <div class="faq-answer">Age-related muscle loss (sarcopenia) occurs due to hormonal changes, reduced physical activity, decreased protein synthesis, and mitochondrial dysfunction. Regular resistance training and adequate protein can significantly slow this process.</div>
+            <div class="faq-question">How long does it take to build muscle?</div>
+            <div class="faq-answer">Beginners can gain 0.5-1 kg of muscle per month for the first 6-12 months. Intermediate trainees gain 0.25-0.5 kg monthly. Advanced trainees gain very slowly. Consistency over years yields significant results.</div>
+            <div class="faq-question">Is more muscle always better?</div>
+            <div class="faq-answer">Not necessarily. Functional muscle that supports health and performance is ideal. Excessive muscle mass without proportional strength or cardiovascular health may not provide additional benefits and can limit mobility.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateMuscleMass(){const gender=document.getElementById('gender').value;const weight=parseFloat(document.getElementById('weight').value)||0;const height=parseFloat(document.getElementById('height').value)||0;const age=parseFloat(document.getElementById('age').value)||0;if(weight<=0||height<=0||age<=0){alert('Weight, height, and age must be greater than 0');return;}let lbm=0;if(gender==='male'){lbm=0.407*weight+0.267*height-19.2;}else{lbm=0.252*weight+0.473*height-48.3;}if(lbm<0)lbm=0;if(lbm>weight)lbm=weight;const muscleRatio=gender==='male'?0.48:0.37;const muscleMass=lbm*muscleRatio;const musclePercent=(muscleMass/weight)*100;const boneMass=weight*0.15;const organMass=weight*0.10;const bmi=weight/((height/100)*(height/100));let category='';if(gender==='male'){if(musclePercent<38)category='Below Average';else if(musclePercent<45)category='Average';else if(musclePercent<50)category='Good';else category='Excellent';}else{if(musclePercent<30)category='Below Average';else if(musclePercent<35)category='Average';else if(musclePercent<40)category='Good';else category='Excellent';}document.getElementById('muscleMass').textContent=muscleMass.toFixed(1);document.getElementById('musclePercent').textContent=musclePercent.toFixed(1);document.getElementById('boneMass').textContent=boneMass.toFixed(1);document.getElementById('organMass').textContent=organMass.toFixed(1);document.getElementById('lbm').textContent=lbm.toFixed(1);document.getElementById('bmi').textContent=bmi.toFixed(1);document.getElementById('category').textContent=category;}
+function clearMuscleMass(){document.getElementById('weight').value='70';document.getElementById('height').value='175';document.getElementById('age').value='30';document.getElementById('muscleMass').textContent='0';document.getElementById('musclePercent').textContent='0';document.getElementById('boneMass').textContent='0';document.getElementById('organMass').textContent='0';document.getElementById('lbm').textContent='0';document.getElementById('bmi').textContent='0';document.getElementById('category').textContent='-';}
+function copyMuscleResults(){const mass=document.getElementById('muscleMass').textContent;const percent=document.getElementById('musclePercent').textContent;const text=`Muscle Mass: ${mass} kg (${percent}%)`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"BMI Calculator",icon:"fa-weight",url:"bmi-calculator.html"},{name:"Body Fat Calculator",icon:"fa-percentage",url:"body-fat-percentage-calculator.html"},{name:"Lean Body Mass Calculator",icon:"fa-dumbbell",url:"lean-body-mass-calculator.html"},{name:"BMR Calculator",icon:"fa-fire",url:"bmr-calculator.html"},{name:"Calorie Intake Calculator",icon:"fa-utensils",url:"calorie-intake-calculator.html"},{name:"Water Intake Calculator",icon:"fa-tint",url:"water-intake-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridHealth").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

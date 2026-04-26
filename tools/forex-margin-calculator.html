@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Forex Margin Calculator – Position Margin Calculator | ToolGram</title>
+    <meta name="description" content="Calculate forex margin requirements. Free margin calculator for EUR/USD, GBP/USD and all currency pairs. Accurate forex margin calculation.">
+    <meta name="keywords" content="forex margin calculator, margin requirement calculator, forex margin, trading margin, leverage calculator, position margin, forex trading">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/forex-margin-calculator.html">
+    <meta property="og:title" content="Forex Margin Calculator | ToolGram">
+    <meta property="og:description" content="Calculate forex margin requirements.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/forex-margin-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Forex Margin Calculator","description": "Calculate forex margin requirements.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/forex-margin-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Margin Calculation", "Forex Trading", "Leverage Analysis", "Risk Management"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-calculator"></i></div>
+            <div><h1 style="margin:0;">Forex Margin Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate forex margin requirements</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Trading Parameters</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Account Currency</label><select id="accountCurrency"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="JPY">JPY</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Currency Pair</label><select id="currencyPair"><option value="EURUSD">EUR/USD</option><option value="GBPUSD">GBP/USD</option><option value="USDJPY">USD/JPY</option><option value="USDCHF">USD/CHF</option><option value="AUDUSD">AUD/USD</option><option value="USDCAD">USD/CAD</option><option value="NZDUSD">NZD/USD</option><option value="EURGBP">EUR/GBP</option><option value="EURJPY">EUR/JPY</option><option value="GBPJPY">GBP/JPY</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Exchange Rate</label><input type="number" id="exchangeRate" placeholder="1.1000" value="1.1000" step="0.0001"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Lot Size</label><select id="lotSize"><option value="100000">Standard (100,000)</option><option value="10000">Mini (10,000)</option><option value="1000">Micro (1,000)</option><option value="1">Nano (1)</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Leverage</label><select id="leverage"><option value="1">1:1 (No Leverage)</option><option value="10">1:10</option><option value="20">1:20</option><option value="30" selected>1:30</option><option value="50">1:50</option><option value="100">1:100</option><option value="200">1:200</option><option value="500">1:500</option></select></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateMargin()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearMargin()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Margin Results</div>
+                <div class="output-display" id="outputMargin">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-calculator"></i> Required Margin</div><div style="margin-bottom:10px;"><span class="loan-result" id="requiredMargin">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Position Size:</strong> <span id="positionSize">0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Used Margin:</strong> <span id="usedMargin">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Free Margin (10k):</strong> <span id="freeMargin">$0</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Contract Value:</strong> <span id="contractValue">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Margin Level:</strong> <span id="marginLevel">0%</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Leverage Ratio:</strong> <span id="leverageDisplay">1:30</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyMarginResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💱 Related Forex Tools</h2>
+            <div class="related-grid" id="relatedGridForex"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Forex Margin?</h3>
+            <p>Forex margin is the amount of money required to open and maintain a leveraged trading position. It's a deposit that acts as collateral for your trades, allowing you to control larger positions with less capital through leverage. Margin is typically expressed as a percentage of the full position size. For example, with 1:100 leverage, you only need 1% margin to control a position worth 100 times your deposit.</p>
+            <p>Margin requirements vary by broker, currency pair, and account type. Major pairs like EUR/USD typically have lower margin requirements than exotic pairs due to higher liquidity and lower volatility. Understanding margin is crucial for risk management, as insufficient margin leads to margin calls and forced position closures. This calculator helps you determine exactly how much margin you need for your desired position size and leverage level.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select your account currency. This is the currency your trading account is denominated in (USD, EUR, GBP, JPY).<br><strong>Step 2:</strong> Select your currency pair. Options include major pairs and crosses like EUR/USD, GBP/USD, USD/JPY, EUR/GBP, EUR/JPY, GBP/JPY.<br><strong>Step 3:</strong> Enter the current exchange rate for the selected pair. Find this on your trading platform or forex price feeds.<br><strong>Step 4:</strong> Select your lot size. Standard = 100,000 units, Mini = 10,000 units, Micro = 1,000 units, Nano = 1 unit.<br><strong>Step 5:</strong> Select your leverage ratio. Higher leverage requires less margin but increases risk. Common ratios are 1:30, 1:50, 1:100.<br><strong>Step 6:</strong> Click "Calculate" to see required margin, position size, used margin, and other relevant metrics.<br><strong>Step 7:</strong> Use the results to ensure you have sufficient account balance and to understand your risk exposure before placing trades.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Margin Calculation Examples</h3>
+            <p><strong>Example 1 - EUR/USD 1:100:</strong> Account USD, EUR/USD at 1.1000, standard lot (100,000), 1:100 leverage. Required margin = $1,100 USD. Position size = $110,000 USD.</p>
+            <p><strong>Example 2 - GBP/USD 1:50:</strong> Account USD, GBP/USD at 1.2700, mini lot (10,000), 1:50 leverage. Required margin = $254 USD. Position size = $12,700 USD.</p>
+            <p><strong>Example 3 - USD/JPY 1:30:</strong> Account USD, USD/JPY at 149.50, standard lot (100,000), 1:30 leverage. Required margin = $3,317 USD. Position size = $66,890 USD.</p>
+            <p><strong>Example 4 - EUR/GBP 1:20:</strong> Account EUR, EUR/GBP at 0.8600, micro lot (1,000), 1:20 leverage. Required margin = €43 EUR. Position size = €860 EUR.</p>
+            <p><strong>Example 5 - AUD/USD 1:10:</strong> Account USD, AUD/USD at 0.6600, standard lot (100,000), 1:10 leverage. Required margin = $6,600 USD. Position size = $66,000 USD.</p>
+            <p><strong>Example 6 - EUR/JPY 1:100:</strong> Account USD, EUR/JPY at 162.00, standard lot (100,000), 1:100 leverage. Required margin = $1,620 USD. Position size = $100,000 USD equivalent.</p>
+            <p><strong>Example 7 - GBP/JPY 1:50:</strong> Account GBP, GBP/JPY at 188.00, mini lot (10,000), 1:50 leverage. Required margin = £376 GBP. Position size = £10,000 GBP equivalent.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Forex Margin Tips</h3>
+            <ul>
+                <li><strong>Understand Margin Calls:</strong> A margin call occurs when your account equity falls below required margin. This can force position closures. Always maintain adequate free margin buffer.</li>
+                <li><strong>Use Conservative Leverage:</strong> High leverage amplifies both profits and losses. Beginners should start with lower leverage (1:10 to 1:30) to manage risk effectively.</li>
+                <li><strong>Calculate Position Size:</strong> Determine position size based on your account balance, risk tolerance, and stop-loss distance. Never over-leverage your account.</li>
+                <li><strong>Monitor Free Margin:</strong> Free margin is the amount available to open new positions. Keep sufficient free margin to withstand market fluctuations without margin calls.</li>
+                <li><strong>Know Your Broker's Requirements:</strong> Different brokers have different margin requirements and policies. Understand your broker's margin call and stop-out levels.</li>
+                <li><strong>Consider Overnight Positions:</strong> Holding positions overnight may incur swap fees or require higher margin. Factor these costs into your trading strategy.</li>
+                <li><strong>Use Stop-Loss Orders:</strong> Always use stop-loss orders to limit potential losses. Calculate stop-loss distance based on your risk tolerance and account balance.</li>
+                <li><strong>Margin Level Monitoring:</strong> Margin level = (Equity / Used Margin) × 100. Keep margin level above 200-300% for safety. Below 100% triggers margin calls, below 50% may trigger stop-outs.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the difference between margin and leverage?</div>
+            <div class="faq-answer">Margin is the amount of money required to open a position (collateral). Leverage is the ratio of position size to margin. For example, 1:100 leverage means you control $100 for every $1 of margin. Higher leverage requires less margin but increases risk.</div>
+            <div class="faq-question">How much margin do I need for forex?</div>
+            <div class="faq-answer">Margin = (Position Size / Leverage). For a $100,000 EUR/USD position with 1:100 leverage, margin = $1,000. Use this calculator to determine exact margin based on your specific parameters.</div>
+            <div class="faq-question">What is a margin call?</div>
+            <div class="faq-answer">A margin call occurs when your account equity falls below the required margin to maintain your positions. Your broker will require you to deposit additional funds or close positions to restore required margin levels.</div>
+            <div class="faq-question">What is free margin?</div>
+            <div class="faq-answer">Free margin is the amount of money in your account that is not tied up in margin for existing positions. It's available to open new positions or withstand losses. Free Margin = Equity - Used Margin.</div>
+            <div class="faq-question">How does leverage affect my risk?</div>
+            <div class="faq-answer">Higher leverage allows larger positions with less capital, amplifying both potential profits and losses. A 1% price movement with 1:100 leverage equals 100% return or loss on your margin. Higher leverage = higher risk.</div>
+            <div class="faq-question">What is margin level?</div>
+            <div class="faq-answer">Margin level = (Account Equity / Used Margin) × 100. It indicates how much equity you have relative to used margin. Levels above 200% are generally safe. Below 100% triggers margin calls. Below 50% may trigger automatic position closures.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateMargin(){const accountCurrency=document.getElementById('accountCurrency').value;const pair=document.getElementById('currencyPair').value;const rate=parseFloat(document.getElementById('exchangeRate').value)||0;const lotSize=parseFloat(document.getElementById('lotSize').value)||100000;const leverage=parseFloat(document.getElementById('leverage').value)||30;if(rate<=0){alert('Exchange rate must be greater than 0');return;}const positionSize=lotSize*rate;const requiredMargin=positionSize/leverage;const freeMargin=10000-requiredMargin;const marginLevel=(10000/requiredMargin*100).toFixed(2);document.getElementById('requiredMargin').textContent='$'+requiredMargin.toFixed(2);document.getElementById('positionSize').textContent='$'+positionSize.toLocaleString();document.getElementById('usedMargin').textContent='$'+requiredMargin.toFixed(2);document.getElementById('freeMargin').textContent='$'+freeMargin.toFixed(2);document.getElementById('contractValue').textContent='$'+positionSize.toLocaleString();document.getElementById('marginLevel').textContent=marginLevel+'%';document.getElementById('leverageDisplay').textContent='1:'+leverage;}
+function clearMargin(){document.getElementById('accountCurrency').value='USD';document.getElementById('currencyPair').value='EURUSD';document.getElementById('exchangeRate').value='1.1000';document.getElementById('lotSize').value='100000';document.getElementById('leverage').value='30';document.getElementById('requiredMargin').textContent='$0';document.getElementById('positionSize').textContent='0';document.getElementById('usedMargin').textContent='$0';document.getElementById('freeMargin').textContent='$0';document.getElementById('contractValue').textContent='0';document.getElementById('marginLevel').textContent='0%';document.getElementById('leverageDisplay').textContent='1:30';}
+function copyMarginResults(){const margin=document.getElementById('requiredMargin').textContent;const pair=document.getElementById('currencyPair').value;const text=`${pair} Required Margin: ${margin}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Forex Pip Calculator",icon:"fa-chart-bar",url:"forex-pip-calculator.html"},{name:"Exchange Rate Calculator",icon:"fa-chart-line",url:"exchange-rate-calculator.html"},{name:"Currency Converter",icon:"fa-exchange-alt",url:"currency-converter.html"},{name:"Cryptocurrency Converter",icon:"fa-bitcoin",url:"cryptocurrency-converter.html"},{name:"Bitcoin Calculator",icon:"fa-bitcoin",url:"bitcoin-calculator.html"},{name:"Ethereum Calculator",icon:"fa-ethereum",url:"ethereum-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridForex").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

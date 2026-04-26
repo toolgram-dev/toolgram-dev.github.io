@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>EBIT Calculator – Earnings Before Interest and Taxes | ToolGram</title>
+    <meta name="description" content="Calculate EBIT from net income or revenue. Free EBIT calculator measuring operating profitability before financing costs.">
+    <meta name="keywords" content="EBIT calculator, earnings before interest and taxes, operating income, operating profit, financial analysis, profitability">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/ebit-calculator.html">
+    <meta property="og:title" content="EBIT Calculator | ToolGram">
+    <meta property="og:description" content="Calculate EBIT for operating profitability analysis.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/ebit-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "EBIT Calculator","description": "Calculate EBIT for operating profitability analysis.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/ebit-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["EBIT Calculation", "Operating Income", "Profitability Analysis", "Financial Performance"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-calculator"></i></div>
+            <div><h1 style="margin:0;">EBIT Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate earnings before interest and taxes</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Financial Data</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Net Income ($)</label><input type="number" id="netIncome" placeholder="100000" value="100000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Interest Expense ($)</label><input type="number" id="interestExpense" placeholder="20000" value="20000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Tax Expense ($)</label><input type="number" id="taxExpense" placeholder="30000" value="30000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Revenue ($)</label><input type="number" id="revenue" placeholder="500000" value="500000"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateEBIT()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearEBIT()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> EBIT Results</div>
+                <div class="output-display" id="outputEBIT">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-calculator"></i> EBIT</div><div style="margin-bottom:10px;"><span class="loan-result" id="ebitValue">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Net Income:</strong> <span id="netIncomeDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Interest Coverage:</strong> <span id="interestCoverage">0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">EBIT Margin:</strong> <span id="ebitMargin">0%</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Operating Income:</strong> <span id="operatingIncome">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Adjustments:</strong> <span id="totalAdjustments">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Revenue:</strong> <span id="revenueDisplay">$0</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyEBITResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💼 Related Business Tools</h2>
+            <div class="related-grid" id="relatedGridBusiness"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is EBIT?</h3>
+            <p>EBIT stands for Earnings Before Interest and Taxes, also known as operating income or operating profit. It measures a company's profitability from core operations, excluding the effects of financing decisions (interest) and tax considerations. EBIT = Net Income + Interest + Taxes.</p>
+            <p>EBIT focuses purely on operational performance by showing how much profit the business generates from its main activities before considering how it's financed or taxed. This makes it useful for comparing companies with different capital structures or tax situations.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter net income from the income statement.<br><strong>Step 2:</strong> Input interest expense (cost of debt financing).<br><strong>Step 3:</strong> Enter tax expense (income taxes paid).<br><strong>Step 4:</strong> Input revenue for margin calculation.<br><strong>Step 5:</strong> Click "Calculate" to see EBIT and related metrics.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> EBIT Examples</h3>
+            <p><strong>Example 1 - Strong Operations:</strong> Net income $100,000, interest $20,000, taxes $30,000, revenue $500,000. EBIT = $150,000. EBIT margin = 30%. Strong operational profitability.</p>
+            <p><strong>Example 2 - Moderate Operations:</strong> Net income $50,000, interest $15,000, taxes $20,000, revenue $500,000. EBIT = $85,000. EBIT margin = 17%. Adequate but room for operational improvement.</p>
+            <p><strong>Example 3 - Weak Operations:</strong> Net income $20,000, interest $10,000, taxes $15,000, revenue $500,000. EBIT = $45,000. EBIT margin = 9%. Poor operational performance requiring significant improvements.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> EBIT Improvement Tips</h3>
+            <ul>
+                <li><strong>Increase Revenue:</strong> Grow sales through marketing, pricing optimization, market expansion, or new product development without proportionally increasing costs.</li>
+                <li><strong>Reduce Operating Costs:</strong> Improve operational efficiency, negotiate with suppliers, optimize processes, and eliminate waste to increase operating margin.</li>
+                <li><strong>Pricing Strategy:</strong> Optimize pricing based on value, competition, and demand elasticity. Small price increases can significantly boost EBIT if volume remains stable.</li>
+                <li><strong>Product Mix:</strong> Focus on high-margin products and services. Discontinue or improve low-margin offerings that drag down overall profitability.</li>
+                <li><strong>Cost Control:</strong> Implement strict cost controls across all operating departments. Regular review and optimization of expenses maintains healthy EBIT margins.</li>
+                <li><strong>Economies of Scale:</strong> Increase production volume to spread fixed costs over more units, reducing per-unit costs and improving EBIT.</li>
+                <li><strong>Operational Efficiency:</strong> Invest in technology and process improvements that reduce labor costs and improve productivity. Automation can significantly boost EBIT.</li>
+                <li><strong>Monitor Margins:</strong> Track EBIT margin by product, region, and customer segment. Identify and address margin erosion early before it impacts overall profitability.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the difference between EBIT and EBITDA?</div>
+            <div class="faq-answer">EBIT is Earnings Before Interest and Taxes. EBITDA adds back Depreciation and Amortization to EBIT. EBITDA is higher and represents cash flow from operations before capital expenditures. EBIT shows accounting profit from operations.</div>
+            <div class="faq-question">What is a good EBIT margin?</div>
+            <div class="faq-answer">Good EBIT margins vary by industry: software 25-40%, manufacturing 10-20%, retail 5-15%, services 15-30%. Compare to industry benchmarks and historical performance. Improving margins indicate operational efficiency.</div>
+            <div class="faq-question">Why use EBIT instead of net income?</div>
+            <div class="faq-answer">EBIT removes the effects of financing decisions (interest) and tax considerations, allowing comparison of operational performance across companies with different capital structures or tax situations. It focuses purely on core business profitability.</div>
+            <div class="faq-question">How do I calculate interest coverage ratio?</div>
+            <div class="faq-answer">Interest Coverage Ratio = EBIT / Interest Expense. It shows how many times EBIT covers interest payments. A ratio above 3 is generally considered safe, indicating comfortable debt service capacity.</div>
+            <div class="faq-question">Can EBIT be negative?</div>
+            <div class="faq-answer">Yes, negative EBIT indicates the core business operations are losing money before financing costs. This is a serious warning sign requiring immediate operational changes. Negative EBIT businesses struggle to attract financing.</div>
+            <div class="faq-question">How does depreciation affect EBIT vs EBITDA?</div>
+            <div class="faq-answer">Depreciation is included in EBIT (it's an operating expense) but added back in EBITDA. For capital-intensive businesses with high depreciation, EBITDA may be significantly higher than EBIT, showing the difference between accounting profit and cash generation.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateEBIT(){const netIncome=parseFloat(document.getElementById('netIncome').value)||0;const interestExpense=parseFloat(document.getElementById('interestExpense').value)||0;const taxExpense=parseFloat(document.getElementById('taxExpense').value)||0;const revenue=parseFloat(document.getElementById('revenue').value)||0;const ebit=netIncome+interestExpense+taxExpense;const operatingIncome=ebit;const totalAdjustments=interestExpense+taxExpense;const interestCoverage=interestExpense>0?(ebit/interestExpense).toFixed(2):0;const ebitMargin=revenue>0?(ebit/revenue*100).toFixed(2):0;document.getElementById('ebitValue').textContent='$'+ebit.toLocaleString();document.getElementById('netIncomeDisplay').textContent='$'+netIncome.toLocaleString();document.getElementById('interestCoverage').textContent=interestCoverage;document.getElementById('ebitMargin').textContent=ebitMargin+'%';document.getElementById('operatingIncome').textContent='$'+operatingIncome.toLocaleString();document.getElementById('totalAdjustments').textContent='$'+totalAdjustments.toLocaleString();document.getElementById('revenueDisplay').textContent='$'+revenue.toLocaleString();}
+function clearEBIT(){document.getElementById('netIncome').value='';document.getElementById('interestExpense').value='';document.getElementById('taxExpense').value='';document.getElementById('revenue').value='';document.getElementById('ebitValue').textContent='$0';document.getElementById('netIncomeDisplay').textContent='$0';document.getElementById('interestCoverage').textContent='0';document.getElementById('ebitMargin').textContent='0%';document.getElementById('operatingIncome').textContent='$0';document.getElementById('totalAdjustments').textContent='$0';document.getElementById('revenueDisplay').textContent='$0';}
+function copyEBITResults(){const ebit=document.getElementById('ebitValue').textContent;const margin=document.getElementById('ebitMargin').textContent;const text=`EBIT: ${ebit}, Margin: ${margin}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"EBITDA Calculator",icon:"fa-calculator",url:"ebitda-calculator.html"},{name:"Profit Margin",icon:"fa-chart-pie",url:"profit-margin-calculator.html"},{name:"Business Valuation",icon:"fa-building",url:"business-valuation-calculator.html"},{name:"Cash Flow",icon:"fa-money-bill-wave",url:"cash-flow-calculator.html"},{name:"ROE Calculator",icon:"fa-chart-line",url:"roe-calculator.html"},{name:"ROA Calculator",icon:"fa-chart-pie",url:"roa-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridBusiness").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ROE Calculator – Return on Equity | ToolGram</title>
+    <meta name="description" content="Calculate return on equity (ROE) ratio. Free ROE calculator measuring profitability relative to shareholder equity.">
+    <meta name="keywords" content="ROE calculator, return on equity, profitability ratio, shareholder return, equity ratio, financial performance">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/roe-calculator.html">
+    <meta property="og:title" content="ROE Calculator | ToolGram">
+    <meta property="og:description" content="Calculate return on equity for profitability analysis.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/roe-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "ROE Calculator","description": "Calculate return on equity for profitability analysis.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/roe-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Return on Equity", "Profitability Ratio", "Shareholder Return", "Financial Performance"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-line"></i></div>
+            <div><h1 style="margin:0;">ROE Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate return on equity (ROE)</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Net Income & Equity</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Net Income ($)</label><input type="number" id="netIncome" placeholder="100000" value="100000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Shareholder Equity ($)</label><input type="number" id="shareholderEquity" placeholder="500000" value="500000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Total Assets ($)</label><input type="number" id="totalAssets" placeholder="1000000" value="1000000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Total Liabilities ($)</label><input type="number" id="totalLiabilities" placeholder="500000" value="500000"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateROE()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearROE()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> ROE Results</div>
+                <div class="output-display" id="outputROE">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-chart-line"></i> Return on Equity</div><div style="margin-bottom:10px;"><span class="loan-result" id="roeValue">0%</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Net Income:</strong> <span id="netIncomeDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Shareholder Equity:</strong> <span id="equityDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">ROA:</strong> <span id="roaValue">0%</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Assets:</strong> <span id="assetsDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Liabilities:</strong> <span id="liabilitiesDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Debt to Equity:</strong> <span id="debtToEquity">0</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyROEResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💼 Related Business Tools</h2>
+            <div class="related-grid" id="relatedGridBusiness"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Return on Equity (ROE)?</h3>
+            <p>Return on Equity (ROE) measures a company's profitability relative to shareholder equity. It's calculated as Net Income divided by Shareholder Equity, expressed as a percentage. ROE shows how efficiently management uses shareholders' investments to generate profits.</p>
+            <p>ROE is a key metric for investors comparing companies within the same industry. Higher ROE indicates more efficient use of equity capital. However, very high ROE may result from excessive debt rather than operational efficiency, so it should be analyzed alongside other metrics.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter net income from the income statement.<br><strong>Step 2:</strong> Input shareholder equity from the balance sheet.<br><strong>Step 3:</strong> Optionally enter total assets and liabilities for additional ratios.<br><strong>Step 4:</strong> Click "Calculate" to see ROE and related metrics.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> ROE Examples</h3>
+            <p><strong>Example 1 - High Performer:</strong> Net income $100,000, shareholder equity $500,000. ROE = 20%. This indicates excellent return on shareholder investment, above typical 15% benchmark.</p>
+            <p><strong>Example 2 - Average Performer:</strong> Net income $50,000, shareholder equity $500,000. ROE = 10%. Below average return suggesting operational inefficiency or competitive pressures.</p>
+            <p><strong>Example 3 - Low Performer:</strong> Net income $25,000, shareholder equity $500,000. ROE = 5%. Poor return indicating significant operational problems or industry challenges.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> ROE Improvement Tips</h3>
+            <ul>
+                <li><strong>Increase Profit Margins:</strong> Improve pricing, reduce costs, or increase sales volume to boost net income without increasing equity.</li>
+                <li><strong>Asset Turnover:</strong> Generate more revenue from existing assets. Efficient asset use improves profitability without additional investment.</li>
+                <li><strong>Financial Leverage:</strong> Use debt strategically to increase returns on equity, but balance with risk. Moderate leverage can boost ROE.</li>
+                <li><strong>Share Buybacks:</strong> Reduce outstanding shares to decrease equity while maintaining earnings, increasing ROE. Consider cash position and growth needs.</li>
+                <li><strong>Operational Efficiency:</strong> Streamline operations to reduce costs and improve margins. Process improvements directly impact net income.</li>
+                <li><strong>Dividend Policy:</strong> Balance dividend payments with retained earnings. Retaining earnings builds equity but may increase ROE over time through reinvestment.</li>
+                <li><strong>Inventory Management:</strong> Optimize inventory levels to free up cash and reduce carrying costs, improving overall efficiency.</li>
+                <li><strong>Industry Benchmarking:</strong> Compare ROE to industry peers and historical performance. Context is crucial for meaningful analysis.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is a good ROE?</div>
+            <div class="faq-answer">ROE of 15-20% is generally considered good. Above 20% is excellent. Below 10% may indicate problems. However, good ROE varies by industry: utilities 8-12%, technology 15-25%, retail 10-15%. Always compare to industry benchmarks.</div>
+            <div class="faq-question">What's the difference between ROE and ROA?</div>
+            <div class="faq-answer">ROE measures return on shareholder equity only. ROA (Return on Assets) measures return on total assets. ROE can be inflated by debt, while ROA shows overall asset efficiency. Use both for complete picture.</div>
+            <div class="faq-question">Can ROE be too high?</div>
+            <div class="faq-answer">Yes, extremely high ROE (over 30%) may indicate excessive debt rather than operational excellence. High leverage increases risk. Analyze debt levels and industry norms to assess if ROE is sustainable.</div>
+            <div class="faq-question">How does debt affect ROE?</div>
+            <div class="faq-answer">Debt reduces equity (assets minus liabilities) while potentially maintaining net income, increasing ROE. This is financial leverage. However, excessive debt increases risk and may not be sustainable long-term.</div>
+            <div class="faq-question">How do I calculate ROE from financial statements?</div>
+            <div class="faq-answer">ROE = Net Income / Shareholder Equity. Find net income on the income statement. Find shareholder equity on the balance sheet (total assets minus total liabilities). Divide net income by equity and multiply by 100 for percentage.</div>
+            <div class="faq-question">Why is ROE important for investors?</div>
+            <div class="faq-answer">ROE shows how efficiently management uses shareholder money to generate profits. Higher ROE indicates better capital efficiency. Investors compare ROE across companies to identify the most efficient capital users within an industry.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateROE(){const netIncome=parseFloat(document.getElementById('netIncome').value)||0;const shareholderEquity=parseFloat(document.getElementById('shareholderEquity').value)||0;const totalAssets=parseFloat(document.getElementById('totalAssets').value)||0;const totalLiabilities=parseFloat(document.getElementById('totalLiabilities').value)||0;if(shareholderEquity<=0){alert('Shareholder equity must be greater than 0');return;}const roe=(netIncome/shareholderEquity*100).toFixed(2);const roa=totalAssets>0?(netIncome/totalAssets*100).toFixed(2):0;const debtToEquity=shareholderEquity>0?(totalLiabilities/shareholderEquity).toFixed(2):0;document.getElementById('roeValue').textContent=roe+'%';document.getElementById('netIncomeDisplay').textContent='$'+netIncome.toLocaleString();document.getElementById('equityDisplay').textContent='$'+shareholderEquity.toLocaleString();document.getElementById('roaValue').textContent=roa+'%';document.getElementById('assetsDisplay').textContent='$'+totalAssets.toLocaleString();document.getElementById('liabilitiesDisplay').textContent='$'+totalLiabilities.toLocaleString();document.getElementById('debtToEquity').textContent=debtToEquity;}
+function clearROE(){document.getElementById('netIncome').value='';document.getElementById('shareholderEquity').value='';document.getElementById('totalAssets').value='';document.getElementById('totalLiabilities').value='';document.getElementById('roeValue').textContent='0%';document.getElementById('netIncomeDisplay').textContent='$0';document.getElementById('equityDisplay').textContent='$0';document.getElementById('roaValue').textContent='0%';document.getElementById('assetsDisplay').textContent='$0';document.getElementById('liabilitiesDisplay').textContent='$0';document.getElementById('debtToEquity').textContent='0';}
+function copyROEResults(){const roe=document.getElementById('roeValue').textContent;const roa=document.getElementById('roaValue').textContent;const text=`ROE: ${roe}, ROA: ${roa}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"ROA Calculator",icon:"fa-chart-pie",url:"roa-calculator.html"},{name:"Profit Margin",icon:"fa-chart-line",url:"profit-margin-calculator.html"},{name:"EBITDA Calculator",icon:"fa-calculator",url:"ebitda-calculator.html"},{name:"Business Valuation",icon:"fa-building",url:"business-valuation-calculator.html"},{name:"Current Ratio",icon:"fa-balance-scale",url:"current-ratio-calculator.html"},{name:"Working Capital",icon:"fa-coins",url:"working-capital-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridBusiness").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Rental Property Calculator – Investment Analysis | ToolGram</title>
+    <meta name="description" content="Calculate rental property returns. Free rental property calculator for cash flow, ROI, and investment analysis. Accurate rental calculations.">
+    <meta name="keywords" content="rental property calculator, rental investment calculator, rental ROI, cash flow calculator, rental analysis, property investment">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/rental-property-calculator.html">
+    <meta property="og:title" content="Rental Property Calculator | ToolGram">
+    <meta property="og:description" content="Calculate rental property returns and cash flow.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/rental-property-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Rental Property Calculator","description": "Calculate rental property returns and cash flow.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/rental-property-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Rental Analysis", "Cash Flow", "ROI Calculation", "Investment Returns"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-home"></i></div>
+            <div><h1 style="margin:0;">Rental Property Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate rental property returns and cash flow</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Property Data</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Purchase Price ($)</label><input type="number" id="purchasePrice" placeholder="300000" value="300000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Monthly Rent ($)</label><input type="number" id="monthlyRent" placeholder="2500" value="2500"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Down Payment ($)</label><input type="number" id="downPayment" placeholder="60000" value="60000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Interest Rate (%)</label><input type="number" id="interestRate" placeholder="6.5" value="6.5" step="0.1"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Loan Term (years)</label><input type="number" id="loanTerm" placeholder="30" value="30"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Monthly Expenses ($)</label><input type="number" id="monthlyExpenses" placeholder="500" value="500"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateRental()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearRental()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Rental Results</div>
+                <div class="output-display" id="outputRental">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-chart-line"></i> Monthly Cash Flow</div><div style="margin-bottom:10px;"><span class="loan-result" id="monthlyCashFlow">$0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Annual Cash Flow:</strong> <span id="annualCashFlow">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Cash on Cash ROI:</strong> <span id="cashOnCashROI">0%</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Cap Rate:</strong> <span id="capRate">0%</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Monthly Mortgage:</strong> <span id="monthlyMortgage">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Monthly Cost:</strong> <span id="totalMonthlyCost">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Net Operating Income:</strong> <span id="noi">$0</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyRentalResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">🏠 Related Real Estate Tools</h2>
+            <div class="related-grid" id="relatedGridRealEstate"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Rental Property Calculator?</h3>
+            <p>A rental property calculator helps investors analyze the financial performance of rental real estate investments by calculating cash flow, return on investment (ROI), cap rate, and other key metrics. It accounts for purchase price, rental income, mortgage payments, operating expenses, and financing terms to determine whether a property is a good investment. This tool is essential for real estate investors, property managers, and anyone considering buying rental property.</p>
+            <p>Rental property investing can generate passive income through monthly rent, appreciation through property value growth, and tax benefits through depreciation deductions. However, it also involves risks including vacancy, property damage, maintenance costs, and market fluctuations. This calculator provides a comprehensive analysis to help you make informed investment decisions and understand the true returns potential of rental properties.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the property purchase price. This is the total price you pay to acquire the property including closing costs.<br><strong>Step 2:</strong> Enter the expected monthly rental income. Research comparable rentals in the area for accurate estimates.<br><strong>Step 3:</strong> Enter your down payment amount. This is typically 20-25% for investment properties but can vary.<br><strong>Step 4:</strong> Enter the mortgage interest rate. Current rates vary based on credit score and market conditions.<br><strong>Step 5:</strong> Enter the loan term in years. 30-year fixed is most common for rental properties.<br><strong>Step 6:</strong> Enter monthly expenses including property taxes, insurance, maintenance, HOA fees, and vacancy reserve.<br><strong>Step 7:</strong> Click "Calculate" to see cash flow, ROI, cap rate, and other investment metrics.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Rental Property Examples</h3>
+            <p><strong>Example 1 - Positive Cash Flow:</strong> $300k purchase, $2,500 rent, $60k down, 6.5% interest, $500 expenses. Cash flow = $320/month, ROI = 6.4%, Cap Rate = 8%. Good investment with positive returns.</p>
+            <p><strong>Example 2 - Break-Even:</strong> $400k purchase, $3,000 rent, $80k down, 7% interest, $700 expenses. Cash flow = $0/month, ROI = 0%, Cap Rate = 6.9%. Break-even property with no cash flow but potential appreciation.</p>
+            <p><strong>Example 3 - Negative Cash Flow:</strong> $500k purchase, $3,500 rent, $100k down, 7.5% interest, $800 expenses. Cash flow = -$280/month, ROI negative. Not recommended unless strong appreciation expected.</p>
+            <p><strong>Example 4 - High ROI:</strong> $200k purchase, $2,000 rent, $40k down, 5.5% interest, $300 expenses. Cash flow = $580/month, ROI = 17.4%, Cap Rate = 10.2%. Excellent investment with strong returns.</p>
+            <p><strong>Example 5 - Multi-Family:</strong> $600k purchase, $5,000 rent (4 units), $120k down, 6% interest, $1,200 expenses. Cash flow = $1,320/month, ROI = 13.2%, Cap Rate = 7.6%. Good multi-family investment.</p>
+            <p><strong>Example 6 - Turnkey Property:</strong> $350k purchase, $2,800 rent, $70k down, 6% interest, $600 expenses. Cash flow = $550/month, ROI = 9.4%, Cap Rate = 7.7%. Solid turnkey rental investment.</p>
+            <p><strong>Example 7 - Fix and Flip:</strong> $250k purchase + $50k rehab = $300k total, ARV $400k, rent $3,000, $60k down, 6.5% interest, $500 expenses. Cash flow = $620/month, ROI = 12.4%, Cap Rate = 10%. Value-add opportunity.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Rental Investment Tips</h3>
+            <ul>
+                <li><strong>The 1% Rule:</strong> Monthly rent should be at least 1% of purchase price for positive cash flow. For example, $300k property should rent for $3,000/month minimum.</li>
+                <li><strong>The 50% Rule:</strong> Expect operating expenses to be 50% of rental income over time. This includes maintenance, vacancies, property management, and capital expenditures.</li>
+                <li><strong>Location Matters:</strong> Focus on areas with strong job growth, good schools, low crime, and desirable amenities. Location drives both rental demand and property appreciation.</li>
+                <li><strong>Screen Tenants Thoroughly:</strong> Good tenants are crucial for successful rental investing. Check credit, income, employment, and rental history before leasing.</li>
+                <li><strong>Build Cash Reserves:</strong> Maintain 3-6 months of expenses in reserves for vacancies, repairs, and unexpected costs. Never invest all your available cash.</li>
+                <li><strong>Consider Property Management:</strong> If you don't want to manage properties yourself, factor in 8-12% for property management fees when calculating returns.</li>
+                <li><strong>Understand Tax Implications:</strong> Rental income is taxable, but you can deduct expenses, depreciation, and mortgage interest. Consult a tax professional for your specific situation.</li>
+                <li><strong>Think Long-Term:</strong> Real estate is typically a long-term investment. Focus on cash flow and appreciation over 5-10+ years rather than quick flips unless you're experienced.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is a good cash flow for rental property?</div>
+            <div class="faq-answer">A good cash flow is typically $100-200+ per month per unit after all expenses. More is better. Positive cash flow is essential for successful rental investing and provides a buffer for unexpected expenses.</div>
+            <div class="faq-question">What is cash on cash return?</div>
+            <div class="faq-answer">Cash on cash return = (Annual Cash Flow / Total Cash Invested) × 100. It measures the return on the actual cash you put into the investment. A good cash on cash return is 8%+ for rental properties.</div>
+            <div class="faq-question">What is cap rate?</div>
+            <div class="faq-answer">Cap rate = (Net Operating Income / Property Value) × 100. It measures the property's unleveraged return. Cap rates vary by market and property type, but 5-10% is typical for residential rentals.</div>
+            <div class="faq-question">How much down payment for rental property?</div>
+            <div class="faq-answer">Investment properties typically require 20-25% down payment. Owner-occupied properties can be purchased with as little as 3-5% down, but you must live there for a period.</div>
+            <div class="faq-question">Should I pay off my rental mortgage early?</div>
+            <div class="faq-answer">It depends on your goals. Paying early increases cash flow but reduces leverage. Many investors prefer to use extra cash for down payments on additional properties to build portfolio faster.</div>
+            <div class="faq-question">What expenses should I include in calculations?</div>
+            <div class="faq-answer">Include property taxes, insurance, maintenance (1-2% of value annually), vacancy reserve (5-10%), HOA fees, property management (if applicable), and utilities if you pay them. Don't forget capital expenditures for long-term replacements.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateRental(){const purchasePrice=parseFloat(document.getElementById('purchasePrice').value)||0;const monthlyRent=parseFloat(document.getElementById('monthlyRent').value)||0;const downPayment=parseFloat(document.getElementById('downPayment').value)||0;const interestRate=parseFloat(document.getElementById('interestRate').value)||0;const loanTerm=parseFloat(document.getElementById('loanTerm').value)||30;const monthlyExpenses=parseFloat(document.getElementById('monthlyExpenses').value)||0;if(purchasePrice<=0||monthlyRent<=0){alert('Purchase price and monthly rent must be greater than 0');return;}const loanAmount=purchasePrice-downPayment;const monthlyRate=interestRate/100/12;const numPayments=loanTerm*12;const monthlyMortgage=loanAmount*(monthlyRate*Math.pow(1+monthlyRate,numPayments))/(Math.pow(1+monthlyRate,numPayments)-1);const totalMonthlyCost=monthlyMortgage+monthlyExpenses;const monthlyCashFlow=monthlyRent-totalMonthlyCost;const annualCashFlow=monthlyCashFlow*12;const noi=(monthlyRent-monthlyExpenses)*12;const capRate=(noi/purchasePrice*100).toFixed(2);const cashOnCashROI=(annualCashFlow/downPayment*100).toFixed(2);document.getElementById('monthlyCashFlow').textContent='$'+monthlyCashFlow.toFixed(2);document.getElementById('annualCashFlow').textContent='$'+annualCashFlow.toFixed(2);document.getElementById('cashOnCashROI').textContent=cashOnCashROI+'%';document.getElementById('capRate').textContent=capRate+'%';document.getElementById('monthlyMortgage').textContent='$'+monthlyMortgage.toFixed(2);document.getElementById('totalMonthlyCost').textContent='$'+totalMonthlyCost.toFixed(2);document.getElementById('noi').textContent='$'+noi.toFixed(2);}
+function clearRental(){document.getElementById('purchasePrice').value='300000';document.getElementById('monthlyRent').value='2500';document.getElementById('downPayment').value='60000';document.getElementById('interestRate').value='6.5';document.getElementById('loanTerm').value='30';document.getElementById('monthlyExpenses').value='500';document.getElementById('monthlyCashFlow').textContent='$0';document.getElementById('annualCashFlow').textContent='$0';document.getElementById('cashOnCashROI').textContent='0%';document.getElementById('capRate').textContent='0%';document.getElementById('monthlyMortgage').textContent='$0';document.getElementById('totalMonthlyCost').textContent='$0';document.getElementById('noi').textContent='$0';}
+function copyRentalResults(){const cashFlow=document.getElementById('monthlyCashFlow').textContent;const roi=document.getElementById('cashOnCashROI').textContent;const capRate=document.getElementById('capRate').textContent;const text=`Cash Flow: ${cashFlow}, ROI: ${roi}, Cap Rate: ${capRate}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Cap Rate Calculator",icon:"fa-percentage",url:"cap-rate-calculator.html"},{name:"Cash on Cash Return Calculator",icon:"fa-chart-line",url:"cash-on-cash-return-calculator.html"},{name:"ROI Rental Property Calculator",icon:"fa-home",url:"roi-rental-property-calculator.html"},{name:"Commercial Real Estate Calculator",icon:"fa-building",url:"commercial-real-estate-calculator.html"},{name:"Business Valuation Calculator",icon:"fa-building",url:"business-valuation-calculator.html"},{name:"Profit Margin Calculator",icon:"fa-chart-pie",url:"profit-margin-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridRealEstate").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Inventory Turnover Calculator – Calculate Inventory Ratio | ToolGram</title>
+    <meta name="description" content="Calculate inventory turnover ratio and days sales of inventory. Free inventory turnover calculator for efficiency analysis.">
+    <meta name="keywords" content="inventory turnover calculator, inventory ratio, days sales inventory, inventory efficiency, turnover rate">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/inventory-turnover-calculator.html">
+    <meta property="og:title" content="Inventory Turnover Calculator | ToolGram">
+    <meta property="og:description" content="Calculate inventory turnover ratio and efficiency metrics.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/inventory-turnover-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Inventory Turnover Calculator","description": "Calculate inventory turnover ratio and efficiency metrics.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/inventory-turnover-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Inventory Turnover", "Days Sales Inventory", "Efficiency Analysis", "Inventory Management"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-boxes"></i></div>
+            <div><h1 style="margin:0;">Inventory Turnover Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate inventory turnover ratio and efficiency</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Inventory & Sales Data</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Cost of Goods Sold ($)</label><input type="number" id="cogs" placeholder="500000" value="500000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Beginning Inventory ($)</label><input type="number" id="beginningInventory" placeholder="80000" value="80000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Ending Inventory ($)</label><input type="number" id="endingInventory" placeholder="100000" value="100000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Period (Days)</label><select id="period"><option value="365" selected>365 (Yearly)</option><option value="90">90 (Quarterly)</option><option value="30">30 (Monthly)</option></select></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateInventoryTurnover()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearInventoryTurnover()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Inventory Turnover Results</div>
+                <div class="output-display" id="outputInventory">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-boxes"></i> Inventory Turnover Ratio</div><div style="margin-bottom:10px;"><span class="loan-result" id="turnoverRatio">0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Days Sales of Inventory:</strong> <span id="dsi">0 days</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Average Inventory:</strong> <span id="avgInventory">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">COGS:</strong> <span id="cogsDisplay">$0</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Beginning Inventory:</strong> <span id="beginningDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Ending Inventory:</strong> <span id="endingDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Period:</strong> <span id="periodDisplay">365 days</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyInventoryResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💼 Related Business Tools</h2>
+            <div class="related-grid" id="relatedGridBusiness"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Inventory Turnover?</h3>
+            <p>Inventory turnover ratio measures how many times a company sells and replaces its inventory during a period. It's calculated as Cost of Goods Sold divided by Average Inventory. Higher turnover indicates efficient inventory management, while lower turnover suggests overstocking or weak sales.</p>
+            <p>Days Sales of Inventory (DSI) shows how many days it takes to sell inventory on average. It's calculated as 365 divided by the inventory turnover ratio. Lower DSI indicates faster inventory conversion to cash, which improves working capital and reduces holding costs.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter cost of goods sold for the period.<br><strong>Step 2:</strong> Input beginning inventory value at period start.<br><strong>Step 3:</strong> Input ending inventory value at period end.<br><strong>Step 4:</strong> Select period length (yearly, quarterly, monthly).<br><strong>Step 5:</strong> Click "Calculate" to see turnover ratio and DSI.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Inventory Turnover Examples</h3>
+            <p><strong>Example 1 - Retail Store:</strong> COGS $500,000, beginning inventory $80,000, ending inventory $100,000. Average inventory = $90,000. Turnover = $500,000 / $90,000 = 5.56. DSI = 365 / 5.56 = 66 days. Healthy retail turnover, inventory sells every 2 months.</p>
+            <p><strong>Example 2 - Grocery Store:</strong> COGS $1,200,000, beginning inventory $40,000, ending inventory $50,000. Average inventory = $45,000. Turnover = $1,200,000 / $45,000 = 26.67. DSI = 365 / 26.67 = 14 days. Very high turnover typical for perishable goods.</p>
+            <p><strong>Example 3 - Furniture Store:</strong> COGS $300,000, beginning inventory $150,000, ending inventory $170,000. Average inventory = $160,000. Turnover = $300,000 / $160,000 = 1.88. DSI = 365 / 1.88 = 194 days. Low turnover typical for slow-moving, high-value items.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Inventory Management Tips</h3>
+            <ul>
+                <li><strong>Know Your Industry:</strong> Compare your turnover to industry benchmarks. Retail typically 4-6, grocery 12-20, manufacturing 3-5, and furniture 1-2. Understand what's normal for your business.</li>
+                <li><strong>Optimize Stock Levels:</strong> Use just-in-time inventory to reduce carrying costs. Balance stock availability with holding costs. Excess inventory ties up cash and risks obsolescence.</li>
+                <li><strong>Forecast Demand:</strong> Use sales data and seasonal patterns to predict demand accurately. Better forecasting prevents overstocking and stockouts.</li>
+                <li><strong>ABC Analysis:</strong> Categorize inventory by value and turnover. Focus management attention on high-value items (A items) while simplifying controls for low-value items (C items).</li>
+                <li><strong>Monitor Slow-Movers:</strong> Identify items with low turnover and take action: discount, bundle, or discontinue. Don't let dead stock accumulate.</li>
+                <li><strong>Improve Supplier Relationships:</strong> Negotiate better terms, faster deliveries, and flexible ordering. This reduces the need for safety stock while maintaining availability.</li>
+                <li><strong>Track Metrics Weekly:</strong> Monitor turnover by product category weekly. Identify trends early and adjust ordering before problems become critical.</li>
+                <li><strong>Consider Dropshipping:</strong> For slow-moving or high-risk items, consider dropshipping to eliminate inventory holding costs entirely.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is a good inventory turnover ratio?</div>
+            <div class="faq-answer">Good ratios vary by industry: retail 4-6, grocery 12-20, manufacturing 3-5, wholesale 5-8, and furniture 1-3. Higher is generally better, but too high may indicate stockouts. Compare to industry benchmarks and your historical performance.</div>
+            <div class="faq-question">What is Days Sales of Inventory?</div>
+            <div class="faq-answer">DSI measures how many days it takes to sell average inventory. It's calculated as 365 divided by inventory turnover ratio. Lower DSI indicates faster inventory conversion to cash. DSI of 60 means inventory sells every 2 months on average.</div>
+            <div class="faq-question">How do I calculate average inventory?</div>
+            <div class="faq-answer">Average inventory = (Beginning Inventory + Ending Inventory) / 2. Use beginning and ending values for the same period. For more accuracy, use monthly averages if data is available.</div>
+            <div class="faq-question">Is high inventory turnover always good?</div>
+            <div class="faq-answer">Not necessarily. Very high turnover may indicate stockouts and lost sales. The optimal balance maximizes sales while minimizing holding costs. Monitor stockout rates alongside turnover to ensure adequate availability.</div>
+            <div class="faq-question">How can I improve inventory turnover?</div>
+            <div class="faq-answer">Improve demand forecasting, implement just-in-time ordering, discount slow-moving items, bundle products, discontinue dead stock, negotiate faster supplier deliveries, and use inventory management software for real-time tracking.</div>
+            <div class="faq-question">What causes low inventory turnover?</div>
+            <div class="faq-answer">Common causes include overstocking, poor demand forecasting, slow-moving products, seasonal inventory buildup, ineffective marketing, and pricing issues. Low turnover ties up cash and increases holding costs including storage, insurance, and obsolescence risk.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateInventoryTurnover(){const cogs=parseFloat(document.getElementById('cogs').value)||0;const beginningInventory=parseFloat(document.getElementById('beginningInventory').value)||0;const endingInventory=parseFloat(document.getElementById('endingInventory').value)||0;const period=parseInt(document.getElementById('period').value)||365;if(cogs<=0){alert('Cost of goods sold must be greater than 0');return;}const avgInventory=(beginningInventory+endingInventory)/2;if(avgInventory<=0){alert('Average inventory must be greater than 0');return;}const turnoverRatio=cogs/avgInventory;const dsi=period/turnoverRatio;document.getElementById('turnoverRatio').textContent=turnoverRatio.toFixed(2);document.getElementById('dsi').textContent=dsi.toFixed(0)+' days';document.getElementById('avgInventory').textContent='$'+avgInventory.toLocaleString();document.getElementById('cogsDisplay').textContent='$'+cogs.toLocaleString();document.getElementById('beginningDisplay').textContent='$'+beginningInventory.toLocaleString();document.getElementById('endingDisplay').textContent='$'+endingInventory.toLocaleString();document.getElementById('periodDisplay').textContent=period+' days';}
+function clearInventoryTurnover(){document.getElementById('cogs').value='';document.getElementById('beginningInventory').value='';document.getElementById('endingInventory').value='';document.getElementById('turnoverRatio').textContent='0';document.getElementById('dsi').textContent='0 days';document.getElementById('avgInventory').textContent='$0';document.getElementById('cogsDisplay').textContent='$0';document.getElementById('beginningDisplay').textContent='$0';document.getElementById('endingDisplay').textContent='$0';document.getElementById('periodDisplay').textContent='365 days';}
+function copyInventoryResults(){const turnover=document.getElementById('turnoverRatio').textContent;const dsi=document.getElementById('dsi').textContent;const text=`Turnover Ratio: ${turnover}, DSI: ${dsi}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Working Capital",icon:"fa-coins",url:"working-capital-calculator.html"},{name:"Cash Flow",icon:"fa-money-bill-wave",url:"cash-flow-calculator.html"},{name:"Profit Margin",icon:"fa-chart-pie",url:"profit-margin-calculator.html"},{name:"Breakeven Analysis",icon:"fa-chart-line",url:"breakeven-analysis-calculator.html"},{name:"Markup Calculator",icon:"fa-percent",url:"markup-calculator.html"},{name:"Discount Calculator",icon:"fa-tags",url:"discount-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridBusiness").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

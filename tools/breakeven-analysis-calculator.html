@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Breakeven Analysis Calculator – Find Your Break-Even Point | ToolGram</title>
+    <meta name="description" content="Calculate breakeven point for your business. Free breakeven analysis calculator to determine units needed to cover costs.">
+    <meta name="keywords" content="breakeven analysis calculator, break even point calculator, business breakeven, profit analysis, cost volume profit">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/breakeven-analysis-calculator.html">
+    <meta property="og:title" content="Breakeven Analysis Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your breakeven point for business planning.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/breakeven-analysis-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Breakeven Analysis Calculator","description": "Calculate breakeven point for business planning.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/breakeven-analysis-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Breakeven Point", "Cost Analysis", "Profit Planning", "Unit Calculation"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-chart-line"></i></div>
+            <div><h1 style="margin:0;">Breakeven Analysis Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Find your break-even point for business planning</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Cost Information</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Fixed Costs ($)</label><input type="number" id="fixedCosts" placeholder="10000" value="10000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Variable Cost per Unit ($)</label><input type="number" id="variableCost" placeholder="20" value="20"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Selling Price per Unit ($)</label><input type="number" id="sellingPrice" placeholder="50" value="50"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateBreakeven()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearBreakeven()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Breakeven Results</div>
+                <div class="output-display" id="outputBreakeven">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-bullseye"></i> Breakeven Point (Units)</div><div style="margin-bottom:10px;"><span class="loan-result" id="breakevenUnits">0</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Breakeven Revenue:</strong> <span id="breakevenRevenue">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Contribution Margin:</strong> <span id="contributionMargin">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Contribution Margin Ratio:</strong> <span id="cmRatio">0%</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Profit at 500 Units:</strong> <span id="profit500">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Profit at 1000 Units:</strong> <span id="profit1000">$0</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyBreakevenResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💼 Related Business Tools</h2>
+            <div class="related-grid" id="relatedGridBusiness"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Breakeven Analysis?</h3>
+            <p>Breakeven analysis determines the point at which your total revenue equals total costs, meaning your business neither makes a profit nor incurs a loss. This critical metric helps businesses understand the minimum sales volume needed to cover all expenses. The breakeven point is calculated by dividing fixed costs by the contribution margin (selling price minus variable cost per unit).</p>
+            <p>Fixed costs remain constant regardless of production volume, such as rent, salaries, and insurance. Variable costs change directly with production volume, including raw materials, direct labor, and packaging. Understanding the relationship between these costs and pricing enables informed decisions about production levels, pricing strategies, and profitability targets.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter your total fixed costs (expenses that don't change with sales volume).<br><strong>Step 2:</strong> Input variable cost per unit (cost to produce one unit).<br><strong>Step 3:</strong> Enter selling price per unit (what you charge customers).<br><strong>Step 4:</strong> Click "Calculate" to see your breakeven point.<br><strong>Step 5:</strong> Use results to plan production and pricing strategies.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Breakeven Analysis Examples</h3>
+            <p><strong>Example 1 - Retail Store:</strong> A boutique has fixed costs of $8,000 monthly (rent, utilities, salaries). Each dress costs $30 to produce (variable cost) and sells for $80. Breakeven units = $8,000 / ($80 - $30) = 160 dresses. The store must sell 160 dresses monthly to break even, generating $12,800 in revenue.</p>
+            <p><strong>Example 2 - Software Company:</strong> A SaaS business has fixed costs of $25,000 monthly (servers, salaries, marketing). Variable costs are minimal at $5 per customer for support. Subscription price is $50 per user. Breakeven units = $25,000 / ($50 - $5) = 556 customers. At 1,000 customers, profit would be $20,000 monthly.</p>
+            <p><strong>Example 3 - Food Truck:</strong> Fixed costs are $4,000 monthly (vehicle payment, insurance, permits). Food cost per meal averages $8, and average selling price is $15. Breakeven units = $4,000 / ($15 - $8) = 572 meals. Selling 800 meals generates profit of $2,200 monthly before additional expenses.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Business Breakeven Tips</h3>
+            <ul>
+                <li><strong>Reduce Fixed Costs:</strong> Negotiate lower rent, optimize staffing, and eliminate unnecessary subscriptions to lower your breakeven point.</li>
+                <li><strong>Increase Selling Price:</strong> Test price increases if demand allows. Higher prices increase contribution margin and reduce breakeven volume.</li>
+                <li><strong>Lower Variable Costs:</strong> Find cheaper suppliers, improve production efficiency, or reduce material waste to improve margins.</li>
+                <li><strong>Focus on High-Margin Products:</strong> Promote items with the highest contribution margins to reach breakeven faster.</li>
+                <li><strong>Monitor Regularly:</strong> Recalculate breakeven when costs or prices change to stay informed of your minimum sales targets.</li>
+                <li><strong>Build Buffer:</strong> Aim for sales 20-30% above breakeven to account for unexpected costs and market fluctuations.</li>
+                <li><strong>Seasonal Adjustments:</strong> Account for seasonal variations by calculating monthly and annual breakeven points.</li>
+                <li><strong>Break Down by Product:</strong> Calculate breakeven for each product line to identify which items contribute most to covering fixed costs.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the difference between fixed and variable costs?</div>
+            <div class="faq-answer">Fixed costs remain constant regardless of production volume (rent, salaries, insurance). Variable costs change directly with production level (materials, direct labor, shipping). Understanding this distinction is crucial for accurate breakeven calculations and pricing decisions.</div>
+            <div class="faq-question">How do I lower my breakeven point?</div>
+            <div class="faq-answer">Reduce fixed costs by negotiating better terms, eliminating waste, or outsourcing. Increase contribution margin by raising prices or reducing variable costs. Lowering breakeven means you need fewer sales to become profitable, reducing business risk.</div>
+            <div class="faq-question">What is contribution margin?</div>
+            <div class="faq-answer">Contribution margin is selling price minus variable cost per unit. It represents the amount each unit contributes toward covering fixed costs and generating profit. Higher contribution margins lead to lower breakeven points and faster profitability.</div>
+            <div class="faq-question">Should I include owner's salary in fixed costs?</div>
+            <div class="faq-answer">Yes, include a reasonable market-rate salary for owner labor in fixed costs. This ensures breakeven analysis reflects true business viability. If the business can't cover owner compensation, it may not be sustainable long-term.</div>
+            <div class="faq-question">How does breakeven help with pricing decisions?</div>
+            <div class="faq-answer">Breakeven analysis shows the minimum price needed to cover costs at expected sales volumes. It helps evaluate whether current prices are sustainable and whether price increases or decreases would impact profitability targets.</div>
+            <div class="faq-question">What if I have multiple products?</div>
+            <div class="faq-answer">Calculate weighted average contribution margin based on sales mix, or calculate breakeven for each product line separately. For multi-product businesses, contribution margin ratio analysis is often more useful than unit-based calculations.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateBreakeven(){const fixedCosts=parseFloat(document.getElementById('fixedCosts').value)||0;const variableCost=parseFloat(document.getElementById('variableCost').value)||0;const sellingPrice=parseFloat(document.getElementById('sellingPrice').value)||0;if(sellingPrice<=variableCost){alert('Selling price must be greater than variable cost');return;}const contributionMargin=sellingPrice-variableCost;const breakevenUnits=Math.ceil(fixedCosts/contributionMargin);const breakevenRevenue=breakevenUnits*sellingPrice;const cmRatio=(contributionMargin/sellingPrice*100).toFixed(1);const profit500=(500*contributionMargin)-fixedCosts;const profit1000=(1000*contributionMargin)-fixedCosts;document.getElementById('breakevenUnits').textContent=breakevenUnits;document.getElementById('breakevenRevenue').textContent='$'+breakevenRevenue.toLocaleString();document.getElementById('contributionMargin').textContent='$'+contributionMargin.toFixed(2);document.getElementById('cmRatio').textContent=cmRatio+'%';document.getElementById('profit500').textContent='$'+profit500.toLocaleString();document.getElementById('profit1000').textContent='$'+profit1000.toLocaleString();}
+function clearBreakeven(){document.getElementById('fixedCosts').value='';document.getElementById('variableCost').value='';document.getElementById('sellingPrice').value='';document.getElementById('breakevenUnits').textContent='0';document.getElementById('breakevenRevenue').textContent='$0';document.getElementById('contributionMargin').textContent='$0';document.getElementById('cmRatio').textContent='0%';document.getElementById('profit500').textContent='$0';document.getElementById('profit1000').textContent='$0';}
+function copyBreakevenResults(){const units=document.getElementById('breakevenUnits').textContent;const revenue=document.getElementById('breakevenRevenue').textContent;const text=`Breakeven Point: ${units} units (${revenue})`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Profit Margin",icon:"fa-chart-pie",url:"profit-margin-calculator.html"},{name:"Markup Calculator",icon:"fa-percent",url:"markup-calculator.html"},{name:"Discount Calculator",icon:"fa-tags",url:"discount-calculator.html"},{name:"Cash Flow",icon:"fa-money-bill-wave",url:"cash-flow-calculator.html"},{name:"Working Capital",icon:"fa-coins",url:"working-capital-calculator.html"},{name:"Startup Costs",icon:"fa-rocket",url:"startup-cost-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridBusiness").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

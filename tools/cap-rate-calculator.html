@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Cap Rate Calculator – Capitalization Rate | ToolGram</title>
+    <meta name="description" content="Calculate cap rate for real estate. Free capitalization rate calculator for rental properties and commercial real estate. Accurate cap rate calculation.">
+    <meta name="keywords" content="cap rate calculator, capitalization rate calculator, real estate cap rate, commercial property cap rate, rental property analysis, NOI calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/cap-rate-calculator.html">
+    <meta property="og:title" content="Cap Rate Calculator | ToolGram">
+    <meta property="og:description" content="Calculate cap rate for real estate investments.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/cap-rate-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Cap Rate Calculator","description": "Calculate cap rate for real estate investments.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/cap-rate-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Cap Rate Calculation", "NOI Calculator", "Real Estate Analysis", "Investment Returns"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-percentage"></i></div>
+            <div><h1 style="margin:0;">Cap Rate Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate capitalization rate for real estate</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Property Data</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Net Operating Income ($)</label><input type="number" id="noi" placeholder="30000" value="30000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Property Value ($)</label><input type="number" id="propertyValue" placeholder="400000" value="400000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Annual Rental Income ($)</label><input type="number" id="annualRentalIncome" placeholder="48000" value="48000"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Annual Expenses ($)</label><input type="number" id="annualExpenses" placeholder="18000" value="18000"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateCapRate()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearCapRate()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Cap Rate Results</div>
+                <div class="output-display" id="outputCapRate">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-percentage"></i> Cap Rate</div><div style="margin-bottom:10px;"><span class="loan-result" id="capRateResult">0%</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Net Operating Income:</strong> <span id="noiDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Operating Expense Ratio:</strong> <span id="oer">0%</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Value at 8% Cap:</strong> <span id="valueAt8Cap">$0</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Property Value:</strong> <span id="propertyValueDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Rental Income:</strong> <span id="rentalIncomeDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Total Expenses:</strong> <span id="expensesDisplay">$0</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyCapRateResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">🏠 Related Real Estate Tools</h2>
+            <div class="related-grid" id="relatedGridRealEstate"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Cap Rate?</h3>
+            <p>Cap rate (capitalization rate) is a real estate valuation metric that measures the ratio of Net Operating Income (NOI) to property value. It represents the unleveraged return a property would generate if purchased with all cash, without considering financing. Cap rate is calculated as NOI divided by property value, expressed as a percentage. It's widely used by investors to compare different properties and assess investment potential across markets.</p>
+            <p>Cap rates vary significantly by property type, location, market conditions, and risk profile. Generally, lower cap rates indicate lower risk and higher demand (typically in prime locations), while higher cap rates suggest higher risk or emerging markets. Residential properties typically have cap rates of 4-8%, while commercial properties may range from 5-12% depending on asset class and market. Understanding cap rates helps investors make informed decisions about property valuation and expected returns.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the Net Operating Income (NOI). This is annual rental income minus operating expenses. If you don't know NOI, enter income and expenses separately.<br><strong>Step 2:</strong> Enter the property value or purchase price. This is the current market value or expected acquisition cost.<br><strong>Step 3:</strong> Optionally enter annual rental income and expenses to calculate NOI automatically.<br><strong>Step 4:</strong> Click "Calculate" to see the cap rate percentage and related metrics.<br><strong>Step 5:</strong> Review the cap rate against market averages. Lower cap rates indicate safer investments, higher cap rates indicate higher risk/return.<br><strong>Step 6:</strong> Use the "Value at 8% Cap" to see what the property would be worth at a benchmark cap rate.<br><strong>Step 7:</strong> Compare cap rates across different properties to identify the best investment opportunities.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Cap Rate Examples</h3>
+            <p><strong>Example 1 - Residential Property:</strong> NOI $30,000, Value $400,000. Cap Rate = 7.5%. Typical for residential rental in good market with solid returns.</p>
+            <p><strong>Example 2 - Commercial Office:</strong> NOI $100,000, Value $1,500,000. Cap Rate = 6.67%. Lower cap rate for prime commercial property with stable tenants.</p>
+            <p><strong>Example 3 - Retail Center:</strong> NOI $80,000, Value $800,000. Cap Rate = 10%. Higher cap rate for retail indicating higher risk or emerging market.</p>
+            <p><strong>Example 4 - Multi-Family:</strong> NOI $120,000, Value $1,200,000. Cap Rate = 10%. Good cap rate for multi-family investment in growing market.</p>
+            <p><strong>Example 5 - Industrial Warehouse:</strong> NOI $60,000, Value $750,000. Cap Rate = 8%. Moderate cap rate for industrial property with long-term leases.</p>
+            <p><strong>Example 6 - Apartment Complex:</strong> NOI $200,000, Value $2,500,000. Cap Rate = 8%. Solid cap rate for larger apartment complex in stable market.</p>
+            <p><strong>Example 7 - Mixed-Use Building:</strong> NOI $90,000, Value $1,000,000. Cap Rate = 9%. Good cap rate for mixed-use property with diversified income streams.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Real Estate Investment Tips</h3>
+            <ul>
+                <li><strong>Compare Market Cap Rates:</strong> Research average cap rates for similar properties in your market. Cap rates vary by location, property type, and economic conditions.</li>
+                <li><strong>Understand the Risk-Return Tradeoff:</strong> Lower cap rates = lower risk (prime locations, stable tenants). Higher cap rates = higher risk (emerging markets, vacancy risk).</li>
+                <li><strong>Cap Rate vs. Cash on Cash:</strong> Cap rate measures unleveraged returns. Cash on cash measures leveraged returns. Use both metrics for complete analysis.</li>
+                <li><strong>Market Cycle Awareness:</strong> Cap rates compress during bull markets (prices rise faster than income) and expand during bear markets. Time your investments accordingly.</li>
+                <li><strong>NOI Accuracy Matters:</strong> Accurate NOI calculation is crucial. Include all operating expenses but exclude mortgage payments and depreciation (these are financing and tax items).</li>
+                <li><strong>Property Type Differences:</strong> Different property types have different typical cap rate ranges. Single-family 4-8%, multi-family 5-10%, retail 7-12%, office 6-10%, industrial 6-9%.</li>
+                <li><strong>Location Impact:</strong> Prime locations (major cities, desirable neighborhoods) have lower cap rates. Secondary and tertiary markets typically offer higher cap rates.</li>
+                <li><strong>Cap Rate Compression:</strong> Be aware of cap rate compression in hot markets. Buying at compressed cap rates may limit future appreciation potential.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is a good cap rate?</div>
+            <div class="faq-answer">Good cap rates vary by market and property type. Generally, 5-10% is considered normal for investment properties. Lower than 5% may indicate overvaluation, higher than 10% may indicate higher risk. Compare to local market averages.</div>
+            <div class="faq-question">How is cap rate different from ROI?</div>
+            <div class="faq-answer">Cap rate measures unleveraged return (NOI/Property Value). ROI measures total return including financing (Cash Flow/Total Investment). Cap rate doesn't consider debt, ROI does. Use cap rate for property comparison, ROI for personal return analysis.</div>
+            <div class="faq-question">What expenses are included in NOI?</div>
+            <div class="faq-answer">NOI includes property taxes, insurance, maintenance, management fees, utilities (if paid by owner), and vacancy allowance. It excludes mortgage payments, depreciation, and capital expenditures (which are one-time improvements).</div>
+            <div class="faq-question">Why do cap rates vary by property type?</div>
+            <div class="faq-answer">Different property types have different risk profiles, lease structures, and demand patterns. Retail has higher risk due to tenant turnover, multi-family has steady demand, office has long-term leases. Risk differences cause cap rate variations.</div>
+            <div class="faq-question">Can cap rate be negative?</div>
+            <div class="faq-answer">Technically yes, if expenses exceed income (negative NOI). However, negative cap rate indicates a poorly performing property and is generally not a viable investment. Properties should have positive NOI and cap rate.</div>
+            <div class="faq-question">How does cap rate affect property value?</div>
+            <div class="faq-answer">Property Value = NOI / Cap Rate. For a given NOI, lower cap rate = higher property value, higher cap rate = lower property value. This is why cap rate compression (lower rates) leads to property value appreciation.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateCapRate(){const noi=parseFloat(document.getElementById('noi').value)||0;const propertyValue=parseFloat(document.getElementById('propertyValue').value)||0;const annualRentalIncome=parseFloat(document.getElementById('annualRentalIncome').value)||0;const annualExpenses=parseFloat(document.getElementById('annualExpenses').value)||0;if(noi<=0){const calculatedNoi=annualRentalIncome-annualExpenses;if(calculatedNoi<=0){alert('NOI must be greater than 0');return;}document.getElementById('noi').value=calculatedNoi;const finalNoi=calculatedNoi;const capRate=(finalNoi/propertyValue*100).toFixed(2);const oer=(annualExpenses/annualRentalIncome*100).toFixed(2);const valueAt8Cap=(finalNoi/0.08).toFixed(0);document.getElementById('capRateResult').textContent=capRate+'%';document.getElementById('noiDisplay').textContent='$'+finalNoi.toLocaleString();document.getElementById('oer').textContent=oer+'%';document.getElementById('valueAt8Cap').textContent='$'+parseInt(valueAt8Cap).toLocaleString();document.getElementById('propertyValueDisplay').textContent='$'+propertyValue.toLocaleString();document.getElementById('rentalIncomeDisplay').textContent='$'+annualRentalIncome.toLocaleString();document.getElementById('expensesDisplay').textContent='$'+annualExpenses.toLocaleString();}else{const capRate=(noi/propertyValue*100).toFixed(2);const oer=(annualExpenses/annualRentalIncome*100).toFixed(2);const valueAt8Cap=(noi/0.08).toFixed(0);document.getElementById('capRateResult').textContent=capRate+'%';document.getElementById('noiDisplay').textContent='$'+noi.toLocaleString();document.getElementById('oer').textContent=oer+'%';document.getElementById('valueAt8Cap').textContent='$'+parseInt(valueAt8Cap).toLocaleString();document.getElementById('propertyValueDisplay').textContent='$'+propertyValue.toLocaleString();document.getElementById('rentalIncomeDisplay').textContent='$'+annualRentalIncome.toLocaleString();document.getElementById('expensesDisplay').textContent='$'+annualExpenses.toLocaleString();}}
+function clearCapRate(){document.getElementById('noi').value='30000';document.getElementById('propertyValue').value='400000';document.getElementById('annualRentalIncome').value='48000';document.getElementById('annualExpenses').value='18000';document.getElementById('capRateResult').textContent='0%';document.getElementById('noiDisplay').textContent='$0';document.getElementById('oer').textContent='0%';document.getElementById('valueAt8Cap').textContent='$0';document.getElementById('propertyValueDisplay').textContent='$0';document.getElementById('rentalIncomeDisplay').textContent='$0';document.getElementById('expensesDisplay').textContent='$0';}
+function copyCapRateResults(){const capRate=document.getElementById('capRateResult').textContent;const noi=document.getElementById('noiDisplay').textContent;const text=`Cap Rate: ${capRate}, NOI: ${noi}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Rental Property Calculator",icon:"fa-home",url:"rental-property-calculator.html"},{name:"Cash on Cash Return Calculator",icon:"fa-chart-line",url:"cash-on-cash-return-calculator.html"},{name:"ROI Rental Property Calculator",icon:"fa-home",url:"roi-rental-property-calculator.html"},{name:"Commercial Real Estate Calculator",icon:"fa-building",url:"commercial-real-estate-calculator.html"},{name:"Business Valuation Calculator",icon:"fa-building",url:"business-valuation-calculator.html"},{name:"Profit Margin Calculator",icon:"fa-chart-pie",url:"profit-margin-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridRealEstate").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

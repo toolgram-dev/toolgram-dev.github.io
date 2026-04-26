@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Calorie Intake Calculator – Daily Calorie Needs | ToolGram</title>
+    <meta name="description" content="Calculate your daily calorie intake needs with our free calorie calculator. Find maintenance calories for weight management.">
+    <meta name="keywords" content="calorie intake calculator, daily calorie needs, maintenance calories, calorie calculator, TDEE calculator">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/calorie-intake-calculator.html">
+    <meta property="og:title" content="Calorie Intake Calculator | ToolGram">
+    <meta property="og:description" content="Calculate your daily calorie intake for weight management.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/calorie-intake-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Calorie Intake Calculator","description": "Calculate your daily calorie intake for weight management.","applicationCategory": "HealthApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/calorie-intake-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Calorie Intake Calculation", "Maintenance Calories", "Weight Goals", "Nutrition Planning"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-utensils"></i></div>
+            <div><h1 style="margin:0;">Calorie Intake Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate your daily calorie needs</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Personal Data</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Gender</label><select id="gender"><option value="male">Male</option><option value="female">Female</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Age (years)</label><input type="number" id="age" placeholder="30" value="30"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Weight (kg)</label><input type="number" id="weight" placeholder="70" value="70"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Height (cm)</label><input type="number" id="height" placeholder="175" value="175"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Activity Level</label><select id="activityLevel"><option value="1.2">Sedentary (little or no exercise)</option><option value="1.375">Lightly Active (1-3 days/week)</option><option value="1.55">Moderately Active (3-5 days/week)</option><option value="1.725">Very Active (6-7 days/week)</option><option value="1.9">Extra Active (very hard exercise & physical job)</option></select></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Goal</label><select id="goal"><option value="maintain">Maintain Weight</option><option value="lose">Lose Weight (0.5 kg/week)</option><option value="losefast">Lose Weight Fast (1 kg/week)</option><option value="gain">Gain Weight (0.5 kg/week)</option><option value="gainfast">Gain Weight Fast (1 kg/week)</option></select></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateCalorieIntake()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearCalorieIntake()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Calorie Results</div>
+                <div class="output-display" id="outputCalorieIntake">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-utensils"></i> Daily Calorie Intake</div><div style="margin-bottom:10px;"><span class="loan-result" id="calorieIntake">0</span> calories</div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">BMR:</strong> <span id="bmrValue">0</span> cal</div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Maintenance:</strong> <span id="maintenanceCal">0</span> cal</div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Goal:</strong> <span id="goalText">-</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Protein:</strong> <span id="proteinGrams">0</span> g</div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Carbs:</strong> <span id="carbsGrams">0</span> g</div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Fat:</strong> <span id="fatGrams">0</span> g</div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyCalorieResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💪 Related Health Tools</h2>
+            <div class="related-grid" id="relatedGridHealth"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Calorie Intake?</h3>
+            <p>Calorie intake refers to the amount of energy you consume through food and beverages daily. Your body burns calories continuously for basic functions (BMR) plus additional calories through physical activity. To maintain weight, calorie intake must equal calories burned (TDEE). To lose weight, consume fewer calories than burned. To gain weight, consume more than burned.</p>
+            <p>This calculator uses the Mifflin-St Jeor equation to estimate your BMR, then multiplies by your activity level to find TDEE (maintenance calories). Based on your goal, it adjusts calories to create an appropriate deficit or surplus. It also provides macronutrient breakdown suggestions for balanced nutrition.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Select your gender. Biological sex affects BMR due to differences in typical muscle mass and body composition.<br><strong>Step 2:</strong> Enter your age in years. BMR decreases with age as muscle mass naturally declines.<br><strong>Step 3:</strong> Enter your weight in kilograms. Weight directly impacts calorie needs - more mass requires more energy.<br><strong>Step 4:</strong> Enter your height in centimeters. Taller individuals have higher BMR due to greater body surface area.<br><strong>Step 5:</strong> Select your activity level. This multiplies your BMR to find your TDEE based on typical daily movement.<br><strong>Step 6:</strong> Choose your goal. This adjusts calories for weight loss, maintenance, or gain based on your objective.<br><strong>Step 7:</strong> Click "Calculate" to see your personalized daily calorie target and macronutrient recommendations.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Calorie Intake Examples</h3>
+            <p><strong>Example 1 - Maintenance Male:</strong> 30 years, 70kg, 175cm, Moderate activity, Maintain. Intake = 2,450 cal. Maintenance calories for average active male.</p>
+            <p><strong>Example 2 - Weight Loss Female:</strong> 28 years, 58kg, 165cm, Light activity, Lose weight. Intake = 1,450 cal. Deficit for sustainable weight loss.</p>
+            <p><strong>Example 3 - Weight Gain Male:</strong> 25 years, 75kg, 180cm, Very active, Gain weight. Intake = 3,200 cal. Surplus for muscle building.</p>
+            <p><strong>Example 4 - Maintenance Female:</strong> 35 years, 60kg, 160cm, Sedentary, Maintain. Intake = 1,650 cal. Maintenance for less active female.</p>
+            <p><strong>Example 5 - Fast Loss Male:</strong> 40 years, 90kg, 178cm, Moderate activity, Lose fast. Intake = 1,800 cal. Aggressive deficit for faster weight loss.</p>
+            <p><strong>Example 6 - Athlete Female:</strong> 22 years, 55kg, 170cm, Very active, Maintain. Intake = 2,400 cal. High calorie needs for athlete.</p>
+            <p><strong>Example 7 - Elderly Male:</strong> 65 years, 75kg, 170cm, Sedentary, Maintain. Intake = 1,750 cal. Lower needs due to age and inactivity.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Nutrition Tips</h3>
+            <ul>
+                <li><strong>Protein Priority:</strong> Aim for 1.6-2.2g protein per kg of body weight. Protein supports muscle retention during weight loss and muscle growth during gain. It also increases satiety.</li>
+                <li><strong>Don't Cut Too Low:</strong> Never consume fewer calories than your BMR. Eating below BMR causes metabolic slowdown, muscle loss, and nutrient deficiencies. Minimum intake should be BMR + 200-300 calories.</li>
+                <li><strong>Quality Matters:</strong> Focus on nutrient-dense whole foods rather than calorie counting alone. Vegetables, fruits, lean proteins, whole grains, and healthy fats provide optimal nutrition.</li>
+                <li><strong>Gradual Changes:</strong> Aim for 0.5-1 kg per week weight change. Faster changes are often unsustainable and may cause muscle loss or metabolic adaptation. Patience yields lasting results.</li>
+                <li><strong>Track Intake:</strong> Use a food tracking app to monitor actual consumption. Most people underestimate calories consumed. Accurate tracking ensures you hit your targets.</li>
+                <li><strong>Adjust as Needed:</strong> Recalculate calorie needs every 5-10 kg of weight change. As you lose or gain weight, your TDEE changes, requiring adjusted calorie targets.</li>
+                <li><strong>Hydration:</strong> Drink adequate water daily. Dehydration can be mistaken for hunger. Staying hydrated supports metabolism and overall health.</li>
+                <li><strong>Listen to Your Body:</strong> Pay attention to hunger, energy levels, and performance. Adjust intake if you feel fatigued, weak, or notice performance declines. Individual needs vary.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How many calories should I eat daily?</div>
+            <div class="faq-answer">Daily calorie needs vary by individual. Most adults need 1,600-3,000 calories daily depending on size, age, gender, and activity level. This calculator provides personalized recommendations based on your specific data and goals.</div>
+            <div class="faq-question">Is a 1200 calorie diet safe?</div>
+            <div class="faq-answer">1200 calories is below the BMR for most adults. Such low intake can cause muscle loss, metabolic slowdown, and nutrient deficiencies. Unless medically supervised, minimum intake should be at least your BMR. Most adults need 1,400+ calories.</div>
+            <div class="faq-question">How fast can I lose weight safely?</div>
+            <div class="faq-answer">Safe weight loss is 0.5-1 kg (1-2 lbs) per week, requiring a 500-1000 calorie daily deficit. Faster loss often results in muscle loss, metabolic adaptation, and is typically unsustainable. Gradual loss yields lasting results.</div>
+            <div class="faq-question">Do I need to count calories forever?</div>
+            <div class="faq-answer">Not necessarily. Calorie counting is a learning tool. Once you understand portion sizes and calorie density, you can transition to intuitive eating. However, periodic tracking helps maintain awareness, especially during weight maintenance.</div>
+            <div class="faq-question">What if I'm not losing weight on my calorie target?</div>
+            <div class="faq-answer">Calorie calculators are estimates. Individual variations in metabolism, NEAT (non-exercise activity), and absorption can affect actual needs. If not seeing results after 2-3 weeks, reduce intake by 100-200 calories or increase activity.</div>
+            <div class="faq-question">How do I distribute my macros?</div>
+            <div class="faq-answer">A balanced distribution is typically 30% protein, 35% carbs, 35% fat for general health. Adjust based on goals: higher protein for muscle gain/retention, higher carbs for athletes, moderate fat for hormone health. This calculator provides baseline recommendations.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateCalorieIntake(){const gender=document.getElementById('gender').value;const age=parseFloat(document.getElementById('age').value)||0;const weight=parseFloat(document.getElementById('weight').value)||0;const height=parseFloat(document.getElementById('height').value)||0;const activityLevel=parseFloat(document.getElementById('activityLevel').value)||1.2;const goal=document.getElementById('goal').value;if(age<=0||weight<=0||height<=0){alert('Age, weight, and height must be greater than 0');return;}let bmr=0;if(gender==='male'){bmr=(10*weight)+(6.25*height)-(5*age)+5;}else{bmr=(10*weight)+(6.25*height)-(5*age)-161;}const tdee=bmr*activityLevel;let calorieIntake=tdee;let goalText='Maintain Weight';if(goal==='lose'){calorieIntake=tdee-500;goalText='Lose Weight (0.5 kg/week)';}else if(goal==='losefast'){calorieIntake=tdee-1000;goalText='Lose Weight Fast (1 kg/week)';}else if(goal==='gain'){calorieIntake=tdee+500;goalText='Gain Weight (0.5 kg/week)';}else if(goal==='gainfast'){calorieIntake=tdee+1000;goalText='Gain Weight Fast (1 kg/week)';}if(calorieIntake<bmr+200)calorieIntake=bmr+200;const proteinGrams=Math.round(weight*1.8);const fatGrams=Math.round((calorieIntake*0.3)/9);const carbsGrams=Math.round((calorieIntake-(proteinGrams*4)-(fatGrams*9))/4);document.getElementById('calorieIntake').textContent=Math.round(calorieIntake);document.getElementById('bmrValue').textContent=Math.round(bmr);document.getElementById('maintenanceCal').textContent=Math.round(tdee);document.getElementById('goalText').textContent=goalText;document.getElementById('proteinGrams').textContent=proteinGrams;document.getElementById('carbsGrams').textContent=carbsGrams;document.getElementById('fatGrams').textContent=fatGrams;}
+function clearCalorieIntake(){document.getElementById('age').value='30';document.getElementById('weight').value='70';document.getElementById('height').value='175';document.getElementById('calorieIntake').textContent='0';document.getElementById('bmrValue').textContent='0';document.getElementById('maintenanceCal').textContent='0';document.getElementById('goalText').textContent='-';document.getElementById('proteinGrams').textContent='0';document.getElementById('carbsGrams').textContent='0';document.getElementById('fatGrams').textContent='0';}
+function copyCalorieResults(){const intake=document.getElementById('calorieIntake').textContent;const goal=document.getElementById('goalText').textContent;const text=`Daily Calories: ${intake}, Goal: ${goal}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"BMR Calculator",icon:"fa-fire",url:"bmr-calculator.html"},{name:"TDEE Calculator",icon:"fa-bolt",url:"tdee-calculator.html"},{name:"BMI Calculator",icon:"fa-weight",url:"bmi-calculator.html"},{name:"Calorie Burn Calculator",icon:"fa-fire-alt",url:"calorie-burn-calculator.html"},{name:"Water Intake Calculator",icon:"fa-tint",url:"water-intake-calculator.html"},{name:"Ideal Weight Calculator",icon:"fa-balance-scale",url:"ideal-weight-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridHealth").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>

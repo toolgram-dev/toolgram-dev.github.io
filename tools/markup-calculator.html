@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Markup Calculator – Calculate Markup Percentage | ToolGram</title>
+    <meta name="description" content="Calculate markup percentage from cost and selling price. Free markup calculator for pricing strategy and profit planning.">
+    <meta name="keywords" content="markup calculator, markup percentage, pricing calculator, cost plus pricing, profit markup">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/markup-calculator.html">
+    <meta property="og:title" content="Markup Calculator | ToolGram">
+    <meta property="og:description" content="Calculate markup percentage for your pricing strategy.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/markup-calculator.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "WebApplication","name": "Markup Calculator","description": "Calculate markup percentage for your pricing strategy.","applicationCategory": "FinanceApplication","operatingSystem": "Any","url": "https://toolgram.tech/tools/markup-calculator.html","offers": {"@type": "Offer", "price": "0"},"featureList": ["Markup Percentage", "Pricing Strategy", "Cost Plus Pricing", "Profit Planning"]}</script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-percent"></i></div>
+            <div><h1 style="margin:0;">Markup Calculator</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Calculate markup percentage for pricing</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-sliders-h"></i> Cost & Price</div>
+                <div style="padding:20px">
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Cost ($)</label><input type="number" id="cost" placeholder="100" value="100"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Selling Price ($)</label><input type="number" id="sellingPrice" placeholder="150" value="150"></div>
+                    <div class="var-row"><label style="color:#fff;min-width:150px">Markup (%)</label><input type="number" id="markupPercent" placeholder="50" value="50"></div>
+                    <div class="tool-actions">
+                        <button class="action-btn" onclick="calculateMarkup()"><i class="fas fa-calculator"></i> Calculate</button>
+                        <button class="secondary-btn" onclick="clearMarkup()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-chart-bar"></i> Markup Results</div>
+                <div class="output-display" id="outputMarkup">
+                    <div class="tax-box"><div style="font-weight:600;color:#FBBF24;margin-bottom:5px;"><i class="fas fa-percentage"></i> Markup Percentage</div><div style="margin-bottom:10px;"><span class="loan-result" id="markupResult">0%</span></div></div>
+                    <div style="margin-top:15px;"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Gross Profit:</strong> <span id="grossProfit">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Gross Margin:</strong> <span id="grossMargin">0%</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Profit per Unit:</strong> <span id="profitPerUnit">$0</span></div></div>
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Cost:</strong> <span id="costDisplay">$0</span></div><div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Selling Price:</strong> <span id="priceDisplay">$0</span></div></div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyMarkupResults()"><i class="far fa-copy"></i> Copy Results</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">💼 Related Business Tools</h2>
+            <div class="related-grid" id="relatedGridBusiness"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is Markup?</h3>
+            <p>Markup is the difference between the cost of a product or service and its selling price, expressed as a percentage of the cost. It represents the amount added to the cost to determine the selling price and ensures the business covers costs and generates profit. Markup is a fundamental concept in cost-plus pricing strategies.</p>
+            <p>Markup differs from margin in important ways. Markup is calculated based on cost, while margin is calculated based on selling price. For example, a 50% markup on a $100 cost means a $50 profit and $150 selling price. The margin on that same sale is 33.3% ($50 profit divided by $150 selling price).</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Calculator</h3>
+            <p><strong>Step 1:</strong> Enter the cost of your product or service.<br><strong>Step 2:</strong> Input the selling price to calculate markup, OR<br><strong>Step 3:</strong> Enter markup percentage to calculate selling price.<br><strong>Step 4:</strong> Click "Calculate" to see all results.<br><strong>Step 5:</strong> Use results to set optimal pricing for profitability.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> Markup Examples</h3>
+            <p><strong>Example 1 - Retail Clothing:</strong> Cost $40, desired markup 60%. Selling price = $40 × (1 + 0.60) = $64. Gross profit = $24. Gross margin = 37.5%. This markup covers retail overhead, inventory costs, and profit margin typical for clothing retailers.</p>
+            <p><strong>Example 2 - Restaurant Food:</strong> Food cost $8, desired markup 300%. Selling price = $8 × (1 + 3.00) = $32. Gross profit = $24. Gross margin = 75%. High markups are common in restaurants to cover labor, rent, utilities, and other operating expenses.</p>
+            <p><strong>Example 3 - Wholesale Distribution:</strong> Cost $50, desired markup 20%. Selling price = $50 × (1 + 0.20) = $60. Gross profit = $10. Gross margin = 16.7%. Lower markups are typical in wholesale due to higher volume and lower overhead per unit.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> Markup Pricing Tips</h3>
+            <ul>
+                <li><strong>Know Your Costs:</strong> Include all costs: materials, labor, overhead, shipping, and packaging. Underestimating costs leads to insufficient markups and losses.</li>
+                <li><strong>Research Competitors:</strong> Check market prices for similar products. Your markup must result in competitive pricing while maintaining profitability.</li>
+                <li><strong>Consider Industry Standards:</strong> Different industries have typical markup ranges. Retail often uses 50-100%, wholesale 10-30%, and services 100-200%.</li>
+                <li><strong>Account for Discounts:</strong> Factor in planned discounts, sales, and promotional pricing when setting base markup to maintain profitability.</li>
+                <li><strong>Volume Considerations:</strong> Higher volume can support lower markups due to economies of scale. Lower volume may require higher markups to cover fixed costs.</li>
+                <li><strong>Seasonal Adjustments:</strong> Adjust markups based on seasonality. Higher markups during peak seasons, lower during off-peak to maintain sales volume.</li>
+                <li><strong>Value-Based Pricing:</strong> For unique or premium products, markup based on perceived value rather than just cost. Premium products can command higher markups.</li>
+                <li><strong>Regular Review:</strong> Review and adjust markups regularly based on cost changes, market conditions, and competitive pressures.</li>
+            </ul>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is the difference between markup and margin?</div>
+            <div class="faq-answer">Markup is the percentage added to cost to get selling price. Margin is the percentage of selling price that is profit. Markup = (Selling Price - Cost) / Cost. Margin = (Selling Price - Cost) / Selling Price. Markup is always higher than margin for the same profit amount.</div>
+            <div class="faq-question">What is a typical markup percentage?</div>
+            <div class="faq-answer">Markups vary widely by industry. Retail typically 50-100%, restaurants 200-300%, wholesale 10-30%, manufacturing 20-50%, and professional services 100-200%. Research your specific industry for accurate benchmarks.</div>
+            <div class="faq-question">How do I calculate selling price from markup?</div>
+            <div class="faq-answer">Selling Price = Cost × (1 + Markup Percentage). For example, with a $100 cost and 50% markup: Selling Price = $100 × (1 + 0.50) = $150. This formula ensures the markup percentage is applied to the cost.</div>
+            <div class="faq-question">Should markup include overhead costs?</div>
+            <div class="faq-answer">Yes, markup should cover all costs including overhead (rent, utilities, salaries, insurance). Calculate total cost per unit including allocated overhead, then apply markup to determine selling price that covers all expenses and profit.</div>
+            <div class="faq-question">Can markup be too high?</div>
+            <div class="faq-answer">Excessive markup can make your product uncompetitive, reducing sales volume. However, if your product offers unique value, premium positioning may justify higher markups. Balance profitability with market acceptance.</div>
+            <div class="faq-question">How do I adjust markup for discounts?</div>
+            <div class="faq-answer">If you plan to offer discounts, increase your base markup accordingly. For example, if you want to offer 20% off and still achieve your target margin, calculate the markup needed to maintain profit after the discount is applied.</div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function calculateMarkup(){const cost=parseFloat(document.getElementById('cost').value)||0;const sellingPrice=parseFloat(document.getElementById('sellingPrice').value)||0;const markupPercent=parseFloat(document.getElementById('markupPercent').value)||0;if(cost<=0){alert('Cost must be greater than 0');return;}let calculatedPrice=0;let calculatedMarkup=0;if(sellingPrice>0){calculatedMarkup=((sellingPrice-cost)/cost*100).toFixed(1);calculatedPrice=sellingPrice;}else if(markupPercent>0){calculatedPrice=cost*(1+markupPercent/100);calculatedMarkup=markupPercent.toFixed(1);}const grossProfit=calculatedPrice-cost;const grossMargin=(grossProfit/calculatedPrice*100).toFixed(1);document.getElementById('markupResult').textContent=calculatedMarkup+'%';document.getElementById('grossProfit').textContent='$'+grossProfit.toFixed(2);document.getElementById('grossMargin').textContent=grossMargin+'%';document.getElementById('profitPerUnit').textContent='$'+grossProfit.toFixed(2);document.getElementById('costDisplay').textContent='$'+cost.toFixed(2);document.getElementById('priceDisplay').textContent='$'+calculatedPrice.toFixed(2);if(sellingPrice===0){document.getElementById('sellingPrice').value=calculatedPrice.toFixed(2);}}
+function clearMarkup(){document.getElementById('cost').value='';document.getElementById('sellingPrice').value='';document.getElementById('markupPercent').value='';document.getElementById('markupResult').textContent='0%';document.getElementById('grossProfit').textContent='$0';document.getElementById('grossMargin').textContent='0%';document.getElementById('profitPerUnit').textContent='$0';document.getElementById('costDisplay').textContent='$0';document.getElementById('priceDisplay').textContent='$0';}
+function copyMarkupResults(){const markup=document.getElementById('markupResult').textContent;const price=document.getElementById('priceDisplay').textContent;const text=`Markup: ${markup}, Selling Price: ${price}`;navigator.clipboard.writeText(text);const btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Results',2000);}
+function loadRelated(){const tools=[{name:"Profit Margin",icon:"fa-chart-pie",url:"profit-margin-calculator.html"},{name:"Discount Calculator",icon:"fa-tags",url:"discount-calculator.html"},{name:"Breakeven Analysis",icon:"fa-chart-line",url:"breakeven-analysis-calculator.html"},{name:"Cash Flow",icon:"fa-money-bill-wave",url:"cash-flow-calculator.html"},{name:"Working Capital",icon:"fa-coins",url:"working-capital-calculator.html"},{name:"Startup Costs",icon:"fa-rocket",url:"startup-cost-calculator.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridBusiness").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>
