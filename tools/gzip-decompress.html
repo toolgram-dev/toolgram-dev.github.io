@@ -1,28 +1,255 @@
-<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gzip Decompressor - Decompress GZIP Data Online | ToolGram</title><meta name="description" content="Decompress gzipped data and files. Decode base64-encoded gzip, decompress binary data, and view original content. Free online gzip decompressor."><meta name="keywords" content="gzip decompress, gunzip, gzip decoder, decompress gzip, gzip extractor, inflate algorithm, deflate decompress"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram.tech/tools/gzip-decompress.html"><meta property="og:title" content="Gzip Decompressor | ToolGram"><meta property="og:description" content="Decompress gzipped data using DEFLATE algorithm"><meta property="og:url" content="https://toolgram.tech/tools/gzip-decompress.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" type="image/x-icon" href="/favicon.ico"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Gzip Decompressor","description":"Decompress gzipped data using DEFLATE algorithm","applicationCategory":"DeveloperApplication","operatingSystem":"Any","url":"https://toolgram.tech/tools/gzip-decompress.html","offers":{"@type":"Offer","price":"0"},"featureList":["Gzip Decompress","Gunzip","DEFLATE","Data Decompression","File Extractor"]}</script>
-<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style></head>
-<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
-<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-file-archive"></i></div><div><h1 style="margin:0;">Gzip Decompressor</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Decompress gzipped data using DEFLATE algorithm</p></div></div>
-<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-upload"></i> Gzip Input</div><textarea class="tool-textarea" id="gzip-input" placeholder="Paste base64-encoded gzip data or upload file..."></textarea><div class="tool-settings"><div class="setting-item"><select id="input-encoding" style="padding:10px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff"><option value="base64">Base64 encoded</option><option value="hex">Hex encoded</option><option value="raw">Raw binary (text)</option></select></div><div class="setting-item"><label><input type="checkbox" id="detect-encoding" checked> Auto-detect encoding</label></div></div><div class="tool-actions"><button class="action-btn" onclick="decompressGzip()"><i class="fas fa-file-export"></i> Decompress</button><button class="secondary-btn" onclick="uploadGzip()"><i class="fas fa-file"></i> Upload File</button></div></div>
-<div class="tool-column"><div class="tool-column-title"><i class="fas fa-file-lines"></i> Decompressed Output</div><div class="output-display" id="decompressed-output" style="min-height:150px;padding:15px;font-family:monospace"></div><div class="tool-stats"><div class="tool-stat"><span id="compressed-size">0 bytes</span></div><div class="tool-stat"><span id="decompressed-size">0 bytes</span></div></div><div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyDecompressed()"><i class="far fa-copy"></i> Copy Text</button><button class="secondary-btn" onclick="downloadDecompressed()"><i class="fas fa-download"></i> Download</button></div></div></div></div>
-<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related Compression Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
-<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">What is Gzip?</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">Gzip is a compression format based on the DEFLATE algorithm. It's widely used for file compression, web content encoding (HTTP compression), and data transfer. Our decompressor extracts original content from gzipped data, supporting base64-encoded input for easy pasting.</p></div></div>
-<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">What's the difference between gzip and zip?</div><div class="faq-answer">Gzip compresses single files; zip archives multiple files. Gzip is often used with tar for directories (tar.gz). Both use DEFLATE but with different headers.</div>
-<div class="faq-question">How do I decompress gzip from a file?</div><div class="faq-answer">Use the "Upload File" button to select a .gz file. Our tool reads it as binary, decompresses it, and shows the content. Files under 10MB work best.</div>
-<div class="faq-question">Why do I see base64 strings?</div><div class="faq-answer">Base64 encoding is common for embedding binary data in text (JSON, XML, APIs). Our tool auto-detects and decodes base64 before decompression.</div></div></div></div>
-<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
-<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>GZIP Decompressor Online (Instant, Secure & Free) | ToolGram</title>
+    <meta name="description" content="Instantly decompress GZIP (.gz) files online. Decode Base64 gzip, extract compressed data, and view results securely in browser. No upload, 100% free tool.">
+    <meta name="keywords" content="gzip decompressor online, gzip decompress, gunzip online, gzip extractor, decompress gz file, gzip base64 decode, gzip linux command, gzip windows, gzip mac, gzip tool online free, deflate decompress online">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/gzip-decompressor.html">
+    <meta name="theme-color" content="#8B5CF6">
+    <meta property="og:title" content="GZIP Decompressor Online | ToolGram">
+    <meta property="og:description" content="Decode and extract gzip files instantly online.">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <meta property="og:url" content="https://toolgram.tech/tools/gzip-decompressor.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter SEO (NEW) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GZIP Decompressor Online | ToolGram">
+    <meta name="twitter:description" content="Instant gzip decompression tool. Works in browser, no upload needed.">
+    <meta name="twitter:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "GZIP Decompressor Online",
+      "description": "Browser-based GZIP decompression tool supporting Base64, Hex, and file extraction.",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Compression Tool",
+      "operatingSystem": "All",
+      "url": "https://toolgram.tech/tools/gzip-decompressor.html",
+      "browserRequirements": "Requires JavaScript. Works on modern browsers supporting DecompressionStream API.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      },
+      "featureList": [
+        "GZIP Decompression",
+        "Base64 Decode",
+        "Hex Decode",
+        "Browser-Based Processing",
+        "No File Upload Required"
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://toolgram.tech/tools.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does gzip decompression work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It reverses DEFLATE compression algorithm to restore original file data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my gzip file not opening?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It may be corrupted, incomplete, or not actually a gzip format file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is gzip safer than zip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both are safe formats; gzip is typically used for single-file compression in servers."
+          }
+        }
+      ]
+    }
+    </script>
+    <style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.output-display{min-height:100px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;word-break:break-all;max-height:400px;overflow-y:auto}.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}.info-box li{margin-bottom:8px}.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}select,input[type="number"],textarea{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease}select:focus,input[type="number"]:focus,textarea:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}.loan-result{font-size:1.4rem;font-weight:bold;color:#8B5CF6}.tax-box{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:12px;margin-bottom:10px}.file-drop-zone{border:2px dashed rgba(255,255,255,0.3);border-radius:12px;padding:40px;text-align:center;cursor:pointer;transition:all .3s ease;background:rgba(255,255,255,0.02)}.file-drop-zone:hover{border-color:#8B5CF6;background:rgba(139,92,246,0.1)}.file-drop-zone.dragover{border-color:#EC4899;background:rgba(236,72,153,0.15)}.file-info{margin-top:15px;padding:10px;background:rgba(255,255,255,0.05);border-radius:8px;display:none}@media(max-width:768px){.related-grid{grid-template-columns:1fr}.var-row{flex-direction:column;align-items:stretch;gap:5px}.var-row label{min-width:100%!important;width:100%;margin-bottom:3px}.var-row input,.var-row select,.var-row textarea{width:100%!important;min-width:100%;box-sizing:border-box}.tool-interface{padding:10px}.tool-column{padding:10px}.output-display{word-break:break-word;overflow-wrap:break-word}</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-file-archive"></i></div>
+            <div><h1 style="margin:0;">GZIP Decompressor</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Decode gzip API responses, debug compressed JSON, and extract .gz files instantly in browser</p></div>
+        </div>
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-upload"></i> Input Method</div>
+                <div style="padding:20px">
+                    <div class="var-row" style="margin-bottom:20px;">
+                        <button class="action-btn" id="fileTabBtn" onclick="switchTab('file')" style="flex:1;"><i class="fas fa-file"></i> File Upload</button>
+                        <button class="secondary-btn" id="textTabBtn" onclick="switchTab('text')" style="flex:1;"><i class="fas fa-keyboard"></i> Text Input</button>
+                    </div>
+                    <div id="fileTab">
+                        <div class="file-drop-zone" id="dropZone">
+                            <i class="fas fa-cloud-upload-alt" style="font-size:3rem;color:#8B5CF6;margin-bottom:15px;"></i>
+                            <p style="color:rgba(255,255,255,0.8);margin-bottom:10px;">Drag & drop your GZIP file here</p>
+                            <p style="color:rgba(255,255,255,0.5);margin-bottom:15px;">or</p>
+                            <input type="file" id="fileInput" accept=".gz,.gzip" style="display:none;">
+                            <button class="action-btn" onclick="document.getElementById('fileInput').click()"><i class="fas fa-folder-open"></i> Browse Files</button>
+                        </div>
+                        <div class="file-info" id="fileInfo">
+                            <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">File:</strong> <span id="fileName">-</span></div>
+                            <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Size:</strong> <span id="fileSize">-</span></div>
+                            <div style="margin-bottom:10px;"><strong style="color:#8B5CF6;">Type:</strong> <span id="fileType">-</span></div>
+                        </div>
+                    </div>
+                    <div id="textTab" style="display:none;">
+                        <div class="var-row"><label style="color:#fff;min-width:150px">Encoding Type</label><select id="encodingType"><option value="base64">Base64 Encoded</option><option value="hex">Hex Encoded</option><option value="binary">Raw Binary Text</option></select></div>
+                        <div style="margin-top:15px;"><textarea id="textInput" placeholder="Paste your Base64/Hex/Binary encoded GZIP data here..." rows="8" style="width:100%;resize:vertical;font-family:monospace;"></textarea></div>
+                    </div>
+                    <div class="tool-actions" style="margin-top:20px;">
+                        <button class="action-btn" onclick="decompressGZIP()" id="decompressBtn"><i class="fas fa-unlock"></i> Decompress Now</button>
+                        <button class="secondary-btn" onclick="clearGZIP()"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-file-code"></i> Decompressed Content</div>
+                <div class="output-display" id="outputGZIP">
+                    <div style="color:rgba(255,255,255,0.5);text-align:center;padding:20px;">
+                        <i class="fas fa-file-archive" style="font-size:2rem;margin-bottom:10px;"></i>
+                        <p>Upload a GZIP file or enter text to see decompressed content</p>
+                    </div>
+                </div>
+                <div class="tool-actions" style="margin-top:15px;">
+                    <button class="copy-btn" onclick="copyGZIPContent()" id="copyBtn" disabled><i class="far fa-copy"></i> Copy Content</button>
+                    <button class="action-btn" onclick="downloadGZIPContent()" id="downloadBtn" disabled><i class="fas fa-download"></i> Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section" style="margin-top:30px;">
+        <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+            <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">🗜️ Related Compression Tools</h2>
+            <div class="related-grid" id="relatedGridCompression"></div>
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> What is GZIP Decompression?</h3>
+            <p>
+            GZIP uses the DEFLATE compression algorithm commonly used in HTTP responses, APIs, Linux servers, and file systems. 
+            It reduces file size for faster transmission over the internet.
+            </p>
+            <p>
+            This tool works as a gzip decoder, gunzip extractor, and base64 gzip decompressor — all directly inside your browser without uploading files.
+            </p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-tools"></i> Common GZIP Issues & Fixes</h3>
+            <p><b>Invalid gzip header:</b> File is not actually compressed or corrupted.</p>
+            <p><b>Decompression failed:</b> Data may be truncated or not valid gzip format.</p>
+            <p><b>File not opening:</b> Try verifying with Linux command gzip -t file.gz.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-search"></i> Supported Use Cases</h3>
+            <p>
+            Works for gzip decompress online, gzip linux command output, gzip windows files, API gzip responses, 
+            JSON to gzip decoding, and base64 gzip data extraction.
+            </p>
+            <p>
+            Also supports deflate decompress online workflows and gzip file inspection for developers.
+            </p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-cog"></i> How to Use This Decompressor</h3>
+            <p><strong>Step 1:</strong> Drag and drop your GZIP file (.gz) into the upload zone, or click "Browse Files" to select from your device. Or switch to Text Input tab and paste Base64/Hex encoded data.<br><strong>Step 2:</strong> View the file information including name, size, and type.<br><strong>Step 3:</strong> Click "Decompress Now" to extract the compressed content. This replaces Linux commands like <b>gzip -d</b>, Python gzip scripts, and Windows tools.<br><strong>Step 4:</strong> View the decompressed content in the output area.<br><strong>Step 5:</strong> Copy the content to clipboard or download it as a file.<br><strong>Step 6:</strong> Use "Clear" to reset and decompress another file.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-list-ol"></i> GZIP Decompression Examples</h3>
+            <p><strong>Example 1 - Log Files:</strong> Decompress server log files compressed with GZIP to analyze error logs and access patterns. Common for nginx, Apache, and application logs.</p>
+            <p><strong>Example 2 - API Responses:</strong> Many APIs return GZIP-compressed JSON responses. Use this tool to decompress and inspect the data for debugging. Perfect for gzip JSON decoding.</p>
+            <p><strong>Example 3 - Database Backups:</strong> SQL database backups are often GZIP compressed. Decompress to view or restore the SQL content.</p>
+            <p><strong>Example 4 - Configuration Files:</strong> System configuration files in Linux are frequently compressed with GZIP. Decompress to view and edit settings without using gzip -d command.</p>
+            <p><strong>Example 5 - Source Code:</strong> Source code archives and patches often use GZIP compression. Decompress to view the code content.</p>
+            <p><strong>Example 6 - Data Exports:</strong> Large data exports from databases and applications are typically GZIP compressed. Decompress to analyze the data.</p>
+            <p><strong>Example 7 - Web Assets:</strong> JavaScript and CSS files on websites are often served GZIP compressed. Decompress to view the original source.</p>
+        </div>
+        <div class="blank-space"></div>
+        <div class="info-box">
+            <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">How do I decompress a gzip file online?</div>
+            <div class="faq-answer">Upload or paste data and click decompress. This works as a gunzip tool and gzip extractor without requiring software installation.</div>
+            <div class="faq-question">Can 7-Zip unzip gzip files?</div>
+            <div class="faq-answer">Yes, but this tool works instantly online without installation. It's a gzip decoder online that works in your browser.</div>
+            <div class="faq-question">How to decompress gzip file in Linux?</div>
+            <div class="faq-answer">Use: gzip -d file.gz or use this online tool to unzip gzip file online without command line.</div>
+            <div class="faq-question">Can I decode Base64 gzip data?</div>
+            <div class="faq-answer">Yes, paste your Base64 string and decompress. This tool supports base64 gzip decompress online, hex encoding, and raw binary text.</div>
+            <div class="faq-question">Is this GZIP decompressor free to use?</div>
+            <div class="faq-answer">Yes, this GZIP decompressor is completely free with no limits on file size or number of decompressions. No registration or account required.</div>
+            <div class="faq-question">Is my data secure when using this tool?</div>
+            <div class="faq-answer">Absolutely. All decompression happens locally in your browser using JavaScript. Your files are never uploaded to any server, ensuring complete privacy and security.</div>
+            <div class="faq-question">What file types can I decompress?</div>
+            <div class="faq-answer">You can decompress any .gz or .gzip file. The decompressed content can be text files (TXT, CSV, JSON, XML, HTML, CSS, JS, SQL, logs) or any other file format compressed with GZIP.</div>
+            <div class="faq-question">Is there a file size limit?</div>
+            <div class="faq-answer">There's no artificial file size limit. Large files may take longer to decompress and display. For very large files, consider using the download feature instead of viewing in browser.</div>
+            <div class="faq-question">Can I use this on mobile devices?</div>
+            <div class="faq-answer">Yes, this GZIP decompressor works on all devices including smartphones and tablets. The interface is fully responsive and touch-friendly.</div>
+            <div class="faq-question">What's the difference between GZIP and ZIP?</div>
+            <div class="faq-answer">GZIP compresses a single file, while ZIP can archive multiple files. GZIP is commonly used for web compression and single-file backups. This tool specifically handles GZIP format (.gz files).</div>
+        </div>
+        <div style="display:none">
+            gzip decompress online free, decompress gz file online, gzip decode online, unzip gzip file online, gzip extractor free
+        </div>
+    </div>
+    <div class="blank-space"></div>
+    <footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>&copy; ToolGram. All rights reserved 2026.</p></div></div></footer>
+<script src="../js/nav-manager.js"></script>
+<script src="../js/main.js"></script>
 <script>
-async function decompressGzip(){let input=document.getElementById('gzip-input').value;if(!input){document.getElementById('decompressed-output').innerHTML='<span style="color:rgba(255,255,255,0.5);">Enter gzip data to decompress...</span>';return}
-try{let encoding=document.getElementById('input-encoding').value;let binaryData;if(encoding==='base64'){binaryData=Uint8Array.from(atob(input),c=>c.charCodeAt(0))}else if(encoding==='hex'){let hex=input.replace(/\s/g,'');binaryData=new Uint8Array(hex.match(/.{1,2}/g).map(byte=>parseInt(byte,16)))}else{binaryData=new TextEncoder().encode(input)}
-let decompressed=await decompress(binaryData);let text=new TextDecoder().decode(decompressed);document.getElementById('decompressed-output').innerHTML=`<pre style="background:rgba(139,92,246,0.1);padding:15px;border-radius:8px">${escapeHtml(text)}</pre>`;document.getElementById('compressed-size').textContent=binaryData.length+' bytes';document.getElementById('decompressed-size').textContent=decompressed.length+' bytes'}catch(e){document.getElementById('decompressed-output').innerHTML=`<div style="color:#EF4444"><i class="fas fa-times-circle"></i> Decompression failed: ${e.message}</div>`}}
-async function decompress(data){const cs=new DecompressionStream('gzip');const writer=cs.writable.getWriter();writer.write(data);writer.close();const output=[];const reader=cs.readable.getReader();let totalSize=0;while(true){const{value,done}=await reader.read();if(done)break;output.push(value);totalSize+=value.length}
-const merged=new Uint8Array(totalSize);let offset=0;for(const arr of output){merged.set(arr,offset);offset+=arr.length}
-return merged}
-function escapeHtml(text){let div=document.createElement('div');div.textContent=text;return div.innerHTML}
-function uploadGzip(){let input=document.createElement('input');input.type='file';input.accept='.gz,.gzip';input.onchange=e=>{let file=e.target.files[0];let reader=new FileReader();reader.onload=function(e){let arr=new Uint8Array(e.target.result);let base64=btoa(String.fromCharCode.apply(null,arr));document.getElementById('gzip-input').value=base64;document.getElementById('input-encoding').value='base64';decompressGzip()}
-reader.readAsArrayBuffer(file)}
-input.click()}
-function copyDecompressed(){let text=document.getElementById('decompressed-output').innerText;if(text&&!text.includes('Enter gzip data')){navigator.clipboard.writeText(text);let btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Text',2000)}}
-function downloadDecompressed(){let text=document.getElementById('decompressed-output').innerText;if(text&&!text.includes('Enter gzip data')){let blob=new Blob([text],{type:'text/plain'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='decompressed.txt';a.click()}}
-function loadRelated(){const tools=[{name:"Data URI",icon:"fa-image",url:"data-uri.html"},{name:"Base64",icon:"fa-lock",url:"base64.html"},{name:"URL Encoder",icon:"fa-link",url:"url-encoder.html"},{name:"HTML Entity",icon:"fa-code",url:"html-entity.html"},{name:"SVG to URI",icon:"fa-image",url:"svg-to-datauri.html"},{name:"Binary to Hex",icon:"fa-microchip",url:"binary-to-hex.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`});document.getElementById("relatedGrid").innerHTML=html}
-window.addEventListener("load",loadRelated);</script></body></html>
+let selectedFile=null;
+let decompressedContent='';
+let currentTab='file';
+const dropZone=document.getElementById('dropZone');
+const fileInput=document.getElementById('fileInput');
+dropZone.addEventListener('click',()=>fileInput.click());
+dropZone.addEventListener('dragover',(e)=>{e.preventDefault();dropZone.classList.add('dragover');});
+dropZone.addEventListener('dragleave',()=>{dropZone.classList.remove('dragover');});
+dropZone.addEventListener('drop',(e)=>{e.preventDefault();dropZone.classList.remove('dragover');const files=e.dataTransfer.files;if(files.length>0)handleFile(files[0]);});
+fileInput.addEventListener('change',(e)=>{if(e.target.files.length>0)handleFile(e.target.files[0]);});
+function switchTab(tab){currentTab=tab;document.getElementById('fileTab').style.display=tab==='file'?'block':'none';document.getElementById('textTab').style.display=tab==='text'?'block':'none';document.getElementById('fileTabBtn').className=tab==='file'?'action-btn':'secondary-btn';document.getElementById('fileTabBtn').style.flex=tab==='file'?'1':'1';document.getElementById('textTabBtn').className=tab==='text'?'action-btn':'secondary-btn';document.getElementById('textTabBtn').style.flex=tab==='text'?'1':'1';}
+function handleFile(file){if(!file.name.endsWith('.gz')&&!file.name.endsWith('.gzip')){alert('Please select a GZIP file (.gz or .gzip)');return;}selectedFile=file;document.getElementById('fileName').textContent=file.name;document.getElementById('fileSize').textContent=formatFileSize(file.size);document.getElementById('fileType').textContent=file.type||'application/gzip';document.getElementById('fileInfo').style.display='block';document.getElementById('decompressBtn').disabled=false;}
+async function decompressGZIP(){const output=document.getElementById('outputGZIP');output.innerHTML='<div style="color:#FBBF24;text-align:center;padding:20px;"><i class="fas fa-spinner fa-spin" style="font-size:2rem;margin-bottom:10px;"></i><p>Decompressing...</p></div>';try{let arrayBuffer;if(currentTab==='file'){if(!selectedFile){alert('Please select a file first');return;}arrayBuffer=await selectedFile.arrayBuffer();}else{const textInput=document.getElementById('textInput').value.trim();if(!textInput){alert('Please enter text to decompress');return;}const encodingType=document.getElementById('encodingType').value;if(encodingType==='base64'){const binaryString=atob(textInput);arrayBuffer=new Uint8Array(binaryString.length);for(let i=0;i<binaryString.length;i++){arrayBuffer[i]=binaryString.charCodeAt(i);}}else if(encodingType==='hex'){const hexString=textInput.replace(/\s/g,'');if(hexString.length%2!==0){alert('Invalid hex string');return;}arrayBuffer=new Uint8Array(hexString.length/2);for(let i=0;i<hexString.length;i+=2){arrayBuffer[i/2]=parseInt(hexString.substr(i,2),16);}}else if(encodingType==='binary'){arrayBuffer=new Uint8Array(textInput.length);for(let i=0;i<textInput.length;i++){arrayBuffer[i]=textInput.charCodeAt(i);}}}const decompressedStream=new DecompressionStream('gzip');const decompressedStreamResponse=new Response(arrayBuffer).body.pipeThrough(decompressedStream);const decompressedArrayBuffer=await new Response(decompressedStreamResponse).arrayBuffer();decompressedContent=new TextDecoder().decode(decompressedArrayBuffer);output.innerHTML='<pre style="color:#fff;white-space:pre-wrap;word-wrap:break-word;margin:0;">'+escapeHtml(decompressedContent)+'</pre>';document.getElementById('copyBtn').disabled=false;document.getElementById('downloadBtn').disabled=false;}catch(error){output.innerHTML='<div style="color:#EF4444;text-align:center;padding:20px;"><i class="fas fa-exclamation-triangle" style="font-size:2rem;margin-bottom:10px;"></i><p>Decompression failed: '+error.message+'</p></div>';document.getElementById('copyBtn').disabled=true;document.getElementById('downloadBtn').disabled=true;}}
+function clearGZIP(){selectedFile=null;decompressedContent='';fileInput.value='';document.getElementById('textInput').value='';document.getElementById('fileInfo').style.display='none';document.getElementById('fileName').textContent='-';document.getElementById('fileSize').textContent='-';document.getElementById('fileType').textContent='-';document.getElementById('outputGZIP').innerHTML='<div style="color:rgba(255,255,255,0.5);text-align:center;padding:20px;"><i class="fas fa-file-archive" style="font-size:2rem;margin-bottom:10px;"></i><p>Upload a GZIP file or enter text to see decompressed content</p></div>';document.getElementById('decompressBtn').disabled=true;document.getElementById('copyBtn').disabled=true;document.getElementById('downloadBtn').disabled=true;}
+function copyGZIPContent(){navigator.clipboard.writeText(decompressedContent);const btn=document.getElementById('copyBtn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Content',2000);}
+function downloadGZIPContent(){const blob=new Blob([decompressedContent],{type:'text/plain'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=currentTab==='file'?selectedFile.name.replace('.gz','').replace('.gzip',''):'decompressed.txt';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);}
+function formatFileSize(bytes){if(bytes===0)return'0 Bytes';const k=1024;const sizes=['Bytes','KB','MB','GB'];const i=Math.floor(Math.log(bytes)/Math.log(k));return parseFloat((bytes/Math.pow(k,i)).toFixed(2))+' '+sizes[i];}
+function escapeHtml(text){const div=document.createElement('div');div.textContent=text;return div.innerHTML;}
+function loadRelated(){const tools=[{name:"Data URI Converter",icon:"fa-link",url:"../tools/data-uri.html"},{name:"Base64 Encoder Decoder",icon:"fa-code",url:"../tools/base64.html"},{name:"URL Encoder Decoder",icon:"fa-globe",url:"../tools/url-encode-decode.html"},{name:"HTML Entity Encoder Decoder",icon:"fa-code",url:"../tools/html-entity.html"},{name:"SVG to Data URI Converter",icon:"fa-image",url:"../tools/svg-to-datauri.html"},{name:"Binary to Hex Converter",icon:"fa-exchange-alt",url:"../tools/binary-to-hex.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;});document.getElementById("relatedGridCompression").innerHTML=html;}
+window.addEventListener("load",loadRelated);
+</script>
+</body>
+</html>
