@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>CSS to JSX Converter – Convert CSS to JSX Style Objects | ToolGram</title>
-    <meta name="description" content="Convert CSS to JSX style objects for React. Transform CSS rules into React inline style objects with camelCase properties.">
+    <title>CSS to JSX Converter Online (React Inline Style Generator) | ToolGram</title>
+    <meta name="description" content="Convert CSS to JSX style objects instantly for React. Transform CSS classes into React inline styles with camelCase properties. Free online CSS to JSX converter.">
     <meta name="keywords" content="css to jsx, css to react style, convert css to jsx, jsx style converter, react inline styles">
     <meta name="author" content="ToolGram">
     <meta name="robots" content="index, follow">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/tool.css">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" href="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png" sizes="64x64">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -28,7 +28,71 @@
         "operatingSystem": "Any",
         "url": "https://toolgram.tech/tools/css-to-jsx.html",
         "offers": {"@type": "Offer", "price": "0"},
-        "featureList": ["CSS to JSX", "React Styles"]
+        "featureList": ["CSS to JSX", "React Styles"],
+        "keywords": [
+            "css to jsx",
+            "react inline styles",
+            "css to react converter",
+            "jsx style object"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://toolgram.tech"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Tools",
+                "item": "https://toolgram.tech/tools.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "CSS to JSX Converter",
+                "item": "https://toolgram.tech/tools/css-to-jsx.html"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How to convert CSS to JSX?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Paste your CSS into the input area and click Convert to JSX. The tool automatically transforms kebab-case properties to camelCase and creates React style objects."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do React inline styles work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "React inline styles are JavaScript objects where property names use camelCase (e.g., backgroundColor instead of background-color). Values are strings unless they are numeric pixel values."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does React use camelCase CSS?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "React uses camelCase to align with JavaScript property naming conventions. This makes it easier to work with styles programmatically and avoids conflicts with reserved JavaScript keywords."
+                }
+            }
+        ]
     }
     </script>
     <style>
@@ -43,12 +107,25 @@
         .faq-answer:last-of-type{border-bottom:none}
         .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
         .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
-        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px;max-width:1200px;margin-left:auto;margin-right:auto}
         .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
         .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box a{color:#8B5CF6;text-decoration:none;font-weight:500;transition:color .3s ease}
+        .info-box a:hover{color:#FF00E1;text-decoration:underline}
         .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
         .info-box li{margin-bottom:8px}
         .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        .drop-zone{border:2px dashed rgba(255,255,255,0.2);border-radius:8px;padding:20px;text-align:center;color:rgba(255,255,255,0.5);cursor:pointer;transition:all .3s ease;margin-bottom:15px}
+        .drop-zone:hover,.drop-zone.dragover{border-color:#8B5CF6;background:rgba(139,92,246,0.1)}
+        .drop-zone i{font-size:2rem;margin-bottom:10px}
+        .preview-box{background:#fff;border-radius:8px;padding:20px;margin-top:15px;min-height:100px}
+        .toast{position:fixed;bottom:30px;right:30px;background:linear-gradient(135deg,#8B5CF6,#EC4899);color:#fff;padding:15px 25px;border-radius:8px;box-shadow:0 5px 20px rgba(0,0,0,0.3);transform:translateX(200%);transition:transform .3s ease;z-index:1000}
+        .toast.show{transform:translateX(0)}
+        .example-chip{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:8px 16px;border-radius:20px;color:#fff;font-size:0.85rem;cursor:pointer;transition:all .3s ease;margin-right:8px;margin-bottom:8px;display:inline-block}
+        .example-chip:hover{background:rgba(139,92,246,0.3);border-color:#8B5CF6}
+        .popular-conversions{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:15px 20px;margin-top:20px;max-width:1200px;margin-left:auto;margin-right:auto}
+        .popular-conversions h4{color:#fff;margin:0 0 12px 0;font-size:1rem;font-weight:600}
+        .popular-conversions p{color:rgba(255,255,255,0.7);margin:5px 0;font-size:0.85rem}
         @media(max-width:768px){.related-grid{grid-template-columns:1fr}}
     </style>
 </head>
@@ -62,7 +139,7 @@
             <div class="tool-header-icon"><i class="fab fa-react"></i></div>
             <div>
                 <h1 style="margin:0;">CSS to JSX Converter</h1>
-                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert CSS rules to React JSX style objects</p>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Convert CSS to React inline styles with camelCase properties instantly</p>
             </div>
         </div>
 
@@ -70,7 +147,19 @@
             <div class="tool-column">
                 <div class="tool-column-title"><i class="fas fa-pencil-alt"></i> Input CSS</div>
                 <div style="padding:20px">
-                    <textarea id="cssInput" class="tool-textarea" placeholder="Paste CSS here...">.container {
+                    <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop CSS file or click to upload</p>
+                        <input type="file" id="fileInput" accept=".css" style="display:none" onchange="handleFileUpload(event)">
+                    </div>
+                    <div style="margin-bottom:15px;">
+                        <span style="color:rgba(255,255,255,0.6);font-size:0.85rem;margin-right:10px;">Try Examples:</span>
+                        <span class="example-chip" onclick="loadExample('flexbox')">Flexbox</span>
+                        <span class="example-chip" onclick="loadExample('button')">Button</span>
+                        <span class="example-chip" onclick="loadExample('card')">Card</span>
+                        <span class="example-chip" onclick="loadExample('navbar')">Navbar</span>
+                    </div>
+                    <textarea id="cssInput" class="tool-textarea" placeholder="Paste CSS here..." oninput="autoConvert()">.container {
   background-color: #f0f0f0;
   padding: 20px;
   border-radius: 8px;
@@ -93,6 +182,10 @@
             <div class="tool-column">
                 <div class="tool-column-title"><i class="fab fa-react"></i> JSX Style Object</div>
                 <div class="output-display" id="jsxOutput">Click "Convert to JSX" to see result</div>
+                <div class="preview-box" id="previewBox" style="display:none;">
+                    <p style="color:#333;margin-bottom:10px;font-weight:600;">Live Preview:</p>
+                    <div id="previewContent"></div>
+                </div>
                 <div class="tool-actions" style="margin-top:15px;">
                     <button class="copy-btn" onclick="copyJSXStyle()"><i class="far fa-copy"></i> Copy JSX</button>
                 </div>
@@ -103,9 +196,11 @@
     <div class="blank-space"></div>
 
     <div class="tool-content-section">
-        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
-            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
-            <div class="related-grid" id="relatedGridCSStoJSX"></div>
+        <div class="info-box" style="margin-top:0;padding:20px;">
+            <h4 style="font-size:1.3rem;font-weight:700;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px;margin-bottom:15px;"><i class="fas fa-exchange-alt" style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"></i> Most Converted CSS Properties</h4>
+            <p><strong>background-color → backgroundColor</strong></p>
+            <p><strong>font-size → fontSize</strong></p>
+            <p><strong>margin-top → marginTop</strong></p>
         </div>
     </div>
 
@@ -115,7 +210,8 @@
         <div class="info-box">
             <h3><i class="fas fa-question-circle"></i> What is CSS to JSX Conversion?</h3>
             <p>In React, inline styles are defined as JavaScript objects with camelCase properties, rather than CSS strings. For example, `background-color` becomes `backgroundColor`. Converting CSS to JSX style objects allows you to use CSS-like syntax and convert it to the format React expects for inline styles.</p>
-            <p>This tool transforms CSS rules into JSX style objects. It handles property name conversion (kebab-case to camelCase), value conversion (e.g., pixel values become numbers when possible), and creates JavaScript objects ready to use in React components.</p>
+            <p>This tool transforms CSS rules into JSX style objects. It handles property name conversion (kebab-case to camelCase), value conversion (e.g., pixel values become numbers when possible), and creates JavaScript objects ready to use in React components. After converting styles, developers often use our <a href="html-to-jsx.html">HTML to JSX Converter</a>, <a href="css-formatter.html">CSS Formatter</a>, and <a href="json-to-ts.html">JSON to TypeScript Tool</a> to speed up React workflows.</p>
+            <p>The inline style object format is essential for React component styling. When you convert CSS classes into JSX, you create a react style object that can be directly used as a style prop in React. This css object generator handles camelCase CSS properties automatically, making it easy to work with JSX inline CSS without manual conversion.</p>
             <p>All processing is done locally in your browser – your code never leaves your device.</p>
         </div>
 
@@ -133,38 +229,34 @@
         <div class="blank-space"></div>
 
         <div class="info-box">
-            <h3><i class="fas fa-example"></i> Examples</h3>
-            <p><strong>Input CSS:</strong><br>
-            <code>.box { background-color: #f00; font-size: 16px; margin-top: 10px; }</code><br>
-            <strong>Output JSX:</strong><br>
-            <code>const boxStyles = {<br>  backgroundColor: "#f00",<br>  fontSize: "16px",<br>  marginTop: "10px"<br>};</code>
-            </p>
+            <h3><i class="fas fa-list-ol"></i> Common CSS to JSX Examples</h3>
+            <p><strong>background-color → backgroundColor</strong></p>
+            <p><strong>font-size → fontSize</strong></p>
+            <p><strong>margin-top → marginTop</strong></p>
+            <p><strong>border-radius → borderRadius</strong></p>
+            <p><strong>padding-left → paddingLeft</strong></p>
+            <p><strong>text-align → textAlign</strong></p>
+            <p><strong>line-height → lineHeight</strong></p>
+            <p><strong>z-index → zIndex</strong></p>
+            <p>Google LOVES example-based content, and this CSS to JSX converter handles all these camelCase conversions automatically for React inline styles.</p>
         </div>
 
         <div class="blank-space"></div>
 
         <div class="info-box">
-            <h3><i class="fas fa-users"></i> Who Uses CSS to JSX Converters?</h3>
-            <ul>
-                <li><strong>React Developers</strong> – using inline styles in components.</li>
-                <li><strong>Front-End Engineers</strong> – migrating CSS to React components.</li>
-                <li><strong>UI Developers</strong> – prototyping with inline styles.</li>
-                <li><strong>Students</strong> – learning React styling.</li>
-                <li><strong>Freelancers</strong> – converting design CSS to React code.</li>
-            </ul>
+            <h3><i class="fas fa-code"></i> Why Developers Use CSS to JSX Converters</h3>
+            <p>React, Next.js, Vite, and React Native all use inline styles with camelCase CSS properties. Developers need to convert CSS to JSX style objects quickly when migrating from traditional CSS to React components. This CSS to JSX converter automates the process of transforming CSS classes into React styles.</p>
+            <p>Frontend developers working on React projects often need to convert CSS to react inline styles for component-based architecture. The jsx style object format is essential for dynamic styling in React applications. This tool serves as a react style generator and inline style converter for modern frontend workflows.</p>
+            <p>For related development tasks, you can use our <a href="html-to-markdown-converter.html">HTML to Markdown Converter</a>, <a href="markdown-to-html.html">Markdown to HTML Converter</a>, <a href="regex-tester.html">Regex Tester</a>, and <a href="js-minifier.html">JavaScript Minifier</a> to streamline your development process.</p>
         </div>
 
         <div class="blank-space"></div>
 
         <div class="info-box">
-            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
-            <ul>
-                <li>Use this tool to quickly convert design CSS to React inline styles.</li>
-                <li>For pixel values, you can remove quotes to use numbers (e.g., `fontSize: 16`).</li>
-                <li>The converter creates separate style objects for each CSS class.</li>
-                <li>Combine with CSS Modules or styled-components for more robust styling.</li>
-                <li>Remember that inline styles don't support pseudo-classes like :hover.</li>
-            </ul>
+            <h3><i class="fab fa-react"></i> CSS to JSX for React Developers</h3>
+            <p>This CSS to JSX converter is designed specifically for React developers who need to work with JSX style objects. React components use JavaScript objects for inline styles, requiring camelCase CSS properties instead of kebab-case. Understanding JSX syntax and frontend workflows is essential for modern React development.</p>
+            <p>When you convert CSS to JSX, you create style objects that can be directly used in React components. The css object generator handles the transformation automatically, making it easy to work with React inline styles. Combine this tool with our <a href="css-formatter.html">CSS Formatter</a>, <a href="css-minifier.html">CSS Minifier</a>, <a href="json-camelcasifier.html">JSON CamelCasifier</a>, and <a href="json-stringify.html">JSON Stringify</a> converter for a complete React development workflow.</p>
+            <p>For data encoding tasks, you can also use our <a href="svg-to-datauri.html">SVG to Data URI Converter</a> and <a href="data-uri.html">Data URI Converter</a>. These tools work together to streamline your frontend development process when working with css properties and the style prop in React.</p>
         </div>
 
         <div class="blank-space"></div>
@@ -191,10 +283,39 @@
 
             <div class="faq-question">Does it handle multiple classes?</div>
             <div class="faq-answer">Each CSS class becomes a separate style object. You can combine them in React using object spread.</div>
+
+            <div class="faq-question">How to convert CSS to JSX?</div>
+            <div class="faq-answer">Paste your CSS into the input area and click "Convert to JSX". The tool automatically transforms kebab-case properties to camelCase and creates React style objects.</div>
+
+            <div class="faq-question">How do React inline styles work?</div>
+            <div class="faq-answer">React inline styles are JavaScript objects where property names use camelCase (e.g., backgroundColor instead of background-color). Values are strings unless they are numeric pixel values.</div>
+
+            <div class="faq-question">Why does React use camelCase CSS?</div>
+            <div class="faq-answer">React uses camelCase to align with JavaScript property naming conventions. This makes it easier to work with styles programmatically and avoids conflicts with reserved JavaScript keywords.</div>
+
+            <div class="faq-question">Can JSX use normal CSS?</div>
+            <div class="faq-answer">JSX itself doesn't use normal CSS for inline styles. You can use CSS classes with className, or use CSS modules, styled-components, or other CSS-in-JS solutions for traditional CSS syntax.</div>
+
+            <div class="faq-question">How to convert CSS classes into React styles?</div>
+            <div class="faq-answer">Use this CSS to JSX converter to transform CSS class rules into React style objects. Each class becomes a const with a style object that you can use directly in your React components.</div>
+
+            <div class="faq-question">What is the difference between CSS and JSX styles?</div>
+            <div class="faq-answer">CSS uses kebab-case and colons, JSX uses camelCase and JavaScript object syntax. CSS is written in separate files or style tags, JSX styles are inline JavaScript objects in React components.</div>
         </div>
     </div>
 
     <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div id="relatedGridCSStoJSX"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="toast" id="toast"><i class="fas fa-check-circle" style="margin-right:8px;"></i> JSX Copied!</div>
 
     <footer class="footer-bg" style="margin-top:80px;">
         <div class="watermark">TOOLGRAM</div>
@@ -223,7 +344,15 @@
             return;
         }
         
-        const lines = css.split(/\r?\n/);
+        // Remove comments
+        let cleanCss = css.replace(/\/\*[\s\S]*?\*\//g, '');
+        
+        // Handle multiple selectors (e.g., .container, .box { })
+        cleanCss = cleanCss.replace(/([.#][\w-]+)\s*,\s*/g, (match, selector) => {
+            return selector + ' {\n}\n' + selector + ' {\n';
+        });
+        
+        const lines = cleanCss.split(/\r?\n/);
         let currentClass = '';
         let currentStyles = [];
         let jsxOutput = '';
@@ -232,25 +361,28 @@
             line = line.trim();
             if (line === '') continue;
             
-            // Class selector
-            if (line.startsWith('.') && line.endsWith('{')) {
+            // Skip CSS variables
+            if (line.startsWith('--') || line.includes('var(')) {
+                continue;
+            }
+            
+            // Class selector (handles .className { and #id {)
+            const classMatch = line.match(/^([.#]?[\w-]+)\s*\{/);
+            if (classMatch) {
                 if (currentClass && currentStyles.length > 0) {
                     jsxOutput += formatJSXObject(currentClass, currentStyles);
                 }
-                currentClass = line.slice(1, -1).trim();
+                currentClass = classMatch[1].replace(/^[.#]/, '');
                 currentStyles = [];
             }
             // Property
             else if (line.includes(':') && !line.startsWith('}')) {
-                const [prop, value] = line.split(':');
+                const colonIndex = line.indexOf(':');
+                const prop = line.substring(0, colonIndex).trim();
+                const value = line.substring(colonIndex + 1).trim().replace(/;$/, '');
                 if (prop && value) {
-                    const camelProp = toCamelCase(prop.trim());
-                    let cleanValue = value.trim().replace(/;$/, '');
-                    // Remove quotes if present
-                    if (cleanValue.startsWith('"') && cleanValue.endsWith('"')) {
-                        cleanValue = cleanValue.slice(1, -1);
-                    }
-                    currentStyles.push({prop: camelProp, value: cleanValue});
+                    const camelProp = toCamelCase(prop);
+                    currentStyles.push({prop: camelProp, value: value});
                 }
             }
             // Closing brace
@@ -306,25 +438,134 @@
         const text = document.getElementById('jsxOutput').innerText;
         if (text && text !== 'Click "Convert to JSX" to see result' && !text.includes('No valid CSS')) {
             navigator.clipboard.writeText(text);
-            const btn = document.querySelector('.copy-btn');
-            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-            setTimeout(() => btn.innerHTML = '<i class="far fa-copy"></i> Copy JSX', 2000);
+            showToast();
         }
     }
     
-    function loadRelated() {
-        const tools = [
-            {name:"HTML to JSX", icon:"fab fa-react", url:"html-to-jsx.html"},
-            {name:"CSS Minifier", icon:"fa-css3-alt", url:"css-minifier.html"},
-            {name:"CSS Formatter", icon:"fa-code", url:"css-formatter.html"},
-            {name:"JavaScript Formatter", icon:"fa-js", url:"js-formatter.html"},
-            {name:"JSON to TypeScript", icon:"fa-code", url:"json-to-ts.html"},
-            {name:"Lorem Ipsum", icon:"fa-paragraph", url:"lorem-ipsum.html"}
-        ];
-        let html = "";
-        tools.forEach(t => {
-            html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+    function showToast() {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+    
+    function autoConvert() {
+        const css = document.getElementById('cssInput').value;
+        if (css.trim()) {
+            convertCSStoJSX();
+        }
+    }
+    
+    function handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('cssInput').value = e.target.result;
+                convertCSStoJSX();
+            };
+            reader.readAsText(file);
+        }
+    }
+    
+    function loadExample(type) {
+        const examples = {
+            flexbox: `.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}`,
+            button: `.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}`,
+            card: `.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 24px;
+  margin: 16px;
+}`,
+            navbar: `.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #1e293b;
+  color: white;
+}`
+        };
+        document.getElementById('cssInput').value = examples[type] || '';
+        convertCSStoJSX();
+    }
+    
+    // Drag and drop functionality
+    const dropZone = document.getElementById('dropZone');
+    if (dropZone) {
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
         });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.name.endsWith('.css')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('cssInput').value = e.target.result;
+                    convertCSStoJSX();
+                };
+                reader.readAsText(file);
+            }
+        });
+    }
+    
+    function loadRelated() {
+        const toolGroups = {
+            " React & JSX Tools": [
+                {name:"HTML to JSX", icon:"fab fa-react", url:"html-to-jsx.html"},
+                {name:"JSON to TypeScript", icon:"fa-code", url:"json-to-ts.html"},
+                {name:"JavaScript Formatter", icon:"fa-js", url:"js-formatter.html"},
+                {name:"CSS to Tailwind", icon:"fa-wind", url:"css-to-tailwind-converter.html"}
+            ],
+            " CSS Tools": [
+                {name:"CSS Formatter", icon:"fa-css3-alt", url:"css-formatter.html"},
+                {name:"CSS Minifier", icon:"fa-compress-alt", url:"css-minifier.html"},
+                {name:"CSS Variables", icon:"fa-palette", url:"css-vars.html"},
+                {name:"Border Radius", icon:"fa-border-style", url:"border-radius.html"}
+            ],
+            " Encoding & Assets": [
+                {name:"SVG to Data URI", icon:"fa-image", url:"svg-to-datauri.html"},
+                {name:"Data URI Converter", icon:"fa-link", url:"data-uri.html"},
+                {name:"Base64 Encoder", icon:"fa-code", url:"base64.html"},
+                {name:"HTML Entity Encoder", icon:"fa-code", url:"html-entity.html"}
+            ],
+            " Data Tools": [
+                {name:"JSON Formatter", icon:"fa-code", url:"json-formatter.html"},
+                {name:"JSON Validator", icon:"fa-check-circle", url:"json-validator.html"},
+                {name:"JSON Stringify", icon:"fa-quote-right", url:"json-stringify.html"},
+                {name:"JSON CamelCasifier", icon:"fa-exchange-alt", url:"json-camelcasifier.html"}
+            ]
+        };
+        
+        let html = "";
+        for (const [groupName, tools] of Object.entries(toolGroups)) {
+            html += `<div style="margin-bottom:25px;"><h3 style="color:rgba(255,255,255,0.9);font-size:1.1rem;margin-bottom:12px;font-weight:600;">${groupName}</h3><div class="related-grid">`;
+            tools.forEach(t => {
+                html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+            });
+            html += `</div></div>`;
+        }
         document.getElementById("relatedGridCSStoJSX").innerHTML = html;
     }
     window.addEventListener("load", loadRelated);
