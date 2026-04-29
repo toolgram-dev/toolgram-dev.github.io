@@ -1,24 +1,903 @@
-<!DOCTYPE html><html lang="en" prefix="og:https://ogp.me/ns#"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SVG Path Data Extractor - Get d Attribute from SVG | ToolGram</title><meta name="description" content="Extract path data (d attribute) from SVG files. Parse SVG XML and output coordinate data for icons, illustrations, and vector graphics."><meta name="keywords" content="svg path, svg extractor, d attribute, svg parser, vector path, icon extraction, svg to path"><meta name="author" content="ToolGram"><meta name="robots" content="index, follow"><link rel="canonical" href="https://toolgram.tech/tools/svg-path.html"><meta property="og:title" content="SVG Path Data Extractor | ToolGram"><meta property="og:description" content="Extract path data from SVG files"><meta property="og:url" content="https://toolgram.tech/tools/svg-path.html"><meta property="og:type" content="website"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/tool.css"><link rel="icon" type="image/x-icon" href="/favicon.ico"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"SVG Path Extractor","description":"Extract path data from SVG files using XML DOM parsing","applicationCategory":"DeveloperApplication","operatingSystem":"Any","url":"https://toolgram.tech/tools/svg-path.html","offers":{"@type":"Offer","price":"0"},"featureList":["SVG Parsing","Path Extraction","d Attribute","Vector Graphics","Icon Processing"]}</script>
-<style>.var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}.related-title{font-size:.95rem;font-weight:500}.faq-question{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px}.faq-answer{color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}.faq-answer:last-of-type{border-bottom:none}.faq-section{padding:20px 20px 10px 20px}.output-display{max-height:300px;overflow:auto;word-break:break-word}select, select option{color:#000 !important;background:#fff !important}@media(max-width:768px){.related-grid{grid-template-columns:1fr}}</style></head>
-<body><div class="nav-container"></div><div class="page"><button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
-<div class="tool-container"><div class="tool-header"><div class="tool-header-icon"><i class="fas fa-draw-polygon"></i></div><div><h1 style="margin:0;">SVG Path Data Extractor</h1><p style="color:rgba(255,255,255,0.7);margin-top:5px;">Extract path data (d attribute) from SVG files</p></div></div>
-<div class="tool-interface"><div class="tool-column"><div class="tool-column-title"><i class="fas fa-code"></i> SVG Input</div><textarea class="tool-textarea" id="svg-input" placeholder='<svg viewBox="0 0 100 100"><path d="M10 10 H 90 V 90 H 10 Z" fill="none" stroke="black"/></svg>'><svg viewBox="0 0 100 100"><path d="M10 10 H 90 V 90 H 10 Z" fill="none" stroke="black"/><circle cx="50" cy="50" r="40"/></svg></textarea><div class="tool-settings"><div class="setting-item"><label><input type="checkbox" id="extract-all" checked> Extract all paths</label></div><div class="setting-item"><label><input type="checkbox" id="minify-output"> Minify output</label></div></div><div class="tool-actions"><button class="action-btn" onclick="extractPaths()"><i class="fas fa-cut"></i> Extract Paths</button><button class="secondary-btn" onclick="clearSVG()"><i class="fas fa-trash"></i> Clear</button><button class="secondary-btn" onclick="loadSampleSVG()"><i class="fas fa-star"></i> Sample</button></div></div>
-<div class="tool-column"><div class="tool-column-title"><i class="fas fa-map-signs"></i> Path Data</div><div class="output-display" id="path-output" style="min-height:150px;padding:15px;font-family:monospace;max-height:300px;overflow:auto">Extracted paths will appear here...</div><div class="tool-stats"><div class="tool-stat"><span id="path-count">0 paths</span></div><div class="tool-stat"><i class="fas fa-vector-square"></i> <span id="path-commands">0 commands</span></div></div><div class="tool-actions" style="margin-top:15px;"><button class="copy-btn" onclick="copyPaths()"><i class="far fa-copy"></i> Copy Paths</button></div></div></div></div>
-<div class="tool-content-section" style="margin-top:30px;"><div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Related SVG Tools</h2><div class="related-grid" id="relatedGrid"></div></div></div>
-<div class="tool-content-section"><div class="tool-description-section" style="padding:25px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.4rem; margin-bottom:20px; font-weight:700; letter-spacing:-0.02em;">What is SVG Path Data?</h2><p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7; letter-spacing:0.3px;">The SVG path element's 'd' attribute contains the drawing commands: M (move), L (line), C (curve), Z (close). These commands define the shape. Extracting this data lets you reuse paths in code, create icon libraries, or manipulate vector graphics programmatically.</p></div></div>
-<div class="tool-content-section" style="margin-top:30px;"><div class="related-section faq-section" style="margin:0; padding:25px 25px 15px 25px; background: rgba(255,255,255,0.05); border-radius: 20px;"><h2 style="background: linear-gradient(135deg, #38BDF8, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:25px; font-size:1.4rem; font-weight:700; letter-spacing:-0.02em;">Frequently Asked Questions</h2><div><div class="faq-question">What are SVG path commands?</div><div class="faq-answer">M = moveto (start), L = lineto, C = curveto, Q = quadratic curve, A = arc, Z = closepath. Uppercase = absolute coordinates, lowercase = relative. These form the vocabulary of vector graphics.</div>
-<div class="faq-question">Why extract path data?</div><div class="faq-answer">Developers use extracted paths for icon systems, animation, and SVG manipulation. It's essential for creating icon fonts, optimizing SVGs, or integrating with JavaScript animation libraries.</div>
-<div class="faq-question">How to validate extracted paths?</div><div class="faq-answer">Check command sequence: M must be first, curves need correct parameters, Z only at end. Our extractor preserves original structure while making data accessible for your projects.</div></div></div></div>
-<footer class="footer-bg" style="margin-top:80px;"><div class="watermark">TOOLGRAM</div><div class="footer-content"><div class="footer-links"><div><h3 style="color:var(--lt);margin-bottom:20px;">Company</h3><a href="../about.html">About Us</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../contact.html">Contact Us</a></div></div><div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div></div></footer></div>
-<script src="../js/nav-manager.js"></script><script src="../js/main.js"></script>
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SVG Path Extractor Online - Extract SVG Path Data for React & GSAP | ToolGram</title>
+    <meta name="description" content="Extract SVG path data instantly from SVG files online. Free SVG path extractor tool to get path data from SVG, SVG d attribute extractor, and SVG vector path tool for React, GSAP, Framer Motion, and vector graphics.">
+    <meta name="keywords" content="svg path extractor, svg path data, extract path from svg, svg path tool, vector path extractor">
+    <meta name="author" content="ToolGram">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolgram.tech/tools/svg-path-extractor.html">
+    <meta property="og:title" content="SVG Path Extractor Online | ToolGram">
+    <meta property="og:description" content="Extract SVG path data from files instantly for React and SVG animations.">
+    <meta property="og:url" content="https://toolgram.tech/tools/svg-path-extractor.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SVG Path Extractor",
+        "description": "Extract SVG path data from SVG files for React and SVG animations.",
+        "applicationCategory": "Developer",
+        "operatingSystem": "Any",
+        "url": "https://toolgram.tech/tools/svg-path-extractor.html",
+        "offers": {"@type": "Offer", "price": "0"},
+        "featureList": ["SVG Path Extraction", "Multiple Path Support", "Path Statistics"],
+        "keywords": ["svg path extractor", "svg path data", "extract path from svg"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://toolgram.tech"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Tools",
+                "item": "https://toolgram.tech/tools.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "SVG Path Extractor",
+                "item": "https://toolgram.tech/tools/svg-path-extractor.html"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is SVG path data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SVG path data is a string of commands that define the shape of SVG elements. It uses commands like M (move), L (line), C (curve), and Z (close) to create vector graphics that scale infinitely."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How to extract path from SVG?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Upload your SVG file to this tool and it will automatically extract all path data. You can then copy or download the extracted paths for use in React, GSAP, or other applications."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What does M mean in SVG path?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "M stands for 'move to' in SVG path commands. It moves the pen to a new position without drawing a line. For example, M10 10 moves the starting point to coordinates (10, 10)."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Extract SVG Path Data",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "text": "Upload your SVG file or paste SVG code"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Click Extract Paths button"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Copy the extracted path data"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Use in React, GSAP, or other applications"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "SVG Path Extractor",
+                "url": "https://toolgram.tech/tools/svg-path-extractor.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "SVG to Data URI",
+                "url": "https://toolgram.tech/tools/svg-to-datauri.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "HTML to JSX",
+                "url": "https://toolgram.tech/tools/html-to-jsx.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "CSS to JSX",
+                "url": "https://toolgram.tech/tools/css-to-jsx.html"
+            }
+        ]
+    }
+    </script>
+    <style>
+        .var-row{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+        .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+        .related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+        .related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+        .related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .related-title{font-size:.95rem;font-weight:500}
+        .faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+        .faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+        .faq-answer:last-of-type{border-bottom:none}
+        .tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+        .output-display{min-height:150px;padding:15px;background:rgba(139,92,246,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-family:monospace;white-space:pre-wrap;overflow:auto}
+        .info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px;max-width:1200px;margin-left:auto;margin-right:auto}
+        .info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
+        .info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+        .info-box a{color:#8B5CF6;text-decoration:none;font-weight:500;transition:color .3s ease}
+        .info-box a:hover{color:#FF00E1;text-decoration:underline}
+        .info-box ul, .info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+        .info-box li{margin-bottom:8px}
+        .blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+        .drop-zone{border:2px dashed rgba(255,255,255,0.2);border-radius:8px;padding:20px;text-align:center;color:rgba(255,255,255,0.5);cursor:pointer;transition:all .3s ease;margin-bottom:15px}
+        .drop-zone:hover,.drop-zone.dragover{border-color:#8B5CF6;background:rgba(139,92,246,0.1)}
+        .drop-zone i{font-size:2rem;margin-bottom:10px}
+        .preview-box{background:#fff;border-radius:8px;padding:20px;margin-top:15px;min-height:100px}
+        .toast{position:fixed;bottom:30px;right:30px;background:linear-gradient(135deg,#8B5CF6,#EC4899);color:#fff;padding:15px 25px;border-radius:8px;box-shadow:0 5px 20px rgba(0,0,0,0.3);transform:translateX(200%);transition:transform .3s ease;z-index:1000}
+        .toast.show{transform:translateX(0)}
+        .stats-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:15px;margin-top:15px}
+        .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+        .stat-item{background:rgba(139,92,246,0.1);padding:10px;border-radius:6px}
+        .stat-label{color:rgba(255,255,255,0.6);font-size:0.8rem;margin-bottom:4px}
+        .stat-value{color:#fff;font-size:1rem;font-weight:600}
+        .path-item{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px;margin-bottom:10px}
+        .path-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+        .path-number{color:#8B5CF6;font-weight:600;font-size:0.9rem}
+        .path-code{font-family:monospace;font-size:0.85rem;color:rgba(255,255,255,0.8);word-break:break-all}
+        .copy-small{background:rgba(139,92,246,0.2);border:none;color:#fff;padding:4px 8px;border-radius:4px;font-size:0.75rem;cursor:pointer;transition:all .3s ease}
+        .copy-small:hover{background:rgba(139,92,246,0.4)}
+        .example-chip{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:6px 14px;border-radius:20px;color:#fff;font-size:0.8rem;cursor:pointer;transition:all .3s ease;display:inline-block}
+        .example-chip:hover{background:rgba(139,92,246,0.3);border-color:#8B5CF6}
+        .toggle-container{display:flex;align-items:center;gap:10px;margin-bottom:15px}
+        .toggle-switch{position:relative;width:50px;height:26px;background:rgba(255,255,255,0.2);border-radius:13px;cursor:pointer;transition:background .3s ease}
+        .toggle-switch.active{background:#8B5CF6}
+        .toggle-knob{position:absolute;width:22px;height:22px;background:#fff;border-radius:50%;top:2px;left:2px;transition:transform .3s ease}
+        .toggle-switch.active .toggle-knob{transform:translateX(24px)}
+        .toggle-label{color:rgba(255,255,255,0.8);font-size:0.9rem}
+        .preview-container{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+        .preview-left,.preview-right{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px}
+        .preview-title{color:#fff;font-size:1.1rem;font-weight:600;margin-bottom:15px;display:flex;align-items:center;gap:8px}
+        .svg-preview{background:#fff;border-radius:8px;padding:15px;min-height:200px;display:flex;align-items:center;justify-content:center}
+        .svg-preview svg{max-width:100%;max-height:200px}
+        .paths-preview{max-height:300px;overflow-y:auto}
+        .commands-table{width:100%;border-collapse:collapse;margin-top:10px}
+        .commands-table th,.commands-table td{padding:12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.1)}
+        .commands-table th{background:rgba(139,92,246,0.2);color:#fff;font-weight:600}
+        .commands-table td{color:rgba(255,255,255,0.8)}
+        .commands-table tr:hover{background:rgba(255,255,255,0.05)}
+        @media(max-width:768px){.related-grid{grid-template-columns:1fr}.preview-container{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+    <button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+    <div class="tool-container">
+        <div class="tool-header">
+            <div class="tool-header-icon"><i class="fas fa-vector-square"></i></div>
+            <div>
+                <h1 style="margin:0;">SVG Path Extractor</h1>
+                <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Extract SVG path data instantly for React, GSAP, and vector graphics</p>
+            </div>
+        </div>
+
+        <div class="tool-interface">
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-upload"></i> Input SVG</div>
+                <div style="padding:20px">
+                    <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop SVG file or click to upload</p>
+                        <input type="file" id="fileInput" accept=".svg" style="display:none" onchange="handleFileUpload(event)">
+                    </div>
+                    
+                    <div style="margin:15px 0;text-align:center;color:rgba(255,255,255,0.5);font-size:0.9rem;">— OR —</div>
+                    
+                    <textarea id="svgInput" class="tool-textarea" placeholder="Paste SVG code here..." style="min-height:200px;"></textarea>
+                    
+                    <div style="margin-top:15px;">
+                        <span style="color:rgba(255,255,255,0.6);font-size:0.85rem;margin-right:10px;">Try Sample:</span>
+                        <span class="example-chip" onclick="loadSample()">Sample SVG</span>
+                    </div>
+                    
+                    <div class="toggle-container">
+                        <div class="toggle-switch active" id="autoToggle" onclick="toggleAuto()">
+                            <div class="toggle-knob"></div>
+                        </div>
+                        <span class="toggle-label">Auto-extract on input</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tool-column">
+                <div class="tool-column-title"><i class="fas fa-eye"></i> Live Preview</div>
+                <div style="padding:20px">
+                    <div class="preview-container">
+                        <div class="preview-left">
+                            <div class="preview-title"><i class="fas fa-image" style="color:#07C5F5;"></i> SVG Preview</div>
+                            <div class="svg-preview" id="svgPreview">
+                                <span style="color:rgba(255,255,255,0.4);">No SVG input</span>
+                            </div>
+                        </div>
+                        <div class="preview-right">
+                            <div class="preview-title"><i class="fas fa-code" style="color:#FF00E1;"></i> Extracted Paths</div>
+                            <div class="paths-preview" id="pathsPreview">
+                                <span style="color:rgba(255,255,255,0.4);">Input SVG to extract paths</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-box" style="margin-top:20px;">
+                        <h4 style="color:#fff;margin:0 0 10px 0;font-size:1rem;font-weight:600;"><i class="fas fa-chart-bar" style="color:#8B5CF6;margin-right:8px;"></i>Path Statistics</h4>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-label">Paths Found</div>
+                                <div class="stat-value" id="statPaths">0</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Total Characters</div>
+                                <div class="stat-value" id="statChars">0</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Commands Used</div>
+                                <div class="stat-value" id="statCommands">-</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">ViewBox Size</div>
+                                <div class="stat-value" id="statViewBox">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool-actions">
+                    <button class="action-btn" onclick="extractPaths()"><i class="fas fa-magic"></i> Extract Paths</button>
+                    <button class="action-btn" onclick="copyAllPaths()"><i class="far fa-copy"></i> Copy All Paths</button>
+                    <button class="action-btn" onclick="downloadPaths()"><i class="fas fa-download"></i> Download TXT</button>
+                    <button class="secondary-btn" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box" style="margin-top:0;">
+            <h3><i class="fas fa-list"></i> Table of Contents</h3>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">
+                <a href="#what-is-svg-path" style="color:#8B5CF6;text-decoration:none;padding:8px 12px;background:rgba(139,92,246,0.1);border-radius:6px;display:block;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">What is SVG Path?</a>
+                <a href="#common-commands" style="color:#8B5CF6;text-decoration:none;padding:8px 12px;background:rgba(139,92,246,0.1);border-radius:6px;display:block;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">Common Commands</a>
+                <a href="#how-to-extract" style="color:#8B5CF6;text-decoration:none;padding:8px 12px;background:rgba(139,92,246,0.1);border-radius:6px;display:block;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">How to Extract</a>
+                <a href="#examples" style="color:#8B5CF6;text-decoration:none;padding:8px 12px;background:rgba(139,92,246,0.1);border-radius:6px;display:block;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">Examples</a>
+                <a href="#use-cases" style="color:#8B5CF6;text-decoration:none;padding:8px 12px;background:rgba(139,92,246,0.1);border-radius:6px;display:block;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">Use Cases</a>
+                <a href="#playground" style="color:#8B5CF6;text-decoration:none;padding:8px 12px;background:rgba(139,92,246,0.1);border-radius:6px;display:block;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">Interactive Playground</a>
+                <a href="#download-examples" style="color:#8B5CF6;text-decoration:none;padding:8px 12px;background:rgba(139,92,246,0.1);border-radius:6px;display:block;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">Download Examples</a>
+                <a href="#faq" style="color:#8B5CF6;text-decoration:none;padding:8px 12px;background:rgba(139,92,246,0.1);border-radius:6px;display:block;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">FAQ</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="info-box">
+            <h3 id="what-is-svg-path"><i class="fas fa-info-circle"></i> What is SVG Path Data? (Extract SVG Path Online)</h3>
+            <p>SVG path data is a string of commands that define the shape of SVG elements. It uses a series of commands like M (move to), L (line to), C (curve to), and Z (close path) to create vector graphics that can scale infinitely without losing quality. Path data is stored in the <code>d</code> attribute of <code>&lt;path&gt;</code> elements.</p>
+            <p>This SVG path extractor tool automatically parses SVG files and extracts all path data, making it easy to get path data from SVG files. Perfect for React components, GSAP animations, Framer Motion, Canvas applications, and other vector graphics workflows. After extracting paths, developers often use our <a href="svg-to-datauri.html">SVG to Data URI Converter</a> and <a href="html-to-jsx.html">HTML to JSX Converter</a> for complete frontend development.</p>
+            <p>The vector path format is essential for creating scalable icons, logos, illustrations, and animated graphics. Understanding svg commands and path data structure is crucial for working with modern web graphics and animation libraries. This SVG d attribute extractor makes it simple to extract path data from any SVG file.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3 id="common-commands"><i class="fas fa-table"></i> Common SVG Path Commands</h3>
+            <p>SVG paths use specific commands to define shapes. Here are the most common svg commands:</p>
+            <table class="commands-table">
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Meaning</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>M</strong></td>
+                        <td>Move To</td>
+                        <td>Moves the pen to a new position without drawing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>L</strong></td>
+                        <td>Line To</td>
+                        <td>Draws a straight line from current position</td>
+                    </tr>
+                    <tr>
+                        <td><strong>C</strong></td>
+                        <td>Cubic Bezier</td>
+                        <td>Draws a cubic Bezier curve</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Z</strong></td>
+                        <td>Close Path</td>
+                        <td>Closes the current path by drawing line to start</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q</strong></td>
+                        <td>Quadratic Bezier</td>
+                        <td>Draws a quadratic Bezier curve</td>
+                    </tr>
+                    <tr>
+                        <td><strong>A</strong></td>
+                        <td>Arc</td>
+                        <td>Draws an elliptical arc</td>
+                    </tr>
+                    <tr>
+                        <td><strong>H</strong></td>
+                        <td>Horizontal Line</td>
+                        <td>Draws a horizontal line</td>
+                    </tr>
+                    <tr>
+                        <td><strong>V</strong></td>
+                        <td>Vertical Line</td>
+                        <td>Draws a vertical line</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3 id="how-to-extract"><i class="fas fa-list-ol"></i> How to Extract SVG Paths (Get Path Data from SVG)</h3>
+            <p><strong>Step 1:</strong> Upload your SVG file by dragging and dropping it or clicking the upload area.<br>
+            <strong>Step 2:</strong> The tool automatically extracts all path data from the SVG file.<br>
+            <strong>Step 3:</strong> View the extracted paths in the preview panel with statistics.<br>
+            <strong>Step 4:</strong> Copy individual paths or download all paths as a TXT file.<br>
+            <strong>Step 5:</strong> Use the extracted paths in React components, GSAP animations, Framer Motion, Canvas, or other vector graphics applications.</p>
+            <p>This SVG path extractor handles multiple paths in a single SVG file, providing path statistics including total paths, character count, commands used, and viewBox dimensions. The tool is perfect for developers working with svg animations, icon design, and vector graphics.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3 id="examples"><i class="fas fa-code"></i> SVG Path Examples</h3>
+            <p>Here are some common SVG path examples to help you understand the format:</p>
+            <p><strong>Simple Line:</strong><br><code>M10 10 L100 100</code><br>Draws a line from (10,10) to (100,100)</p>
+            <p><strong>Triangle:</strong><br><code>M50 10 L90 90 L10 90 Z</code><br>Draws a triangle with three points</p>
+            <p><strong>Rectangle:</strong><br><code>M10 10 L90 10 L90 90 L10 90 Z</code><br>Draws a rectangle</p>
+            <p><strong>Curve:</strong><br><code>M10 50 C10 10, 90 10, 90 50</code><br>Draws a cubic Bezier curve</p>
+            <p>Google LOVES example-based content, and this SVG path extractor handles all these command types automatically for vector graphics and svg animations.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-code"></i> Copyable Code Snippets</h3>
+            <p>Ready-to-use code snippets for your projects:</p>
+            
+            <p style="margin-top:15px;"><strong>React Component:</strong></p>
+            <div style="background:rgba(0,0,0,0.3);padding:12px;border-radius:6px;font-family:monospace;font-size:0.85rem;color:rgba(255,255,255,0.8);margin-top:8px;">
+                <code>&lt;svg viewBox="0 0 100 100"&gt;<br>
+  &lt;path d="M10 10 L90 90" stroke="#8B5CF6" fill="none"/&gt;<br>
+&lt;/svg&gt;</code>
+                <button class="copy-small" onclick="copySnippet('react')" style="margin-left:10px;">Copy</button>
+            </div>
+            
+            <p style="margin-top:15px;"><strong>GSAP Animation:</strong></p>
+            <div style="background:rgba(0,0,0,0.3);padding:12px;border-radius:6px;font-family:monospace;font-size:0.85rem;color:rgba(255,255,255,0.8);margin-top:8px;">
+                <code>gsap.to("path", {<br>
+  strokeDasharray: 1000,<br>
+  strokeDashoffset: 1000,<br>
+  duration: 2,<br>
+  ease: "power2.out"<br>
+});</code>
+                <button class="copy-small" onclick="copySnippet('gsap')" style="margin-left:10px;">Copy</button>
+            </div>
+            
+            <p style="margin-top:15px;"><strong>Framer Motion:</strong></p>
+            <div style="background:rgba(0,0,0,0.3);padding:12px;border-radius:6px;font-family:monospace;font-size:0.85rem;color:rgba(255,255,255,0.8);margin-top:8px;">
+                <code>&lt;motion.path<br>
+  d="M10 10 L90 90"<br>
+  initial={{ pathLength: 0 }}<br>
+  animate={{ pathLength: 1 }}<br>
+  transition={{ duration: 2 }}<br>/&gt;</code>
+                <button class="copy-small" onclick="copySnippet('framer')" style="margin-left:10px;">Copy</button>
+            </div>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3 id="use-cases"><i class="fas fa-lightbulb"></i> SVG Path Use Cases</h3>
+            <p>SVG paths are widely used in modern web development and design. Common use cases include:</p>
+            <p><strong>React Animations:</strong> Use path data with React Spring, Framer Motion, or GSAP for smooth animations. The vector path format allows for complex, scalable animations.</p>
+            <p><strong>Framer Motion:</strong> Animate SVG paths for interactive UI elements, loading animations, and micro-interactions. Path data enables precise control over animation timing and easing.</p>
+            <p><strong>GSAP:</strong> GreenSock Animation Platform uses SVG paths for scroll-triggered animations, morphing effects, and complex motion graphics. Path data is essential for these advanced animations.</p>
+            <p><strong>Icon Design:</strong> SVG paths are the backbone of modern icon systems. They provide crisp, scalable icons that work on any device or screen size. Combine this tool with our <a href="svg-to-datauri.html">SVG to Data URI Converter</a> for icon optimization.</p>
+            <p><strong>Logos:</strong> Company logos use SVG paths for brand consistency across all media. The vector path format ensures logos remain sharp at any size.</p>
+            <p><strong>Vector Graphics:</strong> Illustrations, infographics, and data visualizations use SVG paths for scalable, lightweight graphics that load fast and look great on any device.</p>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3 id="playground"><i class="fas fa-play-circle"></i> Interactive Command Playground</h3>
+            <p>Type SVG path commands below and see them render live. This is perfect for testing and understanding SVG path commands.</p>
+            <div style="margin:20px 0;">
+                <input type="text" id="playgroundInput" class="tool-textarea" placeholder="M10 10 L90 90" style="margin-bottom:15px;" oninput="updatePlayground()">
+                <div class="svg-preview" id="playgroundPreview" style="min-height:150px;">
+                    <svg viewBox="0 0 100 100" width="200" height="200">
+                        <path id="playgroundPath" d="" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+            <p><strong>Copyable Code Snippet:</strong></p>
+            <div style="background:rgba(0,0,0,0.3);padding:12px;border-radius:6px;font-family:monospace;font-size:0.9rem;color:rgba(255,255,255,0.8);margin-top:10px;">
+                <code>&lt;path d="<span id="playgroundCode">M10 10 L90 90</span>" /&gt;</code>
+                <button class="copy-small" onclick="copyPlaygroundCode()" style="margin-left:10px;">Copy</button>
+            </div>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3 id="download-examples"><i class="fas fa-download"></i> Download SVG Examples</h3>
+            <p>Download these ready-to-use SVG examples for your projects:</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:15px;">
+                <button class="action-btn" onclick="downloadExample('heart')"><i class="fas fa-heart" style="color:#FF00E1;"></i> Heart SVG</button>
+                <button class="action-btn" onclick="downloadExample('star')"><i class="fas fa-star" style="color:#FFD700;"></i> Star SVG</button>
+                <button class="action-btn" onclick="downloadExample('wave')"><i class="fas fa-water" style="color:#07C5F5;"></i> Wave SVG</button>
+                <button class="action-btn" onclick="downloadExample('arrow')"><i class="fas fa-arrow-right" style="color:#8B5CF6;"></i> Arrow SVG</button>
+            </div>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-fire"></i> Popular SVG Path Examples Today</h3>
+            <p>These are the most commonly extracted SVG path patterns:</p>
+            <ul style="color:rgba(255,255,255,0.8);margin-top:10px;">
+                <li style="margin-bottom:8px;"><code style="background:rgba(139,92,246,0.2);padding:4px 8px;border-radius:4px;">M10 10 L90 90</code> - Simple diagonal line</li>
+                <li style="margin-bottom:8px;"><code style="background:rgba(139,92,246,0.2);padding:4px 8px;border-radius:4px;">M50 0 C100 0, 100 100, 50 100 C0 100, 0 0, 50 0</code> - Heart curve</li>
+                <li style="margin-bottom:8px;"><code style="background:rgba(139,92,246,0.2);padding:4px 8px;border-radius:4px;">M10 10 H90 V90 H10 Z</code> - Rectangle</li>
+                <li style="margin-bottom:8px;"><code style="background:rgba(139,92,246,0.2);padding:4px 8px;border-radius:4px;">M50 50 L50 10 L80 30 L50 50 Z</code> - Arrow shape</li>
+            </ul>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-search"></i> People Also Search For</h3>
+            <p>Related SVG tools and searches:</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:15px;">
+                <a href="#" style="color:#8B5CF6;text-decoration:none;padding:10px;background:rgba(139,92,246,0.1);border-radius:8px;display:block;text-align:center;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">SVG Path Editor</a>
+                <a href="#" style="color:#8B5CF6;text-decoration:none;padding:10px;background:rgba(139,92,246,0.1);border-radius:8px;display:block;text-align:center;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">SVG Path Generator</a>
+                <a href="#" style="color:#8B5CF6;text-decoration:none;padding:10px;background:rgba(139,92,246,0.1);border-radius:8px;display:block;text-align:center;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">SVG Path Visualizer</a>
+                <a href="svg-to-jsx.html" style="color:#8B5CF6;text-decoration:none;padding:10px;background:rgba(139,92,246,0.1);border-radius:8px;display:block;text-align:center;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">SVG to JSX</a>
+                <a href="#" style="color:#8B5CF6;text-decoration:none;padding:10px;background:rgba(139,92,246,0.1);border-radius:8px;display:block;text-align:center;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">SVG Minifier</a>
+                <a href="#" style="color:#8B5CF6;text-decoration:none;padding:10px;background:rgba(139,92,246,0.1);border-radius:8px;display:block;text-align:center;transition:all .3s ease;" onmouseover="this.style.background='rgba(139,92,246,0.2)'" onmouseout="this.style.background='rgba(139,92,246,0.1)'">SVG Optimizer</a>
+            </div>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3><i class="fas fa-users"></i> Used By</h3>
+            <p>This SVG path extractor is perfect for:</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:15px;">
+                <div style="padding:12px;background:rgba(255,255,255,0.05);border-radius:8px;border:1px solid rgba(255,255,255,0.1);">
+                    <i class="fab fa-react" style="color:#61DAFB;margin-right:8px;"></i> React Developers
+                </div>
+                <div style="padding:12px;background:rgba(255,255,255,0.05);border-radius:8px;border:1px solid rgba(255,255,255,0.1);">
+                    <i class="fas fa-bolt" style="color:#FF00E1;margin-right:8px;"></i> Framer Motion
+                </div>
+                <div style="padding:12px;background:rgba(255,255,255,0.05);border-radius:8px;border:1px solid rgba(255,255,255,0.1);">
+                    <i class="fas fa-magic" style="color:#00CE00;margin-right:8px;"></i> GSAP Users
+                </div>
+                <div style="padding:12px;background:rgba(255,255,255,0.05);border-radius:8px;border:1px solid rgba(255,255,255,0.1);">
+                    <i class="fab fa-figma" style="color:#F24E1E;margin-right:8px;"></i> Figma Exports
+                </div>
+            </div>
+        </div>
+
+        <div class="blank-space"></div>
+
+        <div class="info-box">
+            <h3 id="faq"><i class="fas fa-comments"></i> Frequently Asked Questions</h3>
+            <div class="faq-question">What is SVG path data?</div>
+            <div class="faq-answer">SVG path data is a string of commands that define the shape of SVG elements. It uses commands like M (move), L (line), C (curve), and Z (close) to create vector graphics that scale infinitely without losing quality.</div>
+
+            <div class="faq-question">How to extract path from SVG?</div>
+            <div class="faq-answer">Upload your SVG file to this tool and it will automatically extract all path data from the <code>&lt;path&gt;</code> elements. You can then copy or download the extracted paths for use in React, GSAP, or other applications.</div>
+
+            <div class="faq-question">What does M mean in SVG path?</div>
+            <div class="faq-answer">M stands for 'move to' in SVG path commands. It moves the pen to a new position without drawing a line. For example, M10 10 moves the starting point to coordinates (10, 10).</div>
+
+            <div class="faq-question">How to animate SVG path?</div>
+            <div class="faq-answer">You can animate SVG paths using libraries like GSAP, Framer Motion, or React Spring. Use the path data with these libraries to create smooth animations, morphing effects, and interactive graphics.</div>
+
+            <div class="faq-question">Can React use SVG paths?</div>
+            <div class="faq-answer">Yes, React can use SVG paths directly in JSX. You can use the extracted path data in <code>&lt;path d="..." /&gt;</code> elements or with animation libraries like Framer Motion for dynamic effects.</div>
+
+            <div class="faq-question">Is SVG path scalable?</div>
+            <div class="faq-answer">Yes, SVG paths are infinitely scalable because they are vector graphics defined by mathematical commands rather than pixels. They maintain quality at any size.</div>
+
+            <div class="faq-question">How to optimize SVG path?</div>
+            <div class="faq-answer">Optimize SVG paths by removing unnecessary commands, simplifying curves, using relative commands when possible, and removing redundant points. Tools like SVGO can help optimize SVG files.</div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="tool-content-section">
+        <div class="related-section" style="margin:0; padding:25px; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <h2 style="background: linear-gradient(135deg, #07C5F5, #FF00E1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; font-size:1.6rem; font-weight:800;">🔧 Related Tools</h2>
+            <div id="relatedGridSVGPath"></div>
+        </div>
+    </div>
+
+    <div class="blank-space"></div>
+
+    <div class="toast" id="toast"><i class="fas fa-check-circle" style="margin-right:8px;"></i> Paths Copied!</div>
+
+    <footer class="footer-bg" style="margin-top:80px;">
+        <div class="watermark">TOOLGRAM</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+                    <a href="../about.html">About Us</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+        </div>
+    </footer>
+</div>
+
+<script src="../js/nav-manager.js" defer></script>
+<script src="../js/main.js" defer></script>
 <script>
-function extractPaths(){let svgInput=document.getElementById('svg-input').value;if(!svgInput.trim()){document.getElementById('path-output').innerHTML='<span style="color:rgba(255,255,255,0.5);">Enter SVG to extract paths...</span>';return}
-try{let parser=new DOMParser();let doc=parser.parseFromString(svgInput,'image/svg+xml');let paths=doc.getElementsByTagName('path');let extractAll=document.getElementById('extract-all').checked;let minify=document.getElementById('minify-output').checked;let results=[];let totalCommands=0;for(let i=0;i<paths.length;i++){let d=paths[i].getAttribute('d');if(d){let commands=d.match(/[MLHVCSQTAZ][^MLHVCSQTAZ]*/gi)||[];totalCommands+=commands.length;if(extractAll){results.push(`/* Path ${i+1} */\n"${d}"`)}else if(i===0){results.push(`"${d}"`)}}}
-let output=document.getElementById('path-output');if(results.length){let formatted=minify?results.join('').replace(/\s+/g,' '):results.join('\n\n');output.innerHTML=`<pre style="background:rgba(139,92,246,0.1);padding:15px;border-radius:8px;margin:0;white-space:pre-wrap;word-break:break-word">${escapeHtml(formatted)}</pre>`;document.getElementById('path-count').textContent=`${results.length} path${results.length!==1?'s':''}`;document.getElementById('path-commands').textContent=`${totalCommands} commands`}else{output.innerHTML='<span style="color:rgba(255,255,255,0.5);">No path elements found</span>';document.getElementById('path-count').textContent='0 paths';document.getElementById('path-commands').textContent='0 commands'}}
-catch(e){document.getElementById('path-output').innerHTML=`<div style="color:#EF4444"><i class="fas fa-times-circle"></i> Invalid SVG: ${e.message}</div>`}}
-function escapeHtml(text){let div=document.createElement('div');div.textContent=text;return div.innerHTML}
-function clearSVG(){document.getElementById('svg-input').value='';document.getElementById('path-output').innerHTML='<span style="color:rgba(255,255,255,0.5);">Extracted paths will appear here...</span>';document.getElementById('path-count').textContent='0 paths';document.getElementById('path-commands').textContent='0 commands'}
-function loadSampleSVG(){document.getElementById('svg-input').value='<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">\n  <!-- Star shape -->\n  <path d="M50 5 L61 40 L98 40 L68 57 L79 92 L50 72 L21 92 L32 57 L2 40 L39 40 Z" fill="gold"/>\n  <!-- Circle outline -->\n  <path d="M50 20 C 30 20, 20 40, 20 60 C 20 80, 35 90, 50 90 C 65 90, 80 80, 80 60 C 80 40, 70 20, 50 20 Z" fill="none" stroke="blue"/>\n</svg>';extractPaths()}
-function copyPaths(){let text=document.getElementById('path-output').innerText;if(text&&!text.includes('Enter SVG')){navigator.clipboard.writeText(text);let btn=document.querySelector('.copy-btn');btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>btn.innerHTML='<i class="far fa-copy"></i> Copy Paths',2000)}}
-function loadRelated(){const tools=[{name:"SVG Formatter",icon:"fa-draw-polygon",url:"svg-formatter.html"},{name:"SVG to DataURI",icon:"fa-image",url:"svg-to-datauri.html"},{name:"CSS Gradient",icon:"fa-palette",url:"gradient-gen.html"},{name:"Color Palette",icon:"fa-palette",url:"color-palette.html"},{name:"Data URI Gen",icon:"fa-image",url:"data-uri.html"},{name:"Aspect Ratio",icon:"fa-arrows-alt",url:"aspect-ratio.html"}];let html="";tools.forEach(t=>{html+=`<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`});document.getElementById("relatedGrid").innerHTML=html}
-window.addEventListener("load",()=>{loadRelated();clearSVG()});</script></body></html>
+    let extractedPaths = [];
+    let svgContent = '';
+    let autoExtract = true;
+
+    function toggleAuto() {
+        autoExtract = !autoExtract;
+        document.getElementById('autoToggle').classList.toggle('active');
+    }
+
+    function handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (file && file.name.endsWith('.svg')) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                svgContent = e.target.result;
+                document.getElementById('svgInput').value = svgContent;
+                document.getElementById('svgPreview').innerHTML = svgContent;
+                if (autoExtract) {
+                    extractPaths();
+                }
+            };
+            reader.readAsText(file);
+        }
+    }
+
+    const dropZone = document.getElementById('dropZone');
+    if (dropZone) {
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.name.endsWith('.svg')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    svgContent = e.target.result;
+                    document.getElementById('svgInput').value = svgContent;
+                    document.getElementById('svgPreview').innerHTML = svgContent;
+                    if (autoExtract) {
+                        extractPaths();
+                    }
+                };
+                reader.readAsText(file);
+            }
+        });
+    }
+
+    const svgInput = document.getElementById('svgInput');
+    if (svgInput) {
+        svgInput.addEventListener('input', function() {
+            svgContent = this.value;
+            document.getElementById('svgPreview').innerHTML = svgContent;
+            if (autoExtract && svgContent.trim()) {
+                extractPaths();
+            }
+        });
+    }
+
+    function loadSample() {
+        const sampleSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M10 50 L50 10 L90 50 L50 90 Z" fill="#8B5CF6"/>
+  <circle cx="50" cy="50" r="20" fill="#FF00E1"/>
+</svg>`;
+        document.getElementById('svgInput').value = sampleSVG;
+        svgContent = sampleSVG;
+        document.getElementById('svgPreview').innerHTML = sampleSVG;
+        if (autoExtract) {
+            extractPaths();
+        }
+    }
+
+    function extractPaths() {
+        const input = document.getElementById('svgInput').value.trim() || svgContent;
+        if (!input) {
+            alert('Please input SVG code or upload a file');
+            return;
+        }
+
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(input, 'image/svg+xml');
+        const paths = doc.querySelectorAll('path');
+        
+        extractedPaths = [];
+        paths.forEach((path, index) => {
+            const d = path.getAttribute('d');
+            if (d) {
+                extractedPaths.push(d.trim());
+            }
+        });
+
+        const svgElement = doc.querySelector('svg');
+        let viewBox = '-';
+        if (svgElement && svgElement.getAttribute('viewBox')) {
+            viewBox = svgElement.getAttribute('viewBox');
+        }
+
+        displayPaths();
+        updateStats(viewBox);
+    }
+
+    function displayPaths() {
+        const container = document.getElementById('pathsPreview');
+        
+        if (extractedPaths.length === 0) {
+            container.innerHTML = '<span style="color:rgba(255,255,255,0.4);">No paths found in SVG</span>';
+            return;
+        }
+
+        let html = '';
+        extractedPaths.forEach((path, index) => {
+            html += `
+                <div class="path-item">
+                    <div class="path-header">
+                        <span class="path-number">Path ${index + 1}</span>
+                        <button class="copy-small" onclick="copyPath(${index})">Copy</button>
+                    </div>
+                    <div class="path-code">${path}</div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+    }
+
+    function updateStats(viewBox) {
+        document.getElementById('statPaths').textContent = extractedPaths.length;
+        
+        let totalChars = 0;
+        extractedPaths.forEach(path => {
+            totalChars += path.length;
+        });
+        document.getElementById('statChars').textContent = totalChars;
+        
+        const commands = new Set();
+        extractedPaths.forEach(path => {
+            const matches = path.match(/[MLCZHVAQ]/g);
+            if (matches) {
+                matches.forEach(cmd => commands.add(cmd));
+            }
+        });
+        document.getElementById('statCommands').textContent = Array.from(commands).join(' ') || '-';
+        document.getElementById('statViewBox').textContent = viewBox;
+    }
+
+    function copyPath(index) {
+        navigator.clipboard.writeText(extractedPaths[index]);
+        showToast();
+    }
+
+    function copyAllPaths() {
+        if (extractedPaths.length === 0) {
+            alert('No paths to copy');
+            return;
+        }
+        const allPaths = extractedPaths.join('\n');
+        navigator.clipboard.writeText(allPaths);
+        showToast();
+    }
+
+    function downloadPaths() {
+        if (extractedPaths.length === 0) {
+            alert('No paths to download');
+            return;
+        }
+        const content = extractedPaths.join('\n');
+        const blob = new Blob([content], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'svg-paths.txt';
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    function clearAll() {
+        svgContent = '';
+        extractedPaths = [];
+        document.getElementById('svgInput').value = '';
+        document.getElementById('svgPreview').innerHTML = '<span style="color:rgba(255,255,255,0.4);">No SVG input</span>';
+        document.getElementById('pathsPreview').innerHTML = '<span style="color:rgba(255,255,255,0.4);">Input SVG to extract paths</span>';
+        document.getElementById('statPaths').textContent = '0';
+        document.getElementById('statChars').textContent = '0';
+        document.getElementById('statCommands').textContent = '-';
+        document.getElementById('statViewBox').textContent = '-';
+        document.getElementById('fileInput').value = '';
+    }
+
+    function showToast() {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    function updatePlayground() {
+        const input = document.getElementById('playgroundInput').value;
+        const path = document.getElementById('playgroundPath');
+        const code = document.getElementById('playgroundCode');
+        path.setAttribute('d', input);
+        code.textContent = input || 'M10 10 L90 90';
+    }
+
+    function copyPlaygroundCode() {
+        const code = document.getElementById('playgroundCode').textContent;
+        navigator.clipboard.writeText('<path d="' + code + '" />');
+        showToast();
+    }
+
+    function downloadExample(type) {
+        const examples = {
+            heart: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M50 88 C20 60, 5 35, 25 20 C40 10, 50 25, 50 30 C50 25, 60 10, 75 20 C95 35, 80 60, 50 88 Z" fill="#FF00E1"/>
+</svg>`,
+            star: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M50 5 L61 39 L97 39 L68 60 L79 95 L50 74 L21 95 L32 60 L3 39 L39 39 Z" fill="#FFD700"/>
+</svg>`,
+            wave: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+  <path d="M0 25 Q25 0, 50 25 T100 25 T150 25 T200 25" fill="none" stroke="#07C5F5" stroke-width="3"/>
+</svg>`,
+            arrow: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
+  <path d="M10 25 L70 25 M50 10 L70 25 L50 40" fill="none" stroke="#8B5CF6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`
+        };
+        
+        const content = examples[type];
+        const blob = new Blob([content], { type: 'image/svg+xml' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = type + '.svg';
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    function copySnippet(type) {
+        const snippets = {
+            react: `<svg viewBox="0 0 100 100">
+  <path d="M10 10 L90 90" stroke="#8B5CF6" fill="none"/>
+</svg>`,
+            gsap: `gsap.to("path", {
+  strokeDasharray: 1000,
+  strokeDashoffset: 1000,
+  duration: 2,
+  ease: "power2.out"
+});`,
+            framer: `<motion.path
+  d="M10 10 L90 90"
+  initial={{ pathLength: 0 }}
+  animate={{ pathLength: 1 }}
+  transition={{ duration: 2 }}
+/>`
+        };
+        navigator.clipboard.writeText(snippets[type]);
+        showToast();
+    }
+
+    function loadRelated() {
+        const toolGroups = {
+            "⚛️ SVG & React Tools": [
+                {name:"SVG to Data URI", icon:"fa-image", url:"svg-to-datauri.html"},
+                {name:"HTML to JSX", icon:"fab fa-react", url:"html-to-jsx.html"},
+                {name:"CSS to JSX", icon:"fab fa-react", url:"css-to-jsx.html"},
+                {name:"JSON to TypeScript", icon:"fa-code", url:"json-to-ts.html"}
+            ],
+            "🎨 SVG & Design Tools": [
+                {name:"Color Picker", icon:"fa-palette", url:"color-picker.html"},
+                {name:"Gradient Generator", icon:"fa-fill-drip", url:"gradient-generator.html"},
+                {name:"Border Radius", icon:"fa-border-style", url:"border-radius.html"},
+                {name:"Color Palette", icon:"fa-palette", url:"color-palette.html"}
+            ],
+            "🔗 Encoding & Conversion": [
+                {name:"Base64 Encoder", icon:"fa-code", url:"base64.html"},
+                {name:"Data URI Converter", icon:"fa-link", url:"data-uri.html"},
+                {name:"URL Encoder", icon:"fa-link", url:"url-encoder.html"},
+                {name:"HTML Entity Encoder", icon:"fa-code", url:"html-entity.html"}
+            ],
+            "🧪 Developer Utilities": [
+                {name:"Regex Tester", icon:"fa-code", url:"regex-tester.html"},
+                {name:"JSON Formatter", icon:"fa-code", url:"json-formatter.html"},
+                {name:"JavaScript Formatter", icon:"fa-js", url:"js-formatter.html"},
+                {name:"CSS Formatter", icon:"fa-css3-alt", url:"css-formatter.html"}
+            ]
+        };
+        
+        let html = "";
+        for (const [groupName, tools] of Object.entries(toolGroups)) {
+            html += `<div style="margin-bottom:25px;"><h3 style="color:rgba(255,255,255,0.9);font-size:1.1rem;margin-bottom:12px;font-weight:600;">${groupName}</h3><div class="related-grid">`;
+            tools.forEach(t => {
+                html += `<a href="${t.url}" class="related-card"><div class="related-icon"><i class="fas ${t.icon}"></i></div><span class="related-title">${t.name}</span></a>`;
+            });
+            html += `</div></div>`;
+        }
+        document.getElementById("relatedGridSVGPath").innerHTML = html;
+    }
+    window.addEventListener("load", loadRelated);
+</script>
+</body>
+</html>
