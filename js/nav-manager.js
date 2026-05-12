@@ -5,8 +5,6 @@ class NavManager {
             // Load Google Analytics 4 (add this line FIRST)
              this.loadGA4();
             
-            // Load AADS Banner (only on tool pages)
-            this.loadAADSBanner();
             
             // Load Adsterra Social Bar
             this.loadAdsterra();
@@ -74,33 +72,7 @@ class NavManager {
                 };
             });
         }
-    }
-
-    // AADS 728x90 Banner (responsive, only on tool pages)
-    static loadAADSBanner() {
-        if (!document.querySelector('.tool-container')) return;
-        if (document.getElementById('aads-banner')) return;
-        
-        const bannerDiv = document.createElement('div');
-        bannerDiv.id = 'aads-banner';
-        bannerDiv.style.cssText = 'width:100%; text-align:center; margin:0 auto 20px auto; padding:0;';
-        bannerDiv.innerHTML = `
-            <div style="width:100%; max-width:728px; margin:0 auto; position:relative;">
-                <iframe data-aa='2432556' src='//ad.a-ads.com/2432556/?size=728x90&background_color=1a0b2e&title_color=ffffff&title_hover_color=ffffff&text_color=ffffff&link_color=ffffff&link_hover_color=ffffff'
-                    style='border:0; padding:0; width:100%; height:auto; aspect-ratio:728/90; display:block; margin:auto;'></iframe>
-                <div style="width:100%; margin:auto; position:absolute; left:0; right:0; bottom:0; text-align:center;">
-                    <a target="_blank" style="display:inline-block; font-size:11px; color:#999; padding:2px 5px; background:#111; text-decoration:none; border-radius:0 0 4px 4px;" href="https://aads.com/campaigns/new/?source_id=2432556&source_type=ad_unit&partner=2432556">Advertise here</a>
-                </div>
-            </div>
-        `;
-        
-        const navContainer = document.querySelector('.nav-container');
-        if (navContainer) {
-            navContainer.insertAdjacentElement('afterend', bannerDiv);
-        } else {
-            document.body.insertBefore(bannerDiv, document.body.firstChild);
-        }
-    }
+       }
 
     // Adsterra Social Bar loader
     static loadAdsterra() {
@@ -112,23 +84,6 @@ class NavManager {
         document.head.appendChild(script);
     }
 
-    // PopAds loader
-    static loadPopAds() {
-        if (document.getElementById('popads-script')) return;
-
-        const script = document.createElement('script');
-        script.id = 'popads-script';
-        script.type = 'text/javascript';
-        script.setAttribute('data-cfasync', 'false');
-
-        script.innerHTML = `
-/*<![CDATA[/* */
-(function(){var x=window,w="d6cbd252fd615fb2e6e27ba92f17006c",v=[["siteId",245*945+912+5045960],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],p=["d3d3LmNkbjRhZHMuY29tL0NwcnlWQS9uZm91bmRhdGlvbi5taW4uanM=","ZDNnNW92Zm5nanc5YncuY2xvdWRmcm9udC5uZXQvbGRCL210dHBZbS90c2ltcGxlLWpla3lsbC1zZWFyY2gubWluLmNzcw=="],l=-1,m,q,t=function(){clearTimeout(q);l++;if(p[l]&&!(1797542659000<(new Date).getTime()&&1<l)){m=x.document.createElement("script");m.type="text/javascript";m.async=!0;var c=x.document.getElementsByTagName("script")[0];m.src="https://"+atob(p[l]);m.crossOrigin="anonymous";m.onerror=t;m.onload=function(){clearTimeout(q);x[w.slice(0,16)+w.slice(0,16)]||t()};q=setTimeout(t,5E3);c.parentNode.insertBefore(m,c)}};if(!x[w]){try{Object.freeze(x[w]=v)}catch(e){}t()}})();
-/*]]>/* */
-        `;
-
-        document.head.appendChild(script);
-    }
 
     // Adsterra Native Banner
     static loadNativeBanner() {
