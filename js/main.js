@@ -1,6 +1,3 @@
-// =====================================================
-// TOOLGRAM MAIN.JS - NO DUPLICATE INFO BOXES
-// =====================================================
 
 // 1. COPY BUTTON FUNCTIONALITY (only on tool pages)
 function setupCopyButtons() {
