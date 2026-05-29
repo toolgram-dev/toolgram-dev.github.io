@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Markdown to HTML Online | Convert Markdown - ToolGram</title>
-<meta name="description" content="Free online markdown to HTML converter. Convert markdown files to HTML with proper Processting. Support for tables, code blocks, links, and images.">
-<meta name="keywords" content="markdown to html online,convert markdown to html,markdown converter,markdown parser,html generator from markdown,markdown to html tool">
+<title>Markdown Viewer Online | View Markdown - ToolGram</title>
+<meta name="description" content="Free online markdown viewer to render markdown files. View markdown with syntax highlighting. Convert markdown to HTML for display. Parse markdown structure.">
+<meta name="keywords" content="markdown viewer online,view markdown,markdown renderer,markdown to html converter,markdown parser,markdown display">
 <meta name="author" content="ToolGram">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://toolgram.tech/tools/markdown-to-html.html">
-<meta property="og:title" content="Markdown to HTML | ToolGram">
-<meta property="og:description" content="Process and beautify Code with syntax highlighting and professional Processting.">
-<meta property="og:url" content="https://toolgram.tech/tools/markdown-to-html.html">
+<link rel="canonical" href="https://toolgram.tech/tools/markdown-viewer.html">
+<meta property="og:title" content="Markdown Viewer Online | ToolGram">
+<meta property="og:description" content="Render and beautify Code with syntax highlighting and professional Renderting.">
+<meta property="og:url" content="https://toolgram.tech/tools/markdown-viewer.html">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -23,14 +23,14 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": .md Processter",
-  "description": "Markdown to HTML to beautify and Process Code with syntax highlighting and professional Processting. Upload or paste Code files and Process instantly.",
+  "name": .md Renderter",
+  "description": "Markdown Viewer Online to beautify and Render Code with syntax highlighting and professional Renderting. Upload or paste Code files and Render instantly.",
   "applicationCategory": "Developer",
   "operatingSystem": "Any",
-  "url": "https://toolgram.tech/tools/markdown-to-html.html",
+  "url": "https://toolgram.tech/tools/markdown-viewer.html",
   "offers": { "@type": "Offer", "price": "0" },
   "featureList": ["Code Processing", "Syntax Highlighting", "Format", "Minify", "Validation", "Copy & Download", "File Upload"],
-  "keywords": ["Markdown to HTML", "Process Code", "code beautifier", "Code Processter", "Markdown Parser", "code Processter", "HTML beautifier"]
+  "keywords": ["Markdown Viewer Online", "Render Code", "code beautifier", "Code Renderter", "Markdown to HTML", "code Renderter", "HTML beautifier"]
 }
 </script>
 <script type="application/ld+json">
@@ -40,7 +40,7 @@
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolgram.tech" },
     { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://toolgram.tech/tools.html" },
-    { "@type": "ListItem", "position": 3, "name": .md Processter", "item": "https://toolgram.tech/tools/markdown-to-html.html" }
+    { "@type": "ListItem", "position": 3, "name": .md Renderter", "item": "https://toolgram.tech/tools/markdown-viewer.html" }
   ]
 }
 </script>
@@ -127,16 +127,16 @@ select{width:100%;min-width:auto}
 
 <div class="tool-container">
   <div class="tool-header">
-    <div class="tool-header-icon"><i class="fas fa-file-code"></i></div>
+    <div class="tool-header-icon"><i class="fas fa-eye"></i></div>
     <div>
-      <h1 style="margin:0;font-size:2.7rem;">Markdown to HTML<br>Convert Markdown</h1>
-      <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Transform markdown to HTML</p>
+      <h1 style="margin:0;font-size:2.7rem;">Markdown Viewer Online<br>View Markdown</h1>
+      <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Render markdown to HTML</p>
     </div>
   </div>
 
   <div class="tool-interface">
     <div class="tool-column">
-      <div class="tool-column-title"><i class="fas fa-upload"></i> Input</div>
+      <div class="tool-column-title"><i class="fas fa-upload"></i> Input Markdown</div>
       <div style="padding:20px">
         <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
           <i class="fas fa-cloud-upload-alt"></i>
@@ -158,19 +158,19 @@ select{width:100%;min-width:auto}
         </div>
 
         <div class="var-row" style="margin-top:15px;">
-          <label style="color:#fff;min-width:150px">Language</label>
+          <label style="color:#fff;min-width:150px">View Mode</label>
           <select id="markdownDialect">
             <option value="standard" selected>Standard Markdown</option>
-            <option value="GitHub Flavored">GitHub Flavored</option>
-            <option value="CommonMark">CommonMark</option>
-            <option value="Original">Original</option>
+            <option value="HTML">HTML</option>
+            <option value="Raw">Raw</option>
+            <option value="CSS">CSS</option>
             <option value="m.md">JSON</option>
             <option value="XML">XML</option>
           </select>
         </div>
 
         <div class="var-row">
-          <label style="color:#fff;min-width:150px">Options</label>
+          <label style="color:#fff;min-width:150px">View Mode</label>
           <select id="indentSize">
             <option value="2">2 Spaces</option>
             <option value="4" selected>4 Spaces</option>
@@ -180,7 +180,7 @@ select{width:100%;min-width:auto}
         </div>
 
         <div class="var-row">
-          <label style="color:#fff;min-width:150px">Settings</label>
+          <label style="color:#fff;min-width:150px">Show HTML</label>
           <select id="keywordCase">
             <option value="upper" selected>UPPERCASE</option>
             <option value="lower">lowercase</option>
@@ -190,7 +190,7 @@ select{width:100%;min-width:auto}
         </div>
 
         <div class="var-row">
-          <label style="color:#fff;min-width:150px">Settings</label>
+          <label style="color:#fff;min-width:150px">Show Source</label>
           <select id="commaPosition">
             <option value="before" selected>Before Column</option>
             <option value="after">After Column</option>
@@ -200,25 +200,25 @@ select{width:100%;min-width:auto}
     </div>
 
     <div class="tool-column">
-      <div class="tool-column-title"><i class="fas fa-eye"></i> Processted Output</div>
+      <div class="tool-column-title"><i class="fas fa-eye"></i> Renderted Output</div>
       <div style="padding:20px">
         <div class="preview-container">
           <div class="preview-left">
-            <div class="preview-title"><i class="fas fa-code" style="color:#07C5F5;"></i> Processted.md</div>
-            <div class="svg-preview" id="ProcesstedPreview" style="background:rgba(0,0,0,0.3);color:rgba(255,255,255,0.8);text-align:left;overflow:auto;">
+            <div class="preview-title"><i class="fas fa-code" style="color:#07C5F5;"></i> Renderted.md</div>
+            <div class="svg-preview" id="RendertedPreview" style="background:rgba(0,0,0,0.3);color:rgba(255,255,255,0.8);text-align:left;overflow:auto;">
               <span style="color:rgba(255,255,255,0.4);">No.md input</span>
             </div>
           </div>
           <div class="preview-right">
             <div class="preview-title"><i class="fas fa-check-circle" style="color:#FF00E1;"></i> Validation Status</div>
             <div class="paths-preview" id="validationStatus" style="color:rgba(255,255,255,0.8);">
-              <span style="color:rgba(255,255,255,0.4);">Paste.md to Process</span>
+              <span style="color:rgba(255,255,255,0.4);">Paste.md to Render</span>
             </div>
           </div>
         </div>
 
         <div class="stats-box" style="margin-top:20px;">
-          <h4 style="color:#fff;margin:0 0 10px 0;font-size:1rem;font-weight:600;"><i class="fas fa-chart-bar" style="color:#8B5CF6;margin-right:8px;"></i>Statistics</h4>
+          <h4 style="color:#fff;margin:0 0 10px 0;font-size:1rem;font-weight:600;"><i class="fas fa-chart-bar" style="color:#8B5CF6;margin-right:8px;"></i>Markdown Statistics</h4>
           <div class="stats-grid">
             <div class="stat-item"><div class="stat-label">Characters</div><div class="stat-value" id="statChars">0</div></div>
             <div class="stat-item"><div class="stat-label">Lines</div><div class="stat-value" id="statLines">0</div></div>
@@ -227,10 +227,10 @@ select{width:100%;min-width:auto}
           </div>
         </div>
 
-        <div class="final-code-box" id="finalCodeSection"><span class="final-code-badge" id="finalCodeBadge">Ready</span><h4><i class="fas fa-code" style="color:#8B5CF6;"></i> Final Output</h4><div class="final-code-content" id="finalCodeContent"><span style="color:rgba(255,255,255,0.4);">Processed Markdown will appear here after Process, Process, or Beautify</span></div></div>
+        <div class="final-code-box" id="finalCodeSection"><span class="final-code-badge" id="finalCodeBadge">Ready</span><h4><i class="fas fa-code" style="color:#8B5CF6;"></i> Rendered HTML</h4><div class="final-code-content" id="finalCodeContent"><span style="color:rgba(255,255,255,0.4);">Processed Markdown will appear here after Render, Render, or Beautify</span></div></div>
       </div>
 
-      <div class="tool-actions"><button class="action-btn" onclick="Proces.md()"><i class="fas fa-magic"></i> Process</button><button class="action-btn" onclick="Proces.md()"><i class="fas fa-check-circle"></i> Process</button><button class="action-btn" onclick="beautifyResult()"><i class="fas fa-indent"></i> Beautify</button><button class="action-btn" onclick="compressResult()"><i class="fas fa-compress"></i> Compress</button><button class="action-btn" onclick="copyFinalCode()"><i class="far fa-copy"></i> Copy</button><button class="action-btn" onclick="downloadFinalCode()"><i class="fas fa-download"></i> Download</button><button class="action-btn" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button></div>
+      <div class="tool-actions"><button class="action-btn" onclick="Rende.md()"><i class="fas fa-magic"></i> Render</button><button class="action-btn" onclick="Rende.md()"><i class="fas fa-check-circle"></i> Render</button><button class="action-btn" onclick="beautifyResult()"><i class="fas fa-indent"></i> Beautify</button><button class="action-btn" onclick="compressResult()"><i class="fas fa-compress"></i> Compress</button><button class="action-btn" onclick="copyFinalCode()"><i class="far fa-copy"></i> Copy</button><button class="action-btn" onclick="downloadFinalCode()"><i class="fas fa-download"></i> Download</button><button class="action-btn" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button></div>
     </div>
   </div>
 </div>
@@ -240,7 +240,7 @@ select{width:100%;min-width:auto}
 <div class="tool-content-section">
   <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
     <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">Code Tools</h2>
-    <div id="relatedGridmarkdowntohtml"></div>
+    <div id="relatedGridmarkdownviewer"></div>
   </div>
 </div>
 
@@ -248,37 +248,37 @@ select{width:100%;min-width:auto}
 
 <div class="tool-content-section">
   <div class="info-box" style="margin-top:0;">
-    <h3><i class="fas fa-file-code"></i> Markdown to HTML</h3>
-    <p>This <strong>Markdown to HTML</strong> helps you <strong>Process Code</strong> with professional-grade syntax highlighting and automatic Options. Simply paste your Markdown or upload a file, and the tool will instantly beautify your code with proper Processting. Perfect for language developers, data analysts, and anyone working with Code.</p>
-    <p>For viewing Code structure, use Code viewer to analyze tables, columns, and relationships. For comparing Code, try Code diff to see differences clearly. When you need to convert between Processs, use.md to JSON or JSON to Code converters.</p>
-    <p><strong>Step-by-step:</strong> Step 1: Paste your Markdown or upload a file. Step 2: Select your Language (JavaScript, HTML, etc.). Step 3: Choose Options and Processting options. Step 4: Enable AutoPilot for instant Processting. Step 5: Copy or download the Processted.md.</p>
+    <h3><i class="fas fa-eye"></i> Markdown Viewer Online</h3>
+    <p>This <strong>Markdown Viewer Online</strong> helps you <strong>Render Code</strong> with professional-grade syntax highlighting and automatic View Mode. Simply paste your Markdown or upload a file, and the tool will instantly beautify your code with proper Renderting. Perfect for language developers, data analysts, and anyone working with Code.</p>
+    <p>For viewing Code structure, use Code viewer to analyze tables, columns, and relationships. For comparing Code, try Code diff to see differences clearly. When you need to convert between Renders, use.md to JSON or JSON to Code converters.</p>
+    <p><strong>Step-by-step:</strong> Step 1: Paste your Markdown or upload a file. Step 2: Select your View Mode (JavaScript, HTML, etc.). Step 3: Choose View Mode and Renderting options. Step 4: Enable AutoPilot for instant Renderting. Step 5: Copy or download the Renderted.md.</p>
   </div>
 
   <div class="blank-space"></div>
 
   <div class="info-box">
-    <h3><i class="fas fa-magic"></i> Markdown Converter</h3>
-    <p>The built-in <strong>code beautifier</strong> automatically Processs your Code with consistent Options and keyword casing. This <strong>Markdown to HTML</strong> supports multiple Languages including JavaScript, HTML, CSS, JSON, XML, and YAML, ensuring your code follows best practices for each language.</p>
-    <p>Choose from different keyword casing options: UPPERCASE for traditional.md style, lowercase for modern preferences, or preserve original casing. The <strong>Code Processter</strong> also handles Settingsing, letting you place commas before or after column names based on your coding standards.</p>
+    <h3><i class="fas fa-magic"></i> Markdown Renderer</h3>
+    <p>The built-in <strong>code beautifier</strong> automatically Renders your Code with consistent View Mode and keyword casing. This <strong>Markdown Viewer Online</strong> supports multiple View Modes including JavaScript, HTML, CSS, JSON, XML, and YAML, ensuring your code follows best practices for each language.</p>
+    <p>Choose from different keyword casing options: UPPERCASE for traditional.md style, lowercase for modern preferences, or preserve original casing. The <strong>Code Renderter</strong> also handles Show Sourceing, letting you place commas before or after column names based on your coding standards.</p>
     <p>For minifying.md for production, use the Compress function to remove all unnecessary whitespace while maintaining.md validity.</p>
   </div>
 
   <div class="blank-space"></div>
 
   <div class="info-box">
-    <h3><i class="fas fa-check-circle"></i> Markdown Parser</h3>
-    <p>This <strong>Markdown to HTML</strong> includes automatic validation to check for common Code syntax errors. When you <strong>Process Code</strong>, the tool checks for mismatched parentheses, unclosed quotes, missing semicolons, and other common issues. If errors are found, you'll see detailed messages to help fix them quickly.</p>
+    <h3><i class="fas fa-check-circle"></i> Markdown to HTML</h3>
+    <p>This <strong>Markdown Viewer Online</strong> includes automatic validation to check for common Code syntax errors. When you <strong>Render Code</strong>, the tool checks for mismatched parentheses, unclosed quotes, missing semicolons, and other common issues. If errors are found, you'll see detailed messages to help fix them quickly.</p>
     <p>The validation status panel shows real-time feedback as you type or paste.md. For comprehensive language-specific validation, use language management tools that can check against actual schema definitions.</p>
-    <p>For data transProcession needs, try JSON to.md to convert JSON data into.md INSERT statements, or.md to JSON to extract query results as JSON.</p>
+    <p>For data transRenderion needs, try JSON to.md to convert JSON data into.md INSERT statements, or.md to JSON to extract query results as JSON.</p>
   </div>
 
   <div class="blank-space"></div>
 
   <div class="info-box">
-    <h3><i class="fas fa-compress"></i> HTML Generator</h3>
-    <p>The <strong>Code minifier</strong> feature removes all unnecessary whitespace from your Code while maintaining validity. This is useful for reducing file size in production environments and improving query transmission speed over networks. The <strong>Markdown to HTML</strong> ensures minified code remains executable.</p>
+    <h3><i class="fas fa-compress"></i> Markdown Parser</h3>
+    <p>The <strong>Code minifier</strong> feature removes all unnecessary whitespace from your Code while maintaining validity. This is useful for reducing file size in production environments and improving query transmission speed over networks. The <strong>Markdown Viewer Online</strong> ensures minified code remains executable.</p>
     <p>Minifying.md is particularly helpful for embedded.md in application code, stored procedures, and language migrations where space optimization matters. The tool preserves Code syntax while removing comments, extra spaces, and line breaks.</p>
-    <p>For language schema documentation, use the Processted output to generate clean, readable.md documentation and ER diagrams.</p>
+    <p>For language schema documentation, use the Renderted output to generate clean, readable.md documentation and ER diagrams.</p>
   </div>
 
   <div class="blank-space"></div>
@@ -286,23 +286,23 @@ select{width:100%;min-width:auto}
   <div class="info-box">
     <h3><i class="fas fa-comments"></i> Frequently Asked Questions</h3>
 
-    <div class="faq-question">How to Process Code online?</div>
-    <div class="faq-answer">Paste your Markdown into this Markdown to HTML, select your Language, and enable AutoPilot. The tool will automatically Process Code with proper Options and keyword casing. You can also customize Options size and Settings.</div>
+    <div class="faq-question">How to Render Code online?</div>
+    <div class="faq-answer">Paste your Markdown into this Markdown Viewer Online, select your View Mode, and enable AutoPilot. The tool will automatically Render Code with proper View Mode and keyword casing. You can also customize View Mode size and Show Source.</div>
 
-    <div class="faq-question">Can I upload Code files to Process them online?</div>
-    <div class="faq-answer">Yes. This code beautifier supports drag-and-drop upload for .Code files. The tool will instantly Process Code with syntax highlighting and proper Options for easy editing and review.</div>
+    <div class="faq-question">Can I upload Code files to Render them online?</div>
+    <div class="faq-answer">Yes. This code beautifier supports drag-and-drop upload for .Code files. The tool will instantly Render Code with syntax highlighting and proper View Mode for easy editing and review.</div>
 
-    <div class="faq-question">Which Languages are supported?</div>
-    <div class="faq-answer">The Markdown to HTML supports Standard Markdown, JavaScript, HTML, CSS, JSON, XML, and YAML. Each dialect has specific Processting rules to ensure your code follows best practices for that language.</div>
+    <div class="faq-question">Which View Modes are supported?</div>
+    <div class="faq-answer">The Markdown Viewer Online supports Standard Markdown, JavaScript, HTML, CSS, JSON, XML, and YAML. Each dialect has specific Renderting rules to ensure your code follows best practices for that language.</div>
 
-    <div class="faq-question">How to Process Code syntax while Processting?</div>
-    <div class="faq-answer">The Markdown to HTML automatically Processs Code syntax in real-time. It checks for common errors like mismatched parentheses, unclosed quotes, and missing semicolons. Errors are highlighted with detailed messages to help fix issues quickly.</div>
+    <div class="faq-question">How to Render Code syntax while Renderting?</div>
+    <div class="faq-answer">The Markdown Viewer Online automatically Renders Code syntax in real-time. It checks for common errors like mismatched parentheses, unclosed quotes, and missing semicolons. Errors are highlighted with detailed messages to help fix issues quickly.</div>
 
     <div class="faq-question">How to minify.md for production?</div>
-    <div class="faq-answer">Use the Compress button to minify your Markdown. The Code Processter removes all unnecessary whitespace while maintaining.md validity, reducing file size for production deployments and improving query transmission speed.</div>
+    <div class="faq-answer">Use the Compress button to minify your Markdown. The Code Renderter removes all unnecessary whitespace while maintaining.md validity, reducing file size for production deployments and improving query transmission speed.</div>
 
-    <div class="faq-question">Is this.md Processter safe for sensitive queries?</div>
-    <div class="faq-answer">Yes. All processing happens locally in your browser when you Process Code. your Markdown never leaves your device, making this Markdown to HTML completely safe for sensitive language queries and proprietary code.</div>
+    <div class="faq-question">Is this.md Renderter safe for sensitive queries?</div>
+    <div class="faq-answer">Yes. All processing happens locally in your browser when you Render Code. your Markdown never leaves your device, making this Markdown Viewer Online completely safe for sensitive language queries and proprietary code.</div>
   </div>
 </div>
 
@@ -329,35 +329,35 @@ select{width:100%;min-width:auto}
 <script src="../js/main.js" defer></script>
 
 <script>
-let markdownContent='',autoProcess=true,finalCode='';
-function handleFileUpload(e){const f=e.target.files[0];if(!f)return;const ok=/\..md|txt)$/i.test(f.name);if(!ok){showToast('Please upload .md or .txt file');return}const r=new FileReader();r.onload=function(ev){markdownContent=ev.target.result||'';document.getElementById('markdownInput').value=markdownContent;if(autoProcess)Proces.md()};r.readAsText(f)}
+let markdownContent='',autoRender=true,finalCode='';
+function handleFileUpload(e){const f=e.target.files[0];if(!f)return;const ok=/\..md|txt)$/i.test(f.name);if(!ok){showToast('Please upload .md or .txt file');return}const r=new FileReader();r.onload=function(ev){markdownContent=ev.target.result||'';document.getElementById('markdownInput').value=markdownContent;if(autoRender)Rende.md()};r.readAsText(f)}
 
 const dropZone=document.getElementById('dropZone');if(dropZone){dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('dragover')});dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('dragover'));dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover');const f=e.dataTransfer.files[0];if(!f)return;document.getElementById('fileInput').files=e.dataTransfer.files;handleFileUpload({target:{files:[f]}})})}
-const markdownInput=document.getElementById('markdownInput');if(markdownInput){markdownInput.addEventListener('input',function(){markdownContent=this.value;if(autoProcess&&markdownContent.trim())Proces.md();if(autoProcess&&!markdownContent.trim())updateEmptyPreview()})}
+const markdownInput=document.getElementById('markdownInput');if(markdownInput){markdownInput.addEventListener('input',function(){markdownContent=this.value;if(autoRender&&markdownContent.trim())Rende.md();if(autoRender&&!markdownContent.trim())updateEmptyPreview()})}
 
-function toggleAuto(){autoProcess=!autoProcess;document.getElementById('autoToggle').classList.toggle('active');showToast(autoProcess?'AutoPilot On':'AutoPilot Off')}
+function toggleAuto(){autoRender=!autoRender;document.getElementById('autoToggle').classList.toggle('active');showToast(autoRender?'AutoPilot On':'AutoPilot Off')}
 
-function loadSample(){const sample='SELECT u.id, u.name, u.email, COUNT(o.id) as order_count, SUM(o.total) as total_spent FROM users u LEFT JOIN orders o ON u.id = o.user_id WHERE u.created_at >= \'2024-01-01\' AND u.status = \'active\' GROUP BY u.id, u.name, u.email HAVING COUNT(o.id) > 0 ORDER BY total_spent DESC LIMIT 10;';document.getElementById('markdownInput').value=sample;markdownContent=sample;if(autoProcess)Proces.md()}
+function loadSample(){const sample='SELECT u.id, u.name, u.email, COUNT(o.id) as order_count, SUM(o.total) as total_spent FROM users u LEFT JOIN orders o ON u.id = o.user_id WHERE u.created_at >= \'2024-01-01\' AND u.status = \'active\' GROUP BY u.id, u.name, u.email HAVING COUNT(o.id) > 0 ORDER BY total_spent DESC LIMIT 10;';document.getElementById('markdownInput').value=sample;markdownContent=sample;if(autoRender)Rende.md()}
 
-function updateEmptyPreview(){document.getElementById('ProcesstedPreview').innerHTML='<span style="color:rgba(255,255,255,0.4);">No.md input</span>';document.getElementById('validationStatus').innerHTML='<span style="color:rgba(255,255,255,0.4);">Paste.md to Process</span>';document.getElementById('finalCodeContent').innerHTML='<span style="color:rgba(255,255,255,0.4);">Processed Markdown will appear here after Process, Process, or Beautify</span>';document.getElementById('finalCodeBadge').textContent='Ready';finalCode='';document.getElementById('statChars').textContent='0';document.getElementById('statLines').textContent='0';document.getElementById('statStatements').textContent='0';document.getElementById('statStatus').textContent='Ready';document.getElementById('statStatus').style.color='#ffffff'}
+function updateEmptyPreview(){document.getElementById('RendertedPreview').innerHTML='<span style="color:rgba(255,255,255,0.4);">No.md input</span>';document.getElementById('validationStatus').innerHTML='<span style="color:rgba(255,255,255,0.4);">Paste.md to Render</span>';document.getElementById('finalCodeContent').innerHTML='<span style="color:rgba(255,255,255,0.4);">Processed Markdown will appear here after Render, Render, or Beautify</span>';document.getElementById('finalCodeBadge').textContent='Ready';finalCode='';document.getElementById('statChars').textContent='0';document.getElementById('statLines').textContent='0';document.getElementById('statStatements').textContent='0';document.getElementById('statStatus').textContent='Ready';document.getElementById('statStatus').style.color='#ffffff'}
 
-function Proces.md(){const input=document.getElementById('markdownInput').value||markdownContent||'';if(!input.trim()){updateEmptyPreview();return}try{const dialect=document.getElementById('markdownDialect').value;const indent=document.getElementById('indentSize').value;const keywordCase=document.getElementById('keywordCase').value;const commaPos=document.getElementById('commaPosition').value;const indentStr=indent==='tab'?'\t':' '.repeat(parseInt(indent));let Processted=processMarkdown(input,dialect,indentStr,keywordCase,commaPos);finalCode=Processted;updateFinalCodeBox(Processted,'Processted');document.getElementById('ProcesstedPreview').innerHTML=highlightMarkdown(Processted);document.getElementById('validationStatus').innerHTML='<span style="color:#00CE00;"><i class="fas fa-check-circle"></i> Valid Markdown</span>';document.getElementById('statStatus').textContent='Valid';document.getElementById('statStatus').style.color='#00CE00';updateStats(input);showToast(.md Processted successfully!')}catch(error){document.getElementById('ProcesstedPreview').innerHTML='<span style="color:#EF4444;">Processting Error</span>';document.getElementById('validationStatus').innerHTML='<span style="color:#EF4444;"><i class="fas fa-exclamation-triangle"></i> '+error.message+'</span>';document.getElementById('statStatus').textContent='Error';document.getElementById('statStatus').style.color='#EF4444';updateStats(input)}}
+function Rende.md(){const input=document.getElementById('markdownInput').value||markdownContent||'';if(!input.trim()){updateEmptyPreview();return}try{const dialect=document.getElementById('markdownDialect').value;const indent=document.getElementById('indentSize').value;const keywordCase=document.getElementById('keywordCase').value;const commaPos=document.getElementById('commaPosition').value;const indentStr=indent==='tab'?'\t':' '.repeat(parseInt(indent));let Renderted=processMarkdown(input,dialect,indentStr,keywordCase,commaPos);finalCode=Renderted;updateFinalCodeBox(Renderted,'Renderted');document.getElementById('RendertedPreview').innerHTML=highlightMarkdown(Renderted);document.getElementById('validationStatus').innerHTML='<span style="color:#00CE00;"><i class="fas fa-check-circle"></i> Valid Markdown</span>';document.getElementById('statStatus').textContent='Valid';document.getElementById('statStatus').style.color='#00CE00';updateStats(input);showToast(.md Renderted successfully!')}catch(error){document.getElementById('RendertedPreview').innerHTML='<span style="color:#EF4444;">Renderting Error</span>';document.getElementById('validationStatus').innerHTML='<span style="color:#EF4444;"><i class="fas fa-exclamation-triangle"></i> '+error.message+'</span>';document.getElementById('statStatus').textContent='Error';document.getElementById('statStatus').style.color='#EF4444';updateStats(input)}}
 
 function processMarkdown.md,dialect,indentStr,keywordCase,commaPos){const keywords=['SELECT','FROM','WHERE','AND','OR','NOT','IN','LIKE','BETWEEN','IS','NULL','ORDER BY','GROUP BY','HAVING','LIMIT','OFFSET','JOIN','LEFT JOIN','RIGHT JOIN','INNER JOIN','OUTER JOIN','ON','AS','DISTINCT','ALL','EXISTS','UNION','UNION ALL','INTERSECT','EXCEPT','INSERT INTO','VALUES','UPDATE','SET','DELETE FROM','CREATE','ALTER','DROP','TABLE','INDEX','VIEW','language','SCHEMA'];let result.md;result=result.replace(/\b(SELECT|FROM|WHERE|AND|OR|NOT|IN|LIKE|BETWEEN|IS|NULL|ORDER BY|GROUP BY|HAVING|LIMIT|OFFSET|JOIN|LEFT JOIN|RIGHT JOIN|INNER JOIN|OUTER JOIN|ON|AS|DISTINCT|ALL|EXISTS|UNION|UNION ALL|INTERSECT|EXCEPT|INSERT INTO|VALUES|UPDATE|SET|DELETE FROM|CREATE|ALTER|DROP|TABLE|INDEX|VIEW|language|SCHEMA)\b/gi,function(match){switch(keywordCase){case'upper':return match.toUpperCase();case'lower':return match.toLowerCase();case'capitalize':return match.charAt(0).toUpperCase()+match.slice(1).toLowerCase();default:return match}});result=result.replace(/,/g,commaPos==='before'?',\n    ':',\n    ');result=result.replace(/\b(SELECT|FROM|WHERE|AND|OR|GROUP BY|HAVING|ORDER BY|LIMIT|JOIN|LEFT JOIN|RIGHT JOIN|INNER JOIN|OUTER JOIN|UNION|INSERT INTO|UPDATE|DELETE|CREATE|ALTER|DROP)\b/gi,'\n$1');result=result.replace(/\s+/g,' ').replace(/\n\s*\n/g,'\n').trim();const lines=result.split('\n');let finalResult='';let indentLevel=0;lines.forEach(line=>{const trimmed=line.trim();if(!trimmed)return;if(/^(SELECT|FROM|WHERE|AND|OR|GROUP BY|HAVING|ORDER BY|LIMIT|JOIN|LEFT JOIN|RIGHT JOIN|INNER JOIN|OUTER JOIN|UNION|INSERT INTO|UPDATE|DELETE|CREATE|ALTER|DROP)$/i.test(trimmed)){finalResult+=indentStr.repeat(indentLevel)+trimmed+'\n'}else{finalResult+=indentStr.repeat(indentLevel+1)+trimmed+'\n'}});return finalResult.trim()}
 
 function highlightMarkdown.md){return.md.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/\b(SELECT|FROM|WHERE|AND|OR|NOT|IN|LIKE|BETWEEN|IS|NULL|ORDER BY|GROUP BY|HAVING|LIMIT|OFFSET|JOIN|LEFT JOIN|RIGHT JOIN|INNER JOIN|OUTER JOIN|ON|AS|DISTINCT|ALL|EXISTS|UNION|UNION ALL|INTERSECT|EXCEPT|INSERT INTO|VALUES|UPDATE|SET|DELETE FROM|CREATE|ALTER|DROP|TABLE|INDEX|VIEW|language|SCHEMA)\b/gi,'<span class="markdown-keyword">$1</span>').replace(/'[^']*'/g,'<span class="markdown-string">$&</span>').replace(/\b\d+\b/g,'<span class="markdown-number">$&</span>').replace(/--.*$/gm,'<span class="markdown-comment">$&</span>').replace(/\/\*[\s\S]*?\*\//g,'<span class="markdown-comment">$&</span>')}
 
-function Proces.md(){const input=document.getElementById('markdownInput').value||markdownContent||'';if(!input.trim()){updateEmptyPreview();return}const errors=[];const uppe.md=input.toUpperCase();if(uppe.md.includes('SELECT')&&!uppe.md.includes('FROM'))errors.push('SELECT without FROM');if((uppe.md.match(/\(/g)||[]).length!==(uppe.md.match(/\)/g)||[]).length)errors.push('Mismatched parentheses');const quotes=(input.match(/'/g)||[]).length;if(quotes%2!==0)errors.push('Unclosed quotes');if(errors.length>0){document.getElementById('validationStatus').innerHTML='<span style="color:#EF4444;"><i class="fas fa-exclamation-triangle"></i> Issues found:<br>'+errors.join('<br>')+'</span>';document.getElementById('statStatus').textContent='Issues';document.getElementById('statStatus').style.color='#EF4444'}else{document.getElementById('validationStatus').innerHTML='<span style="color:#00CE00;"><i class="fas fa-check-circle"></i> Valid Code structure</span>';document.getElementById('statStatus').textContent='Valid';document.getElementById('statStatus').style.color='#00CE00';showToast('Markdown is valid!')}}
+function Rende.md(){const input=document.getElementById('markdownInput').value||markdownContent||'';if(!input.trim()){updateEmptyPreview();return}const errors=[];const uppe.md=input.toUpperCase();if(uppe.md.includes('SELECT')&&!uppe.md.includes('FROM'))errors.push('SELECT without FROM');if((uppe.md.match(/\(/g)||[]).length!==(uppe.md.match(/\)/g)||[]).length)errors.push('Mismatched parentheses');const quotes=(input.match(/'/g)||[]).length;if(quotes%2!==0)errors.push('Unclosed quotes');if(errors.length>0){document.getElementById('validationStatus').innerHTML='<span style="color:#EF4444;"><i class="fas fa-exclamation-triangle"></i> Issues found:<br>'+errors.join('<br>')+'</span>';document.getElementById('statStatus').textContent='Issues';document.getElementById('statStatus').style.color='#EF4444'}else{document.getElementById('validationStatus').innerHTML='<span style="color:#00CE00;"><i class="fas fa-check-circle"></i> Valid Code structure</span>';document.getElementById('statStatus').textContent='Valid';document.getElementById('statStatus').style.color='#00CE00';showToast('Markdown is valid!')}}
 
 function updateStats.md){document.getElementById('statChars').textContent.md.length;document.getElementById('statLines').textContent.md.split('\n').length;const statements=.md.match(/;/g)||[]).length;document.getElementById('statStatements').textContent=statements}
 
-function beautifyResult(){if(!finalCode||!finalCode.trim()){showToast('No data to beautify. Process.md first.');return}try{const indent=document.getElementById('indentSize').value;const indentStr=indent==='tab'?'\t':' '.repeat(parseInt(indent));const beautified=processMarkdown(finalCode,'standard',indentStr,'upper','before');finalCode=beautified;updateFinalCodeBox(beautified,'Beautified');document.getElementById('ProcesstedPreview').innerHTML=highlightMarkdown(beautified);showToast('Processed!')}catch(e){showToast('Cannot beautify')}}
+function beautifyResult(){if(!finalCode||!finalCode.trim()){showToast('No data to beautify. Render.md first.');return}try{const indent=document.getElementById('indentSize').value;const indentStr=indent==='tab'?'\t':' '.repeat(parseInt(indent));const beautified=processMarkdown(finalCode,'standard',indentStr,'upper','before');finalCode=beautified;updateFinalCodeBox(beautified,'Beautified');document.getElementById('RendertedPreview').innerHTML=highlightMarkdown(beautified);showToast('Processed!')}catch(e){showToast('Cannot beautify')}}
 
-function compressResult(){if(!finalCode||!finalCode.trim()){showToast('No data to compress. Process.md first.');return}try{const compressed=finalCode.replace(/\s+/g,' ').replace(/\s*,\s*/g,',').replace(/\s*\(\s*/g,'(').replace(/\s*\)\s*/g,')').trim();finalCode=compressed;updateFinalCodeBox(compressed,'Compressed');document.getElementById('ProcesstedPreview').innerHTML=highlightMarkdown(compressed);showToast('Compressed!')}catch(e){showToast('Cannot compress')}}
+function compressResult(){if(!finalCode||!finalCode.trim()){showToast('No data to compress. Render.md first.');return}try{const compressed=finalCode.replace(/\s+/g,' ').replace(/\s*,\s*/g,',').replace(/\s*\(\s*/g,'(').replace(/\s*\)\s*/g,')').trim();finalCode=compressed;updateFinalCodeBox(compressed,'Compressed');document.getElementById('RendertedPreview').innerHTML=highlightMarkdown(compressed);showToast('Compressed!')}catch(e){showToast('Cannot compress')}}
 
-function copyFinalCode(){if(!finalCode||!finalCode.trim()){showToast('No code to copy. Process.md first.');return}navigator.clipboard.writeText(finalCode);showToast('Copied!')}
+function copyFinalCode(){if(!finalCode||!finalCode.trim()){showToast('No code to copy. Render.md first.');return}navigator.clipboard.writeText(finalCode);showToast('Copied!')}
 
-function downloadFinalCode(){if(!finalCode||!finalCode.trim()){showToast('No code to download. Process.md first.');return}const blob=new Blob([finalCode],{type:'text/plain'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='Processted.md';a.click();URL.revokeObjectURL(url);showToast('Downloaded!')}
+function downloadFinalCode(){if(!finalCode||!finalCode.trim()){showToast('No code to download. Render.md first.');return}const blob=new Blob([finalCode],{type:'text/plain'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='Renderted.md';a.click();URL.revokeObjectURL(url);showToast('Downloaded!')}
 
 function updateFinalCodeBox(code,badgeText){document.getElementById('finalCodeContent').textContent=code;document.getElementById('finalCodeBadge').textContent=badgeText}
 
@@ -365,7 +365,7 @@ function clearAll(){markdownContent='';finalCode='';document.getElementById('mar
 
 function showToast(msg){const t=document.getElementById('toast');t.innerHTML='<i class="fas fa-check-circle" style="margin-right:8px;"></i> '+msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
 
-function loadRelated(){const tools=[{name:"markdown-preview",icon:"fa-code",url:"../tools/markdown-preview.html"},{name:"markdown-editor",icon:"fa-code",url:"../tools/markdown-editor.html"},{name:"markdown-viewer",icon:"fa-code",url:"../tools/markdown-viewer.html"},{name:"markdown-diff",icon:"fa-code",url:"../tools/markdown-diff.html"},{name:"html-to-markdown-converter",icon:"fa-code",url:"../tools/html-to-markdown-converter.html"}];let h='<div class="related-grid">';tools.forEach((x)=>{h+='<a href="'+x.url+'" class="related-card"><div class="related-icon"><i class="fas '+x.icon+'"></i></div><span class="related-title">'+x.name+'</span></a>'});h+='</div>';document.getElementById('relatedGridmarkdowntohtml').innerHTML=h}
+function loadRelated(){const tools=[{name:"markdown-preview",icon:"fa-code",url:"../tools/markdown-preview.html"},{name:"markdown-to",icon:"fa-code",url:"../tools/markdown-to.html"},{name:"markdown-editor",icon:"fa-code",url:"../tools/markdown-editor.html"},{name:"markdown-diff",icon:"fa-code",url:"../tools/markdown-diff.html"},{name:"html-to-markdown-converter",icon:"fa-code",url:"../tools/html-to-markdown-converter.html"}];let h='<div class="related-grid">';tools.forEach((x)=>{h+='<a href="'+x.url+'" class="related-card"><div class="related-icon"><i class="fas '+x.icon+'"></i></div><span class="related-title">'+x.name+'</span></a>'});h+='</div>';document.getElementById('relatedGridmarkdownviewer').innerHTML=h}
 window.addEventListener('load',loadRelated);
 </script>
 </body>

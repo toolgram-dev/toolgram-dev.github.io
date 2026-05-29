@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:https://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Code Deobfuscator Online | Deobfuscate Code - ToolGram</title>
+<meta name="description" content="Free online code deobfuscator to analyze obfuscated JavaScript. Deobfuscate code to make it readable. Understand minified and obfuscated code.">
+<meta name="keywords" content="code deobfuscator online,deobfuscate javascript,code analyzer tool,javascript deobfuscator,read obfuscated code,code unpacker">
+<meta name="author" content="ToolGram">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://toolgram.tech/tools/code-deobfuscator.html">
+<meta property="og:title" content="Code Deobfuscator Online | ToolGram">
+<meta property="og:description" content="Deobfuscate and beautify Code with syntax highlighting and professional Deobfuscateting.">
+<meta property="og:url" content="https://toolgram.tech/tools/code-deobfuscator.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://i.postimg.cc/43h4Rfz7/ms-icon-310x310.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/tool.css">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": .txt Deobfuscateter",
+  "description": "Code Deobfuscator Online to beautify and Deobfuscate Code with syntax highlighting and professional Deobfuscateting. Upload or paste Code files and Deobfuscate instantly.",
+  "applicationCategory": "Developer",
+  "operatingSystem": "Any",
+  "url": "https://toolgram.tech/tools/code-deobfuscator.html",
+  "offers": { "@type": "Offer", "price": "0" },
+  "featureList": ["Code Processing", "Syntax Highlighting", "Format", "Minify", "Validation", "Copy & Download", "File Upload"],
+  "keywords": ["Code Deobfuscator Online", "Deobfuscate Code", "code beautifier", "Code Deobfuscateter", "JavaScript Deobfuscator", "code Deobfuscateter", "HTML beautifier"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolgram.tech" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://toolgram.tech/tools.html" },
+    { "@type": "ListItem", "position": 3, "name": .txt Deobfuscateter", "item": "https://toolgram.tech/tools/code-deobfuscator.html" }
+  ]
+}
+</script>
+
+<style>
+.var-row{display:flex;gap:10px;margin-bottom:15px;align-items:center}
+.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.related-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;color:#fff;transition:all .3s ease}
+.related-card:hover{border-color:#8B5CF6;box-shadow:0 0 20px rgba(236,72,153,0.5);transform:translateY(-2px)}
+.related-icon{width:40px;height:40px;background:linear-gradient(135deg,#8B5CF6,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.related-title{font-size:.95rem;font-weight:500}
+.faq-question{color:#fff;font-size:1.1rem;margin-bottom:6px;font-weight:600;letter-spacing:0.3px;margin-top:20px}
+.faq-answer{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;line-height:1.6;letter-spacing:0.2px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px}
+.faq-answer:last-of-type{border-bottom:none}
+.tool-textarea{width:100%;min-height:150px;padding:15px;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:monospace;resize:vertical}
+.info-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:25px;margin-top:25px;max-width:1200px;margin-left:auto;margin-right:auto}
+.info-box h3{font-size:1.8rem;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
+.info-box p{color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:12px}
+.info-box a{color:#8B5CF6;text-decoration:none;font-weight:500;transition:color .3s ease}
+.info-box a:hover{color:#FF00E1;text-decoration:underline}
+.info-box ul,.info-box ol{padding-left:25px;margin-bottom:15px;color:rgba(255,255,255,0.8)}
+.info-box li{margin-bottom:8px}
+.blank-space{width:100%;height:100px;background:transparent;margin:25px 0;border:none}
+.drop-zone{border:2px dashed rgba(255,255,255,0.2);border-radius:8px;padding:20px;text-align:center;color:rgba(255,255,255,0.5);cursor:pointer;transition:all .3s ease;margin-bottom:15px}
+.drop-zone:hover,.drop-zone.dragover{border-color:#8B5CF6;background:rgba(139,92,246,0.1)}
+.drop-zone i{font-size:2rem;margin-bottom:10px}
+.toast{position:fixed;bottom:30px;right:30px;background:linear-gradient(135deg,#8B5CF6,#EC4899);color:#fff;padding:15px 25px;border-radius:8px;box-shadow:0 5px 20px rgba(0,0,0,0.3);transform:translateX(200%);transition:transform .3s ease;z-index:1000}
+.toast.show{transform:translateX(0)}
+.stats-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:15px;margin-top:15px}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat-item{background:rgba(139,92,246,0.1);padding:10px;border-radius:6px}
+.stat-label{color:rgba(255,255,255,0.6);font-size:0.8rem;margin-bottom:4px}
+.stat-value{color:#fff;font-size:1rem;font-weight:600}
+.example-chip{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:6px 14px;border-radius:20px;color:#fff;font-size:0.8rem;cursor:pointer;transition:all .3s ease;display:inline-block}
+.example-chip:hover{background:rgba(139,92,246,0.3);border-color:#8B5CF6}
+select,input[type="number"]{background-color:rgba(255,255,255,0.08)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.1)!important;padding:12px!important;border-radius:8px!important;width:100%;box-sizing:border-box;transition:all .3s ease;cursor:pointer}
+select:focus,input[type="number"]:focus{border-color:#8B5CF6!important;box-shadow:0 0 15px rgba(139,92,246,0.4)!important;outline:none!important}
+select option{background-color:#ffffff!important;color:#000000!important;font-weight:500}
+.toggle-container{display:flex;align-items:center;gap:10px;margin-bottom:0}
+.toggle-switch{position:relative;width:50px;height:26px;background:rgba(255,255,255,0.2);border-radius:13px;cursor:pointer;transition:background .3s ease}
+.toggle-switch.active{background:#8B5CF6}
+.toggle-knob{position:absolute;width:22px;height:22px;background:#fff;border-radius:50%;top:2px;left:2px;transition:transform .3s ease}
+.toggle-switch.active .toggle-knob{transform:translateX(24px)}
+.toggle-label{color:rgba(255,255,255,0.8);font-size:0.9rem}
+.preview-container{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.preview-left,.preview-right{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px}
+.preview-title{color:#fff;font-size:1.1rem;font-weight:600;margin-bottom:15px;display:flex;align-items:center;gap:8px}
+.svg-preview{background:#fff;border-radius:8px;padding:15px;min-height:200px;display:flex;align-items:center;justify-content:center}
+.svg-preview svg{max-width:100%;max-height:200px}
+.paths-preview{max-height:300px;overflow-y:auto}.final-code-box{background:rgba(0,0,0,0.4);border:2px solid rgba(139,92,246,0.4);border-radius:12px;padding:18px;margin-top:20px;position:relative}.final-code-box h4{color:#fff;margin:0 0 10px 0;font-size:1rem;font-weight:600;display:flex;align-items:center;gap:8px}.final-code-content{background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:14px;font-family:monospace;font-size:0.82rem;color:rgba(255,255,255,0.85);white-space:pre-wrap;word-break:break-word;max-height:250px;overflow:auto;min-height:60px}.final-code-badge{position:absolute;top:12px;right:12px;background:linear-gradient(135deg,#8B5CF6,#EC4899);color:#fff;padding:4px 10px;border-radius:20px;font-size:0.7rem;font-weight:600}
+.action-btn{background:linear-gradient(135deg,#8B5CF6,#EC4899);border:none;color:#fff;padding:12px 24px;border-radius:10px;cursor:pointer;font-size:0.95rem;font-weight:600;transition:all .2s ease;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden}
+.action-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);transition:left .4s ease}
+.action-btn:hover::before{left:100%}
+.action-btn:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(139,92,246,0.8),0 0 60px rgba(236,72,153,0.5),0 0 90px rgba(139,92,246,0.3);border:2px solid rgba(255,255,255,0.5)}
+.action-btn:active{transform:scale(0.95)}
+.tool-container{max-width:100%;width:100%;box-sizing:border-box;overflow-x:hidden}
+.tool-interface{max-width:100%;width:100%;box-sizing:border-box;overflow-x:hidden}
+.tool-column{max-width:100%;box-sizing:border-box;overflow-x:hidden}
+.tool-header-icon{width:100px;height:100px;font-size:3rem}
+.tool-header div{margin-top:0}
+@media(max-width:768px){.related-grid{grid-template-columns:1fr}
+.viewer-container{grid-template-columns:1fr}
+.stats-grid{grid-template-columns:1fr}
+.info-box h3{flex-wrap:nowrap}
+.tool-header-icon{width:100px;height:100px;font-size:3rem}
+.var-row{flex-direction:column;align-items:flex-start}
+select{width:100%;min-width:auto}
+.tool-textarea{max-width:100%;box-sizing:border-box}
+.tool-interface{max-width:100%;box-sizing:border-box}
+.tool-column{max-width:100%;box-sizing:border-box}
+}
+.code-keyword{color:#8B5CF6;font-weight:700}
+.code-string{color:#10B981}
+.code-number{color:#F59E0B}
+.txt-function{color:#EC4899}
+.code-comment{color:#6B7280;font-style:italic}
+.txt-operator{color:#3B82F6}
+</style>
+</head>
+<body>
+<div class="nav-container"></div>
+<div class="page">
+<button class="back-btn" onclick="window.location.href='../tools.html'"><i class="fas fa-arrow-left"></i> Back to Tools</button>
+
+<div class="tool-container">
+  <div class="tool-header">
+    <div class="tool-header-icon"><i class="fas fa-search"></i></div>
+    <div>
+      <h1 style="margin:0;font-size:2.7rem;">Code Deobfuscator Online<br>Deobfuscate Code</h1>
+      <p style="color:rgba(255,255,255,0.7);margin-top:5px;">Make obfuscated code readable</p>
+    </div>
+  </div>
+
+  <div class="tool-interface">
+    <div class="tool-column">
+      <div class="tool-column-title"><i class="fas fa-upload"></i> Input Code</div>
+      <div style="padding:20px">
+        <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Drag & drop Code file or click to upload</p>
+          <input type="file" id="fileInput" accept=".txt,.txt" style="display:none" onchange="handleFileUpload(event)">
+        </div>
+        <div style="margin:15px 0;text-align:center;color:rgba(255,255,255,0.5);font-size:0.9rem;">— OR —</div>
+        <div style="width:100%;max-width:100%;box-sizing:border-box;">
+          <textarea id="codeInput" class="tool-textarea" placeholder="Paste Code here..." style="min-height:300px;"></textarea>
+        </div>
+
+        <div style="margin-top:15px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <div class="toggle-container" style="margin-bottom:0;">
+            <div class="toggle-switch active" id="autoToggle" onclick="toggleAuto()"><div class="toggle-knob"></div></div>
+            <span class="toggle-label">AutoPilot</span>
+          </div>
+          <span style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Example:</span>
+          <span class="example-chip" onclick="loadSample()">Sample.txt</span>
+        </div>
+
+        <div class="var-row" style="margin-top:15px;">
+          <label style="color:#fff;min-width:150px">Language</label>
+          <select id="codeDialect">
+            <option value="standard" selected>Standard Code</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="m.txt">JSON</option>
+            <option value="XML">XML</option>
+          </select>
+        </div>
+
+        <div class="var-row">
+          <label style="color:#fff;min-width:150px">Analysis Mode</label>
+          <select id="indentSize">
+            <option value="2">2 Spaces</option>
+            <option value="4" selected>4 Spaces</option>
+            <option value="8">8 Spaces</option>
+            <option value="tab">Tab</option>
+          </select>
+        </div>
+
+        <div class="var-row">
+          <label style="color:#fff;min-width:150px">Decode Strings</label>
+          <select id="keywordCase">
+            <option value="upper" selected>UPPERCASE</option>
+            <option value="lower">lowercase</option>
+            <option value="capitalize">Capitalize</option>
+            <option value="preserve">Preserve</option>
+          </select>
+        </div>
+
+        <div class="var-row">
+          <label style="color:#fff;min-width:150px">Show Original</label>
+          <select id="commaPosition">
+            <option value="before" selected>Before Column</option>
+            <option value="after">After Column</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-column">
+      <div class="tool-column-title"><i class="fas fa-eye"></i> Deobfuscateted Output</div>
+      <div style="padding:20px">
+        <div class="preview-container">
+          <div class="preview-left">
+            <div class="preview-title"><i class="fas fa-code" style="color:#07C5F5;"></i> Deobfuscateted.txt</div>
+            <div class="svg-preview" id="DeobfuscatetedPreview" style="background:rgba(0,0,0,0.3);color:rgba(255,255,255,0.8);text-align:left;overflow:auto;">
+              <span style="color:rgba(255,255,255,0.4);">No.txt input</span>
+            </div>
+          </div>
+          <div class="preview-right">
+            <div class="preview-title"><i class="fas fa-check-circle" style="color:#FF00E1;"></i> Validation Status</div>
+            <div class="paths-preview" id="validationStatus" style="color:rgba(255,255,255,0.8);">
+              <span style="color:rgba(255,255,255,0.4);">Paste.txt to Analyze</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-box" style="margin-top:20px;">
+          <h4 style="color:#fff;margin:0 0 10px 0;font-size:1rem;font-weight:600;"><i class="fas fa-chart-bar" style="color:#8B5CF6;margin-right:8px;"></i>Analysis Stats</h4>
+          <div class="stats-grid">
+            <div class="stat-item"><div class="stat-label">Characters</div><div class="stat-value" id="statChars">0</div></div>
+            <div class="stat-item"><div class="stat-label">Lines</div><div class="stat-value" id="statLines">0</div></div>
+            <div class="stat-item"><div class="stat-label">Statements</div><div class="stat-value" id="statStatements">0</div></div>
+            <div class="stat-item"><div class="stat-label">Status</div><div class="stat-value" id="statStatus">Ready</div></div>
+          </div>
+        </div>
+
+        <div class="final-code-box" id="finalCodeSection"><span class="final-code-badge" id="finalCodeBadge">Ready</span><h4><i class="fas fa-code" style="color:#8B5CF6;"></i> Final Deobfuscated Code</h4><div class="final-code-content" id="finalCodeContent"><span style="color:rgba(255,255,255,0.4);">Processed Code will appear here after Deobfuscate, Analyze, or Beautify</span></div></div>
+      </div>
+
+      <div class="tool-actions"><button class="action-btn" onclick="Deobfuscat.txt()"><i class="fas fa-magic"></i> Deobfuscate</button><button class="action-btn" onclick="Analyz.txt()"><i class="fas fa-check-circle"></i> Analyze</button><button class="action-btn" onclick="beautifyResult()"><i class="fas fa-indent"></i> Beautify</button><button class="action-btn" onclick="compressResult()"><i class="fas fa-compress"></i> Compress</button><button class="action-btn" onclick="copyFinalCode()"><i class="far fa-copy"></i> Copy</button><button class="action-btn" onclick="downloadFinalCode()"><i class="fas fa-download"></i> Download</button><button class="action-btn" onclick="clearAll()"><i class="fas fa-trash"></i> Clear</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="blank-space"></div>
+
+<div class="tool-content-section">
+  <div class="related-section" style="margin:0;padding:25px;background:rgba(255,255,255,0.05);border-radius:20px;">
+    <h2 style="background:linear-gradient(135deg,#07C5F5,#FF00E1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;font-size:1.6rem;font-weight:800;">Code Tools</h2>
+    <div id="relatedGridcodedeobfuscator"></div>
+  </div>
+</div>
+
+<div class="blank-space"></div>
+
+<div class="tool-content-section">
+  <div class="info-box" style="margin-top:0;">
+    <h3><i class="fas fa-search"></i> Code Deobfuscator Online</h3>
+    <p>This <strong>Code Deobfuscator Online</strong> helps you <strong>Deobfuscate Code</strong> with professional-grade syntax highlighting and automatic Analysis Mode. Simply paste your Code or upload a file, and the tool will instantly beautify your code with proper Deobfuscateting. Perfect for language developers, data analysts, and anyone working with Code.</p>
+    <p>For viewing Code structure, use Code viewer to analyze tables, columns, and relationships. For comparing Code, try Code diff to see differences clearly. When you need to convert between Deobfuscates, use.txt to JSON or JSON to Code converters.</p>
+    <p><strong>Step-by-step:</strong> Step 1: Paste your Code or upload a file. Step 2: Select your Language (JavaScript, HTML, etc.). Step 3: Choose Analysis Mode and Deobfuscateting options. Step 4: Enable AutoPilot for instant Deobfuscateting. Step 5: Copy or download the Deobfuscateted.txt.</p>
+  </div>
+
+  <div class="blank-space"></div>
+
+  <div class="info-box">
+    <h3><i class="fas fa-magic"></i> Code Analyzer Tool</h3>
+    <p>The built-in <strong>code beautifier</strong> automatically Deobfuscates your Code with consistent Analysis Mode and keyword casing. This <strong>Code Deobfuscator Online</strong> supports multiple Languages including JavaScript, HTML, CSS, JSON, XML, and YAML, ensuring your code follows best practices for each language.</p>
+    <p>Choose from different keyword casing options: UPPERCASE for traditional.txt style, lowercase for modern preferences, or preserve original casing. The <strong>Code Deobfuscateter</strong> also handles Show Originaling, letting you place commas before or after column names based on your coding standards.</p>
+    <p>For minifying.txt for production, use the Compress function to remove all unnecessary whitespace while maintaining.txt validity.</p>
+  </div>
+
+  <div class="blank-space"></div>
+
+  <div class="info-box">
+    <h3><i class="fas fa-check-circle"></i> JavaScript Deobfuscator</h3>
+    <p>This <strong>Code Deobfuscator Online</strong> includes automatic validation to check for common Code syntax errors. When you <strong>Deobfuscate Code</strong>, the tool checks for mismatched parentheses, unclosed quotes, missing semicolons, and other common issues. If errors are found, you'll see detailed messages to help fix them quickly.</p>
+    <p>The validation status panel shows real-time feedback as you type or paste.txt. For comprehensive language-specific validation, use language management tools that can check against actual schema definitions.</p>
+    <p>For data transDeobfuscateion needs, try JSON to.txt to convert JSON data into.txt INSERT statements, or.txt to JSON to extract query results as JSON.</p>
+  </div>
+
+  <div class="blank-space"></div>
+
+  <div class="info-box">
+    <h3><i class="fas fa-compress"></i> Code Unpacker Tool</h3>
+    <p>The <strong>Code minifier</strong> feature removes all unnecessary whitespace from your Code while maintaining validity. This is useful for reducing file size in production environments and improving query transmission speed over networks. The <strong>Code Deobfuscator Online</strong> ensures minified code remains executable.</p>
+    <p>Minifying.txt is particularly helpful for embedded.txt in application code, stored procedures, and language migrations where space optimization matters. The tool preserves Code syntax while removing comments, extra spaces, and line breaks.</p>
+    <p>For language schema documentation, use the Deobfuscateted output to generate clean, readable.txt documentation and ER diagrams.</p>
+  </div>
+
+  <div class="blank-space"></div>
+
+  <div class="info-box">
+    <h3><i class="fas fa-comments"></i> Frequently Asked Questions</h3>
+
+    <div class="faq-question">How to Deobfuscate Code online?</div>
+    <div class="faq-answer">Paste your Code into this Code Deobfuscator Online, select your Language, and enable AutoPilot. The tool will automatically Deobfuscate Code with proper Analysis Mode and keyword casing. You can also customize Analysis Mode size and Show Original.</div>
+
+    <div class="faq-question">Can I upload Code files to Deobfuscate them online?</div>
+    <div class="faq-answer">Yes. This code beautifier supports drag-and-drop upload for .Code files. The tool will instantly Deobfuscate Code with syntax highlighting and proper Analysis Mode for easy editing and review.</div>
+
+    <div class="faq-question">Which Languages are supported?</div>
+    <div class="faq-answer">The Code Deobfuscator Online supports Standard Code, JavaScript, HTML, CSS, JSON, XML, and YAML. Each dialect has specific Deobfuscateting rules to ensure your code follows best practices for that language.</div>
+
+    <div class="faq-question">How to Analyze Code syntax while Deobfuscateting?</div>
+    <div class="faq-answer">The Code Deobfuscator Online automatically Analyzes Code syntax in real-time. It checks for common errors like mismatched parentheses, unclosed quotes, and missing semicolons. Errors are highlighted with detailed messages to help fix issues quickly.</div>
+
+    <div class="faq-question">How to minify.txt for production?</div>
+    <div class="faq-answer">Use the Compress button to minify your Code. The Code Deobfuscateter removes all unnecessary whitespace while maintaining.txt validity, reducing file size for production deployments and improving query transmission speed.</div>
+
+    <div class="faq-question">Is this.txt Deobfuscateter safe for sensitive queries?</div>
+    <div class="faq-answer">Yes. All processing happens locally in your browser when you Deobfuscate Code. your Code never leaves your device, making this Code Deobfuscator Online completely safe for sensitive language queries and proprietary code.</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><i class="fas fa-check-circle" style="margin-right:8px;"></i> Ready</div>
+
+<footer class="footer-bg" style="margin-top:80px;">
+  <div class="watermark">TOOLGRAM</div>
+  <div class="footer-content">
+    <div class="footer-links">
+      <div>
+        <h3 style="color:var(--lt);margin-bottom:20px;">Company</h3>
+        <a href="../about.html">About Us</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Service</a>
+        <a href="../contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="copyright"><p>© ToolGram. All rights reserved 2026.</p></div>
+  </div>
+</footer>
+</div>
+
+<script src="../js/nav-manager.js" defer></script>
+<script src="../js/main.js" defer></script>
+
+<script>
+let codeContent='',autoDeobfuscate=true,finalCode='';
+function handleFileUpload(e){const f=e.target.files[0];if(!f)return;const ok=/\..txt|txt)$/i.test(f.name);if(!ok){showToast('Please upload .txt or .txt file');return}const r=new FileReader();r.onload=function(ev){codeContent=ev.target.result||'';document.getElementById('codeInput').value=codeContent;if(autoDeobfuscate)Deobfuscat.txt()};r.readAsText(f)}
+
+const dropZone=document.getElementById('dropZone');if(dropZone){dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('dragover')});dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('dragover'));dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover');const f=e.dataTransfer.files[0];if(!f)return;document.getElementById('fileInput').files=e.dataTransfer.files;handleFileUpload({target:{files:[f]}})})}
+const codeInput=document.getElementById('codeInput');if(codeInput){codeInput.addEventListener('input',function(){codeContent=this.value;if(autoDeobfuscate&&codeContent.trim())Deobfuscat.txt();if(autoDeobfuscate&&!codeContent.trim())updateEmptyPreview()})}
+
+function toggleAuto(){autoDeobfuscate=!autoDeobfuscate;document.getElementById('autoToggle').classList.toggle('active');showToast(autoDeobfuscate?'AutoPilot On':'AutoPilot Off')}
+
+function loadSample(){const sample='SELECT u.id, u.name, u.email, COUNT(o.id) as order_count, SUM(o.total) as total_spent FROM users u LEFT JOIN orders o ON u.id = o.user_id WHERE u.created_at >= \'2024-01-01\' AND u.status = \'active\' GROUP BY u.id, u.name, u.email HAVING COUNT(o.id) > 0 ORDER BY total_spent DESC LIMIT 10;';document.getElementById('codeInput').value=sample;codeContent=sample;if(autoDeobfuscate)Deobfuscat.txt()}
+
+function updateEmptyPreview(){document.getElementById('DeobfuscatetedPreview').innerHTML='<span style="color:rgba(255,255,255,0.4);">No.txt input</span>';document.getElementById('validationStatus').innerHTML='<span style="color:rgba(255,255,255,0.4);">Paste.txt to Analyze</span>';document.getElementById('finalCodeContent').innerHTML='<span style="color:rgba(255,255,255,0.4);">Processed Code will appear here after Deobfuscate, Analyze, or Beautify</span>';document.getElementById('finalCodeBadge').textContent='Ready';finalCode='';document.getElementById('statChars').textContent='0';document.getElementById('statLines').textContent='0';document.getElementById('statStatements').textContent='0';document.getElementById('statStatus').textContent='Ready';document.getElementById('statStatus').style.color='#ffffff'}
+
+function Deobfuscat.txt(){const input=document.getElementById('codeInput').value||codeContent||'';if(!input.trim()){updateEmptyPreview();return}try{const dialect=document.getElementById('codeDialect').value;const indent=document.getElementById('indentSize').value;const keywordCase=document.getElementById('keywordCase').value;const commaPos=document.getElementById('commaPosition').value;const indentStr=indent==='tab'?'\t':' '.repeat(parseInt(indent));let Deobfuscateted=processCode(input,dialect,indentStr,keywordCase,commaPos);finalCode=Deobfuscateted;updateFinalCodeBox(Deobfuscateted,'Deobfuscateted');document.getElementById('DeobfuscatetedPreview').innerHTML=highlightCode(Deobfuscateted);document.getElementById('validationStatus').innerHTML='<span style="color:#00CE00;"><i class="fas fa-check-circle"></i> Valid Code</span>';document.getElementById('statStatus').textContent='Valid';document.getElementById('statStatus').style.color='#00CE00';updateStats(input);showToast(.txt Deobfuscateted successfully!')}catch(error){document.getElementById('DeobfuscatetedPreview').innerHTML='<span style="color:#EF4444;">Deobfuscateting Error</span>';document.getElementById('validationStatus').innerHTML='<span style="color:#EF4444;"><i class="fas fa-exclamation-triangle"></i> '+error.message+'</span>';document.getElementById('statStatus').textContent='Error';document.getElementById('statStatus').style.color='#EF4444';updateStats(input)}}
+
+function processCode.txt,dialect,indentStr,keywordCase,commaPos){const keywords=['SELECT','FROM','WHERE','AND','OR','NOT','IN','LIKE','BETWEEN','IS','NULL','ORDER BY','GROUP BY','HAVING','LIMIT','OFFSET','JOIN','LEFT JOIN','RIGHT JOIN','INNER JOIN','OUTER JOIN','ON','AS','DISTINCT','ALL','EXISTS','UNION','UNION ALL','INTERSECT','EXCEPT','INSERT INTO','VALUES','UPDATE','SET','DELETE FROM','CREATE','ALTER','DROP','TABLE','INDEX','VIEW','language','SCHEMA'];let result.txt;result=result.replace(/\b(SELECT|FROM|WHERE|AND|OR|NOT|IN|LIKE|BETWEEN|IS|NULL|ORDER BY|GROUP BY|HAVING|LIMIT|OFFSET|JOIN|LEFT JOIN|RIGHT JOIN|INNER JOIN|OUTER JOIN|ON|AS|DISTINCT|ALL|EXISTS|UNION|UNION ALL|INTERSECT|EXCEPT|INSERT INTO|VALUES|UPDATE|SET|DELETE FROM|CREATE|ALTER|DROP|TABLE|INDEX|VIEW|language|SCHEMA)\b/gi,function(match){switch(keywordCase){case'upper':return match.toUpperCase();case'lower':return match.toLowerCase();case'capitalize':return match.charAt(0).toUpperCase()+match.slice(1).toLowerCase();default:return match}});result=result.replace(/,/g,commaPos==='before'?',\n    ':',\n    ');result=result.replace(/\b(SELECT|FROM|WHERE|AND|OR|GROUP BY|HAVING|ORDER BY|LIMIT|JOIN|LEFT JOIN|RIGHT JOIN|INNER JOIN|OUTER JOIN|UNION|INSERT INTO|UPDATE|DELETE|CREATE|ALTER|DROP)\b/gi,'\n$1');result=result.replace(/\s+/g,' ').replace(/\n\s*\n/g,'\n').trim();const lines=result.split('\n');let finalResult='';let indentLevel=0;lines.forEach(line=>{const trimmed=line.trim();if(!trimmed)return;if(/^(SELECT|FROM|WHERE|AND|OR|GROUP BY|HAVING|ORDER BY|LIMIT|JOIN|LEFT JOIN|RIGHT JOIN|INNER JOIN|OUTER JOIN|UNION|INSERT INTO|UPDATE|DELETE|CREATE|ALTER|DROP)$/i.test(trimmed)){finalResult+=indentStr.repeat(indentLevel)+trimmed+'\n'}else{finalResult+=indentStr.repeat(indentLevel+1)+trimmed+'\n'}});return finalResult.trim()}
+
+function highlightCode.txt){return.txt.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/\b(SELECT|FROM|WHERE|AND|OR|NOT|IN|LIKE|BETWEEN|IS|NULL|ORDER BY|GROUP BY|HAVING|LIMIT|OFFSET|JOIN|LEFT JOIN|RIGHT JOIN|INNER JOIN|OUTER JOIN|ON|AS|DISTINCT|ALL|EXISTS|UNION|UNION ALL|INTERSECT|EXCEPT|INSERT INTO|VALUES|UPDATE|SET|DELETE FROM|CREATE|ALTER|DROP|TABLE|INDEX|VIEW|language|SCHEMA)\b/gi,'<span class="code-keyword">$1</span>').replace(/'[^']*'/g,'<span class="code-string">$&</span>').replace(/\b\d+\b/g,'<span class="code-number">$&</span>').replace(/--.*$/gm,'<span class="code-comment">$&</span>').replace(/\/\*[\s\S]*?\*\//g,'<span class="code-comment">$&</span>')}
+
+function Analyz.txt(){const input=document.getElementById('codeInput').value||codeContent||'';if(!input.trim()){updateEmptyPreview();return}const errors=[];const uppe.txt=input.toUpperCase();if(uppe.txt.includes('SELECT')&&!uppe.txt.includes('FROM'))errors.push('SELECT without FROM');if((uppe.txt.match(/\(/g)||[]).length!==(uppe.txt.match(/\)/g)||[]).length)errors.push('Mismatched parentheses');const quotes=(input.match(/'/g)||[]).length;if(quotes%2!==0)errors.push('Unclosed quotes');if(errors.length>0){document.getElementById('validationStatus').innerHTML='<span style="color:#EF4444;"><i class="fas fa-exclamation-triangle"></i> Issues found:<br>'+errors.join('<br>')+'</span>';document.getElementById('statStatus').textContent='Issues';document.getElementById('statStatus').style.color='#EF4444'}else{document.getElementById('validationStatus').innerHTML='<span style="color:#00CE00;"><i class="fas fa-check-circle"></i> Valid Code structure</span>';document.getElementById('statStatus').textContent='Valid';document.getElementById('statStatus').style.color='#00CE00';showToast('Code is valid!')}}
+
+function updateStats.txt){document.getElementById('statChars').textContent.txt.length;document.getElementById('statLines').textContent.txt.split('\n').length;const statements=.txt.match(/;/g)||[]).length;document.getElementById('statStatements').textContent=statements}
+
+function beautifyResult(){if(!finalCode||!finalCode.trim()){showToast('No data to beautify. Deobfuscate.txt first.');return}try{const indent=document.getElementById('indentSize').value;const indentStr=indent==='tab'?'\t':' '.repeat(parseInt(indent));const beautified=processCode(finalCode,'standard',indentStr,'upper','before');finalCode=beautified;updateFinalCodeBox(beautified,'Beautified');document.getElementById('DeobfuscatetedPreview').innerHTML=highlightCode(beautified);showToast('Processed!')}catch(e){showToast('Cannot beautify')}}
+
+function compressResult(){if(!finalCode||!finalCode.trim()){showToast('No data to compress. Deobfuscate.txt first.');return}try{const compressed=finalCode.replace(/\s+/g,' ').replace(/\s*,\s*/g,',').replace(/\s*\(\s*/g,'(').replace(/\s*\)\s*/g,')').trim();finalCode=compressed;updateFinalCodeBox(compressed,'Compressed');document.getElementById('DeobfuscatetedPreview').innerHTML=highlightCode(compressed);showToast('Compressed!')}catch(e){showToast('Cannot compress')}}
+
+function copyFinalCode(){if(!finalCode||!finalCode.trim()){showToast('No code to copy. Deobfuscate.txt first.');return}navigator.clipboard.writeText(finalCode);showToast('Copied!')}
+
+function downloadFinalCode(){if(!finalCode||!finalCode.trim()){showToast('No code to download. Deobfuscate.txt first.');return}const blob=new Blob([finalCode],{type:'text/plain'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='Deobfuscateted.txt';a.click();URL.revokeObjectURL(url);showToast('Downloaded!')}
+
+function updateFinalCodeBox(code,badgeText){document.getElementById('finalCodeContent').textContent=code;document.getElementById('finalCodeBadge').textContent=badgeText}
+
+function clearAll(){codeContent='';finalCode='';document.getElementById('codeInput').value='';document.getElementById('fileInput').value='';updateEmptyPreview();showToast('Data Cleared!')}
+
+function showToast(msg){const t=document.getElementById('toast');t.innerHTML='<i class="fas fa-check-circle" style="margin-right:8px;"></i> '+msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+function loadRelated(){const tools=[{name:"code-obfuscator",icon:"fa-code",url:"../tools/code-obfuscator.html"},{name:"code-minifier",icon:"fa-code",url:"../tools/code-minifier.html"},{name:"js-formatter",icon:"fa-code",url:"../tools/js-formatter.html"},{name:"code-formatter",icon:"fa-code",url:"../tools/code-formatter.html"},{name:"code-beautifier",icon:"fa-code",url:"../tools/code-beautifier.html"}];let h='<div class="related-grid">';tools.forEach((x)=>{h+='<a href="'+x.url+'" class="related-card"><div class="related-icon"><i class="fas '+x.icon+'"></i></div><span class="related-title">'+x.name+'</span></a>'});h+='</div>';document.getElementById('relatedGridcodedeobfuscator').innerHTML=h}
+window.addEventListener('load',loadRelated);
+</script>
+</body>
+</html>
