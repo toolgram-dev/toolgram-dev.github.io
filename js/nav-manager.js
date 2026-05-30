@@ -9,8 +9,6 @@ class NavManager {
             // Load Adsterra Social Bar
             this.loadAdsterra();
 
-            // Load PopAds
-            this.loadPopAds();
             
             // Load Adsterra Native Banner
             this.loadNativeBanner();
