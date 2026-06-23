@@ -82,24 +82,6 @@ class NavManager {
         document.head.appendChild(script);
     }
 
-
-    // Adsterra Native Banner
-    static loadNativeBanner() {
-        if (document.getElementById('native-banner-script')) return;
-        
-        // Add the div container first
-        const container = document.createElement('div');
-        container.id = 'container-f2d3b03b2fb4632131e91a84149b1140';
-        document.body.appendChild(container);
-
-        // Then add the script
-        const script = document.createElement('script');
-        script.id = 'native-banner-script';
-        script.src = 'https://pl28764872.effectivegatecpm.com/f2d3b03b2fb4632131e91a84149b1140/invoke.js';
-        script.async = true;
-        script.setAttribute('data-cfasync', 'false');
-        document.body.appendChild(script);
-    }
     // Google Analytics 4
 static loadGA4() {
     if (document.getElementById('ga4-script')) return;
